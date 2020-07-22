@@ -1,3 +1,5 @@
+# TODO: make the easter function easier to read
+
 def easter(year):
     firstDigit = year // 100
     Remain19 = year % 19
@@ -15,5 +17,19 @@ def easter(year):
     tB = (tA - 19) % 7
     tC = (40 - firstDigit) % 4
     if tC == 3: tC = tC + 1
-    
+    if tC > 1: tC = tC + 1
+    temp = year % 100
+    tD = (temp + (temp // 4)) % 7
+    tE = ((20 - tB - tC - tD) % 7) + 1
+    d = tA + tE
+    # return the date
+    if d > 31:
+        d = d - 31
+        m = 4
+    else:
+        m = 3
+    print(year, m, d)
+
+user = int(input("Enter a year: "))
+easter(user)
 
