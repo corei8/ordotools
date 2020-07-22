@@ -1,4 +1,5 @@
 # TODO: make the easter function easier to read
+# TODO: use datime to diplay Easter in an easier format
 
 def easter(year):
     firstDigit = year // 100
