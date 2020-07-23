@@ -1,4 +1,4 @@
-# generalRomanCalendar
+# RomanCalendar
 
 Pre-Vatican II Roman Catholic Calendar
 
