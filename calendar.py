@@ -1,7 +1,5 @@
-#from roman_general_en import jan, feb, mar, apr, may, jun, jul, aug, sep, okt, nov, dec
-import roman_general_en as roman_general_en
+import roman_general_en as generalEn
 
-# TODO: make the easter function easier to read
 # TODO: use datime to diplay Easter in an easier format
 
 
@@ -48,3 +46,24 @@ def easter(year):
     else:
         m = 3
     print(year, m, d)
+
+
+def monthParse(calendar, month):
+    print('Month: ' + getattr(calendar, month)[0])
+    for x in range(1, len(getattr(calendar, month))):
+        print(month, x, '\t', getattr(calendar, month)[x][1])
+        x += 1
+
+# testing:
+
+
+user = ''
+while user != 'exit':
+    user = input('enter month name (first three letters, "oct" = "okt"): ')
+    if user == quit:
+        break
+    else:
+        try:
+            monthParse(generalEn, user)
+        except ValueError:
+            pass
