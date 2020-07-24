@@ -1,3 +1,6 @@
+#from roman_general_en import jan, feb, mar, apr, may, jun, jul, aug, sep, okt, nov, dec
+import roman_general_en as roman_general_en
+
 # TODO: make the easter function easier to read
 # TODO: use datime to diplay Easter in an easier format
 
@@ -45,14 +48,3 @@ def easter(year):
     else:
         m = 3
     print(year, m, d)
-
-
-# simple terminal application for testing purposes:
-user = 1
-while user != 0:
-    user = int(input("Enter a year: "))
-    if user == 0:
-        break
-    else:
-        easter(user)
-
