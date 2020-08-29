@@ -51,19 +51,24 @@ def easter(year):
 def monthParse(calendar, month):
     print('Month: ' + getattr(calendar, month)[0])
     for x in range(1, len(getattr(calendar, month))):
+        # display only the feasts for now.
         print(month, x, '\t', getattr(calendar, month)[x][1])
         x += 1
 
 # testing:
 
 
-user = ''
-while user != 'exit':
-    user = input('enter month name (first three letters, "oct" = "okt"): ')
-    if user == quit:
-        break
-    else:
-        try:
-            monthParse(generalEn, user)
-        except ValueError:
-            pass
+def app():
+    user = ''
+    while user != 'exit':
+        user = input('enter month name (first three letters, "oct" = "okt"): ')
+        if user == quit:
+            break
+        else:
+            try:
+                monthParse(generalEn, user)
+            except ValueError:
+                pass
+
+
+app()
