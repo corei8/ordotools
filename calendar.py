@@ -1,4 +1,6 @@
 import roman_general_en as generalEn
+from datetime import datetime
+from datetime import timedelta
 
 # TODO: use datime to diplay Easter in an easier format
 
@@ -55,15 +57,32 @@ def monthParse(calendar, month):
         print(month, x, '\t', getattr(calendar, month)[x][1])
         x += 1
 
-# testing:
+
+def day(year, month, day):
+    x = datetime(year=year, month=month, day=day)
+    return x
+
+
+def indays(numdays):
+    x = timedelta(days=numdays)
+    return x
+
+
+def temporal(year):
+    xmas = day(year, 12, 25)
+    print(xmas)
+    print(xmas-indays(7))
 
 
 def app():
     user = ''
     while user != 'exit':
-        user = input('enter month name (first three letters, "oct" = "okt"): ')
+        user = input(
+            'enter month name (first three letters, "oct" = "okt") or enter "temp": ')
         if user == quit:
             break
+        elif user == 'temp':
+            temporal(2000)
         else:
             try:
                 monthParse(generalEn, user)
