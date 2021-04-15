@@ -68,24 +68,73 @@ def indays(numdays):
     return x
 
 
+def weekday(date):
+    return date.strftime('%a')
+
+
+def findsunday(date):
+    if date.strftime('%a') == 'Mon':
+        x = 1
+    if date.strftime('%a') == 'Tue':
+        x = 2
+    if date.strftime('%a') == 'Wed':
+        x = 3
+    if date.strftime('%a') == 'Thu':
+        x = 4
+    if date.strftime('%a') == 'Fri':
+        x = 5
+    if date.strftime('%a') == 'Sat':
+        x = 6
+    if date.strftime('%a') == 'Sun':
+        pass
+    return timedelta(days=x)
+
+
 def temporal(year):
+    year = int(year)
+    cycle = []
+    # Christmas
     xmas = day(year, 12, 25)
-    print(xmas)
-    print(xmas-indays(7))
+    cycle.insert(0, ["In Nativitate Domini", "d1", weekday(
+        day(year, 12, 25)), day(year, 12, 25)])
+    cycle.insert(0, ["In Vigilia Nativitatis Domini", "d1", weekday(
+        day(year, 12, 24)), day(year, 12, 24)])
+    # Sundays of Advent
+    advents = [["Dominica I Adventus", "sd2"],
+               ["Dominica II Adventus", "sd2"],
+               ["Dominica III Adventus", "sd2"],
+               ["Dominica IV Adventus", "sd2"]
+               ]
+    xmas_diff = findsunday(xmas)
+    i = 1
+    for sunday in advents:
+        event = [
+            weekday(day(year, 12, 24) - xmas_diff - timedelta(days=7*i)),
+            day(year, 12, 24) - xmas_diff - timedelta(days=7*i)
+        ]
+        sunday.extend(event)
+        i += 1
+        cycle.insert(0, sunday)
+    ########################
+    ### DISPLAY THE LIST ###
+    ########################
+    print("\n")
+    # print(cycle)
+    col_width = max(len(str(word))
+                    for row in cycle for word in row) + 2  # padding
+    for row in cycle:
+        print("".join(str(word).ljust(col_width) for word in row))
 
 
 def app():
     user = ''
     while user != 'exit':
-        user = input(
-            'enter month name (first three letters, "oct" = "okt") or enter "temp": ')
-        if user == quit:
+        user = input('\nEnter "exit" to quit\nEnter 4-digit year: ')
+        if user == "exit":
             break
-        elif user == 'temp':
-            temporal(2000)
         else:
             try:
-                monthParse(generalEn, user)
+                temporal(user)
             except ValueError:
                 pass
 
