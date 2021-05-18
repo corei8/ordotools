@@ -17,6 +17,10 @@ The result is a list containing:
 2. Indications of the peculiarities of the office of that day;
 3. An ordo for the Mass of that day, or multiple Masses, if there be options for that day.
 
+### Will there be an online version?
+
+Yes. I am going to make a GitHub Pages version available after the core of the project is up and running.
+
 ### How to Help
 
 Submissions for sanctoral cycles are not yet open, but will be soon. I am still trying to figure out the easiest way to store and use the data.
