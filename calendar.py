@@ -2,14 +2,11 @@ import roman_general_en as generalEn
 from datetime import datetime
 from datetime import timedelta
 
-# TODO: use datime to diplay Easter in an easier format
-
 
 def easter(year):
     firstDigit = year // 100
     Remain19 = year % 19
     temp = (firstDigit - 15) // 2 + 202 - 11 * Remain19
-
     if firstDigit > 26:
         temp = temp - 1
     if firstDigit > 38:
@@ -23,7 +20,6 @@ def easter(year):
         or firstDigit == 37
     ):
         temp = temp - 1
-
     temp = temp % 30
     tA = temp + 21
     if temp == 29:
@@ -47,19 +43,24 @@ def easter(year):
         m = 4
     else:
         m = 3
-    print(year, m, d)
+    return datetime(year=year, month=m, day=d)
 
 
 def monthParse(calendar, month):
+    #! Needs work
     print('Month: ' + getattr(calendar, month)[0])
     for x in range(1, len(getattr(calendar, month))):
-        # display only the feasts for now.
         print(month, x, '\t', getattr(calendar, month)[x][1])
         x += 1
 
 
 def day(year, month, day):
     x = datetime(year=year, month=month, day=day)
+    return x
+
+
+def week(i):
+    x = timedelta(weeks=i)
     return x
 
 
@@ -74,47 +75,92 @@ def weekday(date):
 
 def findsunday(date):
     if date.strftime('%a') == 'Mon':
-        x = 1
+        x = 0
     if date.strftime('%a') == 'Tue':
-        x = 2
+        x = 1
     if date.strftime('%a') == 'Wed':
-        x = 3
+        x = 2
     if date.strftime('%a') == 'Thu':
-        x = 4
+        x = 3
     if date.strftime('%a') == 'Fri':
-        x = 5
+        x = 4
     if date.strftime('%a') == 'Sat':
-        x = 6
+        x = 5
     if date.strftime('%a') == 'Sun':
         pass
     return timedelta(days=x)
 
 
 def temporal(year):
-    year = int(year)
+    year_prev, year = int(year) - 1, int(year)
     cycle = []
     # Christmas
-    xmas = day(year, 12, 25)
-    cycle.insert(0, ["In Nativitate Domini", "d1", weekday(
-        day(year, 12, 25)), day(year, 12, 25)])
-    cycle.insert(0, ["In Vigilia Nativitatis Domini", "d1", weekday(
-        day(year, 12, 24)), day(year, 12, 24)])
+    xmas = day(year_prev, 12, 25)
+    # cycle.insert(0, ["In Nativitate Domini", "d1", weekday(day(year_prev, 12, 25)), day(year_prev, 12, 25)])
+    # cycle.insert(0, ["In Vigilia Nativitatis Domini", "d1", weekday(day(year_prev, 12, 24)), day(year_prev, 12, 24)])
     # Sundays of Advent
-    advents = [["Dominica I Adventus", "sd2"],
-               ["Dominica II Adventus", "sd2"],
+    #! Adjust this for the real year_prev.
+    advents = [["Dominica IV Adventus", "sd2"],
                ["Dominica III Adventus", "sd2"],
-               ["Dominica IV Adventus", "sd2"]
+               ["Dominica II Adventus", "sd2"],
+               ["Dominica I Adventus", "sd2"]
                ]
     xmas_diff = findsunday(xmas)
+    # i = 0
+    # for sunday in advents:
+    #    event = [
+    #        weekday(day(year_prev, 12, 24) - xmas_diff - week(i)),
+    #        day(year_prev, 12, 24) - xmas_diff - week(i)
+    #    ]
+    #    sunday.extend(event)
+    #    i += 1
+    #    cycle.insert(0, sunday)
+    # Dominica Infra Octavam Nativitatis
+    # Remember that this is replaced if it falls on the octave.
+    # cycle.append([
+    #    "Dominica Infra Octavam Nativitatis",
+    #    "sd",
+    #    weekday(day(year_prev, 12, 24) + (week(1)-xmas_diff)),
+    #    day(year_prev, 12, 24) + (week(1)-xmas_diff)
+    # ])
+    dinfraxmas = weekday(day(year_prev, 12, 24) + (week(1)-xmas_diff))
+    # find Septuagesima
+    gesimas = [
+        "Spetuagesima",
+        "Sexagesima",
+        "Quinquagesima"
+    ]
+    quads = [
+        "I in Quadragesima",
+        "II in Quadragesima",
+        "III in Quadragesima",
+        "IV in Quadragesima",
+        "de Passione",
+        "in Palmis"
+    ]
     i = 1
-    for sunday in advents:
-        event = [
-            weekday(day(year, 12, 24) - xmas_diff - timedelta(days=7*i)),
-            day(year, 12, 24) - xmas_diff - timedelta(days=7*i)
-        ]
-        sunday.extend(event)
+    for x in gesimas:
+        cycle.append([
+            "Dominica in " + x,
+            "sd2",
+            weekday(easter(year) - week(9*i)),
+            easter(year) - week(9*i)
+        ])
         i += 1
-        cycle.insert(0, sunday)
+    for x in quads:
+        cycle.append([
+            "Dominica " + x,
+            "sd1",
+            weekday(easter(year) - week(9*i)),
+            easter(year) - week(9*i)
+        ])
+        i += 1
+    cycle.append([
+        "Dominica Dominica Resurrectionis",
+        "d1",
+        weekday(easter(year)),
+        easter(year)
+    ])
     ########################
     ### DISPLAY THE LIST ###
     ########################
