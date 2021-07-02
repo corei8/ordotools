@@ -106,25 +106,9 @@ def temporal(year):
                ["Dominica I Adventus", "sd2"]
                ]
     xmas_diff = findsunday(xmas)
-    # i = 0
-    # for sunday in advents:
-    #    event = [
-    #        weekday(day(year_prev, 12, 24) - xmas_diff - week(i)),
-    #        day(year_prev, 12, 24) - xmas_diff - week(i)
-    #    ]
-    #    sunday.extend(event)
-    #    i += 1
-    #    cycle.insert(0, sunday)
-    # Dominica Infra Octavam Nativitatis
-    # Remember that this is replaced if it falls on the octave.
-    # cycle.append([
-    #    "Dominica Infra Octavam Nativitatis",
-    #    "sd",
-    #    weekday(day(year_prev, 12, 24) + (week(1)-xmas_diff)),
-    #    day(year_prev, 12, 24) + (week(1)-xmas_diff)
-    # ])
+    ## ADVENT, CHRISTMAS, EPIPHANY
     dinfraxmas = weekday(day(year_prev, 12, 24) + (week(1)-xmas_diff))
-    # find Septuagesima
+    ## LENT, EASTER
     gesimas = [
         "Spetuagesima",
         "Sexagesima",
@@ -143,16 +127,16 @@ def temporal(year):
         cycle.append([
             "Dominica in " + x,
             "sd2",
-            weekday(easter(year) - week(9*i)),
-            easter(year) - week(9*i)
+            weekday(easter(year) - week(10-i)),
+            easter(year) - week(10-i)
         ])
         i += 1
     for x in quads:
         cycle.append([
             "Dominica " + x,
             "sd1",
-            weekday(easter(year) - week(9*i)),
-            easter(year) - week(9*i)
+            weekday(easter(year) - week(10-i)),
+            easter(year) - week(10-i)
         ])
         i += 1
     cycle.append([
@@ -161,9 +145,94 @@ def temporal(year):
         weekday(easter(year)),
         easter(year)
     ])
+
+    # PASCHAL TIME
+    post_pent = [
+        "Dominica in Albis",
+        "Dominica II post Pascha",
+        "Dominica III post Pascha",
+        "Dominica IV post Pascha",
+        "Dominica V post Pascha",
+        "Dominica infra Octavam Ascensionis"
+    ]
+    i = 1
+    for x in post_pent:
+        cycle.append([
+            x,
+            "sd",
+            weekday(easter(year) + week(i)),
+            easter(year) + week(i)
+        ])
+        i += 1
+    cycle.append([
+        "Dominica Pentecostes",
+        "d1",
+        weekday(easter(year) + week(i)),
+        easter(year) + week(i)
+    ])
+    i += 1
+    # SUNDAYS AFTER PENTECOST
+    prelim_pents = [
+        ["Dominica Sanctissimæ Trinitatis", "d1"],
+        ["Dominica II post Pentecosten infra Octavam Corporis Christi", "sd"],
+        ["Dominica III Post Pentecosten infra Octavam SSmi Cordis DNJC", "sd"]
+    ]
+    for x in prelim_pents:
+        cycle.append([
+            x[0],
+            x[1],
+            weekday(easter(year) + week(i)),
+            easter(year) + week(i)
+        ])
+        i += 1
+    pent_romans = [
+        "IV",
+        "V",
+        "VI",
+        "VII",
+        "VIII",
+        "IX",
+        "X",
+        "XI",
+        "XII",
+        "XIII",
+        "XIV",
+        "XV",
+        "XVI",
+        "XVII",
+        "XVIII",
+        "XIX",
+        "XX",
+        "XXI",
+        "XXII",
+        "XXIII",
+        "XXIV",
+        "XXV",
+        "XXVI",
+        "XXVII",
+        "XXVIII"
+    ]
+    for x in pent_romans:
+        earliest_first_advent = str(year) + "-12-03"
+        if easter(year) + week(i) >= datetime.strptime(earliest_first_advent, "%Y-%m-%d"):
+            break
+        else:
+            cycle.append([
+                x,
+                "sd",
+                weekday(easter(year) + week(i)),
+                easter(year) + week(i)
+            ])
+            i += 1
+    # ADVENT
+    # christmas
+    # last sunday of advent
+    # first sunday of advent
+
     ########################
     ### DISPLAY THE LIST ###
     ########################
+
     print("\n")
     # print(cycle)
     col_width = max(len(str(word))
