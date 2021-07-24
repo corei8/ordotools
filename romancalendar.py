@@ -1,6 +1,9 @@
 import roman_general_en as generalEn
+import sys
 from datetime import datetime
 from datetime import timedelta
+
+# TODO: find the letter of the Martyrology
 
 
 def easter(year):
@@ -75,17 +78,17 @@ def weekday(date):
 
 def findsunday(date):
     if date.strftime('%a') == 'Mon':
-        x = 0
-    if date.strftime('%a') == 'Tue':
         x = 1
-    if date.strftime('%a') == 'Wed':
+    if date.strftime('%a') == 'Tue':
         x = 2
-    if date.strftime('%a') == 'Thu':
+    if date.strftime('%a') == 'Wed':
         x = 3
-    if date.strftime('%a') == 'Fri':
+    if date.strftime('%a') == 'Thu':
         x = 4
-    if date.strftime('%a') == 'Sat':
+    if date.strftime('%a') == 'Fri':
         x = 5
+    if date.strftime('%a') == 'Sat':
+        x = 6
     if date.strftime('%a') == 'Sun':
         pass
     return timedelta(days=x)
@@ -93,24 +96,11 @@ def findsunday(date):
 
 def temporal(year):
     year_prev, year = int(year) - 1, int(year)
+    this_year = year
     cycle = []
-    # Christmas
-    xmas = day(year_prev, 12, 25)
-    # cycle.insert(0, ["In Nativitate Domini", "d1", weekday(day(year_prev, 12, 25)), day(year_prev, 12, 25)])
-    # cycle.insert(0, ["In Vigilia Nativitatis Domini", "d1", weekday(day(year_prev, 12, 24)), day(year_prev, 12, 24)])
-    # Sundays of Advent
-    #! Adjust this for the real year_prev.
-    advents = [["Dominica IV Adventus", "sd2"],
-               ["Dominica III Adventus", "sd2"],
-               ["Dominica II Adventus", "sd2"],
-               ["Dominica I Adventus", "sd2"]
-               ]
-    xmas_diff = findsunday(xmas)
-    ## ADVENT, CHRISTMAS, EPIPHANY
-    dinfraxmas = weekday(day(year_prev, 12, 24) + (week(1)-xmas_diff))
-    ## LENT, EASTER
+    # GESIMAS
     gesimas = [
-        "Spetuagesima",
+        "Septuagesima",
         "Sexagesima",
         "Quinquagesima"
     ]
@@ -124,6 +114,9 @@ def temporal(year):
     ]
     i = 1
     for x in gesimas:
+        # todo: safe the date for septuagesima
+        if x == "Septuagesima":
+            septuadate = easter(year) - week(10-i)
         cycle.append([
             "Dominica in " + x,
             "sd2",
@@ -131,7 +124,46 @@ def temporal(year):
             easter(year) - week(10-i)
         ])
         i += 1
+
+    # EPIPHANY
+    # todo: find the first sunday after Epiphany; add sundays until there is a conflict with the date of septuagesima
+    # epiphany = January 6
+    epiphany = day(this_year, 1, 6)
+    # first sunday after epiphany
+    epiph_sunday = findsunday(epiphany)
+    if weekday(epiphany) == "Sun":
+        pass  # for now
+    else:
+        first_epiph = epiphany - indays(int(findsunday(epiphany))) + week(1)
+
+    epiph_sundays = [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI"
+    ]
+    epiph_counter = first_epiph
+    o = 0
+    while epiph_counter != septuadate:
+        cycle.append([
+            "Dominica " + epiph_sundays[o] + " post Epiphaniam",
+            "sp",
+            weekday(epiph_counter),
+            epiph_counter
+        ])
+        o += 1
+        epiph_counter += week(1)
+    # LENT
     for x in quads:
+        if x == "I in Quadragesima":
+            cycle.append([
+                "Feria IV Cinerum",
+                "sp",
+                weekday(easter(year) - week(10-i) - indays(4)),
+                easter(year) - week(10-i) - indays(4)
+            ])
         cycle.append([
             "Dominica " + x,
             "sd1",
@@ -175,9 +207,23 @@ def temporal(year):
     prelim_pents = [
         ["Dominica Sanctissimæ Trinitatis", "d1"],
         ["Dominica II post Pentecosten infra Octavam Corporis Christi", "sd"],
-        ["Dominica III Post Pentecosten infra Octavam SSmi Cordis DNJC", "sd"]
+        ["Dominica III post Pentecosten infra Octavam SSmi Cordis DNJC", "sd"]
     ]
     for x in prelim_pents:
+        if x[0] == "Dominica II post Pentecosten infra Octavam Corporis Christi":
+            cycle.append([
+                "Sanctissimi Corporis Christi",
+                "d1",
+                weekday(easter(year) + week(i) - indays(3)),
+                easter(year) + week(i) - indays(3)
+            ])
+        if x[0] == "Dominica III post Pentecosten infra Octavam SSmi Cordis DNJC":
+            cycle.append([
+                "Sacratissimi Cordis Jesu",
+                "d1",
+                weekday(easter(year) + week(i) - indays(2)),
+                easter(year) + week(i) - indays(2)
+            ])
         cycle.append([
             x[0],
             x[1],
@@ -218,27 +264,82 @@ def temporal(year):
             break
         else:
             cycle.append([
-                x,
+                "Dominica " + x + " post Pentecosten",
                 "sd",
                 weekday(easter(year) + week(i)),
                 easter(year) + week(i)
             ])
             i += 1
     # ADVENT
-    # christmas
-    # last sunday of advent
-    # first sunday of advent
-
+    christmas = datetime.strptime(str(year)+"-12-25", "%Y-%m-%d")
+    lastadvent = christmas - findsunday(christmas)
+    advents = [
+        "Dominica IV Adventus",
+        "Dominica III Adventus",
+        "Dominica II Adventus",
+        "Dominica I Adventus",
+    ]
+    i = 0
+    for x in advents:
+        cycle.append([
+            x,
+            "sd2",
+            weekday(lastadvent - week(i)),
+            lastadvent - week(i)
+        ])
+        i += 1
+    # CHRISTMAS, EPIPHANY
+    if weekday(christmas) == "Sun":
+        cycle.append([
+            "In Nativitate Domini",
+            "d1",
+            weekday(christmas),
+            christmas
+        ])
+    else:
+        cycle.append([
+            "Dominica Infra Octavam Nativitatis",
+            "sd",
+            weekday(christmas+indays(7)-findsunday(christmas)),
+            christmas+indays(7)-findsunday(christmas)
+        ])
     ########################
     ### DISPLAY THE LIST ###
     ########################
 
     print("\n")
     # print(cycle)
-    col_width = max(len(str(word))
-                    for row in cycle for word in row) + 2  # padding
+    # col_width = max(len(str(word))
+    #                for row in cycle for word in row) + 2  # padding
+    # for row in cycle:
+    #    print("".join(str(word).ljust(col_width) for word in row))
+
     for row in cycle:
-        print("".join(str(word).ljust(col_width) for word in row))
+        print(
+            row[0] + '\t' +
+            row[1] + '\t' +
+            str(row[2]) + '\t' +
+            str(row[3])
+        )
+
+    original_stdout = sys.stdout
+
+    with open('romancal.csv', 'w') as f:
+        sys.stdout = f
+        print(
+            "Feast" + ', ' +
+            "Rank" + ', ' +
+            "Weekday" + ', ' +
+            "Date"
+        )
+        for row in cycle:
+            print(
+                row[0] + ', ' +
+                row[1] + ', ' +
+                str(row[2]) + ', ' +
+                str(row[3])
+            )
+        sys.stdout = original_stdout
 
 
 def app():
