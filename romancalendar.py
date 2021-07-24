@@ -134,7 +134,7 @@ def temporal(year):
     if weekday(epiphany) == "Sun":
         pass  # for now
     else:
-        first_epiph = epiphany - indays(int(findsunday(epiphany))) + week(1)
+        first_epiph = epiphany - findsunday(epiphany) + week(1)
 
     epiph_sundays = [
         "I",
