@@ -94,6 +94,12 @@ def findsunday(date):
     return timedelta(days=x)
 
 
+# TODO: schedule all the octaves
+
+
+# TODO: add the ember days
+
+
 def temporal(year):
     year_prev, year = int(year) - 1, int(year)
     this_year = year
@@ -125,14 +131,6 @@ def temporal(year):
         )
     # GESIMAS
     gesimas = ["Septuagesima", "Sexagesima", "Quinquagesima"]
-    quads = [
-        "I in Quadragesima",
-        "II in Quadragesima",
-        "III in Quadragesima",
-        "IV in Quadragesima",
-        "de Passione",
-        "in Palmis",
-    ]
     i = 1
     for x in gesimas:
         if x == "Septuagesima":
@@ -207,13 +205,53 @@ def temporal(year):
         o += 1
         epiph_counter += week(1)
     # LENT
+    quads = [
+        "I in Quadragesima",
+        "II in Quadragesima",
+        "III in Quadragesima",
+        "IV in Quadragesima",
+        "de Passione",
+        "in Palmis",
+    ]
+    feria = [
+        "Feria II",
+        "Feria III",
+        "Feria IV",
+        "Feria V",
+        "Feria VI",
+        "Sabbatum",
+    ]
     for x in quads:
         if x == "I in Quadragesima":
             cycle.append(
                 [
-                    "Feria IV Cinerum",
+                    "Dies Cinerum",
                     "sp",
                     weekday(easter(year) - week(10 - i) - indays(4)),
+                    easter(year) - week(10 - i) - indays(4),
+                ]
+            )
+            cycle.append(
+                [
+                    "Feria V post Diem Cinerum",
+                    "sp",
+                    weekday(easter(year) - week(10 - i) - indays(3)),
+                    easter(year) - week(10 - i) - indays(4),
+                ]
+            )
+            cycle.append(
+                [
+                    "Feria VI post Diem Cinerum",
+                    "sp",
+                    weekday(easter(year) - week(10 - i) - indays(2)),
+                    easter(year) - week(10 - i) - indays(4),
+                ]
+            )
+            cycle.append(
+                [
+                    "Sabbatum post Diem Cinerum",
+                    "sp",
+                    weekday(easter(year) - week(10 - i) - indays(1)),
                     easter(year) - week(10 - i) - indays(4),
                 ]
             )
@@ -225,10 +263,92 @@ def temporal(year):
                 easter(year) - week(10 - i),
             ]
         )
+        j = 1
+        for y in feria:
+            if x == "de Passione" and y == "Feria VI":
+                cycle.append(
+                    [
+                        "Septem Dolorum BMV",
+                        "dm",
+                        weekday(easter(year) - week(10 - i) + indays(j)),
+                        easter(year) - week(10 - i) + indays(j),
+                    ]
+                )
+            elif x == "I in Quadragesima" and y == "Feria IV":
+                cycle.append(
+                    [
+                        "Feria IV Quattuor Temporum Quadragesimæ",
+                        "sp",
+                        weekday(easter(year) - week(10 - i) + indays(j)),
+                        easter(year) - week(10 - i) + indays(j),
+                    ]
+                )
+            elif x == "I in Quadragesima" and y == "Feria VI":
+                cycle.append(
+                    [
+                        "Feria VI Quattuor Temporum Quadragesimæ",
+                        "sp",
+                        weekday(easter(year) - week(10 - i) + indays(j)),
+                        easter(year) - week(10 - i) + indays(j),
+                    ]
+                )
+            elif x == "I in Quadragesima" and y == "Sabbatum":
+                cycle.append(
+                    [
+                        "Sabbato Quattuor Temporum Quadragesimæ",
+                        "sp",
+                        weekday(easter(year) - week(10 - i) + indays(j)),
+                        easter(year) - week(10 - i) + indays(j),
+                    ]
+                )
+            elif x == "in Palmis" and y == "Feria V":
+                cycle.append(
+                    [
+                        y + " in Cœna Domini",
+                        "d1",
+                        weekday(easter(year) - week(10 - i) + indays(j)),
+                        easter(year) - week(10 - i) + indays(j),
+                    ]
+                )
+            elif x == "in Palmis" and y == "Feria VI":
+                cycle.append(
+                    [
+                        y + " in Parasceve",
+                        "d1",
+                        weekday(easter(year) - week(10 - i) + indays(j)),
+                        easter(year) - week(10 - i) + indays(j),
+                    ]
+                )
+            elif x == "in Palmis" and y == "Sabbatum":
+                cycle.append(
+                    [
+                        "Sabbatum Sanctum",
+                        "d1",
+                        weekday(easter(year) - week(10 - i) + indays(j)),
+                        easter(year) - week(10 - i) + indays(j),
+                    ]
+                )
+            elif x == "in Palmis":
+                cycle.append(
+                    [
+                        y + " Majoris Hebd; Feria Priv",
+                        "sp",
+                        weekday(easter(year) - week(10 - i) + indays(j)),
+                        easter(year) - week(10 - i) + indays(j),
+                    ]
+                )
+            else:
+                cycle.append(
+                    [
+                        y + " infra Hebd " + x,
+                        "sp",
+                        weekday(easter(year) - week(10 - i) + indays(j)),
+                        easter(year) - week(10 - i) + indays(j),
+                    ]
+                )
+            j += 1
         i += 1
-    cycle.append(
-        ["Dominica Dominica Resurrectionis", "d1", weekday(easter(year)), easter(year)]
-    )
+    cycle.append(["Dominica Resurrectionis", "d1", weekday(easter(year)), easter(year)])
     # PASCHAL TIME
     post_pent = [
         "Dominica in Albis",
@@ -250,7 +370,31 @@ def temporal(year):
             easter(year) + week(i),
         ]
     )
-    i += 1
+    cycle.append(
+        [
+            "Feria IV Quattuor infra Temporum Pentecostes",
+            "d1",
+            weekday(easter(year) + week(i) + indays(3)),
+            easter(year) + week(i) + indays(3),
+        ]
+    )
+    cycle.append(
+        [
+            "Feria VI Quattuor infra Temporum Pentecostes",
+            "d1",
+            weekday(easter(year) + week(i) + indays(5)),
+            easter(year) + week(i) + indays(5),
+        ]
+    )
+    cycle.append(
+        [
+            "Sabbato Quattuor infra Temporum Pentecostes",
+            "d1",
+            weekday(easter(year) + week(i) + indays(6)),
+            easter(year) + week(i) + indays(6),
+        ]
+    )
+    i += 1  ## is this counter necessary?
     # SUNDAYS AFTER PENTECOST
     prelim_pents = [
         ["Dominica Sanctissimæ Trinitatis", "d1"],
@@ -307,6 +451,7 @@ def temporal(year):
         "XXVII",
         "XXVIII",
     ]
+    sept_counter = 0
     for x in pent_romans:
         earliest_first_advent = str(year) + "-12-03"
         if easter(year) + week(i) >= datetime.strptime(
@@ -322,6 +467,36 @@ def temporal(year):
                     easter(year) + week(i),
                 ]
             )
+            if (easter(year) + week(i)).strftime("%B") == "September":
+                sept_counter += 1
+            #! If the first sunday of september is the first, then sept_counter == 3 is true
+            #! the wednesday cannot fall on or before the 14th of september.
+            #! this will be correct for many but not all cases!!:
+            if sept_counter == 2:
+                cycle.append(
+                    [
+                        "Feria IV Quattuor Temporum Septembris",
+                        "sd",
+                        weekday(easter(year) + week(i) + indays(3)),
+                        easter(year) + week(i) + indays(3),
+                    ]
+                )
+                cycle.append(
+                    [
+                        "Feria VI Quattuor Temporum Septembris",
+                        "sd",
+                        weekday(easter(year) + week(i) + indays(5)),
+                        easter(year) + week(i) + indays(5),
+                    ]
+                )
+                cycle.append(
+                    [
+                        "Sabbato Quattuor Temporum Septembris",
+                        "sd",
+                        weekday(easter(year) + week(i) + indays(6)),
+                        easter(year) + week(i) + indays(6),
+                    ]
+                )
             i += 1
     # ADVENT
     christmas = datetime.strptime(str(year) + "-12-25", "%Y-%m-%d")
@@ -334,7 +509,38 @@ def temporal(year):
     ]
     i = 0
     for x in advents:
-        cycle.append([x, "sd2", weekday(lastadvent - week(i)), lastadvent - week(i)])
+        if x == "Dominica III Adventus":
+            cycle.append(
+                [x, "sd2", weekday(lastadvent - week(i)), lastadvent - week(i)]
+            )
+            cycle.append(
+                [
+                    "Feria IV Quattuor Temporum in Adventu",
+                    "sp",
+                    weekday(lastadvent - week(i) + indays(3)),
+                    lastadvent - week(i) + indays(3),
+                ]
+            )
+            cycle.append(
+                [
+                    "Feria VI Quattuor Temporum in Adventu",
+                    "sp",
+                    weekday(lastadvent - week(i) + indays(5)),
+                    lastadvent - week(i) + indays(5),
+                ]
+            )
+            cycle.append(
+                [
+                    "Sabbato Quattuor Temporum in Adventu",
+                    "sp",
+                    weekday(lastadvent - week(i) + indays(6)),
+                    lastadvent - week(i) + indays(6),
+                ]
+            )
+        else:
+            cycle.append(
+                [x, "sd2", weekday(lastadvent - week(i)), lastadvent - week(i)]
+            )
         i += 1
     # CHRISTMAS
     if weekday(christmas) == "Sun":
