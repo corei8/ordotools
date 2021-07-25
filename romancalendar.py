@@ -99,7 +99,43 @@ def temporal(year):
     year_prev, year = int(year) - 1, int(year)
     this_year = year
     cycle = []
+    feria = [
+        "Feria II",
+        "Feria III",
+        "Feria IV",
+        "Feria V",
+        "Feria VI",
+        "Sabbato",
+    ]
     circumcision = day(this_year, 1, 1)
+    cycle.extend(
+        [
+            [
+                "Circumcisio Domini et Oct Nativitatis",
+                "d2",
+                weekday(circumcision),
+                circumcision,
+            ],
+            [
+                "Octava S Stephani Protomartyris",
+                "sp",
+                weekday(circumcision + indays(1)),
+                circumcision + indays(1),
+            ],
+            [
+                "Octava S Joannis Ap & Ev",
+                "sp",
+                weekday(circumcision + indays(2)),
+                circumcision + indays(2),
+            ],
+            [
+                "Octava Ss Innocentium Mm",
+                "sp",
+                weekday(circumcision + indays(3)),
+                circumcision + indays(3),
+            ],
+        ]
+    )
     if (
         weekday(circumcision) == "Sun"
         or weekday(circumcision) == "Mon"
@@ -148,12 +184,28 @@ def temporal(year):
                 "d1",
                 weekday(epiphany),
                 epiphany,
-            ]
+            ],
         )
         first_epiph = epiphany + week(1)
     else:
         first_epiph = epiphany - findsunday(epiphany) + week(1)
-
+    epiph_oct_days = ["II", "III", "IV", "V", "VI", "VII"]
+    ep_oct_days_counter = 1
+    for x in epiph_oct_days:
+        if weekday(epiphany + indays(ep_oct_days_counter)) != "Sun":
+            cycle.append(
+                [
+                    "De die "
+                    + epiph_oct_days[ep_oct_days_counter - 1]
+                    + " infra Oct Epiphaniæ",
+                    "sd",
+                    weekday(epiphany + indays(ep_oct_days_counter)),
+                    epiphany + indays(ep_oct_days_counter),
+                ],
+            )
+        else:
+            pass
+        ep_oct_days_counter += 1
     epiph_counter, o = first_epiph, 0
     while epiph_counter != septuadate:
         if epiph_sundays[o] == "I":
@@ -206,14 +258,6 @@ def temporal(year):
         "IV in Quadragesima",
         "de Passione",
         "in Palmis",
-    ]
-    feria = [
-        "Feria II",
-        "Feria III",
-        "Feria IV",
-        "Feria V",
-        "Feria VI",
-        "Sabbato",
     ]
     for x in quads:
         if x == "I in Quadragesima":
@@ -538,8 +582,18 @@ def temporal(year):
             )
         i += 1
     # CHRISTMAS
-    if weekday(christmas) == "Sun":
-        cycle.append(["In Nativitate Domini", "d1", weekday(christmas), christmas])
+    # 29, 30, 31 are the dates sunday within the octave
+    # if sunday is on 25, 26, 27, 28 then the Mass is said on the 30
+    cycle.append(["Nativitas DNJC", "d1", weekday(christmas), christmas])
+    if 5 <= int(christmas.strftime("%u")) <= 7 or christmas.strftime("%u") == 1:
+        cycle.append(
+            [
+                "Dominica Infra Octavam Nativitatis reposit",
+                "sd",
+                weekday(christmas + indays(5)),
+                christmas + indays(5),
+            ]
+        )
     else:
         cycle.append(
             [
@@ -549,6 +603,53 @@ def temporal(year):
                 christmas + indays(7) - findsunday(christmas),
             ]
         )
+    if (
+        int(day(this_year, 12, 30).strftime("%u")) == 1
+        or int(day(this_year, 12, 30).strftime("%u")) == 7
+    ):
+        cycle.append(
+            [
+                "De VI Die infra Octavam Nativitatis",
+                "sd",
+                weekday(christmas + indays(5)),
+                christmas + indays(5),
+            ]
+        )
+    cycle.extend(
+        [
+            [
+                "S Stephani Protomartyris",
+                "d2",
+                weekday(christmas + indays(1)),
+                christmas + indays(1),
+            ],
+            [
+                "S Joannis Ap & Ev",
+                "d2",
+                weekday(christmas + indays(2)),
+                christmas + indays(2),
+            ],
+            [
+                "Ss Innocentium Mm",
+                "d2",
+                weekday(christmas + indays(3)),
+                christmas + indays(3),
+            ],
+            [
+                "S Thomas EM",
+                "d",
+                weekday(christmas + indays(4)),
+                christmas + indays(4),
+            ],
+            [
+                "S Sylvestri I PC",
+                "d",
+                weekday(christmas + indays(6)),
+                christmas + indays(6),
+            ],
+        ]
+    )
+    ########################################################################
     # SEND LIST TO CSV, HTML AND TERMINAL
     # this is to be turned into a seperate function eventually
     print("\n")
