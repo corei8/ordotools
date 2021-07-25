@@ -99,7 +99,6 @@ def temporal(year):
     year_prev, year = int(year) - 1, int(year)
     this_year = year
     cycle = []
-    # HOLY NAME - sunday between 01-01 and 01-06 else 01-02
     circumcision = day(this_year, 1, 1)
     if (
         weekday(circumcision) == "Sun"
@@ -124,7 +123,7 @@ def temporal(year):
                 sunday_post_cir_pre_ep,
             ]
         )
-    # GESIMAS
+    # 'GESIMAS'
     gesimas = ["Septuagesima", "Sexagesima", "Quinquagesima"]
     i = 1
     for x in gesimas:
@@ -214,7 +213,7 @@ def temporal(year):
         "Feria IV",
         "Feria V",
         "Feria VI",
-        "Sabbatum",
+        "Sabbato",
     ]
     for x in quads:
         if x == "I in Quadragesima":
@@ -244,7 +243,7 @@ def temporal(year):
             )
             cycle.append(
                 [
-                    "Sabbatum post Diem Cinerum",
+                    "Sabbato post Diem Cinerum",
                     "sp",
                     weekday(easter(year) - week(10 - i) - indays(1)),
                     easter(year) - week(10 - i) - indays(4),
@@ -287,7 +286,7 @@ def temporal(year):
                         easter(year) - week(10 - i) + indays(j),
                     ]
                 )
-            elif x == "I in Quadragesima" and y == "Sabbatum":
+            elif x == "I in Quadragesima" and y == "Sabbato":
                 cycle.append(
                     [
                         "Sabbato Quattuor Temporum Quadragesimæ",
@@ -314,7 +313,7 @@ def temporal(year):
                         easter(year) - week(10 - i) + indays(j),
                     ]
                 )
-            elif x == "in Palmis" and y == "Sabbatum":
+            elif x == "in Palmis" and y == "Sabbato":
                 cycle.append(
                     [
                         "Sabbatum Sanctum",
@@ -550,26 +549,36 @@ def temporal(year):
                 christmas + indays(7) - findsunday(christmas),
             ]
         )
-
-    ########################
-    ### DISPLAY THE LIST ###
-    ########################
-
+    # SEND LIST TO CSV, HTML AND TERMINAL
+    # this is to be turned into a seperate function eventually
     print("\n")
     # print to terminal
     for row in cycle:
         print(row[0] + "\t" + row[1] + "\t" + str(row[2]) + "\t" + str(row[3]))
     # print to csv file
     original_stdout = sys.stdout
-    with open("romancal.csv", "w") as f:
+    with open("temporal.csv", "w") as f:
         sys.stdout = f
         print("Feast" + ", " + "Rank" + ", " + "Weekday" + ", " + "Date")
         for row in cycle:
             print(row[0] + ", " + row[1] + ", " + str(row[2]) + ", " + str(row[3]))
         sys.stdout = original_stdout
     original_stdout = sys.stdout
+    # print to dictionary file
+    original_stdout = sys.stdout
+    with open("temporal.py", "w") as f:
+        sys.stdout = f
+        print("temporal = {")
+        keylist = ["feast", "rank", "weekday"]
+        for row in cycle:
+            temporal_event = row[3].strftime("%x")
+            mini_dict = str(dict(zip(keylist, [row[0], row[1], row[2]])))
+            print(str(" '" + temporal_event + "'" + ": " + mini_dict + ","))
+        print("}")
+        sys.stdout = original_stdout
+    original_stdout = sys.stdout
     # print to HTML table
-    with open("romancal.html", "w") as f:
+    with open("temporal.html", "w") as f:
         sys.stdout = f
         print(
             """
@@ -617,7 +626,6 @@ def temporal(year):
         <table class="styled-table">
         """
         )
-
         print("<tr><th>Feast</th><th>Rank</th><th>Weekday</th><th>Date</th></tr>")
         for row in cycle:
             print("<tr>")
