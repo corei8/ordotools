@@ -113,25 +113,21 @@ def temporal(year):
             [
                 "Circumcisio Domini et Oct Nativitatis",
                 "d2",
-                weekday(circumcision),
                 circumcision,
             ],
             [
                 "Octava S Stephani Protomartyris",
                 "sp",
-                weekday(circumcision + indays(1)),
                 circumcision + indays(1),
             ],
             [
                 "Octava S Joannis Ap & Ev",
                 "sp",
-                weekday(circumcision + indays(2)),
                 circumcision + indays(2),
             ],
             [
                 "Octava Ss Innocentium Mm",
                 "sp",
-                weekday(circumcision + indays(3)),
                 circumcision + indays(3),
             ],
         ]
@@ -145,7 +141,6 @@ def temporal(year):
             [
                 "SS Nominis Jesu",
                 "d2",
-                weekday(day(this_year, 1, 2)),
                 day(this_year, 1, 2),
             ]
         )
@@ -155,7 +150,6 @@ def temporal(year):
             [
                 "SS Nominis Jesu",
                 "d2",
-                weekday(sunday_post_cir_pre_ep),
                 sunday_post_cir_pre_ep,
             ]
         )
@@ -169,7 +163,6 @@ def temporal(year):
             [
                 "Dominica in " + x,
                 "sd2",
-                weekday(easter(year) - week(10 - i)),
                 easter(year) - week(10 - i),
             ]
         )
@@ -182,7 +175,6 @@ def temporal(year):
             [
                 "Epiphania Domini",
                 "d1",
-                weekday(epiphany),
                 epiphany,
             ],
         )
@@ -199,7 +191,6 @@ def temporal(year):
                     + epiph_oct_days[ep_oct_days_counter - 1]
                     + " infra Oct Epiphaniæ",
                     "sd",
-                    weekday(epiphany + indays(ep_oct_days_counter)),
                     epiphany + indays(ep_oct_days_counter),
                 ],
             )
@@ -216,7 +207,6 @@ def temporal(year):
                         + epiph_sundays[o]
                         + " post Epiphaniam",
                         "dm",
-                        weekday(epiph_counter),
                         epiph_counter,
                     ]
                 )
@@ -224,7 +214,6 @@ def temporal(year):
                     [
                         "S Familiæ Jesu Mariæ et Joseph",
                         "dm",
-                        weekday(epiph_counter - indays(1)),
                         epiph_counter - indays(1),
                     ]
                 )
@@ -235,7 +224,6 @@ def temporal(year):
                         + epiph_sundays[o]
                         + " post Epiphaniam",
                         "dm",
-                        weekday(epiph_counter),
                         epiph_counter,
                     ]
                 )
@@ -244,7 +232,6 @@ def temporal(year):
                 [
                     "Dominica " + epiph_sundays[o] + " post Epiphaniam",
                     "sp",
-                    weekday(epiph_counter),
                     epiph_counter,
                 ]
             )
@@ -265,7 +252,6 @@ def temporal(year):
                 [
                     "Dies Cinerum",
                     "sp",
-                    weekday(easter(year) - week(10 - i) - indays(4)),
                     easter(year) - week(10 - i) - indays(4),
                 ]
             )
@@ -273,7 +259,6 @@ def temporal(year):
                 [
                     "Feria V post Diem Cinerum",
                     "sp",
-                    weekday(easter(year) - week(10 - i) - indays(3)),
                     easter(year) - week(10 - i) - indays(4),
                 ]
             )
@@ -281,7 +266,6 @@ def temporal(year):
                 [
                     "Feria VI post Diem Cinerum",
                     "sp",
-                    weekday(easter(year) - week(10 - i) - indays(2)),
                     easter(year) - week(10 - i) - indays(4),
                 ]
             )
@@ -289,7 +273,6 @@ def temporal(year):
                 [
                     "Sabbato post Diem Cinerum",
                     "sp",
-                    weekday(easter(year) - week(10 - i) - indays(1)),
                     easter(year) - week(10 - i) - indays(4),
                 ]
             )
@@ -297,7 +280,6 @@ def temporal(year):
             [
                 "Dominica " + x,
                 "sd1",
-                weekday(easter(year) - week(10 - i)),
                 easter(year) - week(10 - i),
             ]
         )
@@ -308,7 +290,6 @@ def temporal(year):
                     [
                         "Septem Dolorum BMV",
                         "dm",
-                        weekday(easter(year) - week(10 - i) + indays(j)),
                         easter(year) - week(10 - i) + indays(j),
                     ]
                 )
@@ -317,7 +298,6 @@ def temporal(year):
                     [
                         "Feria IV Quattuor Temporum Quadragesimæ",
                         "sp",
-                        weekday(easter(year) - week(10 - i) + indays(j)),
                         easter(year) - week(10 - i) + indays(j),
                     ]
                 )
@@ -326,7 +306,6 @@ def temporal(year):
                     [
                         "Feria VI Quattuor Temporum Quadragesimæ",
                         "sp",
-                        weekday(easter(year) - week(10 - i) + indays(j)),
                         easter(year) - week(10 - i) + indays(j),
                     ]
                 )
@@ -335,7 +314,6 @@ def temporal(year):
                     [
                         "Sabbato Quattuor Temporum Quadragesimæ",
                         "sp",
-                        weekday(easter(year) - week(10 - i) + indays(j)),
                         easter(year) - week(10 - i) + indays(j),
                     ]
                 )
@@ -344,7 +322,6 @@ def temporal(year):
                     [
                         y + " in Cœna Domini",
                         "d1",
-                        weekday(easter(year) - week(10 - i) + indays(j)),
                         easter(year) - week(10 - i) + indays(j),
                     ]
                 )
@@ -353,7 +330,6 @@ def temporal(year):
                     [
                         y + " in Parasceve",
                         "d1",
-                        weekday(easter(year) - week(10 - i) + indays(j)),
                         easter(year) - week(10 - i) + indays(j),
                     ]
                 )
@@ -362,7 +338,6 @@ def temporal(year):
                     [
                         "Sabbatum Sanctum",
                         "d1",
-                        weekday(easter(year) - week(10 - i) + indays(j)),
                         easter(year) - week(10 - i) + indays(j),
                     ]
                 )
@@ -371,7 +346,6 @@ def temporal(year):
                     [
                         y + " Majoris Hebd; Feria Priv",
                         "sp",
-                        weekday(easter(year) - week(10 - i) + indays(j)),
                         easter(year) - week(10 - i) + indays(j),
                     ]
                 )
@@ -380,13 +354,32 @@ def temporal(year):
                     [
                         y + " infra Hebd " + x,
                         "sp",
-                        weekday(easter(year) - week(10 - i) + indays(j)),
                         easter(year) - week(10 - i) + indays(j),
                     ]
                 )
             j += 1
         i += 1
-    cycle.append(["Dominica Resurrectionis", "d1", weekday(easter(year)), easter(year)])
+    cycle.append(["Dominica Resurrectionis", "d1", easter(year)])
+    cycle.extend(
+        [
+            [
+                "Feria II Paschatis",
+                "d1",
+                easter(year) + indays(1),
+            ],
+            [
+                "Feria III Paschatis",
+                "d1",
+                easter(year) + indays(2),
+            ],
+            [
+                "De die IV infra Oct Paschæ",
+                "sd",
+                easter(year) + indays(3),
+            ],
+        ]
+        #! finish adding the days after easter.
+    )
     # PASCHAL TIME
     post_pent = [
         "Dominica in Albis",
@@ -398,13 +391,12 @@ def temporal(year):
     ]
     i = 1
     for x in post_pent:
-        cycle.append([x, "sd", weekday(easter(year) + week(i)), easter(year) + week(i)])
+        cycle.append([x, "sd", easter(year) + week(i)])
         i += 1
     cycle.append(
         [
             "Dominica Pentecostes",
             "d1",
-            weekday(easter(year) + week(i)),
             easter(year) + week(i),
         ]
     )
@@ -412,7 +404,6 @@ def temporal(year):
         [
             "Feria IV Quattuor infra Temporum Pentecostes",
             "d1",
-            weekday(easter(year) + week(i) + indays(3)),
             easter(year) + week(i) + indays(3),
         ]
     )
@@ -420,7 +411,6 @@ def temporal(year):
         [
             "Feria VI Quattuor infra Temporum Pentecostes",
             "d1",
-            weekday(easter(year) + week(i) + indays(5)),
             easter(year) + week(i) + indays(5),
         ]
     )
@@ -428,7 +418,6 @@ def temporal(year):
         [
             "Sabbato Quattuor infra Temporum Pentecostes",
             "d1",
-            weekday(easter(year) + week(i) + indays(6)),
             easter(year) + week(i) + indays(6),
         ]
     )
@@ -445,7 +434,6 @@ def temporal(year):
                 [
                     "Sanctissimi Corporis Christi",
                     "d1",
-                    weekday(easter(year) + week(i) - indays(3)),
                     easter(year) + week(i) - indays(3),
                 ]
             )
@@ -454,13 +442,10 @@ def temporal(year):
                 [
                     "Sacratissimi Cordis Jesu",
                     "d1",
-                    weekday(easter(year) + week(i) - indays(2)),
                     easter(year) + week(i) - indays(2),
                 ]
             )
-        cycle.append(
-            [x[0], x[1], weekday(easter(year) + week(i)), easter(year) + week(i)]
-        )
+        cycle.append([x[0], x[1], easter(year) + week(i)])
         i += 1
     pent_romans = [
         "IV",
@@ -501,7 +486,6 @@ def temporal(year):
                 [
                     "Dominica " + x + " post Pentecosten",
                     "sd",
-                    weekday(easter(year) + week(i)),
                     easter(year) + week(i),
                 ]
             )
@@ -516,7 +500,6 @@ def temporal(year):
                     [
                         "Feria IV Quattuor Temporum Septembris",
                         "sd",
-                        weekday(easter(year) + week(i) + indays(3)),
                         easter(year) + week(i) + indays(3),
                     ]
                 )
@@ -524,7 +507,6 @@ def temporal(year):
                     [
                         "Feria VI Quattuor Temporum Septembris",
                         "sd",
-                        weekday(easter(year) + week(i) + indays(5)),
                         easter(year) + week(i) + indays(5),
                     ]
                 )
@@ -532,7 +514,6 @@ def temporal(year):
                     [
                         "Sabbato Quattuor Temporum Septembris",
                         "sd",
-                        weekday(easter(year) + week(i) + indays(6)),
                         easter(year) + week(i) + indays(6),
                     ]
                 )
@@ -549,14 +530,11 @@ def temporal(year):
     i = 0
     for x in advents:
         if x == "Dominica III Adventus":
-            cycle.append(
-                [x, "sd2", weekday(lastadvent - week(i)), lastadvent - week(i)]
-            )
+            cycle.append([x, "sd2", lastadvent - week(i)])
             cycle.append(
                 [
                     "Feria IV Quattuor Temporum in Adventu",
                     "sp",
-                    weekday(lastadvent - week(i) + indays(3)),
                     lastadvent - week(i) + indays(3),
                 ]
             )
@@ -564,7 +542,6 @@ def temporal(year):
                 [
                     "Feria VI Quattuor Temporum in Adventu",
                     "sp",
-                    weekday(lastadvent - week(i) + indays(5)),
                     lastadvent - week(i) + indays(5),
                 ]
             )
@@ -572,25 +549,21 @@ def temporal(year):
                 [
                     "Sabbato Quattuor Temporum in Adventu",
                     "sp",
-                    weekday(lastadvent - week(i) + indays(6)),
                     lastadvent - week(i) + indays(6),
                 ]
             )
         else:
-            cycle.append(
-                [x, "sd2", weekday(lastadvent - week(i)), lastadvent - week(i)]
-            )
+            cycle.append([x, "sd2", lastadvent - week(i)])
         i += 1
     # CHRISTMAS
     # 29, 30, 31 are the dates sunday within the octave
     # if sunday is on 25, 26, 27, 28 then the Mass is said on the 30
-    cycle.append(["Nativitas DNJC", "d1", weekday(christmas), christmas])
+    cycle.append(["Nativitas DNJC", "d1", christmas])
     if 5 <= int(christmas.strftime("%u")) <= 7 or christmas.strftime("%u") == 1:
         cycle.append(
             [
                 "Dominica Infra Octavam Nativitatis reposit",
                 "sd",
-                weekday(christmas + indays(5)),
                 christmas + indays(5),
             ]
         )
@@ -599,7 +572,6 @@ def temporal(year):
             [
                 "Dominica Infra Octavam Nativitatis",
                 "sd",
-                weekday(christmas + indays(7) - findsunday(christmas)),
                 christmas + indays(7) - findsunday(christmas),
             ]
         )
@@ -611,7 +583,6 @@ def temporal(year):
             [
                 "De VI Die infra Octavam Nativitatis",
                 "sd",
-                weekday(christmas + indays(5)),
                 christmas + indays(5),
             ]
         )
@@ -620,31 +591,26 @@ def temporal(year):
             [
                 "S Stephani Protomartyris",
                 "d2",
-                weekday(christmas + indays(1)),
                 christmas + indays(1),
             ],
             [
                 "S Joannis Ap & Ev",
                 "d2",
-                weekday(christmas + indays(2)),
                 christmas + indays(2),
             ],
             [
                 "Ss Innocentium Mm",
                 "d2",
-                weekday(christmas + indays(3)),
                 christmas + indays(3),
             ],
             [
                 "S Thomas EM",
                 "d",
-                weekday(christmas + indays(4)),
                 christmas + indays(4),
             ],
             [
                 "S Sylvestri I PC",
                 "d",
-                weekday(christmas + indays(6)),
                 christmas + indays(6),
             ],
         ]
@@ -655,14 +621,22 @@ def temporal(year):
     print("\n")
     # print to terminal
     for row in cycle:
-        print(row[0] + "\t" + row[1] + "\t" + str(row[2]) + "\t" + str(row[3]))
+        print(row[0] + "\t" + row[1] + "\t" + str(row[2]))
     # print to csv file
     original_stdout = sys.stdout
     with open("temporal.csv", "w") as f:
         sys.stdout = f
         print("Feast" + ", " + "Rank" + ", " + "Weekday" + ", " + "Date")
         for row in cycle:
-            print(row[0] + ", " + row[1] + ", " + str(row[2]) + ", " + str(row[3]))
+            print(
+                row[0]
+                + ", "
+                + row[1]
+                + ", "
+                + str(row[2].strftime("%A"))
+                + ", "
+                + str(row[2])
+            )
         sys.stdout = original_stdout
     original_stdout = sys.stdout
     # print to dictionary file
@@ -670,10 +644,10 @@ def temporal(year):
     with open("temporal.py", "w") as f:
         sys.stdout = f
         print("temporal = {")
-        keylist = ["feast", "rank", "weekday"]
+        keylist = ["feast", "rank"]
         for row in cycle:
-            temporal_event = row[3].strftime("%x")
-            mini_dict = str(dict(zip(keylist, [row[0], row[1], row[2]])))
+            temporal_event = row[2].strftime("%x")
+            mini_dict = str(dict(zip(keylist, [row[0], row[1]])))
             print(str(" '" + temporal_event + "'" + ": " + mini_dict + ","))
         print("}")
         sys.stdout = original_stdout
@@ -737,8 +711,6 @@ def temporal(year):
                 + row[1]
                 + "</td><td>"
                 + str(row[2])
-                + "</td><td>"
-                + str(row[3])
                 + "</td>"
             )
             print("</tr>")
