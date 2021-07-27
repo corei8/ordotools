@@ -128,7 +128,7 @@ def findsunday(date):
     return timedelta(days=x)
 
 
-#TODO: schedule all the octaves
+# TODO: schedule all the octaves
 def temporal(year):
     year_prev, year = int(year) - 1, int(year)
     this_year = year
@@ -443,7 +443,7 @@ def temporal(year):
             cycle.extend(
                 [
                     [
-                        "Solemnitas S Joseph, Sponsi BMV C et Ecclesiæ Universalis Patroni",
+                        "Solemnitas S Joseph Sponsi BMV C et Ecclesiæ Universalis Patroni",
                         "d1",
                         easter(year) + week(i) + indays(3),
                     ],
@@ -501,47 +501,13 @@ def temporal(year):
                 j += 1
         cycle.append([x, "sd", easter(year) + week(i)])
         i += 1
-    cycle.extend(
+    cycle.append(
         [
-            [
-                "Vigilia Pentecostes",
-                "sd",
-                easter(year) + week(i) - indays(1),
-            ],
-            [
-                "Dominica Pentecostes",
-                "d1",
-                easter(year) + week(i),
-            ],
+            "Dominica Pentecostes",
+            "d1",
+            easter(year) + week(i),
         ]
     )
-    # add the octave of Pentecost
-    j = 0
-    for y in romans[1:6]:
-        if y == "II" or y == "III":
-            cycle.append(
-                [
-                    "De " + y + " die infra Oct Pentecostes",
-                    "d1",
-                    ascension_day + indays(j + 1),
-                ]
-            )
-        else:
-            cycle.append(
-                [
-                    "De " + y + " die infra Oct Pentecostes",
-                    "d1",
-                    ascension_day + indays(j + 1),
-                ]
-            )
-        j += 1
-    cycle.append(
-            [
-                "Sabbato die infra Oct Pentecostes",
-                "d1",
-                ascension_day + indays(j + 1),
-            ]
-        )
     cycle.append(
         [
             "Feria IV Quattuor infra Temporum Pentecostes",
@@ -802,7 +768,6 @@ def temporal(year):
             mini_dict = str(dict(zip(keylist, [row[0], row[1]])))
             print(str(" '" + temporal_event + "'" + ": " + mini_dict + ","))
         print("}")
-        #! add method to reduce duplicate keys
         sys.stdout = original_stdout
     original_stdout = sys.stdout
     # print to HTML table
