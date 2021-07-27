@@ -629,34 +629,6 @@ def temporal(year):
             )
         cycle.append([x[0], x[1], easter(year) + week(i)])
         i += 1
-    #! change this so that it uses the global list
-    pent_romans = [
-        "IV",
-        "V",
-        "VI",
-        "VII",
-        "VIII",
-        "IX",
-        "X",
-        "XI",
-        "XII",
-        "XIII",
-        "XIV",
-        "XV",
-        "XVI",
-        "XVII",
-        "XVIII",
-        "XIX",
-        "XX",
-        "XXI",
-        "XXII",
-        "XXIII",
-        "XXIV",
-        "XXV",
-        "XXVI",
-        "XXVII",
-        "XXVIII",
-    ]
     sept_counter = 0
     for x in romans[4:-1]:
         earliest_first_advent = str(year) + "-12-03"
