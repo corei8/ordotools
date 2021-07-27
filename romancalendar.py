@@ -55,8 +55,6 @@ romans = [
     "III",
     "IV",
     "V",
-    "IV",
-    "V",
     "VI",
     "VII",
     "VIII",
@@ -128,7 +126,7 @@ def findsunday(date):
     return timedelta(days=x)
 
 
-#TODO: schedule all the octaves
+# TODO: schedule all the octaves
 def temporal(year):
     year_prev, year = int(year) - 1, int(year)
     this_year = year
@@ -536,12 +534,12 @@ def temporal(year):
             )
         j += 1
     cycle.append(
-            [
-                "Sabbato die infra Oct Pentecostes",
-                "d1",
-                ascension_day + indays(j + 1),
-            ]
-        )
+        [
+            "Sabbato die infra Oct Pentecostes",
+            "d1",
+            ascension_day + indays(j + 1),
+        ]
+    )
     cycle.append(
         [
             "Feria IV Quattuor infra Temporum Pentecostes",
@@ -572,23 +570,66 @@ def temporal(year):
     ]
     for x in prelim_pents:
         if x[0] == "Dominica II post Pentecosten infra Octavam Corporis Christi":
+            corpus_christi = easter(year) + week(i) - indays(3)
+            j = 0
+            for y in romans[1:7]:
+                if (corpus_christi + indays(j + 1)) == (easter(year) + week(i)):
+                    pass
+                else:
+                    cycle.append(
+                        [
+                            "De " + y + " die infra Oct Corporis Christi",
+                            "sd",
+                            corpus_christi + indays(j + 1),
+                        ]
+                    )
+                j += 1
             cycle.append(
                 [
                     "Sanctissimi Corporis Christi",
                     "d1",
-                    easter(year) + week(i) - indays(3),
+                    corpus_christi,
+                ]
+            )
+            cycle.append(
+                [
+                    "Octava SSmi Corporis Christi",
+                    "dm",
+                    corpus_christi + week(1),
                 ]
             )
         if x[0] == "Dominica III post Pentecosten infra Octavam SSmi Cordis DNJC":
+            ssmi_cordis = easter(year) + week(i) - indays(2)
+            j = 0
+            for y in romans[1:7]:
+                if (ssmi_cordis + indays(j + 1)) == (easter(year) + week(i)):
+                    pass
+                else:
+                    cycle.append(
+                        [
+                            "De " + y + " die infra Oct Ss Cordis Jesu",
+                            "sd",
+                            ssmi_cordis + indays(j + 1),
+                        ]
+                    )
+                j += 1
             cycle.append(
                 [
                     "Sacratissimi Cordis Jesu",
                     "d1",
-                    easter(year) + week(i) - indays(2),
+                    ssmi_cordis,
+                ]
+            )
+            cycle.append(
+                [
+                    "Sacratissimi Cordis Jesu",
+                    "dm",
+                    ssmi_cordis + week(1),
                 ]
             )
         cycle.append([x[0], x[1], easter(year) + week(i)])
         i += 1
+    #! change this so that it uses the global list
     pent_romans = [
         "IV",
         "V",
@@ -617,7 +658,7 @@ def temporal(year):
         "XXVIII",
     ]
     sept_counter = 0
-    for x in pent_romans:
+    for x in romans[4:-1]:
         earliest_first_advent = str(year) + "-12-03"
         if easter(year) + week(i) >= datetime.strptime(
             earliest_first_advent, "%Y-%m-%d"
@@ -636,7 +677,6 @@ def temporal(year):
                     sept_counter += 0
                 else:
                     sept_counter += 1
-            #! Make sure that this is correct for all cases
             if sept_counter == 2:
                 cycle.append(
                     [
@@ -776,7 +816,7 @@ def temporal(year):
         )
     # print to csv file
     original_stdout = sys.stdout
-    with open("temporal.csv", "w") as f:
+    with open("temporal_" + str(this_year) + ".csv", "w") as f:
         sys.stdout = f
         print("Feast" + ", " + "Rank" + ", " + "Weekday" + ", " + "Date")
         for row in cycle:
@@ -793,7 +833,7 @@ def temporal(year):
     original_stdout = sys.stdout
     # print to dictionary file
     original_stdout = sys.stdout
-    with open("temporal.py", "w") as f:
+    with open("temporal_" + str(this_year) + ".py", "w") as f:
         sys.stdout = f
         print("temporal = {")
         keylist = ["feast", "rank"]
@@ -806,7 +846,7 @@ def temporal(year):
         sys.stdout = original_stdout
     original_stdout = sys.stdout
     # print to HTML table
-    with open("temporal.html", "w") as f:
+    with open("temporal_" + str(this_year) + ".html", "w") as f:
         sys.stdout = f
         print(
             """
@@ -872,14 +912,24 @@ def temporal(year):
 
 
 def app():
-    user = ""
-    while user != "exit":
-        user = input('\nEnter "exit" to quit\nEnter 4-digit year: ')
-        if user == "exit":
+    user1 = ""
+    user2 = ""
+    while user1 != "exit":
+        user1 = input('\nEnter "exit" to quit\nEnter 4-digit year: ')
+        user2 = input(
+            '\nYou can request a range. Press "ENTER" to skip.\nEnter 4-digit year for the end of the range: '
+        )
+        if user1 == "exit":
             break
+        elif user2 == "":
+            try:
+                temporal(user1)
+            except ValueError:
+                pass
         else:
             try:
-                temporal(user)
+                for x in range(int(user1), int(user2) + 1):
+                    temporal(x)
             except ValueError:
                 pass
 
