@@ -771,6 +771,7 @@ def temporal(year):
     # SEND LIST TO CSV, HTML AND TERMINAL
     # this is to be turned into a seperate function eventually
     print("\n")
+    gen_file = "temporal/temporal_" + str(this_year)
     # print to terminal
     for row in cycle:
         if len(row[0]) >= 19:
@@ -788,7 +789,7 @@ def temporal(year):
         )
     # print to csv file
     original_stdout = sys.stdout
-    with open("temporal_" + str(this_year) + ".csv", "w") as f:
+    with open(gen_file + ".csv", "w") as f:
         sys.stdout = f
         print("Feast" + ", " + "Rank" + ", " + "Weekday" + ", " + "Date")
         for row in cycle:
@@ -805,7 +806,7 @@ def temporal(year):
     original_stdout = sys.stdout
     # print to dictionary file
     original_stdout = sys.stdout
-    with open("temporal_" + str(this_year) + ".py", "w") as f:
+    with open(gen_file + ".py", "w") as f:
         sys.stdout = f
         print("temporal = {")
         keylist = ["feast", "rank"]
@@ -818,7 +819,7 @@ def temporal(year):
         sys.stdout = original_stdout
     original_stdout = sys.stdout
     # print to HTML table
-    with open("temporal_" + str(this_year) + ".html", "w") as f:
+    with open(gen_file + ".html", "w") as f:
         sys.stdout = f
         print(
             """
