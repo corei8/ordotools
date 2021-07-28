@@ -889,12 +889,12 @@ def app():
     user2 = ""
     while user1 != "exit":
         user1 = input('\nEnter "exit" to quit\nEnter 4-digit year: ')
+        if user1 == "exit":
+            break
         user2 = input(
             '\nYou can request a range. Press "ENTER" to skip.\nEnter 4-digit year for the end of the range: '
         )
-        if user1 == "exit":
-            break
-        elif user2 == "":
+        if user2 == "":
             try:
                 temporal(user1)
             except ValueError:
