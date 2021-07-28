@@ -1,6 +1,7 @@
 import sys
 from datetime import datetime
 from datetime import timedelta
+import stitch
 
 # TODO: find the letter of the Martyrology
 
@@ -125,7 +126,6 @@ def findsunday(date):
     return timedelta(days=x)
 
 
-# TODO: schedule all the octaves
 def temporal(year):
     year_prev, year = int(year) - 1, int(year)
     this_year = year
@@ -773,114 +773,38 @@ def temporal(year):
     gen_file = "temporal/temporal_" + str(this_year)
     # print to terminal
     for row in cycle:
-        if len(row[0]) >= 19:
-            feast_formatted = row[0][0:18] + "…"
-        else:
-            feast_formatted = row[0] + "." * (19 - len(row[0]))
-        print(
-            feast_formatted
-            + "\t"
-            + row[1]
-            + "\t"
-            + str(row[2].strftime("%a"))
-            + "\t"
-            + str(row[2].strftime("%x"))
-        )
-    # print to csv file
-    original_stdout = sys.stdout
-    with open(gen_file + ".csv", "w") as f:
-        sys.stdout = f
-        print("Feast" + ", " + "Rank" + ", " + "Weekday" + ", " + "Date")
-        for row in cycle:
+        try:
+            if len(row[0]) >= 19:
+                feast_formatted = row[0][0:18] + "…"
+            else:
+                feast_formatted = row[0] + "." * (19 - len(row[0]))
             print(
-                row[0]
-                + ", "
+                feast_formatted
+                + "\t"
                 + row[1]
-                + ", "
-                + str(row[2].strftime("%A"))
-                + ", "
-                + str(row[2])
+                + "\t"
+                + str(row[2].strftime("%a"))
+                + "\t"
+                + str(row[2].strftime("%x"))
             )
-        sys.stdout = original_stdout
-    original_stdout = sys.stdout
+        except TypeError:
+            pass
     # print to dictionary file
     original_stdout = sys.stdout
     with open(gen_file + ".py", "w") as f:
         sys.stdout = f
         print("temporal = {")
         keylist = ["feast", "rank"]
+        memory = []
         for row in cycle:
-            temporal_event = row[2].strftime("%x")
+            temporal_event = row[2].strftime("%m/%d")
+            if temporal_event in memory:
+                temporal_event += "."
+            memory.append(temporal_event)
             mini_dict = str(dict(zip(keylist, [row[0], row[1]])))
             print(str(" '" + temporal_event + "'" + ": " + mini_dict + ","))
         print("}")
-        #! add method to reduce duplicate keys
         sys.stdout = original_stdout
-    original_stdout = sys.stdout
-    # print to HTML table
-    with open(gen_file + ".html", "w") as f:
-        sys.stdout = f
-        print(
-            """
-        <!DOCTYPE html>
-        <html lang='en'>
-        <head>
-            <meta charset='UTF-8'>
-            <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-            <title>"""
-            + str(year)
-            + """ Ordo</title>
-            <style>
-                .styled-table {
-                    border-collapse: collapse;
-                    margin: 25px 0;
-                    font-size: 0.9em;
-                    font-family: sans-serif;
-                    min-width: 400px;
-                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-                }
-                .styled-table thead tr {
-                    background-color: #009879;
-                    color: #ffffff;
-                    text-align: left;
-                }
-                .styled-table tbody tr {
-                    border-bottom: 1px solid #dddddd;
-                }
-
-                .styled-table tbody tr:nth-of-type(even) {
-                    background-color: #f3f3f3;
-                }
-
-                .styled-table tbody tr:last-of-type {
-                    border-bottom: 2px solid #009879;
-                }
-                .styled-table tbody tr.active-row {
-                    font-weight: bold;
-                    color: #009879;
-                }
-            </style>
-        </head>
-        <body>
-        <table class="styled-table">
-        """
-        )
-        print("<tr><th>Feast</th><th>Rank</th><th>Weekday</th><th>Date</th></tr>")
-        for row in cycle:
-            print("<tr>")
-            print(
-                "<td>"
-                + row[0]
-                + "</td><td>"
-                + row[1]
-                + "</td><td>"
-                + str(row[2])
-                + "</td>"
-            )
-            print("</tr>")
-        print("</table></body></html>")
-    sys.stdout = original_stdout
 
 
 def app():
@@ -896,12 +820,14 @@ def app():
         if user2 == "":
             try:
                 temporal(user1)
+                stitch.stitch(user1)
             except ValueError:
                 pass
         else:
             try:
                 for x in range(int(user1), int(user2) + 1):
                     temporal(x)
+                    stitch.stitch(x)
             except ValueError:
                 pass
 

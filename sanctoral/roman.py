@@ -1,1 +1,110 @@
-roman_sanctoral = {}
+roman_sanctoral = {
+    "01/14": {
+        "feast": "S Hilarii Episcopi ECD",
+        "rank": 5,
+        "secondary": "S Felix SM",
+        "tertiary": "",
+    },
+    "01/15": {
+        "feast": "S Pauli Primi Eremitæ C",
+        "rank": 5,
+        "secondary": "S Mauri Abb",
+        "tertiary": "",
+    },
+    "01/16": {
+        "feast": "S Marcelli PM",
+        "rank": 6,
+        "secondary": "",
+        "tertiary": "",
+    },
+    "01/17": {
+        "feast": "S Antonii Abb",
+        "rank": 5,
+        "secondary": "",
+        "tertiary": "",
+    },
+    "01/18": {
+        "feast": "Cathedræ S Petri Ap Romæ",
+        "rank": 4,
+        "secondary": "S Pauli Apostoli",
+        "tertiary": "S Priscæ VM",
+    },
+    "01/19": {
+        "feast": "Ss Marii, Marthæ, Audifacis et Abachum Mm",
+        "rank": 10,
+        "secondary": "S Canuti RM",
+        "tertiary": "",
+    },
+    "01/20": {
+        "feast": "Ss Fabiani P & Sebastiani Mm",
+        "rank": 5,
+        "secondary": "",
+        "tertiary": "",
+    },
+    "01/21": {
+        "feast": "S Agnetis VM",
+        "rank": 5,
+        "secondary": "",
+        "tertiary": "",
+    },
+    "01/22": {
+        "feast": "Ss Vincentii & Anastasii Mm",
+        "rank": 6,
+        "secondary": "",
+        "tertiary": "",
+    },
+    "01/23": {
+        "feast": "S Raymundi de Peñafort C mtv",
+        "rank": 6,
+        "secondary": "S Emerentianæ",
+        "tertiary": "",
+    },
+    "01/24": {
+        "feast": "S Timothei EM",
+        "rank": 5,
+        "secondary": "",
+        "tertiary": "",
+    },
+    "01/25": {
+        "feast": "Conversio S Pauli Ap",
+        "rank": 4,
+        "secondary": "",
+        "tertiary": "",
+    },
+    "01/26": {
+        "feast": "S Polycarpi EM",
+        "rank": 5,
+        "secondary": "",
+        "tertiary": "",
+    },
+    "01/27": {
+        "feast": "S Joannis Chrysostomi",
+        "rank": 5,
+        "secondary": "",
+        "tertiary": "",
+    },
+    "01/28": {
+        "feast": "S Petri Nolasci C mtv",
+        "rank": 5,
+        "secondary": "S Agnetis VM secundo",
+        "tertiary": "",
+    },
+    "01/29": {
+        "feast": "S Francisci Salesii ECD",
+        "rank": 5,
+        "secondary": "",
+        "tertiary": "",
+    },
+    "01/30": {
+        "feast": "S Martinæ VM",
+        "rank": 6,
+        "secondary": "",
+        "tertiary": "",
+    },
+    "01/31": {
+        "feast": "S Joannis Bosco C",
+        "rank": 5,
+        "secondary": "",
+        "tertiary": "",
+    },
+}
