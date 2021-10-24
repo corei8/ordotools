@@ -2,36 +2,36 @@
 
 ## When...
 
-1. d1
-2. d2
-3. commonoctave
-4. dm
-5. d
-6. sd
-7. dinfracommonoctave
-8. vigil
-9. simpleoctave
-10. s
+0. d1
+1. d2
+2. commonoctave
+3. dm
+4. d
+5. sd
+6. day w/i common octave
+7. vigil
+8. Simple octave
+9. s
 
 ## Falls on a...
 
-1. dom1
-2. dom2
-3. domminor or vigil epiph
-4. priv feria or vigil 1 or dinfraOct1
-5. d1
-6. d2
-7. diesOct2
-8. diesOctcomm or 3
-9. dm
-10. d
-11. sd
-12. dinfraOct2
-13. dinfraOct3
-14. dinfraOctcomm
-15. feriamajornonpriv
-16. diessimpleOct
-17. ourlady's saturday
+0. Dominica of the 1st class
+1. Dominica of the 2nd class
+2. Dominica minor or the Vigil of the Epiphany
+3. Privileged Feria or vigil of the 1st class or day within an octave of the 1st class
+4. d1
+5. d2
+6. Octave of the 2nd order
+7. Common Octave or Octave of the 3rd order
+8. dm
+9. d
+10. sd
+11. Days within an Octave of the 2nd order
+12. Days within an Octave of the 3rd order
+13. Days withing a Common Octave
+14. Greater non-Privileged Feria 
+15. Simple Octave
+16. Our Lady's Saturday
 
 # Concurrance
 
