@@ -1,7 +1,8 @@
+import re
 import sys
 from datetime import datetime
 from datetime import timedelta
-import stitch
+from stitch import occur
 
 # TODO: find the letter of the Martyrology
 
@@ -291,21 +292,21 @@ def temporal(year):
                 [
                     "Feria V post Diem Cinerum",
                     [False, 3],
-                    easter(year) - week(10 - i) - indays(4),
+                    easter(year) - week(10 - i) - indays(3),
                 ]
             )
             cycle.append(
                 [
                     "Feria VI post Diem Cinerum",
                     [False, 14],
-                    easter(year) - week(10 - i) - indays(4),
+                    easter(year) - week(10 - i) - indays(2),
                 ]
             )
             cycle.append(
                 [
                     "Sabbato post Diem Cinerum",
                     [False, 14],
-                    easter(year) - week(10 - i) - indays(4),
+                    easter(year) - week(10 - i) - indays(1),
                 ]
             )
         cycle.append(
@@ -796,10 +797,8 @@ def temporal(year):
         except TypeError:
             pass """
     # print to dictionary file
-    original_stdout = sys.stdout
     with open(gen_file + ".py", "w") as f:
-        sys.stdout = f
-        print("temporal = {")
+        f.write("temporal = {")
         keylist = ["feast", "rank", "target"]
         memory = []
         for row in cycle:
@@ -807,11 +806,24 @@ def temporal(year):
             if temporal_event in memory:
                 temporal_event += "."
             memory.append(temporal_event)
-            mini_dict = str(dict(zip(keylist, [row[0], row[1], row[2]])))
-            print(str(" '" + temporal_event + "'" + ": " + mini_dict + ","))
-        print("}")
-        sys.stdout = original_stdout
+            mini_dict = str(dict(zip(keylist, [row[0], row[1], re.sub("datetime.", r"", str(row[2]))])))
+            f.write(str("\n'" + temporal_event + "'" + ": " + mini_dict + ","))
+        f.write("}")
     f.close()
+    #TODO: eliminate all the dotted dates
+    #! we only need to have one year at a time, that will clean up the imports
+    from temporal.temporal_2021 import temporal
+    i = 0
+    for item in sorted(temporal):
+        try: 
+            dup = sorted(temporal)[i+1]
+            if dup[0:5] == item and len(dup) == 6:
+                print(sorted(temporal)[i+1] + ' is a duplicate!')
+                occur(temporal[item]['rank'][1], temporal[dup]['rank'][1])
+            i += 1
+        except IndexError:
+            print("\nWarning! Breaking after " + str(i) + " iterations.")
+            break
     print("\nFile written.")
 
 def app():

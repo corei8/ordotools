@@ -20,7 +20,7 @@ def full_year(year):
     return year_list
 
 
-def occur(one, two, three):
+def occur(one, two):
     occur_table = [
         [0, 1, 3, 1, 3, 3, 3, 3, 3, 3, 6, 5, 8, 6, 3, 3, 6],
         [0, 3, 3, 1, 3, 6, 3, 3, 3, 3, 6, 8, 6, 6, 3, 6, 6],
@@ -33,32 +33,32 @@ def occur(one, two, three):
         [0, 7, 4, 4, 4, 4, 4, 4, 4, 4, 0, 4, 2, 0, 4, 4, 4],
         [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4],
     ]
-    comparison = "placeholder"
+    comparison = occur_table[one][two]
     if comparison == 1:
-        # office of the first, nothing of the second
-        pass
+        print('office of the first, nothing of the second')
+        result = [True, False, False]
     elif comparison == 2:
-        # office of the second, nothing of the first
-        pass
+        print('office of the second, nothing of the first')
+        result = [False, True, False]
     elif comparison == 3:
-        # office of the first, commemoration of the second
-        pass
+        print('office of the first, commemoration of the second')
+        result = [True, "comm", False]
     elif comparison == 4:
-        # office of the second, commemoration of the first
-        pass
+        print('office of the second, commemoration of the first')
+        result = ["comm", True, False]
     elif comparison == 5:
-        # office of the first, translation of the second
-        pass
+        print('office of the first, translation of the second')
+        result = [True, "tran", False]
     elif comparison == 6:
-        # office of the second, translation of the first
-        pass
+        print('office of the second, translation of the first')
+        result = [False, "tran", False]
     elif comparison == 7:
-        # office of the more noble, commemoration of the other
-        pass
+        print('office of the more noble, commemoration of the other')
+        result = [False, False, "comm"]
     else:
-        # office of the more noble, translation of the other
-        pass
-    return 0
+        print('office of the more noble, translation of the other')
+        result = [False, False, "tran"]
+    return result
 
 
 def stitch(tem):
