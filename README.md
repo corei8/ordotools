@@ -17,3 +17,17 @@ The result is a list containing:
 1. A liturgical calendar proper to an indicated diocese;
 2. Indications of the peculiarities of the office of that day;
 3. An ordo for the Mass of that day, or multiple Masses, if there be options for that day.
+
+### Progress
+
+- [x] Temporal Calendar
+- [ ] Compined Temporal and Sanctoral Calendar
+- [ ] Masses
+- [ ] Vespers
+- [ ] Colors of Mass and Office
+- [ ] Lessons for Laudes
+- [ ] Prime
+- [ ] Little Hours
+- [ ] Solemnities
+- [ ] Australian Calendar
+- [ ] Canadian Calendar
