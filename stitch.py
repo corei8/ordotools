@@ -2,6 +2,7 @@ import importlib
 import sys
 from datetime import timedelta
 from datetime import datetime
+import re
 
 # from temporal import roman
 import temporal
@@ -47,27 +48,91 @@ def occur(one, two):
     else: result = 8
     return result
 
+def dict_clean(direct, dict):
+    mdl = importlib.import_module(direct + str(dict))
+    i = 0
+    try:
+        dic = mdl.temporal
+    except AttributeError:
+        dic = mdl.calen
+    x = sorted(dic)
+    for second in x:
+        try: 
+            first = x[i+1]
+            if first[0:5] == second and len(first) == 6:
+                #todo add a "nobility meter" to the feasts
+                print(second)
+                ranker = occur(dic[first]['rank'][0], dic[second]['rank'][1])
+                if ranker == 1:
+                    # office of the first
+                    dic.update({first.strip('.'): dic[first]})
+                    del dic[second], dic[first]
+                elif ranker == 2:
+                    # office of the second
+                    dic.update({first.strip('.'): dic[second]})
+                    del dic[second], dic[first]
+                elif ranker == 3:
+                    # commemoration of the second
+                    dic[second].update({'feast': dic[first]['feast'], 'rank': dic[first]['rank'], 'target': dic[first]['target'], 'com1': dic[second]['feast']})
+                    del dic[first]
+                elif ranker == 4:
+                    # commemoration of the first
+                    dic.update({first.strip('.'): {'feast': dic[second]['feast'], 'rank': dic[second]['rank'], 'target': dic[second]['target'], 'com1': dic[second]['feast']}})
+                    del dic[first]
+                elif ranker == 5:
+                    # translation of the second
+                    dic.update({'trans' + second.strip('.'): dic[second]})
+                    del dic[second]
+                elif ranker == 6:
+                    # translation of the first
+                    dic.update({'trans_' + first.strip('.'): dic[first]})
+                    del dic[first]
+                elif ranker == 7:
+                    # office of more noble, commemoration of the less noble
+                    continue
+                elif ranker == 8:
+                    # office of the more noble, translation of the less noble
+                    continue                        
+                else: pass
+            else: pass
+            i += 1
+        except IndexError:
+            break
+    gen_file = re.sub(r"\.", r'/', direct) + str(dict)
+    print('GENFILE: ' + gen_file)
+    with open(gen_file + ".py", "a") as f:        
+        f.truncate(0)
+        i = 0
+        for line in sorted(dic):
+            if i == 0: 
+                f.write(re.sub(r"/(temporal|calendar)", '', gen_file) + ' = {\n\'' + line + '\' : ' + str(dic[line]) + ',\n')
+                print('DICTIONARY NAME: ' + re.sub(r"/(temporal|calendar)", '', gen_file))
+            else: f.write('\'' + line + '\' : ' + str(dic[line]) + ',\n')
+            i += 1
+        f.write('}')
+        f.close()
 
-def stitch(tem):
-    rome = roman.roman_sanctoral
-    # temp = map(__import__, "temporal." + "temporal_" + tem)
-    temp = importlib.import_module("temporal." + "temporal_" + tem)
-    temps = temp.temporal
-    print("==> dictionary import successful")
-    tempOne = {}
-    tempTwo = {}
-    all_dates = full_year(int(tem))
-    # TODO: combine the dictionaries, making lists for every conflict.
-    for date in temps.keys():
-        if len(date) == 6:
-            tempTwo.__setitem__(date[0:5], temps.get(date))
+def stitch(t, s):
+    mdltemporal = importlib.import_module('temporal.temporal_' + str(t)).temporal
+    mdlsanctoral = importlib.import_module('sanctoral.' + s).sanctoral
+    mdlt, mdls = sorted(mdltemporal), sorted(mdlsanctoral)
+    calen = {}
+    for feast in mdls:
+        if feast in mdlt:
+            calen.update({feast+'.': mdlsanctoral[feast]})
         else:
-            tempOne.__setitem__(date, temps.get(date))
-    # TODO: resolve the conflicts using the occurance and concurrance tables.
-    for x in all_dates:
-        pass  #! compare all the concurring and occuring dates
-        one = tempOne.get(x)
-        two = tempTwo.get(x)
-        tre = rome.get(x)
-    # TODO: output a new dictionary with the completed year.
+            calen.update({feast: mdlsanctoral[feast]})
+    for feast in mdlt:
+        calen.update({feast: mdltemporal[feast]})
+    with open("calen/calendar_" + str(t) + ".py", "w") as f:
+        f.truncate(0)
+        i = 0
+        for line in sorted(calen):
+            if i == 0: f.write('calen = {\n\'' + line + '\' : ' + str(calen[line]) + ',\n')
+            else: f.write('\'' + line + '\' : ' + str(calen[line]) + ',\n')
+            i += 1
+        f.write('}')
+    f.close()
+    print('calendar stitched and written.')
+
     return 0

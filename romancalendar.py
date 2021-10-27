@@ -3,7 +3,7 @@ import re
 import sys
 from datetime import datetime
 from datetime import timedelta
-from stitch import occur
+from stitch import occur, stitch, dict_clean
 
 # TODO: find the letter of the Martyrology
 
@@ -777,63 +777,6 @@ def build_temporal(year):
         ]
     )
     
-    def dict_clean(dict):
-        mdl = importlib.import_module('temporal.temporal_' + str(dict))
-        i = 0
-        dic = mdl.temporal
-        x = sorted(dic)
-        for second in x:
-            try: 
-                first = x[i+1]
-                if first[0:5] == second and len(first) == 6:
-                    #todo add a "nobility meter" to the feasts
-                    ranker = occur(dic[first]['rank'][0], dic[second]['rank'][1])
-                    if ranker == 1:
-                        # office of the first
-                        dic.update({first.strip('.'): dic[first]})
-                        del dic[second], dic[first]
-                    elif ranker == 2:
-                        # office of the second
-                        dic.update({first.strip('.'): dic[second]})
-                        del dic[second], dic[first]
-                    elif ranker == 3:
-                        # commemoration of the second
-                        dic[second].update({'feast': dic[first]['feast'], 'rank': dic[first]['rank'], 'target': dic[first]['target'], 'com1': dic[second]['feast']})
-                        del dic[first]
-                    elif ranker == 4:
-                        # commemoration of the first
-                        dic.update({first.strip('.'): {'feast': dic[second]['feast'], 'rank': dic[second]['rank'], 'target': dic[second]['target'], 'com1': dic[second]['feast']}})
-                        del dic[first]
-                    elif ranker == 5:
-                        # translation of the second
-                        dic.update({'trans' + second.strip('.'): dic[second]})
-                        del dic[second]
-                    elif ranker == 6:
-                        # translation of the first
-                        dic.update({'trans_' + first.strip('.'): dic[first]})
-                        del dic[first]
-                    elif ranker == 7:
-                        # office of more noble, commemoration of the less noble
-                        continue
-                    elif ranker == 8:
-                        # office of the more noble, translation of the less noble
-                        continue                        
-                    else: pass
-                else: pass
-                i += 1
-            except IndexError:
-                break
-        gen_file = "temporal/temporal_" + str(dict)
-        with open(gen_file + ".py", "a") as f:
-            f.truncate(0)
-            i = 0
-            for line in sorted(dic):
-                if i == 0: f.write('temporal = {\n\'' + line + '\' : ' + str(dic[line]) + ',\n')
-                else: f.write('\'' + line + '\' : ' + str(dic[line]) + ',\n')
-                i += 1
-            f.write('}')
-            f.close()
-
     def make_dict(year):
         gen_file = "temporal/temporal_" + str(year)
         with open(gen_file + ".py", "w") as f:
@@ -849,11 +792,13 @@ def build_temporal(year):
                 f.write(str("\n'" + temporal_event + "'" + ": " + mini_dict + ","))
             f.write("}")
         f.close()
-        dict_clean(year)
+        dict_clean('temporal.temporal_', year)
 
-    make_dict(2021)
+    make_dict(year)
 
-def app():
-    build_temporal(2021)
+def app(year, diocese):
+    build_temporal(year)
+    stitch(year, diocese)
+    dict_clean('calen.calendar_', year)
 
-app()
+app(year=2021, diocese='roman')
