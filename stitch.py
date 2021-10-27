@@ -48,6 +48,31 @@ def occur(one, two):
     else: result = 8
     return result
 
+def concur(one, two):
+    '''
+    If one concurs with two...
+    '''
+    concur_table = [
+        [4, 0, 4, 4, 4, 4, 4, 4, 3, 3, 0],
+        [2, 2, 2, 4, 4, 4, 4, 4, 5, 2, 4],
+        [2, 2, 2, 4, 4, 4, 4, 4, 3, 3, 4],
+        [4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 4],
+        [4, 4, 4, 4, 4, 4, 4, 5, 3, 1, 3],
+        [4, 4, 4, 4, 4, 4, 5, 3, 3, 1, 3],
+        [4, 4, 4, 4, 4, 5, 3, 3, 3, 1, 3],
+        [4, 4, 4, 4, 5, 3, 3, 3, 1, 1, 3],
+        [4, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3],
+        [4, 0, 0, 0, 3, 3, 3, 3, 1, 1, 3],
+    ]
+    comparison = concur_table[one][-(two+1)]
+    if comparison == 1: result = 1   # all of the following, nothing of the preceding
+    elif comparison == 2: result = 2 # all of the preceding, nothing of the following
+    elif comparison == 3: result = 3 # all of the following, commemoration of the preceding
+    elif comparison == 4: result = 4 # all of the preceding, commemoration of the following
+    else: result = 5                 # all  of the more noble, commemoration of the other; in equality, a cap the following, commemoration of the preceding
+    return result
+
+
 def dict_clean(direct, dict):
     mdl = importlib.import_module(direct + str(dict))
     i = 0
@@ -77,7 +102,7 @@ def dict_clean(direct, dict):
                     del dic[first]
                 elif ranker == 4:
                     # commemoration of the first
-                    dic.update({first.strip('.'): {'feast': dic[second]['feast'], 'rank': dic[second]['rank'], 'target': dic[second]['target'], 'com1': dic[second]['feast']}})
+                    dic.update({first.strip('.'): {'feast': dic[second]['feast'], 'rank': dic[second]['rank'], 'target': dic[second]['target'], 'com1': dic[first]['feast']}})
                     del dic[first]
                 elif ranker == 5:
                     # translation of the second
@@ -99,14 +124,11 @@ def dict_clean(direct, dict):
         except IndexError:
             break
     gen_file = re.sub(r"\.", r'/', direct) + str(dict)
-    print('GENFILE: ' + gen_file)
     with open(gen_file + ".py", "a") as f:        
         f.truncate(0)
         i = 0
         for line in sorted(dic):
-            if i == 0: 
-                f.write(re.sub(r"/(temporal|calendar)", '', gen_file) + ' = {\n\'' + line + '\' : ' + str(dic[line]) + ',\n')
-                print('DICTIONARY NAME: ' + re.sub(r"/(temporal|calendar)", '', gen_file))
+            if i == 0: f.write(re.sub(r"/(temporal|calendar)", '', gen_file) + ' = {\n\'' + line + '\' : ' + str(dic[line]) + ',\n')
             else: f.write('\'' + line + '\' : ' + str(dic[line]) + ',\n')
             i += 1
         f.write('}')

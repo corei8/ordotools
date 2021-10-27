@@ -37,9 +37,30 @@
 
 ## When a...
 
+0. Sunday
+1. d1
+2. d2
+3. day of a privileged octave
+4. day of a common octave
+5. dm
+6. d
+7. sd
+8. days withing a privileged octave
+9. days within a privileged octave
 
+## Concurs with a...
 
-## Falls on a...
+0. A sunday, or the Vigil of the epiphany
+1. d1
+2. d2
+3. dm octave day
+4. dm
+5. d
+6. sd
+7. day within a privileged octave
+8. day withing a common octave
+9. Our Lady's Saturday
+10. day within a simple octave or a simple feast
 
 # Dignity
 
