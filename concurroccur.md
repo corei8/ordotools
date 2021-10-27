@@ -4,7 +4,7 @@
 
 0. d1
 1. d2
-2. commonoctave
+2. common octave
 3. dm
 4. d
 5. sd
@@ -37,4 +37,14 @@
 
 ## When a...
 
+
+
 ## Falls on a...
+
+# Dignity
+
+- Our Lord = 100
+- Our Lady = 50
+- Apostles = 25
+- Angels   = 20
+- Void     = 0

@@ -1,3 +1,4 @@
+import importlib
 import re
 import sys
 from datetime import datetime
@@ -30,7 +31,6 @@ def easter(year):
         tA = tA - 1
     if temp == 28 and Remain19 > 10:
         tA = tA - 1
-    # find the next Sunday
     tB = (tA - 19) % 7
     tC = (40 - firstDigit) % 4
     if tC == 3:
@@ -41,7 +41,6 @@ def easter(year):
     tD = (temp + (temp // 4)) % 7
     tE = ((20 - tB - tC - tD) % 7) + 1
     d = tA + tE
-    # return the date
     if d > 31:
         d = d - 31
         m = 4
@@ -127,7 +126,7 @@ def findsunday(date):
     return timedelta(days=x)
 
 
-def temporal(year):
+def build_temporal(year):
     year_prev, year = int(year) - 1, int(year)
     this_year = year
     cycle = []
@@ -144,22 +143,22 @@ def temporal(year):
         [
             [
                 "Circumcisio Domini et Oct Nativitatis",
-                [False, 5],
+                [1, 5],
                 circumcision,
             ],
             [
                 "Octava S Stephani Protomartyris",
-                [False, 7],
+                [9, 7],
                 circumcision + indays(1),
             ],
             [
                 "Octava S Joannis Ap & Ev",
-                [False, 7],
+                [9, 7],
                 circumcision + indays(2),
             ],
             [
                 "Octava Ss Innocentium Mm",
-                [False, 7],
+                [9, 7],
                 circumcision + indays(3),
             ],
         ]
@@ -172,7 +171,7 @@ def temporal(year):
         cycle.append(
             [
                 "SS Nominis Jesu",
-                [False, 5],
+                [1, 5],
                 day(this_year, 1, 2),
             ]
         )
@@ -181,7 +180,7 @@ def temporal(year):
         cycle.append(
             [
                 "SS Nominis Jesu",
-                [False, 5],
+                [1, 5],
                 sunday_post_cir_pre_ep,
             ]
         )
@@ -202,15 +201,21 @@ def temporal(year):
     # EPIPHANY
     epiphany = day(this_year, 1, 6)
     epiph_sundays = ["I", "II", "III", "IV", "V", "VI"]
-    if weekday(epiphany) == "Sun":
-        #! Vigil of the Epiphany???
-        cycle.append(
+    cycle.append(
+            [
+                "Vigilia Epiphaniæ",
+                [7, 2, False, False, 'sd Vig Privil II cl', 0],
+                epiphany - indays(1),
+            ],
+        )
+    cycle.append(
             [
                 "Epiphania Domini",
-                [False, 0],
+                [False, 0, False, False, 'd I cl cum Oct Privil 2 ord', 100],
                 epiphany,
             ],
         )
+    if weekday(epiphany) == "Sun":
         first_epiph = epiphany + week(1)
     else:
         first_epiph = epiphany - findsunday(epiphany) + week(1)
@@ -429,7 +434,7 @@ def temporal(year):
     )
     # PASCHAL TIME
     post_pent = [
-        "Dominica in Albis", #! see if this has to be a seperate item
+        "Dominica in Albis",
         "Dominica II post Pascha",
         "Dominica III post Pascha",
         "Dominica IV post Pascha",
@@ -459,22 +464,22 @@ def temporal(year):
                 [
                     [
                         "Litaniæ Minores",
-                        [False, 14],
+                        [9, 14],
                         easter(year) + week(i) + indays(1),
                     ],
                     [
                         "Litaniæ Minores",
-                        [False, 14],
+                        [9, 14],
                         easter(year) + week(i) + indays(2),
                     ],
                     [
                         "Litaniæ Minores",
-                        [False, 14],
+                        [9, 14],
                         easter(year) + week(i) + indays(3),
                     ],
                     [
                         "Vigilæ Ascensionis",
-                        [False, 3],
+                        [7, 3],
                         easter(year) + week(i) + indays(3),
                     ],
                     [
@@ -494,7 +499,7 @@ def temporal(year):
                     cycle.append(
                         [
                             "De " + y + " die infra Oct Ascensionis",
-                            [False, 7],
+                            [5, 7],
                             ascension_day + indays(j + 1),
                         ]
                     )
@@ -506,24 +511,23 @@ def temporal(year):
         [
             [
                 "Vigilia Pentecostes",
-                [False, 3],
+                [7, 3],
                 easter(year) + week(i) - indays(1),
             ],
             [
                 "Dominica Pentecostes",
-                [False, 4],
+                [0, 4],
                 easter(year) + week(i),
             ],
         ]
     )
-    # add the octave of Pentecost
     j = 0
     for y in romans[1:6]:
         if y == "II" or y == "III":
             cycle.append(
                 [
                     "De " + y + " die infra Oct Pentecostes",
-                    [False, 4],
+                    [0, 4],
                     ascension_day + indays(j + 1),
                 ]
             )
@@ -531,7 +535,7 @@ def temporal(year):
             cycle.append(
                 [
                     "De " + y + " die infra Oct Pentecostes",
-                    [False, 4],
+                    [5, 4],
                     ascension_day + indays(j + 1),
                 ]
             )
@@ -539,7 +543,7 @@ def temporal(year):
     cycle.append(
         [
             "Sabbato die infra Oct Pentecostes",
-            [False, 4],
+            [5, 4],
             ascension_day + indays(j + 1),
         ]
     )
@@ -717,7 +721,6 @@ def temporal(year):
     # CHRISTMAS
     cycle.append(["Nativitas DNJC", [False, 4], christmas])
     if 5 <= int(christmas.strftime("%u")) <= 7 or christmas.strftime("%u") == 1:
-        #? is this the Octave of Christmas on Sunday?
         cycle.append(
             [
                 "Dominica Infra Octavam Nativitatis reposit",
@@ -773,83 +776,84 @@ def temporal(year):
             ],
         ]
     )
-    ########################################################################
-    # SEND LIST TO CSV, HTML AND TERMINAL
-    # this is to be turned into a seperate function eventually
-    print("Working on it...")
-    gen_file = "temporal/temporal_" + str(this_year)
-    # print to terminal
-    """for row in cycle:
-        try:
-            if len(row[0]) >= 19:
-                feast_formatted = row[0][0:18] + "…"
-            else:
-                feast_formatted = row[0] + "." * (19 - len(row[0]))
-            print(
-                feast_formatted
-                + "\t"
-                + row[1]
-                + "\t"
-                + str(row[3].strftime("%a"))
-                + "\t"
-                + str(row[3].strftime("%x"))
-            )
-        except TypeError:
-            pass """
-    # print to dictionary file
-    with open(gen_file + ".py", "w") as f:
-        f.write("temporal = {")
-        keylist = ["feast", "rank", "target"]
-        memory = []
-        for row in cycle:
-            temporal_event = row[-1].strftime("%m/%d")
-            if temporal_event in memory:
-                temporal_event += "."
-            memory.append(temporal_event)
-            mini_dict = str(dict(zip(keylist, [row[0], row[1], re.sub("datetime.", r"", str(row[2]))])))
-            f.write(str("\n'" + temporal_event + "'" + ": " + mini_dict + ","))
-        f.write("}")
-    f.close()
-    #TODO: eliminate all the dotted dates
-    #! we only need to have one year at a time, that will clean up the imports
-    from temporal.temporal_2021 import temporal
-    i = 0
-    for item in sorted(temporal):
-        try: 
-            dup = sorted(temporal)[i+1]
-            if dup[0:5] == item and len(dup) == 6:
-                print(sorted(temporal)[i+1] + ' is a duplicate!')
-                occur(temporal[item]['rank'][1], temporal[dup]['rank'][1])
-            i += 1
-        except IndexError:
-            print("\nWarning! Breaking after " + str(i) + " iterations.")
-            break
-    print("\nFile written.")
+    
+    def dict_clean(dict):
+        mdl = importlib.import_module('temporal.temporal_' + str(dict))
+        i = 0
+        dic = mdl.temporal
+        x = sorted(dic)
+        for second in x:
+            try: 
+                first = x[i+1]
+                if first[0:5] == second and len(first) == 6:
+                    #todo add a "nobility meter" to the feasts
+                    ranker = occur(dic[first]['rank'][0], dic[second]['rank'][1])
+                    if ranker == 1:
+                        # office of the first
+                        dic.update({first.strip('.'): dic[first]})
+                        del dic[second], dic[first]
+                    elif ranker == 2:
+                        # office of the second
+                        dic.update({first.strip('.'): dic[second]})
+                        del dic[second], dic[first]
+                    elif ranker == 3:
+                        # commemoration of the second
+                        dic[second].update({'feast': dic[first]['feast'], 'rank': dic[first]['rank'], 'target': dic[first]['target'], 'com1': dic[second]['feast']})
+                        del dic[first]
+                    elif ranker == 4:
+                        # commemoration of the first
+                        dic.update({first.strip('.'): {'feast': dic[second]['feast'], 'rank': dic[second]['rank'], 'target': dic[second]['target'], 'com1': dic[second]['feast']}})
+                        del dic[first]
+                    elif ranker == 5:
+                        # translation of the second
+                        dic.update({'trans' + second.strip('.'): dic[second]})
+                        del dic[second]
+                    elif ranker == 6:
+                        # translation of the first
+                        dic.update({'trans_' + first.strip('.'): dic[first]})
+                        del dic[first]
+                    elif ranker == 7:
+                        # office of more noble, commemoration of the less noble
+                        continue
+                    elif ranker == 8:
+                        # office of the more noble, translation of the less noble
+                        continue                        
+                    else: pass
+                else: pass
+                i += 1
+            except IndexError:
+                break
+        gen_file = "temporal/temporal_" + str(dict)
+        with open(gen_file + ".py", "a") as f:
+            f.truncate(0)
+            i = 0
+            for line in sorted(dic):
+                if i == 0: f.write('temporal = {\n\'' + line + '\' : ' + str(dic[line]) + ',\n')
+                else: f.write('\'' + line + '\' : ' + str(dic[line]) + ',\n')
+                i += 1
+            f.write('}')
+            f.close()
+
+    def make_dict(year):
+        gen_file = "temporal/temporal_" + str(year)
+        with open(gen_file + ".py", "w") as f:
+            f.write("temporal = {")
+            keylist = ["feast", "rank", "target"]
+            memory = []
+            for row in cycle:
+                temporal_event = row[-1].strftime("%m/%d")
+                if temporal_event in memory:
+                    temporal_event += "."
+                memory.append(temporal_event)
+                mini_dict = str(dict(zip(keylist, [row[0], row[1], re.sub("datetime.", r"", str(row[2]))])))
+                f.write(str("\n'" + temporal_event + "'" + ": " + mini_dict + ","))
+            f.write("}")
+        f.close()
+        dict_clean(year)
+
+    make_dict(2021)
 
 def app():
-    temporal(2021)
-    """ user1 = ""
-    user2 = ""
-    while user1 != "exit":
-        user1 = input('\nEnter "exit" to quit\nEnter 4-digit year: ')
-        if user1 == "exit":
-            break
-        user2 = input(
-            '\nYou can request a range. Press "ENTER" to skip.\nEnter 4-digit year for the end of the range: '
-        )
-        if user2 == "":
-            try:
-                temporal(user1)
-                stitch.stitch(user1)
-            except ValueError:
-                pass
-        else:
-            try:
-                for x in range(int(user1), int(user2) + 1):
-                    temporal(x)
-                    stitch.stitch(x)
-            except ValueError:
-                pass """
-
+    build_temporal(2021)
 
 app()
