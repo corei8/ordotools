@@ -7,7 +7,7 @@ ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XI
           "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", ]
 
 
-def easter(year):
+def easter(year: int):
     firstDigit, Remain19 = year // 100, year % 19
     # // Remain19 = year % 19
     temp = (firstDigit - 15) // 2 + 202 - 11 * Remain19
@@ -65,7 +65,7 @@ def weekday(date: int):
     return date.strftime("%a")
 
 
-def findsunday(date):
+def findsunday(date):  # this can be better handled with %w
     if date.strftime("%a") == "Mon":
         x = 1
     if date.strftime("%a") == "Tue":
@@ -326,14 +326,14 @@ def dict_clean_2(direct, dict):
         dict   (dictionary): year of the calendar to clean
     """
     mdl = importlib.import_module(direct + str(dict))
-    i = 0
+    # // i = 0
     try:
         dic = mdl.temporal
     except AttributeError:
         dic = mdl.calen
     x = sorted(dic)
     first_ = ''
-    for second_ in x:
+    for i, second_ in enumerate(x):
         gtg = True
         try:
             first_ = x[i+1]  # see if a dotted date exists
@@ -342,40 +342,40 @@ def dict_clean_2(direct, dict):
         if first_.strip('.') == second_ and len(first_) == 6:
             print('\nConflicting feast: ' + second_)
             if dic[second_]['rank'][0] > dic[first_]['rank'][0]:
-                first = first_  # higher feast
-                second = second_
-                print('\trank of the first: ' + str(dic[first]['rank'][0]))
-                print('\trank of the second: ' + str(dic[second]['rank'][0]))
+                first, second = first_, second_
+                print(
+                    '\tranks: ' + str(dic[first]['rank'][0]) +
+                    ' vs ' + str(dic[second]['rank'][0])
+                )
             elif dic[second_]['rank'][0] == dic[first_]['rank'][0]:
-                print('We have a nobility problem with ' +
-                      second_ + ' and ' + first_)
-                #! just for testing:
-                gtg = False
-                pass  # add the nobility meter in here
+                # ! nobility
+                print(
+                    '\tranks: ' + str(dic[first]['rank'][0]) +
+                    ' vs ' + str(dic[second]['rank'][0])
+                )
+                gtg = False  # for testing only
+                pass
             else:
-                first = second_  # higher feast
-                second = first_
-                print('\trank of the first: ' + str(dic[first]['rank'][0]))
-                print('\trank of the second: ' + str(dic[second]['rank'][0]))
+                first, second = second_, first_
+                print(
+                    '\tranks: ' + str(dic[first]['rank'][0]) +
+                    ' vs ' + str(dic[second]['rank'][0])
+                )                
             if gtg == True:
                 if dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] <= 10:
                     # there is no commemoration, but a tranlsation
-                    print('translation of ' + second)
                     dic.update({first.strip('.'): dic[first]})
                     dic.update({'trans ' + second.strip('.'): dic[second]})
                 elif dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] > 10:
                     # no commemoration because of solemnity
-                    print('no commemoration of ' + second)
                     dic.update(
                         {first.strip('.'): dic[first]})
                 elif dic[first]['rank'][0] > 4 and dic[second]['rank'][0] >= 6:
                     # there is a commemoration
-                    print('commemoration of ' + second)
                     dic[first].update({'com1': dic[second]['feast']})
                     dic.update({first.strip('.'): dic[first]})
                 else:
                     # no commemoration because of lack of solemnity
-                    print('no commemoration of ' + second)
                     dic.update(
                         {first.strip('.'): dic[first]})
                 # get rid of the dotted dates
@@ -387,18 +387,18 @@ def dict_clean_2(direct, dict):
                 pass
         else:
             pass
-        i += 1
-    gen_file = re.sub(r"\.", r'/', direct) + str(dict)
-    with open(gen_file + ".py", "a") as f:
+        # // i += 1
+    # // gen_file = re.sub(r"\.", r'/', direct) + str(dict)
+    with open(re.sub(r"\.", r'/', direct) + str(dict) + ".py", "a") as f:
         f.truncate(0)
         i = 0
-        for line in sorted(dic):
+        for i, line in enumerate(sorted(dic)):
             if i == 0:
-                f.write(re.sub(r"/(temporal|calendar)", '', gen_file) +
+                f.write(re.sub(r"/(temporal|calendar)", '', re.sub(r"\.", r'/', direct) + str(dict)) +
                         ' = {\n\'' + line + '\' : ' + str(dic[line]) + ',\n')
             else:
                 f.write('\'' + line + '\' : ' + str(dic[line]) + ',\n')
-            i += 1
+            # // i += 1
         f.write('}')
         f.close()
 
@@ -433,33 +433,40 @@ def stitch(t, s):
     return 0
 
 
-def latex_temporal_test(year):
+def latex_full_cal_test(year):
     mdl = importlib.import_module(
-        'temporal.temporal_' + str(year)).temporal
+        'calen.calendar_' + str(year)).calen
     mdldates = sorted(mdl)
-    with open("output/latex/temporal_" + str(year) + ".tex", "a") as f:
+    with open("output/latex/calendar_" + str(year) + ".tex", "a") as f:
         f.truncate(0)
         f.write(
             r"""
 % !TEX program = lualatex
 \documentclass{article}
-\title{Ordo -- Temporal Cycle -- 2022}
+\title{Ordo -- Full Calendar -- 2022}
 \usepackage{longtable}
 \usepackage{geometry}
 % LETTERPAPER:
-\geometry{paperwidth=8.5in, paperheight=11in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
+\geometry{paperheight=8.5in, paperwidth=11in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
+\usepackage[table]{xcolor}
+\definecolor{lightblue}{rgb}{0.93,0.95,1.0}
 \begin{document}
-\maketitle
-{\centering Ignore dates with periods after the day.}
-\begin{longtable}{ll}
+%\maketitle
+\textit{\centering\footnotesize Ignore dates with periods after the day.}
+\rowcolors{1}{}{lightblue}
+\begin{longtable}{ l l l }
+\hline
+\textsc{Date} & \textsc{Rank} & \textsc{Feast} \\
+\hline
+\endhead
 """
         )
         for x in mdldates:
-            f.write("" + x + ', ' + datetime.strptime(x.strip('.') + '/' + str(year), '%m/%d/%Y').strftime('%a') +
-                    " & " + mdl[x]['feast'] + "\\\\\n")
+            f.write("" + x + ', ' + datetime.strptime(x.strip('.') + '/' + str(year), '%m/%d/%Y').strftime('%a') + " & " + mdl[x]['rank'][-1] +
+                    " & " + re.sub(r'&', '\&', mdl[x]['feast']) + "\\\\\n")
             try:
-                f.write("" + '' + " & " + 'Commemorate: ' +
-                        mdl[x]['com1'] + "\\\\\n")
+                f.write("" + '' + " & & " + 'Commemorate: ' +
+                        re.sub(r'&', '\&', mdl[x]['com1']) + "\\\\\n")
             except KeyError:
                 pass
         f.write("\end{longtable}\n\end{document}")

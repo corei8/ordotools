@@ -9,7 +9,7 @@ from functions import *
 
 def build_temporal(year):
     year_prev, year = int(year) - 1, int(year)
-    this_year = year
+    this_year = year  # ? why is this needed?
     cycle = []
     feria = [
         "Feria II",
@@ -936,6 +936,7 @@ def build_temporal(year):
     ]
     )
     if 5 <= int(christmas.strftime("%u")) <= 7 or christmas.strftime("%u") == 1:
+        # todo this can be simplified
         cycle.append(
             [  # ! mass, vespers
                 "Dominica Infra Octavam Nativitatis reposita",
@@ -1050,9 +1051,9 @@ def build_temporal(year):
 
 def app(year: int, diocese: str):
     build_temporal(year)
-    latex_temporal_test(year)
     stitch(year, diocese)
-    #dict_clean("calen.calendar_", year)
+    dict_clean_2("calen.calendar_", year)
+    latex_full_cal_test(year)
 
 
 app(year=2022, diocese="roman")
