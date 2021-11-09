@@ -1,16 +1,17 @@
 import re
 from datetime import datetime, timedelta
-# from functions import stitch, latex_temporal_test, dict_clean_2
 from functions import *
 
 # TODO: find the letter of the Martyrology
 # TODO: special antiphons for the all saturdays, maybe integrate them?
+# TODO: add roman dates in addition to the Gregorian dates
 
 
 def build_temporal(year):
     year_prev, year = int(year) - 1, int(year)
     this_year = year  # ? why is this needed?
     cycle = []
+    # ? maybe get rid of this ?
     feria = [
         "Feria II",
         "Feria III",
@@ -85,21 +86,18 @@ def build_temporal(year):
             ]
         )
     # '*GESIMAS'
-    gesimas = ["Septuagesima", "Sexagesima", "Quinquagesima"]
-    i = 1
-    for x in gesimas:
+    for i, x in enumerate(("Septuagesima", "Sexagesima", "Quinquagesima")):
         if x == "Septuagesima":
-            septuadate = easter(year) - week(10 - i)
+            septuadate = easter(year) - week(9 - i)
         cycle.append(
             [  # ! mass, vespers
                 "Dominica in " + x,
                 [8, 'sd II cl'],
                 # // [5, 1, 0, 0, False, "sd II cl"],
                 {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                easter(year) - week(10 - i),
+                easter(year) - week(9 - i),
             ]
         )
-        i += 1
     # EPIPHANY
     epiphany = day(this_year, 1, 6)
     epiph_sundays = ["I", "II", "III", "IV", "V", "VI"]
@@ -134,28 +132,27 @@ def build_temporal(year):
         first_epiph = epiphany + week(1)
     else:
         first_epiph = epiphany - findsunday(epiphany) + week(1)
-    epiph_oct_days = ["II", "III", "IV", "V", "VI", "VII"]
-    ep_oct_days_counter = 1
-    for x in epiph_oct_days:
-        if weekday(epiphany + indays(ep_oct_days_counter)) != "Sun":
+    # we have to remember the number of Sundays.
+    for i, x in enumerate(ROMANS[0:6]):
+        if weekday(epiphany + indays(i+1)) != "Sun":
             cycle.append(
                 [  # ! mass, vespers
                     "Feria "
-                    + epiph_oct_days[ep_oct_days_counter - 1]
+                    + ROMANS[i]
                     + " infra Oct. Epiphaniæ",
                     [9, 'feria'],
                     # // [False, 11, 8, 7, False, "s"],
                     {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                    epiphany + indays(ep_oct_days_counter),
+                    epiphany + indays(i+1),
                 ],
             )
         else:
             pass
-        ep_oct_days_counter += 1
     epiph_counter, o = first_epiph, 0
     while epiph_counter != septuadate:
-        if epiph_sundays[o] == "I":
+        if ROMANS[o] == "I":  # ! but we have excluded this ever being "I"?!
             if epiph_counter == day(this_year, 1, 13):
+                # ! use extend()
                 cycle.append(  # ? is this necessary?
                     [  # ! vespers
                         "In Octava Epiphaniæ",
@@ -182,7 +179,7 @@ def build_temporal(year):
                 cycle.append(
                     [  # ! mass, vespers
                         "S. Familiæ Jesu, Mariæ, Joseph; Dominica " +
-                        epiph_sundays[o] + " infra Oct. Epiphaniæ",
+                        ROMANS[o] + " infra Oct. Epiphaniæ",
                         [11, 'dm'],
                         # // [3, 8, 5, 4, 80, "dm"],
                         {'int': 'Missa', 'glo': True,
@@ -193,7 +190,7 @@ def build_temporal(year):
         else:
             cycle.append(
                 [  # ! mass, vespers
-                    "Dominica " + epiph_sundays[o] + " post Epiphaniam",
+                    "Dominica " + ROMANS[o] + " post Epiphaniam",
                     [12, 'sd'],
                     # // [5, 2, 0, 0, False, "sd"],
                     {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
@@ -203,15 +200,8 @@ def build_temporal(year):
         o += 1
         epiph_counter += week(1)
     # LENT
-    quads = [
-        "I in Quadragesima",
-        "II in Quadragesima",
-        "III in Quadragesima",
-        "IV in Quadragesima (Lætare)",
-        "de Passione",
-        "in Palmis",
-    ]
-    for x in quads:
+    #! see if enumerate is possible here.
+    for x in ["I in Quadragesima", "II in Quadragesima", "III in Quadragesima", "IV in Quadragesima (Lætare)", "de Passione", "in Palmis", ]:
         if x == "I in Quadragesima":
             # ! use extend
             cycle.append(
@@ -259,8 +249,8 @@ def build_temporal(year):
                 easter(year) - week(10 - i),
             ]
         )
-        j = 1
-        for y in feria:
+        # // j = 1
+        for j, y in enumerate(feria):
             if x == "de Passione" and y == "Feria VI":
                 cycle.append(
                     [  # ! mass, vespers
@@ -269,7 +259,7 @@ def build_temporal(year):
                         # // [3, 8, 5, 4, 70, 'dm'],
                         {'int': 'Missa', 'glo': True,
                             'cre': True, 'pre': 'Communis'},
-                        easter(year) - week(10 - i) + indays(j),
+                        easter(year) - week(10 - i) + indays(j+1),
                     ]
                 )
             elif x == "I in Quadragesima" and y == "Feria IV":
@@ -280,7 +270,7 @@ def build_temporal(year):
                         # // [False, 14],
                         {'int': 'Missa', 'glo': True,
                             'cre': True, 'pre': 'Communis'},
-                        easter(year) - week(10 - i) + indays(j),
+                        easter(year) - week(10 - i) + indays(j+1),
                     ]
                 )
             elif x == "I in Quadragesima" and y == "Feria VI":
@@ -291,7 +281,7 @@ def build_temporal(year):
                         # // [False, 14],
                         {'int': 'Missa', 'glo': True,
                             'cre': True, 'pre': 'Communis'},
-                        easter(year) - week(10 - i) + indays(j),
+                        easter(year) - week(10 - i) + indays(j+1),
                     ]
                 )
             elif x == "I in Quadragesima" and y == "Sabbatum":
@@ -302,7 +292,7 @@ def build_temporal(year):
                         # // [False, 14],
                         {'int': 'Missa', 'glo': True,
                             'cre': True, 'pre': 'Communis'},
-                        easter(year) - week(10 - i) + indays(j),
+                        easter(year) - week(10 - i) + indays(j+1),
                     ]
                 )
             elif x == "in Palmis" and y == "Feria V":
@@ -313,7 +303,7 @@ def build_temporal(year):
                         # // [False, 3],
                         {'int': 'Missa', 'glo': True,
                             'cre': True, 'pre': 'Communis'},
-                        easter(year) - week(10 - i) + indays(j),
+                        easter(year) - week(10 - i) + indays(j+1),
                     ]
                 )
             elif x == "in Palmis" and y == "Feria VI":
@@ -324,7 +314,7 @@ def build_temporal(year):
                         # // [False, 4],
                         {'int': 'Missa', 'glo': True,
                             'cre': True, 'pre': 'Communis'},
-                        easter(year) - week(10 - i) + indays(j),
+                        easter(year) - week(10 - i) + indays(j+1),
                     ]
                 )
             elif x == "in Palmis" and y == "Sabbatum":
@@ -335,7 +325,7 @@ def build_temporal(year):
                         # // [False, 4],
                         {'int': 'Missa', 'glo': True,
                             'cre': True, 'pre': 'Communis'},
-                        easter(year) - week(10 - i) + indays(j),
+                        easter(year) - week(10 - i) + indays(j+1),
                     ]
                 )
             elif x == "in Palmis":
@@ -348,7 +338,7 @@ def build_temporal(year):
                             'Nos autem' if y == 'Feria III' else 'In nomine Jesu'), 'glo': False, 'cre': False, 'pre': 'de Cruce'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        easter(year) - week(10 - i) + indays(j),
+                        easter(year) - week(10 - i) + indays(j+1),
                     ]
                 )
             else:
@@ -372,22 +362,20 @@ def build_temporal(year):
                             'cre': False, 'pre': 'de Quadragesima' if x != 'de Passione' else 'de Cruce'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        easter(year) - week(10 - i) + indays(j),
+                        easter(year) - week(10 - i) + indays(j+1),
                     ]
                 )
-            j += 1
-        i += 1
-    cycle.append(
-        [  # ! mass, vespers
-            "Dominica Resurrectionis",
-            [1, 'd I cl cum Oct privil I ord'],
-            # // [False, 0],
-            {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
-            easter(year)
-        ]
-    )  # ? should above be connected to extend() below?
+            # // j += 1
+        i += 1  # we need i here to count Lent correctly -- try enumerate()
     cycle.extend(
         [
+            [  # ! mass, vespers
+                "Dominica Resurrectionis",
+                [1, 'd I cl cum Oct privil I ord'],
+                # // [False, 0],
+                {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
+                easter(year)
+            ],
             [  # ! mass, vespers
                 "Feria II infra Oct. Paschæ",
                 [2, 'd I cl'],
@@ -441,8 +429,8 @@ def build_temporal(year):
         "Dominica V post Pascha",
         "Dominica infra Octavam Ascensionis",
     ]
-    i = 1
-    for x in post_pent:
+    # // i = 1
+    for i, x in enumerate(post_pent):
         if x == "Dominica II post Pascha":
             cycle.extend(
                 [
@@ -529,7 +517,7 @@ def build_temporal(year):
             )
             ascension_day = easter(year) + week(i) + indays(5)
         if x == "Dominica infra Octavam Ascensionis":
-            j = 0
+            j = 0  # ! FIXME
             for y in ROMANS[1:6]:
                 # pass if the day w/in the octave is a sunday
                 if (ascension_day + indays(j + 1)) == (easter(year) + week(i)):
@@ -577,7 +565,7 @@ def build_temporal(year):
                     easter(year) + week(i)
                 ]
             )
-        i += 1
+        # // i += 1
     pent_date = easter(year) + week(i)
     cycle.extend(
         [
@@ -681,8 +669,8 @@ def build_temporal(year):
     for x in prelim_pents:
         if x[0] == "Dominica infra Oct. Ssmi Corporis Christi (Dominica II post Pentecosten)":
             corpus_christi = easter(year) + week(i) - indays(3)
-            j = 0
-            for y in ROMANS[1:7]:
+            # // j = 0
+            for j, y in enumerate(ROMANS[1:7]):
                 if (corpus_christi + indays(j + 1)) == (easter(year) + week(i)):
                     pass
                 else:
@@ -699,7 +687,7 @@ def build_temporal(year):
                             corpus_christi + indays(j + 1),
                         ]
                     )
-                j += 1
+                # // j += 1
             cycle.append(
                 [  # ! mass, vespers
                     "Sanctissimi Corporis Christi",
@@ -720,8 +708,8 @@ def build_temporal(year):
             )
         if x[0] == "Dominica infra Oct. Ssmi Cordis DNJC (Dominica III post Pentecosten)":
             ssmi_cordis = easter(year) + week(i) - indays(2)
-            j = 0
-            for y in ROMANS[1:7]:
+            # // j = 0  # ! refactor
+            for j, y in enumerate(ROMANS[1:7]):
                 if (ssmi_cordis + indays(j + 1)) == (easter(year) + week(i)):
                     pass
                 else:
@@ -739,28 +727,30 @@ def build_temporal(year):
                             ssmi_cordis + indays(j + 1),
                         ]
                     )
-                j += 1
-            cycle.append(
-                [  # ! mass, vespers
-                    "Sacratissimi Cordis Jesu",
-                    [2, 'd I cl cum Oct privil 3 ord'],
-                    # //[False, 4],
-                    {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                    ssmi_cordis,
-                ]
-            )
-            cycle.append(
-                [  # ! mass, vespers
-                    "Octava Sacratissimi Cordis Jesu",
-                    [13, 'dm'],
-                    # //[False, 8],
-                    {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                    ssmi_cordis + week(1),
+                # // j += 1
+            cycle.extend(
+                [
+                    [  # ! mass, vespers
+                        "Sacratissimi Cordis Jesu",
+                        [2, 'd I cl cum Oct privil 3 ord'],
+                        # //[False, 4],
+                        {'int': 'Missa', 'glo': True,
+                            'cre': True, 'pre': 'Communis'},
+                        ssmi_cordis,
+                    ],
+                    [  # ! mass, vespers
+                        "Octava Sacratissimi Cordis Jesu",
+                        [13, 'dm'],
+                        # //[False, 8],
+                        {'int': 'Missa', 'glo': True,
+                            'cre': True, 'pre': 'Communis'},
+                        ssmi_cordis + week(1),
+                    ],
                 ]
             )
         cycle.append([x[0], x[1], x[2], easter(year) + week(i)])
         i += 1
-    sept_counter = 0
+    sept_counter = 0  # ? is enumerate possible here?
     for x in ROMANS[3:-1]:
         earliest_first_advent = str(year) + "-12-03"
         if easter(year) + week(i) >= datetime.strptime(
@@ -779,7 +769,7 @@ def build_temporal(year):
             )
             if (easter(year) + week(i)).strftime("%B") == "September":
                 if int((easter(year) + week(i)).strftime("%d")) <= 3:
-                    sept_counter += 0
+                    sept_counter += 0  # ! can't we just use pass?
                 else:
                     sept_counter += 1
             if sept_counter == 2:
@@ -838,8 +828,8 @@ def build_temporal(year):
         "Dominica II Adventus",
         "Dominica I Adventus",
     ]
-    i = 0
-    for x in advents:
+    # // i = 0
+    for i, x in enumerate(advents):
         if x == "Dominica III Adventus":
             cycle.extend(
                 [
@@ -909,7 +899,7 @@ def build_temporal(year):
                     lastadvent - week(i)
                 ]
             )
-        i += 1
+       # // i += 1
     # CHRISTMAS
     cycle.extend([
         [  # ! vespers
