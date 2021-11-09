@@ -1035,14 +1035,14 @@ def build_temporal(year):
                 )
             f.write("}")
         f.close()
-        dict_clean_2("temporal.temporal_", year)
+        dict_clean("temporal.temporal_", year)
     make_dict(year)
 
 
 def app(year: int, diocese: str):
     build_temporal(year)
     stitch(year, diocese)
-    dict_clean_2("calen.calendar_", year)
+    dict_clean("calen.calendar_", year)
     latex_full_cal_test(year)
 
 
