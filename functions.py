@@ -65,7 +65,7 @@ def weekday(date: int):
     return date.strftime("%a")
 
 
-def findsunday(date):  # this can be better handled with %w
+def findsunday(date):  # this can be better handled with %w -- no conversion necessary
     if date.strftime("%a") == "Mon":
         x = 1
     if date.strftime("%a") == "Tue":
@@ -322,11 +322,10 @@ def dict_clean_2(direct, dict):
     overwrites the calendar file with the resulting dictionary.
 
     Args:
-        direct (integer)  : the relative path to the dictionary, in format calendar/calendar_
+        direct (integer)   : the relative path to the dictionary, in format calendar/calendar_
         dict   (dictionary): year of the calendar to clean
     """
     mdl = importlib.import_module(direct + str(dict))
-    # // i = 0
     try:
         dic = mdl.temporal
     except AttributeError:
@@ -338,47 +337,27 @@ def dict_clean_2(direct, dict):
         try:
             first_ = x[i+1]  # see if a dotted date exists
         except IndexError:
-            break
+            break            # find a better way to fix this
         if first_.strip('.') == second_ and len(first_) == 6:
-            print('\nConflicting feast: ' + second_)
             if dic[second_]['rank'][0] > dic[first_]['rank'][0]:
                 first, second = first_, second_
-                print(
-                    '\tranks: ' + str(dic[first]['rank'][0]) +
-                    ' vs ' + str(dic[second]['rank'][0])
-                )
             elif dic[second_]['rank'][0] == dic[first_]['rank'][0]:
                 # ! nobility
-                print(
-                    '\tranks: ' + str(dic[first]['rank'][0]) +
-                    ' vs ' + str(dic[second]['rank'][0])
-                )
                 gtg = False  # for testing only
                 pass
             else:
                 first, second = second_, first_
-                print(
-                    '\tranks: ' + str(dic[first]['rank'][0]) +
-                    ' vs ' + str(dic[second]['rank'][0])
-                )                
             if gtg == True:
-                if dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] <= 10:
-                    # there is no commemoration, but a tranlsation
+                if dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] <= 10:   # tranlsation
                     dic.update({first.strip('.'): dic[first]})
                     dic.update({'trans ' + second.strip('.'): dic[second]})
-                elif dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] > 10:
-                    # no commemoration because of solemnity
-                    dic.update(
-                        {first.strip('.'): dic[first]})
-                elif dic[first]['rank'][0] > 4 and dic[second]['rank'][0] >= 6:
-                    # there is a commemoration
+                elif dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] > 10:  # no commemoration
+                    dic.update({first.strip('.'): dic[first]})
+                elif dic[first]['rank'][0] > 4 and dic[second]['rank'][0] >= 6:   # commemoration
                     dic[first].update({'com1': dic[second]['feast']})
                     dic.update({first.strip('.'): dic[first]})
-                else:
-                    # no commemoration because of lack of solemnity
-                    dic.update(
-                        {first.strip('.'): dic[first]})
-                # get rid of the dotted dates
+                else:                                                             # no commemoration
+                    dic.update({first.strip('.'): dic[first]})
                 if len(first) == 6:
                     dic.pop(first)
                 if len(second) == 6:
@@ -387,20 +366,17 @@ def dict_clean_2(direct, dict):
                 pass
         else:
             pass
-        # // i += 1
-    # // gen_file = re.sub(r"\.", r'/', direct) + str(dict)
     with open(re.sub(r"\.", r'/', direct) + str(dict) + ".py", "a") as f:
         f.truncate(0)
-        i = 0
         for i, line in enumerate(sorted(dic)):
             if i == 0:
                 f.write(re.sub(r"/(temporal|calendar)", '', re.sub(r"\.", r'/', direct) + str(dict)) +
                         ' = {\n\'' + line + '\' : ' + str(dic[line]) + ',\n')
             else:
                 f.write('\'' + line + '\' : ' + str(dic[line]) + ',\n')
-            # // i += 1
         f.write('}')
         f.close()
+        return 0
 
 
 def stitch(t, s):
@@ -410,26 +386,25 @@ def stitch(t, s):
     mdlt, mdls = sorted(mdltemporal), sorted(mdlsanctoral)
     calen = {}
     for feast in mdls:
-        if feast in mdlt:
+        calen.update(
+            {feast + '.' if feast in mdlt else feast: mdlsanctoral[feast]}
+            )
+        """ if feast in mdlt:
             calen.update({feast+'.': mdlsanctoral[feast]})
         else:
-            calen.update({feast: mdlsanctoral[feast]})
+            calen.update({feast: mdlsanctoral[feast]}) """
     for feast in mdlt:
         calen.update({feast: mdltemporal[feast]})
     with open("calen/calendar_" + str(t) + ".py", "w") as f:
         f.truncate(0)
-        i = 0
-        for line in sorted(calen):
+        for i, line in enumerate(sorted(calen)):
             if i == 0:
                 f.write('calen = {\n\'' + line +
                         '\' : ' + str(calen[line]) + ',\n')
             else:
                 f.write('\'' + line + '\' : ' + str(calen[line]) + ',\n')
-            i += 1
         f.write('}')
     f.close()
-    print('calendar stitched and written.')
-
     return 0
 
 
@@ -462,12 +437,16 @@ def latex_full_cal_test(year):
 """
         )
         for x in mdldates:
-            f.write("" + x + ', ' + datetime.strptime(x.strip('.') + '/' + str(year), '%m/%d/%Y').strftime('%a') + " & " + mdl[x]['rank'][-1] +
-                    " & " + re.sub(r'&', '\&', mdl[x]['feast']) + "\\\\\n")
+            if len(x) <= 6:
+                f.write("" + x + ', ' + datetime.strptime(x.strip('.') + '/' + str(year), '%m/%d/%Y').strftime('%a') + " & " + mdl[x]['rank'][-1] +
+                        " & " + re.sub(r'&', '\&', mdl[x]['feast']) + "\\\\\n")
+            else:
+                f.write("" + x + ', ' + datetime.strptime(x.strip('trans .') + '/' + str(year), '%m/%d/%Y').strftime('%a') + " & " + mdl[x]['rank'][-1] +
+                        " & " + re.sub(r'&', '\&', mdl[x]['feast']) + "\\\\\n")
             try:
                 f.write("" + '' + " & & " + 'Commemorate: ' +
                         re.sub(r'&', '\&', mdl[x]['com1']) + "\\\\\n")
-            except KeyError:
+            except KeyError: # ! find a better way to fix this one
                 pass
         f.write("\end{longtable}\n\end{document}")
     f.close()

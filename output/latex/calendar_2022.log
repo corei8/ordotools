@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  4 NOV 2021 16:08
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  6 NOV 2021 06:56
  restricted system commands enabled.
 **calendar_2022
 (./calendar_2022.tex
@@ -231,11 +231,11 @@ LaTeX Font Info:    ... okay on input line 11.
 
 Here is how much of LuaTeX's memory you used:
  2230 strings out of 478095
- 244184,383344 words of node,token memory allocated
+ 244187,383344 words of node,token memory allocated
  436 words of node memory still in use:
    3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 54 glue_spec,
  4 attribute_list, 1 write nodes
-   avail lists: 1:1,2:4455,3:25,4:1141,5:2139,6:2,7:23781,9:3632,11:1224
+   avail lists: 2:4475,3:25,4:1141,5:2141,6:3,7:23875,8:1,9:3648,11:1204
  22613 multiletter control sequences out of 65536+600000
  26 fonts using 3041935 bytes
  57i,5n,63p,229b,211s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -243,7 +243,7 @@ Here is how much of LuaTeX's memory you used:
 tf></usr/local/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmromancaps10-re
 gular.otf></usr/local/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmroman8-
 italic.otf>
-Output written on calendar_2022.pdf (6 pages, 25866 bytes).
+Output written on calendar_2022.pdf (6 pages, 26148 bytes).
 
 PDF statistics: 44 PDF objects out of 1000 (max. 8388607)
  26 compressed objects within 1 object stream

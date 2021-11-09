@@ -123,3 +123,7 @@ Day of rest? Octave?
 
 ## Quality of the Proper
 
+How to remember the General Councils?
+Ni Co E Chal Co Co
+Ni Co La La La La 
+Lu Lu Vi Co Flo La Tri Va
