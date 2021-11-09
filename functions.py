@@ -1,7 +1,7 @@
 import importlib
 from datetime import timedelta, datetime
 import re
-from subprocess import run
+import subprocess
 
 ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV",
           "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", ]
@@ -9,7 +9,6 @@ ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XI
 
 def easter(year: int):
     firstDigit, Remain19 = year // 100, year % 19
-    # // Remain19 = year % 19
     temp = (firstDigit - 15) // 2 + 202 - 11 * Remain19
     if firstDigit > 26:
         temp = temp - 1
@@ -31,7 +30,6 @@ def easter(year: int):
     if temp == 28 and Remain19 > 10:
         tA = tA - 1
     tB, tC = (tA - 19) % 7, (40 - firstDigit) % 4
-    # // tC = (40 - firstDigit) % 4
     if tC == 3:
         tC = tC + 1
     if tC > 1:
@@ -65,7 +63,7 @@ def weekday(date: int):
     return date.strftime("%a")
 
 
-def findsunday(date):  # this can be better handled with %w -- no conversion necessary
+def findsunday(date):  # ! this can be better handled with %w -- no conversion necessary
     if date.strftime("%a") == "Mon":
         x = 1
     if date.strftime("%a") == "Tue":
@@ -207,121 +205,6 @@ def dict_clean(direct, dict):
     overwrites the calendar file with the resulting dictionary.
 
     Args:
-        direct (integer)  : the relative path to the dictionary, in format calendar/calendar_
-        dict   (dictionary): year of the calendar to clean
-    """
-    mdl = importlib.import_module(direct + str(dict))
-    i = 0
-    try:
-        dic = mdl.temporal
-    except AttributeError:
-        dic = mdl.calen
-    x = sorted(dic)
-    for second_ in x:
-        try:
-            first_ = x[i+1]
-        except IndexError:
-            print('\n-=+=- calendar sanitized -=+=-\n')
-            break
-        if first_[0:5] == second_ and len(first_) == 6:
-            print(second_)
-            # ranker = occur(dic[second]['rank'][1], dic[first]['rank'][0])
-            if dic[second_]['rank'][1] > dic[first_]['rank'][1]:
-                ranker = occur(dic[second_]['rank'][0], dic[first_]['rank'][1])
-                first = first_  # higher feast
-                second = second_
-            else:  # ! fixme!!
-                ranker = occur(dic[first_]['rank'][0], dic[second_]['rank'][1])
-                second = first_
-                first = second_  # higher feast
-            print('\trank of the first: ' + str(dic[first]['rank'][1]))
-            print('\trank of the second: ' + str(dic[second]['rank'][1]))
-            if ranker == 1:
-                # office of the first
-                print('rule ' + str(ranker) +
-                      ' : office of the first, nothing of the second')
-                dic.update({first.strip('.'): dic[first]})
-                del dic[second], dic[first]
-            elif ranker == 2:
-                # office of the second
-                print('rule : office of the second, nothing of the second')
-                dic.update({first.strip('.'): dic[second]})
-                del dic[second], dic[first]
-            elif ranker == 3:
-                # commemoration of the second
-                print('rule ' + str(ranker) +
-                      ' : office of the first, commemoration of the second')
-                dic[second].update(
-                    {
-                        'feast': dic[first]['feast'],
-                        'rank': dic[first]['rank'],
-                        'com1': dic[second]['feast']
-                    }
-                )  # 'target': dic[first]['target'],
-                del dic[first]
-            elif ranker == 4:
-                # commemoration of the first
-                print('rule ' + str(ranker) +
-                      ' : office of the second, commemoration of the first')
-                dic.update(
-                    {
-                        second.strip('.'): {
-                            'feast': dic[first]['feast'],
-                            'rank': dic[first]['rank'],
-                            'com1': dic[second]['feast']
-                        }
-                    }
-                )  # 'target': dic[second]['target'],
-                del dic[first]
-            elif ranker == 5:
-                # translation of the second
-                print('rule ' + str(ranker) +
-                      ' : office of the first, translation of the second')
-                dic.update({'trans' + second.strip('.'): dic[second]})
-                del dic[second]
-            elif ranker == 6:
-                # translation of the first
-                print('rule ' + str(ranker) +
-                      ' : office of the second, translation of the first')
-                dic.update({'trans_' + first.strip('.'): dic[first]})
-                del dic[first]
-            elif ranker == 7:
-                # office of more noble, commemoration of the less noble
-                print('rule ' + str(ranker) +
-                      ' : office of the more noble, commemoration of the less noble')
-                pass
-            elif ranker == 8:
-                # office of the more noble, translation of the less noble
-                print('rule ' + str(ranker) +
-                      ' : office of the more noble, translation of the less noble')
-                pass
-            else:
-                pass
-        else:
-            pass
-        i += 1
-        # except IndexError:
-        #    break
-    gen_file = re.sub(r"\.", r'/', direct) + str(dict)
-    with open(gen_file + ".py", "a") as f:
-        f.truncate(0)
-        i = 0
-        for line in sorted(dic):
-            if i == 0:
-                f.write(re.sub(r"/(temporal|calendar)", '', gen_file) +
-                        ' = {\n\'' + line + '\' : ' + str(dic[line]) + ',\n')
-            else:
-                f.write('\'' + line + '\' : ' + str(dic[line]) + ',\n')
-            i += 1
-        f.write('}')
-        f.close()
-
-
-def dict_clean_2(direct, dict):
-    """ Second generation of dict_clean(). Gets rid of all dates in calendar which are appended with a .,
-    overwrites the calendar file with the resulting dictionary.
-
-    Args:
         direct (integer)   : the relative path to the dictionary, in format calendar/calendar_
         dict   (dictionary): year of the calendar to clean
     """
@@ -384,11 +267,11 @@ def stitch(t, s):
         'temporal.temporal_' + str(t)).temporal
     mdlsanctoral = importlib.import_module('sanctoral.' + s).sanctoral
     mdlt, mdls = sorted(mdltemporal), sorted(mdlsanctoral)
-    calen = {}
+    calen = {}  # ! see if it is cheaper to make a dic and update it at the same time
     for feast in mdls:
         calen.update(
             {feast + '.' if feast in mdlt else feast: mdlsanctoral[feast]}
-            )
+        )
         """ if feast in mdlt:
             calen.update({feast+'.': mdlsanctoral[feast]})
         else:
@@ -409,6 +292,7 @@ def stitch(t, s):
 
 
 def latex_full_cal_test(year):
+    # ! make this calendar import work with a variable
     mdl = importlib.import_module(
         'calen.calendar_' + str(year)).calen
     mdldates = sorted(mdl)
@@ -446,11 +330,13 @@ def latex_full_cal_test(year):
             try:
                 f.write("" + '' + " & & " + 'Commemorate: ' +
                         re.sub(r'&', '\&', mdl[x]['com1']) + "\\\\\n")
-            except KeyError: # ! find a better way to fix this one
+            except KeyError:  # ! find a better way to fix this one
                 pass
         f.write("\end{longtable}\n\end{document}")
     f.close()
     # produce the pdf from the tex file:
-    # run('cd output/latex', shell=True)
-    # run('lualatex temporal_' + str(year) + '.tex', shell=True)
+    # ! why is this not finding the calendar???
+    """ subprocess.run('cd output/latex', shell=True)
+    print('Entering the target directory...')
+    subprocess.run('lualatex calendar_' + str(year) + '.tex', shell=True) """
     return 0
