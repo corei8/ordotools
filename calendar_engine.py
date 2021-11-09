@@ -1024,8 +1024,6 @@ def build_temporal(year):
                                 row[0],
                                 row[1],
                                 row[2],
-                                #re.sub("datetime.", r"", str(row[3]))
-                                # row[3],
                             ],
                         )
                     )

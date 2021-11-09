@@ -262,30 +262,26 @@ def dict_clean(direct, dict):
         return 0
 
 
-def stitch(t, s):
+def stitch(t: int, s: str):
     mdltemporal = importlib.import_module(
         'temporal.temporal_' + str(t)).temporal
     mdlsanctoral = importlib.import_module('sanctoral.' + s).sanctoral
     mdlt, mdls = sorted(mdltemporal), sorted(mdlsanctoral)
     calen = {}  # ! see if it is cheaper to make a dic and update it at the same time
+    # ! handle leap year
     for feast in mdls:
         calen.update(
             {feast + '.' if feast in mdlt else feast: mdlsanctoral[feast]}
         )
-        """ if feast in mdlt:
-            calen.update({feast+'.': mdlsanctoral[feast]})
-        else:
-            calen.update({feast: mdlsanctoral[feast]}) """
     for feast in mdlt:
         calen.update({feast: mdltemporal[feast]})
     with open("calen/calendar_" + str(t) + ".py", "w") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(calen)):
             if i == 0:
-                f.write('calen = {\n\'' + line +
-                        '\' : ' + str(calen[line]) + ',\n')
+                f.write('calen = {\n\''+line+'\': '+str(calen[line])+',\n')
             else:
-                f.write('\'' + line + '\' : ' + str(calen[line]) + ',\n')
+                f.write('\''+line+'\':'+str(calen[line])+',\n')
         f.write('}')
     f.close()
     return 0
@@ -335,8 +331,7 @@ def latex_full_cal_test(year):
         f.write("\end{longtable}\n\end{document}")
     f.close()
     # produce the pdf from the tex file:
-    # ! why is this not finding the calendar???
-    """ subprocess.run('cd output/latex', shell=True)
-    print('Entering the target directory...')
-    subprocess.run('lualatex calendar_' + str(year) + '.tex', shell=True) """
+    file = 'calendar_'+str(year)+'.tex'
+    subprocess.run('ls -la', shell=True)
+    subprocess.run('lualatex output/latex/'+file+' -interaction nonstopmode', shell=True)
     return 0

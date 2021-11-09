@@ -169,6 +169,167 @@ sanctoral = {
         'mass': {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
+    '02/01': {
+        'feast': 'S Ignatii EM',
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Mihi autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+    },
+    '02/02': {
+        'feast': 'In Purificatione BMV',
+        'rank': [10, 'd II cl'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Suscepisimus', 'glo': True, 'cre': True, 'pre': 'de Nativitate'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/03': {
+        'feast': 'S Blasii EM',
+        'rank': [22, 's'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Sacerdotes Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/04': {
+        'feast': 'S Andreæ Corsini EC',
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/05': {
+        'feast': 'S Agathæ VM',
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Gaudeamus', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/06': {
+        'feast': 'S Titi EC',
+        'rank': [15, 'd'],
+        'comm2': 'S Dorotheæ VM',
+        'comm3': '',
+        'mass': {'int': 'Statuit ei', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/07': {
+        'feast': 'S Romualdi Abb',
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/08': {
+        'feast': 'S Joannis de Matha C',
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/09': {
+        'feast': 'S Cyrilli ECD',
+        'rank': [15, 'd'],
+        'comm2': 'S Apollonia VM',
+        'comm3': '',
+        'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/10': {
+        'feast': 'S Scholasticæ V',
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/11': {
+        'feast': 'In Apparitione BMV Immaculatæ',
+        'rank': [14, 'dm'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Vidi civitatem', 'glo': True, 'cre': True, 'pre': 'de B Mariæ Virg'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/12': {
+        'feast': 'Ss Septem Fundatorum Ordinis Servorum BMV C',  # ! see how this is written
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Justi decantaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/14': {
+        'feast': 'S Valentini PM',
+        'rank': [22, 's'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'In virtute', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/15': {
+        'feast': 'Ss Faustini & Jovitæ',
+        'rank': [22, 's'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/18': {
+        'feast': 'S Simeonis EM',
+        'rank': [22, 's'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/22': {  # ! need the introit
+        'feast': 'In Cathedra S Petri Ap',
+        'rank': [14, 'dm'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': '', 'glo': True, 'cre': True, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/23': {
+        'feast': 'S Petri Damiani ECD',
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    #! see how this works with the translation
+    '02/24': { # ! or the 23rd
+        'feast': 'In Vigilia S Matthiæ',
+        'rank': [19, 'v'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Ego autem', 'glo': False, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/25': { # ! or the 25th
+        'feast': 'S Matthiæ Ap',
+        'rank': [10, 'd II cl'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '02/27': {
+        'feast': 'S Gabrirlis a Virgine Perdolente',
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Oculus Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
     # START - mostly compiled by Frankter Natera
     '03/04': {
         'feast': 'S Casimiri C',
@@ -176,7 +337,6 @@ sanctoral = {
         'comm2': 'S Lucii I PM',
         'comm3': '',
         'mass': {'int': 'Os iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/06': {
@@ -185,7 +345,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/07': {
@@ -194,7 +353,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/08': {
@@ -203,7 +361,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Os iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/09': {
@@ -212,7 +369,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Cognovi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/10': {
@@ -221,7 +377,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Clamaverunt iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/12': {
@@ -230,7 +385,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Sacerdotes Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/17': {
@@ -239,7 +393,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/18': {
@@ -248,7 +401,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'In media ecclesiae', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/19': {
@@ -257,7 +409,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Justus ut', 'glo': True, 'cre': True, 'pre': 'De Sancto Ioseph'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/21': {
@@ -266,7 +417,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Os iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/24': {
@@ -275,7 +425,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Benedicite Dominum', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/25': {
@@ -284,7 +433,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Vultum tuum', 'glo': True, 'cre': True, 'pre': 'De B Maria Virg'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/27': {
@@ -293,7 +441,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Tenuisti manum', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '03/28': {
@@ -302,7 +449,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Ego autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/02': {
@@ -311,7 +457,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Iustus ut palma', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/04': {
@@ -320,7 +465,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/05': {
@@ -329,7 +473,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Os iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/11': {
@@ -338,7 +481,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/13': {
@@ -347,7 +489,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'In virtute', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/14': {
@@ -356,7 +497,6 @@ sanctoral = {
         'comm2': 'Ss Tiburtio, Valeriano et Maximo Mm',
         'comm3': '',
         'mass': {'int': 'Narraverunt mihi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/17': {
@@ -365,7 +505,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/21': {
@@ -374,7 +513,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
 
@@ -384,7 +522,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Sancti tai, Domine', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/23': {
@@ -393,7 +530,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/24': {
@@ -402,7 +538,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/25': {
@@ -411,7 +546,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': True, 'pre': 'De Apostolis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/26': {
@@ -420,7 +554,6 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'Sancti tai, Domine', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '04/27': {
@@ -429,9 +562,17 @@ sanctoral = {
         'comm2': '',
         'comm3': '',
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        # don't fill this in.
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
-     
     }
     # END   - mostly compiled by Frankter Natera
 }
+"""
+'02/01': {
+    'feast': '',
+    'rank': [],
+    'comm2': '',
+    'comm3': '',
+    'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'},
+    'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+},
+ """
