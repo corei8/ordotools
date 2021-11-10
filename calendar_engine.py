@@ -1033,6 +1033,7 @@ def build_temporal(year):
                 )
             f.write("}")
         f.close()
+        # ? maybe put off this until the full calendar is compiled?
         dict_clean("temporal.temporal_", year)
     make_dict(year)
 

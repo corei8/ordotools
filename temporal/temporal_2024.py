@@ -73,7 +73,7 @@ temporal_2024 = {
 '04/28' : {'feast': 'Dominica V post Pascha', 'rank': [12, 'sd'], 'mass': {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'}},
 '04/29' : {'feast': 'In Rogationibus', 'rank': [21, 's'], 'mass': {'int': 'Exaudivit', 'glo': False, 'cre': False, 'pre': 'Paschalis'}},
 '04/30' : {'feast': 'In Rogationibus', 'rank': [21, 's'], 'mass': {'int': 'Exaudivit', 'glo': False, 'cre': False, 'pre': 'Paschalis'}},
-'05/01' : {'feast': 'Vigilæ Ascensionis', 'rank': [18, 'feria'], 'mass': {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'}, 'com1': 'In Rogationibus'},
+'05/01' : {'feast': 'Vigilæ Ascensionis', 'rank': [18, 'feria'], 'mass': {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'}},
 '05/02' : {'feast': 'Ascensio DNJC', 'rank': [2, 'd I cl cum Oct privil 3 ord'], 'mass': {'int': 'Viri Galilæi', 'glo': True, 'cre': True, 'pre': 'et Communicantes de Ascensione'}},
 '05/04' : {'feast': 'Vigilia Pentecostes', 'rank': [3, 'd I cl Vig privil I cl'], 'mass': {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'}},
 '05/05' : {'feast': 'Dominica Pentecostes', 'rank': [1, 'd I cl cum Oct privil I ord'], 'mass': {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'}},
