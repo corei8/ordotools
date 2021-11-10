@@ -1,11 +1,10 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  9 NOV 2021 22:26
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  9 NOV 2021 22:35
  restricted system commands enabled.
-**./output/latex/calendar_2024.pdf output/latex/calendar_2024.tex - interaction
- nonstopmode
+**output/latex/calendar_2024.tex -interaction nonstopmode
 
 ! Emergency stop.
-<*> ./output/latex/calendar_2024.pdf 
-                                  output/latex/calendar_2024.tex - interacti...
+<*> output/latex/calendar_2024.tex 
+                                -interaction nonstopmode
 End of file on the terminal!
 
 

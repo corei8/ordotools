@@ -2,6 +2,7 @@ import importlib
 from datetime import timedelta, datetime
 import re
 import subprocess
+import os
 
 ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV",
           "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", ]
@@ -81,7 +82,21 @@ def findsunday(date):  # ! this can be better handled with %w -- no conversion n
     return timedelta(days=x)
 
 
+def leap_year(year: int):
+    if (year % 4) == 0:
+        if (year % 100) == 0:
+            if (year % 400) == 0:
+                return True
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+
 #! this function is not necessary?
+
+
 def full_year(year):
     year_list = []
     yearstart = datetime(year=year, month=1, day=1)
@@ -231,6 +246,7 @@ def dict_clean(direct, dict):
             else:
                 first, second = second_, first_
             if gtg == True:
+                #! feasts are getting deleted by ferias in lent!
                 if dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] <= 10:   # tranlsation
                     dic.update({first.strip('.'): dic[first]})
                     dic.update({'trans ' + second.strip('.'): dic[second]})
@@ -262,20 +278,30 @@ def dict_clean(direct, dict):
         return 0
 
 
-def stitch(t: int, s: str):
-    mdltemporal = importlib.import_module(
-        'temporal.temporal_' + str(t)).temporal
-    mdlsanctoral = importlib.import_module('sanctoral.' + s).sanctoral
-    mdlt, mdls = sorted(mdltemporal), sorted(mdlsanctoral)
+def stitch(year: int, s: str):
+    mdl_temporal = importlib.import_module(
+        'temporal.temporal_' + str(year)).temporal
+    mdl_sanctoral = importlib.import_module('sanctoral.' + s).sanctoral
+    mdlt, mdls = sorted(mdl_temporal), sorted(mdl_sanctoral)
     calen = {}  # ! see if it is cheaper to make a dic and update it at the same time
-    # ! handle leap year
     for feast in mdls:
         calen.update(
-            {feast + '.' if feast in mdlt else feast: mdlsanctoral[feast]}
+            {feast + '.' if feast in mdlt else feast: mdl_sanctoral[feast]}
         )
     for feast in mdlt:
-        calen.update({feast: mdltemporal[feast]})
-    with open("calen/calendar_" + str(t) + ".py", "w") as f:
+        calen.update({feast: mdl_temporal[feast]})
+    if leap_year(year) == False:
+        pass
+    else:
+        for event in mdls:
+            if not 'leapdate' in mdl_sanctoral[event]:
+                pass
+            else:
+                new_date = mdl_sanctoral[event].get('leapdate')
+                mdl_sanctoral.update({new_date if not new_date in mdl_sanctoral else (
+                    new_date+'.' if not new_date in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
+                # // mdl_sanctoral.pop(event)
+    with open("calen/calendar_" + str(year) + ".py", "w") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(calen)):
             if i == 0:
@@ -330,8 +356,9 @@ def latex_full_cal_test(year):
                 pass
         f.write("\end{longtable}\n\end{document}")
     f.close()
-    # produce the pdf from the tex file:
     file = 'calendar_'+str(year)+'.tex'
-    subprocess.run('ls -la', shell=True)
-    subprocess.run('lualatex output/latex/'+file+' -interaction nonstopmode', shell=True)
+    working_dir = os.getcwd()
+    os.chdir('output/latex/')
+    subprocess.run('lualatex '+file+' -interaction nonstopmode', shell=True)
+    os.chdir(working_dir)
     return 0

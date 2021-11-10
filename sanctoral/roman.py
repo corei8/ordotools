@@ -306,7 +306,8 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
     #! see how this works with the translation
-    '02/24': { # ! or the 23rd
+    '02/24': { # ! or the 23th
+        'leapdate': '02/23',
         'feast': 'In Vigilia S Matthiæ',
         'rank': [19, 'v'],
         'comm2': '',
@@ -314,7 +315,8 @@ sanctoral = {
         'mass': {'int': 'Ego autem', 'glo': False, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
-    '02/25': { # ! or the 25th
+    '02/25': { # ! or the 24th
+        'leapdate': '02/24',
         'feast': 'S Matthiæ Ap',
         'rank': [10, 'd II cl'],
         'comm2': '',
@@ -322,7 +324,8 @@ sanctoral = {
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
-    '02/27': {
+    '02/28': { # ! or the 27th
+        'leapdate': '02/27',
         'feast': 'S Gabrirlis a Virgine Perdolente',
         'rank': [15, 'd'],
         'comm2': '',
