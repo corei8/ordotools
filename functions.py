@@ -106,42 +106,6 @@ def full_year(year):
     return year_list
 
 
-def occur(one, two):
-    '''
-    If one occurs on two...
-    '''
-    occur_table = [
-        [0, 1, 3, 1, 3, 3, 3, 3, 3, 3, 6, 5, 8, 6, 3, 3, 6],
-        [0, 3, 3, 1, 3, 6, 3, 3, 3, 3, 6, 8, 6, 6, 3, 6, 6],
-        [0, 3, 3, 3, 3, 4, 3, 3, 3, 7, 4, 4, 4, 0, 4, 4, 4],
-        [0, 3, 3, 3, 3, 4, 3, 3, 7, 4, 4, 4, 4, 4, 4, 4, 4],
-        [0, 3, 3, 3, 3, 4, 3, 7, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-        [0, 3, 3, 3, 3, 4, 7, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-        [0, 3, 3, 7, 4, 4, 4, 4, 4, 4, 4, 2, 2, 0, 4, 4, 4],
-        [0, 3, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 0, 0, 0],
-        [0, 7, 4, 4, 4, 4, 4, 4, 4, 4, 0, 4, 2, 0, 4, 4, 4],
-        [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4],
-    ]
-    comparison = occur_table[one][-(two+1)]
-    if comparison == 1:
-        result = 1
-    elif comparison == 2:
-        result = 2
-    elif comparison == 3:
-        result = 3
-    elif comparison == 4:
-        result = 4
-    elif comparison == 5:
-        result = 5
-    elif comparison == 6:
-        result = 6
-    elif comparison == 7:
-        result = 7
-    else:
-        result = 8
-    return result
-
-
 def concur(seq, pre):
     """ Compares concurring days and determines the rule to be applied, as found in the breviary
 
