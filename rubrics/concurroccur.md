@@ -88,11 +88,13 @@
 20. The Saturday Office of the Blessed Virgin Mary,
 21. Feasts of Simple Rite.
 
+# Octaves
 
-
-
-
-
+1. 1st order
+2. 2nd order
+3. 3rd order
+4. common
+5. simple
 
 # Rules for transfer
 

@@ -3,6 +3,7 @@ from datetime import timedelta, datetime
 import re
 import subprocess
 import os
+# from feasts import matthew
 
 ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV",
           "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", ]
@@ -93,6 +94,17 @@ def leap_year(year: int):
             return True
     else:
         return False
+
+
+""" def matthew(leapyear: bool, easter: int,):
+    if leapyear == True:
+        if easter(easter)-week(9)-indays(4) > datetime.strptime('02/23', '%m/%d'):
+            return 0 # todo Mass can be either of the feast or of the vigil
+        else:
+            return 0 # todo no commemoration of the vigil in office, Mass private of either ferial, feast or vigil
+    else:
+        return 0 """
+        
 
 #! this function is not necessary?
 
@@ -251,6 +263,8 @@ def stitch(year: int, s: str):
         'temporal.temporal_' + str(year)).temporal
     mdl_sanctoral = importlib.import_module('sanctoral.' + s).sanctoral
     mdlt, mdls = sorted(mdl_temporal), sorted(mdl_sanctoral)
+    # todo for adjusting the feasts of the year:
+    # todo matthew(leap_year(year), easter(year))
     if leap_year(year) == False:
         pass
     else:

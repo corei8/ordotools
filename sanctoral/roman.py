@@ -1,3 +1,6 @@
+# COMPLETE: January, February, March, April, December
+# todo May, June, July, August, September, October, November
+
 sanctoral = {
     '01/14': {
         'feast': 'S Hilarii Episcopi ECD',
@@ -300,12 +303,11 @@ sanctoral = {
     '02/23': {
         'feast': 'S Petri Damiani ECD',
         'rank': [15, 'd'],
-        'comm2': 'In Vigilia S Matthiæ',
+        'comm2': '',
         'comm3': '',
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
-    # ! check the specifics for the feast of St. Matthew and the vigil
     '02/23.': {
         'leapdate': '02/24',
         'feast': 'In Vigilia S Matthiæ',
@@ -566,11 +568,125 @@ sanctoral = {
         'comm3': '',
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': True, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
-    }
+    },
     # END   - mostly compiled by Frankter Natera
+    '12/02': {
+        'feast': 'S Bibianæ VM',
+        'rank': [16.1, 'sd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/03': {
+        'feast': 'S Francisci Xaverii C',
+        'rank': [14, 'dm'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Loquebar', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/04': {
+        'feast': 'S Petri Chrysologi ECD',
+        'rank': [15, 'd'],
+        'comm2': 'S Barbara VM',
+        'comm3': '',
+        'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/05': {
+        'feast': 'S Sabba Abb',
+        'rank': [21, 's'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/06': {
+        'feast': 'S Nicolai EC',
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Statuit ei', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/07': {
+        'feast': 'S Ambrosii ECD',
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/07.': {
+        'feast': 'In Vigilia Conceptionis Immaculatæ BMV',
+        'rank': [18, 'v'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Venite, audite', 'glo': False, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    #! add a flag that makes all the days within the octaves of a given day after the calendar is built.
+    '12/08': {
+        'feast': 'In Conceptione Immaculata BMV',
+        'rank': [2, 'd I cl cum Oct communi'],
+        'octave': 4,
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Gaudens gaudebo', 'glo': True, 'cre': True, 'pre': 'de BMV'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/10': {
+        'feast': 'S Melchide PM',
+        'rank': [21, 's'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Si diligis me', 'glo': True, 'cre': True, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/11': {
+        'feast': 'S Damasi I PC',
+        'rank': [16.1, 'sd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Si diligis me', 'glo': True, 'cre': True, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/13': {
+        'feast': 'S Luciæ VM',
+        'rank': [15, 'd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Dilexisti', 'glo': True, 'cre': True, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/16': {
+        'feast': 'S Eusebii EM',
+        'rank': [16.1, 'sd'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Sacerdotes Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/20': {
+        'feast': 'In Vigilia S Thomæ Ap',
+        'rank': [18, 'v'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Ego autem', 'glo': False, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '12/21': {
+        'feast': 'S Thomæ Ap',
+        'rank': [10, 'd II cl'],
+        'comm2': '',
+        'comm3': '',
+        'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
 }
 """
-'02/01': {
+'12/01': {
     'feast': '',
     'rank': [],
     'comm2': '',

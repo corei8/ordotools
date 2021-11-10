@@ -1045,4 +1045,4 @@ def app(year: int, diocese: str):
     latex_full_cal_test(year)
 
 # 2024 is a leap year
-app(year=2024, diocese="roman")
+app(year=2022, diocese="roman")

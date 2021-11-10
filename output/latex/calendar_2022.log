@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  10 NOV 2021 11:58
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  10 NOV 2021 14:41
  restricted system commands enabled.
-**calendar_2024.tex -interaction nonstopmode
-(./calendar_2024.tex
+**calendar_2022.tex -interaction nonstopmode
+(./calendar_2022.tex
 LaTeX2e <2021-06-01> patch level 1
 Lua module: luaotfload 2021-05-21 3.18 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -151,8 +151,8 @@ File: l3backend-luatex.def 2021-07-12 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count196
 \l__pdf_internal_box=\box57
 )
-(./calendar_2024.aux)
-\openout1 = calendar_2024.aux
+(./calendar_2022.aux)
+\openout1 = calendar_2022.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
@@ -227,15 +227,15 @@ LaTeX Font Info:    ... okay on input line 11.
 ) [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3] [4] [5] [6] (./calendar_2024.aux))
+[2] [3] [4] [5] [6] (./calendar_2022.aux))
 
 Here is how much of LuaTeX's memory you used:
  2231 strings out of 478095
- 305220,383344 words of node,token memory allocated
+ 305230,383344 words of node,token memory allocated
  436 words of node memory still in use:
    3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 54 glue_spec,
  4 attribute_list, 1 write nodes
-   avail lists: 1:2,2:4879,3:25,4:1201,5:2204,6:2,7:24737,9:3838,11:1260
+   avail lists: 1:1,2:5221,3:25,4:1201,5:2164,6:2,7:24289,8:1,9:3838,11:1200
  22613 multiletter control sequences out of 65536+600000
  26 fonts using 3041935 bytes
  57i,5n,63p,258b,211s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -243,7 +243,7 @@ Here is how much of LuaTeX's memory you used:
 tf></usr/local/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmromancaps10-re
 gular.otf></usr/local/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmroman8-
 italic.otf>
-Output written on calendar_2024.pdf (6 pages, 27226 bytes).
+Output written on calendar_2022.pdf (6 pages, 27843 bytes).
 
 PDF statistics: 44 PDF objects out of 1000 (max. 8388607)
  26 compressed objects within 1 object stream
