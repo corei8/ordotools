@@ -215,8 +215,8 @@ def transfer(year: int, diocese: str):
     return 0
 
 
-def dict_clean(direct, dict):
-    """ Gets rid of all dates in calendar which are appended with a .,
+def dict_clean(direct: str, dict: int):
+    """ Gets rid of all dates in calendar which are appended with . or _;
     overwrites the calendar file with the resulting dictionary.
 
     Args:
@@ -228,43 +228,47 @@ def dict_clean(direct, dict):
         dic = mdl.temporal
     except AttributeError:
         dic = mdl.calen
-    x = sorted(dic)
-    first_ = ''
-    for i, second_ in enumerate(x):
+    for second_ in sorted(dic):
         gtg = True
-        try:
-            first_ = x[i+1]  # see if a dotted date exists
-        except IndexError:
-            break            # find a better way to fix this
-        if first_.strip('.') == second_ and len(first_) == 6:
-            if dic[second_]['rank'][0] > dic[first_]['rank'][0]:
-                first, second = first_, second_
-            elif dic[second_]['rank'][0] == dic[first_]['rank'][0]:
-                # ! nobility
-                gtg = False  # for testing only
-                pass
-            else:
-                first, second = second_, first_
-            if gtg == True:
-                #! feasts are getting deleted by ferias in lent!
-                if dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] <= 10:   # tranlsation
-                    dic.update({first.strip('.'): dic[first]})
-                    dic.update({'trans ' + second.strip('.'): dic[second]})
-                elif dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] > 10:  # no commemoration
-                    dic.update({first.strip('.'): dic[first]})
-                elif dic[first]['rank'][0] > 4 and dic[second]['rank'][0] >= 6:   # commemoration
-                    dic[first].update({'com1': dic[second]['feast']})
-                    dic.update({first.strip('.'): dic[first]})
-                else:                                                             # no commemoration
-                    dic.update({first.strip('.'): dic[first]})
-                if len(first) == 6:
-                    dic.pop(first)
-                if len(second) == 6:
-                    dic.pop(second)
-            else:
-                pass
+        if len(second_) >= 6:
+            continue
         else:
-            pass
+            if not second_+'.' in sorted(dic):
+                print('Did not find dotted date: \t'+second_+'.')
+                continue
+            else:
+                print('Found a dotted date.....: \t'+second_+'.')
+                first_ = second_+'.'
+                if dic[second_]['rank'][0] > dic[first_]['rank'][0]:
+                    first, second = first_, second_
+                elif dic[second_]['rank'][0] == dic[first_]['rank'][0]:
+                    # ! nobility
+                    gtg = False  # for testing only
+                    pass
+                else:
+                    first, second = second_, first_
+                if gtg == False:
+                    pass
+                else:
+                    # tranlsation
+                    if dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] <= 10:
+                        dic.update({first.strip('.'): dic[first]})
+                        dic.update({'trans ' + second.strip('.'): dic[second]})
+                    # no commemoration
+                    elif dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] > 10:
+                        dic.update({first.strip('.'): dic[first]})
+                    # commemoration
+                    # todo refined these ranges:
+                    elif 19 > dic[first]['rank'][0] > 4 and 19 > dic[second]['rank'][0] >= 6:
+                        dic[first].update({'com1': dic[second]['feast']})
+                        dic.update({first.strip('.'): dic[first]})
+                    # no commemoration
+                    else:
+                        dic.update({first.strip('.'): dic[first]})
+                    if len(first) == 6:
+                        dic.pop(first)
+                    if len(second) == 6:
+                        dic.pop(second)
     with open(re.sub(r"\.", r'/', direct) + str(dict) + ".py", "a") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(dic)):
@@ -283,13 +287,6 @@ def stitch(year: int, s: str):
         'temporal.temporal_' + str(year)).temporal
     mdl_sanctoral = importlib.import_module('sanctoral.' + s).sanctoral
     mdlt, mdls = sorted(mdl_temporal), sorted(mdl_sanctoral)
-    calen = {}  # ! see if it is cheaper to make a dic and update it at the same time
-    for feast in mdls:
-        calen.update(
-            {feast + '.' if feast in mdlt else feast: mdl_sanctoral[feast]}
-        )
-    for feast in mdlt:
-        calen.update({feast: mdl_temporal[feast]})
     if leap_year(year) == False:
         pass
     else:
@@ -299,8 +296,18 @@ def stitch(year: int, s: str):
             else:
                 new_date = mdl_sanctoral[event].get('leapdate')
                 mdl_sanctoral.update({new_date if not new_date in mdl_sanctoral else (
-                    new_date+'.' if not new_date in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
-                # // mdl_sanctoral.pop(event)
+                    new_date+'.' if not new_date+'.' in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
+    calen = {}  # ! see if it is cheaper to make a dic and update it at the same time
+    for feast in mdls:
+        calen.update(
+            {feast + '.' if feast in mdlt else feast: mdl_sanctoral[feast]}
+        )
+    for feast in mdlt:
+        calen.update({feast: mdl_temporal[feast]})
+    # ! test:
+    for x in sorted(calen.keys()):
+        print(x)
+
     with open("calen/calendar_" + str(year) + ".py", "w") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(calen)):
