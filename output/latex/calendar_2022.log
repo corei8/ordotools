@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  10 NOV 2021 22:15
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  10 NOV 2021 22:57
  restricted system commands enabled.
 **calendar_2022.tex -interaction nonstopmode
 (./calendar_2022.tex
@@ -108,7 +108,1262 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@layoutvoffset=\dimen147
 \Gm@dimlist=\toks18
 )
-(/usr/local/texlive/2021/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2021/03/14 v2.8c Micro-typographical refinements (RS)
+\MT@toks=\toks19
+\MT@count=\count195
+LaTeX Info: Redefining \textls on input line 790.
+\MT@outer@kern=\dimen148
+LaTeX Info: Redefining \textmicrotypecontext on input line 1374.
+\MT@listname@count=\count196
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype-luatex.def
+File: microtype-luatex.def 2021/03/14 v2.8c Definitions specific to luatex (RS)
+
+Module microtype Info: overwriting function `keepligature' on input line 62
+LaTeX Info: Redefining \lsstyle on input line 710.
+LaTeX Info: Redefining \lslig on input line 710.
+\MT@outer@space=\skip53
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2021/03/14 v2.8c microtype main configuration file (RS)
+))
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+2.
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
+(/usr/local/texlive/2021/texmf-dist/tex/latex/plex-otf/plex-otf.sty
+Package: plex-otf 2018/04/13 v. 0.07a (Herbert Voss) Supports plex OpenType for
+ lualatex/xelatex.
+
+(/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+(/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(/usr/local/texlive/2021/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2021/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks20
+\XKV@tempa@toks=\toks21
+)
+\XKV@depth=\count197
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2021-07-12 L3 programming layer (loader) 
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2021-07-12 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count198
+\l__pdf_internal_box=\box55
+))
+Package: xparse 2021-06-18 L3 Experimental document command parser
+)
+Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2020/02/21 2.7i Font selection for XeLaTeX and LuaLaTeX (/
+usr/local/texlive/2021/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
+Package: fontspec-luatex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaT
+eX
+\l__fontspec_script_int=\count199
+\l__fontspec_language_int=\count266
+\l__fontspec_strnum_int=\count267
+\l__fontspec_tmp_int=\count268
+\l__fontspec_tmpa_int=\count269
+\l__fontspec_tmpb_int=\count270
+\l__fontspec_tmpc_int=\count271
+\l__fontspec_em_int=\count272
+\l__fontspec_emdef_int=\count273
+\l__fontspec_strong_int=\count274
+\l__fontspec_strongdef_int=\count275
+\l__fontspec_tmpa_dim=\dimen149
+\l__fontspec_tmpb_dim=\dimen150
+\l__fontspec_tmpc_dim=\dimen151
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+RM: Text; SemiBold
+SS: Text; SemiBold
+SS: Text; SemiBold
+TT: Text; SemiBold
+Using file names for the Plex font
+luaotfload | aux : font no 28 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 29 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 30 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 30 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 31 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSerif(0)' created for font
+(fontspec)             'IBMPlexSerif' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Ligatures=TeX,Extension
+(fontspec)             = .otf,UprightFont= *-Text,BoldFont =
+(fontspec)             *-SemiBold,ItalicFont = *-TextItalic,BoldItalicFont =
+(fontspec)             *-SemiBoldItalic,SlantedFont = *-TextItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-Text.otf]:mode=node;script=latn;langua
+ge=dflt;+liga;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-SemiBold.otf]:mode=node;script=latn;la
+nguage=dflt;+liga;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-TextItalic.otf]:mode=node;script=latn;
+language=dflt;+liga;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'slanted' (m/sl) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-TextItalic.otf]:mode=node;script=latn;
+language=dflt;+liga;+tlig;"
+(fontspec)             - 'slanted small caps'  (m/scsl) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-SemiBoldItalic.otf]:mode=node;script=l
+atn;language=dflt;+liga;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 28 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 29 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSerif(1)' created for font
+(fontspec)             'IBMPlexSerif' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,FakeSlant = 0.2,UprightFont = *-Text,BoldFont =
+(fontspec)             *-SemiBold].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-Text.otf]:mode=node;script=latn;langua
+ge=dflt;slant=0.2;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-SemiBold.otf]:mode=node;script=latn;la
+nguage=dflt;slant=0.2;+tlig;+liga;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+luaotfload | aux : font no 35 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 36 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSerif(2)' created for font
+(fontspec)             'IBMPlexSerif' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-ExtraLight,ItalicFont =
+(fontspec)             *-ExtraLightItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-ExtraLight.otf]:mode=node;script=latn;
+language=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-ExtraLightItalic.otf]:mode=node;script
+=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 39 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 40 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSerif(3)' created for font
+(fontspec)             'IBMPlexSerif' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Light,ItalicFont = *-LightItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-Light.otf]:mode=node;script=latn;langu
+age=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-LightItalic.otf]:mode=node;script=latn
+;language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 43 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 44 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSerif(4)' created for font
+(fontspec)             'IBMPlexSerif' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Thin,ItalicFont = *-ThinItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-Thin.otf]:mode=node;script=latn;langua
+ge=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-ThinItalic.otf]:mode=node;script=latn;
+language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 47 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 48 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSerif(5)' created for font
+(fontspec)             'IBMPlexSerif' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Medium,ItalicFont =
+(fontspec)             *-MediumItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-Medium.otf]:mode=node;script=latn;lang
+uage=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-MediumItalic.otf]:mode=node;script=lat
+n;language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 28 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 30 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSerif(6)' created for font
+(fontspec)             'IBMPlexSerif' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Text,ItalicFont = *-TextItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-Text.otf]:mode=node;script=latn;langua
+ge=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-TextItalic.otf]:mode=node;script=latn;
+language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 28 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 29 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 31 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSerif(7)' created for font
+(fontspec)             'IBMPlexSerif' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Text,BoldFont =
+(fontspec)             *-SemiBold,BoldItalicFont = *-SemiBoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-Text.otf]:mode=node;script=latn;langua
+ge=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-SemiBold.otf]:mode=node;script=latn;la
+nguage=dflt;+tlig;+liga;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSerif-SemiBoldItalic.otf]:mode=node;script=l
+atn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 51 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 52 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 53 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 53 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 54 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSans(0)' created for font
+(fontspec)             'IBMPlexSans' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Ligatures=TeX,Extension
+(fontspec)             = .otf,UprightFont= *-Text,BoldFont =
+(fontspec)             *-SemiBold,ItalicFont = *-TextItalic,BoldItalicFont =
+(fontspec)             *-SemiBoldItalic,SlantedFont = *-TextItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-Text.otf]:mode=node;script=latn;languag
+e=dflt;+liga;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-SemiBold.otf]:mode=node;script=latn;lan
+guage=dflt;+liga;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-TextItalic.otf]:mode=node;script=latn;l
+anguage=dflt;+liga;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'slanted' (m/sl) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-TextItalic.otf]:mode=node;script=latn;l
+anguage=dflt;+liga;+tlig;"
+(fontspec)             - 'slanted small caps'  (m/scsl) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-SemiBoldItalic.otf]:mode=node;script=la
+tn;language=dflt;+liga;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 51 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 52 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSans(1)' created for font
+(fontspec)             'IBMPlexSans' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,FakeSlant = 0.2,UprightFont = *-Text,BoldFont =
+(fontspec)             *-SemiBold].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-Text.otf]:mode=node;script=latn;languag
+e=dflt;slant=0.2;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-SemiBold.otf]:mode=node;script=latn;lan
+guage=dflt;slant=0.2;+tlig;+liga;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+luaotfload | aux : font no 57 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 58 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSans(2)' created for font
+(fontspec)             'IBMPlexSans' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-ExtraLight,ItalicFont =
+(fontspec)             *-ExtraLightItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-ExtraLight.otf]:mode=node;script=latn;l
+anguage=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-ExtraLightItalic.otf]:mode=node;script=
+latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 61 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 62 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSans(3)' created for font
+(fontspec)             'IBMPlexSans' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Light,ItalicFont = *-LightItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-Light.otf]:mode=node;script=latn;langua
+ge=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-LightItalic.otf]:mode=node;script=latn;
+language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 65 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 66 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSans(4)' created for font
+(fontspec)             'IBMPlexSans' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Thin,ItalicFont = *-ThinItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-Thin.otf]:mode=node;script=latn;languag
+e=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-ThinItalic.otf]:mode=node;script=latn;l
+anguage=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 69 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 70 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSans(5)' created for font
+(fontspec)             'IBMPlexSans' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Medium,ItalicFont =
+(fontspec)             *-MediumItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-Medium.otf]:mode=node;script=latn;langu
+age=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-MediumItalic.otf]:mode=node;script=latn
+;language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 51 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 53 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSans(6)' created for font
+(fontspec)             'IBMPlexSans' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Text,ItalicFont = *-TextItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-Text.otf]:mode=node;script=latn;languag
+e=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-TextItalic.otf]:mode=node;script=latn;l
+anguage=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 51 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 52 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 54 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSans(7)' created for font
+(fontspec)             'IBMPlexSans' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Text,BoldFont =
+(fontspec)             *-SemiBold,BoldItalicFont = *-SemiBoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-Text.otf]:mode=node;script=latn;languag
+e=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-SemiBold.otf]:mode=node;script=latn;lan
+guage=dflt;+tlig;+liga;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSans-SemiBoldItalic.otf]:mode=node;script=la
+tn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 73 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 74 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 75 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 75 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 76 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSansCondensed(0)' created for font
+(fontspec)             'IBMPlexSansCondensed' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Text,BoldFont =
+(fontspec)             *-SemiBold,ItalicFont = *-TextItalic,BoldItalicFont =
+(fontspec)             *-SemiBoldItalic,SlantedFont = *-TextItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-Text.otf]:mode=node;script=lat
+n;language=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-SemiBold.otf]:mode=node;script
+=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-TextItalic.otf]:mode=node;scri
+pt=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'slanted' (m/sl) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-TextItalic.otf]:mode=node;scri
+pt=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'slanted small caps'  (m/scsl) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-SemiBoldItalic.otf]:mode=node;
+script=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 73 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 74 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSansCondensed(1)' created for font
+(fontspec)             'IBMPlexSansCondensed' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,FakeSlant = 0.2,UprightFont = *-Text,BoldFont =
+(fontspec)             *-SemiBold].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-Text.otf]:mode=node;script=lat
+n;language=dflt;slant=0.2;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-SemiBold.otf]:mode=node;script
+=latn;language=dflt;slant=0.2;+tlig;+liga;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+luaotfload | aux : font no 79 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 80 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSansCondensed(2)' created for font
+(fontspec)             'IBMPlexSansCondensed' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-ExtraLight,ItalicFont =
+(fontspec)             *-ExtraLightItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-ExtraLight.otf]:mode=node;scri
+pt=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-ExtraLightItalic.otf]:mode=nod
+e;script=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 83 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 84 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSansCondensed(3)' created for font
+(fontspec)             'IBMPlexSansCondensed' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Light,ItalicFont = *-LightItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-Light.otf]:mode=node;script=la
+tn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-LightItalic.otf]:mode=node;scr
+ipt=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 87 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 88 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSansCondensed(4)' created for font
+(fontspec)             'IBMPlexSansCondensed' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Thin,ItalicFont = *-ThinItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-Thin.otf]:mode=node;script=lat
+n;language=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-ThinItalic.otf]:mode=node;scri
+pt=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 91 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 92 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSansCondensed(5)' created for font
+(fontspec)             'IBMPlexSansCondensed' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Medium,ItalicFont =
+(fontspec)             *-MediumItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-Medium.otf]:mode=node;script=l
+atn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-MediumItalic.otf]:mode=node;sc
+ript=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 73 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 75 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSansCondensed(6)' created for font
+(fontspec)             'IBMPlexSansCondensed' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Text,ItalicFont = *-TextItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-Text.otf]:mode=node;script=lat
+n;language=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-TextItalic.otf]:mode=node;scri
+pt=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 73 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 74 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 76 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexSansCondensed(7)' created for font
+(fontspec)             'IBMPlexSansCondensed' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Text,BoldFont =
+(fontspec)             *-SemiBold,BoldItalicFont = *-SemiBoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-Text.otf]:mode=node;script=lat
+n;language=dflt;+tlig;+liga;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-SemiBold.otf]:mode=node;script
+=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexSansCondensed-SemiBoldItalic.otf]:mode=node;
+script=latn;language=dflt;+tlig;+liga;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 94 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Text' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 95 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Text' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 95 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 96 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-SemiBold' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 96 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 97 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-TextItalic' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 97 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 97 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-TextItalic' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 97 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 98 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-SemiBoldItalic' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 98 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexMono(0)' created for font
+(fontspec)             'IBMPlexMono' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,WordSpace={1,0,0},Hyphen
+Char=None,PunctuationSpace=WordSpace,Extension
+(fontspec)             = .otf,UprightFont= *-Text,BoldFont =
+(fontspec)             *-SemiBold,ItalicFont = *-TextItalic,BoldItalicFont =
+(fontspec)             *-SemiBoldItalic,SlantedFont = *-TextItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-Text.otf]:mode=node;script=latn;languag
+e=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-SemiBold.otf]:mode=node;script=latn;lan
+guage=dflt;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-TextItalic.otf]:mode=node;script=latn;l
+anguage=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'slanted' (m/sl) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-TextItalic.otf]:mode=node;script=latn;l
+anguage=dflt;+tlig;"
+(fontspec)             - 'slanted small caps'  (m/scsl) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-SemiBoldItalic.otf]:mode=node;script=la
+tn;language=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+
+luaotfload | aux : font no 94 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Text' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 95 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Text' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 95 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 96 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-SemiBold' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 96 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexMono(1)' created for font
+(fontspec)             'IBMPlexMono' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,FakeSlant = 0.2,UprightFont = *-Text,BoldFont =
+(fontspec)             *-SemiBold].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-Text.otf]:mode=node;script=latn;languag
+e=dflt;slant=0.2;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-SemiBold.otf]:mode=node;script=latn;lan
+guage=dflt;slant=0.2;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+luaotfload | aux : font no 100 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-ExtraLight' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 101 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-ExtraLight' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 101 (nil) does not define feature smcp for script lat
+n with language dflt
+luaotfload | aux : font no 102 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-ExtraLightItalic'
+(fontspec)                with script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 102 (nil) does not define feature smcp for script lat
+n with language dflt
+
+Package fontspec Info: Font family 'IBMPlexMono(2)' created for font
+(fontspec)             'IBMPlexMono' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-ExtraLight,ItalicFont =
+(fontspec)             *-ExtraLightItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-ExtraLight.otf]:mode=node;script=latn;l
+anguage=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-ExtraLightItalic.otf]:mode=node;script=
+latn;language=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 104 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Light' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 105 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Light' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 105 (nil) does not define feature smcp for script lat
+n with language dflt
+luaotfload | aux : font no 106 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-LightItalic' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 106 (nil) does not define feature smcp for script lat
+n with language dflt
+
+Package fontspec Info: Font family 'IBMPlexMono(3)' created for font
+(fontspec)             'IBMPlexMono' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Light,ItalicFont = *-LightItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-Light.otf]:mode=node;script=latn;langua
+ge=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-LightItalic.otf]:mode=node;script=latn;
+language=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 108 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Thin' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 109 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Thin' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 109 (nil) does not define feature smcp for script lat
+n with language dflt
+luaotfload | aux : font no 110 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-ThinItalic' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 110 (nil) does not define feature smcp for script lat
+n with language dflt
+
+Package fontspec Info: Font family 'IBMPlexMono(4)' created for font
+(fontspec)             'IBMPlexMono' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Thin,ItalicFont = *-ThinItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-Thin.otf]:mode=node;script=latn;languag
+e=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-ThinItalic.otf]:mode=node;script=latn;l
+anguage=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 112 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Medium' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 113 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Medium' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 113 (nil) does not define feature smcp for script lat
+n with language dflt
+luaotfload | aux : font no 114 (nil) does not define feature liga for script lat
+n with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-MediumItalic' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 114 (nil) does not define feature smcp for script lat
+n with language dflt
+
+Package fontspec Info: Font family 'IBMPlexMono(5)' created for font
+(fontspec)             'IBMPlexMono' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Medium,ItalicFont =
+(fontspec)             *-MediumItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-Medium.otf]:mode=node;script=latn;langu
+age=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-MediumItalic.otf]:mode=node;script=latn
+;language=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 94 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Text' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 95 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Text' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 95 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 97 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-TextItalic' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 97 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexMono(6)' created for font
+(fontspec)             'IBMPlexMono' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Text,ItalicFont = *-TextItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-Text.otf]:mode=node;script=latn;languag
+e=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-TextItalic.otf]:mode=node;script=latn;l
+anguage=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 94 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Text' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 95 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-Text' with script
+(fontspec)                'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 95 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 96 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-SemiBold' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 96 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 98 (nil) does not define feature liga for script latn
+ with language dflt
+
+Package fontspec Warning: OpenType feature 'Ligatures=Common' (liga) not
+(fontspec)                available for font 'IBMPlexMono-SemiBoldItalic' with
+(fontspec)                script 'CustomDefault' and language 'Default'.
+
+luaotfload | aux : font no 98 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'IBMPlexMono(7)' created for font
+(fontspec)             'IBMPlexMono' with options
+(fontspec)             [Ligatures=TeX,Ligatures=Common,Extension =
+(fontspec)             .otf,UprightFont= *-Text,BoldFont =
+(fontspec)             *-SemiBold,BoldItalicFont = *-SemiBoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-Text.otf]:mode=node;script=latn;languag
+e=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-SemiBold.otf]:mode=node;script=latn;lan
+guage=dflt;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[IBMPlexMono-SemiBoldItalic.otf]:mode=node;script=la
+tn;language=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+LaTeX Info: Redefining \textsl on input line 585.
+LaTeX Info: Redefining \slshape on input line 586.
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2021/07/22 3.63 The Babel package
+
+(/usr/local/texlive/2021/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2021/07/22 3.63 Babel common definitions
+
+(/usr/local/texlive/2021/texmf-dist/tex/generic/babel/luababel.def
+\bbl@readstream=\read2
+\l@dumylang=\language2
+Package babel Info: Non-standard hyphenation setup on input line 118.
+\l@nohyphenation=\language3
+\l@german-x-2021-02-26=\language4
+\l@ngerman-x-2021-02-26=\language5
+\l@afrikaans=\language6
+\l@ancientgreek=\language7
+\l@ibycus=\language8
+\l@arabic=\language9
+\l@armenian=\language10
+\l@basque=\language11
+\l@belarusian=\language12
+\l@bulgarian=\language13
+\l@catalan=\language14
+\l@pinyin=\language15
+\l@churchslavonic=\language16
+\l@coptic=\language17
+\l@croatian=\language18
+\l@czech=\language19
+\l@danish=\language20
+\l@dutch=\language21
+\l@ukenglish=\language22
+\l@usenglishmax=\language23
+\l@esperanto=\language24
+\l@estonian=\language25
+\l@ethiopic=\language26
+\l@farsi=\language27
+\l@finnish=\language28
+\l@schoolfinnish=\language29
+\l@french=\language30
+\l@friulan=\language31
+\l@galician=\language32
+\l@georgian=\language33
+\l@german=\language34
+\l@ngerman=\language35
+\l@swissgerman=\language36
+\l@greek=\language37
+\l@monogreek=\language38
+\l@hungarian=\language39
+\l@icelandic=\language40
+\l@assamese=\language41
+\l@bengali=\language42
+\l@gujarati=\language43
+\l@hindi=\language44
+\l@kannada=\language45
+\l@malayalam=\language46
+\l@marathi=\language47
+\l@oriya=\language48
+\l@pali=\language49
+\l@panjabi=\language50
+\l@tamil=\language51
+\l@telugu=\language52
+\l@indonesian=\language53
+\l@interlingua=\language54
+\l@irish=\language55
+\l@italian=\language56
+\l@kurmanji=\language57
+\l@classiclatin=\language58
+\l@latin=\language59
+\l@liturgicallatin=\language60
+\l@latvian=\language61
+\l@lithuanian=\language62
+\l@macedonian=\language63
+\l@mongolian=\language64
+\l@mongolianlmc=\language65
+\l@bokmal=\language66
+\l@nynorsk=\language67
+\l@occitan=\language68
+\l@piedmontese=\language69
+\l@polish=\language70
+\l@portuguese=\language71
+\l@romanian=\language72
+\l@romansh=\language73
+\l@russian=\language74
+\l@sanskrit=\language75
+\l@serbian=\language76
+\l@serbianc=\language77
+\l@slovak=\language78
+\l@slovenian=\language79
+\l@spanish=\language80
+\l@swedish=\language81
+\l@thai=\language82
+\l@turkish=\language83
+\l@turkmen=\language84
+\l@ukrainian=\language85
+\l@uppersorbian=\language86
+\l@welsh=\language87
+\babelcatcodetablenum=\catcodetable12
+\bbl@pattcodes=\catcodetable13
+)
+\babel@savecnt=\count276
+\U@D=\dimen152
+\l@unhyphenated=\language88
+
+(/usr/local/texlive/2021/texmf-dist/tex/generic/babel/luababel.def
+\bbl@attr@locale=\attribute5
+))
+(/usr/local/texlive/2021/texmf-dist/tex/generic/babel-latin/latin.ldf
+Language: latin 2021-06-27 v4.0 Latin support from the babel system
+Package babel Info: Making " an active character on input line 135.
+
+(/usr/local/texlive/2021/texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-la.
+tex UTF-8 Latin hyphenation patterns
+(/usr/local/texlive/2021/texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-la.
+tex)))) (/usr/local/texlive/2021/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -124,18 +1379,18 @@ Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/array.sty
 Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
-\col@sep=\dimen148
-\ar@mcellbox=\box55
-\extrarowheight=\dimen149
-\NC@list=\toks19
-\extratabsurround=\skip53
-\backup@length=\skip54
-\ar@cellbox=\box56
+\col@sep=\dimen153
+\ar@mcellbox=\box56
+\extrarowheight=\dimen154
+\NC@list=\toks22
+\extratabsurround=\skip54
+\backup@length=\skip55
+\ar@cellbox=\box57
 )
-\everycr=\toks20
-\minrowclearance=\skip55
+\everycr=\toks23
+\minrowclearance=\skip56
 )
-\rownum=\count195
+\rownum=\count277
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -146,36 +1401,31 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-(/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
-File: l3backend-luatex.def 2021-07-12 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count196
-\l__pdf_internal_box=\box57
-)
 (./calendar_2022.aux)
 \openout1 = calendar_2022.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-1.
+6.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -211,42 +1461,133 @@ LaTeX Font Info:    ... okay on input line 11.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+LaTeX Info: Redefining \microtypecontext on input line 16.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 16.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of spacing.
+Package microtype Info: No adjustment of kerning.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `IBMPlexSerif' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 16.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 16.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 16.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 16.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 16.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 16.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 16.
+LaTeX Font Info:    Redeclaring math accent \check on input line 16.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 16.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 16.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 16.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 16.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 16.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 16.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/IBMPlexSerif(0)/m/n on input line 16
+.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 16.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/IBMPlexSerif(0)/m/n on input line 1
+6.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/IBMPlexSerif(0)/m/n --> TU/IBMPlexSerif(0)/m/n on in
+put line 16.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/IBMPlexSerif(0)/m/it on input line 
+16.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/IBMPlexSerif(0)/b/n on input line 1
+6.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/IBMPlexSans(0)/m/n on input line 16
+.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/IBMPlexMono(0)/m/n on input line 16
+.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/IBMPlexSerif(0)/m/n --> TU/IBMPlexSerif(0)/b/n on in
+put line 16.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/IBMPlexSerif(0)/b/it on input line
+ 16.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/IBMPlexSans(0)/b/n on input line 1
+6.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/IBMPlexMono(0)/b/n on input line 16
+.
 (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count197
-\scratchdimen=\dimen150
+\scratchcounter=\count278
+\scratchdimen=\dimen155
 \scratchbox=\box58
-\nofMPsegments=\count198
-\nofMParguments=\count199
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count266
-\MPscratchDim=\dimen151
-\MPnumerator=\count267
-\makeMPintoPDFobject=\count268
-\everyMPtoPDFconversion=\toks22
-) [1
+\nofMPsegments=\count279
+\nofMParguments=\count280
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count281
+\MPscratchDim=\dimen156
+\MPnumerator=\count282
+\makeMPintoPDFobject=\count283
+\everyMPtoPDFconversion=\toks25
+)
+
+LaTeX Font Warning: Font shape `TU/IBMPlexSerif(0)/m/sc' undefined
+(Font)              using `TU/IBMPlexSerif(0)/m/n' instead on input line 22.
+
+[1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3] [4] [5] [6] [7] [8] (./calendar_2022.aux))
+[2] [3] [4] [5] [6] [7] [8] (./calendar_2022.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+)
 
 Here is how much of LuaTeX's memory you used:
- 2231 strings out of 478095
- 305232,383344 words of node,token memory allocated
- 436 words of node memory still in use:
-   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 54 glue_spec,
- 4 attribute_list, 1 write nodes
-   avail lists: 1:2,2:6371,3:25,4:1201,5:2130,6:2,7:24081,9:3838,11:1176
- 22613 multiletter control sequences out of 65536+600000
- 26 fonts using 3041935 bytes
- 57i,5n,63p,258b,211s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.o
-tf></usr/local/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmromancaps10-re
-gular.otf></usr/local/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmroman8-
-italic.otf>
-Output written on calendar_2022.pdf (8 pages, 31265 bytes).
+ 8009 strings out of 478095
+ 305236,794899 words of node,token memory allocated
+ 467 words of node memory still in use:
+   4 hlist, 1 vlist, 1 rule, 4 glue, 3 kern, 1 glyph, 7 attribute, 54 glue_spec,
+ 5 attribute_list, 1 write nodes
+   avail lists: 1:1,2:10516,3:27,4:1202,5:4018,6:2,7:24487,8:1,9:3838,11:1915
+ 28188 multiletter control sequences out of 65536+600000
+ 116 fonts using 14802191 bytes
+ 85i,5n,108p,334b,271s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2021/texmf-dist/fonts/opentype/ibm/plex/IBMPlexSerif-Text.ot
+f></usr/local/texlive/2021/texmf-dist/fonts/opentype/ibm/plex/IBMPlexSerif-TextI
+talic.otf>
+Output written on calendar_2022.pdf (8 pages, 27833 bytes).
 
-PDF statistics: 50 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+PDF statistics: 43 PDF objects out of 1000 (max. 8388607)
+ 26 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

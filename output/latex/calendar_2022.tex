@@ -1,9 +1,14 @@
 
 % !TEX program = lualatex
-\documentclass{article}
+\documentclass[10pt]{article}
 \title{Ordo -- Full Calendar -- 2022}
 \usepackage{longtable}
 \usepackage{geometry}
+\usepackage[letterspace=500]{microtype}
+\usepackage[T1]{fontenc}
+\usepackage[usefilenames,RMstyle={Text,Semibold},SSstyle={Text,Semibold},TTstyle={Text,Semibold},DefaultFeatures={Ligatures=Common}]{plex-otf} %
+\usepackage[latin]{babel}
+\usepackage{fontspec}
 % LETTERPAPER:
 \geometry{paperheight=8.5in, paperwidth=11in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
 \usepackage[table]{xcolor}
@@ -19,7 +24,7 @@
 \endhead
 01/01, Sat & d II cl & Circumcisio DNJC et Oct. Nativitatis\\
 01/02, Sun & d II cl & Ssmi Nominis Jesu\\
- & & Commemorate: Octava S. Stephani Protomartyris\\
+ & & \textit{Com:} Octava S. Stephani Protomartyris\\
 01/03, Mon & s & Octava S. Joannis Ap Ev\\
 01/04, Tue & s & Octava Ss Innocentium Mm.\\
 01/05, Wed & sd Vig privil 2 cl & Vigilia Epiphaniæ\\
@@ -34,7 +39,7 @@
 01/14, Fri & d & S Hilarii Episcopi ECD\\
 01/15, Sat & d & S Pauli Primi Eremitæ C\\
 01/16, Sun & sd & Dominica II post Epiphaniam\\
- & & Commemorate: S Marcelli PM\\
+ & & \textit{Com:} S Marcelli PM\\
 01/17, Mon & d & S Antonii Abb\\
 01/18, Tue & dm & Cathedræ S Petri Ap Romæ\\
 01/19, Wed & s & Ss Marii, Marthæ, Audifacis et Abachum Mm\\
@@ -42,7 +47,7 @@
 01/21, Fri & d & S Agnetis VM\\
 01/22, Sat & sd & Ss Vincentii \& Anastasii Mm\\
 01/23, Sun & sd & Dominica III post Epiphaniam\\
- & & Commemorate: S Raymundi de Peñafort C mtv\\
+ & & \textit{Com:} S Raymundi de Peñafort C mtv\\
 01/24, Mon & d & S Timothei EM\\
 01/25, Tue & dm & Conversio S Pauli Ap\\
 01/26, Wed & d & S Polycarpi EM\\
@@ -50,7 +55,7 @@
 01/28, Fri & d & S Petri Nolasci C mtv\\
 01/29, Sat & d & S Francisci Salesii ECD\\
 01/30, Sun & sd & Dominica IV post Epiphaniam\\
- & & Commemorate: S Martinæ VM\\
+ & & \textit{Com:} S Martinæ VM\\
 01/31, Mon & d & S Joannis Bosco C\\
 02/01, Tue & d & S Ignatii EM\\
 02/02, Wed & d II cl & In Purificatione BMV\\
@@ -58,7 +63,7 @@
 02/04, Fri & d & S Andreæ Corsini EC\\
 02/05, Sat & d & S Agathæ VM\\
 02/06, Sun & sd & Dominica V post Epiphaniam\\
- & & Commemorate: S Titi EC\\
+ & & \textit{Com:} S Titi EC\\
 02/07, Mon & d & S Romualdi Abb\\
 02/08, Tue & d & S Joannis de Matha C\\
 02/09, Wed & d & S Cyrilli ECD\\
@@ -74,60 +79,60 @@
 02/23, Wed & d & S Petri Damiani ECD\\
 02/24, Thu & d II cl & S Matthiæ Ap\\
 02/27, Sun & sd II cl & Dominica in Quinquagesima\\
- & & Commemorate: S Gabrirlis a Virgine Perdolente\\
+ & & \textit{Com:} S Gabrirlis a Virgine Perdolente\\
 03/04, Fri & sd & S Casimiri C\\
 03/06, Sun & d & Ss Perpetuae et Felicitatiis Mm\\
 03/07, Mon & d & S Thomas De Aquino C\\
 03/08, Tue & d & S Ioannis a Deo C\\
 03/09, Wed & feria & Dies Cinerum\\
 03/10, Thu & sd & Ss Quadraginta Mm\\
- & & Commemorate: Feria V post Diem Cinerum\\
+ & & \textit{Com:} Feria V post Diem Cinerum\\
 03/11, Fri & feria & Feria VI post Diem Cinerum\\
 03/12, Sat & d & S Gregorii I Pp CD\\
- & & Commemorate: Sabbatum post Diem Cinerum\\
+ & & \textit{Com:} Sabbatum post Diem Cinerum\\
 03/13, Sun & sd I cl & Dominica I in Quadragesima\\
 03/14, Mon & feria & Feria II infra Hebd I in Quadragesima\\
 03/15, Tue & feria & Feria III infra Hebd I in Quadragesima\\
 03/16, Wed & feria & Feria IV Quatuor Temporum Quadragesimæ\\
 03/17, Thu & d & S Patricii Ep C\\
- & & Commemorate: Feria V infra Hebd I in Quadragesima\\
+ & & \textit{Com:} Feria V infra Hebd I in Quadragesima\\
 03/18, Fri & feria & Feria VI Quatuor Temporum Quadragesimæ\\
 03/19, Sat & d I cl & S Joseph Sponsi BMV C\\
 03/20, Sun & sd I cl & Dominica II in Quadragesima\\
 03/21, Mon & dm & S Benedicti Abb\\
- & & Commemorate: Feria II infra Hebd II in Quadragesima\\
+ & & \textit{Com:} Feria II infra Hebd II in Quadragesima\\
 03/22, Tue & feria & Feria III infra Hebd II in Quadragesima\\
 03/23, Wed & feria & Feria IV infra Hebd II in Quadragesima\\
 03/24, Thu & dm & S Gabrielis Arch\\
- & & Commemorate: Feria V infra Hebd II in Quadragesima\\
+ & & \textit{Com:} Feria V infra Hebd II in Quadragesima\\
 03/25, Fri & d I cl & In Annuntiatione BMV\\
 03/26, Sat & feria & Sabbatum infra Hebd II in Quadragesima\\
 03/27, Sun & sd I cl & Dominica III in Quadragesima\\
 03/28, Mon & sd & S Ioannis a Capistrano C\\
- & & Commemorate: Feria II infra Hebd III in Quadragesima\\
+ & & \textit{Com:} Feria II infra Hebd III in Quadragesima\\
 03/29, Tue & feria & Feria III infra Hebd III in Quadragesima\\
 03/30, Wed & feria & Feria IV infra Hebd III in Quadragesima\\
 03/31, Thu & feria & Feria V infra Hebd III in Quadragesima\\
 04/01, Fri & feria & Feria VI infra Hebd III in Quadragesima\\
 04/02, Sat & d & S Francisco de Paula C\\
- & & Commemorate: Sabbatum infra Hebd III in Quadragesima\\
+ & & \textit{Com:} Sabbatum infra Hebd III in Quadragesima\\
 04/03, Sun & sd I cl & Dominica IV in Quadragesima (Lætare)\\
 04/04, Mon & d & S Isidori CD\\
- & & Commemorate: Feria II infra Hebd IV in Quadragesima \\
+ & & \textit{Com:} Feria II infra Hebd IV in Quadragesima \\
 04/05, Tue & d & S Vincentii Ferrerii C\\
- & & Commemorate: Feria III infra Hebd IV in Quadragesima \\
+ & & \textit{Com:} Feria III infra Hebd IV in Quadragesima \\
 04/06, Wed & feria & Feria IV infra Hebd IV in Quadragesima \\
 04/07, Thu & feria & Feria V infra Hebd IV in Quadragesima \\
 04/08, Fri & feria & Feria VI infra Hebd IV in Quadragesima \\
 04/09, Sat & feria & Sabbatum infra Hebd IV in Quadragesima \\
 04/10, Sun & sd I cl & Dominica de Passione\\
 04/11, Mon & d & S Leonis Pp CD\\
- & & Commemorate: Feria II infra Hebd de Passione\\
+ & & \textit{Com:} Feria II infra Hebd de Passione\\
 04/12, Tue & feria & Feria III infra Hebd de Passione\\
 04/13, Wed & sd & S Hermenegildi M\\
- & & Commemorate: Feria IV infra Hebd de Passione\\
+ & & \textit{Com:} Feria IV infra Hebd de Passione\\
 04/14, Thu & d & S Iustini M\\
- & & Commemorate: Feria V infra Hebd de Passione\\
+ & & \textit{Com:} Feria V infra Hebd de Passione\\
 04/15, Fri & dm & Septem Dolorum BMV\\
 04/16, Sat & feria & Sabbatum infra Hebd de Passione\\
 04/17, Sun & sd I cl & Dominica in Palmis\\
@@ -140,7 +145,7 @@
 04/22, Fri & d I cl & Feria VI in Parasceve\\
 04/23, Sat & d I cl & Sabbatum Sanctum\\
 04/24, Sun & sd & Dominica II post Pascha\\
- & & Commemorate: S Fidelis a Sigmaringa\\
+ & & \textit{Com:} S Fidelis a Sigmaringa\\
 04/25, Mon & d II cl & S Marci Ev\\
 04/26, Tue & sd & Ss Cleti et Marcellini PP Mm\\
 04/27, Wed & d I cl cum Oct Communi & Solemnitas S. Joseph, Sponsi BMV C. et Ecclesiæ Universalis Patroni\\
@@ -157,7 +162,7 @@
 05/23, Mon & d I cl & Feria II infra Oct. Pentecostes\\
 05/24, Tue & d I cl & Feria III infra Oct. Pentecostes\\
 05/25, Wed & sd & Feria VI infra Oct. Ascensionis\\
- & & Commemorate: Feria IV Quatuor Temporum infra Oct. Pentecostes\\
+ & & \textit{Com:} Feria IV Quatuor Temporum infra Oct. Pentecostes\\
 05/26, Thu & sd & Feria V infra Oct. Pentecostes\\
 05/27, Fri & sd & Feria VI infra Oct. Pentecostes\\
 05/28, Sat & sd & Sabbatum infra Oct. Pentecostes\\
@@ -189,16 +194,38 @@
 08/14, Sun & sd & Dominica XII post Pentecosten\\
 08/21, Sun & sd & Dominica XIII post Pentecosten\\
 08/28, Sun & sd & Dominica XIV post Pentecosten\\
+09/01, Thu & s & S Ægidii Abb\\
+09/02, Fri & sd & S Stephani Regis C\\
 09/04, Sun & sd & Dominica XV post Pentecosten\\
+09/05, Mon & sd & S Laurentii Justiniani EC\\
+09/08, Thu & d II cl & In Nativitate BMV\\
+09/09, Fri & s & S Gorgonii M\\
+09/10, Sat & d & S Nicolai de Tolentino C\\
 09/11, Sun & sd & Dominica XVI post Pentecosten\\
-09/14, Wed & feria & Feria IV Quatuor Temporum Septembris\\
-09/16, Fri & feria & Feria VI Quatuor Temporum Septembris\\
-09/17, Sat & feria & Sabbatum Quatuor Temporum Septembris\\
+09/12, Mon & dm & Ssmi Nominis Mariæ\\
+09/14, Wed & dm & in Exaltatione S Cruce\\
+ & & \textit{Com:} Feria IV Quatuor Temporum Septembris\\
+09/15, Thu & d II cl & Septem Dolorum BMV\\
+09/16, Fri & sd & Ss Cornelii P \& Cypriani E Mm\\
+ & & \textit{Com:} Feria VI Quatuor Temporum Septembris\\
+09/17, Sat & d & In Impressione Ss Stigmatum S Francisci C\\
+ & & \textit{Com:} Sabbatum Quatuor Temporum Septembris\\
 09/18, Sun & sd & Dominica XVII post Pentecosten\\
+ & & \textit{Com:} S Joseph a Cupertino C\\
+09/20, Tue & d & Ss Eustachii \& Soc Mm\\
+09/21, Wed & d II cl & S Matthæi ApEv\\
+09/22, Thu & d & S Thomæ de Villanova EC\\
+09/23, Fri & sd & S Lini\\
+09/24, Sat & dm & BMV de Merdece\\
 09/25, Sun & sd & Dominica XVIII post Pentecosten\\
+09/26, Mon & s & Ss Cypriani \& Justinæ Mm\\
+09/27, Tue & s & Ss Cosmæ \& Damiani Mm\\
+09/28, Wed & sd & S Wenceslau Ducis M\\
+09/29, Thu & d I cl & In Dedicatione S Michaelis Arch\\
+09/30, Fri & d & S Hieronymi SCD\\
 10/01, Sat & s & S Remigii EC\\
 10/02, Sun & sd & Dominica XIX post Pentecosten\\
- & & Commemorate: Ss Angelorum Custodum\\
+ & & \textit{Com:} Ss Angelorum Custodum\\
 10/03, Mon & d & S Teresiæ a Jesu Infante V\\
 10/04, Tue & dm & S Francisci C\\
 10/05, Wed & s & Ss Placidi \& Sociorum Mm\\
@@ -206,14 +233,14 @@
 10/07, Fri & d II cl & Sacratissimi Rosarii BMV\\
 10/08, Sat & d & S Birgittæ Vid\\
 10/09, Sun & sd & Dominica XX post Pentecosten\\
- & & Commemorate: S Joannis Leonardi C\\
+ & & \textit{Com:} S Joannis Leonardi C\\
 10/10, Mon & sd & S Francisci Borgiæ C\\
 10/11, Tue & d II cl & In Maternitate BMV\\
 10/13, Thu & sd & S Eduardi Regis C\\
 10/14, Fri & d & S Callisti I PM\\
 10/15, Sat & d & S Teresiæ V\\
 10/16, Sun & sd & Dominica XXI post Pentecosten\\
- & & Commemorate: S Hedwigis Vid\\
+ & & \textit{Com:} S Hedwigis Vid\\
 10/17, Mon & d & S Margaritæ Mariæ Alacoque V\\
 10/18, Tue & d II cl & S Lucæ Ev\\
 10/19, Wed & d & S Petri Alcantara C\\
@@ -237,7 +264,7 @@
 11/11, Fri & d & S Martini  EC\\
 11/12, Sat & sd & S Martini I PM\\
 11/13, Sun & sd & Dominica XXV post Pentecosten\\
- & & Commemorate: S Didaci C\\
+ & & \textit{Com:} S Didaci C\\
 11/14, Mon & d & Josaphat EM\\
 11/15, Tue & d & S Alberti Magni ECD\\
 11/16, Wed & d & S Gertrudis V\\
@@ -245,7 +272,7 @@
 11/18, Fri & dm & In Dedicatione Basilicarum Ss Petri \& Pauli App\\
 11/19, Sat & d & S Elisabeth Vid\\
 11/20, Sun & sd & Dominica XXVI post Pentecosten\\
- & & Commemorate: S Felicis de Valois C\\
+ & & \textit{Com:} S Felicis de Valois C\\
 11/21, Mon & dm & In Præsentatione BMV\\
 11/22, Tue & d & S Cæciliæ VM\\
 11/23, Wed & d & S Clementis I PM\\
@@ -258,19 +285,19 @@
 12/02, Fri & sd & S Bibianæ VM\\
 12/03, Sat & dm & S Francisci Xaverii C\\
 12/04, Sun & sd II cl & Dominica II Adventus\\
- & & Commemorate: S Petri Chrysologi ECD\\
+ & & \textit{Com:} S Petri Chrysologi ECD\\
 12/05, Mon & s & S Sabba Abb\\
 12/06, Tue & d & S Nicolai EC\\
 12/07, Wed & d & S Ambrosii ECD\\
- & & Commemorate: In Vigilia Conceptionis Immaculatæ BMV\\
+ & & \textit{Com:} In Vigilia Conceptionis Immaculatæ BMV\\
 12/08, Thu & d I cl cum Oct communi & In Conceptione Immaculata BMV\\
 12/10, Sat & s & S Melchide PM\\
 12/11, Sun & sd II cl & Dominica III Adventus\\
- & & Commemorate: S Damasi I PC\\
+ & & \textit{Com:} S Damasi I PC\\
 12/13, Tue & d & S Luciæ VM\\
 12/14, Wed & feria & Feria IV Quatuor Temporum in Adventus\\
 12/16, Fri & sd & S Eusebii EM\\
- & & Commemorate: Feria VI Quatuor Temporum in Adventus\\
+ & & \textit{Com:} Feria VI Quatuor Temporum in Adventus\\
 12/17, Sat & feria & Sabbatum Quatuor Temporum in Adventus\\
 12/18, Sun & sd II cl & Dominica IV Adventus\\
 12/20, Tue & v & In Vigilia S Thomæ Ap\\

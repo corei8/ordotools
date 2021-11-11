@@ -308,10 +308,15 @@ def latex_full_cal_test(year):
         f.write(
             r"""
 % !TEX program = lualatex
-\documentclass{article}
+\documentclass[10pt]{article}
 \title{Ordo -- Full Calendar -- 2022}
 \usepackage{longtable}
 \usepackage{geometry}
+\usepackage[letterspace=500]{microtype}
+\usepackage[T1]{fontenc}
+\usepackage[usefilenames,RMstyle={Text,Semibold},SSstyle={Text,Semibold},TTstyle={Text,Semibold},DefaultFeatures={Ligatures=Common}]{plex-otf} %
+\usepackage[latin]{babel}
+\usepackage{fontspec}
 % LETTERPAPER:
 \geometry{paperheight=8.5in, paperwidth=11in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
 \usepackage[table]{xcolor}
@@ -334,11 +339,21 @@ def latex_full_cal_test(year):
             else:
                 f.write("" + x + ', ' + datetime.strptime(x.strip('trans .') + '/' + str(year), '%m/%d/%Y').strftime('%a') + " & " + mdl[x]['rank'][-1] +
                         " & " + re.sub(r'&', '\&', mdl[x]['feast']) + "\\\\\n")
-            try:
-                f.write("" + '' + " & & " + 'Commemorate: ' +
+            if 'com1' in mdl[x].keys():
+                f.write("" + '' + " & & " + '\\textit{Com:} ' +
                         re.sub(r'&', '\&', mdl[x]['com1']) + "\\\\\n")
-            except KeyError:  # ! find a better way to fix this one
-                pass
+            else: pass
+            """ if 'comm2' in mdl[x].keys():
+                f.write("" + '' + " & & " + '\\textit{Com II:} ' +
+                        re.sub(r'&', '\&', mdl[x]['comm2']) + "\\\\\n")
+            else: pass
+            if 'comm3' in mdl[x].keys():
+                f.write("" + '' + " & & " + '\\textit{Com III:} ' +
+                        re.sub(r'&', '\&', mdl[x]['comm3']) + "\\\\\n")
+            else:
+                pass """
+            #except KeyError:  # ! find a better way to fix this one
+            #    pass
         f.write("\end{longtable}\n\end{document}")
     f.close()
     file = 'calendar_'+str(year)+'.tex'
