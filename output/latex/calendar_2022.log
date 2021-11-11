@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  10 NOV 2021 14:41
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  10 NOV 2021 15:59
  restricted system commands enabled.
 **calendar_2022.tex -interaction nonstopmode
 (./calendar_2022.tex
@@ -227,15 +227,15 @@ LaTeX Font Info:    ... okay on input line 11.
 ) [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3] [4] [5] [6] (./calendar_2022.aux))
+[2] [3] [4] [5] [6] [7] (./calendar_2022.aux))
 
 Here is how much of LuaTeX's memory you used:
  2231 strings out of 478095
- 305230,383344 words of node,token memory allocated
+ 305225,383344 words of node,token memory allocated
  436 words of node memory still in use:
    3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 54 glue_spec,
  4 attribute_list, 1 write nodes
-   avail lists: 1:1,2:5221,3:25,4:1201,5:2164,6:2,7:24289,8:1,9:3838,11:1200
+   avail lists: 1:1,2:5543,3:25,4:1201,5:2154,6:2,7:24303,9:3838,11:1198
  22613 multiletter control sequences out of 65536+600000
  26 fonts using 3041935 bytes
  57i,5n,63p,258b,211s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -243,10 +243,10 @@ Here is how much of LuaTeX's memory you used:
 tf></usr/local/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmromancaps10-re
 gular.otf></usr/local/texlive/2021/texmf-dist/fonts/opentype/public/lm/lmroman8-
 italic.otf>
-Output written on calendar_2022.pdf (6 pages, 27843 bytes).
+Output written on calendar_2022.pdf (7 pages, 29019 bytes).
 
-PDF statistics: 44 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
+PDF statistics: 47 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
