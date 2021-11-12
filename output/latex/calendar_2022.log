@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  10 NOV 2021 22:57
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2021.7.29)  11 NOV 2021 10:59
  restricted system commands enabled.
 **calendar_2022.tex -interaction nonstopmode
 (./calendar_2022.tex
@@ -1565,7 +1565,7 @@ LaTeX Font Warning: Font shape `TU/IBMPlexSerif(0)/m/sc' undefined
 [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3] [4] [5] [6] [7] [8] (./calendar_2022.aux)
+[2] [3] [4] [5] [6] [7] [8] [9] (./calendar_2022.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1573,21 +1573,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Here is how much of LuaTeX's memory you used:
  8009 strings out of 478095
- 305236,794899 words of node,token memory allocated
+ 305228,794899 words of node,token memory allocated
  467 words of node memory still in use:
    4 hlist, 1 vlist, 1 rule, 4 glue, 3 kern, 1 glyph, 7 attribute, 54 glue_spec,
  5 attribute_list, 1 write nodes
-   avail lists: 1:1,2:10516,3:27,4:1202,5:4018,6:2,7:24487,8:1,9:3838,11:1915
+   avail lists: 1:1,2:12238,3:27,4:1202,5:3970,6:2,7:24013,9:3838,11:1867
  28188 multiletter control sequences out of 65536+600000
  116 fonts using 14802191 bytes
  85i,5n,108p,334b,271s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2021/texmf-dist/fonts/opentype/ibm/plex/IBMPlexSerif-Text.ot
 f></usr/local/texlive/2021/texmf-dist/fonts/opentype/ibm/plex/IBMPlexSerif-TextI
 talic.otf>
-Output written on calendar_2022.pdf (8 pages, 27833 bytes).
+Output written on calendar_2022.pdf (9 pages, 30236 bytes).
 
-PDF statistics: 43 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
+PDF statistics: 46 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

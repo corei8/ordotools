@@ -339,21 +339,26 @@ def latex_full_cal_test(year):
             else:
                 f.write("" + x + ', ' + datetime.strptime(x.strip('trans .') + '/' + str(year), '%m/%d/%Y').strftime('%a') + " & " + mdl[x]['rank'][-1] +
                         " & " + re.sub(r'&', '\&', mdl[x]['feast']) + "\\\\\n")
+            # todo find a solution for labeling commemorations
             if 'com1' in mdl[x].keys():
                 f.write("" + '' + " & & " + '\\textit{Com:} ' +
                         re.sub(r'&', '\&', mdl[x]['com1']) + "\\\\\n")
-            else: pass
-            """ if 'comm2' in mdl[x].keys():
-                f.write("" + '' + " & & " + '\\textit{Com II:} ' +
-                        re.sub(r'&', '\&', mdl[x]['comm2']) + "\\\\\n")
+            else: 
+                pass
+            if 'comm2' in mdl[x].keys():
+                if len(mdl[x]['comm2']['feast']) > 0:
+                    f.write("" + '' + " & & " + '\\textit{Com:} ' +
+                            re.sub(r'&', '\&', mdl[x]['comm2']['feast']) + "\\\\\n")
+                else: pass
             else: pass
             if 'comm3' in mdl[x].keys():
-                f.write("" + '' + " & & " + '\\textit{Com III:} ' +
-                        re.sub(r'&', '\&', mdl[x]['comm3']) + "\\\\\n")
+                if len(mdl[x]['comm3']['feast']) > 0:
+                    f.write("" + '' + " & & " + '\\textit{Com:} ' +
+                            re.sub(r'&', '\&', mdl[x]['comm3']['feast']) + "\\\\\n")
+                else:
+                    pass
             else:
-                pass """
-            #except KeyError:  # ! find a better way to fix this one
-            #    pass
+                pass
         f.write("\end{longtable}\n\end{document}")
     f.close()
     file = 'calendar_'+str(year)+'.tex'
