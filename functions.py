@@ -168,31 +168,29 @@ def dict_clean(direct: str, dict: int):
     except AttributeError:
         dic = mdl.calen
     for second_ in sorted(dic):
-        gtg = True
+        nobility_free = True
         if len(second_) >= 6:
             continue
         else:
             if not second_+'.' in sorted(dic):
-                print('Did not find dotted date: \t'+second_+'.')
                 continue
             else:
-                print('FOUND a dotted date.....: \t'+second_+'.')
                 first_ = second_+'.'
                 if dic[second_]['rank'][0] > dic[first_]['rank'][0]:
                     first, second = first_, second_
                 elif dic[second_]['rank'][0] == dic[first_]['rank'][0]:
-                    # ! nobility
-                    gtg = False  # for testing only
+                    # * solve the nobility issue here
+                    nobility_free = False
                     pass
                 else:
                     first, second = second_, first_
-                if gtg == False:
+                if nobility_free == False:
                     pass
                 else:
                     # tranlsation
                     if dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] <= 10:
                         dic.update({first.strip('.'): dic[first]})
-                        dic.update({'trans ' + second.strip('.'): dic[second]})
+                        dic.update({second.strip('.')+'_': dic[second]})
                     # no commemoration
                     elif dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] > 10:
                         dic.update({first.strip('.'): dic[first]})
@@ -212,10 +210,10 @@ def dict_clean(direct: str, dict: int):
         f.truncate(0)
         for i, line in enumerate(sorted(dic)):
             if i == 0:
-                f.write(re.sub(r"/(temporal|calendar)", '', re.sub(r"\.", r'/', direct) + str(dict)) +
-                        ' = {\n\'' + line + '\' : ' + str(dic[line]) + ',\n')
+                f.write(re.sub(r"/(temporal|calendar)", '', re.sub(r"\.", r'/', direct)+str(dict))
+                        + ' = {\n\''+line+'\': '+str(dic[line])+',\n')
             else:
-                f.write('\'' + line + '\' : ' + str(dic[line]) + ',\n')
+                f.write('\''+line+'\' : '+str(dic[line])+',\n')
         f.write('}')
         f.close()
         return 0
@@ -226,8 +224,6 @@ def stitch(year: int, s: str):
         'temporal.temporal_' + str(year)).temporal
     mdl_sanctoral = importlib.import_module('sanctoral.' + s).sanctoral
     mdlt, mdls = sorted(mdl_temporal), sorted(mdl_sanctoral)
-    # todo for adjusting the feasts of the year:
-    # todo matthew(leap_year(year), easter(year))
     if leap_year(year) == False:
         pass
     else:
@@ -238,14 +234,14 @@ def stitch(year: int, s: str):
                 new_date = mdl_sanctoral[event].get('leapdate')
                 mdl_sanctoral.update({new_date if not new_date in mdl_sanctoral else (
                     new_date+'.' if not new_date+'.' in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
-    calen = {}  # ! see if it is cheaper to make a dic and update it at the same time
+    calen = {}
     for feast in mdls:
         calen.update(
             {feast + '.' if feast in mdlt else feast: mdl_sanctoral[feast]}
         )
     for feast in mdlt:
         calen.update({feast: mdl_temporal[feast]})
-    # ! test:
+    # * test:
     for x in sorted(calen.keys()):
         print(x)
 
@@ -262,7 +258,7 @@ def stitch(year: int, s: str):
 
 
 def latex_full_cal_test(year):
-    # ! make this calendar import work with a variable
+    # todo make this calendar import work with a variable
     mdl = importlib.import_module(
         'calen.calendar_' + str(year)).calen
     mdldates = sorted(mdl)

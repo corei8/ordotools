@@ -65,3 +65,13 @@ How to remember the General Councils?
 Ni Co E Chal Co Co
 Ni Co La La La La 
 Lu Lu Vi Co Flo La Tri Va
+
+
+'07/01': {
+    'feast': '',
+    'rank': [],
+    'comm2': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+    'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+    'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'},
+    'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+},
