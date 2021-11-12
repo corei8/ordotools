@@ -1,6 +1,3 @@
-# COMPLETE: January, February, March, April, December
-# todo May, June, July, August, September, October, November
-
 sanctoral = {
     '01/14': {
         'feast': 'S Hilarii Episcopi ECD',
@@ -8,9 +5,7 @@ sanctoral = {
         'comm2': {'feast': 'S Felix SM', 'mass': {'int': 'Lætabitur', 'glo': True, 'cre': True, 'pre': 'Communis'}},
         'office_proper': True,
         'mass': {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': 'O Doctor', 'propers': {'hymn': '', 'verse': ''},
-                    'oration': 'Deus, qui populo'
-                    },
+        'vespers': {'proper': False, 'admag': 'O Doctor', 'oration': 'Deus, qui populo'},
     },
     '01/15': {
         'feast': 'S Pauli Primi Eremitæ C',
@@ -582,56 +577,42 @@ sanctoral = {
     '06/02': {
         'feast': 'Ss Marcellini, Petri & Erasmi E Mm',
         'rank': [15, 'd'],
-        'comm2': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-        'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Clamaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
     '06/04': {
         'feast': 'S Francisci Caracciolo C',
         'rank': [15, 'd'],
-        'comm2': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-        'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Factum est', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
     '06/05': {
         'feast': 'S Bonifatii EM',
         'rank': [15, 'd'],
-        'comm2': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-        'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Exsultabo', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
     '06/06': {
         'feast': 'S Norberti EC',
         'rank': [15, 'd'],
-        'comm2': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-        'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
     '06/09': {
         'feast': 'Ss Primi Feliciani Mm',
         'rank': [21, 's'],
-        'comm2': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-        'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
     '06/10': {
         'feast': 'S Margaritæ RVid',
         'rank': [16.1, 'sd'],
-        'comm2': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-        'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Cognovi', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
     '06/11': {
         'feast': 'S Barnabæ Ap',
         'rank': [14, 'dm'],
-        'comm2': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-        'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostlis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
@@ -639,27 +620,103 @@ sanctoral = {
         'feast': 'S Joannis a S Facundo C',
         'rank': [15, 'd'],
         'comm2': {'feast': 'Ss Basilide, Cyrino, Nabore & Nazario Mm', 'mass': {'int': 'Intret in conspectu', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-        'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
     '06/13': {
         'feast': 'S Antonii de Padua C',
         'rank': [15, 'd'],
-        'comm2': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-        'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
     '06/14': {
         'feast': 'S Basilii Magni ECD',
         'rank': [15, 'd'],
-        'comm2': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-        'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
-    
+    '06/15': {
+        'feast': 'Ss Vili, Modesti & Crescentiæ Mm',
+        'rank': [21, 's'],
+        'mass': {'int': 'Multæ tribulationes', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/18': {
+        'feast': 'S Ephræm Syri Diaconi CD',
+        'rank': [15, 'd'],
+        'comm2': {'feast': 'Ss Marco & Marcelliano Mm', 'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/19': {
+        'feast': 'S Julianæde Falconeriis V',
+        'rank': [15, 'd'],
+        'comm2': {'feast': 'Ss Gervaso & Protasio Mm', 'mass': {'int': 'Loquetur', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/20': {
+        'feast': 'S Silverii PM',
+        'rank': [21, 's'],
+        'mass': {'int': 'Si diligis', 'glo': True, 'cre': False, 'pre': 'de Apostolis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/21': {
+        'feast': 'S Aloisii Gonzagæ C',
+        'rank': [15, 'd'],
+        'mass': {'int': 'Minuisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/22': {
+        'feast': 'S Paulini EC',
+        'rank': [15, 'd'],
+        'mass': {'int': 'Sacerdotes', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/23': {
+        'feast': 'In Vigilia Nativitatis S Joannis Baptistæ',
+        'rank': [18, 'v'],
+        'mass': {'int': 'Ne timeas', 'glo': False, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/24': {
+        'feast': 'In Nativitate S Joannis Baptistæ',
+        'rank': [2, 'd I cl cum Oct communi'],
+        'mass': {'int': 'De ventre', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/25': {
+        'feast': 'S Gulielmi Abb',
+        'rank': [15, 'd'],
+        'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/26': {
+        'feast': 'S joannis & Pauli Mm',
+        'rank': [15, 'd'],
+        'mass': {'int': 'Multæ tribulationes', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/28': {
+        'feast': 'Irinæi EM',
+        'rank': [15, 'd'],
+        'comm2': {'feast': 'In Vigilia Ss Petri & Pauli App', 'mass': {'int': 'Dicit Dominus', 'glo': False, 'cre': False, 'pre': 'Communis'}},
+        'mass': {'int': 'Lex veritatis', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/29': {
+        'feast': 'Ss Petri & Pauli App',
+        'rank': [2, 'd I cl cum Oct communi'],
+        'mass': {'int': 'Nunc scio', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
+    '06/30': {
+        'feast': 'In Commemoratione S Pauli Apostoli',
+        'rank': [14, 'dm'],
+        'comm2': {'feast': 'S Petri Ap', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'mass': {'int': 'Scio, cui credidi', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
+        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+    },
     '07/01': {
         'feast': 'In Festo Pretiosissimi Sanguis DNJC',
         'rank': [2, 'd I cl'],
@@ -1546,7 +1603,6 @@ sanctoral = {
         'mass': {'int': 'Venite, audite', 'glo': False, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },
-    #! add a flag that makes all the days within the octaves of a given day after the calendar is built.
     '12/08': {
         'feast': 'In Conceptione Immaculata BMV',
         'rank': [2, 'd I cl cum Oct communi'],
