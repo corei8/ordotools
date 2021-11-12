@@ -516,7 +516,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/19': {
-        'feast': 'S Petri Celestini Pp C',
+        'feast': 'S Petri Celestini PC',
         'rank': [15, 'd'],
         'comm2': {'feast': 'S Pudentianae V', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
