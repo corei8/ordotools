@@ -3,10 +3,12 @@ from datetime import timedelta, datetime
 import re
 import subprocess
 import os
-# from feasts import matthew
 
-ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV",
-          "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", ]
+ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
+          "VIII", "IX", "X", "XI", "XII", "XIII",
+          "XIV", "XV", "XVI", "XVII", "XVIII", "XIX",
+          "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV",
+          "XXVI", "XXVII", "XXVIII", ]
 
 
 def easter(year: int):
@@ -104,66 +106,6 @@ def leap_year(year: int):
             return 0 # todo no commemoration of the vigil in office, Mass private of either ferial, feast or vigil
     else:
         return 0 """
-        
-
-#! this function is not necessary?
-
-
-def full_year(year):
-    year_list = []
-    yearstart = datetime(year=year, month=1, day=1)
-    while yearstart.strftime("%Y") != str(year + 1):
-        year_list.append(yearstart.strftime("%m/%d"))
-        yearstart += timedelta(days=1)
-    return year_list
-
-
-def concur(seq, pre):
-    """ Compares concurring days and determines the rule to be applied, as found in the breviary
-
-    Args:
-        seq (integer): the concurring value of the following day
-        pre (integer): the concurring value of the current (previous) day
-
-    Returns:
-        integer: corresponds to the concurrance options in the breviary
-    """
-    concur_table = [
-        [4, 0, 4, 4, 4, 4, 4, 4, 3, 3, 0],
-        [2, 2, 2, 4, 4, 4, 4, 4, 5, 2, 4],
-        [2, 2, 2, 4, 4, 4, 4, 4, 3, 3, 4],
-        [4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 4],
-        [4, 4, 4, 4, 4, 4, 4, 5, 3, 1, 3],
-        [4, 4, 4, 4, 4, 4, 5, 3, 3, 1, 3],
-        [4, 4, 4, 4, 4, 5, 3, 3, 3, 1, 3],
-        [4, 4, 4, 4, 5, 3, 3, 3, 1, 1, 3],
-        [4, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3],
-        [4, 0, 0, 0, 3, 3, 3, 3, 1, 1, 3],
-    ]
-    comparison = concur_table[seq][-(pre+1)]
-    if comparison == 1:
-        result = 1   # all of the following, nothing of the preceding
-    elif comparison == 2:
-        result = 2  # all of the preceding, nothing of the following
-    elif comparison == 3:
-        result = 3  # all of the following, commemoration of the preceding
-    elif comparison == 4:
-        result = 4  # all of the preceding, commemoration of the following
-    else:
-        result = 5  # all  of the more noble, commemoration of the other; in equality, a cap the following, commemoration of the preceding
-    return result
-
-
-def concurrance(dict):
-    mdl = importlib.import_module('calen.calendar_' + str(dict)).calen
-    mdlkeys = sorted(mdl)
-    i = 0
-    for pre in mdlkeys:
-        seq = mdlkeys[i+1]
-        ranker = concur(mdl[seq]['rank'][2]. mdl[pre]['rank'][3])
-        print(ranker)
-    return 0
-# ? should we use a seperate function for the concurrnace?
 
 
 def transfer(year: int, diocese: str):
@@ -185,7 +127,6 @@ def transfer(year: int, diocese: str):
     # QUALITY OF THE PROPER.
     nobility = {'rite': 'd I cl' or 'd II cl', 'solemnity': 0,
                 'quality': 0, 'dignity': 0, 'proper': False}
-
     # for the other feasts:
     # use the ranking in occurance.md
     return 0
@@ -343,14 +284,16 @@ def latex_full_cal_test(year):
             if 'com1' in mdl[x].keys():
                 f.write("" + '' + " & & " + '\\textit{Com:} ' +
                         re.sub(r'&', '\&', mdl[x]['com1']) + "\\\\\n")
-            else: 
+            else:
                 pass
             if 'comm2' in mdl[x].keys():
                 if len(mdl[x]['comm2']['feast']) > 0:
                     f.write("" + '' + " & & " + '\\textit{Com:} ' +
                             re.sub(r'&', '\&', mdl[x]['comm2']['feast']) + "\\\\\n")
-                else: pass
-            else: pass
+                else:
+                    pass
+            else:
+                pass
             if 'comm3' in mdl[x].keys():
                 if len(mdl[x]['comm3']['feast']) > 0:
                     f.write("" + '' + " & & " + '\\textit{Com:} ' +
