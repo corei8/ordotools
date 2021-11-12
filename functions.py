@@ -1,14 +1,36 @@
-import importlib
 from datetime import timedelta, datetime
+import importlib
+import os
 import re
 import subprocess
-import os
+
 
 ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
           "VIII", "IX", "X", "XI", "XII", "XIII",
           "XIV", "XV", "XVI", "XVII", "XVIII", "XIX",
           "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV",
           "XXVI", "XXVII", "XXVIII", ]
+
+
+class Feast:
+    def __init__(self, this_date: str, properties: dict):
+        self.date = this_date
+        self.properties = properties
+
+    def date(self):
+        return datetime.strptime('%m%d', self.this_date)
+
+    def feast(self):
+        return self.properties['feast']
+
+    def rank(self, visual: bool):
+        if visual == True:
+            return self.properties['rank'][-1]
+        else:
+            return self.propertes['rank'][0]
+
+    def to_dictionary(self):
+        return self.properties
 
 
 def easter(year: int):
@@ -137,7 +159,8 @@ def dict_clean(direct: str, dict: int):
     overwrites the calendar file with the resulting dictionary.
 
     Args:
-        direct (integer)   : the relative path to the dictionary, in format calendar/calendar_
+        direct (integer)   : the relative path to the dictionary, 
+                             in format calendar/calendar_
         dict   (dictionary): year of the calendar to clean
     """
     mdl = importlib.import_module(direct + str(dict))
@@ -154,7 +177,7 @@ def dict_clean(direct: str, dict: int):
                 print('Did not find dotted date: \t'+second_+'.')
                 continue
             else:
-                print('Found a dotted date.....: \t'+second_+'.')
+                print('FOUND a dotted date.....: \t'+second_+'.')
                 first_ = second_+'.'
                 if dic[second_]['rank'][0] > dic[first_]['rank'][0]:
                     first, second = first_, second_
