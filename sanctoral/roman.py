@@ -424,105 +424,105 @@ sanctoral = {
     },
     '05/01': {
         'feast': 'Ss Philippi et Iacobi APp',
-        'rank': ['d II cl'],
+        'rank': [10, 'd II cl'],
         'mass': {'int': 'Clamaverunt ad te', 'glo': True, 'cre': True, 'pre': 'De Apostolis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/02': {
         'feast': 'S Athanasii Ep CD',
-        'rank': ['d'],
+        'rank': [15, 'd'],
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/03': {
         'feast': 'In Inventione S Crucis',
-        'rank': ['d II cl'],
+        'rank': [10, 'd II cl'],
         'comm2': {'feast': 'Ss Alexandro I Pp, Event et Theodulo Mm ac Juvenile Ep C', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Not autem gloriari', 'glo': True, 'cre': True, 'pre': 'De Cruce'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/04': {
         'feast': 'S Monicae Vid',
-        'rank': ['d'],
+        'rank': [15, 'd'],
         'mass': {'int': 'Cognovi, Domine', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/05': {
         'feast': 'S Pii V Pp C',
-        'rank': ['d'],
+        'rank': [15, 'd'],
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/06': {
         'feast': 'S Ioannis Ap et Ev Ante Portam Latinam',
-        'rank': ['dm'],
+        'rank': [14, 'dm'],
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': True, 'pre': 'De Apostolis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/07': {
         'feast': 'S Stanislai Ep M',
-        'rank': ['d'],
+        'rank': [15, 'd'],
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/08': {
         'feast': 'In Apparitione S Michaelis Archangelis',
-        'rank': ['dm'],
+        'rank': [14, 'dm'],
         'mass': {'int': 'Benedicite Dominum', 'glo': True, 'cre': True, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/09': {
         'feast': 'S Gregorii Nanzanzeni Ep CD',
-        'rank': ['d'],
+        'rank': [15, 'd'],
         'mass': {'int': 'In media', 'glo': True, 'cre': True, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/10': {
         'feast': 'S Antonini Ep C',
-        'rank': ['d'],
+        'rank': [15, 'd'],
         'comm2': {'feast': 'Ss Gordiani et Epimachi Mm', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Statuit ei', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/12': {
         'feast': 'Ss Nerei, Achillei at Domitillae V atq Pancratii Mm',
-        'rank': ['sd'],
+        'rank': [16.1, 'sd'],
         'mass': {'int': 'Ecce, oculi Domini', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/13': {
         'feast': 'S Roberti Bellarmini Ep CD',
-        'rank': ['d'],
+        'rank': [15, 'd'],
         'mass': {'int': 'In medio', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/14': {
         'feast': 'S Bonifatii M',
-        'rank': ['s'],
+        'rank': [16.1, 's'],
         'mass': {'int': 'Protexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/15': {
         'feast': 'S Ioannis Baptistae de la Salle C',
-        'rank': ['d'],
+        'rank': [15, 'd'],
         'mass': {'int': 'Os iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/16': {
         'feast': 'S Ubaldi EC',
-        'rank': ['sd'],
+        'rank': [16.1, 'sd'],
         'mass': {'int': 'Statuit', 'glo': True, 'cre': True, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/18': {
         'feast': 'S Venantii M',
-        'rank': ['d'],
+        'rank': [15, 'd'],
         'mass': {'int': 'Protexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
     '05/19': {
         'feast': 'S Petri Celestini Pp C',
-        'rank': ['d'],
+        'rank': [15, 'd'],
         'comm2': {'feast': 'S Pudentianae V', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
@@ -579,6 +579,7 @@ sanctoral = {
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
+    ### June, July ###
     '08/01': {
         'feast': 'S Petri Ap, ad Vincula',
         'rank': [14, 'dm'],
