@@ -56,6 +56,7 @@ Octave?
 10. Priests and Levites
 11. Monks and Hermits
 12. Virgins and Widows
+13. False
 
 ## Quality of Primary or Secondary Feasts - index 4
 
