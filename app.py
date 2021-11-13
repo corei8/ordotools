@@ -558,12 +558,10 @@ def build_temporal(year):
             )
             ascension_day = easter(year) + week(i) + indays(5)
         if x == "Dominica infra Octavam Ascensionis":
-            j = 0  # ! FIXME
-            for y in ROMANS[1:6]:
-                # pass if the day w/in the octave is a sunday
-                if (ascension_day + indays(j + 1)) == (easter(year) + week(i)):
-                    pass
-                elif (ascension_day + indays(j + 1)).strftime("%A") == "Saturday":
+            for j, y in enumerate(ROMANS[1:6], start=1):
+                if ascension_day + indays(j) == easter(year) + week(i):
+                    continue
+                elif (ascension_day + indays(j)).strftime("%A") == "Saturday":
                     cycle.append(
                         [  # ! mass, vespers
                             "Sabbatum infra Oct. Ascensionis",
@@ -573,23 +571,22 @@ def build_temporal(year):
                             {'proper': False, 'admag': '',
                                 'propers': {}, 'oration': ''},
                             (False,),
-                            ascension_day + indays(j + 1),
+                            ascension_day + indays(j),
                         ]
                     )
                 else:
                     cycle.append(
                         [  # ! mass, vespers
-                            "De " + y + "die infra Oct. Ascensionis",
+                            "De " + y + " die infra Oct. Ascensionis",
                             [16, 'sd'],
                             {'int': 'Missa', 'glo': True,
                                 'cre': True, 'pre': 'Communis'},
                             {'proper': False, 'admag': '',
                                 'propers': {}, 'oration': ''},
                             (False,),
-                            ascension_day + indays(j + 1),
+                            ascension_day + indays(j),
                         ]
                     )
-                j += 1
         if x == "Dominica in Albis":
             cycle.append(
                 [  # ! mass, vespers
@@ -1088,7 +1085,6 @@ def build_temporal(year):
                 if temporal_event in memory:
                     temporal_event += "."
                 memory.append(temporal_event)
-                print(row[0]+' has the "nobility" key')
                 mini_dict = str(
                     dict(
                         zip(
