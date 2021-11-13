@@ -1,5 +1,0 @@
-{
-	"python.formatting.provider": "autopep8",
-	"prettier.trailingComma": "none",
-	"python.pythonPath": "/usr/local/bin/python3"
-}
