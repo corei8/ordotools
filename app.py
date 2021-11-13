@@ -524,7 +524,7 @@ def build_temporal(year):
                         easter(year) + week(i) + indays(3),
                     ],
                     [  # ! mass, vespers
-                        "Vigilæ Ascensionis",
+                        "Vigilia Ascensionis",
                         [18, 'feria'],
                         {'int': 'Missa', 'glo': True,
                             'cre': True, 'pre': 'Communis'},
