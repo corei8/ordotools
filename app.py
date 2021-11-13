@@ -1,7 +1,7 @@
 import re
 from datetime import datetime
 from functions import *
-
+from outputs import latex_full_cal_test
 
 LENT_MASSES = ['Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', 'De necessitatibus',
                'Intret oratio', 'Redime me', 'Tibi dixit', 'Ne derelinquas me',
