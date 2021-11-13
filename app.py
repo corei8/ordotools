@@ -494,7 +494,7 @@ def build_temporal(year):
             cycle.extend(
                 [
                     [  # ! vespers
-                        "In Rogationibus",
+                        "Feria II in Rogationibus",
                         [21, 's'],
                         {'int': 'Exaudivit', 'glo': False,
                             'cre': False, 'pre': 'Paschalis'},
@@ -504,7 +504,7 @@ def build_temporal(year):
                         easter(year) + week(i) + indays(1),
                     ],
                     [  # ! vespers
-                        "In Rogationibus",
+                        "Feria III in Rogationibus",
                         [21, 's'],
                         {'int': 'Exaudivit', 'glo': False,
                             'cre': False, 'pre': 'Paschalis'},
@@ -514,7 +514,7 @@ def build_temporal(year):
                         easter(year) + week(i) + indays(2),
                     ],
                     [  # ! vespers
-                        "In Rogationibus",
+                        "Feria IV in Rogationibus",
                         [21, 's'],
                         {'int': 'Exaudivit', 'glo': False,
                             'cre': False, 'pre': 'Paschalis'},
