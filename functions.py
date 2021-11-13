@@ -1,9 +1,7 @@
 from datetime import timedelta, datetime
 import dateutil.easter
 import importlib
-import os
 import re
-import subprocess
 
 
 ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
@@ -57,6 +55,7 @@ def weekday(date: int):
 
 
 def findsunday(date):  # ! this can be better handled with %w -- no conversion necessary
+    # todo redefine findsunday() to use %w
     if date.strftime("%a") == "Mon":
         x = 1
     if date.strftime("%a") == "Tue":
@@ -140,8 +139,7 @@ def dict_clean(direct: str, dict: int):
                 first_ = second_+'.'
                 if dic[second_]['rank'][0] > dic[first_]['rank'][0]:
                     first, second = first_, second_
-                elif dic[second_]['rank'][0] == dic[first_]['rank'][0]:
-                    # * solve the nobility issue here
+                elif dic[second_]['rank'][0] == dic[first_]['rank'][0]:  # NOBILITY
                     less_noble = nobility_solver(
                         (second_, dic[second_]['nobility'],),
                         (first_, dic[first_]['nobility'],)
@@ -170,7 +168,7 @@ def dict_clean(direct: str, dict: int):
                 if nobility_free == False:
                     pass
                 else:
-                    # tranlsation
+                    # translation
                     if dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] <= 10:
                         dic.update({first.strip('.'): dic[first]})
                         dic.update({second.strip('.')+'_': dic[second]})
@@ -202,6 +200,7 @@ def dict_clean(direct: str, dict: int):
 
 
 def stitch(year: int, s: str):
+    # todo make strich() reuseable
     mdl_temporal = importlib.import_module(
         'temporal.temporal_' + str(year)).temporal
     mdl_sanctoral = importlib.import_module('sanctoral.' + s).sanctoral

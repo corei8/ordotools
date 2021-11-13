@@ -10,6 +10,8 @@ LENT_MASSES = ['Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', '
                'Cum sanctificatus', 'Lætetur cor', 'Meditatio', 'Sitientes', 'Miserere mihi',
                'Expecta Dominum', 'Liberator meus', 'Omnia, quæ fecisti', 'Miserere mihi', 'Miserere mihi', ]
 
+# todo add all the Masses for the Sundays after Pentecost
+PENT_MASSES =[]
 
 def build_temporal(year):
     year = int(year)
@@ -144,9 +146,9 @@ def build_temporal(year):
         if weekday(epiphany + indays(i+1)) != "Sun":
             cycle.append(
                 [  # ! mass, vespers
-                    "Feria "
-                    + ROMANS[i]
-                    + " infra Oct. Epiphaniæ",
+                    "De "
+                    + ROMANS[i+1]
+                    + " die infra Oct. Epiphaniæ",
                     [9, 'feria'],
                     {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                     {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
