@@ -59,6 +59,8 @@ Day of rest? Octave?
 
 ## Quality of Primary or Secondary Feasts
 
+Is it primary? Secondary?
+
 ## Quality of the Proper
 
 How to remember the General Councils?

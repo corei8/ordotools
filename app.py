@@ -1,11 +1,10 @@
 import re
-from datetime import datetime, timedelta
+from datetime import datetime
 from functions import *
 
 
 def build_temporal(year):
-    year = int(year) - 1, int(year)
-    this_year = year  # ? why is this needed?
+    year = int(year)
     cycle = []
     # ? maybe get rid of this ?
     feria = [
@@ -16,7 +15,7 @@ def build_temporal(year):
         "Feria VI",
         "Sabbatum",
     ]
-    circumcision = day(this_year, 1, 1)
+    circumcision = day(year, 1, 1)
     cycle.extend(
         [
             [  # ! vespers
@@ -60,7 +59,7 @@ def build_temporal(year):
                 [10, 'd II cl'],
                 {'int': 'In nomine Jesu', 'glo': True,
                     'cre': True, 'pre': 'de Nativitate'},
-                day(this_year, 1, 2),
+                day(year, 1, 2),
             ]
         )
     else:
@@ -86,7 +85,7 @@ def build_temporal(year):
                 easter(year) - week(9 - i),
             ]
         )
-    epiphany = day(this_year, 1, 6)
+    epiphany = day(year, 1, 6)
     cycle.append(
         [  # ! mass, vespers
             "Vigilia Epiphaniæ",
@@ -131,9 +130,14 @@ def build_temporal(year):
         else:
             pass
     epiph_counter, o = first_epiph, 0
-    while epiph_counter != septuadate:
-        if ROMANS[o] == "I":  # ! REDUNDANT
-            if epiph_counter == day(this_year, 1, 13):
+    epiph_sundays = ["I", "II", "III", "IV", "V", "VI"]
+    while epiph_counter.strftime('%m%d') != septuadate.strftime('%m%d'):
+        print(easter(year))
+        print(septuadate)
+        print(epiph_counter)
+        print(o)
+        if epiph_sundays[o] == "I":  #? can this be fixed with ROMANS?
+            if epiph_counter == day(year, 1, 13):
                 cycle.extend(
                     [
                         [  # ! vespers
@@ -158,7 +162,7 @@ def build_temporal(year):
                 cycle.append(
                     [  # ! mass, vespers
                         "S. Familiæ Jesu, Mariæ, Joseph; Dominica " +
-                        ROMANS[o] + " infra Oct. Epiphaniæ",
+                        epiph_sundays[o] + " infra Oct. Epiphaniæ",
                         [11, 'dm'],
                         {'int': 'Missa', 'glo': True,
                             'cre': True, 'pre': 'Communis'},
@@ -168,7 +172,7 @@ def build_temporal(year):
         else:
             cycle.append(
                 [  # ! mass, vespers
-                    "Dominica " + ROMANS[o] + " post Epiphaniam",
+                    "Dominica " + epiph_sundays[o] + " post Epiphaniam",
                     [12, 'sd'],
                     {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                     epiph_counter,
@@ -844,8 +848,8 @@ def build_temporal(year):
             ]
         )
     if (
-        int(day(this_year, 12, 30).strftime("%u")) == 1
-        or int(day(this_year, 12, 30).strftime("%u")) == 7
+        int(day(year, 12, 30).strftime("%u")) == 1
+        or int(day(year, 12, 30).strftime("%u")) == 7
     ):
         cycle.append(
             [  # ! mass, vespers

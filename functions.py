@@ -1,4 +1,5 @@
 from datetime import timedelta, datetime
+import dateutil.easter
 import importlib
 import os
 import re
@@ -34,46 +35,13 @@ class Feast:
 
 
 def easter(year: int):
-    firstDigit, Remain19 = year // 100, year % 19
-    temp = (firstDigit - 15) // 2 + 202 - 11 * Remain19
-    if firstDigit > 26:
-        temp = temp - 1
-    if firstDigit > 38:
-        temp = temp - 1
-    if (
-        firstDigit == 21
-        or firstDigit == 24
-        or firstDigit == 25
-        or firstDigit == 33
-        or firstDigit == 36
-        or firstDigit == 37
-    ):
-        temp = temp - 1
-    temp = temp % 30
-    tA = temp + 21
-    if temp == 29:
-        tA = tA - 1
-    if temp == 28 and Remain19 > 10:
-        tA = tA - 1
-    tB, tC = (tA - 19) % 7, (40 - firstDigit) % 4
-    if tC == 3:
-        tC = tC + 1
-    if tC > 1:
-        tC = tC + 1
-    temp = year % 100
-    tD = (temp + (temp // 4)) % 7
-    tE = ((20 - tB - tC - tD) % 7) + 1
-    d = tA + tE
-    if d > 31:
-        d = d - 31
-        m = 4
-    else:
-        m = 3
-    return datetime(year=year, month=m, day=d)
+    x = dateutil.easter.easter(year)
+    return datetime(year=int(x.strftime('%Y')), month=int(x.strftime('%m')), day=int(x.strftime('%d')))
 
 
 def day(year: int, month: int, day: int):
-    return datetime(year=year, month=month, day=day)
+    x = datetime(year=year, month=month, day=day)
+    return x
 
 
 def week(i: int):
@@ -127,30 +95,6 @@ def leap_year(year: int):
             return 0 # todo no commemoration of the vigil in office, Mass private of either ferial, feast or vigil
     else:
         return 0 """
-
-
-def transfer(year: int, diocese: str):
-    """ Calculate the date of all feasts that can be transferred
-
-    Args:
-        year (integer)  : year of the ordo
-        diocese (string): diocese of the current calendar
-    Returns:
-        0
-    """
-    # ? is the feast a double of the first or second cass?
-    # ? what is the pre-eminence?
-    # here we have to consider, in order:
-    # RITE,
-    # GREATER SOLEMNITY,
-    # QUALITY,
-    # DIGNITY,
-    # QUALITY OF THE PROPER.
-    nobility = {'rite': 'd I cl' or 'd II cl', 'solemnity': 0,
-                'quality': 0, 'dignity': 0, 'proper': False}
-    # for the other feasts:
-    # use the ranking in occurance.md
-    return 0
 
 
 def dict_clean(direct: str, dict: int):
@@ -293,7 +237,7 @@ def latex_full_cal_test(year):
         )
         for x in mdldates:
             if len(x) <= 6:
-                f.write("" + x + ', ' + datetime.strptime(x.strip('.') + '/' + str(year), '%m/%d/%Y').strftime('%a') + " & " + mdl[x]['rank'][-1] +
+                f.write("" + x + ', ' + datetime.strptime(x.strip('._') + '/' + str(year), '%m/%d/%Y').strftime('%a') + " & " + mdl[x]['rank'][-1] +
                         " & " + re.sub(r'&', '\&', mdl[x]['feast']) + "\\\\\n")
             else:
                 f.write("" + x + ', ' + datetime.strptime(x.strip('trans .') + '/' + str(year), '%m/%d/%Y').strftime('%a') + " & " + mdl[x]['rank'][-1] +
