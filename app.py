@@ -578,7 +578,7 @@ def build_temporal(year):
                 else:
                     cycle.append(
                         [  # ! mass, vespers
-                            "Feria " + y + " infra Oct. Ascensionis",
+                            "De " + y + "die infra Oct. Ascensionis",
                             [16, 'sd'],
                             {'int': 'Missa', 'glo': True,
                                 'cre': True, 'pre': 'Communis'},
