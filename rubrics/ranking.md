@@ -24,7 +24,17 @@
 20. The Saturday Office of the Blessed Virgin Mary,
 21. Feasts of Simple Rite.
 
-# Octaves
+# Rules for transfer
+
+## Rite - index 0
+
+1 or 0 (1st class, 2nd class)
+
+## Solemnity - index 1 and 2
+
+day of rest with precept? 1 or 0
+
+Octave? 
 
 1. 1st order
 2. 2nd order
@@ -32,41 +42,29 @@
 4. common
 5. simple
 
-# Rules for transfer
+## Person - index 3
 
-# Doubles of the First or Second Class
+1. God
+2. Blessed Virgin
+3. Angels
+4. Prophets and Patriarchs
+5. Apostles and Evangelists
+6. Disciples
+7. Martyrs
+8. Bishops and Confessors
+9. Doctors
+10. Priests and Levites
+11. Monks and Hermits
+12. Virgins and Widows
 
-# Rite
+## Quality of Primary or Secondary Feasts - index 4
 
-## Solemnity
+1 or 0
 
-Day of rest? Octave?
+## Quality of the Proper - index 5
 
-## Person
-
-1. God ---------------------- 1200
-2. Blessed Virgin ----------- 1100
-3. Angels ------------------- 1000
-4. Prophets and Patriarchs -- 900
-5. Apostles and Evangelists - 800
-6. Disciples ---------------- 700
-7. Martyrs ------------------ 600
-8. Bishops and Confessors --- 500
-9. Doctors ------------------ 400
-10. Priests and Levites ----- 300
-11. Monks and Hermits ------- 200
-12. Virgins and Widows ------ 100
-
-## Quality of Primary or Secondary Feasts
-
-Is it primary? Secondary?
-
-## Quality of the Proper
-
-How to remember the General Councils?
-Ni Co E Chal Co Co
-Ni Co La La La La 
-Lu Lu Vi Co Flo La Tri Va
+just put 0 for now
+complicated... p. 306 in Matters Liturgical
 
 
 '07/01': {

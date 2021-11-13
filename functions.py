@@ -87,14 +87,32 @@ def leap_year(year: int):
         return False
 
 
-""" def matthew(leapyear: bool, easter: int,):
-    if leapyear == True:
-        if easter(easter)-week(9)-indays(4) > datetime.strptime('02/23', '%m/%d'):
-            return 0 # todo Mass can be either of the feast or of the vigil
+def latex_replacement(string: str):
+    clean_string = re.sub('&', '\&', re.sub('_', '\_', string))
+    return clean_string
+
+
+def nobility_solver(second, first):
+    """ determintes the more noble feast from a tuple of 6 digits
+
+    Args:
+        second  (tuple): second feast date and ranking tuple
+        first   (tuple): first feast date and ranking tuple
+
+    Returns:
+        tuple: feast dates in increasing nobility
+    """
+    for x, y in zip(second[1], first[1]):
+        if x == y:
+            continue
         else:
-            return 0 # todo no commemoration of the vigil in office, Mass private of either ferial, feast or vigil
-    else:
-        return 0 """
+            if bool(x) != bool(y):
+                if bool(x) == True:
+                    return (first[0], second[0],)
+            elif x < y:
+                return (first[0], second[0],)
+            else:
+                return (second[0], first[0],)
 
 
 def dict_clean(direct: str, dict: int):
@@ -124,6 +142,27 @@ def dict_clean(direct: str, dict: int):
                     first, second = first_, second_
                 elif dic[second_]['rank'][0] == dic[first_]['rank'][0]:
                     # * solve the nobility issue here
+                    less_noble = nobility_solver(
+                        (second_, dic[second_]['nobility'],),
+                        (first_, dic[first_]['nobility'],)
+                    )[0]
+                    more_noble = nobility_solver(
+                        (second_, dic[second_]['nobility'],),
+                        (first_, dic[first_]['nobility'],)
+                    )[1]
+                    rank = dic[second_]['rank'][0]
+                    if rank <= 10:  # ! refind this to exclude all but D1 and D2
+                        dic.update({more_noble.strip('.'): dic[more_noble]})
+                        dic.update(
+                            {less_noble.strip('.')+' tranlsated': dic[less_noble]})
+                    else:
+                        dic[more_noble].update(
+                            {'com1': dic[less_noble]['feast']})
+                        dic.update({first.strip('.'): dic[more_noble]})
+                    if len(more_noble) == 6:
+                        dic.pop(more_noble)
+                    if len(less_noble) == 6:
+                        dic.pop(less_noble)
                     nobility_free = False
                     pass
                 else:
@@ -159,7 +198,6 @@ def dict_clean(direct: str, dict: int):
             else:
                 f.write('\''+line+'\' : '+str(dic[line])+',\n')
         f.write('}')
-        f.close()
         return 0
 
 
@@ -185,10 +223,6 @@ def stitch(year: int, s: str):
         )
     for feast in mdlt:
         calen.update({feast: mdl_temporal[feast]})
-    # * test:
-    for x in sorted(calen.keys()):
-        print(x)
-
     with open("calen/calendar_" + str(year) + ".py", "w") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(calen)):
@@ -197,7 +231,6 @@ def stitch(year: int, s: str):
             else:
                 f.write('\''+line+'\':'+str(calen[line])+',\n')
         f.write('}')
-    f.close()
     return 0
 
 
@@ -225,50 +258,58 @@ def latex_full_cal_test(year):
 \usepackage[table]{xcolor}
 \definecolor{lightblue}{rgb}{0.93,0.95,1.0}
 \begin{document}
-%\maketitle
-\textit{\centering\footnotesize Ignore dates with periods after the day.}
+\begin{enumerate}
+    \item Ignore dates with a period or an underscore after the day -- these are being worked on.
+    \item Check only that the commemorations are present and are spelt correctly.
+    \item Check for consistency in ranks and feast naming.
+\end{enumerate}
 \rowcolors{1}{}{lightblue}
-\begin{longtable}{ l l l }
+\begin{longtable}{ l l l l }
 \hline
-\textsc{Date} & \textsc{Rank} & \textsc{Feast} \\
+\textsc{Day} & \textsc{Date} & \textsc{Rank} & \textsc{Feast} \\
 \hline
 \endhead
 """
         )
         for x in mdldates:
+            dow = datetime.strptime(
+                x.strip('tranlsated ._')+'/'+str(year), '%m/%d/%Y'
+            ).strftime('%a')
             if len(x) <= 6:
-                f.write("" + x + ', ' + datetime.strptime(x.strip('._') + '/' + str(year), '%m/%d/%Y').strftime('%a') + " & " + mdl[x]['rank'][-1] +
-                        " & " + re.sub(r'&', '\&', mdl[x]['feast']) + "\\\\\n")
+                f.write(""+dow+' & '+latex_replacement(x) + " & " + mdl[x]['rank'][-1] +
+                        " & "+latex_replacement(mdl[x]['feast'])+"\\\\\n")
             else:
-                f.write("" + x + ', ' + datetime.strptime(x.strip('trans .') + '/' + str(year), '%m/%d/%Y').strftime('%a') + " & " + mdl[x]['rank'][-1] +
-                        " & " + re.sub(r'&', '\&', mdl[x]['feast']) + "\\\\\n")
+                f.write(""+dow+' & '+latex_replacement(x) + " & " + mdl[x]['rank'][-1] +
+                        " & " + latex_replacement(mdl[x]['feast']) + "\\\\\n")
             # todo find a solution for labeling commemorations
             if 'com1' in mdl[x].keys():
-                f.write("" + '' + " & & " + '\\textit{Com:} ' +
-                        re.sub(r'&', '\&', mdl[x]['com1']) + "\\\\\n")
+                f.write("" + '' + " & & & " + '\\textit{Com:} ' +
+                        latex_replacement(mdl[x]['com1']) + "\\\\\n")
             else:
                 pass
             if 'comm2' in mdl[x].keys():
                 if len(mdl[x]['comm2']['feast']) > 0:
-                    f.write("" + '' + " & & " + '\\textit{Com:} ' +
-                            re.sub(r'&', '\&', mdl[x]['comm2']['feast']) + "\\\\\n")
+                    f.write("" + '' + " & & & " + '\\textit{Com:} ' +
+                            latex_replacement(mdl[x]['comm2']['feast']) + "\\\\\n")
                 else:
                     pass
             else:
                 pass
             if 'comm3' in mdl[x].keys():
                 if len(mdl[x]['comm3']['feast']) > 0:
-                    f.write("" + '' + " & & " + '\\textit{Com:} ' +
-                            re.sub(r'&', '\&', mdl[x]['comm3']['feast']) + "\\\\\n")
+                    f.write("" + '' + " & & & " + '\\textit{Com:} ' +
+                            latex_replacement(mdl[x]['comm3']['feast']) + "\\\\\n")
                 else:
                     pass
             else:
                 pass
         f.write("\end{longtable}\n\end{document}")
-    f.close()
     file = 'calendar_'+str(year)+'.tex'
     working_dir = os.getcwd()
     os.chdir('output/latex/')
-    subprocess.run('lualatex '+file+' -interaction nonstopmode', shell=True)
+    print('compiling PDF...')
+    subprocess.run('lualatex '+file+' -interaction nonstopmode',
+                   shell=True, stdout=subprocess.DEVNULL)
+    print('PDF complete!')
     os.chdir(working_dir)
     return 0
