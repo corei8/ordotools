@@ -5,6 +5,47 @@ import importlib
 from functions import latex_replacement
 
 
+def readme_calendar(year):
+    print('rendering README.md...')
+    mdl = importlib.import_module(
+        'calen.calendar_' + str(year)).calen
+    mdldates = sorted(mdl)
+    with open('README.md', 'a') as f:
+        f.write('| Day | Date | Rank | Feast |')
+        f.write('|---|---|---|---|')
+        for x in mdldates:
+            dow = datetime.strptime(
+                x.strip('tranlsated ._')+'/'+str(year), '%m/%d/%Y').strftime('%a')
+            if len(x) <= 6:
+                f.write('| '+dow+' | '+latex_replacement(x)+' | ' +
+                        mdl[x]['rank'][-1]+' | '+latex_replacement(mdl[x]['feast'])+' | ')
+            else:
+                f.write('| '+dow+' | '+latex_replacement(x) + ' | ' +
+                        mdl[x]['rank'][-1] + " | " + latex_replacement(mdl[x]['feast']) + ' | ')
+            # todo find a solution for labeling commemorations
+            if 'com1' in mdl[x].keys():
+                f.write(" | | | | " + '\\textit{Com:} ' +
+                        latex_replacement(mdl[x]['com1']) + ' | ')
+            else:
+                pass
+            if 'comm2' in mdl[x].keys():
+                if len(mdl[x]['comm2']['feast']) > 0:
+                    f.write(" | | | | " + '\\textit{Com:} ' +
+                            latex_replacement(mdl[x]['comm2']['feast']) + ' | ')
+                else:
+                    pass
+            else:
+                pass
+            if 'comm3' in mdl[x].keys():
+                if len(mdl[x]['comm3']['feast']) > 0:
+                    f.write(" | | | | " + '\\textit{Com:} ' +
+                            latex_replacement(mdl[x]['comm3']['feast']) + ' | ')
+                else:
+                    pass
+            else:
+                pass
+
+
 def latex_full_cal_test(year):
     # todo make this calendar import work with a variable
     mdl = importlib.import_module(

@@ -1,7 +1,7 @@
 import re
 from datetime import datetime
 from functions import *
-from outputs import latex_full_cal_test
+from outputs import latex_full_cal_test, readme_calendar
 
 LENT_MASSES = ['Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', 'De necessitatibus',
                'Intret oratio', 'Redime me', 'Tibi dixit', 'Ne derelinquas me',
@@ -462,7 +462,6 @@ def build_temporal(year):
         "Dominica infra Octavam Ascensionis",
     ]
     for i, x in enumerate(post_pent, start=1):
-        # // i = i+1
         if x == "Dominica II post Pascha":
             cycle.extend(
                 [
@@ -1112,6 +1111,7 @@ def app(year: int, diocese: str):
     stitch(year, diocese)
     dict_clean("calen.calendar_", year)
     latex_full_cal_test(year)
+    readme_calendar(year)
 
 
 # 2024 is a leap year
