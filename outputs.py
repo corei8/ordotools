@@ -11,6 +11,7 @@ def readme_calendar(year):
         'calen.calendar_' + str(year)).calen
     mdldates = sorted(mdl)
     with open('README.md', 'a') as f:
+        f.write('\n\n')
         f.write('| Day | Date | Rank | Feast |')
         f.write('|---|---|---|---|')
         for x in mdldates:
@@ -19,19 +20,23 @@ def readme_calendar(year):
             if len(x) <= 6:
                 f.write('| '+dow+' | '+latex_replacement(x)+' | ' +
                         mdl[x]['rank'][-1]+' | '+latex_replacement(mdl[x]['feast'])+' | ')
+                f.write('\n')
             else:
                 f.write('| '+dow+' | '+latex_replacement(x) + ' | ' +
                         mdl[x]['rank'][-1] + " | " + latex_replacement(mdl[x]['feast']) + ' | ')
+                f.write('\n')
             # todo find a solution for labeling commemorations
             if 'com1' in mdl[x].keys():
                 f.write(" | | | | " + '\\textit{Com:} ' +
                         latex_replacement(mdl[x]['com1']) + ' | ')
+                f.write('\n')
             else:
                 pass
             if 'comm2' in mdl[x].keys():
                 if len(mdl[x]['comm2']['feast']) > 0:
                     f.write(" | | | | " + '\\textit{Com:} ' +
                             latex_replacement(mdl[x]['comm2']['feast']) + ' | ')
+                    f.write('\n')
                 else:
                     pass
             else:
@@ -40,6 +45,7 @@ def readme_calendar(year):
                 if len(mdl[x]['comm3']['feast']) > 0:
                     f.write(" | | | | " + '\\textit{Com:} ' +
                             latex_replacement(mdl[x]['comm3']['feast']) + ' | ')
+                    f.write('\n')
                 else:
                     pass
             else:
