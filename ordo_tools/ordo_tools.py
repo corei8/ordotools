@@ -11,16 +11,15 @@ ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
           "XXVI", "XXVII", "XXVIII", ]
 
 
-class Feast:
+class Feast: 
     def __init__(self, feast_date: str, properties: dict):
-        self.date = feast_date
+        self.feast_date = feast_date
         self.properties = properties
         self.mass = properties['mass']
         self.vespers = properties['vespers'] if 'vespers' in properties.keys(
-        ) else False
+        ) else {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
         self.nobility = properties['nobility'] if 'nobility' in properties.keys(
-        ) else False
-        # maximum of five commemorations per feast
+        ) else ('0', '0', '0', '0', '0', '0', )
         for x in ('com_1', 'com_2', 'com_3', 'com_4', 'com_5', ):
             if 'com_'+str(x) in properties.keys():
                 self.comms = self.Commemoration(properties['com_'+str(x)])
@@ -28,7 +27,7 @@ class Feast:
     class Commemoration:
         def __init__(self, details: dict):
             self.details = details
-            self.mass = details['mass']
+            self.com_mass = details['mass']
 
         def feast(self):
             return self.details['feast']
@@ -70,12 +69,13 @@ def indays(numdays: int):
     return timedelta(days=numdays)
 
 
-def weekday(date: int):
+def weekday(date: datetime):
     return date.strftime("%a")
 
 
 def findsunday(date):
     # todo redefine findsunday() to use %w
+    x = 0
     if date.strftime("%a") == "Mon":
         x = 1
     if date.strftime("%a") == "Tue":
@@ -139,11 +139,11 @@ def dict_clean(direct: str, dictionary: int):
             continue
         else:
             second_ = Feast(x, dic[x])
-            if not second_.date+'.' in sorted(dic):
+            if not second_.feast_date+'.' in sorted(dic):
                 continue
             else:
                 second_ = Feast(x, dic[x])
-                first_ = Feast(second_.date+'.', dic[second_.date+'.'])
+                first_ = Feast(second_.feast_date+'.', dic[second_.feast_date+'.'])
                 if second_.rank(False) > first_.rank(False):
                     first, second = first_, second_
                 elif second_.rank(False) == first_.rank(False):
@@ -168,21 +168,21 @@ def dict_clean(direct: str, dictionary: int):
                     rank = second_.rank(False)
                     if rank <= 10:  # ! refine this to exclude all but D1 and D2
                         dic.update(
-                            {more_noble.date.strip('.'): more_noble.properties}
+                            {more_noble.feast_date.strip('.'): more_noble.properties}
                         )
                         dic.update(
-                            {less_noble.date.strip(
+                            {less_noble.feast_date.strip(
                                 '.')+' tranlsated': less_noble.properties}
                         )
                     else:
                         more_noble.com_1.update(
                             {'com_1': less_noble.properties})
-                        dic.update({more_noble.date.strip(
+                        dic.update({more_noble.feast_date.strip(
                             '.'): more_noble.properties})
-                    if len(more_noble.date) == 6:
-                        dic.pop(more_noble.date)
-                    if len(less_noble.date) == 6:
-                        dic.pop(less_noble.date)
+                    if len(more_noble.feast_date) == 6:
+                        dic.pop(more_noble.feast_date)
+                    if len(less_noble.feast_date) == 6:
+                        dic.pop(less_noble.feast_date)
                     nobility_free = False
                     pass
                 else:
@@ -193,26 +193,26 @@ def dict_clean(direct: str, dictionary: int):
                     # * continue adding the objects here:
                     # translation
                     if first.rank(False) <= 4 and second.rank(False) <= 10:
-                        dic.update({first.date.strip('.'): first.properties})
+                        dic.update({first.feast_date.strip('.'): first.properties})
                         dic.update(
-                            {second.date.strip('.')+'_': second.properties})
+                            {second.feast_date.strip('.')+'_': second.properties})
                     # no commemoration
                     elif first.rank(False) <= 4 and second.rank(False) > 10:
-                        dic.update({first.date.strip('.'): first.properties})
+                        dic.update({first.feast_date.strip('.'): first.properties})
                     # commemoration
                     # todo refine these ranges:
                     elif 19 > first.rank(False) > 4 and 19 > second.rank(False) >= 6:
                         first.com_1 = second.feast
-                        dic.update({first.date.strip('.'): first.properties})
+                        dic.update({first.feast_date.strip('.'): first.properties})
                     elif second.rank(False) == 22:
-                        dic.update({first.date.strip('.'): first.properties})
+                        dic.update({first.feast_date.strip('.'): first.properties})
                     # no commemoration
                     else:
-                        dic.update({first.date.strip('.'): first.properties})
-                    if len(first.date) == 6:
-                        dic.pop(first.date)
-                    if len(second.date) == 6:
-                        dic.pop(second.date)
+                        dic.update({first.feast_date.strip('.'): first.properties})
+                    if len(first.feast_date) == 6:
+                        dic.pop(first.feast_date)
+                    if len(second.feast_date) == 6:
+                        dic.pop(second.feast_date)
     with open(re.sub(r"\.", r'/', direct) + str(dictionary) + ".py", "a") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(dic)):
@@ -238,9 +238,13 @@ def stitch(year: int, s: str):
     """
     # todo make stitch() reuseable
     mdl_temporal = importlib.import_module(
-        'temporal.temporal_' + str(year)).temporal
-    mdl_sanctoral = importlib.import_module('sanctoral.' + s).sanctoral
+        'temporal.temporal_' + str(year)
+    ).temporal
+    mdl_sanctoral = importlib.import_module(
+        'sanctoral.' + s
+    ).sanctoral
     mdlt, mdls = sorted(mdl_temporal), sorted(mdl_sanctoral)
+    calen = {}
     if leap_year(year) == False:
         pass
     else:
@@ -251,15 +255,14 @@ def stitch(year: int, s: str):
                 new_date = mdl_sanctoral[event].get('leapdate')
                 mdl_sanctoral.update({new_date if not new_date in mdl_sanctoral else (
                     new_date+'.' if not new_date+'.' in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
-    calen = {}
     for x in mdls:
         feast = Feast(x, mdl_sanctoral[x])
         calen.update(
-            {feast.date + '.' if x in mdlt else feast.date: feast.properties}
+            {feast.feast_date + '.' if x in mdlt else feast.feast_date: feast.properties}
         )
     for y in mdlt:
         feast = Feast(y, mdl_temporal[y])
-        calen.update({feast.date: feast.properties})
+        calen.update({feast.feast_date: feast.properties})
     with open("calen/calendar_" + str(year) + ".py", "w") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(calen)):
