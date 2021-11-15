@@ -2,7 +2,6 @@ import re
 from datetime import datetime
 from functions import *
 from outputs import latex_full_cal_test, readme_calendar
-from timeit import timeit
 
 LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', 'De necessitatibus',
                'Intret oratio', 'Redime me', 'Tibi dixit', 'Ne derelinquas me',
@@ -47,8 +46,8 @@ def build_temporal(year):
             [  # ! vespers
                 "Circumcisio DNJC et Oct. Nativitatis",
                 [3, 'd II cl'],
-                {'int': 'Dum medium', 'glo': True, 'com_1': 'S. Telesphori PM',
-                    'cre': True, 'pre': 'et Communicantes de Nativitate'},
+                'S. Telesphori PM',
+                {'int': 'Dum medium', 'glo': True, 'cre': True, 'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 (False,),
                 circumcision,
@@ -1187,28 +1186,45 @@ def build_temporal(year):
         gen_file = "temporal/temporal_" + str(year)
         with open(gen_file + ".py", "w") as f:
             f.write("temporal = {")
-            keylist = ['feast', 'rank', 'mass', 'vespers']
-            keylist_alt = ['feast', 'rank', 'mass', 'vespers', 'nobility']
+            keylist_alt = ['feast', 'rank', 'com_1', 'mass', 'vespers', 'nobility']
+            keylist = ['feast', 'rank', 'mass', 'vespers', 'nobility']
             memory = []
             for row in cycle:
                 temporal_event = row[-1].strftime("%m/%d")
                 if temporal_event in memory:
                     temporal_event += "."
                 memory.append(temporal_event)
-                mini_dict = str(
-                    dict(
-                        zip(
-                            keylist_alt,
-                            [
-                                row[0],
-                                row[1],
-                                row[2],
-                                row[3],
-                                row[4],
-                            ],
+                if len(row) <= 6:
+                    mini_dict = str(
+                        dict(
+                            zip(
+                                keylist,
+                                [
+                                    row[0],
+                                    row[1],
+                                    row[2],
+                                    row[3],
+                                    row[4],
+                                ],
+                            )
                         )
                     )
-                )
+                else: # just for the circumcision
+                    mini_dict = str(
+                        dict(
+                            zip(
+                                keylist_alt,
+                                [
+                                    row[0],
+                                    row[1],
+                                    row[2],
+                                    row[3],
+                                    row[4],
+                                    row[5],
+                                ],
+                            )
+                        )
+                    )
                 f.write(
                     str("\n'" + temporal_event + "'" + ": " + mini_dict + ",")
                 )

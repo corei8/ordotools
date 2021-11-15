@@ -76,19 +76,19 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
                 f.write('\n')
             else:
                 pass
-            if 'comm2' in mdl[x].keys():
-                if len(mdl[x]['comm2']['feast']) > 0:
+            if 'com_2' in mdl[x].keys():
+                if len(mdl[x]['com_2']['feast']) > 0:
                     f.write(" | | | | " + '*Com:* ' +
-                            latex_replacement(mdl[x]['comm2']['feast']) + ' | ')
+                            latex_replacement(mdl[x]['com_2']['feast']) + ' | ')
                     f.write('\n')
                 else:
                     pass
             else:
                 pass
-            if 'comm3' in mdl[x].keys():
-                if len(mdl[x]['comm3']['feast']) > 0:
+            if 'com_3' in mdl[x].keys():
+                if len(mdl[x]['com_3']['feast']) > 0:
                     f.write(" | | | | " + '*Com:* ' +
-                            latex_replacement(mdl[x]['comm3']['feast']) + ' | ')
+                            latex_replacement(mdl[x]['com_3']['feast']) + ' | ')
                     f.write('\n')
                 else:
                     pass
@@ -149,18 +149,18 @@ def latex_full_cal_test(year):
                         latex_replacement(mdl[x]['com_1']) + "\\\\\n")
             else:
                 pass
-            if 'comm2' in mdl[x].keys():
-                if len(mdl[x]['comm2']['feast']) > 0:
+            if 'com_2' in mdl[x].keys():
+                if len(mdl[x]['com_2']['feast']) > 0:
                     f.write("" + '' + " & & & " + '\\textit{Com:} ' +
-                            latex_replacement(mdl[x]['comm2']['feast']) + "\\\\\n")
+                            latex_replacement(mdl[x]['com_2']['feast']) + "\\\\\n")
                 else:
                     pass
             else:
                 pass
-            if 'comm3' in mdl[x].keys():
-                if len(mdl[x]['comm3']['feast']) > 0:
+            if 'com_3' in mdl[x].keys():
+                if len(mdl[x]['com_3']['feast']) > 0:
                     f.write("" + '' + " & & & " + '\\textit{Com:} ' +
-                            latex_replacement(mdl[x]['comm3']['feast']) + "\\\\\n")
+                            latex_replacement(mdl[x]['com_3']['feast']) + "\\\\\n")
                 else:
                     pass
             else:

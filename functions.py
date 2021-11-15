@@ -47,7 +47,7 @@ class Feast:
         if visual == True:
             return self.properties['rank'][-1]
         else:
-            return self.propertes['rank'][0]
+            return self.properties['rank'][0]
 
     def to_dictionary(self):
         return self.properties
@@ -120,7 +120,7 @@ def latex_replacement(string: str):
     return clean_string
 
 
-def dict_clean(direct: str, dict: int):
+def dict_clean(direct: str, dictionary: int):
     """ Gets rid of all dates in calendar which are appended with . or _;
     overwrites the calendar file with the resulting dictionary.
 
@@ -129,29 +129,34 @@ def dict_clean(direct: str, dict: int):
                              in format calendar/calendar_
         dict   (dictionary): year of the calendar to clean
     """
-    mdl = importlib.import_module(direct + str(dict))
+    mdl = importlib.import_module(direct + str(dictionary))
     try:
         dic = mdl.temporal
+        print('STATS * using the temporal module')
     except AttributeError:
         dic = mdl.calen
-    for second_ in sorted(dic):
+        print('STATS * using the calen module')
+    for x in sorted(dic):
+        print('STATS * building ' + x + ' as an object')
         nobility_free = True
-        if len(second_) >= 6:
+        if len(x) >= 6:
             continue
         else:
-            if not second_+'.' in sorted(dic):
+            second_ = Feast(x, dic[x])
+            if not second_.date+'.' in sorted(dic):
                 continue
             else:
-                first_ = second_+'.'
-                if dic[second_]['rank'][0] > dic[first_]['rank'][0]:
+                second_ = Feast(x, dic[x])
+                first_ = Feast(second_.date+'.', dic[second_.date+'.'])
+                if second_.rank(False) > first_.rank(False):
                     first, second = first_, second_
-                elif dic[second_]['rank'][0] == dic[first_]['rank'][0]:  # NOBILITY
-                    less_noble, more_noble = 'False', 'False'
-                    print(
-                        'comparing ' + dic[second_]['feast'] + ' and ' + dic[first_]['feast'])
+                elif second_.rank(False) == first_.rank(False):  # NOBILITY
+                    # just to prevent errors for now...
+                    less_noble, more_noble = first_, second_
+                    #print('comparing ' + second_.feast + ' and ' + first_.feast)
                     for x, y in zip(
-                        dic[second_]['nobility'],
-                        dic[first_]['nobility']
+                        second_.nobility,
+                        first_.nobility
                     ):
                         for i in range(6):
                             if x == y:
@@ -165,21 +170,26 @@ def dict_clean(direct: str, dict: int):
                                     break
                         else:
                             pass
-                    rank = dic[second_]['rank'][0]
-                    print('Less noble: ' + less_noble)
-                    print('More noble: ' + more_noble)
+                    rank = second_.rank(False)
+                    #print('Less noble: ' + less_noble.feast)
+                    #print('More noble: ' + more_noble.feast)
                     if rank <= 10:  # ! refine this to exclude all but D1 and D2
-                        dic.update({more_noble.strip('.'): dic[more_noble]})
                         dic.update(
-                            {less_noble.strip('.')+' tranlsated': dic[less_noble]})
+                            {more_noble.date.strip('.'): more_noble.properties}
+                        )
+                        dic.update(
+                            {less_noble.date.strip(
+                                '.')+' tranlsated': less_noble.properties}
+                        )
                     else:
-                        dic[more_noble].update(
-                            {'com_1': dic[less_noble]['feast']})
-                        dic.update({first.strip('.'): dic[more_noble]})
-                    if len(more_noble) == 6:
-                        dic.pop(more_noble)
-                    if len(less_noble) == 6:
-                        dic.pop(less_noble)
+                        more_noble.com_1.update(
+                            {'com_1': less_noble.properties})
+                        dic.update({more_noble.date.strip(
+                            '.'): more_noble.properties})
+                    if len(more_noble.date) == 6:
+                        dic.pop(more_noble.date)
+                    if len(less_noble.date) == 6:
+                        dic.pop(less_noble.date)
                     nobility_free = False
                     pass
                 else:
@@ -187,32 +197,34 @@ def dict_clean(direct: str, dict: int):
                 if nobility_free == False:
                     pass
                 else:
+                    # * continue adding the objects here:
                     # translation
-                    if dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] <= 10:
-                        dic.update({first.strip('.'): dic[first]})
-                        dic.update({second.strip('.')+'_': dic[second]})
+                    if first.rank(False) <= 4 and second.rank(False) <= 10:
+                        dic.update({first.date.strip('.'): first.properties})
+                        dic.update(
+                            {second.date.strip('.')+'_': second.properties})
                     # no commemoration
-                    elif dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] > 10:
-                        dic.update({first.strip('.'): dic[first]})
+                    elif first.rank(False) <= 4 and second.rank(False) > 10:
+                        dic.update({first.date.strip('.'): first.properties})
                     # commemoration
                     # todo refine these ranges:
-                    elif 19 > dic[first]['rank'][0] > 4 and 19 > dic[second]['rank'][0] >= 6:
-                        dic[first].update({'com_1': dic[second]['feast']})
-                        dic.update({first.strip('.'): dic[first]})
-                    elif dic[second]['rank'][0] == 22:
-                        dic.update({first.strip('.'): dic[first]})
+                    elif 19 > first.rank(False) > 4 and 19 > second.rank(False) >= 6:
+                        first.com_1 = second.feast
+                        dic.update({first.date.strip('.'): first.properties})
+                    elif second.rank(False) == 22:
+                        dic.update({first.date.strip('.'): first.properties})
                     # no commemoration
                     else:
-                        dic.update({first.strip('.'): dic[first]})
-                    if len(first) == 6:
-                        dic.pop(first)
-                    if len(second) == 6:
-                        dic.pop(second)
-    with open(re.sub(r"\.", r'/', direct) + str(dict) + ".py", "a") as f:
+                        dic.update({first.date.strip('.'): first.properties})
+                    if len(first.date) == 6:
+                        dic.pop(first.date)
+                    if len(second.date) == 6:
+                        dic.pop(second.date)
+    with open(re.sub(r"\.", r'/', direct) + str(dictionary) + ".py", "a") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(dic)):
             if i == 0:
-                f.write(re.sub(r"/(temporal|calendar)", '', re.sub(r"\.", r'/', direct)+str(dict))
+                f.write(re.sub(r"/(temporal|calendar)", '', re.sub(r"\.", r'/', direct)+str(dictionary))
                         + ' = {\n\''+line+'\': '+str(dic[line])+',\n')
             else:
                 f.write('\''+line+'\' : '+str(dic[line])+',\n')
@@ -220,41 +232,17 @@ def dict_clean(direct: str, dict: int):
         return 0
 
 
-def stitch_old(year: int, s: str):
-    # todo make strich() reuseable
-    mdl_temporal = importlib.import_module(
-        'temporal.temporal_' + str(year)).temporal
-    mdl_sanctoral = importlib.import_module('sanctoral.' + s).sanctoral
-    mdlt, mdls = sorted(mdl_temporal), sorted(mdl_sanctoral)
-    if leap_year(year) == False:
-        pass
-    else:
-        for event in mdls:
-            if not 'leapdate' in mdl_sanctoral[event]:
-                pass
-            else:
-                new_date = mdl_sanctoral[event].get('leapdate')
-                mdl_sanctoral.update({new_date if not new_date in mdl_sanctoral else (
-                    new_date+'.' if not new_date+'.' in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
-    calen = {}
-    for feast in mdls:
-        calen.update(
-            {feast + '.' if feast in mdlt else feast: mdl_sanctoral[feast]}
-        )
-    for feast in mdlt:
-        calen.update({feast: mdl_temporal[feast]})
-    with open("calen/calendar_" + str(year) + ".py", "w") as f:
-        f.truncate(0)
-        for i, line in enumerate(sorted(calen)):
-            if i == 0:
-                f.write('calen = {\n\''+line+'\': '+str(calen[line])+',\n')
-            else:
-                f.write('\''+line+'\':'+str(calen[line])+',\n')
-        f.write('}')
-    return 0
-
-
 def stitch(year: int, s: str):
+    """ Combine two calendars into a single dictionary, appending all
+        doubled keys with a period.
+
+    Args:
+        year (int): year of the calendar being built
+        s (str):    the sanctoral calendar being combined
+
+    Returns:
+        NoneType: None
+    """
     # todo make stitch() reuseable
     mdl_temporal = importlib.import_module(
         'temporal.temporal_' + str(year)).temporal
