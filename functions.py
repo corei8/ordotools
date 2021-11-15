@@ -15,8 +15,22 @@ class Feast:
     def __init__(self, feast_date: str, properties: dict):
         self.date = feast_date
         self.properties = properties
-        
-    
+        self.mass = properties['mass']
+        self.vespers = properties['vespers']
+        self.nobility = properties['nobility']
+        if 'com_1' in properties.keys():
+            self.com_1 = self.Commemoration(properties['com_1'])
+
+
+    class Commemoration:
+        def __init__(self, details: dict):
+            self.details = details
+
+        def feast(self):
+            return self.details['feast']
+
+        def mass(self):
+            return self.details['mass']
 
     def date(self):
         return datetime.strptime('%m%d', self.feast_date)
@@ -93,7 +107,7 @@ def latex_replacement(string: str):
     return clean_string
 
 
-def nobility_solver(second, first):
+def nobility_solver(second: tuple, first: tuple):
     """ determintes the more noble feast from a tuple of 6 digits
 
     Args:
@@ -106,14 +120,13 @@ def nobility_solver(second, first):
     for x, y in zip(second[1], first[1]):
         if x == y:
             continue
-        else:
-            if bool(x) != bool(y):
-                if bool(x) == True:
-                    return (first[0], second[0],)
-            elif x < y:
-                return (first[0], second[0],)
+        elif x != y:
+            if x > y:
+                return first[0], second[0]
             else:
-                return (second[0], first[0],)
+                return second[0], first[0]
+        else:
+            return 0,
 
 
 def dict_clean(direct: str, dict: int):
@@ -142,22 +155,33 @@ def dict_clean(direct: str, dict: int):
                 if dic[second_]['rank'][0] > dic[first_]['rank'][0]:
                     first, second = first_, second_
                 elif dic[second_]['rank'][0] == dic[first_]['rank'][0]:  # NOBILITY
-                    less_noble = nobility_solver(
-                        (second_, dic[second_]['nobility'],),
-                        (first_, dic[first_]['nobility'],)
-                    )[0]
-                    more_noble = nobility_solver(
-                        (second_, dic[second_]['nobility'],),
-                        (first_, dic[first_]['nobility'],)
-                    )[1]
+                    less_noble, more_noble = 'False', 'False'
+                    print('comparing ' + dic[second_]['feast'] + ' and ' + dic[first_]['feast'])
+                    for x, y in zip(
+                        dic[second_]['nobility'],
+                        dic[first_]['nobility']
+                        ):
+                        for i in range(6):
+                            if x == y:
+                                continue
+                            elif x != y:
+                                if x > y:
+                                    less_noble, more_noble = first_, second_
+                                    break
+                                else:
+                                    less_noble, more_noble = second_, first_
+                                    break
+                        else:
+                            pass
                     rank = dic[second_]['rank'][0]
+                    print('Less noble: ' + less_noble)
+                    print('More noble: ' + more_noble)
                     if rank <= 10:  # ! refine this to exclude all but D1 and D2
                         dic.update({more_noble.strip('.'): dic[more_noble]})
                         dic.update(
                             {less_noble.strip('.')+' tranlsated': dic[less_noble]})
                     else:
-                        dic[more_noble].update(
-                            {'com1': dic[less_noble]['feast']})
+                        dic[more_noble].update({'com_1': dic[less_noble]['feast']})
                         dic.update({first.strip('.'): dic[more_noble]})
                     if len(more_noble) == 6:
                         dic.pop(more_noble)
@@ -178,9 +202,11 @@ def dict_clean(direct: str, dict: int):
                     elif dic[first]['rank'][0] <= 4 and dic[second]['rank'][0] > 10:
                         dic.update({first.strip('.'): dic[first]})
                     # commemoration
-                    # todo refined these ranges:
+                    # todo refine these ranges:
                     elif 19 > dic[first]['rank'][0] > 4 and 19 > dic[second]['rank'][0] >= 6:
-                        dic[first].update({'com1': dic[second]['feast']})
+                        dic[first].update({'com_1': dic[second]['feast']})
+                        dic.update({first.strip('.'): dic[first]})
+                    elif dic[second]['rank'][0] == 22:
                         dic.update({first.strip('.'): dic[first]})
                     # no commemoration
                     else:

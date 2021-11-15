@@ -23,24 +23,31 @@
 19. The Octave Day of a Simple Octave, *i.e,* of a Feast of the Second Class,
 20. The Saturday Office of the Blessed Virgin Mary,
 21. Feasts of Simple Rite.
+22. De ea
 
 # Rules for transfer
 
 ## Rite - index 0
 
-1 or 0 (1st class, 2nd class)
+1. d I cl
+2. d II cl
+3. dm
+4. d
+5. sd
+8. s
+9. feria
 
 ## Solemnity - index 1 and 2
 
-day of rest with precept? 1 or 0
-
-Octave? 
+1. day of rest w/ precept
+2. not day of rest
 
 1. 1st order
 2. 2nd order
 3. 3rd order
 4. common
 5. simple
+6. none
 
 ## Person - index 3
 
@@ -60,7 +67,9 @@ Octave?
 
 ## Quality of Primary or Secondary Feasts - index 4
 
-1 or 0
+1. Primay feast
+2. Secondary feast
+3. Neither primary nor secondary
 
 ## Quality of the Proper - index 5
 
