@@ -516,7 +516,7 @@ sanctoral = {
     '05/05': {
         'feast': 'S Pii V Pp C',
         'rank': [15, 'd'], 
-        'nobility': (False,),
+        'nobility': (4, 2, 6, 8, 3, 0,),
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
     },
@@ -892,7 +892,7 @@ sanctoral = {
     '07/11': {
         'feast': 'S Pii I PM',
         'rank': [21, 's'], 
-        'nobility': (False,),
+        'nobility': (8, 2, 6, 8, 3, 0,),
         'mass': {'int': 'Si diligis', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
     },

@@ -2,7 +2,9 @@ import re
 from datetime import datetime
 from functions import *
 from outputs import latex_full_cal_test, readme_calendar
+from timeit import timeit
 
+# todo make LENT_MASSES a tuple
 LENT_MASSES = ['Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', 'De necessitatibus',
                'Intret oratio', 'Redime me', 'Tibi dixit', 'Ne derelinquas me',
                'Deus, in adjutorium', 'Ego autem', 'Lex Domini', 'In Deo laudabo', 'Ego clamavi',
@@ -11,7 +13,23 @@ LENT_MASSES = ['Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', '
                'Expecta Dominum', 'Liberator meus', 'Omnia, quæ fecisti', 'Miserere mihi', 'Miserere mihi', ]
 
 # todo add all the Masses for the Sundays after Pentecost
-PENT_MASSES =[]
+# beginning Dominica IV
+PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine', 'Dominus fortitudo', 'Omnes gentes',
+                    'Suscepimus', 'Ecce Deus', 'Cum clamarem', 'Deus in loco',
+                    'Deus in adjutorium', 'Respice Domine', 'Protector noster', 'Inclina Domine',
+                    'Miserere mihi', 'Justus es', 'Da pacem', 'Salus populi',
+                    'Omnia', 'In voluntate tua', 'Si iniquitates', 'Dicit Dominus',
+                    'Dicit Dominus')
+
+EPIPHANY_MASSES = ()
+
+
+def find_extra_epiphany(pents):
+    if pents == 23:
+        pass
+    else:
+        return pents - 24
+
 
 def build_temporal(year):
     year = int(year)
@@ -142,6 +160,7 @@ def build_temporal(year):
         first_epiph = epiphany + week(1)
     else:
         first_epiph = epiphany - findsunday(epiphany) + week(1)
+    epiphany_sundays_counter = 1
     for i, x in enumerate(ROMANS[0:6]):
         if weekday(epiphany + indays(i+1)) != "Sun":
             cycle.append(
@@ -212,6 +231,7 @@ def build_temporal(year):
                     epiph_counter,
                 ]
             )
+            epiphany_sundays_counter += 1
         o += 1  # ? is enumerate possible?
         epiph_counter += week(1)  # ? this is probably too complicated
     for c, x in enumerate(["I in Quadragesima", "II in Quadragesima", "III in Quadragesima", "IV in Quadragesima (Lætare)", "de Passione", "in Palmis", ]):
@@ -519,7 +539,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Paschalis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        (0, 0, 0, 13, 0, 0,),
+                        (9, 2, 6, 13, 3, 0,),
                         easter(year) + week(i) + indays(3),
                     ],
                     # ? The vigil should never show, right?
@@ -530,7 +550,7 @@ def build_temporal(year):
                             'cre': True, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        (0, 0, 0, 1, 0, 0,),
+                        (9, 2, 6, 1, 3, 0,),
                         easter(year) + week(i) + indays(3),
                     ],
                     [  # ! vespers
@@ -803,65 +823,161 @@ def build_temporal(year):
         cycle.append([x[0], x[1], x[2], x[3], x[4], pent_date + week(l+1)])
         i += 1  # ? does this have any purpose here?
     sept_counter = 0  # ? is enumerate possible here?
-    for p, x in enumerate(ROMANS[3:-1]):
-        post_pent_count = pent_date + week(4)
-        earliest_first_advent = str(year) + "-12-03"
-        if post_pent_count + week(p) >= datetime.strptime(
-            earliest_first_advent, "%Y-%m-%d"
-        ):
-            break
-        else:
-            # todo add all the ferias during Pentecost
+    christmas = datetime.strptime(str(year) + "-12-25", "%Y-%m-%d")
+    lastadvent = christmas - findsunday(christmas)
+    # * find out why the -1 is needed:
+    post_pent_sundays = int((((lastadvent - week(4))-pent_date)/7).days)-1
+    post_pent_count = pent_date + week(4)
+    print('Sundays after Pentecost: '+str(post_pent_sundays))
+    epiph_sunday_overflow = ROMANS[6-find_extra_epiphany(post_pent_sundays): find_extra_epiphany(post_pent_sundays)+2]
+    print(epiph_sunday_overflow)
+    for count, x in enumerate(ROMANS[3:post_pent_sundays+1], start=1):
+        p = count - 1
+        if count <= 20:
             cycle.append(
-                [  # ! mass, vespers
+                [  # ! vespers
                     "Dominica " + x + " post Pentecosten",
                     [12, 'sd'],
-                    {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
+                    {'int': PENTECOST_MASSES[p], 'glo': True,
+                        'cre': True, 'pre': 'de Trinitate'},
                     {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                     (False,),
                     post_pent_count + week(p),
                 ]
             )
-            if (post_pent_count + week(p)).strftime("%B") == "September":
-                if int((post_pent_count + week(p)).strftime("%d")) <= 3:
-                    sept_counter += 0
-                else:
-                    sept_counter += 1
-            if sept_counter == 3:
-                cycle.extend(
-                    [
-                        [  # ! mass, vespers
-                            "Feria IV Quatuor Temporum Septembris",
-                            [18, 'feria'],
-                            {'int': 'Missa', 'glo': True,
-                             'cre': True, 'pre': 'Communis'},
-                            {'proper': False, 'admag': '',
-                                'propers': {}, 'oration': ''},
-                            (False,),
-                            post_pent_count + week(p) + indays(3),
-                        ],
-                        [  # ! mass, vespers
-                            "Feria VI Quatuor Temporum Septembris",
-                            [18, 'feria'],
-                            {'int': 'Missa', 'glo': True,
-                             'cre': True, 'pre': 'Communis'},
-                            {'proper': False, 'admag': '',
-                                'propers': {}, 'oration': ''},
-                            (False,),
-                            post_pent_count + week(p) + indays(5),
-                        ],
-                        [  # ! mass, vespers
-                            "Sabbatum Quatuor Temporum Septembris",
-                            [18, 'feria'],
-                            {'int': 'Missa', 'glo': True,
-                             'cre': True, 'pre': 'Communis'},
-                            {'proper': False, 'admag': '',
-                                'propers': {}, 'oration': ''},
-                            (False,),
-                            post_pent_count + week(p) + indays(6),
-                        ],
+            for t in range(6):
+                cycle.append(
+                    [  # ! vespers
+                        'De ea',
+                        [22, 's'],
+                        {'int': PENTECOST_MASSES[p], 'note': 'de Dom præc', 'glo': True,
+                         'cre': False, 'pre': 'Communis'},
+                        {'proper': False, 'admag': '',
+                            'propers': {}, 'oration': ''},
+                        (8, 2, 6, 13, 3, 0,),
+                        post_pent_count + week(p) + indays(t+1),
                     ]
                 )
+        elif count == 20 and post_pent_sundays == 23:
+            cycle.append(  # todo anticipate the 23rd sunday and celebrate the 24th
+                [  # ! vespers
+                    "Dominica XXIII et ultima post Pentecosten",
+                    [12, 'sd'],
+                    {'int': PENTECOST_MASSES[-1], 'glo': True,
+                        'cre': True, 'pre': 'de Trinitate'},
+                    {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+                    (False,),
+                    post_pent_count + week(p),
+                ],
+            )
+            for t in range(6):
+                cycle.append(
+                    [  # ! vespers
+                        'De ea',
+                        [22, 's'],
+                        {'int': PENTECOST_MASSES[-1], 'note': 'de Dom præc', 'glo': True,
+                         'cre': False, 'pre': 'Communis'},
+                        {'proper': False, 'admag': '',
+                            'propers': {}, 'oration': ''},
+                        (8, 2, 6, 13, 3, 0,),
+                        post_pent_count + week(p) + indays(t+1),
+                    ]
+                )
+            break
+        elif count == post_pent_sundays-3:
+            cycle.append(
+                [  # ! vespers
+                    "Dominica " + x + " et ultima post Pentecosten",
+                    [12, 'sd'],
+                    {'int': PENTECOST_MASSES[-1], 'glo': True,
+                        'cre': True, 'pre': 'de Trinitate'},
+                    {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+                    (False,),
+                    post_pent_count + week(p),
+                ]
+            )
+            for t in range(6):
+                cycle.append(
+                    [  # ! vespers
+                        'De ea',
+                        [22, 's'],
+                        {'int': PENTECOST_MASSES[-1], 'note': 'de Dom præc', 'glo': True,
+                         'cre': False, 'pre': 'Communis'},
+                        {'proper': False, 'admag': '',
+                            'propers': {}, 'oration': ''},
+                        (8, 2, 6, 13, 3, 0,),
+                        post_pent_count + week(p) + indays(t+1),
+                    ]
+                )
+            break
+        else:
+            for y, x in enumerate(epiph_sunday_overflow, start=1):
+                cycle.append(
+                    [  # ! vespers
+                        "Dominica " + ROMANS[p+y+3]
+                        + " post Pentecosten, " + x + 'Epiphany',
+                        [12, 'sd'],
+                        {'int': 'Dicit Dominus', 'glo': True,
+                            'cre': True, 'pre': 'de Trinitate'},
+                        {'proper': False, 'admag': '',
+                            'propers': {}, 'oration': ''},
+                        (False,),
+                        post_pent_count + week(p+y),
+                    ]
+                )
+                for t in range(6):
+                    cycle.append(
+                        [  # ! vespers
+                            'De ea',
+                            [22, 's'],
+                            {'int': 'Dicit Dominus', 'note': 'de Dom præc', 'glo': True,
+                             'cre': False, 'pre': 'Communis'},
+                            {'proper': False, 'admag': '',
+                                'propers': {}, 'oration': ''},
+                            (8, 2, 6, 13, 3, 0,),
+                            post_pent_count + week(p+y) + indays(t+1),
+                        ]
+                    )
+        if (post_pent_count + week(p)).strftime("%B") == "September":
+            if int((post_pent_count + week(p)).strftime("%d")) <= 3:
+                sept_counter += 0
+            else:
+                sept_counter += 1
+        if sept_counter == 3:
+            cycle.extend(
+                [
+                    [  # ! mass, vespers
+                        "Feria IV Quatuor Temporum Septembris",
+                        [18, 'feria'],
+                        {'int': 'Missa', 'glo': False,
+                            'cre': False, 'pre': 'Communis'},
+                        {'proper': False, 'admag': '',
+                            'propers': {}, 'oration': ''},
+                        (False,),
+                        post_pent_count + week(p) + indays(3),
+                    ],
+                    [  # ! mass, vespers
+                        "Feria VI Quatuor Temporum Septembris",
+                        [18, 'feria'],
+                        {'int': 'Missa', 'glo': False,
+                            'cre': False, 'pre': 'Communis'},
+                        {'proper': False, 'admag': '',
+                            'propers': {}, 'oration': ''},
+                        (False,),
+                        post_pent_count + week(p) + indays(5),
+                    ],
+                    [  # ! mass, vespers
+                        "Sabbatum Quatuor Temporum Septembris",
+                        [18, 'feria'],
+                        {'int': 'Missa', 'glo': False,
+                            'cre': False, 'pre': 'Communis'},
+                        {'proper': False, 'admag': '',
+                            'propers': {}, 'oration': ''},
+                        (False,),
+                        post_pent_count + week(p) + indays(6),
+                    ],
+                ]
+            )
 
             if (post_pent_count + week(p)).strftime("%B") == "November" and (easter(year) + week(i-1)).strftime("%B") == "October":
                 # if the current Sunday is in November and the previous Sunday is in October
@@ -879,8 +995,6 @@ def build_temporal(year):
                     ],
                 )
             i += 1
-    christmas = datetime.strptime(str(year) + "-12-25", "%Y-%m-%d")
-    lastadvent = christmas - findsunday(christmas)
     if christmas == lastadvent:  # prevents advent 4 and christmas occurance
         lastadvent -= week(1)
     advents = [
