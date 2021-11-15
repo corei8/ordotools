@@ -52,6 +52,8 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 - [ ] Canadian Calendar
                 ''')
         f.write('\n\n')
+        f.write('## Calendar for ' + str(year))
+        f.write('\n\n')
         f.write('| Day | Date | Rank | Feast |')
         f.write('\n')
         f.write('|---|---|---|---|')

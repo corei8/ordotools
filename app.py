@@ -825,11 +825,11 @@ def build_temporal(year):
     sept_counter = 0  # ? is enumerate possible here?
     christmas = datetime.strptime(str(year) + "-12-25", "%Y-%m-%d")
     lastadvent = christmas - findsunday(christmas)
-    # * find out why the -1 is needed:
     post_pent_sundays = int((((lastadvent - week(4))-pent_date)/7).days)-1
     post_pent_count = pent_date + week(4)
     print('Sundays after Pentecost: '+str(post_pent_sundays))
-    epiph_sunday_overflow = ROMANS[6-find_extra_epiphany(post_pent_sundays): find_extra_epiphany(post_pent_sundays)+2]
+    epiph_sunday_overflow = ROMANS[6-find_extra_epiphany(
+        post_pent_sundays): find_extra_epiphany(post_pent_sundays)+2]
     print(epiph_sunday_overflow)
     for count, x in enumerate(ROMANS[3:post_pent_sundays+1], start=1):
         p = count - 1
