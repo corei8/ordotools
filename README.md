@@ -38,6 +38,8 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 - [ ] Canadian Calendar
                 
 
+## Calendar for 2022
+
 | Day | Date | Rank | Feast |
 |---|---|---|---|
 | Sat | 01/01 | d II cl | Circumcisio DNJC et Oct. Nativitatis | 
