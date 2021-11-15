@@ -4,22 +4,20 @@ from functions import *
 from outputs import latex_full_cal_test, readme_calendar
 from timeit import timeit
 
-# todo make LENT_MASSES a tuple
-LENT_MASSES = ['Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', 'De necessitatibus',
+LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', 'De necessitatibus',
                'Intret oratio', 'Redime me', 'Tibi dixit', 'Ne derelinquas me',
                'Deus, in adjutorium', 'Ego autem', 'Lex Domini', 'In Deo laudabo', 'Ego clamavi',
                'Ego autem', 'Salus populi', 'Fac mecum', 'Verba mea', 'Deus, in nomine', 'Exaudi, Deus',
                'Cum sanctificatus', 'Lætetur cor', 'Meditatio', 'Sitientes', 'Miserere mihi',
-               'Expecta Dominum', 'Liberator meus', 'Omnia, quæ fecisti', 'Miserere mihi', 'Miserere mihi', ]
+               'Expecta Dominum', 'Liberator meus', 'Omnia, quæ fecisti', 'Miserere mihi', 'Miserere mihi',)
 
-# todo add all the Masses for the Sundays after Pentecost
-# beginning Dominica IV
+# beginning with Dominica IV
 PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine', 'Dominus fortitudo', 'Omnes gentes',
                     'Suscepimus', 'Ecce Deus', 'Cum clamarem', 'Deus in loco',
                     'Deus in adjutorium', 'Respice Domine', 'Protector noster', 'Inclina Domine',
                     'Miserere mihi', 'Justus es', 'Da pacem', 'Salus populi',
                     'Omnia', 'In voluntate tua', 'Si iniquitates', 'Dicit Dominus',
-                    'Dicit Dominus')
+                    'Dicit Dominus',)
 
 EPIPHANY_MASSES = ()
 
