@@ -15,6 +15,8 @@ class Feast:
     def __init__(self, feast_date: str, properties: dict):
         self.date = feast_date
         self.properties = properties
+        
+    
 
     def date(self):
         return datetime.strptime('%m%d', self.feast_date)
