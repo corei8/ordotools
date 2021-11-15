@@ -15,7 +15,22 @@ class Feast:
     def __init__(self, feast_date: str, properties: dict):
         self.date = feast_date
         self.properties = properties
-        self.feast = properties['feast']
+        self.mass = properties['mass']
+        self.vespers = properties['vespers']
+        self.nobility = properties['nobility']
+        if 'com_1' in properties.keys():
+            self.com_1 = self.Commemoration(properties['com_1'])
+
+
+    class Commemoration:
+        def __init__(self, details: dict):
+            self.details = details
+
+        def feast(self):
+            return self.details['feast']
+
+        def mass(self):
+            return self.details['mass']
 
     def date(self):
         return datetime.strptime('%m%d', self.feast_date)
@@ -166,7 +181,7 @@ def dict_clean(direct: str, dict: int):
                         dic.update(
                             {less_noble.strip('.')+' tranlsated': dic[less_noble]})
                     else:
-                        dic[more_noble].update({'com1': dic[less_noble]['feast']})
+                        dic[more_noble].update({'com_1': dic[less_noble]['feast']})
                         dic.update({first.strip('.'): dic[more_noble]})
                     if len(more_noble) == 6:
                         dic.pop(more_noble)
@@ -189,7 +204,7 @@ def dict_clean(direct: str, dict: int):
                     # commemoration
                     # todo refine these ranges:
                     elif 19 > dic[first]['rank'][0] > 4 and 19 > dic[second]['rank'][0] >= 6:
-                        dic[first].update({'com1': dic[second]['feast']})
+                        dic[first].update({'com_1': dic[second]['feast']})
                         dic.update({first.strip('.'): dic[first]})
                     elif dic[second]['rank'][0] == 22:
                         dic.update({first.strip('.'): dic[first]})

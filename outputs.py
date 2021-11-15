@@ -70,9 +70,9 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
                         mdl[x]['rank'][-1] + " | " + latex_replacement(mdl[x]['feast']) + ' | ')
                 f.write('\n')
             # todo find a solution for labeling commemorations
-            if 'com1' in mdl[x].keys():
+            if 'com_1' in mdl[x].keys():
                 f.write(" | | | | " + '*Com:* ' +
-                        latex_replacement(mdl[x]['com1']) + ' | ')
+                        latex_replacement(mdl[x]['com_1']) + ' | ')
                 f.write('\n')
             else:
                 pass
@@ -144,9 +144,9 @@ def latex_full_cal_test(year):
                 f.write(""+dow+' & '+latex_replacement(x) + " & " + mdl[x]['rank'][-1] +
                         " & " + latex_replacement(mdl[x]['feast']) + "\\\\\n")
             # todo find a solution for labeling commemorations
-            if 'com1' in mdl[x].keys():
+            if 'com_1' in mdl[x].keys():
                 f.write("" + '' + " & & & " + '\\textit{Com:} ' +
-                        latex_replacement(mdl[x]['com1']) + "\\\\\n")
+                        latex_replacement(mdl[x]['com_1']) + "\\\\\n")
             else:
                 pass
             if 'comm2' in mdl[x].keys():

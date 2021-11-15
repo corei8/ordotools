@@ -49,7 +49,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Circumcisio DNJC et Oct. Nativitatis",
                 [3, 'd II cl'],
-                {'int': 'Dum medium', 'glo': True, 'com1': 'S. Telesphori PM',
+                {'int': 'Dum medium', 'glo': True, 'com_1': 'S. Telesphori PM',
                     'cre': True, 'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 (False,),

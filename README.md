@@ -57,17 +57,12 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Wed | 01/12 | feria | De VII die infra Oct. Epiphaniæ | 
 | Thu | 01/13 | dm | Octava Epiphaniæ | 
 | Fri | 01/14 | d | S Hilarii Episcopi ECD | 
- | | | | *Com:* S Felix SM | 
 | Sat | 01/15 | d | S Pauli Primi Eremitæ C | 
- | | | | *Com:* S Mauri Abb | 
 | Sun | 01/16 | sd | Dominica II post Epiphaniam | 
  | | | | *Com:* S Marcelli PM | 
 | Mon | 01/17 | d | S Antonii Abb | 
 | Tue | 01/18 | dm | Cathedræ S Petri Ap Romæ | 
- | | | | *Com:* S Pauli Apostoli | 
- | | | | *Com:* S Priscæ VM | 
 | Wed | 01/19 | s | Ss Marii, Marthæ, Audifacis et Abachum Mm | 
- | | | | *Com:* S Canuti RM | 
 | Thu | 01/20 | d | Ss Fabiani P \& Sebastiani Mm | 
 | Fri | 01/21 | d | S Agnetis VM | 
 | Sat | 01/22 | sd | Ss Vincentii \& Anastasii Mm | 
@@ -78,7 +73,6 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Wed | 01/26 | d | S Polycarpi EM | 
 | Thu | 01/27 | d | S Joannis Chrysostomi | 
 | Fri | 01/28 | d | S Petri Nolasci C mtv | 
- | | | | *Com:* S Agnetis VM secundo | 
 | Sat | 01/29 | d | S Francisci Salesii ECD | 
 | Sun | 01/30 | sd | Dominica IV post Epiphaniam | 
  | | | | *Com:* S Martinæ VM | 
@@ -93,7 +87,6 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Mon | 02/07 | d | S Romualdi Abb | 
 | Tue | 02/08 | d | S Joannis de Matha C | 
 | Wed | 02/09 | d | S Cyrilli ECD | 
- | | | | *Com:* S Apollonia VM | 
 | Thu | 02/10 | d | S Scholasticæ V | 
 | Fri | 02/11 | dm | In Apparitione BMV Immaculatæ | 
 | Sat | 02/12 | d | Ss Septem Fundatorum Ordinis Servorum BMV C | 
@@ -111,7 +104,6 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Thu | 03/03 | feria | Feria V post Diem Cinerum | 
 | Fri | 03/04 | sd | S Casimiri C | 
  | | | | *Com:* Feria VI post Diem Cinerum | 
- | | | | *Com:* S Lucii I PM | 
 | Sat | 03/05 | feria | Sabbatum post Diem Cinerum | 
 | Sun | 03/06 | sd I cl | Dominica I in Quadragesima | 
 | Mon | 03/07 | d | S Thomas De Aquino C | 
@@ -181,7 +173,6 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
  | | | | *Com:* Dominica II post Pascha | 
 | Mon | 05/02 | d | S Athanasii Ep CD | 
 | Tue | 05/03 | d II cl | In Inventione S Crucis | 
- | | | | *Com:* Ss Alexandro I Pp, Event et Theodulo Mm ac Juvenile Ep C | 
 | Wed | 05/04 | d I cl cum Oct Communi | Solemnitas S. Joseph, Sponsi BMV C. et Ecclesiæ Universalis Patroni | 
 | Thu | 05/05 | d | S Pii V Pp C | 
 | Fri | 05/06 | dm | S Ioannis Ap et Ev Ante Portam Latinam | 
@@ -190,7 +181,6 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
  | | | | *Com:* In Apparitione S Michaelis Archangelis | 
 | Mon | 05/09 | d | S Gregorii Nanzanzeni Ep CD | 
 | Tue | 05/10 | d | S Antonini Ep C | 
- | | | | *Com:* Ss Gordiani et Epimachi Mm | 
 | Wed | 05/11 | dm | Octava Solemnitatis S. Joseph | 
 | Thu | 05/12 | sd | Ss Nerei, Achillei at Domitillae V atq Pancratii Mm | 
 | Fri | 05/13 | d | S Roberti Bellarmini Ep CD | 
@@ -200,17 +190,14 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Mon | 05/16 | sd | S Ubaldi EC | 
 | Wed | 05/18 | d | S Venantii M | 
 | Thu | 05/19 | d | S Petri Celestini PC | 
- | | | | *Com:* S Pudentianae V | 
 | Fri | 05/20 | sd | S Bernardini Senensis C | 
 | Sun | 05/22 | sd | Dominica V post Pascha | 
 | Mon | 05/23 | feria | Feria II in Rogationibus | 
 | Tue | 05/24 | feria | Feria III in Rogationibus | 
 | Wed | 05/25 | d | S Gregorii VII PC | 
  | | | | *Com:* Feria IV in Rogationibus in Vigilia Ascensionis  | 
- | | | | *Com:* S Urbano I PM | 
 | Thu | 05/26 | d I cl cum Oct privil 3 ord | Ascensio DNJC | 
 | Fri | 05/27 | d | S Bedæ Venerabilis CD | 
- | | | | *Com:* S Joanne I PM | 
 | Sat | 05/28 | d | S Augustini EC | 
  | | | | *Com:* Sabbatum infra Oct. Ascensionis | 
 | Sun | 05/29 | sd | Dominica infra Octavam Ascensionis | 
@@ -218,7 +205,6 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Mon | 05/30 | sd | De IV die infra Oct. Ascensionis | 
 | Tue | 05/31 | d | S Angelæ Mericiæ V | 
  | | | | *Com:* De V die infra Oct. Ascensionis | 
- | | | | *Com:* S Petronilla V | 
 | Wed | 06/01 | sd | De VI die infra Oct. Ascensionis | 
  | | | | *Com:* Feria IV Quatuor Temporum infra Oct. Pentecostes | 
 | Thu | 06/02 | dm | Oct. Ascensionis DNJC | 
@@ -257,14 +243,11 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Mon | 06/27 | sd | Feria II infra Oct. Ssmi Cordis DNJC | 
 | Tue | 06/28 | d | Irinæi EM | 
  | | | | *Com:* Feria III infra Oct. Ssmi Cordis DNJC | 
- | | | | *Com:* In Vigilia Ss Petri \& Pauli App | 
 | Wed | 06/29 | d I cl cum Oct communi | Ss Petri \& Pauli App | 
 | Thu | 06/30 | dm | In Commemoratione S Pauli Apostoli | 
  | | | | *Com:* Feria V infra Oct. Ssmi Cordis DNJC | 
- | | | | *Com:* S Petri Ap | 
 | Fri | 07/01 | d I cl | In Festo Pretiosissimi Sanguis DNJC | 
 | Sat | 07/02 | d II cl | In Visitatione BMV | 
- | | | | *Com:* Ss Processo \& Martiniano Mm | 
 | Sun | 07/03 | sd | Dominica IV post Pentecosten | 
  | | | | *Com:* S Leonis II PC | 
 | Mon | 07/04 | s | De ea | 
@@ -277,7 +260,6 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
  | | | | *Com:* Ss Septem Fratrum Mm ac Rufinæ \& Secundæ VvMm | 
 | Mon | 07/11 | s | S Pii I PM | 
 | Tue | 07/12 | d | S Joannis Gualberti Abb | 
- | | | | *Com:* Ss Nabore \& Felice Mm | 
 | Wed | 07/13 | sd | S Anacleti PM | 
 | Thu | 07/14 | d | S Bonaventuræ ECD | 
 | Fri | 07/15 | sd | S Henrici Imperatoris, C | 
@@ -285,42 +267,31 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Sun | 07/17 | sd | Dominica VI post Pentecosten | 
  | | | | *Com:* S Alexii C | 
 | Mon | 07/18 | d | S Camilli de Lellis C | 
- | | | | *Com:* Ss Symphorosa \& septem Filiis ejus Mm | 
 | Tue | 07/19 | d | S Vincent a Paulo C | 
 | Wed | 07/20 | d | S Hieronymi Æmiliani C | 
- | | | | *Com:* S Margarita VM | 
 | Thu | 07/21 | s | S Praxedis V | 
 | Fri | 07/22 | d | S Mariæ Magdalenæ Pænitentis | 
 | Sat | 07/23 | d | S Apollinaris EM | 
- | | | | *Com:* S Liborio EC | 
 | Sun | 07/24 | sd | Dominica VII post Pentecosten | 
  | | | | *Com:* In Vigilia S Jacobi Ap | 
 | Mon | 07/25 | d II cl | S Jacobi Ap | 
- | | | | *Com:* S Christophori M | 
 | Tue | 07/26 | d II cl | S Annæ Matris BMV | 
 | Wed | 07/27 | s | S Pantaleonis M | 
 | Thu | 07/28 | sd | Ss Nazarii \& Celsi Mm, Victoris I PM, ac Innocentii I PC | 
 | Fri | 07/29 | sd | S Marthæ V | 
- | | | | *Com:* Ss Felice I P, Simplicis, Faustino \& Beatrice Mm | 
 | Sat | 07/30 | s | Ss Abdon \& Sennen Mm | 
 | Sun | 07/31 | sd | Dominica VIII post Pentecosten | 
  | | | | *Com:* S Ignatii C | 
 | Mon | 08/01 | dm | S Petri Ap, ad Vincula | 
- | | | | *Com:* S Pauli Ap | 
- | | | | *Com:* Ss Machabæis Mm | 
 | Tue | 08/02 | d | s Alphonso Mariæ de Ligourio ECD | 
- | | | | *Com:* S Stephano PM | 
 | Wed | 08/03 | sd | In Inventione S Stephani Protomartyris | 
 | Thu | 08/04 | dm | S Dominici C | 
 | Fri | 08/05 | dm | In Dedicatione Mariæ ad Nives | 
 | Sat | 08/06 | dm | In Transfiguratione DNJC | 
- | | | | *Com:* Ss Xysto P, Felicissimo \& Agapito Mm | 
 | Sun | 08/07 | sd | Dominica IX post Pentecosten | 
  | | | | *Com:* S Cajetani C | 
 | Mon | 08/08 | sd | Ss Cyriaci, Largi \& Smaragdi Mm | 
 | Tue | 08/09 | d | S Joannis Mariæ Vianney C | 
- | | | | *Com:* Vigilia S Laurentii M | 
- | | | | *Com:* S Romano M | 
 | Wed | 08/10 | d II cl | S Laurentii M | 
 | Thu | 08/11 | s | Ss Tiburtii \& Susannæ VM | 
 | Fri | 08/12 | d | S Claræ V | 
@@ -330,14 +301,12 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Mon | 08/15 | d I cl cum Oct communi | In Assumptione BMV | 
 | Tue | 08/16 | d II cl | S Joachim Patris BMV | 
 | Wed | 08/17 | d | S Hyacinthi C | 
- | | | | *Com:* Octava S Laurentii M | 
 | Thu | 08/18 | s | S Agapito M | 
 | Fri | 08/19 | d | S Joannis Eudes C | 
 | Sat | 08/20 | d | S Bernardi AbbD | 
 | Sun | 08/21 | sd | Dominica XI post Pentecosten | 
  | | | | *Com:* S Joannæ Franciscæ Fremiot de Chantal Vid | 
 | Mon | 08/22 | d II cl | In Festo Immaculati Cordis BMV | 
- | | | | *Com:* Ss Timotheo, Hippolyto \& Symphoriano Mm | 
 | Tue | 08/23 | v | In Vigilia S Bartholomæi Ap | 
 | Wed | 08/24 | d II cl | S Bartholomæi Ap | 
 | Thu | 08/25 | sd | S Ludovici RC | 
@@ -346,9 +315,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Sun | 08/28 | sd | Dominica XII post Pentecosten | 
  | | | | *Com:* S Augustini ECD | 
 | Mon | 08/29 | dm | In Decollatione S Joannis Baptistæ | 
- | | | | *Com:* S Sabina M | 
 | Tue | 08/30 | d | S Rosæ a S Maria V | 
- | | | | *Com:* Ss Felice \& Adaucto Mm | 
 | Wed | 08/31 | d | S Raymundi Nonnati C | 
 | Thu | 09/01 | s | S Ægidii Abb | 
 | Fri | 09/02 | sd | S Stephani Regis C | 
@@ -358,7 +325,6 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Tue | 09/06 | s | De ea | 
 | Wed | 09/07 | s | De ea | 
 | Thu | 09/08 | d II cl | In Nativitate BMV | 
- | | | | *Com:* S Hadriano M | 
 | Fri | 09/09 | s | S Gorgonii M | 
 | Sat | 09/10 | d | S Nicolai de Tolentino C | 
 | Sun | 09/11 | sd | Dominica XIV post Pentecosten | 
@@ -366,21 +332,16 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Tue | 09/13 | s | De ea | 
 | Wed | 09/14 | dm | in Exaltatione S Cruce | 
 | Thu | 09/15 | d II cl | Septem Dolorum BMV | 
- | | | | *Com:* S Nicomede M | 
 | Fri | 09/16 | sd | Ss Cornelii P \& Cypriani E Mm | 
- | | | | *Com:* Ss Euphemia V, Lucia \& Geminiano Mm | 
 | Sat | 09/17 | d | In Impressione Ss Stigmatum S Francisci C | 
 | Sun | 09/18 | sd | Dominica XV post Pentecosten | 
  | | | | *Com:* S Joseph a Cupertino C | 
 | Mon | 09/19 | s | De ea | 
 | Tue | 09/20 | d | Ss Eustachii \& Soc Mm | 
- | | | | *Com:* In Vigilia S Matthæi ApEv | 
 | Wed | 09/21 | feria | Feria IV Quatuor Temporum Septembris | 
 | Thu | 09/22 | d | S Thomæ de Villanova EC | 
- | | | | *Com:* Ss Mauritio \& Soc Mm | 
 | Fri | 09/23 | sd | S Lini | 
  | | | | *Com:* Feria VI Quatuor Temporum Septembris | 
- | | | | *Com:* S Thecla VM | 
 | Sat | 09/24 | dm | BMV de Merdece | 
  | | | | *Com:* Sabbatum Quatuor Temporum Septembris | 
 | Sun | 09/25 | sd | Dominica XVI post Pentecosten | 
@@ -397,8 +358,6 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Wed | 10/05 | s | Ss Placidi \& Sociorum Mm | 
 | Thu | 10/06 | d | S Brunonis C | 
 | Fri | 10/07 | d II cl | Sacratissimi Rosarii BMV | 
- | | | | *Com:* S Marco PC | 
- | | | | *Com:* Ss Sergio, Baccho, Marcello \& Apulejo MM | 
 | Sat | 10/08 | d | S Birgittæ Vid | 
 | Sun | 10/09 | sd | Dominica XVIII post Pentecosten | 
  | | | | *Com:* S Joannis Leonardi C | 
@@ -415,7 +374,6 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Wed | 10/19 | d | S Petri Alcantara C | 
 | Thu | 10/20 | d | S Joannis Cantii C | 
 | Fri | 10/21 | s | S Hilarionis Abb | 
- | | | | *Com:* Ss Ursula \& Sociabus VM | 
 | Sat | 10/22 | s | De ea | 
 | Sun | 10/23 | sd | Dominica XX post Pentecosten | 
 | Mon | 10/24 | dm | S Raphaelis Arch | 
@@ -430,17 +388,13 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Wed | 11/02 | d | In Commemoratione Omnium Fidelium Defunctorum | 
 | Thu | 11/03 | s | De ea | 
 | Fri | 11/04 | d | S Caroli EC | 
- | | | | *Com:* Ss Vitale \& Agricola Mm | 
 | Sat | 11/05 | s | De ea | 
 | Sun | 11/06 | sd | Dominica XXII post Pentecosten | 
 | Mon | 11/07 | s | De ea | 
 | Tue | 11/08 | sd | Ss Quatuor Coronatis Mm | 
 | Wed | 11/09 | d II cl | In Dedicatione Archibasilicæ Ssmi Salvatoris | 
- | | | | *Com:* S Theodoro M | 
 | Thu | 11/10 | d | S Andreæ Avellini C | 
- | | | | *Com:* Ss Tryphone, Respicio \& Nympha VM | 
 | Fri | 11/11 | d | S Martini  EC | 
- | | | | *Com:* S Menna M | 
 | Sat | 11/12 | sd | S Martini I PM | 
 | Sun | 11/13 | sd | Dominica XXIII post Pentecosten | 
  | | | | *Com:* S Didaci C | 
@@ -450,21 +404,16 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Thu | 11/17 | sd | S Gregorii Thaumaturgi EC | 
 | Fri | 11/18 | dm | In Dedicatione Basilicarum Ss Petri \& Pauli App | 
 | Sat | 11/19 | d | S Elisabeth Vid | 
- | | | | *Com:* S Pontiano PM | 
 | Sun | 11/20 | sd | Dominica XXIV et ultima post Pentecosten | 
  | | | | *Com:* S Felicis de Valois C | 
 | Mon | 11/21 | dm | In Præsentatione BMV | 
 | Tue | 11/22 | d | S Cæciliæ VM | 
 | Wed | 11/23 | d | S Clementis I PM | 
- | | | | *Com:* S Felicitate M | 
 | Thu | 11/24 | d | S Joannis de Cruce CD | 
- | | | | *Com:* S Chrysogono M | 
 | Fri | 11/25 | d | S Catharinæ VM | 
 | Sat | 11/26 | d | S Sylvestri Abb | 
- | | | | *Com:* S Petro Alexandrino EM | 
 | Sun | 11/27 | sd | Dominica I Adventus | 
 | Tue | 11/29 | v | In Vigilia S Andreæ Ap | 
- | | | | *Com:* S Saturnino M | 
 | Wed | 11/30 | d II cl | S Andreæ Ap | 
 | Fri | 12/02 | sd | S Bibianæ VM | 
 | Sat | 12/03 | dm | S Francisci Xaverii C | 
