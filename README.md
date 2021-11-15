@@ -43,8 +43,8 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Day | Date | Rank | Feast |
 |---|---|---|---|
 | Sat | 01/01 | d II cl | Circumcisio DNJC et Oct. Nativitatis | 
-| Sun | 01/02 | feria | Feria IV in Rogationibus in Vigilia Ascensionis  | 
- | | | | *Com:* Vigilia Ascensionis | 
+| Sun | 01/02 | d II cl | Ssmi Nominis Jesu | 
+ | | | | *Com:* Octava S. Stephani Protomartyris | 
 | Mon | 01/03 | s | Octava S. Joannis Ap Ev | 
 | Tue | 01/04 | s | Octava Ss Innocentium Mm. | 
 | Wed | 01/05 | sd Vig privil 2 cl | Vigilia Epiphaniæ | 

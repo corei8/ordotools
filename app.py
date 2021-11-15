@@ -542,17 +542,16 @@ def build_temporal(year):
                         (9, 2, 6, 13, 3, 0,),
                         easter(year) + week(i) + indays(3),
                     ],
-                    # ? The vigil should never show, right?
-                    [  # ! mass, vespers
-                        "Vigilia Ascensionis",
-                        [18, 'vigilia'],
-                        {'int': 'Missa', 'glo': True,
-                            'cre': True, 'pre': 'Communis'},
-                        {'proper': False, 'admag': '',
-                            'propers': {}, 'oration': ''},
-                        (9, 2, 6, 1, 3, 0,),
-                        easter(year) + week(i) + indays(3),
-                    ],
+                    # [  # ! mass, vespers
+                    #     "Vigilia Ascensionis",
+                    #     [18, 'vigilia'],
+                    #     {'int': 'Missa', 'glo': True,
+                    #         'cre': True, 'pre': 'Communis'},
+                    #     {'proper': False, 'admag': '',
+                    #         'propers': {}, 'oration': ''},
+                    #     (9, 2, 6, 1, 3, 0,),
+                    #     easter(year) + week(i) + indays(3),
+                    # ],
                     [  # ! vespers
                         "Ascensio DNJC",
                         [2, 'd I cl cum Oct privil 3 ord'],
