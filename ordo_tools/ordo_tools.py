@@ -14,7 +14,6 @@ ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
 class Feast:
     def __init__(self, feast_date: str, properties: dict):
         self.date = feast_date
-        print('STATS * building object for ' + self.date)
         self.properties = properties
         self.mass = properties['mass']
         self.vespers = properties['vespers'] if 'vespers' in properties.keys(
@@ -132,12 +131,9 @@ def dict_clean(direct: str, dictionary: int):
     mdl = importlib.import_module(direct + str(dictionary))
     try:
         dic = mdl.temporal
-        print('STATS * using the temporal module')
     except AttributeError:
         dic = mdl.calen
-        print('STATS * using the calen module')
     for x in sorted(dic):
-        print('STATS * building ' + x + ' as an object')
         nobility_free = True
         if len(x) >= 6:
             continue
@@ -150,10 +146,9 @@ def dict_clean(direct: str, dictionary: int):
                 first_ = Feast(second_.date+'.', dic[second_.date+'.'])
                 if second_.rank(False) > first_.rank(False):
                     first, second = first_, second_
-                elif second_.rank(False) == first_.rank(False):  # NOBILITY
+                elif second_.rank(False) == first_.rank(False):
                     # just to prevent errors for now...
                     less_noble, more_noble = first_, second_
-                    #print('comparing ' + second_.feast + ' and ' + first_.feast)
                     for x, y in zip(
                         second_.nobility,
                         first_.nobility
@@ -171,8 +166,6 @@ def dict_clean(direct: str, dictionary: int):
                         else:
                             pass
                     rank = second_.rank(False)
-                    #print('Less noble: ' + less_noble.feast)
-                    #print('More noble: ' + more_noble.feast)
                     if rank <= 10:  # ! refine this to exclude all but D1 and D2
                         dic.update(
                             {more_noble.date.strip('.'): more_noble.properties}

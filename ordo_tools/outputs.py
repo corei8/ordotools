@@ -2,7 +2,7 @@ import subprocess
 from datetime import datetime
 import os
 import importlib
-from functions import latex_replacement
+from ordo_tools.ordo_tools import latex_replacement
 
 
 def readme_calendar(year):
