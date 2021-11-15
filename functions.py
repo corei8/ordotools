@@ -14,23 +14,28 @@ ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
 class Feast:
     def __init__(self, feast_date: str, properties: dict):
         self.date = feast_date
+        print('STATS * building object for ' + self.date)
         self.properties = properties
         self.mass = properties['mass']
-        self.vespers = properties['vespers']
-        self.nobility = properties['nobility']
-        if 'com_1' in properties.keys():
-            self.com_1 = self.Commemoration(properties['com_1'])
-
+        self.vespers = properties['vespers'] if 'vespers' in properties.keys(
+        ) else False
+        self.nobility = properties['nobility'] if 'nobility' in properties.keys(
+        ) else False
+        # maximum of five commemorations per feast
+        for x in ('com_1', 'com_2', 'com_3', 'com_4', 'com_5', ):
+            if 'com_'+str(x) in properties.keys():
+                self.comms = self.Commemoration(properties['com_'+str(x)])
 
     class Commemoration:
         def __init__(self, details: dict):
             self.details = details
+            self.mass = details['mass']
 
         def feast(self):
             return self.details['feast']
 
         def mass(self):
-            return self.details['mass']
+            return self.mass
 
     def date(self):
         return datetime.strptime('%m%d', self.feast_date)
@@ -70,7 +75,7 @@ def weekday(date: int):
     return date.strftime("%a")
 
 
-def findsunday(date):  # ! this can be better handled with %w -- no conversion necessary
+def findsunday(date):
     # todo redefine findsunday() to use %w
     if date.strftime("%a") == "Mon":
         x = 1
@@ -103,30 +108,16 @@ def leap_year(year: int):
 
 
 def latex_replacement(string: str):
-    clean_string = re.sub('&', '\&', re.sub('_', '\_', string))
-    return clean_string
-
-
-def nobility_solver(second: tuple, first: tuple):
-    """ determintes the more noble feast from a tuple of 6 digits
+    """ Escape LaTeX reserved characters.
 
     Args:
-        second  (tuple): second feast date and ranking tuple
-        first   (tuple): first feast date and ranking tuple
+        string (str): String to be checked for reserved characters
 
     Returns:
-        tuple: feast dates in increasing nobility
+        str: Same as entered string, but with escaped characters
     """
-    for x, y in zip(second[1], first[1]):
-        if x == y:
-            continue
-        elif x != y:
-            if x > y:
-                return first[0], second[0]
-            else:
-                return second[0], first[0]
-        else:
-            return 0,
+    clean_string = re.sub('&', '\&', re.sub('_', '\_', string))
+    return clean_string
 
 
 def dict_clean(direct: str, dict: int):
@@ -156,11 +147,12 @@ def dict_clean(direct: str, dict: int):
                     first, second = first_, second_
                 elif dic[second_]['rank'][0] == dic[first_]['rank'][0]:  # NOBILITY
                     less_noble, more_noble = 'False', 'False'
-                    print('comparing ' + dic[second_]['feast'] + ' and ' + dic[first_]['feast'])
+                    print(
+                        'comparing ' + dic[second_]['feast'] + ' and ' + dic[first_]['feast'])
                     for x, y in zip(
                         dic[second_]['nobility'],
                         dic[first_]['nobility']
-                        ):
+                    ):
                         for i in range(6):
                             if x == y:
                                 continue
@@ -181,7 +173,8 @@ def dict_clean(direct: str, dict: int):
                         dic.update(
                             {less_noble.strip('.')+' tranlsated': dic[less_noble]})
                     else:
-                        dic[more_noble].update({'com_1': dic[less_noble]['feast']})
+                        dic[more_noble].update(
+                            {'com_1': dic[less_noble]['feast']})
                         dic.update({first.strip('.'): dic[more_noble]})
                     if len(more_noble) == 6:
                         dic.pop(more_noble)
@@ -227,7 +220,7 @@ def dict_clean(direct: str, dict: int):
         return 0
 
 
-def stitch(year: int, s: str):
+def stitch_old(year: int, s: str):
     # todo make strich() reuseable
     mdl_temporal = importlib.import_module(
         'temporal.temporal_' + str(year)).temporal
@@ -250,6 +243,42 @@ def stitch(year: int, s: str):
         )
     for feast in mdlt:
         calen.update({feast: mdl_temporal[feast]})
+    with open("calen/calendar_" + str(year) + ".py", "w") as f:
+        f.truncate(0)
+        for i, line in enumerate(sorted(calen)):
+            if i == 0:
+                f.write('calen = {\n\''+line+'\': '+str(calen[line])+',\n')
+            else:
+                f.write('\''+line+'\':'+str(calen[line])+',\n')
+        f.write('}')
+    return 0
+
+
+def stitch(year: int, s: str):
+    # todo make stitch() reuseable
+    mdl_temporal = importlib.import_module(
+        'temporal.temporal_' + str(year)).temporal
+    mdl_sanctoral = importlib.import_module('sanctoral.' + s).sanctoral
+    mdlt, mdls = sorted(mdl_temporal), sorted(mdl_sanctoral)
+    if leap_year(year) == False:
+        pass
+    else:
+        for event in mdls:
+            if not 'leapdate' in mdl_sanctoral[event]:
+                pass
+            else:
+                new_date = mdl_sanctoral[event].get('leapdate')
+                mdl_sanctoral.update({new_date if not new_date in mdl_sanctoral else (
+                    new_date+'.' if not new_date+'.' in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
+    calen = {}
+    for x in mdls:
+        feast = Feast(x, mdl_sanctoral[x])
+        calen.update(
+            {feast.date + '.' if x in mdlt else feast.date: feast.properties}
+        )
+    for y in mdlt:
+        feast = Feast(y, mdl_temporal[y])
+        calen.update({feast.date: feast.properties})
     with open("calen/calendar_" + str(year) + ".py", "w") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(calen)):
