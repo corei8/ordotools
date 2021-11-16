@@ -2,7 +2,7 @@ import subprocess
 from datetime import datetime
 import os
 import importlib
-from ordo_tools.ordo_tools import latex_replacement
+from ordo_tools.ordo_tools import latex_replacement, Feast
 
 
 def readme_calendar(year):
@@ -172,6 +172,61 @@ def latex_full_cal_test(year):
     print('compiling PDF...')
     subprocess.run('lualatex '+file+' -interaction nonstopmode',
                    shell=True, stdout=subprocess.DEVNULL)
+    print('PDF complete!')
+    os.chdir(working_dir)
+    return 0
+
+
+def build_latex_ordo(year):
+    # todo make this calendar import work with a variable
+    mdl = importlib.import_module(
+        'calen.calendar_' + str(year)).calen
+    mdldates = sorted(mdl)
+    with open("output/latex/ordo_" + str(year) + ".tex", "a") as f:
+        f.truncate(0)
+        f.write(
+            r"""
+% !TEX program = lualatex
+\documentclass[letterpaper, 10pt, twocolumn]{article}
+\title{Ordo 2022}
+\usepackage{longtable}
+\usepackage{geometry}
+\usepackage[letterspace=500]{microtype}
+\usepackage[T1]{fontenc}
+\usepackage[usefilenames,RMstyle={Text,Semibold},SSstyle={Text,Semibold},TTstyle={Text,Semibold},DefaultFeatures={Ligatures=Common}]{plex-otf} %
+\usepackage[latin]{babel}
+\usepackage{fontspec}
+\setlength{\columnseprule}{0.4pt}
+% LETTERPAPER:
+% \geometry{paperheight=8.5in, paperwidth=11in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
+\begin{document}
+"""
+        )
+        for x in mdldates:
+            feast = Feast(x, mdl[x])
+            # todo make the latin day of the week using FERIAS in temporal_cycle.py
+            dow = datetime.strptime(feast.feast_date.strip(
+                'tranlsated ._')+'/'+str(year), '%m/%d/%Y').strftime('%a')
+            f.write('\n\n')
+            f.write('\subsection*{' + latex_replacement(feast.name) + '}')
+            f.write(dow + ' ' + latex_replacement(feast.feast_date) +
+                    ' ' + feast.rank(True))
+            f.write('\n\n')
+            f.write('\\textbf{Ad Missam:} \\textit{' + feast.introit() + '} ')
+            # if feast.glo_cre == True:
+            for x in feast.glo_cre():
+                f.write(x)
+            # else:
+            #     print('STATS * no Gloria or Creed found')
+            #     pass
+            # todo find a solution for labeling commemorations
+        f.write("\n\end{document}")
+    file = 'ordo_'+str(year)+'.tex'
+    working_dir = os.getcwd()
+    os.chdir('output/latex/')
+    print('compiling ordo PDF...')
+    subprocess.run('lualatex '+file+' -interaction nonstopmode',
+                   shell=True)
     print('PDF complete!')
     os.chdir(working_dir)
     return 0

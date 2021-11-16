@@ -11,11 +11,13 @@ ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
           "XXVI", "XXVII", "XXVIII", ]
 
 
-class Feast: 
+class Feast:
     def __init__(self, feast_date: str, properties: dict):
         self.feast_date = feast_date
+        self.name = properties['feast']
         self.properties = properties
-        self.mass = properties['mass']
+        self.mass = properties['mass'] if not 'Ad Primam Missam' in self.properties['mass'].keys(
+        ) else properties['mass']['Ad Primam Missam']
         self.vespers = properties['vespers'] if 'vespers' in properties.keys(
         ) else {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
         self.nobility = properties['nobility'] if 'nobility' in properties.keys(
@@ -32,8 +34,12 @@ class Feast:
         def feast(self):
             return self.details['feast']
 
-        def mass(self):
-            return self.mass
+    # def mass(self):
+    #     # ? How to handle Christmans and All Souls?
+    #     if 'Ad Primam Missam' in self.mass.keys():
+    #         return self.mass['Ad Primam Missam']['int']
+    #     else:
+    #         return self.mass['int']
 
     def date(self):
         return datetime.strptime('%m%d', self.feast_date)
@@ -47,8 +53,21 @@ class Feast:
         else:
             return self.properties['rank'][0]
 
-    def to_dictionary(self):
-        return self.properties
+    def introit(self):
+        return self.mass['int']
+
+    def glo_cre(self):
+        gloria = self.mass['glo']
+        creed = self.mass['cre']
+        status = []
+        if gloria == True:
+            status.append('G ')
+        if creed == True:
+            status.append('C ')
+        return status
+
+    # def to_dictionary(self):
+    #     return self.properties
 
 
 def easter(year: int):
@@ -143,7 +162,8 @@ def dict_clean(direct: str, dictionary: int):
                 continue
             else:
                 second_ = Feast(x, dic[x])
-                first_ = Feast(second_.feast_date+'.', dic[second_.feast_date+'.'])
+                first_ = Feast(second_.feast_date+'.',
+                               dic[second_.feast_date+'.'])
                 if second_.rank(False) > first_.rank(False):
                     first, second = first_, second_
                 elif second_.rank(False) == first_.rank(False):
@@ -168,7 +188,8 @@ def dict_clean(direct: str, dictionary: int):
                     rank = second_.rank(False)
                     if rank <= 10:  # ! refine this to exclude all but D1 and D2
                         dic.update(
-                            {more_noble.feast_date.strip('.'): more_noble.properties}
+                            {more_noble.feast_date.strip(
+                                '.'): more_noble.properties}
                         )
                         dic.update(
                             {less_noble.feast_date.strip(
@@ -193,22 +214,27 @@ def dict_clean(direct: str, dictionary: int):
                     # * continue adding the objects here:
                     # translation
                     if first.rank(False) <= 4 and second.rank(False) <= 10:
-                        dic.update({first.feast_date.strip('.'): first.properties})
+                        dic.update(
+                            {first.feast_date.strip('.'): first.properties})
                         dic.update(
                             {second.feast_date.strip('.')+'_': second.properties})
                     # no commemoration
                     elif first.rank(False) <= 4 and second.rank(False) > 10:
-                        dic.update({first.feast_date.strip('.'): first.properties})
+                        dic.update(
+                            {first.feast_date.strip('.'): first.properties})
                     # commemoration
                     # todo refine these ranges:
                     elif 19 > first.rank(False) > 4 and 19 > second.rank(False) >= 6:
                         first.com_1 = second.feast
-                        dic.update({first.feast_date.strip('.'): first.properties})
+                        dic.update(
+                            {first.feast_date.strip('.'): first.properties})
                     elif second.rank(False) == 22:
-                        dic.update({first.feast_date.strip('.'): first.properties})
+                        dic.update(
+                            {first.feast_date.strip('.'): first.properties})
                     # no commemoration
                     else:
-                        dic.update({first.feast_date.strip('.'): first.properties})
+                        dic.update(
+                            {first.feast_date.strip('.'): first.properties})
                     if len(first.feast_date) == 6:
                         dic.pop(first.feast_date)
                     if len(second.feast_date) == 6:
