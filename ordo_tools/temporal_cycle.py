@@ -64,7 +64,7 @@ def build_temporal(year):
             [  # ! mass, vespers
                 "Octava S. Joannis Ap Ev",
                 [18, 's'],
-                {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
+                {'int': 'Introit', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 (False,),
                 circumcision + indays(2),
