@@ -3,6 +3,7 @@ import dateutil.easter
 import importlib
 import re
 
+#===-===-=== GLOBALS ===-===-=== #
 
 ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
           "VIII", "IX", "X", "XI", "XII", "XIII",
@@ -10,42 +11,61 @@ ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
           "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV",
           "XXVI", "XXVII", "XXVIII", ]
 
+#===-===-=== CLASSES ===-===-=== #
+
 
 class Feast:
     def __init__(self, feast_date: str, properties: dict):
         self.feast_date = feast_date
         self.name = properties['feast']
+        print(self.name)
         self.properties = properties
         self.mass = properties['mass'] if not 'Ad Primam Missam' in self.properties['mass'].keys(
-        ) else properties['mass']['Ad Primam Missam']
+        ) else False
+        self.tri_mass = properties['mass'] if self.mass == False else False
         self.vespers = properties['vespers'] if 'vespers' in properties.keys(
         ) else {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
         self.nobility = properties['nobility'] if 'nobility' in properties.keys(
         ) else ('0', '0', '0', '0', '0', '0', )
-        for x in ('com_1', 'com_2', 'com_3', 'com_4', 'com_5', ):
-            if 'com_'+str(x) in properties.keys():
-                self.comms = self.Commemoration(properties['com_'+str(x)])
+        self.com_1 = self.Commemoration(
+            properties['com_1']) if 'com_1' in properties.keys() else False
+        self.com_2 = self.Commemoration(
+            properties['com_2']) if 'com_2' in properties.keys() else False
+        self.com_3 = self.Commemoration(
+            properties['com_3']) if 'com_3' in properties.keys() else False
+        self.com_4 = self.Commemoration(
+            properties['com_4']) if 'com_4' in properties.keys() else False
+        self.com_5 = self.Commemoration(
+            properties['com_5']) if 'com_5' in properties.keys() else False
+        self.office_type = properties['office_type']
 
     class Commemoration:
-        def __init__(self, details: dict):
-            self.details = details
-            self.com_mass = details['mass']
+        def __init__(self, detail: dict):
+            self.details = detail
+            # self.com_mass = detail['mass']
 
         def feast(self):
-            return self.details['feast']
-
-    # def mass(self):
-    #     # ? How to handle Christmans and All Souls?
-    #     if 'Ad Primam Missam' in self.mass.keys():
-    #         return self.mass['Ad Primam Missam']['int']
-    #     else:
-    #         return self.mass['int']
+            # ! make all the results of commemorations dictionaries
+            return self.details['feast'] if type(self.details) == dict else self.details
 
     def date(self):
         return datetime.strptime('%m%d', self.feast_date)
 
     def feast(self):
         return self.properties['feast']
+
+    def office_type2latex(self):
+        if self.office_type == False:
+            off_type = 'Ord'
+        elif self.office_type == 'feria':
+            off_type = 'Fer'
+        elif self.office_type == 'festiva':
+            off_type = 'Festiv'
+        elif self.office_type == 'dominica':
+            off_type = 'Dom'
+        else:
+            return 0
+        return 'Off ' + off_type
 
     def rank(self, visual: bool):
         if visual == True:
@@ -54,20 +74,64 @@ class Feast:
             return self.properties['rank'][0]
 
     def introit(self):
-        return self.mass['int']
+        if self.mass != False:
+            return self.mass['int']
+        else:
+            return False
 
     def glo_cre(self):
         gloria = self.mass['glo']
         creed = self.mass['cre']
         status = []
         if gloria == True:
-            status.append('G ')
+            status.append('G, ')
         if creed == True:
-            status.append('C ')
+            status.append('C, ')
         return status
 
-    # def to_dictionary(self):
-    #     return self.properties
+    def mass2latex(self):
+        # todo add orations
+        if self.mass != False:
+            latexed_mass = '\\textbf{Ad Missam:} \\textit{' + \
+                self.mass['int'] + ', } '
+            for x in self.glo_cre():
+                latexed_mass += x
+            latexed_mass += 'Præf ' + self.mass['pre'] + ', '
+        else:
+            latexed_mass = ''
+            for x in self.tri_mass.keys():
+                latexed_tri_mass = '\\textbf{' + x + ':} \\textit{' + \
+                    self.tri_mass[x]['int'] + ', } '
+                gloria = self.tri_mass[x]['glo']
+                creed = self.tri_mass[x]['cre']
+                status = []
+                if gloria == True:
+                    status.append('G, ')
+                if creed == True:
+                    status.append('C, ')
+                for i in status:
+                    latexed_tri_mass += i
+                latexed_tri_mass += 'Præf ' + self.tri_mass[x]['pre'] + ', '
+                latexed_mass += latexed_tri_mass
+        return latexed_mass
+
+    def commemoration2latex(self):
+        com_list = '\n'
+        if self.com_1 != False:
+            com_list += '\n[\\textit{' + self.com_1.feast() + '}]\n'
+        elif self.com_2 != False:
+            com_list += '\n[\\textit{' + self.com_2.feast() + '}]\n'
+        elif self.com_3 != False:
+            com_list += '\n[\\textit{' + self.com_3.feast() + '}]\n'
+        elif self.com_4 != False:
+            com_list += '\n[\\textit{' + self.com_4.feast() + '}]\n'
+        elif self.com_5 != False:
+            com_list += '\n[\\textit{' + self.com_5.feast() + '}]\n'
+        else:
+            return com_list + '\n\\textit{No Commemoration}'
+        return com_list
+
+#===-===-=== FUNCTIONS ===-===-=== #
 
 
 def easter(year: int):
@@ -138,6 +202,49 @@ def latex_replacement(string: str):
     return clean_string
 
 
+def commemoration_ordering(direct: str, dictionary: int):
+    """ Updates the keys in the feast dicionaries so that 
+        commemorations are numerically correct.
+
+    Args:
+        direct (str): The directory of the dictionary.
+        dictionary (int): The dictionary to be corrected.
+
+    Returns:
+        None: The dictionary is updated without any return.
+    """
+    mdl = importlib.import_module(direct + str(dictionary))
+    try:
+        dic = mdl.temporal
+    except AttributeError:
+        dic = mdl.calen
+    for x in list(dic.keys()):
+        for data in list(dic[x].keys()):
+            if 'com_1' in data:
+                continue
+            elif 'com_2' in data:  # ! use a for loop for this
+                dic[x].update({'com_1': dic[x]['com_2']})
+                dic[x].pop('com_2')
+                if 'com_3' in data:
+                    dic[x].update({'com_2': dic[x]['com_3']})
+                    dic[x].pop('com_3')
+                    if 'com_4' in data:
+                        dic[x].update({'com_3': dic[x]['com_4']})
+                        dic[x].pop('com_4')
+                        if 'com_5' in data:
+                            dic[x].update({'com_4': dic[x]['com_5']})
+                            dic[x].pop('com_5')
+                        else:
+                            pass
+                    else:
+                        pass
+                else:
+                    pass
+            else:
+                pass
+    return 0
+
+
 def dict_clean(direct: str, dictionary: int):
     """ Gets rid of all dates in calendar which are appended with . or _;
     overwrites the calendar file with the resulting dictionary.
@@ -167,7 +274,6 @@ def dict_clean(direct: str, dictionary: int):
                 if second_.rank(False) > first_.rank(False):
                     first, second = first_, second_
                 elif second_.rank(False) == first_.rank(False):
-                    # just to prevent errors for now...
                     less_noble, more_noble = first_, second_
                     for x, y in zip(
                         second_.nobility,
@@ -211,7 +317,6 @@ def dict_clean(direct: str, dictionary: int):
                 if nobility_free == False:
                     pass
                 else:
-                    # * continue adding the objects here:
                     # translation
                     if first.rank(False) <= 4 and second.rank(False) <= 10:
                         dic.update(
@@ -239,6 +344,7 @@ def dict_clean(direct: str, dictionary: int):
                         dic.pop(first.feast_date)
                     if len(second.feast_date) == 6:
                         dic.pop(second.feast_date)
+    commemoration_ordering(direct, dictionary)
     with open(re.sub(r"\.", r'/', direct) + str(dictionary) + ".py", "a") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(dic)):

@@ -187,13 +187,17 @@ def build_latex_ordo(year):
         f.write(
             r"""
 % !TEX program = lualatex
-\documentclass[letterpaper, 10pt, twocolumn]{article}
+\documentclass[letterpaper, 10pt]{article}
 \title{Ordo 2022}
-\usepackage{longtable}
+%\usepackage{tabularx}
+%\tracingtabularx
+\usepackage{ragged2e}
 \usepackage{geometry}
-\usepackage[letterspace=500]{microtype}
+\usepackage{microtype}
 \usepackage[T1]{fontenc}
-\usepackage[usefilenames,RMstyle={Text,Semibold},SSstyle={Text,Semibold},TTstyle={Text,Semibold},DefaultFeatures={Ligatures=Common}]{plex-otf} %
+%\usepackage[usefilenames,RMstyle={Text,Semibold},SSstyle={Text,Semibold},TTstyle={Text,Semibold},DefaultFeatures={Ligatures=Common}]{plex-otf} %
+\usepackage{librecaslon}
+%  merriweather
 \usepackage[latin]{babel}
 \usepackage{fontspec}
 \setlength{\columnseprule}{0.4pt}
@@ -202,24 +206,43 @@ def build_latex_ordo(year):
 \begin{document}
 """
         )
+        f.write('\\begin{center}\n')
+        f.write('\\Huge Ordo ' + str(year))
+        f.write('\\end{center}\n')
         for x in mdldates:
             feast = Feast(x, mdl[x])
-            # todo make the latin day of the week using FERIAS in temporal_cycle.py
+            # todo #6 make the latin day of the week using FERIAS in temporal_cycle.py
+            # todo use tables for the ordo parts to prevent breaking across pages
             dow = datetime.strptime(feast.feast_date.strip(
                 'tranlsated ._')+'/'+str(year), '%m/%d/%Y').strftime('%a')
+            f.write('\n')
+            f.write('\\hrule\n')
+            f.write('\\begin{center}\n')
+            f.write(dow + ' - ' + latex_replacement(feast.feast_date) + '\n')
+            f.write('\\end{center}')
+            f.write('\\textbf{ \\large ' + latex_replacement(feast.name) +
+                    ', \\textnormal{\\normalsize ' + feast.rank(True) + '}}')
+            print('adding commemorations')
+            f.write(latex_replacement(feast.commemoration2latex()))
+            f.write('\\begin{justify}\n')
+            f.write(feast.office_type2latex())
+            f.write('\n')
+            f.write('\\textbf{Ad Mat: }')
+            f.write('\n')
+            f.write('\\textbf{Ad Lau: }')
+            f.write('\n')
+            f.write('\\textbf{Ad Horas: }')
+            f.write('\n')
+            f.write('\\textbf{Ad Primam: }')
+            f.write('\n')
+            f.write(feast.mass2latex())
+            f.write('\n')
+            f.write('\\textbf{In Vesp: }')
+            f.write('\n')
+            f.write('\\textbf{Ad Compl: }')
+            f.write('\\end{justify}\n')
             f.write('\n\n')
-            f.write('\subsection*{' + latex_replacement(feast.name) + '}')
-            f.write(dow + ' ' + latex_replacement(feast.feast_date) +
-                    ' ' + feast.rank(True))
-            f.write('\n\n')
-            f.write('\\textbf{Ad Missam:} \\textit{' + feast.introit() + '} ')
-            # if feast.glo_cre == True:
-            for x in feast.glo_cre():
-                f.write(x)
-            # else:
-            #     print('STATS * no Gloria or Creed found')
-            #     pass
-            # todo find a solution for labeling commemorations
+            # todo find a solution for labeling the commemorations
         f.write("\n\end{document}")
     file = 'ordo_'+str(year)+'.tex'
     working_dir = os.getcwd()
