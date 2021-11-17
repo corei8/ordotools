@@ -236,6 +236,7 @@ def build_temporal(year):
                 [  # ! vespers
                     "Dominica " + epiph_sundays[o] + " post Epiphaniam",
                     [12, 'sd'],
+                    # todo #7 update all the Masses of Epiphany
                     {'int': 'Omnis terra', 'glo': True, 'cre': True, 'pre': 'de Ssma Trinitate'},
                     {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                     False,
@@ -331,7 +332,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                            False,
+                            'feria',
                         (False,),
                         easter(year) - week(6-c) + indays(j+1),
                     ]
@@ -345,7 +346,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                            False,
+                            'feria',
                         (False,),
                         easter(year) - week(6-c) + indays(j+1),
                     ]
@@ -359,7 +360,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                            False,
+                            'feria',
                         (False,),
                         easter(year) - week(6-c) + indays(j+1),
                     ]
@@ -735,7 +736,7 @@ def build_temporal(year):
                 [18, 'feria'],
                 {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
-                False,
+                'feria',
                 (False,),
                 easter(year) + week(i) + indays(3),
             ],
@@ -744,7 +745,7 @@ def build_temporal(year):
                 [18, 'feria'],
                 {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
-                False,
+                'feria',
                 (False,),
                 easter(year) + week(i) + indays(5),
             ],
@@ -753,7 +754,7 @@ def build_temporal(year):
                 [18, 'feria'],
                 {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
-                False,
+                'feria',
                 (False,),
                 easter(year) + week(i) + indays(6),
             ],
@@ -1018,7 +1019,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                            False,
+                            'feria',
                         (False,),
                         post_pent_count + week(p) + indays(3),
                     ],
@@ -1029,7 +1030,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                            False,
+                            'feria',
                         (False,),
                         post_pent_count + week(p) + indays(5),
                     ],
@@ -1040,7 +1041,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                            False,
+                            'feria',
                         (False,),
                         post_pent_count + week(p) + indays(6),
                     ],
@@ -1073,6 +1074,35 @@ def build_temporal(year):
         "Dominica I Adventus",
     ]
     for i, x in enumerate(advents):
+        for y in ROMANS[3:7]:
+            cycle.append(
+                    [  # ! vespers
+                        'Feria ' + y + " infra Hebd" + x.strip('Dominica'),
+                        [21, 'feria'],
+                        # todo #8 add the introits for the ferias per Advent week
+                        {'int': '', 'glo': False,
+                            'cre': False, 'pre': 'Communis'},
+                        {'proper': False, 'admag': '',
+                            'propers': {}, 'oration': ''},
+                            'feria',
+                        (False,),
+                        easter(year) - week(6-c) + indays(j+1),
+                    ]
+                )
+        cycle.append(
+            [  # ! vespers
+                'Sabbatum infra Hebd' + x.strip('Dominica'),
+                [21, 'feria'],
+                # todo introit for the Saturday per Advent week
+                {'int': '', 'glo': False,
+                            'cre': False, 'pre': 'Communis'},
+                {'proper': False, 'admag': '',
+                 'propers': {}, 'oration': ''},
+                'feria',
+                (False,),
+                easter(year) - week(6-c) + indays(j+1),
+            ]
+        )
         if x == "Dominica III Adventus":
             cycle.extend(
                 [
@@ -1094,7 +1124,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                            False,
+                            'feria',
                         (False,),
                         lastadvent - week(i) + indays(3),
                     ],
@@ -1105,7 +1135,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                            False,
+                            'feria',
                         (False,),
                         lastadvent - week(i) + indays(5),
                     ],
@@ -1116,7 +1146,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                            False,
+                            'feria',
                         (False,),
                         lastadvent - week(i) + indays(6),
                     ],

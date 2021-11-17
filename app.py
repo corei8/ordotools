@@ -5,7 +5,7 @@
 #
 from ordo_tools.temporal_cycle import build_temporal
 from ordo_tools.ordo_tools import *
-from ordo_tools.outputs import latex_full_cal_test, readme_calendar, build_latex_ordo
+from ordo_tools.outputs import build_latex_ordo
 
 
 def app(year: int, diocese: str):
