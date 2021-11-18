@@ -45,7 +45,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Circumcisio DNJC et Oct. Nativitatis",
                 [3, 'd II cl'],
-                'S. Telesphori PM',
+                {'feast': 'S. Telesphori PM'},
                 {'int': 'Puer natus', 'glo': True, 'cre': True,
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
@@ -1073,34 +1073,35 @@ def build_temporal(year):
         "Dominica II Adventus",
         "Dominica I Adventus",
     ]
+    advent_introits = []
     for i, x in enumerate(advents):
-        for y in ROMANS[3:7]:
+        for k, y in enumerate(ROMANS[3:7], start=1):
             cycle.append(
-                    [  # ! vespers
+                    [  # ! mass, vespers
                         'Feria ' + y + " infra Hebd" + x.strip('Dominica'),
-                        [21, 'feria'],
-                        # todo #8 add the introits for the ferias per Advent week
-                        {'int': '', 'glo': False,
+                        [18, 'feria'],
+                        {'int': 'Ad te levavi' if x == 'Dominica I Adventus' else ('Populus Sion' if x == "Dominica II Adventus" else (
+                            'Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli')), 'glo': False,
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
                             'feria',
                         (False,),
-                        easter(year) - week(6-c) + indays(j+1),
+                        lastadvent - week(i) + indays(k),
                     ]
                 )
         cycle.append(
-            [  # ! vespers
+            [  # ! mass, vespers
                 'Sabbatum infra Hebd' + x.strip('Dominica'),
-                [21, 'feria'],
-                # todo introit for the Saturday per Advent week
-                {'int': '', 'glo': False,
+                [18, 'feria'],
+                {'int': 'Ad te levavi' if x == 'Dominica I Adventus' else ('Populus Sion' if x == "Dominica II Adventus" else (
+                    'Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli')), 'glo': False,
                             'cre': False, 'pre': 'Communis'},
                 {'proper': False, 'admag': '',
                  'propers': {}, 'oration': ''},
                 'feria',
                 (False,),
-                easter(year) - week(6-c) + indays(j+1),
+                lastadvent - week(i) + indays(6),
             ]
         )
         if x == "Dominica III Adventus":
@@ -1109,11 +1110,12 @@ def build_temporal(year):
                     [  # ! vespers
                         x,
                         [8, 'sd II cl'],
+                        #? Not really necessary?
                         {'int': 'Populus Sion' if x == "Dominica II Adventus" else (
                             'Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli'), 'glo': False, 'cre': True, 'pre': 'de Trinitate'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                            False,
+                            'dominica',
                         (False,),
                         lastadvent - week(i)
                     ],
@@ -1160,7 +1162,7 @@ def build_temporal(year):
                     {'int': 'Ad te levavi', 'glo': False,
                         'cre': True, 'pre': 'de Trinitate'},
                     {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
-                    False,
+                    'dominica',
                     (False,),
                     lastadvent - week(i)
                 ]
@@ -1174,7 +1176,7 @@ def build_temporal(year):
                         'Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli'),
                      'glo': False, 'cre': True, 'pre': 'de Trinitate'},
                     {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
-                    False,
+                    'dominica',
                     (False,),
                     lastadvent - week(i)
                 ]

@@ -16,45 +16,107 @@ ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
 
 class Feast:
     def __init__(self, feast_date: str, properties: dict):
+        # todo #11 make a method that takes all the adjusted data and returns it as a dictionary
         self.feast_date = feast_date
+        print(self.feast_date)
+        self.properties = properties  # just the entire dictionary...
+        print(self.properties)
+        # * individial properies:
         self.name = properties['feast']
-        print(self.name)
-        self.properties = properties
+        # * e.g. 'feast': 'In Vigilia Omnium Sanctorum',
+        self.rank_v = properties['rank'][-1]  # verbose
+        self.rank_n = properties['rank'][0]  # numeric
+        # * e.g. 'rank': [18, 'v'],
         self.mass = properties['mass'] if not 'Ad Primam Missam' in self.properties['mass'].keys(
-        ) else False
-        self.tri_mass = properties['mass'] if self.mass == False else False
+        ) else {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'}
+        self.tri_mass = properties['mass'] if self.mass == False else 'ERROR FINDING THE MASS'
+        # * e.g. 'mass': {'int': 'Judicant', 'glo': False, 'cre': False, 'pre': 'Communis'},
         self.vespers = properties['vespers'] if 'vespers' in properties.keys(
         ) else {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        # * e.g. 'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
         self.nobility = properties['nobility'] if 'nobility' in properties.keys(
         ) else ('0', '0', '0', '0', '0', '0', )
-        self.com_1 = self.Commemoration(
-            properties['com_1']) if 'com_1' in properties.keys() else False
-        self.com_2 = self.Commemoration(
-            properties['com_2']) if 'com_2' in properties.keys() else False
-        self.com_3 = self.Commemoration(
-            properties['com_3']) if 'com_3' in properties.keys() else False
-        self.com_4 = self.Commemoration(
-            properties['com_4']) if 'com_4' in properties.keys() else False
-        self.com_5 = self.Commemoration(
-            properties['com_5']) if 'com_5' in properties.keys() else False
+        # * e.g. 'nobility': (False,),
         self.office_type = properties['office_type']
+        # * e.g. 'office_type': False,
+        self.com_1 = self.Commemoration(
+            properties['com_1']) if 'com_1' in properties.keys() else self.Commemoration(dict())
+        self.com_2 = self.Commemoration(
+            properties['com_2']) if 'com_2' in properties.keys() else self.Commemoration(dict())
+        self.com_3 = self.Commemoration(
+            properties['com_3']) if 'com_3' in properties.keys() else self.Commemoration(dict())
+        self.com_4 = self.Commemoration(
+            properties['com_4']) if 'com_4' in properties.keys() else self.Commemoration(dict())
+        self.com_5 = self.Commemoration(
+            properties['com_5']) if 'com_5' in properties.keys() else self.Commemoration(dict())
 
     class Commemoration:
         def __init__(self, detail: dict):
             self.details = detail
-            # self.com_mass = detail['mass']
+            self.com_mass = detail['mass'] if 'mass' in detail.keys() else None
 
-        def feast(self):
-            # ! make all the results of commemorations dictionaries
-            return self.details['feast'] if type(self.details) == dict else self.details
+        @property
+        def com_feast(self) -> str:
+            if 'feast' in self.details.keys():
+                return '\n[\\textit{' + self.details['feast'] + '}]\n'
+            else:
+                return ''
+
+        def com_glo_cre(self):
+            gloria = self.com_mass['glo']
+            creed = self.com_mass['cre']
+            status = []
+            if gloria == True:
+                status.append('G, ')
+            if creed == True:
+                status.append('C, ')
+            return status
+
+        @property
+        def com_mass2latex(self) -> str:
+            # todo add orations
+            latexed_mass = '\\textbf{Ad Missam:} \\textit{' + \
+                self.com_mass['int'] + ', } '
+            for x in self.com_glo_cre():
+                latexed_mass += x
+            latexed_mass += 'Præf ' + self.com_mass['pre'] + ', '
+            return latexed_mass
 
     def date(self):
         return datetime.strptime('%m%d', self.feast_date)
 
-    def feast(self):
+    @property
+    # todo #9 expand Preces method to provide for 1. Preces Feriales 2. Compline 3. Little Hours
+    def preces(self) -> str:
+        if self.rank_n <= 16:
+            return ''
+        else:
+            return 'Preces'
+    # ? redundant?
+
+    @property
+    def feast(self) -> str:
         return self.properties['feast']
 
-    def office_type2latex(self):
+    @property
+    def updated_properties(self) -> dict:
+        dic = {
+            'feast': self.name,
+            'rank': [self.rank_n, self.rank_v],
+            'mass': self.mass if self.tri_mass != False else self.tri_mass,
+            'vespers': self.vespers,
+            'nobility': self.nobility,
+            'office_type': self.office_type,
+            'com_1': self.com_1.details,
+            'com_2': self.com_2.details,
+            'com_3': self.com_3.details,
+            'com_4': self.com_4.details,
+            'com_5': self.com_5.details,
+        }
+        return dic
+
+    @property
+    def office_type2latex(self) -> str:
         if self.office_type == False:
             off_type = 'Ord'
         elif self.office_type == 'feria':
@@ -64,14 +126,14 @@ class Feast:
         elif self.office_type == 'dominica':
             off_type = 'Dom'
         else:
-            return 0
+            return 'ERROR!'
         return 'Off ' + off_type
 
-    def rank(self, visual: bool):
-        if visual == True:
-            return self.properties['rank'][-1]
-        else:
-            return self.properties['rank'][0]
+    # def rank(self, visual: bool):
+    #     if visual == True:
+    #         return self.properties['rank'][-1]
+    #     else:
+    #         return self.properties['rank'][0]
 
     def introit(self):
         if self.mass != False:
@@ -118,15 +180,15 @@ class Feast:
     def commemoration2latex(self):
         com_list = '\n'
         if self.com_1 != False:
-            com_list += '\n[\\textit{' + self.com_1.feast() + '}]\n'
+            com_list += self.com_1.com_feast
         elif self.com_2 != False:
-            com_list += '\n[\\textit{' + self.com_2.feast() + '}]\n'
+            com_list += self.com_2.com_feast
         elif self.com_3 != False:
-            com_list += '\n[\\textit{' + self.com_3.feast() + '}]\n'
+            com_list += self.com_3.com_feast
         elif self.com_4 != False:
-            com_list += '\n[\\textit{' + self.com_4.feast() + '}]\n'
+            com_list += self.com_4.com_feast
         elif self.com_5 != False:
-            com_list += '\n[\\textit{' + self.com_5.feast() + '}]\n'
+            com_list += self.com_5.com_feast
         else:
             return com_list + '\n\\textit{No Commemoration}'
         return com_list
@@ -157,7 +219,7 @@ def weekday(date: datetime):
 
 
 def findsunday(date):
-    # todo redefine findsunday() to use %w
+    # todo #10 redefine findsunday() to use %w -- the current setup is way too complicated
     x = 0
     if date.strftime("%a") == "Mon":
         x = 1
@@ -271,9 +333,9 @@ def dict_clean(direct: str, dictionary: int):
                 second_ = Feast(x, dic[x])
                 first_ = Feast(second_.feast_date+'.',
                                dic[second_.feast_date+'.'])
-                if second_.rank(False) > first_.rank(False):
+                if second_.rank_n > first_.rank_n:
                     first, second = first_, second_
-                elif second_.rank(False) == first_.rank(False):
+                elif second_.rank_n == first_.rank_n:
                     less_noble, more_noble = first_, second_
                     for x, y in zip(
                         second_.nobility,
@@ -291,7 +353,7 @@ def dict_clean(direct: str, dictionary: int):
                                     break
                         else:
                             pass
-                    rank = second_.rank(False)
+                    rank = second_.rank_n
                     if rank <= 10:  # ! refine this to exclude all but D1 and D2
                         dic.update(
                             {more_noble.feast_date.strip(
@@ -302,8 +364,8 @@ def dict_clean(direct: str, dictionary: int):
                                 '.')+' tranlsated': less_noble.properties}
                         )
                     else:
-                        more_noble.com_1.update(
-                            {'com_1': less_noble.properties})
+                        # ! make sure that this does no damate!!
+                        more_noble.com_1 = {'com_1': less_noble.properties}
                         dic.update({more_noble.feast_date.strip(
                             '.'): more_noble.properties})
                     if len(more_noble.feast_date) == 6:
@@ -318,22 +380,22 @@ def dict_clean(direct: str, dictionary: int):
                     pass
                 else:
                     # translation
-                    if first.rank(False) <= 4 and second.rank(False) <= 10:
+                    if first.rank_n <= 4 and second.rank_n <= 10:
                         dic.update(
                             {first.feast_date.strip('.'): first.properties})
                         dic.update(
                             {second.feast_date.strip('.')+'_': second.properties})
                     # no commemoration
-                    elif first.rank(False) <= 4 and second.rank(False) > 10:
+                    elif first.rank_n <= 4 and second.rank_n > 10:
                         dic.update(
                             {first.feast_date.strip('.'): first.properties})
                     # commemoration
                     # todo refine these ranges:
-                    elif 19 > first.rank(False) > 4 and 19 > second.rank(False) >= 6:
+                    elif 19 > first.rank_n > 4 and 19 > second.rank_n >= 6:
                         first.com_1 = second.feast
                         dic.update(
                             {first.feast_date.strip('.'): first.properties})
-                    elif second.rank(False) == 22:
+                    elif second.rank_n == 22:
                         dic.update(
                             {first.feast_date.strip('.'): first.properties})
                     # no commemoration
@@ -388,6 +450,8 @@ def stitch(year: int, s: str):
                 mdl_sanctoral.update({new_date if not new_date in mdl_sanctoral else (
                     new_date+'.' if not new_date+'.' in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
     for x in mdls:
+        print('within stitch: ' + x)
+        print('within stitch: ' + str(mdl_sanctoral[x]))
         feast = Feast(x, mdl_sanctoral[x])
         calen.update(
             {feast.feast_date + '.' if x in mdlt else feast.feast_date: feast.properties}
@@ -395,6 +459,7 @@ def stitch(year: int, s: str):
     for y in mdlt:
         feast = Feast(y, mdl_temporal[y])
         calen.update({feast.feast_date: feast.properties})
+    # ? do we actually hac to write a new dictionary?
     with open("calen/calendar_" + str(year) + ".py", "w") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(calen)):
@@ -404,3 +469,25 @@ def stitch(year: int, s: str):
                 f.write('\''+line+'\':'+str(calen[line])+',\n')
         f.write('}')
     return 0
+
+
+def explode_octaves(region_diocese: str) -> None:
+    # * take a calendar, and explode the octaves, then clean the calendar, then stitch the calendars
+    # we only can run this on dioceses or regions
+    mdl = importlib.import_module('sanctoral.' + region_diocese).sanctoral
+    for x in sorted(mdl):
+        feast = Feast(x, mdl[x])
+        # todo have the program check the nobility to see if the feast is an octave
+        if 'Oct' in feast.rank_v:
+            print('STATUS ! ' + feast.name + ' has an octave for *exploding*')
+            if feast.nobility[2] == 4:  # common octave
+                # ! for every octave we need an entry for a shortened name.
+                # todo update for every octave
+                for k, y in enumerate(ROMANS[3:6], start=1):
+                    feast.name = 'De ' + y + ' die infra ' + feast.name
+                    feast.rank_v = 'feria'
+                    feast.rank_n = 18
+                    # ? provide a method for dotted files?
+                    mdl.update({str((datetime.strptime(feast.feast_date, '%m/%d')
+                                     + indays(k)).strftime('%m/%d')) + '_': feast.updated_properties})
+    return None

@@ -169,10 +169,8 @@ def latex_full_cal_test(year):
     file = 'calendar_'+str(year)+'.tex'
     working_dir = os.getcwd()
     os.chdir('output/latex/')
-    print('compiling PDF...')
     subprocess.run('lualatex '+file+' -interaction nonstopmode',
                    shell=True, stdout=subprocess.DEVNULL)
-    print('PDF complete!')
     os.chdir(working_dir)
     return 0
 
@@ -213,33 +211,34 @@ def build_latex_ordo(year):
             feast = Feast(x, mdl[x])
             # todo #6 make the latin day of the week using FERIAS in temporal_cycle.py
             # todo use tables for the ordo parts to prevent breaking across pages
-            dow = datetime.strptime(feast.feast_date.strip(
-                'tranlsated ._')+'/'+str(year), '%m/%d/%Y').strftime('%a')
+            dow = datetime.strptime(feast.feast_date.strip('tranlsated ._')+'/'+str(year), '%m/%d/%Y').strftime('%a')
             f.write('\n')
             f.write('\\hrule\n')
             f.write('\\begin{center}\n')
             f.write(dow + ' - ' + latex_replacement(feast.feast_date) + '\n')
             f.write('\\end{center}')
             f.write('\\textbf{ \\large ' + latex_replacement(feast.name) +
-                    ', \\textnormal{\\normalsize ' + feast.rank(True) + '}}')
-            print('adding commemorations')
+                    ', \\textnormal{\\normalsize ' + feast.rank_v + '}}')
             f.write(latex_replacement(feast.commemoration2latex()))
             f.write('\\begin{justify}\n')
-            f.write(feast.office_type2latex())
+            f.write(feast.office_type2latex)
             f.write('\n')
             f.write('\\textbf{Ad Mat: }')
             f.write('\n')
             f.write('\\textbf{Ad Lau: }')
             f.write('\n')
             f.write('\\textbf{Ad Horas: }')
+            f.write(feast.preces)
             f.write('\n')
             f.write('\\textbf{Ad Primam: }')
+            f.write(feast.preces)
             f.write('\n')
             f.write(feast.mass2latex())
             f.write('\n')
             f.write('\\textbf{In Vesp: }')
             f.write('\n')
             f.write('\\textbf{Ad Compl: }')
+            f.write(feast.preces)
             f.write('\\end{justify}\n')
             f.write('\n\n')
             # todo find a solution for labeling the commemorations
@@ -247,9 +246,7 @@ def build_latex_ordo(year):
     file = 'ordo_'+str(year)+'.tex'
     working_dir = os.getcwd()
     os.chdir('output/latex/')
-    print('compiling ordo PDF...')
     subprocess.run('lualatex '+file+' -interaction nonstopmode',
                    shell=True)
-    print('PDF complete!')
     os.chdir(working_dir)
     return 0

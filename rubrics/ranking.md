@@ -17,7 +17,7 @@
 13. The Octave Day of an Octave of the Third Rank, or of a Common Octave, which is of Major Double Rite
 14. DM, not of Our Lord,
 15. D,
-16. The Days within the Octaves of Christmas and the Ascension, sd (16.1) 
+16. The Days within the Octaves of Christmas and the Ascension, sd (16.1 for SD) 
 17. The days within Common Octaves, 
 18. The Major Ferial Days and Vigils,
 19. The Octave Day of a Simple Octave, *i.e,* of a Feast of the Second Class,
@@ -27,7 +27,7 @@
 
 # Rules for transfer
 
-## Rite - index 0
+## 0 - Rite
 
 1. d I cl
 2. d II cl
@@ -37,7 +37,7 @@
 8. s
 9. feria
 
-## Solemnity - index 1 and 2
+## 1 - 2 - Solemnity
 
 1. day of rest w/ precept
 2. not day of rest
@@ -49,7 +49,7 @@
 5. simple
 6. none
 
-## Person - index 3
+## 3 - Person
 
 1. God
 2. Blessed Virgin
@@ -65,13 +65,13 @@
 12. Virgins and Widows
 13. False
 
-## Quality of Primary or Secondary Feasts - index 4
+## 4 - Quality of Primary or Secondary Feasts
 
-1. Primay feast
+1. Primary feast
 2. Secondary feast
 3. Neither primary nor secondary
 
-## Quality of the Proper - index 5
+## 5 - Quality of the Proper
 
 just put 0 for now
 complicated... p. 306 in Matters Liturgical
