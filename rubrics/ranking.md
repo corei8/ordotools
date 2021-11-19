@@ -76,12 +76,7 @@
 just put 0 for now
 complicated... p. 306 in Matters Liturgical
 
+Common rankings: 
 
-'07/01': {
-    'feast': '',
-    'rank': [],
-    'comm2': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-    'comm3': {'feast': '', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
-    'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'},
-    'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
-},
+- Feria (9, 2, 6, 13, 3, 0),
+- 

@@ -901,7 +901,8 @@ def build_temporal(year):
                     ],
                 ]
             )
-        cycle.append([x[0], x[1], x[2], x[3], x[4], pent_date + week(l+1)])
+        cycle.append([x[0], x[1], x[2], x[3], x[4],
+                     x[5], pent_date + week(l+1)])
         i += 1  # ? does this have any purpose here?
     sept_counter = 0  # ? is enumerate possible here?
     christmas = datetime.strptime(str(year) + "-12-25", "%Y-%m-%d")
@@ -1107,8 +1108,7 @@ def build_temporal(year):
                     {'proper': False, 'admag': '',
                      'propers': {}, 'oration': ''},
                     'feria',
-                    False,
-                    (False,),
+                    (9, 2, 6, 13, 3, 0),
                     lastadvent - week(i) + indays(k),
                 ]
             )
@@ -1122,8 +1122,7 @@ def build_temporal(year):
                 {'proper': False, 'admag': '',
                  'propers': {}, 'oration': ''},
                 'feria',
-                False,
-                (False,),
+                (9, 2, 6, 13, 3, 0),
                 lastadvent - week(i) + indays(6),
             ]
         )
@@ -1139,7 +1138,6 @@ def build_temporal(year):
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
                         'dominica',
-                        False,
                         (False,),
                         lastadvent - week(i)
                     ],
@@ -1150,8 +1148,8 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
-                        (False,),
+                        'feria',
+                        (9, 2, 6, 13, 3, 0),
                         lastadvent - week(i) + indays(3),
                     ],
                     [  # ! vespers
@@ -1161,8 +1159,8 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
-                        (False,),
+                        'feria',
+                        (9, 2, 6, 13, 3, 0),
                         lastadvent - week(i) + indays(5),
                     ],
                     [  # ! vespers
@@ -1172,8 +1170,8 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
-                        (False,),
+                        'feria',
+                        (9, 2, 6, 13, 3, 0),
                         lastadvent - week(i) + indays(6),
                     ],
                 ]
@@ -1333,7 +1331,7 @@ def build_temporal(year):
         gen_file = "temporal/temporal_" + str(year)
         with open(gen_file + ".py", "w") as f:
             f.write("temporal = {")
-            keylist_alt = ['feast', 'rank', 'com_1',
+            keylist_alt = ['feast', 'rank', 'mass', 'com_1',
                            'mass', 'vespers', 'office_type', 'nobility']
             keylist = ['feast', 'rank', 'mass',
                        'vespers', 'office_type', 'nobility']
@@ -1343,7 +1341,7 @@ def build_temporal(year):
                 if temporal_event in memory:
                     temporal_event += "."
                 memory.append(temporal_event)
-                if len(row) <= 6:
+                if len(row) <= 7:
                     mini_dict = str(
                         dict(
                             zip(
