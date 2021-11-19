@@ -1185,7 +1185,6 @@ def build_temporal(year):
                         'cre': True, 'pre': 'de Trinitate'},
                     {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                     'dominica',
-                    False,
                     (False,),
                     lastadvent - week(i)
                 ]
@@ -1200,7 +1199,6 @@ def build_temporal(year):
                      'glo': False, 'cre': True, 'pre': 'de Trinitate'},
                     {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                     'dominica',
-                    False,
                     (False,),
                     lastadvent - week(i)
                 ]
@@ -1331,7 +1329,7 @@ def build_temporal(year):
         gen_file = "temporal/temporal_" + str(year)
         with open(gen_file + ".py", "w") as f:
             f.write("temporal = {")
-            keylist_alt = ['feast', 'rank', 'mass', 'com_1',
+            keylist_alt = ['feast', 'rank', 'com_1',
                            'mass', 'vespers', 'office_type', 'nobility']
             keylist = ['feast', 'rank', 'mass',
                        'vespers', 'office_type', 'nobility']

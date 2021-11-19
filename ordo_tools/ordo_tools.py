@@ -22,9 +22,12 @@ class Feast:
         self.name = properties['feast']
         self.rank_v = properties['rank'][-1]  # verbose
         self.rank_n = properties['rank'][0]   # numeric
-        # todo solve the Christmas problem, again...
-        self.mass = properties['mass'] if type(properties['mass']) == dict else {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'}
-        self.tri_mass = properties['mass'] if self.mass == False else 'ERROR FINDING THE MASS'
+        self.mass = {}
+        if 'int' in properties['mass'].keys():
+            self.mass = {'Ad Missam': properties['mass']}
+        else:
+            for x, y in properties['mass'].items():
+                self.mass.update({x: y})
         self.vespers = properties['vespers'] if 'vespers' in properties.keys(
         ) else {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
         self.nobility = properties['nobility'] if 'nobility' in properties.keys(
@@ -94,7 +97,7 @@ class Feast:
         dic = {
             'feast': self.name,
             'rank': [self.rank_n, self.rank_v],
-            'mass': self.mass if self.tri_mass != False else self.tri_mass,
+            'mass': self.mass,
             'vespers': self.vespers,
             'nobility': self.nobility,
             'office_type': self.office_type,
@@ -120,53 +123,29 @@ class Feast:
             return 'ERROR!'
         return 'Off ' + off_type
 
-    # def rank(self, visual: bool):
-    #     if visual == True:
-    #         return self.feast_properties['rank'][-1]
-    #     else:
-    #         return self.feast_properties['rank'][0]
-
-    def introit(self):
-        if self.mass != False:
-            return self.mass['int']
-        else:
-            return False
-
-    def glo_cre(self):
-        gloria = self.mass['glo']
-        creed = self.mass['cre']
-        status = []
-        if gloria == True:
-            status.append('G, ')
-        if creed == True:
-            status.append('C, ')
-        return status
-
     def mass2latex(self):
         # todo add orations
-        if self.mass != False:
-            print(self.name)
-            latexed_mass = '\\textbf{Ad Missam:} \\textit{' + \
-                self.mass['int'] + ', } '
-            for x in self.glo_cre():
-                latexed_mass += x
-            latexed_mass += 'Præf ' + self.mass['pre'] + ', '
-        else:
-            latexed_mass = ''
-            for x in self.tri_mass.keys():
-                latexed_tri_mass = '\\textbf{' + x + ':} \\textit{' + \
-                    self.tri_mass[x]['int'] + ', } '
-                gloria = self.tri_mass[x]['glo']
-                creed = self.tri_mass[x]['cre']
-                status = []
-                if gloria == True:
-                    status.append('G, ')
-                if creed == True:
-                    status.append('C, ')
-                for i in status:
-                    latexed_tri_mass += i
-                latexed_tri_mass += 'Præf ' + self.tri_mass[x]['pre'] + ', '
-                latexed_mass += latexed_tri_mass
+        latexed_mass = ''
+        status = []
+        for y in self.mass.values():
+            print(self.feast_date, self.mass.values())
+            gloria = y['glo']
+            creed = y['cre']
+            if gloria == True and creed == True:
+                status.append('G, C, ')
+            elif gloria == True and creed == False:
+                status.append('G, ')
+            elif gloria == False and creed == True:
+                status.append('C, ')
+            else:
+                status.append('')
+        print(self.mass.items())
+        i = 0
+        for x, y in self.mass.items():
+            latexed_mass += '\\textbf{' + x + \
+                '}: \\textit{' + y['int'] + ',} ' + \
+                status[i] + 'Pre ' + y['pre']
+            i += 1
         return latexed_mass
 
     def commemoration2latex(self):
@@ -329,7 +308,8 @@ def dict_clean(direct: str, dictionary: int):
                     first, second = first_, second_
                 elif second_.rank_n == first_.rank_n:
                     less_noble, more_noble = first_, second_
-                    print('ranking ' + first_.name + ' and ' + second_.name + ' according to nobility')
+                    print('ranking ' + first_.name + ' and ' +
+                          second_.name + ' according to nobility')
                     for x, y in zip(
                         second_.nobility,
                         first_.nobility
@@ -359,7 +339,8 @@ def dict_clean(direct: str, dictionary: int):
                         )
                     else:
                         # ! make sure that this does no damate!!
-                        more_noble.com_1 = {'com_1': less_noble.feast_properties}
+                        more_noble.com_1 = {
+                            'com_1': less_noble.feast_properties}
                         dic.update({more_noble.feast_date.strip(
                             '.'): more_noble.feast_properties})
                     if len(more_noble.feast_date) == 6:
