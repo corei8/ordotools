@@ -206,7 +206,7 @@ class Feast:
             return com_list + '\n\\textit{No Commemoration}'
         return com_list
 
-#===-===-=== FUNCTIONS ===-===-=== #
+#===-===-=== COMMON FUNCTIONS ===-===-=== #
 
 
 def easter(year: int):
@@ -255,17 +255,9 @@ def leap_year(year: int):
 
 
 def latex_replacement(string: str):
-    """ Escape LaTeX reserved characters.
+    return re.sub('&', '\&', re.sub('_', '\_', string))
 
-    Args:
-        string (str): String to be checked for reserved characters
-
-    Returns:
-        str: Same as entered string, but with escaped characters
-    """
-    clean_string = re.sub('&', '\&', re.sub('_', '\_', string))
-    return clean_string
-
+#===-===-=== HEAVY-HITTING FUNCTIONS ===-===-=== #
 
 def commemoration_ordering(direct: str, dictionary: int):
     """ Updates the keys in the feast dicionaries so that 
@@ -310,12 +302,13 @@ def commemoration_ordering(direct: str, dictionary: int):
     return 0
 
 
+# todo add a parameter for the flag to be detected.
 def dict_clean(direct: str, dictionary: int):
     """ Gets rid of all dates in calendar which are appended with . or _;
     overwrites the calendar file with the resulting dictionary.
 
     Args:
-        direct (integer)   : the relative path to the dictionary, 
+        direct (integer)   : the relative path to the dictionary,
                              in format calendar/calendar_
         dict   (dictionary): year of the calendar to clean
     """
