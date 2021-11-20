@@ -1336,5 +1336,5 @@ def build_temporal(year):
                     str("\n'" + temporal_event + "'" + ": " + mini_dict + ",")
                 )
             f.write("}")
-        dict_clean("temporal.temporal_", year)
+        dict_clean("temporal.temporal_", '.')
     make_dict(year)

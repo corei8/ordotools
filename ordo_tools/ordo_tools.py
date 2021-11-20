@@ -259,7 +259,8 @@ def latex_replacement(string: str):
 
 #===-===-=== HEAVY-HITTING FUNCTIONS ===-===-=== #
 
-def commemoration_ordering(direct: str, dictionary: int):
+
+def commemoration_ordering(direct: str) -> None:
     """ Updates the keys in the feast dicionaries so that 
         commemorations are numerically correct.
 
@@ -270,11 +271,17 @@ def commemoration_ordering(direct: str, dictionary: int):
     Returns:
         None: The dictionary is updated without any return.
     """
-    mdl = importlib.import_module(direct + str(dictionary))
+    try:
+        mdl = importlib.import_module(direct + str(YEAR))
+    except ModuleNotFoundError:
+        mdl = importlib.import_module(direct)
     try:
         dic = mdl.temporal
     except AttributeError:
-        dic = mdl.calen
+        try:
+            dic = mdl.calen
+        except AttributeError:
+            dic = mdl.sanctoral
     for x in list(dic.keys()):
         for data in list(dic[x].keys()):
             if 'com_1' in data:
@@ -303,38 +310,35 @@ def commemoration_ordering(direct: str, dictionary: int):
 
 
 # todo add a parameter for the flag to be detected.
-def dict_clean(direct: str, dictionary: int):
-    """ Gets rid of all dates in calendar which are appended with . or _;
-    overwrites the calendar file with the resulting dictionary.
-
-    Args:
-        direct (integer)   : the relative path to the dictionary,
-                             in format calendar/calendar_
-        dict   (dictionary): year of the calendar to clean
-    """
-    mdl = importlib.import_module(direct + str(dictionary))
+def dict_clean(direct: str, str_flag: str) -> None:
+    if direct[-1] == '_':
+        mdl = importlib.import_module(direct + str(YEAR))
+    else:
+        mdl = importlib.import_module(direct)
+    flag = str_flag
     try:
         dic = mdl.temporal
     except AttributeError:
-        dic = mdl.calen
+        try:
+            dic = mdl.calen
+        except AttributeError:
+            dic = mdl.sanctoral
     for x in sorted(dic):
         nobility_free = True
         if len(x) >= 6:
             continue
         else:
             second_ = Feast(x, dic[x])
-            if not second_.feast_date+'.' in sorted(dic):
+            if not second_.feast_date+flag in sorted(dic):
                 continue
             else:
                 second_ = Feast(x, dic[x])
-                first_ = Feast(second_.feast_date+'.',
-                               dic[second_.feast_date+'.'])
+                first_ = Feast(second_.feast_date+flag,
+                               dic[second_.feast_date+flag])
                 if second_.rank_n > first_.rank_n:
                     first, second = first_, second_
                 elif second_.rank_n == first_.rank_n:
                     less_noble, more_noble = first_, second_
-                    print('ranking ' + first_.name + ' and ' +
-                          second_.name + ' according to nobility')
                     for x, y in zip(
                         second_.nobility,
                         first_.nobility
@@ -356,18 +360,17 @@ def dict_clean(direct: str, dictionary: int):
                     if rank <= 10:  # ! refine this to exclude all but D1 and D2
                         dic.update(
                             {more_noble.feast_date.strip(
-                                '.'): more_noble.feast_properties}
+                                flag): more_noble.feast_properties}
                         )
                         dic.update(
                             {less_noble.feast_date.strip(
-                                '.')+' tranlsated': less_noble.feast_properties}
+                                flag)+' tranlsated': less_noble.feast_properties}
                         )
                     else:
-                        # ! make sure that this does no damate!!
                         more_noble.com_1 = {
                             'com_1': less_noble.feast_properties}
                         dic.update({more_noble.feast_date.strip(
-                            '.'): more_noble.feast_properties})
+                            flag): more_noble.feast_properties})
                     if len(more_noble.feast_date) == 6:
                         dic.pop(more_noble.feast_date)
                     if len(less_noble.feast_date) == 6:
@@ -382,36 +385,37 @@ def dict_clean(direct: str, dictionary: int):
                     # translation
                     if first.rank_n <= 4 and second.rank_n <= 10:
                         dic.update(
-                            {first.feast_date.strip('.'): first.feast_properties})
+                            {first.feast_date.strip(flag): first.feast_properties})
                         dic.update(
-                            {second.feast_date.strip('.')+'_': second.feast_properties})
+                            {second.feast_date.strip(flag)+'_': second.feast_properties})
                     # no commemoration
                     elif first.rank_n <= 4 and second.rank_n > 10:
                         dic.update(
-                            {first.feast_date.strip('.'): first.feast_properties})
+                            {first.feast_date.strip(flag): first.feast_properties})
                     # commemoration
                     # todo refine these ranges:
                     elif 19 > first.rank_n > 4 and 19 > second.rank_n >= 6:
                         first.com_1 = second.feast
                         dic.update(
-                            {first.feast_date.strip('.'): first.feast_properties})
+                            {first.feast_date.strip(flag): first.feast_properties})
                     elif second.rank_n == 22:
                         dic.update(
-                            {first.feast_date.strip('.'): first.feast_properties})
+                            {first.feast_date.strip(flag): first.feast_properties})
                     # no commemoration
                     else:
                         dic.update(
-                            {first.feast_date.strip('.'): first.feast_properties})
+                            {first.feast_date.strip(flag): first.feast_properties})
                     if len(first.feast_date) == 6:
                         dic.pop(first.feast_date)
                     if len(second.feast_date) == 6:
                         dic.pop(second.feast_date)
-    commemoration_ordering(direct, dictionary)
-    with open(re.sub(r"\.", r'/', direct) + str(dictionary) + ".py", "a") as f:
+    # todo make this a seperate function
+    commemoration_ordering(direct)
+    with open(re.sub(r"\.", r'/', direct) + str(YEAR) + ".py", "a") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(dic)):
             if i == 0:
-                f.write(re.sub(r"/(temporal|calendar)", '', re.sub(r"\.", r'/', direct)+str(dictionary))
+                f.write(re.sub(r"/(temporal|calendar)", '', re.sub(r"\.", r'/', direct)+str(YEAR))
                         + ' = {\n\''+line+'\': '+str(dic[line])+',\n')
             else:
                 f.write('\''+line+'\' : '+str(dic[line])+',\n')
@@ -419,7 +423,7 @@ def dict_clean(direct: str, dictionary: int):
         return 0
 
 
-def stitch(year: int, s: str):
+def stitch(year: int, s: str) -> None:
     """ Combine two calendars into a single dictionary, appending all
         doubled keys with a period.
 
@@ -459,7 +463,7 @@ def stitch(year: int, s: str):
     for y in mdlt:
         feast = Feast(y, mdl_temporal[y])
         calen.update({feast.feast_date: feast.feast_properties})
-    # ? do we actually hac to write a new dictionary?
+    # ? do we actually have to write a new dictionary?
     with open("calen/calendar_" + str(year) + ".py", "w") as f:
         f.truncate(0)
         for i, line in enumerate(sorted(calen)):
@@ -473,7 +477,6 @@ def stitch(year: int, s: str):
 
 def explode_octaves(region_diocese: str) -> None:
     # * take a calendar, and explode the octaves, then clean the calendar, then stitch the calendars
-    # we only can run this on dioceses or regions
     mdl = importlib.import_module('sanctoral.' + region_diocese).sanctoral
     for x in sorted(mdl):
         feast = Feast(x, mdl[x])
@@ -485,7 +488,6 @@ def explode_octaves(region_diocese: str) -> None:
                     feast.name = 'De ' + y + ' die infra ' + feast.infra_octave_name
                     feast.rank_v = 'feria'
                     feast.rank_n = 18
-                    # ? provide a method for dotted files?
                     mdl.update({str((datetime.strptime(feast.feast_date, '%m/%d')
                                      + indays(k)).strftime('%m/%d')) + '_': feast.updated_properties})
     return None
