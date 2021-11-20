@@ -3,10 +3,14 @@ sanctoral = {
         'feast': 'S Hilarii Episcopi ECD',
         'rank': [15, 'd'],
         'nobility': (False,),
-        'com_2': {'feast': 'S Felix SM', 'mass': {'int': 'Lætabitur', 'glo': True, 'cre': True, 'pre': 'Communis'}},
+        'com_2': {
+            'feast': 'S Felix SM', 
+            'mass': {'int': 'Lætabitur', 'glo': True, 'cre': True, 'pre': 'Communis'}},
+            'vespers': {'proper': False, 'admag': ['O Doctor', 'O Doctor'], 'oration': 'Deus, qui populo'},
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': 'O Doctor', 'oration': 'Deus, qui populo'},
+        # ! Proper vers Justitiam... hymn O doctor
+        'vespers': {'proper': False, 'admag': ['O Doctor', 'O Doctor'], 'oration': 'Deus, qui populo'},
     },
     '01/15': {
         'feast': 'S Pauli Primi Eremitæ C',
@@ -15,7 +19,7 @@ sanctoral = {
         'com_2': {'feast': 'S Mauri Abb', 'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Justus ut palma', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/16': {
         'feast': 'S Marcelli PM',
@@ -23,7 +27,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Si diligis', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/17': {
         'feast': 'S Antonii Abb',
@@ -31,7 +35,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/18': {
         'feast': 'Cathedræ S Petri Ap Romæ',
@@ -41,7 +45,7 @@ sanctoral = {
         'com_3': {'feast': 'S Priscæ VM', 'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Statuit ei', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/19': {
         'feast': 'Ss Marii, Marthæ, Audifacis et Abachum Mm',
@@ -58,7 +62,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Intret in conspectu', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/21': {
         'feast': 'S Agnetis VM',
@@ -66,7 +70,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/22': {
         'feast': 'Ss Vincentii & Anastasii Mm',
@@ -74,7 +78,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Intret', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/23': {
         'feast': 'S Raymundi de Peñafort C mtv',
@@ -83,7 +87,7 @@ sanctoral = {
         'com_2': {'feast': 'S Emerentianæ VM', 'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/24': {
         'feast': 'S Timothei EM',
@@ -91,7 +95,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Statuit', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/25': {
         'feast': 'Conversio S Pauli Ap',
@@ -99,7 +103,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Scio, cui credidi', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/26': {
         'feast': 'S Polycarpi EM',
@@ -107,7 +111,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sacerdotes', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/27': {
         'feast': 'S Joannis Chrysostomi',
@@ -115,7 +119,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/28': {
         'feast': 'S Petri Nolasci C mtv',
@@ -124,7 +128,7 @@ sanctoral = {
         'com_2': {'feast': 'S Agnetis VM secundo', 'mass': {'int': 'Vultum tuum', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Justus', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/29': {
         'feast': 'S Francisci Salesii ECD',
@@ -132,7 +136,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/30': {
         'feast': 'S Martinæ VM',
@@ -140,7 +144,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Loquebar', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '01/31': {
         'feast': 'S Joannis Bosco C',
@@ -148,7 +152,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Dedit illi', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/01': {
         'feast': 'S Ignatii EM',
@@ -156,7 +160,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '02/02': {
         'feast': 'In Purificatione BMV',
@@ -164,7 +168,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Suscepisimus', 'glo': True, 'cre': True, 'pre': 'de Nativitate'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/03': {
         'feast': 'S Blasii EM',
@@ -172,7 +176,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sacerdotes Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/04': {
         'feast': 'S Andreæ Corsini EC',
@@ -180,7 +184,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/05': {
         'feast': 'S Agathæ VM',
@@ -188,7 +192,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Gaudeamus', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/06': {
         'feast': 'S Titi EC',
@@ -197,7 +201,7 @@ sanctoral = {
         'com_2': {'feast': 'S Dorotheæ VM', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Statuit ei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/07': {
         'feast': 'S Romualdi Abb',
@@ -205,7 +209,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/08': {
         'feast': 'S Joannis de Matha C',
@@ -213,7 +217,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/09': {
         'feast': 'S Cyrilli ECD',
@@ -222,7 +226,7 @@ sanctoral = {
         'com_2': {'feast': 'S Apollonia VM', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/10': {
         'feast': 'S Scholasticæ V',
@@ -230,7 +234,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/11': {
         'feast': 'In Apparitione BMV Immaculatæ',
@@ -238,7 +242,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Vidi civitatem', 'glo': True, 'cre': True, 'pre': 'de B Mariæ Virg'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/12': {
         'feast': 'Ss Septem Fundatorum Ordinis Servorum BMV C',  # ! see how this is written
@@ -246,7 +250,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Justi decantaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/14': {
         'feast': 'S Valentini PM',
@@ -254,7 +258,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In virtute', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/15': {
         'feast': 'Ss Faustini & Jovitæ',
@@ -262,7 +266,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/18': {
         'feast': 'S Simeonis EM',
@@ -270,7 +274,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/22': {  # ! need the introit
         'feast': 'In Cathedra S Petri Ap',
@@ -278,7 +282,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': '', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/23': {
         'feast': 'S Petri Damiani ECD',
@@ -286,7 +290,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/23.': {
         'leapdate': '02/24',
@@ -295,7 +299,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Ego autem', 'glo': False, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/24': {
         'leapdate': '02/25',
@@ -304,7 +308,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '02/27': {
         'leapdate': '02/28',
@@ -313,7 +317,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Oculus Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '03/04': {
         'feast': 'S Casimiri C',
@@ -322,7 +326,7 @@ sanctoral = {
         'com_2': {'feast': 'S Lucii I PM', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Os iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/06': {
         'feast': 'Ss Perpetuae et Felicitatiis Mm',
@@ -330,7 +334,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/07': {
         'feast': 'S Thomas De Aquino C',
@@ -338,7 +342,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/08': {
         'feast': 'S Ioannis a Deo C',
@@ -346,7 +350,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/09': {
         'feast': 'S Franciscae Romanae Vid',
@@ -354,7 +358,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Cognovi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/10': {
         'feast': 'Ss Quadraginta Mm',
@@ -362,7 +366,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Clamaverunt iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/12': {
         'feast': 'S Gregorii I Pp CD',
@@ -370,7 +374,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sacerdotes Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/17': {
         'feast': 'S Patricii Ep C',
@@ -378,7 +382,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/18': {
         'feast': 'S Cyrilli Ep CD',
@@ -386,7 +390,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In media ecclesiae', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/19': {
         'feast': 'S Joseph Sponsi BMV C',
@@ -394,7 +398,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Justus ut', 'glo': True, 'cre': True, 'pre': 'De Sancto Ioseph'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/21': {
         'feast': 'S Benedicti Abb',
@@ -402,7 +406,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/24': {
         'feast': 'S Gabrielis Arch',
@@ -410,7 +414,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Benedicite Dominum', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/25': {
         'feast': 'In Annuntiatione BMV',
@@ -418,7 +422,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Vultum tuum', 'glo': True, 'cre': True, 'pre': 'De B Maria Virg'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/27': {
         'feast': 'S Ioannis Damasceni CD',
@@ -426,7 +430,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Tenuisti manum', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '03/28': {
         'feast': 'S Ioannis a Capistrano C',
@@ -434,7 +438,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Ego autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/02': {
         'feast': 'S Francisco de Paula C',
@@ -442,7 +446,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Iustus ut palma', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/04': {
         'feast': 'S Isidori CD',
@@ -450,7 +454,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/05': {
         'feast': 'S Vincentii Ferrerii C',
@@ -458,7 +462,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/11': {
         'feast': 'S Leonis Pp CD',
@@ -466,7 +470,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/13': {
         'feast': 'S Hermenegildi M',
@@ -474,7 +478,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In virtute', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/14': {
         'feast': 'S Iustini M',
@@ -483,7 +487,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Tiburtio, Valeriano et Maximo Mm', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Narraverunt mihi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/17': {
         'feast': 'S Aniceti Pp M',
@@ -491,7 +495,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/21': {
         'feast': 'S Anselmi Ep CD',
@@ -499,7 +503,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
 
     '04/22': {
@@ -508,7 +512,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sancti tai, Domine', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/23': {
         'feast': 'S Georgii M',
@@ -516,7 +520,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/24': {
         'feast': 'S Fidelis a Sigmaringa',
@@ -524,7 +528,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/25': {
         'feast': 'S Marci Ev',
@@ -532,7 +536,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': True, 'pre': 'De Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/26': {
         'feast': 'Ss Cleti et Marcellini PP Mm',
@@ -540,7 +544,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sancti tai, Domine', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '04/27': {
         'feast': 'S Petri Canisii CD',
@@ -548,7 +552,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/01': {
         'feast': 'Ss Philippi et Iacobi APp',
@@ -556,7 +560,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Clamaverunt ad te', 'glo': True, 'cre': True, 'pre': 'De Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/02': {
         'feast': 'S Athanasii Ep CD',
@@ -564,7 +568,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/03': {
         'feast': 'In Inventione S Crucis',
@@ -573,7 +577,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Alexandro I Pp, Event et Theodulo Mm ac Juvenile Ep C', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Not autem gloriari', 'glo': True, 'cre': True, 'pre': 'De Cruce'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/04': {
         'feast': 'S Monicae Vid',
@@ -581,7 +585,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Cognovi, Domine', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/05': {
         'feast': 'S Pii V Pp C',
@@ -589,7 +593,7 @@ sanctoral = {
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/06': {
         'feast': 'S Ioannis Ap et Ev Ante Portam Latinam',
@@ -597,7 +601,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': True, 'pre': 'De Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/07': {
         'feast': 'S Stanislai Ep M',
@@ -605,7 +609,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Protexisti me', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/08': {
         'feast': 'In Apparitione S Michaelis Archangelis',
@@ -613,7 +617,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Benedicite Dominum', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/09': {
         'feast': 'S Gregorii Nanzanzeni Ep CD',
@@ -621,7 +625,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In media', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/10': {
         'feast': 'S Antonini Ep C',
@@ -630,7 +634,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Gordiani et Epimachi Mm', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Statuit ei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/12': {
         'feast': 'Ss Nerei, Achillei at Domitillae V atq Pancratii Mm',
@@ -638,7 +642,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Ecce, oculi Domini', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/13': {
         'feast': 'S Roberti Bellarmini Ep CD',
@@ -646,7 +650,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/14': {
         'feast': 'S Bonifatii M',
@@ -654,7 +658,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Protexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/15': {
         'feast': 'S Ioannis Baptistae de la Salle C',
@@ -662,7 +666,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/16': {
         'feast': 'S Ubaldi EC',
@@ -670,7 +674,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Statuit', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/18': {
         'feast': 'S Venantii M',
@@ -678,7 +682,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Protexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/19': {
         'feast': 'S Petri Celestini PC',
@@ -687,7 +691,7 @@ sanctoral = {
         'com_2': {'feast': 'S Pudentianae V', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/20': {
         'feast': 'S Bernardini Senensis C',
@@ -695,7 +699,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/25': {
         'feast': 'S Gregorii VII PC',
@@ -704,7 +708,7 @@ sanctoral = {
         'com_2': {'feast': 'S Urbano I PM', 'mass': {'int': 'Si diligis', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Si diligis', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/26': {
         'feast': 'S Philippi Nerii C',
@@ -713,7 +717,7 @@ sanctoral = {
         'com_2': {'feast': 'S Eleutherio PM', 'mass': {'int': 'Si diligis', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Caritas Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/27': {
         'feast': 'S Bedæ Venerabilis CD',
@@ -722,7 +726,7 @@ sanctoral = {
         'com_2': {'feast': 'S Joanne I PM', 'mass': {'int': 'Si diligis', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/28': {
         'feast': 'S Augustini EC',
@@ -730,7 +734,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sacerdotes', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/29': {
         'feast': 'S Mariæ Magdalenæ de Pazzis V',
@@ -738,7 +742,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/30': {
         'feast': 'S Felix I PM',
@@ -746,7 +750,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Si diligis', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '05/31': {
         'feast': 'S Angelæ Mericiæ V',
@@ -755,7 +759,7 @@ sanctoral = {
         'com_2': {'feast': 'S Petronilla V', 'mass': {'int': 'Vultum tuum', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
     },
     '06/02': {
         'feast': 'Ss Marcellini, Petri & Erasmi E Mm',
@@ -763,7 +767,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Clamaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/04': {
         'feast': 'S Francisci Caracciolo C',
@@ -771,7 +775,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Factum est', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/05': {
         'feast': 'S Bonifatii EM',
@@ -779,7 +783,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Exsultabo', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/06': {
         'feast': 'S Norberti EC',
@@ -787,7 +791,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/09': {
         'feast': 'Ss Primi Feliciani Mm',
@@ -795,7 +799,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/10': {
         'feast': 'S Margaritæ RVid',
@@ -803,7 +807,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Cognovi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/11': {
         'feast': 'S Barnabæ Ap',
@@ -811,7 +815,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostlis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/12': {
         'feast': 'S Joannis a S Facundo C',
@@ -820,7 +824,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Basilide, Cyrino, Nabore & Nazario Mm', 'mass': {'int': 'Intret in conspectu', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/13': {
         'feast': 'S Antonii de Padua C',
@@ -828,7 +832,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/14': {
         'feast': 'S Basilii Magni ECD',
@@ -836,7 +840,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/15': {
         'feast': 'Ss Vili, Modesti & Crescentiæ Mm',
@@ -844,7 +848,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Multæ tribulationes', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/18': {
         'feast': 'S Ephræm Syri Diaconi CD',
@@ -853,7 +857,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Marco & Marcelliano Mm', 'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/19': {
         'feast': 'S Julianæde Falconeriis V',
@@ -862,7 +866,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Gervaso & Protasio Mm', 'mass': {'int': 'Loquetur', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/20': {
         'feast': 'S Silverii PM',
@@ -870,7 +874,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Si diligis', 'glo': True, 'cre': False, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/21': {
         'feast': 'S Aloisii Gonzagæ C',
@@ -878,7 +882,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Minuisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/22': {
         'feast': 'S Paulini EC',
@@ -886,7 +890,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sacerdotes', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/23': {
         'feast': 'In Vigilia Nativitatis S Joannis Baptistæ',
@@ -894,7 +898,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Ne timeas', 'glo': False, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/24': {
         'feast': 'In Nativitate S Joannis Baptistæ',
@@ -902,7 +906,7 @@ sanctoral = {
         'nobility': (1, 0, 4, 4, 1, 0,),
         'office_type': False,
         'mass': {'int': 'De ventre', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/25': {
         'feast': 'S Gulielmi Abb',
@@ -910,7 +914,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/26': {
         'feast': 'S joannis & Pauli Mm',
@@ -918,7 +922,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Multæ tribulationes', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/28': {
         'feast': 'Irinæi EM',
@@ -927,7 +931,7 @@ sanctoral = {
         'com_2': {'feast': 'In Vigilia Ss Petri & Pauli App', 'mass': {'int': 'Dicit Dominus', 'glo': False, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Lex veritatis', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/29': {
         'feast': 'Ss Petri & Pauli App',
@@ -935,7 +939,7 @@ sanctoral = {
         'nobility': (1, 2, 4, 5, 1, 0,),
         'office_type': False,
         'mass': {'int': 'Nunc scio', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '06/30': {
         'feast': 'In Commemoratione S Pauli Apostoli',
@@ -944,7 +948,7 @@ sanctoral = {
         'com_2': {'feast': 'S Petri Ap', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Scio, cui credidi', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/01': {
         'feast': 'In Festo Pretiosissimi Sanguis DNJC',
@@ -952,7 +956,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Redemisti nos', 'glo': True, 'cre': True, 'pre': 'de Cruce'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/02': {
         'feast': 'In Visitatione BMV',
@@ -961,7 +965,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Processo & Martiniano Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Salve, sancta Parens', 'glo': True, 'cre': True, 'pre': 'de BMV'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/03': {
         'feast': 'S Leonis II PC',
@@ -969,7 +973,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Si diligis', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/05': {
         'feast': 'S Antonii Mariæ Zaccaria C',
@@ -977,7 +981,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sermo meus', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/06': {
         'feast': 'In Octava Ss Petri & Pauli App',
@@ -985,7 +989,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sapientiam', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/07': {
         'feast': 'Ss Cyrilli & Methodii EppCc',
@@ -993,7 +997,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sacerdotes tui', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/08': {
         'feast': 'S Elisabeth Reginæ Vid',
@@ -1001,7 +1005,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Cognovi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/10': {
         'feast': 'Ss Septem Fratrum Mm ac Rufinæ & Secundæ VvMm',
@@ -1009,7 +1013,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Laudate', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/11': {
         'feast': 'S Pii I PM',
@@ -1017,7 +1021,7 @@ sanctoral = {
         'nobility': (8, 2, 6, 8, 3, 0,),
         'office_type': False,
         'mass': {'int': 'Si diligis', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/12': {
         'feast': 'S Joannis Gualberti Abb',
@@ -1026,7 +1030,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Nabore & Felice Mm', 'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/13': {
         'feast': 'S Anacleti PM',
@@ -1034,7 +1038,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'si diligis', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/14': {
         'feast': 'S Bonaventuræ ECD',
@@ -1042,7 +1046,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/15': {
         'feast': 'S Henrici Imperatoris, C',
@@ -1050,7 +1054,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/16': {
         'feast': 'In Commemoratione BMV de Monte Carmelo',
@@ -1058,7 +1062,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Gaudeamus', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/17': {
         'feast': 'S Alexii C',
@@ -1066,7 +1070,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/18': {
         'feast': 'S Camilli de Lellis C',
@@ -1075,7 +1079,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Symphorosa & septem Filiis ejus Mm', 'mass': {'int': 'Clamaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Majorem hac', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/19': {
         'feast': 'S Vincent a Paulo C',
@@ -1083,7 +1087,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Justus ut palma', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/20': {
         'feast': 'S Hieronymi Æmiliani C',
@@ -1092,7 +1096,7 @@ sanctoral = {
         'com_2': {'feast': 'S Margarita VM', 'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Effusum est', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/21': {
         'feast': 'S Praxedis V',
@@ -1100,7 +1104,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Loquebar', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/22': {
         'feast': 'S Mariæ Magdalenæ Pænitentis',
@@ -1108,7 +1112,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/23': {
         'feast': 'S Apollinaris EM',
@@ -1117,7 +1121,7 @@ sanctoral = {
         'com_2': {'feast': 'S Liborio EC', 'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Sacerdotes Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/24': {
         'feast': 'In Vigilia S Jacobi Ap',
@@ -1126,7 +1130,7 @@ sanctoral = {
         'com_2': {'feast': 'S Christina VM', 'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Ego autem', 'glo': False, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/25': {
         'feast': 'S Jacobi Ap',
@@ -1135,7 +1139,7 @@ sanctoral = {
         'com_2': {'feast': 'S Christophori M', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/26': {
         'feast': 'S Annæ Matris BMV',
@@ -1143,7 +1147,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Gaudeamus', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/27': {
         'feast': 'S Pantaleonis M',
@@ -1151,7 +1155,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Lætabitur', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/28': {
         'feast': 'Ss Nazarii & Celsi Mm, Victoris I PM, ac Innocentii I PC',
@@ -1159,7 +1163,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Intret in conspectu', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/29': {
         'feast': 'S Marthæ V',
@@ -1168,7 +1172,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Felice I P, Simplicis, Faustino & Beatrice Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/30': {
         'feast': 'Ss Abdon & Sennen Mm',
@@ -1176,7 +1180,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Intret in conspectu', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '07/31': {
         'feast': 'S Ignatii C',
@@ -1184,7 +1188,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In nomine Jesu', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/01': {
         'feast': 'S Petri Ap, ad Vincula',
@@ -1194,7 +1198,7 @@ sanctoral = {
         'com_3': {'feast': 'Ss Machabæis Mm', 'mass': {'int': 'Clamaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Nunc scio vere', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/02': {
         'feast': 's Alphonso Mariæ de Ligourio ECD',
@@ -1203,7 +1207,7 @@ sanctoral = {
         'com_2': {'feast': 'S Stephano PM', 'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Spiritus Domini', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/03': {
         'feast': 'In Inventione S Stephani Protomartyris',
@@ -1211,7 +1215,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sederunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/04': {
         'feast': 'S Dominici C',
@@ -1219,7 +1223,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/05': {
         'feast': 'In Dedicatione Mariæ ad Nives',
@@ -1227,7 +1231,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Salve', 'glo': True, 'cre': True, 'pre': 'De BMV'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/06': {
         'feast': 'In Transfiguratione DNJC',
@@ -1236,7 +1240,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Xysto P, Felicissimo & Agapito Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Illuxerunt', 'glo': True, 'cre': True, 'pre': 'de Nativitate'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/07': {
         'feast': 'S Cajetani C',
@@ -1245,7 +1249,7 @@ sanctoral = {
         'com_2': {'feast': 'S Donato EM', 'mass': {'int': 'Sacerdotes Dei', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/08': {
         'feast': 'Ss Cyriaci, Largi & Smaragdi Mm',
@@ -1253,7 +1257,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Timete Dominum', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/09': {
         'feast': 'S Joannis Mariæ Vianney C',
@@ -1263,14 +1267,14 @@ sanctoral = {
         'com_3': {'feast': 'S Romano M', 'mass': {'int': 'Lætabitur', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/10': {
         'feast': 'S Laurentii M',
         'rank': [10, 'd II cl'],  # ? Octave
         'office_type': False,
         'mass': {'int': 'Confessio', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/11': {
         'feast': 'Ss Tiburtii & Susannæ VM',
@@ -1278,7 +1282,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/12': {
         'feast': 'S Claræ V',
@@ -1286,7 +1290,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/13': {
         'feast': 'Ss Hippolyti & Cassiani Mm',
@@ -1294,7 +1298,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/14': {
         'feast': 'In Vigilia Assumptionis BMV',
@@ -1303,7 +1307,7 @@ sanctoral = {
         'com_2': {'feast': 'S Eusebio C', 'mass': {'int': 'Justus', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Vultum tuum', 'glo': False, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/15': {
         'feast': 'In Assumptione BMV',
@@ -1311,7 +1315,7 @@ sanctoral = {
         'nobility': (1, 1, 4, 2, 1, 0),
         'office_type': False,
         'mass': {'int': 'Signum magnum', 'glo': True, 'cre': True, 'pre': 'de BMV'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/16': {
         'feast': 'S Joachim Patris BMV',
@@ -1319,7 +1323,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'dispersit', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/17': {
         'feast': 'S Hyacinthi C',
@@ -1328,7 +1332,7 @@ sanctoral = {
         'com_2': {'feast': 'Octava S Laurentii M', 'mass': {'int': 'Probasti', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/18': {
         'feast': 'S Agapito M',
@@ -1336,7 +1340,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Lætabitur', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/19': {
         'feast': 'S Joannis Eudes C',
@@ -1344,7 +1348,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/20': {
         'feast': 'S Bernardi AbbD',
@@ -1352,7 +1356,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/21': {
         'feast': 'S Joannæ Franciscæ Fremiot de Chantal Vid',
@@ -1360,7 +1364,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Cognovit', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/22': {
         'feast': 'In Festo Immaculati Cordis BMV',
@@ -1369,7 +1373,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Timotheo, Hippolyto & Symphoriano Mm', 'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Adeamus', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/23': {
         'feast': 'In Vigilia S Bartholomæi Ap',
@@ -1377,7 +1381,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Ego autem', 'glo': False, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/24': {
         'feast': 'S Bartholomæi Ap',
@@ -1385,7 +1389,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/25': {
         'feast': 'S Ludovici RC',
@@ -1393,7 +1397,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/26': {
         'feast': 'S Zephrini PM',
@@ -1401,7 +1405,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/27': {
         'feast': 'S Josephi Calasantii C',
@@ -1409,7 +1413,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Venite, filii', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/28': {
         'feast': 'S Augustini ECD',
@@ -1418,7 +1422,7 @@ sanctoral = {
         'com_2': {'feast': 'S Hermete M', 'mass': {'int': 'Lætabitur', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/29': {
         'feast': 'In Decollatione S Joannis Baptistæ',
@@ -1427,7 +1431,7 @@ sanctoral = {
         'com_2': {'feast': 'S Sabina M', 'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Loquebar', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/30': {
         'feast': 'S Rosæ a S Maria V',
@@ -1436,7 +1440,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Felice & Adaucto Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '08/31': {
         'feast': 'S Raymundi Nonnati C',
@@ -1444,7 +1448,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/01': {
         'feast': 'S Ægidii Abb',
@@ -1452,7 +1456,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/02': {
         'feast': 'S Stephani Regis C',
@@ -1460,7 +1464,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/05': {
         'feast': 'S Laurentii Justiniani EC',
@@ -1468,7 +1472,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Statuit ei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/08': {
         'feast': 'In Nativitate BMV',
@@ -1477,7 +1481,7 @@ sanctoral = {
         'com_2': {'feast': 'S Hadriano M', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Salve, sancta Parens', 'glo': True, 'cre': True, 'pre': 'de BMV'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/09': {
         'feast': 'S Gorgonii M',
@@ -1485,7 +1489,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Lætabitur', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/10': {
         'feast': 'S Nicolai de Tolentino C',
@@ -1493,7 +1497,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Justus', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/11': {
         'feast': 'Ss Proti & Hycinthi Mm',
@@ -1501,7 +1505,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/12': {
         'feast': 'Ssmi Nominis Mariæ',
@@ -1509,14 +1513,14 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Vultum tuum', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/14': {
         'feast': 'in Exaltatione S Cruce',
         'rank': [14, 'dm'],  # ! check this one -- is it of Our Lord?
         'office_type': False,
         'mass': {'int': 'Mos autem', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/15': {
         'feast': 'Septem Dolorum BMV',
@@ -1525,7 +1529,7 @@ sanctoral = {
         'com_2': {'feast': 'S Nicomede M', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Stabant', 'glo': True, 'seq': 'Stabat Mater', 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/16': {
         'feast': 'Ss Cornelii P & Cypriani E Mm',
@@ -1534,7 +1538,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Euphemia V, Lucia & Geminiano Mm', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Intret', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/17': {
         'feast': 'In Impressione Ss Stigmatum S Francisci C',
@@ -1542,7 +1546,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/18': {
         'feast': 'S Joseph a Cupertino C',
@@ -1550,7 +1554,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Dilectio', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/20': {
         'feast': 'Ss Eustachii & Soc Mm',
@@ -1559,7 +1563,7 @@ sanctoral = {
         'com_2': {'feast': 'In Vigilia S Matthæi ApEv', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/21': {
         'feast': 'S Matthæi ApEv',
@@ -1567,7 +1571,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/22': {
         'feast': 'S Thomæ de Villanova EC',
@@ -1576,7 +1580,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Mauritio & Soc Mm', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/23': {
         'feast': 'S Lini',
@@ -1585,7 +1589,7 @@ sanctoral = {
         'com_2': {'feast': 'S Thecla VM', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/24': {
         'feast': 'BMV de Merdece',
@@ -1593,7 +1597,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Salve', 'glo': True, 'cre': True, 'pre': 'de BMV'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/26': {
         'feast': 'Ss Cypriani & Justinæ Mm',
@@ -1601,7 +1605,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/27': {
         'feast': 'Ss Cosmæ & Damiani Mm',
@@ -1609,7 +1613,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/28': {
         'feast': 'S Wenceslau Ducis M',
@@ -1617,7 +1621,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In virtute', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/29': {
         'feast': 'In Dedicatione S Michaelis Arch',
@@ -1625,7 +1629,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Benedicite', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '09/30': {
         'feast': 'S Hieronymi SCD',
@@ -1633,7 +1637,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/01': {
         'feast': 'S Remigii EC',
@@ -1641,7 +1645,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/02': {
         'feast': 'Ss Angelorum Custodum',
@@ -1649,7 +1653,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Benedicite', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/03': {
         'feast': 'S Teresiæ a Jesu Infante V',
@@ -1657,7 +1661,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Veni de Libano', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/04': {
         'feast': 'S Francisci C',
@@ -1665,7 +1669,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/05': {
         'feast': 'Ss Placidi & Sociorum Mm',
@@ -1673,7 +1677,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/06': {
         'feast': 'S Brunonis C',
@@ -1681,7 +1685,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/07': {
         'feast': 'Sacratissimi Rosarii BMV',
@@ -1691,7 +1695,7 @@ sanctoral = {
         'com_3': {'feast': 'Ss Sergio, Baccho, Marcello & Apulejo MM', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Gaudeamus', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/08': {
         'feast': 'S Birgittæ Vid',
@@ -1699,7 +1703,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Cognovi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/09': {
         'feast': 'S Joannis Leonardi C',
@@ -1708,7 +1712,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Dionysii E, Rustici & Eleutherii Mm', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'In sermonibus', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/10': {
         'feast': 'S Francisci Borgiæ C',
@@ -1716,7 +1720,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/11': {
         'feast': 'In Maternitate BMV',
@@ -1724,7 +1728,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Ecce Virgo', 'glo': True, 'cre': True, 'pre': 'de BMV'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/13': {
         'feast': 'S Eduardi Regis C',
@@ -1732,7 +1736,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/14': {
         'feast': 'S Callisti I PM',
@@ -1740,7 +1744,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/15': {
         'feast': 'S Teresiæ V',
@@ -1748,7 +1752,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/16': {
         'feast': 'S Hedwigis Vid',
@@ -1756,7 +1760,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Cognovi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/17': {
         'feast': 'S Margaritæ Mariæ Alacoque V',
@@ -1764,7 +1768,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sub unbra', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/18': {
         'feast': 'S Lucæ Ev',
@@ -1772,7 +1776,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/19': {
         'feast': 'S Petri Alcantara C',
@@ -1780,7 +1784,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Justus ut palma', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/20': {
         'feast': 'S Joannis Cantii C',
@@ -1788,7 +1792,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Miseratio', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/21': {
         'feast': 'S Hilarionis Abb',
@@ -1797,7 +1801,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Ursula & Sociabus VM', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/24': {
         'feast': 'S Raphaelis Arch',
@@ -1805,7 +1809,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Benedicite', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/25': {
         'feast': 'Ss Chrysanthi & Dariæ Mm',
@@ -1813,7 +1817,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Intret', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/26': {
         'feast': 'S Evaristi PM',
@@ -1821,7 +1825,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Si diligis mei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/27': {
         'feast': 'In Vigilia Ss Simonis & Judæ App',
@@ -1829,7 +1833,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Intret', 'glo': False, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/28': {
         'feast': 'Ss Simonis & Judæ App',
@@ -1837,7 +1841,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '10/31': {
         'feast': 'In Vigilia Omnium Sanctorum',
@@ -1845,7 +1849,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Judicant', 'glo': False, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
 
     '11/01': {
@@ -1854,7 +1858,7 @@ sanctoral = {
         'nobility': (1, 1, 4, 3, 1, 0,),
         'office_type': False,
         'mass': {'int': 'Gaudeamus', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/02': {
         'feast': 'In Commemoratione Omnium Fidelium Defunctorum',
@@ -1866,7 +1870,7 @@ sanctoral = {
             'Ad Tertiam Missam': {'int': 'Requiem', 'glo': False, 'seq': 'Dies Iræ', 'cre': False, 'pre': 'Defunctorum'},
         },
         'office_type': False,
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/04': {
         'feast': 'S Caroli EC',
@@ -1875,7 +1879,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Vitale & Agricola Mm', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Statuit ei', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/08': {
         'feast': 'Ss Quatuor Coronatis Mm',
@@ -1883,7 +1887,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Intret in conspecu', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/09': {
         'feast': 'In Dedicatione Archibasilicæ Ssmi Salvatoris',
@@ -1892,7 +1896,7 @@ sanctoral = {
         'com_2': {'feast': 'S Theodoro M', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Terribilis', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/10': {
         'feast': 'S Andreæ Avellini C',
@@ -1901,7 +1905,7 @@ sanctoral = {
         'com_2': {'feast': 'Ss Tryphone, Respicio & Nympha VM', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/11': {
         'feast': 'S Martini  EC',
@@ -1910,7 +1914,7 @@ sanctoral = {
         'com_2': {'feast': 'S Menna M', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Statuit ei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/12': {
         'feast': 'S Martini I PM',
@@ -1918,7 +1922,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/13': {
         'feast': 'S Didaci C',
@@ -1926,7 +1930,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Justus', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/14': {
         'feast': 'Josaphat EM',
@@ -1934,7 +1938,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Gaudeamus', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/15': {
         'feast': 'S Alberti Magni ECD',
@@ -1942,7 +1946,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/16': {
         'feast': 'S Gertrudis V',
@@ -1950,7 +1954,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },  # ! finish November
     '11/17': {
         'feast': 'S Gregorii Thaumaturgi EC',
@@ -1958,7 +1962,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/18': {
         'feast': 'In Dedicatione Basilicarum Ss Petri & Pauli App',
@@ -1966,7 +1970,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Terribilis', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/19': {
         'feast': 'S Elisabeth Vid',
@@ -1975,7 +1979,7 @@ sanctoral = {
         'com_2': {'feast': 'S Pontiano PM', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Cognovi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/20': {
         'feast': 'S Felicis de Valois C',
@@ -1983,7 +1987,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Justus', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/21': {
         'feast': 'In Præsentatione BMV',
@@ -1991,7 +1995,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Salve', 'glo': True, 'cre': True, 'pre': 'de BMV'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/22': {
         'feast': 'S Cæciliæ VM',
@@ -1999,7 +2003,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Loquebar', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/23': {
         'feast': 'S Clementis I PM',
@@ -2008,7 +2012,7 @@ sanctoral = {
         'com_2': {'feast': 'S Felicitate M', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Dicit Dóminus', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/24': {
         'feast': 'S Joannis de Cruce CD',
@@ -2017,7 +2021,7 @@ sanctoral = {
         'com_2': {'feast': 'S Chrysogono M', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/25': {
         'feast': 'S Catharinæ VM',
@@ -2025,7 +2029,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Loquebar', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/26': {
         'feast': 'S Sylvestri Abb',
@@ -2034,7 +2038,7 @@ sanctoral = {
         'com_2': {'feast': 'S Petro Alexandrino EM', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/29': {
         'feast': 'In Vigilia S Andreæ Ap',
@@ -2043,7 +2047,7 @@ sanctoral = {
         'com_2': {'feast': 'S Saturnino M', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Dominus secus', 'glo': False, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '11/30': {
         'feast': 'S Andreæ Ap',
@@ -2051,7 +2055,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/02': {
         'feast': 'S Bibianæ VM',
@@ -2059,7 +2063,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/03': {
         'feast': 'S Francisci Xaverii C',
@@ -2067,7 +2071,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Loquebar', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/04': {
         'feast': 'S Petri Chrysologi ECD',
@@ -2076,7 +2080,7 @@ sanctoral = {
         'com_2': {'feast': 'S Barbara VM', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/05': {
         'feast': 'S Sabba Abb',
@@ -2084,7 +2088,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/06': {
         'feast': 'S Nicolai EC',
@@ -2092,7 +2096,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Statuit ei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/07': {
         'feast': 'S Ambrosii ECD',
@@ -2100,7 +2104,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/07.': {
         'feast': 'In Vigilia Conceptionis Immaculatæ BMV',
@@ -2108,7 +2112,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Venite, audite', 'glo': False, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/08': {
         'feast': 'In Conceptione Immaculata BMV',
@@ -2116,7 +2120,7 @@ sanctoral = {
         'octave': 4,
         'office_type': False,
         'mass': {'int': 'Gaudens gaudebo', 'glo': True, 'cre': True, 'pre': 'de BMV'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/10': {
         'feast': 'S Melchide PM',
@@ -2124,7 +2128,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Si diligis me', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/11': {
         'feast': 'S Damasi I PC',
@@ -2132,7 +2136,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Si diligis me', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/13': {
         'feast': 'S Luciæ VM',
@@ -2140,7 +2144,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': True, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/16': {
         'feast': 'S Eusebii EM',
@@ -2148,7 +2152,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Sacerdotes Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/20': {
         'feast': 'In Vigilia S Thomæ Ap',
@@ -2156,7 +2160,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Ego autem', 'glo': False, 'cre': False, 'pre': 'Communis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
     '12/21': {
         'feast': 'S Thomæ Ap',
@@ -2164,6 +2168,6 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'mass': {'int': 'Mihi autem', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
-        'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
+        'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
     },
 }
