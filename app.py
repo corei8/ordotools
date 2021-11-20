@@ -13,6 +13,7 @@ from ordo_tools.outputs import build_latex_ordo
 
 
 def app(year: int, diocese: str):
+    global_year(year)
     build_temporal(year)
     explode_octaves(region_diocese='roman')
     stitch(year, diocese)

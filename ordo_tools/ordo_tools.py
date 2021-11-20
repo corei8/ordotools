@@ -3,6 +3,8 @@ import dateutil.easter
 import importlib
 import re
 
+from ordo_tools.settings import YEAR
+
 #===-===-=== GLOBALS ===-===-=== #
 
 ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
@@ -11,6 +13,10 @@ ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
           "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV",
           "XXVI", "XXVII", "XXVIII", ]
 
+def global_year(year):
+    global YEAR
+    YEAR = year
+
 #===-===-=== CLASSES ===-===-=== #
 
 
@@ -18,6 +24,8 @@ class Feast:
     def __init__(self, feast_date: str, properties: dict):
         # todo #11 make a method that takes all the adjusted data and returns it as a dictionary
         self.feast_date = feast_date
+        self.feast_date_display = datetime.strptime(self.feast_date.strip(
+            'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%M %d')
         self.feast_properties = properties
         self.name = properties['feast']
         self.rank_v = properties['rank'][-1]  # verbose

@@ -215,7 +215,7 @@ def build_latex_ordo(year):
             f.write('\n')
             f.write('\\hrule\n')
             f.write('\\begin{center}\n')
-            f.write(dow + ' - ' + latex_replacement(feast.feast_date) + '\n')
+            f.write(dow + ' - ' + latex_replacement(feast.feast_date_display) + '\n')
             f.write('\\end{center}')
             f.write('\\textbf{ \\large ' + latex_replacement(feast.name) +
                     ', \\textnormal{\\normalsize ' + feast.rank_v + '}}')
