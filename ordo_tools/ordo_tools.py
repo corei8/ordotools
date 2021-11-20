@@ -198,23 +198,23 @@ def weekday(date: datetime):
 
 
 def findsunday(date):
-    # todo #10 redefine findsunday() to use %w -- the current setup is way too complicated
-    x = 0
-    if date.strftime("%a") == "Mon":
-        x = 1
-    if date.strftime("%a") == "Tue":
-        x = 2
-    if date.strftime("%a") == "Wed":
-        x = 3
-    if date.strftime("%a") == "Thu":
-        x = 4
-    if date.strftime("%a") == "Fri":
-        x = 5
-    if date.strftime("%a") == "Sat":
-        x = 6
-    if date.strftime("%a") == "Sun":
-        x = 0
-    return timedelta(days=x)
+    return timedelta(days=int(date.strftime("%w")))
+    # x = 0
+    # if date.strftime("%a") == "Mon":
+    #     x = 1
+    # if date.strftime("%a") == "Tue":
+    #     x = 2
+    # if date.strftime("%a") == "Wed":
+    #     x = 3
+    # if date.strftime("%a") == "Thu":
+    #     x = 4
+    # if date.strftime("%a") == "Fri":
+    #     x = 5
+    # if date.strftime("%a") == "Sat":
+    #     x = 6
+    # if date.strftime("%a") == "Sun":
+    #     x = 0
+    # return timedelta(days=x)
 
 
 def leap_year(year: int):
