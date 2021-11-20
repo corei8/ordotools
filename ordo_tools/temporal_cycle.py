@@ -2,30 +2,6 @@ import re
 from datetime import datetime
 from ordo_tools.ordo_tools import *
 
-LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', 'De necessitatibus',
-               'Intret oratio', 'Redime me', 'Tibi dixit', 'Ne derelinquas me',
-               'Deus, in adjutorium', 'Ego autem', 'Lex Domini', 'In Deo laudabo', 'Ego clamavi',
-               'Ego autem', 'Salus populi', 'Fac mecum', 'Verba mea', 'Deus, in nomine', 'Exaudi, Deus',
-               'Cum sanctificatus', 'Lætetur cor', 'Meditatio', 'Sitientes', 'Miserere mihi',
-               'Expecta Dominum', 'Liberator meus', 'Omnia, quæ fecisti', 'Miserere mihi', 'Miserere mihi',)
-
-# beginning with Dominica IV
-PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine', 'Dominus fortitudo', 'Omnes gentes',
-                    'Suscepimus', 'Ecce Deus', 'Cum clamarem', 'Deus in loco',
-                    'Deus in adjutorium', 'Respice Domine', 'Protector noster', 'Inclina Domine',
-                    'Miserere mihi', 'Justus es', 'Da pacem', 'Salus populi',
-                    'Omnia', 'In voluntate tua', 'Si iniquitates', 'Dicit Dominus',
-                    'Dicit Dominus',)
-
-EPIPHANY_MASSES = ()
-
-
-def find_extra_epiphany(pents):
-    if pents == 23:
-        pass
-    else:
-        return pents - 24
-
 
 def build_temporal(year):
     year = int(year)
@@ -447,7 +423,8 @@ def build_temporal(year):
             [  # !  vespers
                 "Dominica Resurrectionis",
                 [1, 'd I cl cum Oct privil I ord'],
-                {'int': 'Ressurexi', 'glo': True, 'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'Paschalis'},
+                {'int': 'Ressurexi', 'glo': True, 'seq': 'Victimae paschali laudes',
+                    'cre': True, 'pre': 'Paschalis'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 False,
                 (False,),
@@ -456,7 +433,8 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria II infra Oct. Paschæ",
                 [2, 'd I cl'],
-                {'int': 'Introduxit', 'glo': True, 'seq': 'Victimae paschali laudes','cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
+                {'int': 'Introduxit', 'glo': True, 'seq': 'Victimae paschali laudes',
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 False,
                 (False,),
@@ -465,7 +443,8 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria III infra Oct. Paschæ",
                 [2, 'd I cl'],
-                {'int': 'Aqua sapientiae', 'glo': True, 'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
+                {'int': 'Aqua sapientiae', 'glo': True, 'seq': 'Victimae paschali laudes',
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 False,
                 (False,),
@@ -474,7 +453,8 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria IV infra Oct. Paschæ",
                 [3, 'sd'],
-                {'int': 'Venite', 'glo': True,'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
+                {'int': 'Venite', 'glo': True, 'seq': 'Victimae paschali laudes',
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 False,
                 (False,),
@@ -483,7 +463,8 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria V infra Oct. Paschæ",
                 [3, 'sd'],
-                {'int': 'Victricem', 'glo': True,'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hang Igitur, ut in die Paschae'},
+                {'int': 'Victricem', 'glo': True, 'seq': 'Victimae paschali laudes',
+                    'cre': True, 'pre': 'et Comm et Hang Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 False,
                 (False,),
@@ -492,7 +473,8 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria VI infra Oct. Paschæ",
                 [3, 'sd'],
-                {'int': 'Eduxit eos', 'glo': True,'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
+                {'int': 'Eduxit eos', 'glo': True, 'seq': 'Victimae paschali laudes',
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 False,
                 (False,),
@@ -501,7 +483,8 @@ def build_temporal(year):
             [  # ! vespers
                 "Sabbatum in Albis",
                 [3, 'sd'],
-                {'int': 'Eduxit Dominus', 'glo': True,'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
+                {'int': 'Eduxit Dominus', 'glo': True, 'seq': 'Victimae paschali laudes',
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 False,
                 (False,),
@@ -691,7 +674,8 @@ def build_temporal(year):
             [  # ! vespers
                 "Dominica Pentecostes",
                 [1, 'd I cl cum Oct privil I ord'],
-                {'int': 'Spiritus Domini', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
+                {'int': 'Spiritus Domini', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 False,
                 (False,),
@@ -731,7 +715,8 @@ def build_temporal(year):
             [  # ! mass, vespers
                 "Sabbatum infra Oct. Pentecostes",
                 [3, 'sd'],
-                {'int': 'Missa', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'Communis'},
+                {'int': 'Missa', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
+                    'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
                 False,
                 (False,),
@@ -783,7 +768,8 @@ def build_temporal(year):
         [  # ! vespers
             "Dominica infra Oct. Ssmi Corporis Christi (Dominica II post Pentecosten)",
             [12, 'sd'],
-            {'int': 'Factus est', 'glo': True, 'seq': 'Lauda, Sion, Salvatorem', 'cre': True, 'pre': 'de Nativitate, vel de Ssma Trinitate'},
+            {'int': 'Factus est', 'glo': True, 'seq': 'Lauda, Sion, Salvatorem',
+                'cre': True, 'pre': 'de Nativitate, vel de Ssma Trinitate'},
             {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
             False,
             (False,),

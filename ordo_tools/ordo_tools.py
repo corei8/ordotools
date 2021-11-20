@@ -13,6 +13,24 @@ ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
           "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV",
           "XXVI", "XXVII", "XXVIII", ]
 
+LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', 'De necessitatibus',
+               'Intret oratio', 'Redime me', 'Tibi dixit', 'Ne derelinquas me',
+               'Deus, in adjutorium', 'Ego autem', 'Lex Domini', 'In Deo laudabo', 'Ego clamavi',
+               'Ego autem', 'Salus populi', 'Fac mecum', 'Verba mea', 'Deus, in nomine', 'Exaudi, Deus',
+               'Cum sanctificatus', 'Lætetur cor', 'Meditatio', 'Sitientes', 'Miserere mihi',
+               'Expecta Dominum', 'Liberator meus', 'Omnia, quæ fecisti', 'Miserere mihi', 'Miserere mihi',)
+
+# beginning with Dominica IV
+PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine', 'Dominus fortitudo', 'Omnes gentes',
+                    'Suscepimus', 'Ecce Deus', 'Cum clamarem', 'Deus in loco',
+                    'Deus in adjutorium', 'Respice Domine', 'Protector noster', 'Inclina Domine',
+                    'Miserere mihi', 'Justus es', 'Da pacem', 'Salus populi',
+                    'Omnia', 'In voluntate tua', 'Si iniquitates', 'Dicit Dominus',
+                    'Dicit Dominus',)
+
+EPIPHANY_MASSES = ()
+
+
 def global_year(year):
     global YEAR
     YEAR = year
@@ -176,13 +194,12 @@ class Feast:
 
 
 def easter(year: int):
-    x = dateutil.easter.easter(year)
-    return datetime(year=int(x.strftime('%Y')), month=int(x.strftime('%m')), day=int(x.strftime('%d')))
+    # x = dateutil.easter.easter(year)
+    return datetime(year=int(dateutil.easter.easter(year).strftime('%Y')), month=int(dateutil.easter.easter(year).strftime('%m')), day=int(dateutil.easter.easter(year).strftime('%d')))
 
 
 def day(year: int, month: int, day: int):
-    x = datetime(year=year, month=month, day=day)
-    return x
+    return datetime(year=year, month=month, day=day)
 
 
 def week(i: int):
@@ -215,6 +232,13 @@ def findsunday(date):
     # if date.strftime("%a") == "Sun":
     #     x = 0
     # return timedelta(days=x)
+
+
+def find_extra_epiphany(pents):
+    if pents == 23:
+        pass
+    else:
+        return pents - 24
 
 
 def leap_year(year: int):

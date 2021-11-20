@@ -22,7 +22,7 @@ def app(year: int, diocese: str):
     # readme_calendar(year)
     build_latex_ordo(year)
 
- # todo use os to get a list of the diocese or regions needed to complete an ordo
+ # todo use os to get a list of the dioceses or regions needed to complete an ordo
 
 
 # 2024 is a leap year
