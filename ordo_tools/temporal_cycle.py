@@ -7,14 +7,6 @@ def build_temporal(year):
     year = int(year)
     cycle = []
     # ? maybe get rid of this ?
-    feria = [
-        "Feria II",
-        "Feria III",
-        "Feria IV",
-        "Feria V",
-        "Feria VI",
-        "Sabbatum",
-    ]
     circumcision = day(year, 1, 1)
     cycle.extend(
         [
@@ -286,7 +278,7 @@ def build_temporal(year):
                 easter(year) - week(6-c),
             ]
         )
-        for j, y in enumerate(feria):
+        for j, y in enumerate(FERIA):
             if x == "de Passione" and y == "Feria VI":
                 cycle.append(
                     [  # ! vespers
@@ -566,16 +558,6 @@ def build_temporal(year):
                         (9, 2, 6, 13, 3, 0,),
                         easter(year) + week(i) + indays(3),
                     ],
-                    # [  # ! mass, vespers
-                    #     "Vigilia Ascensionis",
-                    #     [18, 'vigilia'],
-                    #     {'int': 'Vocem iucunditatis', 'glo': True,
-                    #         'cre': False, 'pre': 'Paschalis'},
-                    #     {'proper': False, 'admag': '',
-                    #         'propers': {}, 'oration': ''},
-                    #     (9, 2, 6, 1, 3, 0,),
-                    #     easter(year) + week(i) + indays(3),
-                    # ],
                     [  # ! vespers
                         "Ascensio DNJC",
                         [2, 'd I cl cum Oct privil 3 ord'],
@@ -792,7 +774,7 @@ def build_temporal(year):
                 else:
                     feria_index = int(
                         (corpus_christi+indays(j+1)).strftime("%w"))-1
-                    fer_num = feria[feria_index]
+                    fer_num = FERIA[feria_index]
                     cycle.append(
                         [
                             fer_num + " infra Oct. Ssmi Corporis Christi",
@@ -838,7 +820,7 @@ def build_temporal(year):
                 else:
                     feria_index = int(
                         (ssmi_cordis + indays(j + 1)).strftime("%w")) - 1
-                    fer_num = feria[feria_index]
+                    fer_num = FERIA[feria_index]
                     cycle.append(
                         [  # ! mass, vespsers
                             fer_num + " infra Oct. Ssmi Cordis DNJC",

@@ -28,12 +28,26 @@ PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine', 'Dominus fortitudo'
                     'Omnia', 'In voluntate tua', 'Si iniquitates', 'Dicit Dominus',
                     'Dicit Dominus',)
 
-EPIPHANY_MASSES = ()
+EPIPHANY_MASSES = ('', )
+
+FERIA = [
+    "Feria II",
+    "Feria III",
+    "Feria IV",
+    "Feria V",
+    "Feria VI",
+    "Sabbatum",
+]
 
 
 def global_year(year):
     global YEAR
     YEAR = year
+
+# todo range for pentecost
+# todo range for advent
+# todo range for paschaltime
+# todo range for lent
 
 #===-===-=== CLASSES ===-===-=== #
 
@@ -46,6 +60,8 @@ class Feast:
             'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%a, %b %-d')
         self.feast_properties = properties
         self.name = properties['feast']
+        if 'infra_oct_name' in properties.keys():
+            self.infra_octave_name = properties['infra_oct_name']
         self.rank_v = properties['rank'][-1]  # verbose
         self.rank_n = properties['rank'][0]   # numeric
         self.mass = {}
@@ -216,22 +232,6 @@ def weekday(date: datetime):
 
 def findsunday(date):
     return timedelta(days=int(date.strftime("%w")))
-    # x = 0
-    # if date.strftime("%a") == "Mon":
-    #     x = 1
-    # if date.strftime("%a") == "Tue":
-    #     x = 2
-    # if date.strftime("%a") == "Wed":
-    #     x = 3
-    # if date.strftime("%a") == "Thu":
-    #     x = 4
-    # if date.strftime("%a") == "Fri":
-    #     x = 5
-    # if date.strftime("%a") == "Sat":
-    #     x = 6
-    # if date.strftime("%a") == "Sun":
-    #     x = 0
-    # return timedelta(days=x)
 
 
 def find_extra_epiphany(pents):
@@ -487,10 +487,9 @@ def explode_octaves(region_diocese: str) -> None:
         # todo have the program check the nobility to see if the feast is an octave
         if 'Oct' in feast.rank_v:
             if feast.nobility[2] == 4:  # common octave
-                # ! for every octave we need an entry for a shortened name.
-                # todo update for every octave
+                # todo update this to handle every octave type
                 for k, y in enumerate(ROMANS[3:6], start=1):
-                    feast.name = 'De ' + y + ' die infra ' + feast.name
+                    feast.name = 'De ' + y + ' die infra ' + feast.infra_octave_name
                     feast.rank_v = 'feria'
                     feast.rank_n = 18
                     # ? provide a method for dotted files?

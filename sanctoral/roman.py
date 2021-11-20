@@ -898,6 +898,7 @@ sanctoral = {
     },
     '06/24': {
         'feast': 'In Nativitate S Joannis Baptistæ',
+        'infra_oct_name': 'Nativitate S Joannis Baptistæ',
         'rank': [2, 'd I cl cum Oct communi'], 
         'nobility': (1, 0, 4, 4, 1, 0,),
         'office_type': False,
@@ -931,6 +932,7 @@ sanctoral = {
     },
     '06/29': {
         'feast': 'Ss Petri & Pauli App',
+        'infra_oct_name': 'Ss Petri & Pauli App',
         'rank': [2, 'd I cl cum Oct communi'], 
         'nobility': (1, 2, 4, 5, 1, 0,),
         'office_type': False,
@@ -1307,7 +1309,8 @@ sanctoral = {
     },
     '08/15': {
         'feast': 'In Assumptione BMV',
-        'rank': [2, 'd I cl cum Oct communi'], 
+        'infra_oct_name': 'Assumptione BMV',
+        'rank': [2, 'd I cl cum Oct communi'],
         'nobility': (1, 1, 4, 2, 1, 0),
         'office_type': False,
         'mass': {'int': 'Signum magnum', 'glo': True, 'cre': True, 'pre': 'de BMV'},
@@ -1850,6 +1853,7 @@ sanctoral = {
 
     '11/01': {
         'feast': 'In Festo Omnium Sanctorum',
+        'infra_oct_name': 'Festo Omnium Sanctorum',
         'rank': [2, 'd I cl cum Oct communi'], 
         'nobility': (1, 1, 4, 3, 1, 0,),
         'office_type': False,
@@ -2112,6 +2116,7 @@ sanctoral = {
     },
     '12/08': {
         'feast': 'In Conceptione Immaculata BMV',
+        'infra_oct_name': 'Conceptione Immaculata BMV',
         'rank': [2, 'd I cl cum Oct communi'],
         'octave': 4,
         'office_type': False,
