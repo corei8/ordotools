@@ -386,6 +386,8 @@ def build_temporal(year):
                         [3, 's'],
                         {'int': 'Judica, Domine' if y == 'Feria II' else (
                             'Nos autem' if y == 'Feria III' else 'In nomine Jesu' if y == 'Feria IV'), 'glo': False, 'cre': False, 'pre': 'de Cruce'},
+                        {'int': 'Judica, Domine' if y == 'Feria II' else
+                            'Nos autem' if y == 'Feria III' else 'In nomine Jesu' if y == 'Feria IV', 'glo': False, 'cre': False, 'pre': 'de Cruce'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
                         (False,),
