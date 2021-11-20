@@ -25,7 +25,7 @@ class Feast:
         # todo #11 make a method that takes all the adjusted data and returns it as a dictionary
         self.feast_date = feast_date
         self.feast_date_display = datetime.strptime(self.feast_date.strip(
-            'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%M %d')
+            'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%a, %b %-d')
         self.feast_properties = properties
         self.name = properties['feast']
         self.rank_v = properties['rank'][-1]  # verbose

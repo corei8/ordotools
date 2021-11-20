@@ -29,7 +29,7 @@ diocese = { # ! If the feast is transferred out of Lent, then it has a common oc
         #In II et III Nocturno Lectiones ut in Breviario.
         #IX Lectio de Homilia Feriae, et fit ejus Com. ad Laudes.
         #In II Vesperis Com. sequentis et Feriae.'
-        # for a proper Communicantes: 'et Communicantes de *preface*'
+        # for a proper Comm: 'et Comm de *preface*'
         'mass': {
             'int': 'Egredere', #The Gospel of this Mass is read both at Mass and Matins, with the III Nocturne Breviary Lessons altered accordingly.
             'glo': True,
@@ -67,7 +67,7 @@ diocese = { # ! note here if the feast has an octave, and which class of octave,
         },
         'comm3': '',  # blank if no commemoration
         'office_proper': True,  # else, false
-        # for a proper Communicantes: 'et Communicantes de *preface*'
+        # for a proper Comm: 'et Comm de *preface*'
         'mass': {
             'int': 'Introit',
             'glo': True,

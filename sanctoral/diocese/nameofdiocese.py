@@ -23,7 +23,7 @@ diocese = { # ! note here if the feast has an octave, and which class of octave,
         },
         'comm3': '',  # blank if no commemoration
         'office_proper': True,  # else, false
-        # for a proper Communicantes: 'et Communicantes de *preface*'
+        # for a proper Comm: 'et Comm de *preface*'
         'mass': {
             'int': 'Introit',
             'glo': True,
