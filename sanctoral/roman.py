@@ -932,7 +932,7 @@ sanctoral = {
     '06/29': {
         'feast': 'Ss Petri & Pauli App',
         'rank': [2, 'd I cl cum Oct communi'], 
-        'nobility': (False,),
+        'nobility': (1, 2, 4, 5, 1, 0,),
         'office_type': False,
         'mass': {'int': 'Nunc scio', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
@@ -1308,7 +1308,7 @@ sanctoral = {
     '08/15': {
         'feast': 'In Assumptione BMV',
         'rank': [2, 'd I cl cum Oct communi'], 
-        'nobility': (False,),
+        'nobility': (1, 1, 4, 2, 1, 0),
         'office_type': False,
         'mass': {'int': 'Signum magnum', 'glo': True, 'cre': True, 'pre': 'de BMV'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
@@ -1851,7 +1851,7 @@ sanctoral = {
     '11/01': {
         'feast': 'In Festo Omnium Sanctorum',
         'rank': [2, 'd I cl cum Oct communi'], 
-        'nobility': (False,),
+        'nobility': (1, 1, 4, 3, 1, 0,),
         'office_type': False,
         'mass': {'int': 'Gaudeamus', 'glo': True, 'cre': True, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': '', 'propers': {}, 'oration': ''},
