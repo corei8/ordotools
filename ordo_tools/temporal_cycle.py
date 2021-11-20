@@ -384,8 +384,6 @@ def build_temporal(year):
                     [  # ! vespers
                         y + " Majoris Hebd",
                         [3, 's'],
-                        {'int': 'Judica, Domine' if y == 'Feria II' else (
-                            'Nos autem' if y == 'Feria III' else 'In nomine Jesu' if y == 'Feria IV'), 'glo': False, 'cre': False, 'pre': 'de Cruce'},
                         {'int': 'Judica, Domine' if y == 'Feria II' else
                             'Nos autem' if y == 'Feria III' else 'In nomine Jesu' if y == 'Feria IV', 'glo': False, 'cre': False, 'pre': 'de Cruce'},
                         {'proper': False, 'admag': '',
