@@ -2,16 +2,17 @@ from datetime import timedelta, datetime
 import dateutil.easter
 import importlib
 import re
+from os import listdir
 
 from ordo_tools.settings import YEAR
 
 #===-===-=== GLOBALS ===-===-=== #
 
-ROMANS = ["I", "II", "III", "IV", "V", "VI", "VII",
-          "VIII", "IX", "X", "XI", "XII", "XIII",
-          "XIV", "XV", "XVI", "XVII", "XVIII", "XIX",
-          "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV",
-          "XXVI", "XXVII", "XXVIII", ]
+ROMANS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
+          'VIII', 'IX', 'X', 'XI', 'XII', 'XIII',
+          'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX',
+          'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV',
+          'XXVI', 'XXVII', 'XXVIII', ]
 
 LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', 'De necessitatibus',
                'Intret oratio', 'Redime me', 'Tibi dixit', 'Ne derelinquas me',
@@ -20,7 +21,7 @@ LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', '
                'Cum sanctificatus', 'Lætetur cor', 'Meditatio', 'Sitientes', 'Miserere mihi',
                'Expecta Dominum', 'Liberator meus', 'Omnia, quæ fecisti', 'Miserere mihi', 'Miserere mihi',)
 
-# beginning with Dominica IV
+# beginning with the fourth Sunday after Pentecost
 PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine', 'Dominus fortitudo', 'Omnes gentes',
                     'Suscepimus', 'Ecce Deus', 'Cum clamarem', 'Deus in loco',
                     'Deus in adjutorium', 'Respice Domine', 'Protector noster', 'Inclina Domine',
@@ -31,12 +32,12 @@ PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine', 'Dominus fortitudo'
 EPIPHANY_MASSES = ('', )
 
 FERIA = [
-    "Feria II",
-    "Feria III",
-    "Feria IV",
-    "Feria V",
-    "Feria VI",
-    "Sabbatum",
+    'Feria II',
+    'Feria III',
+    'Feria IV',
+    'Feria V',
+    'Feria VI',
+    'Sabbatum',
 ]
 
 
@@ -128,7 +129,6 @@ class Feast:
             return ''
         else:
             return 'Preces'
-    # ? redundant?
 
     @property
     def feast(self) -> str:
@@ -165,7 +165,7 @@ class Feast:
             return 'ERROR!'
         return 'Off ' + off_type
 
-    def mass2latex(self):
+    def mass2latex(self) -> str:
         # todo add orations
         latexed_mass = ''
         status = []
@@ -210,7 +210,6 @@ class Feast:
 
 
 def easter(year: int):
-    # x = dateutil.easter.easter(year)
     return datetime(year=int(dateutil.easter.easter(year).strftime('%Y')), month=int(dateutil.easter.easter(year).strftime('%m')), day=int(dateutil.easter.easter(year).strftime('%d')))
 
 
@@ -227,11 +226,11 @@ def indays(numdays: int):
 
 
 def weekday(date: datetime):
-    return date.strftime("%a")
+    return date.strftime('%a')
 
 
 def findsunday(date):
-    return timedelta(days=int(date.strftime("%w")))
+    return timedelta(days=int(date.strftime('%w')))
 
 
 def find_extra_epiphany(pents):
@@ -260,17 +259,55 @@ def latex_replacement(string: str):
 #===-===-=== HEAVY-HITTING FUNCTIONS ===-===-=== #
 
 
+def find_module(name: str) -> tuple:
+    if '.' in name:
+        name = name.split('.')[1].strip('_')
+    if name+'.py' in listdir('sanctoral/diocese'):
+        print('dictionary is in sanctoral/diocese')
+        print(name)
+        file_name = 'sanctoral/diocese/'+name+'.py'
+        mdl_name = 'sanctoral.diocese.'+name
+        dict_name = 'sanctoral'
+        dict_name_json = 'sanctoral = {'
+    elif name == 'temporal':
+        print('dictionary is in temporal')
+        print(name)
+        file_name = 'temporal/'+name+'_'+str(YEAR)+'.py'
+        mdl_name = 'temporal.'+name+'_'+str(YEAR)
+        dict_name = 'temporal'
+        dict_name_json = 'temporal = {'
+    elif name == 'calendar':
+        print('dictionary is in calendar')
+        print(name)
+        file_name = 'calen/'+name+'_'+str(YEAR)+'.py'
+        mdl_name = 'calen.'+name+'_'+str(YEAR)
+        dict_name = 'calen'
+        dict_name_json = 'calen = {'
+    else:
+        print('could not find dictionary: ' + name)
+        file_name = ''
+        mdl_name = ''
+        dict_name = ''
+        dict_name_json = ''
+    return (file_name, mdl_name, dict_name, dict_name_json)
+
+
+def commit_to_dictionary(target_file: str, dic: dict) -> None:
+    def write_dictionary(target_file: tuple, dic: dict) -> None:
+        with open(target_file[0], 'a') as f:
+            f.truncate(0)  # clean the file
+            for i, line in enumerate(sorted(dic)):
+                if i != 0:
+                    f.write('\''+line+'\' : '+str(dic[line])+',\n')
+                else:
+                    f.write(target_file[-1])
+            f.write('}')
+            return 0
+    write_dictionary(find_module(target_file), dic)
+    return 0
+
+
 def commemoration_ordering(direct: str) -> None:
-    """ Updates the keys in the feast dicionaries so that 
-        commemorations are numerically correct.
-
-    Args:
-        direct (str): The directory of the dictionary.
-        dictionary (int): The dictionary to be corrected.
-
-    Returns:
-        None: The dictionary is updated without any return.
-    """
     try:
         mdl = importlib.import_module(direct + str(YEAR))
     except ModuleNotFoundError:
@@ -282,6 +319,7 @@ def commemoration_ordering(direct: str) -> None:
             dic = mdl.calen
         except AttributeError:
             dic = mdl.sanctoral
+        # todo use the Feast class for this
     for x in list(dic.keys()):
         for data in list(dic[x].keys()):
             if 'com_1' in data:
@@ -309,20 +347,11 @@ def commemoration_ordering(direct: str) -> None:
     return 0
 
 
-# todo add a parameter for the flag to be detected.
 def dict_clean(direct: str, str_flag: str) -> None:
-    if direct[-1] == '_':
-        mdl = importlib.import_module(direct + str(YEAR))
-    else:
-        mdl = importlib.import_module(direct)
+    dict_information = find_module(direct)
+    dictionary = importlib.import_module(dict_information[1])
+    dic = dictionary.__dict__[dict_information[2]]
     flag = str_flag
-    try:
-        dic = mdl.temporal
-    except AttributeError:
-        try:
-            dic = mdl.calen
-        except AttributeError:
-            dic = mdl.sanctoral
     for x in sorted(dic):
         nobility_free = True
         if len(x) >= 6:
@@ -409,41 +438,19 @@ def dict_clean(direct: str, str_flag: str) -> None:
                         dic.pop(first.feast_date)
                     if len(second.feast_date) == 6:
                         dic.pop(second.feast_date)
-    # todo make this a seperate function
-    commemoration_ordering(direct)
-    with open(re.sub(r"\.", r'/', direct) + str(YEAR) + ".py", "a") as f:
-        f.truncate(0)
-        for i, line in enumerate(sorted(dic)):
-            if i == 0:
-                f.write(re.sub(r"/(temporal|calendar)", '', re.sub(r"\.", r'/', direct)+str(YEAR))
-                        + ' = {\n\''+line+'\': '+str(dic[line])+',\n')
-            else:
-                f.write('\''+line+'\' : '+str(dic[line])+',\n')
-        f.write('}')
-        return 0
+    commit_to_dictionary(target_file=direct, dic=dic)
+    return 0
 
 
-def stitch(year: int, s: str) -> None:
-    """ Combine two calendars into a single dictionary, appending all
-        doubled keys with a period.
-
-    Args:
-        year (int): year of the calendar being built
-        s (str):    the sanctoral calendar being combined
-
-    Returns:
-        NoneType: None
-    """
-    # todo make stitch() reuseable
+def stitch(sanctoral: str) -> None:
     mdl_temporal = importlib.import_module(
-        'temporal.temporal_' + str(year)
-    ).temporal
+        'temporal.temporal_'+str(YEAR)).temporal
     mdl_sanctoral = importlib.import_module(
-        'sanctoral.' + s
-    ).sanctoral
+        'sanctoral.diocese.'+sanctoral).sanctoral
+    # ! add a method here to add the other modules required for the sanctoral cycle
     mdlt, mdls = sorted(mdl_temporal), sorted(mdl_sanctoral)
     calen = {}
-    if leap_year(year) == False:
+    if leap_year(YEAR) == False:
         pass
     else:
         for event in mdls:
@@ -454,30 +461,20 @@ def stitch(year: int, s: str) -> None:
                 mdl_sanctoral.update({new_date if not new_date in mdl_sanctoral else (
                     new_date+'.' if not new_date+'.' in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
     for x in mdls:
-        print('within stitch: ' + x)
-        print('within stitch: ' + str(mdl_sanctoral[x]))
         feast = Feast(x, mdl_sanctoral[x])
         calen.update(
-            {feast.feast_date + '.' if x in mdlt else feast.feast_date: feast.feast_properties}
+            {feast.feast_date+'.' if x in mdlt else feast.feast_date: feast.feast_properties}
         )
     for y in mdlt:
         feast = Feast(y, mdl_temporal[y])
         calen.update({feast.feast_date: feast.feast_properties})
-    # ? do we actually have to write a new dictionary?
-    with open("calen/calendar_" + str(year) + ".py", "w") as f:
-        f.truncate(0)
-        for i, line in enumerate(sorted(calen)):
-            if i == 0:
-                f.write('calen = {\n\''+line+'\': '+str(calen[line])+',\n')
-            else:
-                f.write('\''+line+'\':'+str(calen[line])+',\n')
-        f.write('}')
+    commit_to_dictionary(target_file='calendar', dic=calen)
     return 0
 
 
 def explode_octaves(region_diocese: str) -> None:
-    # * take a calendar, and explode the octaves, then clean the calendar, then stitch the calendars
-    mdl = importlib.import_module('sanctoral.' + region_diocese).sanctoral
+    mdl = importlib.import_module(
+        'sanctoral.diocese.'+region_diocese).sanctoral
     for x in sorted(mdl):
         feast = Feast(x, mdl[x])
         # todo have the program check the nobility to see if the feast is an octave
@@ -485,7 +482,7 @@ def explode_octaves(region_diocese: str) -> None:
             if feast.nobility[2] == 4:  # common octave
                 # todo update this to handle every octave type
                 for k, y in enumerate(ROMANS[3:6], start=1):
-                    feast.name = 'De ' + y + ' die infra ' + feast.infra_octave_name
+                    feast.name = 'De '+y+' die infra'+feast.infra_octave_name
                     feast.rank_v = 'feria'
                     feast.rank_n = 18
                     mdl.update({str((datetime.strptime(feast.feast_date, '%m/%d')

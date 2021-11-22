@@ -1299,6 +1299,7 @@ def build_temporal(year):
                 if temporal_event in memory:
                     temporal_event += "."
                 memory.append(temporal_event)
+                # todo simplify this
                 if len(row) <= 7:
                     mini_dict = str(
                         dict(
