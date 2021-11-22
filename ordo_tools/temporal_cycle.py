@@ -2,43 +2,11 @@ import re
 from datetime import datetime
 from ordo_tools.ordo_tools import *
 
-LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', 'De necessitatibus',
-               'Intret oratio', 'Redime me', 'Tibi dixit', 'Ne derelinquas me',
-               'Deus, in adjutorium', 'Ego autem', 'Lex Domini', 'In Deo laudabo', 'Ego clamavi',
-               'Ego autem', 'Salus populi', 'Fac mecum', 'Verba mea', 'Deus, in nomine', 'Exaudi, Deus',
-               'Cum sanctificatus', 'Lætetur cor', 'Meditatio', 'Sitientes', 'Miserere mihi',
-               'Expecta Dominum', 'Liberator meus', 'Omnia, quæ fecisti', 'Miserere mihi', 'Miserere mihi',)
-
-# beginning with Dominica IV
-PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine', 'Dominus fortitudo', 'Omnes gentes',
-                    'Suscepimus', 'Ecce Deus', 'Cum clamarem', 'Deus in loco',
-                    'Deus in adjutorium', 'Respice Domine', 'Protector noster', 'Inclina Domine',
-                    'Miserere mihi', 'Justus es', 'Da pacem', 'Salus populi',
-                    'Omnia', 'In voluntate tua', 'Si iniquitates', 'Dicit Dominus',
-                    'Dicit Dominus',)
-
-EPIPHANY_MASSES = ()
-
-
-def find_extra_epiphany(pents):
-    if pents == 23:
-        pass
-    else:
-        return pents - 24
-
 
 def build_temporal(year):
     year = int(year)
     cycle = []
     # ? maybe get rid of this ?
-    feria = [
-        "Feria II",
-        "Feria III",
-        "Feria IV",
-        "Feria V",
-        "Feria VI",
-        "Sabbatum",
-    ]
     circumcision = day(year, 1, 1)
     cycle.extend(
         [
@@ -198,7 +166,7 @@ def build_temporal(year):
                             "In Octava Epiphaniæ",
                             [13, 'dm'],
                             {'int': 'Ecce advenit', 'glo': True,
-                             'cre': True, 'pre': 'et Communicantes de Epiphania'},
+                             'cre': True, 'pre': 'et Comm de Epiphania'},
                             {'proper': False, 'admag': '',
                                 'propers': {}, 'oration': ''},
                             False,
@@ -225,7 +193,7 @@ def build_temporal(year):
                         epiph_sundays[o] + " infra Oct. Epiphaniæ",
                         [11, 'dm'],
                         {'int': 'In excelso', 'glo': True,
-                            'cre': True, 'pre': 'et communicantes de Epiphania'},
+                            'cre': True, 'pre': 'et Comm de Epiphania'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
                         False,
@@ -310,7 +278,7 @@ def build_temporal(year):
                 easter(year) - week(6-c),
             ]
         )
-        for j, y in enumerate(feria):
+        for j, y in enumerate(FERIA):
             if x == "de Passione" and y == "Feria VI":
                 cycle.append(
                     [  # ! vespers
@@ -583,21 +551,11 @@ def build_temporal(year):
                         (9, 2, 6, 13, 3, 0,),
                         easter(year) + week(i) + indays(3),
                     ],
-                    # [  # ! mass, vespers
-                    #     "Vigilia Ascensionis",
-                    #     [18, 'vigilia'],
-                    #     {'int': 'Vocem iucunditatis', 'glo': True,
-                    #         'cre': False, 'pre': 'Paschalis'},
-                    #     {'proper': False, 'admag': '',
-                    #         'propers': {}, 'oration': ''},
-                    #     (9, 2, 6, 1, 3, 0,),
-                    #     easter(year) + week(i) + indays(3),
-                    # ],
                     [  # ! vespers
                         "Ascensio DNJC",
                         [2, 'd I cl cum Oct privil 3 ord'],
                         {'int': 'Viri Galilæi', 'glo': True,
-                            'cre': True, 'pre': 'et Communicantes de Ascensione'},
+                            'cre': True, 'pre': 'et Comm de Ascensione'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
                         False,
@@ -608,7 +566,7 @@ def build_temporal(year):
                         "Oct. Ascensionis DNJC",
                         [13, 'dm'],
                         {'int': 'Viri Galilæi', 'glo': True,
-                            'cre': True, 'pre': 'et Communicantes de Ascensione'},
+                            'cre': True, 'pre': 'et Comm de Ascensione'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
                         False,
@@ -806,7 +764,7 @@ def build_temporal(year):
                 else:
                     feria_index = int(
                         (corpus_christi+indays(j+1)).strftime("%w"))-1
-                    fer_num = feria[feria_index]
+                    fer_num = FERIA[feria_index]
                     cycle.append(
                         [
                             fer_num + " infra Oct. Ssmi Corporis Christi",
@@ -852,7 +810,7 @@ def build_temporal(year):
                 else:
                     feria_index = int(
                         (ssmi_cordis + indays(j + 1)).strftime("%w")) - 1
-                    fer_num = feria[feria_index]
+                    fer_num = FERIA[feria_index]
                     cycle.append(
                         [  # ! mass, vespsers
                             fer_num + " infra Oct. Ssmi Cordis DNJC",
@@ -1210,9 +1168,9 @@ def build_temporal(year):
             "Nativitas DNJC",
             [2, 'd I cl cum Oct privil 3 ord'],
             {
-                'Ad Primam Missam': {'int': 'Domine dixit', 'glo': True, 'cre': True, 'pre': 'et Communicantes (in hac Missa tantum dicitur "noctem") de Nativitate'},
-                'Ad Secundam Missam': {'int': 'Lux fulgebit', 'glo': True, 'cre': True, 'pre': 'et Communicantes de Nativitate'},
-                'Ad Tertiam Missam': {'int': 'Puer natus', 'glo': True, 'cre': True, 'pre': 'et Communicantes de Nativitate'},
+                'Ad Primam Missam': {'int': 'Domine dixit', 'glo': True, 'cre': True, 'pre': 'et Comm (in hac Missa tantum dicitur "noctem") de Nativitate'},
+                'Ad Secundam Missam': {'int': 'Lux fulgebit', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
+                'Ad Tertiam Missam': {'int': 'Puer natus', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
             },
             {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
             False,
@@ -1331,6 +1289,7 @@ def build_temporal(year):
                 if temporal_event in memory:
                     temporal_event += "."
                 memory.append(temporal_event)
+                # todo simplify this
                 if len(row) <= 7:
                     mini_dict = str(
                         dict(
@@ -1368,5 +1327,5 @@ def build_temporal(year):
                     str("\n'" + temporal_event + "'" + ": " + mini_dict + ",")
                 )
             f.write("}")
-        dict_clean("temporal.temporal_", year)
+        dict_clean("temporal.temporal_", '.')
     make_dict(year)
