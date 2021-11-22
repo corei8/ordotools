@@ -61,8 +61,8 @@ class Feast:
             'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%a, %b %-d')
         self.feast_properties = properties
         self.name = properties['feast']
-        if 'infra_oct_name' in properties.keys():
-            self.infra_octave_name = properties['infra_oct_name']
+        if 'infra_octave_name' in properties.keys():
+            self.infra_octave_name = properties['infra_octave_name']
         self.rank_v = properties['rank'][-1]  # verbose
         self.rank_n = properties['rank'][0]   # numeric
         self.mass = {}
@@ -165,12 +165,41 @@ class Feast:
             return 'ERROR!'
         return 'Off ' + off_type
 
-    def mass2latex(self) -> str:
+    def introit(self) -> list:
+        """Find the introit text for the feast
+
+        Returns:
+            str: Introit text
+        """
+        # todo add a methed to determine if it is a three Mass Introit or not.
+        introit_list = []
+        if len(self.mass.items()) == 1:
+            print(self.mass.keys())
+            if 'Ad Missam' in self.mass.keys():
+                if type(self.mass['Ad Missam']['int']) == str:
+                    introit_list.append(self.mass['Ad Missam']['int'])
+                else:
+                    # todo add a method to determine whether it is still pascahltime or not
+                    # ! just for testing purposes
+                    introit_list.append(self.mass['Ad Missam']['int'][0])
+            else:
+                pass
+        else:
+            for y in self.mass.keys():
+                introit_list.append(self.mass[y]['int'])
+        return introit_list
+
+    def display_mass_as_latex(self) -> str:
+        """Display the Mass as Latex code
+
+        Returns:
+            str: Latex code
+        """
         # todo add orations
+        print('working on ' + self.name)
         latexed_mass = ''
         status = []
         for y in self.mass.values():
-            print(self.feast_date, self.mass.values())
             gloria = y['glo']
             creed = y['cre']
             if gloria == True and creed == True:
@@ -181,12 +210,12 @@ class Feast:
                 status.append('C, ')
             else:
                 status.append('')
-        print(self.mass.items())
         i = 0
         for x, y in self.mass.items():
-            latexed_mass += '\\textbf{' + x + \
-                '}: \\textit{' + y['int'] + ',} ' + \
-                status[i] + 'Pre ' + y['pre']
+            # todo use the second in the string if it is Paschaltime.
+            latexed_mass += '\\textbf{'+x+'}: \\textit{' + \
+                self.introit()[i] + ',} ' + \
+                status[i]+'Pre '+y['pre']
             i += 1
         return latexed_mass
 
@@ -267,7 +296,7 @@ def find_module(name: str) -> tuple:
 
     Returns:
         tuple: Contains the name of the module, the function within the module, the name of the dictionary and the file name.
-    """    
+    """
     if '.' in name:
         name = name.split('.')[1].strip('_')
     if name+'.py' in listdir('sanctoral/diocese'):
@@ -306,7 +335,7 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
     Args:
         target_file (str): file to write to
         dic (dict): dictionary to write
-    """    
+    """
     def write_dictionary(target_file: tuple, dic: dict) -> None:
         """ Writes a dictionary to a file.
 
@@ -316,7 +345,7 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
 
         Returns:
             None: Writes the dictionary to the file with no return.
-        """        
+        """
         with open(target_file[0], 'a') as f:
             f.truncate(0)  # clean the file
             for i, line in enumerate(sorted(dic)):
@@ -338,7 +367,7 @@ def commemoration_ordering(direct: str) -> None:
 
     Returns:
         None: Commemorations are ordered without return.
-    """    
+    """
     try:
         mdl = importlib.import_module(direct + str(YEAR))
     except ModuleNotFoundError:
@@ -387,7 +416,7 @@ def dict_clean(direct: str, str_flag: str) -> None:
 
     Returns:
         None: Confliecs are resolved without return.
-    """    
+    """
     dict_information = find_module(direct)
     dictionary = importlib.import_module(dict_information[1])
     dic = dictionary.__dict__[dict_information[2]]
@@ -451,17 +480,17 @@ def dict_clean(direct: str, str_flag: str) -> None:
                 if nobility_free == False:
                     pass
                 else:
-                    # translation
+                    # * translation
                     if first.rank_n <= 4 and second.rank_n <= 10:
                         dic.update(
                             {first.feast_date.strip(flag): first.feast_properties})
                         dic.update(
                             {second.feast_date.strip(flag)+'_': second.feast_properties})
-                    # no commemoration
+                    # * no commemoration
                     elif first.rank_n <= 4 and second.rank_n > 10:
                         dic.update(
                             {first.feast_date.strip(flag): first.feast_properties})
-                    # commemoration
+                    # * commemoration
                     # todo refine these ranges:
                     elif 19 > first.rank_n > 4 and 19 > second.rank_n >= 6:
                         first.com_1 = second.feast
@@ -470,7 +499,7 @@ def dict_clean(direct: str, str_flag: str) -> None:
                     elif second.rank_n == 22:
                         dic.update(
                             {first.feast_date.strip(flag): first.feast_properties})
-                    # no commemoration
+                    # * no commemoration
                     else:
                         dic.update(
                             {first.feast_date.strip(flag): first.feast_properties})
@@ -482,7 +511,7 @@ def dict_clean(direct: str, str_flag: str) -> None:
     return 0
 
 
-def stitch(sanctoral: str) -> None:
+def stitch(sanctoral: dict) -> None:
     """ This function stitches the sanctoral and temporal dictionaries.
 
     Args:
@@ -490,17 +519,17 @@ def stitch(sanctoral: str) -> None:
 
     Returns:
         None: Creates the new calendar without returning anything.
-    """    
+    """
     mdl_temporal = importlib.import_module(
         'temporal.temporal_'+str(YEAR)).temporal
-    mdl_sanctoral = importlib.import_module(
-        'sanctoral.diocese.'+sanctoral).sanctoral
-    # ! add a method here to add the other modules required for the sanctoral cycle
+    mdl_sanctoral = sanctoral
+    # todo add a method here to add the other modules required for the sanctoral cycle
     mdlt, mdls = sorted(mdl_temporal), sorted(mdl_sanctoral)
     calen = {}
     if leap_year(YEAR) == False:
         pass
     else:
+        # todo leapyear should be solved before the stitching
         for event in mdls:
             if not 'leapdate' in mdl_sanctoral[event]:
                 pass
@@ -510,6 +539,7 @@ def stitch(sanctoral: str) -> None:
                     new_date+'.' if not new_date+'.' in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
     for x in mdls:
         feast = Feast(x, mdl_sanctoral[x])
+        print(feast.feast_date, feast.name)
         calen.update(
             {feast.feast_date+'.' if x in mdlt else feast.feast_date: feast.feast_properties}
         )
@@ -519,18 +549,21 @@ def stitch(sanctoral: str) -> None:
     commit_to_dictionary(target_file='calendar', dic=calen)
     return 0
 
+#! the sanctoral cycle should be immutable!
 
-def explode_octaves(region_diocese: str) -> None:
-    """ Takes the Octaves in the Sanctoral cycle and explodes them into their days withing the octave.
+
+def explode_octaves(region_diocese: str) -> dict:
+    """ Takes the Octaves in the Sanctoral cycle and explodes them into their days within the octave.
 
     Args:
         region_diocese (str): diocese for the calendar to be generated.
 
     Returns:
-        None: The days will be propagated without return.
-    """    
+        Dict: Dictionary to be stitched to the temporal calendar.
+    """
     mdl = importlib.import_module(
         'sanctoral.diocese.'+region_diocese).sanctoral
+    return_dict = {}
     for x in sorted(mdl):
         feast = Feast(x, mdl[x])
         # todo have the program check the nobility to see if the feast is an octave
@@ -538,9 +571,14 @@ def explode_octaves(region_diocese: str) -> None:
             if feast.nobility[2] == 4:  # common octave
                 # todo update this to handle every octave type
                 for k, y in enumerate(ROMANS[3:6], start=1):
-                    feast.name = 'De '+y+' die infra'+feast.infra_octave_name
+                    print(feast.name)
+                    feast.name = 'De '+y+' die infra '+feast.infra_octave_name
                     feast.rank_v = 'feria'
                     feast.rank_n = 18
-                    mdl.update({str((datetime.strptime(feast.feast_date, '%m/%d')
-                                     + indays(k)).strftime('%m/%d')) + '_': feast.updated_properties})
-    return None
+                    # ? is this the correct way to do this?
+                    return_dict.update({str((datetime.strptime(feast.feast_date, '%m/%d') +
+                                             indays(k)).strftime('%m/%d'))+'_': feast.updated_properties})
+        else:
+            return_dict.update({feast.feast_date: feast.feast_properties})
+    # todo create a dictionary of the new feast dates and properties
+    return return_dict

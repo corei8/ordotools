@@ -559,7 +559,7 @@ sanctoral = {
         'feast': 'S Pauli a Cruce C',
         'rank': [15, 'd'],
         'nobility': (False,),
-         'com_2': {'feast': 'S Vitali M', 'mass': {'int': ['Protexisti', 'In virtute'], 'glo': True, 'cre': False, 'pre': 'Communis'},
+         'com_2': {'feast': 'S Vitali M', 'mass': {'int': ['Protexisti', 'In virtute'], 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'mass': {'int': 'Christo confixus sum', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''}
@@ -945,6 +945,7 @@ sanctoral = {
     },
     '06/24': {
         'feast': 'In Nativitate S Joannis Baptistæ',
+        'infra_octave_name': 'Octava S Joannis Baptistæ',
         'rank': [2, 'd I cl cum Oct communi'],
         'nobility': (1, 0, 4, 4, 1, 0,),
         'office_type': False,
@@ -981,6 +982,7 @@ sanctoral = {
     },
     '06/29': {
         'feast': 'Ss Petri & Pauli App',
+        'infra_octave_name': 'Octava Ss Petri & Pauli App',
         'rank': [2, 'd I cl cum Oct communi'],
         'nobility': (1, 2, 4, 5, 1, 0,),
         'office_type': False,
@@ -991,7 +993,7 @@ sanctoral = {
         'feast': 'In Commemoratione S Pauli Apostoli',
         'rank': [14, 'dm'],
         'nobility': (False,),
-        'com_2': {'feast': 'S Petri Ap', 'mass': {'int': '', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
+        'com_2': {'feast': 'S Petri Ap', 'mass': {'int': '', 'glo': True, 'cre': True, 'pre': 'de Apostolis'}},
         'com_3': {'feast': 'In Octava S Joannis Baptistae'},
         'office_type': False,
         'mass': {'int': 'Scio, cui credidi', 'glo': True, 'cre': True, 'pre': 'de Apostolis'},
@@ -1371,6 +1373,7 @@ sanctoral = {
     },
     '08/15': {
         'feast': 'In Assumptione BMV',
+        'infra_octave_name': 'Octava Assumptionis BMV',
         'rank': [2, 'd I cl cum Oct communi'],
         'nobility': (1, 1, 4, 2, 1, 0),
         'office_type': False,
@@ -1932,6 +1935,7 @@ sanctoral = {
 
     '11/01': {
         'feast': 'In Festo Omnium Sanctorum',
+        'infra_octave_name': 'Octava Omnium Sanctorum',
         'rank': [2, 'd I cl cum Oct communi'],
         'nobility': (1, 1, 4, 3, 1, 0,),
         'office_type': False,

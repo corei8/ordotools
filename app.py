@@ -16,15 +16,11 @@ from ordo_tools.outputs import build_latex_ordo
 def app(year: int, diocese: str):
     global_year(year)
     build_temporal(year)
-    explode_octaves(region_diocese='roman')
-    dict_clean('roman', '_')
-    stitch(diocese)
+    stitch(sanctoral=explode_octaves(region_diocese=diocese))
     dict_clean('calendar', '.')
-    # readme_calendar(year)
+    dict_clean('calendar', '_')
     build_latex_ordo(year)
 
  # todo use os to get a list of the dioceses or regions needed to complete an ordo
 
-
-# 2024 is a leap year
 app(year=2022, diocese="roman")

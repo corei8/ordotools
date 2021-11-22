@@ -232,7 +232,7 @@ def build_latex_ordo(year):
             f.write('\\textbf{Ad Primam: }')
             f.write(feast.preces)
             f.write('\n')
-            f.write(feast.mass2latex())
+            f.write(feast.display_mass_as_latex())
             f.write('\n')
             f.write('\\textbf{In Vesp: }')
             f.write('\n')
