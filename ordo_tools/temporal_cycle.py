@@ -1366,7 +1366,8 @@ def build_temporal(year):
                             )
                         )
                     )
-                else:  # just for the circumcision
+                # just for the circumcision
+                elif len(row) == 8:
                     mini_dict = str(
                         dict(
                             zip(
@@ -1383,6 +1384,8 @@ def build_temporal(year):
                             )
                         )
                     )
+                else:
+                    pass 
                 f.write(
                     str("\n'" + temporal_event + "'" + ": " + mini_dict + ",")
                 )

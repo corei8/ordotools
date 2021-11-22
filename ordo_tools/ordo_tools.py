@@ -350,7 +350,8 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
                 if i != 0:
                     f.write('\''+line+'\' : '+str(dic[line])+',\n')
                 else:
-                    f.write(target_file[-1])
+                    f.write(target_file[-1]+'\''+line +
+                            '\' : '+str(dic[line])+',\n')
             f.write('}')
             return 0
     write_dictionary(find_module(target_file), dic)
