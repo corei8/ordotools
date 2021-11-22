@@ -3,7 +3,7 @@ import dateutil.easter
 import importlib
 import re
 from os import listdir
-from ordo_tools.logger import *
+# from ordo_tools.logger import logger
 
 from ordo_tools.settings import YEAR
 
@@ -65,8 +65,8 @@ class Feast:
         self.name = properties['feast']
         if 'infra_octave_name' in properties.keys():
             self.infra_octave_name = properties['infra_octave_name']
-        self.rank_v = properties['rank'][-1]  # verbose
-        self.rank_n = properties['rank'][0]   # numeric
+        self.rank_v = properties['rank'][-1]  # verbose rank
+        self.rank_n = properties['rank'][0]   # numeric rank
         self.mass = {}
         if 'int' in properties['mass'].keys():
             self.mass = {'Ad Missam': properties['mass']}
@@ -191,11 +191,7 @@ class Feast:
         return introit_list
 
     def display_mass_as_latex(self) -> str:
-        """Display the Mass as Latex code
-
-        Returns:
-            str: Latex code
-        """
+        """ return the Mass as LaTeX code """
         # todo add orations
         latexed_mass = ''
         status = []
@@ -220,6 +216,7 @@ class Feast:
         return latexed_mass
 
     def commemoration2latex(self):
+        """ return the commemorations as LaTeX code """
         com_list = '\n'
         if self.com_1 != False:
             com_list += self.com_1.com_feast
@@ -238,38 +235,45 @@ class Feast:
 #===-===-=== COMMON FUNCTIONS ===-===-=== #
 
 
-def easter(year: int):
+def easter(year: int) -> datetime:
+    """ return the date of easter for this year """
     return datetime(year=int(dateutil.easter.easter(year).strftime('%Y')), month=int(dateutil.easter.easter(year).strftime('%m')), day=int(dateutil.easter.easter(year).strftime('%d')))
 
 
-def day(year: int, month: int, day: int):
+def day(year: int, month: int, day: int) -> datetime:
     return datetime(year=year, month=month, day=day)
 
 
-def week(i: int):
+def week(i: int) -> timedelta:
+    """ return a timedelta week, with integers as the input """
     return timedelta(weeks=i)
 
 
-def indays(numdays: int):
+def indays(numdays: int) -> timedelta:
+    """ return a timedelta day(s), with integers as the input """
     return timedelta(days=numdays)
 
 
-def weekday(date: datetime):
+def weekday(date: datetime) -> str:
+    """ return the weekday, with datetime as the input """
     return date.strftime('%a')
 
 
-def findsunday(date):
+def findsunday(date: datetime) -> timedelta:
+    """ return the distance of the datetime date from the previous Sunday, as a days timedelta """
     return timedelta(days=int(date.strftime('%w')))
 
 
-def find_extra_epiphany(pents):
+def find_extra_epiphany(pents: int) -> int:
+    """ return the number of Sundays not celebrated after Epiphany """
     if pents == 23:
         pass
     else:
         return pents - 24
 
 
-def leap_year(year: int):
+def leap_year(year: int) -> bool:
+    """ return true if year is a leap year """
     if (year % 4) == 0:
         if (year % 100) == 0:
             if (year % 400) == 0:
@@ -282,7 +286,8 @@ def leap_year(year: int):
         return False
 
 
-def latex_replacement(string: str):
+def latex_replacement(string: str) -> str:
+    """ return a string formatted for LaTeX """
     return re.sub('&', '\&', re.sub('_', '\_', string))
 
 #===-===-=== HEAVY-HITTING FUNCTIONS ===-===-=== #
@@ -557,7 +562,6 @@ def explode_octaves(region_diocese: str) -> dict:
     return_dict = {}
     for x in sorted(mdl):
         feast = Feast(x, mdl[x])
-        logging.info(feast.name)
         # todo have the program check the nobility to see if the feast is an octave
         if 'Oct' in feast.rank_v:
             if feast.nobility[2] == 4:  # common octave
