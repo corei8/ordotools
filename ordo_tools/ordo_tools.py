@@ -3,8 +3,10 @@ import dateutil.easter
 import importlib
 import re
 from os import listdir
+from ordo_tools.logger import *
 
 from ordo_tools.settings import YEAR
+
 
 #===-===-=== GLOBALS ===-===-=== #
 
@@ -174,7 +176,6 @@ class Feast:
         # todo add a methed to determine if it is a three Mass Introit or not.
         introit_list = []
         if len(self.mass.items()) == 1:
-            print(self.mass.keys())
             if 'Ad Missam' in self.mass.keys():
                 if type(self.mass['Ad Missam']['int']) == str:
                     introit_list.append(self.mass['Ad Missam']['int'])
@@ -196,7 +197,6 @@ class Feast:
             str: Latex code
         """
         # todo add orations
-        print('working on ' + self.name)
         latexed_mass = ''
         status = []
         for y in self.mass.values():
@@ -300,28 +300,21 @@ def find_module(name: str) -> tuple:
     if '.' in name:
         name = name.split('.')[1].strip('_')
     if name+'.py' in listdir('sanctoral/diocese'):
-        print('dictionary is in sanctoral/diocese')
-        print(name)
         file_name = 'sanctoral/diocese/'+name+'.py'
         mdl_name = 'sanctoral.diocese.'+name
         dict_name = 'sanctoral'
         dict_name_json = 'sanctoral = {'
     elif name == 'temporal':
-        print('dictionary is in temporal')
-        print(name)
         file_name = 'temporal/'+name+'_'+str(YEAR)+'.py'
         mdl_name = 'temporal.'+name+'_'+str(YEAR)
         dict_name = 'temporal'
         dict_name_json = 'temporal = {'
     elif name == 'calendar':
-        print('dictionary is in calendar')
-        print(name)
         file_name = 'calen/'+name+'_'+str(YEAR)+'.py'
         mdl_name = 'calen.'+name+'_'+str(YEAR)
         dict_name = 'calen'
         dict_name_json = 'calen = {'
     else:
-        print('could not find dictionary: ' + name)
         file_name = ''
         mdl_name = ''
         dict_name = ''
@@ -445,7 +438,6 @@ def dict_clean(direct: str, str_flag: str) -> None:
                             if x == y:
                                 continue
                             elif x != y:
-                                print(x, y)
                                 if x > y:
                                     less_noble, more_noble = first_, second_
                                     break
@@ -539,7 +531,6 @@ def stitch(sanctoral: dict) -> None:
                     new_date+'.' if not new_date+'.' in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
     for x in mdls:
         feast = Feast(x, mdl_sanctoral[x])
-        print(feast.feast_date, feast.name)
         calen.update(
             {feast.feast_date+'.' if x in mdlt else feast.feast_date: feast.feast_properties}
         )
@@ -566,12 +557,12 @@ def explode_octaves(region_diocese: str) -> dict:
     return_dict = {}
     for x in sorted(mdl):
         feast = Feast(x, mdl[x])
+        logging.info(feast.name)
         # todo have the program check the nobility to see if the feast is an octave
         if 'Oct' in feast.rank_v:
             if feast.nobility[2] == 4:  # common octave
                 # todo update this to handle every octave type
                 for k, y in enumerate(ROMANS[3:6], start=1):
-                    print(feast.name)
                     feast.name = 'De '+y+' die infra '+feast.infra_octave_name
                     feast.rank_v = 'feria'
                     feast.rank_n = 18

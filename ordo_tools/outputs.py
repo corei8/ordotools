@@ -6,7 +6,6 @@ from ordo_tools.ordo_tools import latex_replacement, Feast
 
 
 def readme_calendar(year):
-    print('rendering README.md...')
     mdl = importlib.import_module(
         'calen.calendar_' + str(year)).calen
     mdldates = sorted(mdl)
