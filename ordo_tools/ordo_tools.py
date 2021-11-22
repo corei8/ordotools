@@ -260,6 +260,14 @@ def latex_replacement(string: str):
 
 
 def find_module(name: str) -> tuple:
+    """ Finds the module and the function within the module.
+
+    Args:
+        name (str): Name of the dictionary to find.
+
+    Returns:
+        tuple: Contains the name of the module, the function within the module, the name of the dictionary and the file name.
+    """    
     if '.' in name:
         name = name.split('.')[1].strip('_')
     if name+'.py' in listdir('sanctoral/diocese'):
@@ -293,7 +301,22 @@ def find_module(name: str) -> tuple:
 
 
 def commit_to_dictionary(target_file: str, dic: dict) -> None:
+    """ Takes a dictionary and writes it to a file.
+
+    Args:
+        target_file (str): file to write to
+        dic (dict): dictionary to write
+    """    
     def write_dictionary(target_file: tuple, dic: dict) -> None:
+        """ Writes a dictionary to a file.
+
+        Args:
+            target_file (tuple): The name and path of the file to write to.
+            dic (dict): dictionary to write
+
+        Returns:
+            None: Writes the dictionary to the file with no return.
+        """        
         with open(target_file[0], 'a') as f:
             f.truncate(0)  # clean the file
             for i, line in enumerate(sorted(dic)):
@@ -308,6 +331,14 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
 
 
 def commemoration_ordering(direct: str) -> None:
+    """ Adjusts the ordering of the commeorations so so that the first commemoration is always COM_1
+
+    Args:
+        direct (str): dictionary whose commemorations are to be ordered
+
+    Returns:
+        None: Commemorations are ordered without return.
+    """    
     try:
         mdl = importlib.import_module(direct + str(YEAR))
     except ModuleNotFoundError:
@@ -348,6 +379,15 @@ def commemoration_ordering(direct: str) -> None:
 
 
 def dict_clean(direct: str, str_flag: str) -> None:
+    """ Resolves conflicts between the sanctoral and temporal dictionaries, which are flagged with either a period or an underscore.
+
+    Args:
+        direct (str): The calendar to be cleaned.
+        str_flag (str): The flag to be used to identify the conflicts, either . or _.
+
+    Returns:
+        None: Confliecs are resolved without return.
+    """    
     dict_information = find_module(direct)
     dictionary = importlib.import_module(dict_information[1])
     dic = dictionary.__dict__[dict_information[2]]
@@ -443,6 +483,14 @@ def dict_clean(direct: str, str_flag: str) -> None:
 
 
 def stitch(sanctoral: str) -> None:
+    """ This function stitches the sanctoral and temporal dictionaries.
+
+    Args:
+        sanctoral (str): Sanctoral dictionary for the calendar.
+
+    Returns:
+        None: Creates the new calendar without returning anything.
+    """    
     mdl_temporal = importlib.import_module(
         'temporal.temporal_'+str(YEAR)).temporal
     mdl_sanctoral = importlib.import_module(
@@ -473,6 +521,14 @@ def stitch(sanctoral: str) -> None:
 
 
 def explode_octaves(region_diocese: str) -> None:
+    """ Takes the Octaves in the Sanctoral cycle and explodes them into their days withing the octave.
+
+    Args:
+        region_diocese (str): diocese for the calendar to be generated.
+
+    Returns:
+        None: The days will be propagated without return.
+    """    
     mdl = importlib.import_module(
         'sanctoral.diocese.'+region_diocese).sanctoral
     for x in sorted(mdl):
