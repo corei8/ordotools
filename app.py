@@ -20,7 +20,6 @@ def app(year: int, diocese: str):
     dict_clean('roman', '_')
     stitch(diocese)
     dict_clean('calendar', '.')
-    # latex_full_cal_test(year)
     # readme_calendar(year)
     build_latex_ordo(year)
 
