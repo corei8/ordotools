@@ -217,11 +217,12 @@ def build_temporal(year):
                 [  # ! vespers
                     "Dominica " + epiph_sundays[o] + " post Epiphaniam",
                     [12, 'sd'],
+                    # todo add the correct introits
                     {'int': 'Omnis terra', 'glo': True,
                         'cre': True, 'pre': 'de Ssma Trinitate'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                    False,
+                    'dominica',
                     (False,),
                     epiph_counter,
                 ]
@@ -240,7 +241,7 @@ def build_temporal(year):
                             'cre': True, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (False,),
                         easter(year) - week(6-c) - indays(4),
                     ],
@@ -251,7 +252,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (False,),
                         easter(year) - week(6-c) - indays(3),
                     ],
@@ -262,7 +263,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (False,),
                         easter(year) - week(6-c) - indays(2),
                     ],
@@ -273,7 +274,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (False,),
                         easter(year) - week(6-c) - indays(1),
                     ],
@@ -286,7 +287,7 @@ def build_temporal(year):
                 {'int': 'Missa', 'glo': False, 'cre': True, 'pre': 'de Quadragesima'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'dominica',
                 (False,),
                 easter(year) - week(6-c),
             ]
@@ -432,7 +433,7 @@ def build_temporal(year):
                     'cre': True, 'pre': 'Paschalis'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'festiva',
                 (False,),
                 easter(year)
             ],
@@ -552,7 +553,7 @@ def build_temporal(year):
                             'cre': True, 'pre': 'Paschalis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (0, 0, 0, 13, 0, 0,),
                         easter(year) + week(i) + indays(1),
                     ],
@@ -563,7 +564,7 @@ def build_temporal(year):
                             'cre': True, 'pre': 'Paschalis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (0, 0, 0, 13, 0, 0,),
                         easter(year) + week(i) + indays(2),
                     ],
@@ -574,7 +575,7 @@ def build_temporal(year):
                             'cre': True, 'pre': 'Paschalis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (9, 2, 6, 13, 3, 0,),
                         easter(year) + week(i) + indays(3),
                     ],
@@ -585,7 +586,7 @@ def build_temporal(year):
                             'cre': True, 'pre': 'et Comm de Ascensione'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'festiva',
                         (False,),
                         easter(year) + week(i) + indays(4),
                     ],
@@ -644,7 +645,7 @@ def build_temporal(year):
                         'cre': True, 'pre': 'Paschalis'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                    False,
+                    'dominica',
                     (False,),
                     easter(year) + week(i)
                 ]
@@ -657,7 +658,7 @@ def build_temporal(year):
                     {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                    False,
+                    'dominica',
                     (False,),
                     easter(year) + week(i)
                 ]
@@ -683,7 +684,7 @@ def build_temporal(year):
                     'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'festiva',
                 (False,),
                 pent_date,
             ],
@@ -699,7 +700,7 @@ def build_temporal(year):
                         'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                    False,
+                    'feria',
                     (False,),
                     pent_date + indays(j + 1),
                 ]
@@ -713,7 +714,7 @@ def build_temporal(year):
                         'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                    False,
+                    'feria',
                     (False,),
                     pent_date + indays(j + 1),
                 ]
@@ -727,7 +728,7 @@ def build_temporal(year):
                     'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'feria',
                 (False,),
                 pent_date + indays(j + 2),
             ],
@@ -738,7 +739,7 @@ def build_temporal(year):
                     'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'feria',
                 (False,),
                 easter(year) + week(i) + indays(3),
             ],
@@ -749,7 +750,7 @@ def build_temporal(year):
                     'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'feria',
                 (False,),
                 easter(year) + week(i) + indays(5),
             ],
@@ -760,7 +761,7 @@ def build_temporal(year):
                     'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'feria',
                 (False,),
                 easter(year) + week(i) + indays(6),
             ],
@@ -775,7 +776,7 @@ def build_temporal(year):
                 'cre': True, 'pre': 'de Ssma Trinitate'},
             {'proper': False, 'admag': [
                 'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-            False,
+            'festiva',
             (False,),
         ],
         [  # ! vespers
@@ -785,7 +786,7 @@ def build_temporal(year):
                 'cre': True, 'pre': 'de Nativitate, vel de Ssma Trinitate'},
             {'proper': False, 'admag': [
                 'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-            False,
+            'dominica',
             (False,),
         ],
         [  # ! mass, vespers
@@ -794,7 +795,7 @@ def build_temporal(year):
             {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
             {'proper': False, 'admag': [
                 'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-            False,
+            'dominica',
             (False,),
         ],
     ]
@@ -816,7 +817,7 @@ def build_temporal(year):
                                 'cre': True, 'pre': 'Communis'},
                             {'proper': False, 'admag': '',
                                 'propers': {}, 'oration': ''},
-                            False,
+                            'feria',
                             (False,),
                             corpus_christi + indays(j + 1),
                         ]
@@ -829,7 +830,7 @@ def build_temporal(year):
                         'cre': True, 'pre': 'de Nativitate'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                    False,
+                    'festiva',
                     (False,),
                     corpus_christi,
                 ]
@@ -865,7 +866,7 @@ def build_temporal(year):
                                 'cre': True, 'pre': 'de Ssmo Corde Iesu vel de Ssma Trinitate'},
                             {'proper': False, 'admag': '',
                                 'propers': {}, 'oration': ''},
-                            False,
+                            'dominica',
                             (False,),
                             ssmi_cordis + indays(j + 1),
                         ]
@@ -879,7 +880,7 @@ def build_temporal(year):
                             'cre': True, 'pre': 'de Ssmo Corde Iesu'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'festiva',
                         (1, 0, 3, 1, 1, 0),
                         ssmi_cordis,
                     ],
@@ -917,7 +918,7 @@ def build_temporal(year):
                         'cre': True, 'pre': 'de Trinitate'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                    False,
+                    'dominica',
                     (False,),
                     post_pent_count + week(p),
                 ]
@@ -931,7 +932,7 @@ def build_temporal(year):
                          'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (8, 2, 6, 13, 3, 0,),
                         post_pent_count + week(p) + indays(t+1),
                     ]
@@ -959,7 +960,7 @@ def build_temporal(year):
                          'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (8, 2, 6, 13, 3, 0,),
                         post_pent_count + week(p) + indays(t+1),
                     ]
@@ -974,7 +975,7 @@ def build_temporal(year):
                         'cre': True, 'pre': 'de Trinitate'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                    False,
+                    'dominica',
                     (False,),
                     post_pent_count + week(p),
                 ]
@@ -988,7 +989,7 @@ def build_temporal(year):
                          'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (8, 2, 6, 13, 3, 0,),
                         post_pent_count + week(p) + indays(t+1),
                     ]
@@ -1005,7 +1006,7 @@ def build_temporal(year):
                             'cre': True, 'pre': 'de Trinitate'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'dominica',
                         (False,),
                         post_pent_count + week(p+y),
                     ]
@@ -1019,7 +1020,7 @@ def build_temporal(year):
                              'cre': False, 'pre': 'Communis'},
                             {'proper': False, 'admag': '',
                                 'propers': {}, 'oration': ''},
-                            False,
+                            'feria',
                             (8, 2, 6, 13, 3, 0,),
                             post_pent_count + week(p+y) + indays(t+1),
                         ]
@@ -1039,7 +1040,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (False,),
                         post_pent_count + week(p) + indays(3),
                     ],
@@ -1050,7 +1051,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (False,),
                         post_pent_count + week(p) + indays(5),
                     ],
@@ -1061,7 +1062,7 @@ def build_temporal(year):
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'feria',
                         (False,),
                         post_pent_count + week(p) + indays(6),
                     ],
@@ -1079,7 +1080,7 @@ def build_temporal(year):
                             'cre': True, 'pre': 'de DNJC Rege'},
                         {'proper': False, 'admag': '',
                             'propers': {}, 'oration': ''},
-                        False,
+                        'festiva',
                         (False,),
                         christ_king,
                     ],
@@ -1211,7 +1212,7 @@ def build_temporal(year):
                 'cre': False, 'pre': 'Communis'},
             {'proper': False, 'admag': [
                 'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-            False,
+            'feria',
             (False,),
             christmas - indays(1)
         ],  # TODO If the vigil is a Sunday, there is a commemoration, Creed, de Trinitate, but no Proper Last Gospel
@@ -1225,7 +1226,7 @@ def build_temporal(year):
             },
             {'proper': False, 'admag': [
                 'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-            False,
+            'festiva',
             (False,),
             christmas
         ],
@@ -1240,7 +1241,7 @@ def build_temporal(year):
                 {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'dominica',
                 (False,),
                 christmas + indays(5),
             ]
@@ -1254,7 +1255,7 @@ def build_temporal(year):
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'dominica',
                 (False,),
                 christmas + indays(7) - findsunday(christmas),
             ]
@@ -1270,7 +1271,7 @@ def build_temporal(year):
                 {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'feria',
                 (False,),
                 christmas + indays(5),
             ]
@@ -1284,7 +1285,7 @@ def build_temporal(year):
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'festiva',
                 (False,),
                 christmas + indays(1),
             ],
@@ -1295,7 +1296,7 @@ def build_temporal(year):
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'festiva',
                 (False,),
                 christmas + indays(2),
             ],
@@ -1306,7 +1307,7 @@ def build_temporal(year):
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'festiva',
                 (False,),
                 christmas + indays(3),
             ],
@@ -1317,7 +1318,7 @@ def build_temporal(year):
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'festiva',
                 (False,),
                 christmas + indays(4),
             ],
@@ -1328,7 +1329,7 @@ def build_temporal(year):
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'festiva',
                 (False,),
                 christmas + indays(6),
             ],

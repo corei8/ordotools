@@ -20,7 +20,7 @@ def app(year: int, diocese: str):
     dict_clean('calendar', '.')
     dict_clean('calendar', '_')
     build_latex_ordo(year)
-    build_latin_calendar(year)
+    # build_latin_calendar(year)
 
  # todo use os to get a list of the dioceses or regions needed to complete an ordo
 
