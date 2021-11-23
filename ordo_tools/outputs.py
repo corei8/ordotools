@@ -11,7 +11,8 @@ def readme_calendar(year):
     mdldates = sorted(mdl)
     with open('README.md', 'a') as f:
         f.truncate(0)
-        f.write('''
+        f.write(
+            r'''
 # Ordo
 
 Pre-Vatican II Roman Catholic Ordo with proper readings indicated for the Divine Office and the Mass.
@@ -174,6 +175,78 @@ def latex_full_cal_test(year):
     return 0
 
 
+def build_latin_calendar(year) -> None:
+    # todo make this calendar import work with a variable
+    mdl = importlib.import_module(
+        'calen.calendar_' + str(year)).calen
+    mdldates = sorted(mdl)
+    with open('output/latex_calendar/calendar_'+str(year)+'.tex', 'a') as f:
+        f.truncate(0)
+        f.write(
+            r"""
+% !TEX program = lualatex
+\documentclass[10pt]{article}
+\usepackage{calendar_letter}
+\usepackage[landscape, letterpaper, margin=.25in]{geometry}
+\usepackage{palatino}
+\begin{document}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\StartingDayNumber=1
+"""
+        )
+        for i in range(1, 13):
+            blank_days = datetime.strptime(
+                str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%w')
+            month = datetime.strptime(
+                str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%B')
+            f.write(
+                r'''
+\begin{center}
+    \textsc{\LARGE '''+month+r'''}\\ % Month
+    % \textsc{\large Year} \\ % Year
+\end{center}
+\begin{calendar}{\textwidth}
+'''
+            )
+            for x in range(int(blank_days)):
+                f.write(
+                    r'''
+\BlankDay
+'''
+                )
+            f.write(r'''
+\setcounter{calendardate}{1}
+'''
+                    )
+            for x in mdldates:
+                if int(x.split('/')[0]) == i:
+                    feast = Feast(x, mdl[x])
+                    f.write(
+                        r'''
+\day{'''+latex_replacement(feast.name)+r'''}{\vspace{1.5cm}}
+'''
+                    )
+            f.write(
+                r'''
+\finishCalendar
+\end{calendar}
+\pagebreak
+'''
+            )
+        f.write(
+            r'''
+\end{document}
+            '''
+        )
+    file = 'calendar_'+str(year)+'.tex'
+    working_dir = os.getcwd()
+    os.chdir('output/latex_calendar/')
+    subprocess.run('lualatex '+file+' -interaction nonstopmode', shell=True)
+    os.chdir(working_dir)
+    return None
+
+
 def build_latex_ordo(year):
     # todo make this calendar import work with a variable
     mdl = importlib.import_module(
@@ -184,7 +257,7 @@ def build_latex_ordo(year):
         f.write(
             r"""
 % !TEX program = lualatex
-\documentclass[letterpaper, 10pt]{article}
+\documentclass[10pt]{article}
 \title{Ordo 2022}
 %\usepackage{tabularx}
 %\tracingtabularx
@@ -198,20 +271,20 @@ def build_latex_ordo(year):
 \usepackage[latin]{babel}
 \usepackage{fontspec}
 \setlength{\columnseprule}{0.4pt}
-% LETTERPAPER:
-% \geometry{paperheight=8.5in, paperwidth=11in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
+\geometry{paperwidth=8.5in, paperwidth=5.5in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
 \begin{document}
 """
         )
         f.write('\\begin{center}\n')
-        f.write('\\Huge Ordo ' + str(year))
+        f.write('\\textsc{\\Huge Ordo ' + str(year) + '}\n')
         f.write('\\end{center}\n')
         for x in mdldates:
             feast = Feast(x, mdl[x])
             # todo #6 make the latin day of the week using FERIAS in temporal_cycle.py
             # todo use tables for the ordo parts to prevent breaking across pages
             f.write('\n')
-            f.write('\\hrule\n')
+            f.write('\\begin{minipage}{3.5in}\n')
+            f.write('\\vspace{2em}')
             f.write('\\begin{center}\n')
             f.write(latex_replacement(feast.feast_date_display) + '\n')
             f.write('\\end{center}')
@@ -238,6 +311,7 @@ def build_latex_ordo(year):
             f.write('\\textbf{Ad Compl: }')
             f.write(feast.preces)
             f.write('\\end{justify}\n')
+            f.write('\\end{minipage}\n')
             f.write('\n\n')
             # todo find a solution for labeling the commemorations
         f.write("\n\end{document}")

@@ -10,7 +10,7 @@
 
 from ordo_tools.temporal_cycle import build_temporal
 from ordo_tools.ordo_tools import *
-from ordo_tools.outputs import build_latex_ordo
+from ordo_tools.outputs import build_latex_ordo, build_latin_calendar
 
 
 def app(year: int, diocese: str):
@@ -20,6 +20,7 @@ def app(year: int, diocese: str):
     dict_clean('calendar', '.')
     dict_clean('calendar', '_')
     build_latex_ordo(year)
+    build_latin_calendar(year)
 
  # todo use os to get a list of the dioceses or regions needed to complete an ordo
 

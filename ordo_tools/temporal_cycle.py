@@ -18,7 +18,7 @@ def build_temporal(year):
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'festiva',
                 (False,),
                 circumcision,
             ],
@@ -68,7 +68,7 @@ def build_temporal(year):
                     'cre': True, 'pre': 'de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'festiva',
                 (False,),
                 day(year, 1, 2),
             ]
@@ -82,7 +82,7 @@ def build_temporal(year):
                     'cre': True, 'pre': 'de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'festiva',
                 (False,),
                 circumcision-findsunday(circumcision)+week(1),
             ]
@@ -98,7 +98,7 @@ def build_temporal(year):
                 {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                False,
+                'dominica',
                 (False,),
                 easter(year) - week(9 - i),
             ]
@@ -113,7 +113,7 @@ def build_temporal(year):
                 'cre': True, 'pre': 'de Nativitate'},
             {'proper': False, 'admag': [
                 'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-            False,
+            'feria',
             (False,),
             epiphany - indays(1),
         ],
@@ -126,7 +126,7 @@ def build_temporal(year):
                 'cre': True, 'pre': 'de Epiphania'},
             {'proper': False, 'admag': [
                 'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-            False,
+            'feastiva',
             (False,),
             epiphany,
         ],
@@ -1385,7 +1385,7 @@ def build_temporal(year):
                         )
                     )
                 else:
-                    pass 
+                    pass
                 f.write(
                     str("\n'" + temporal_event + "'" + ": " + mini_dict + ",")
                 )

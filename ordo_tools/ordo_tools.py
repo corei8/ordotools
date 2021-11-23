@@ -155,6 +155,7 @@ class Feast:
 
     @property
     def office_type2latex(self) -> str:
+        """ returns formatted office type based on office_type key """
         if self.office_type == False:
             off_type = 'Ord'
         elif self.office_type == 'feria':
