@@ -5,6 +5,7 @@ from ordo_tools.ordo_tools import *
 
 def build_temporal(year: int):
     cycle = []
+    # todo make cycle a dictionary
     circumcision = day(year, 1, 1)
     cycle.extend(
         [
@@ -13,7 +14,6 @@ def build_temporal(year: int):
                 [3, 'd II cl'],
                 {'feast': 'S. Telesphori PM'},
                 'white',
-                'color',
                 {'int': 'Puer natus', 'glo': True, 'cre': True,
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
@@ -961,7 +961,7 @@ def build_temporal(year: int):
                 ]
             )
         cycle.append([x[0], x[1], x[2], x[3], x[4],
-                     x[5], pent_date + week(l+1)])
+                     x[5], x[6], pent_date + week(l+1)])
         i += 1  # ? does this have any purpose here?
     sept_counter = 0  # ? is enumerate possible here?
     christmas = datetime.strptime(str(year) + "-12-25", "%Y-%m-%d")
@@ -1444,7 +1444,7 @@ def build_temporal(year: int):
                     temporal_event += "."
                 memory.append(temporal_event)
                 # todo simplify this
-                if len(row) <= 7:
+                if len(row) <= 8:
                     mini_dict = str(
                         dict(
                             zip(
@@ -1462,7 +1462,7 @@ def build_temporal(year: int):
                         )
                     )
                 # just for the circumcision
-                elif len(row) == 8:
+                elif len(row) == 9:
                     mini_dict = str(
                         dict(
                             zip(
@@ -1481,6 +1481,7 @@ def build_temporal(year: int):
                         )
                     )
                 else:
+                    print(row[0])
                     pass
                 f.write(
                     str("\n'" + temporal_event + "'" + ": " + mini_dict + ",")

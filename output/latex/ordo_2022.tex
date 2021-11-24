@@ -1,24 +1,43 @@
 
 % !TEX program = lualatex
-\documentclass[10pt]{article}
+\documentclass[10pt]{memoir}
 \title{Ordo 2022}
 %\usepackage{tabularx}
 %\tracingtabularx
 \usepackage{ragged2e}
 \usepackage{geometry}
-\usepackage{microtype}
+\usepackage[letterspace=1000]{microtype}
 \usepackage[T1]{fontenc}
 %\usepackage[usefilenames,RMstyle={Text,Semibold},SSstyle={Text,Semibold},TTstyle={Text,Semibold},DefaultFeatures={Ligatures=Common}]{plex-otf} %
-\usepackage{librecaslon}
-%  merriweather
-\usepackage[latin]{babel}
+% \usepackage{librecaslon}
+% \usepackage{tgpagella}
 \usepackage{fontspec}
+\setmainfont[Path = /Library/Fonts/, Extension = .ttf, Ligatures = TeX, BoldFont = Cardob101, ItalicFont = Cardoi99,]{Cardo104s}
+\usepackage[latin]{babel}
 \setlength{\columnseprule}{0.4pt}
 \geometry{paperwidth=8.5in, paperwidth=5.5in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
+\usepackage{fancyhdr}
 \begin{document}
+\pagestyle{fancy}
+\thispagestyle{empty}
 \begin{center}
-\textsc{\Huge Ordo 2022}
+\begin{minipage}[c][3in][c]{3.5in}
+\begin{center}
+{\HUGE \lsstyle ORDO}\\
+\vspace{0.2in}
+{\lsstyle \LARGE 2022}
 \end{center}
+\end{minipage}
+\begin{minipage}[b][][b]{3.5in}
+\begin{center}
+\vspace*{4.5in}
+\textsc{\normalsize Roman Catholic Institute}
+\end{center}
+\end{minipage}
+\end{center}
+\pagebreak
+\clearpage
+\pagenumbering{arabic}
 
 \begin{minipage}{3.5in}
 \vspace{2em}\begin{center}
