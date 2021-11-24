@@ -255,29 +255,48 @@ def build_latex_ordo(year):
     with open("output/latex/ordo_" + str(year) + ".tex", "a") as f:
         f.truncate(0)
         f.write(
-            r"""
+            r'''
 % !TEX program = lualatex
-\documentclass[10pt]{article}
+\documentclass[10pt]{memoir}
 \title{Ordo 2022}
 %\usepackage{tabularx}
 %\tracingtabularx
 \usepackage{ragged2e}
 \usepackage{geometry}
-\usepackage{microtype}
+\usepackage[letterspace=1000]{microtype}
 \usepackage[T1]{fontenc}
 %\usepackage[usefilenames,RMstyle={Text,Semibold},SSstyle={Text,Semibold},TTstyle={Text,Semibold},DefaultFeatures={Ligatures=Common}]{plex-otf} %
-\usepackage{librecaslon}
-%  merriweather
-\usepackage[latin]{babel}
+% \usepackage{librecaslon}
+% \usepackage{tgpagella}
 \usepackage{fontspec}
+\setmainfont[Path = /Library/Fonts/, Extension = .ttf, Ligatures = TeX, BoldFont = Cardob101, ItalicFont = Cardoi99,]{Cardo104s}
+\usepackage[latin]{babel}
 \setlength{\columnseprule}{0.4pt}
 \geometry{paperwidth=8.5in, paperwidth=5.5in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
+\usepackage{fancyhdr}
 \begin{document}
-"""
-        )
-        f.write('\\begin{center}\n')
-        f.write('\\textsc{\\Huge Ordo ' + str(year) + '}\n')
-        f.write('\\end{center}\n')
+\pagestyle{fancy}
+\thispagestyle{empty}
+\begin{center}
+\begin{minipage}[c][3in][c]{3.5in}
+\begin{center}
+{\HUGE \lsstyle ORDO}\\
+\vspace{0.2in}
+{\lsstyle \LARGE ''' + str(year) + r'''}
+\end{center}
+\end{minipage}
+\begin{minipage}[b][][b]{3.5in}
+\begin{center}
+\vspace*{4.5in}
+\textsc{\normalsize Roman Catholic Institute}
+\end{center}
+\end{minipage}
+\end{center}
+\pagebreak
+\clearpage
+\pagenumbering{arabic}
+'''
+                )
         for x in mdldates:
             feast = Feast(x, mdl[x])
             # todo #6 make the latin day of the week using FERIAS in temporal_cycle.py
