@@ -47,9 +47,24 @@ def global_year(year):
     global YEAR
     YEAR = year
 
+
+EASTER_SEASON_START = datetime(
+    year=int(dateutil.easter.easter(YEAR).strftime('%Y')),
+    month=int(dateutil.easter.easter(YEAR).strftime('%m')),
+    day=int(dateutil.easter.easter(YEAR).strftime('%d'))
+) + timedelta(days=8)
+
+EASTER_SEASON_END = datetime(
+    year=int(dateutil.easter.easter(YEAR).strftime('%Y')),
+    month=int(dateutil.easter.easter(YEAR).strftime('%m')),
+    day=int(dateutil.easter.easter(YEAR).strftime('%d'))
+) + timedelta(days=39)
+
+
 # todo range for pentecost
+
 # todo range for advent
-# todo range for paschaltime
+
 # todo range for lent
 
 #===-===-=== CLASSES ===-===-=== #

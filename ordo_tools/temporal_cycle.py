@@ -3,10 +3,8 @@ from datetime import datetime
 from ordo_tools.ordo_tools import *
 
 
-def build_temporal(year):
-    year = int(year)
+def build_temporal(year: int):
     cycle = []
-    # ? maybe get rid of this ?
     circumcision = day(year, 1, 1)
     cycle.extend(
         [
@@ -14,6 +12,8 @@ def build_temporal(year):
                 "Circumcisio DNJC et Oct. Nativitatis",
                 [3, 'd II cl'],
                 {'feast': 'S. Telesphori PM'},
+                'white',
+                'color',
                 {'int': 'Puer natus', 'glo': True, 'cre': True,
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
@@ -25,6 +25,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Octava S. Stephani Protomartyris",
                 [18, 's'],
+                'color',
                 {'int': 'Sederunt', 'glo': True,
                     'cre': False, 'pre': 'de Nativitate'},
                 {'proper': False, 'admag': [
@@ -36,6 +37,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Octava S. Joannis Ap Ev",
                 [18, 's'],
+                'color',
                 {'int': 'Introit', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
@@ -46,6 +48,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Octava Ss Innocentium Mm.",
                 [18, 's'],
+                'color',
                 {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
@@ -64,6 +67,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Ssmi Nominis Jesu",
                 [10, 'd II cl'],
+                'color',
                 {'int': 'In nomine Jesu', 'glo': True,
                     'cre': True, 'pre': 'de Nativitate'},
                 {'proper': False, 'admag': [
@@ -78,6 +82,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Ssmi Nominis Jesu",
                 [10, 'd II cl'],
+                'color',
                 {'int': 'In nomine Jesu', 'glo': True,
                     'cre': True, 'pre': 'de Nativitate'},
                 {'proper': False, 'admag': [
@@ -95,6 +100,7 @@ def build_temporal(year):
             [  # ! mass, vespers
                 "Dominica in " + x,
                 [8, 'sd II cl'],
+                'color',
                 {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
@@ -109,6 +115,7 @@ def build_temporal(year):
         [  # ! vespers
             "Vigilia Epiphaniæ",
             [12, 'sd Vig privil 2 cl'],
+            'color',
             {'int': 'Dum medium silentium', 'glo': True,
                 'cre': True, 'pre': 'de Nativitate'},
             {'proper': False, 'admag': [
@@ -122,6 +129,7 @@ def build_temporal(year):
         [  # ! vespers
             "Epiphania DNJC",
             [2, 'd I cl cum Oct privil 2 ord'],
+            'color',
             {'int': 'Ecce advenit', 'glo': True,
                 'cre': True, 'pre': 'de Epiphania'},
             {'proper': False, 'admag': [
@@ -135,6 +143,7 @@ def build_temporal(year):
         [  # ! mass, vespers
             "Octava Epiphaniæ",
             [13, 'dm'],
+            'color',
             {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
             {'proper': False, 'admag': [
                 'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
@@ -156,6 +165,7 @@ def build_temporal(year):
                     + ROMANS[i+1]
                     + " die infra Oct. Epiphaniæ",
                     [9, 'feria'],
+                    'color',
                     {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
@@ -176,6 +186,7 @@ def build_temporal(year):
                         [  # ! vespers
                             "In Octava Epiphaniæ",
                             [13, 'dm'],
+                            'color',
                             {'int': 'Ecce advenit', 'glo': True,
                              'cre': True, 'pre': 'et Comm de Epiphania'},
                             {'proper': False, 'admag': '',
@@ -187,6 +198,7 @@ def build_temporal(year):
                         [  # ! vespers
                             "S. Familiæ Jesu, Mariæ, Joseph",
                             [11, 'dm'],
+                            'color',
                             {'int': 'Exultat', 'glo': True,
                                 'cre': True, 'pre': 'et communcantes de Epiphania'},
                             {'proper': False, 'admag': '',
@@ -203,6 +215,7 @@ def build_temporal(year):
                         "S. Familiæ Jesu, Mariæ, Joseph; Dominica " +
                         epiph_sundays[o] + " infra Oct. Epiphaniæ",
                         [11, 'dm'],
+                        'color',
                         {'int': 'In excelso', 'glo': True,
                             'cre': True, 'pre': 'et Comm de Epiphania'},
                         {'proper': False, 'admag': '',
@@ -218,6 +231,7 @@ def build_temporal(year):
                     "Dominica " + epiph_sundays[o] + " post Epiphaniam",
                     [12, 'sd'],
                     # todo add the correct introits
+                    'color',
                     {'int': 'Omnis terra', 'glo': True,
                         'cre': True, 'pre': 'de Ssma Trinitate'},
                     {'proper': False, 'admag': [
@@ -237,6 +251,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Dies Cinerum",
                         [3, 's I cl'],
+                        'color',
                         {'int': 'Misereris', 'glo': True,
                             'cre': True, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
@@ -248,6 +263,7 @@ def build_temporal(year):
                     [  # ! mass, vespers
                         "Feria V post Diem Cinerum",
                         [18, 's'],
+                        'color',
                         {'int': 'Dum clamarem', 'glo': False,
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
@@ -259,6 +275,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Feria VI post Diem Cinerum",
                         [18, 's'],
+                        'color',
                         {'int': 'Audivit', 'glo': False,
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
@@ -270,6 +287,7 @@ def build_temporal(year):
                     [  # ! mass, vespers
                         "Sabbatum post Diem Cinerum",
                         [18, 's'],
+                        'color',
                         {'int': 'Audivit', 'glo': False,
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
@@ -284,6 +302,7 @@ def build_temporal(year):
             [  # ! mass, vespers
                 "Dominica " + x,
                 [1, 'sd I cl'],
+                'color',
                 {'int': 'Missa', 'glo': False, 'cre': True, 'pre': 'de Quadragesima'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
@@ -298,6 +317,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Septem Dolorum BMV",
                         [14, 'dm'],
+                        'color',
                         {'int': 'Stabant', 'glo': False, 'seq': 'Stabat Mater',
                             'cre': True, 'pre': 'de B. Maria Virg.'},
                         {'proper': False, 'admag': '',
@@ -312,6 +332,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Feria IV Quatuor Temporum Quadragesimæ",
                         [3, 's'],
+                        'color',
                         {'int': 'Reminiscere', 'glo': False,
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
@@ -326,6 +347,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Feria VI Quatuor Temporum Quadragesimæ",
                         [3, 's'],
+                        'color',
                         {'int': 'De necessitatibus', 'glo': False,
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
@@ -340,6 +362,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Sabbatum Quatuor Temporum Quadragesimæ",
                         [3, 's'],
+                        'color',
                         {'int': 'Intret', 'glo': False,
                             'cre': False, 'pre': 'de Quadragesima'},
                         {'proper': False, 'admag': '',
@@ -354,6 +377,7 @@ def build_temporal(year):
                     [  # ! vespers
                         y + " in Cœna Domini",
                         [2, 'd I cl'],
+                        'color',
                         {'int': 'Nos autem', 'glo': True,
                             'cre': False, 'pre': 'de Cruce'},
                         {'proper': False, 'admag': '',
@@ -368,6 +392,7 @@ def build_temporal(year):
                     [  # ! vespers
                         y + " in Parasceve",
                         [2, 'd I cl'],
+                        'color',
                         {'int': 'Haec dicit', 'glo': False,
                             'cre': False, 'pre': ''},
                         {'proper': False, 'admag': '',
@@ -382,6 +407,7 @@ def build_temporal(year):
                     [  # ! mass, vespers
                         "Sabbatum Sanctum",
                         [2, 'd I cl'],
+                        'color',
                         {'int': 'In Missa', 'glo': True,
                             'cre': False, 'pre': 'Te quidem'},
                         {'proper': False, 'admag': '',
@@ -396,6 +422,7 @@ def build_temporal(year):
                     [  # ! vespers
                         y + " Majoris Hebd",
                         [3, 's'],
+                        'color',
                         {'int': 'Judica, Domine' if y == 'Feria II' else (
                             'Nos autem' if y == 'Feria III' else 'In nomine Jesu'), 'glo': False, 'cre': False, 'pre': 'de Cruce'},
                         {'proper': False, 'admag': '',
@@ -414,6 +441,7 @@ def build_temporal(year):
                     [  # ! vespers
                         y + " infra Hebd " + new_x,
                         [18, 'sd I cl'],
+                        'color',
                         {'int': LENT_MASSES[j-1], 'glo': False,
                             'cre': False, 'pre': 'de Quadragesima' if x != 'de Passione' else 'de Cruce'},
                         {'proper': False, 'admag': '',
@@ -429,6 +457,7 @@ def build_temporal(year):
             [  # !  vespers
                 "Dominica Resurrectionis",
                 [1, 'd I cl cum Oct privil I ord'],
+                'color',
                 {'int': 'Ressurexi', 'glo': True, 'seq': 'Victimae paschali laudes',
                     'cre': True, 'pre': 'Paschalis'},
                 {'proper': False, 'admag': [
@@ -440,6 +469,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria II infra Oct. Paschæ",
                 [2, 'd I cl'],
+                'color',
                 {'int': 'Introduxit', 'glo': True, 'seq': 'Victimae paschali laudes',
                     'cre': True, 'pre': 'et communicantes et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
@@ -451,6 +481,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria III infra Oct. Paschæ",
                 [2, 'd I cl'],
+                'color',
                 {'int': 'Aqua sapientiae', 'glo': True, 'seq': 'Victimae paschali laudes',
                     'cre': True, 'pre': 'et communicantes et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
@@ -462,6 +493,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria IV infra Oct. Paschæ",
                 [3, 'sd'],
+                'color',
                 {'int': 'Venite', 'glo': True, 'seq': 'Victimae paschali laudes',
                     'cre': True, 'pre': 'et Communicantes et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
@@ -473,6 +505,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria V infra Oct. Paschæ",
                 [3, 'sd'],
+                'color',
                 {'int': 'Victricem', 'glo': True, 'seq': 'Victimae paschali laudes',
                     'cre': True, 'pre': 'et Communicantes et Hang Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
@@ -484,6 +517,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria VI infra Oct. Paschæ",
                 [3, 'sd'],
+                'color',
                 {'int': 'Eduxit eos', 'glo': True, 'seq': 'Victimae paschali laudes',
                     'cre': True, 'pre': 'et Communicantes et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
@@ -495,6 +529,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Sabbatum in Albis",
                 [3, 'sd'],
+                'color',
                 {'int': 'Eduxit Dominus', 'glo': True, 'seq': 'Victimae paschali laudes',
                     'cre': True, 'pre': 'et Communicantes et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
@@ -521,6 +556,7 @@ def build_temporal(year):
                         #! mass, vespers
                         "Solemnitas S. Joseph, Sponsi BMV C. et Ecclesiæ Universalis Patroni",
                         [2, 'd I cl cum Oct Communi'],
+                        'color',
                         {'int': 'Missa', 'glo': True,
                             'cre': True, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
@@ -533,6 +569,7 @@ def build_temporal(year):
                     [  # ! mass, vespers
                         "Octava Solemnitatis S. Joseph",
                         [13, 'dm'],
+                        'color',
                         {'int': 'Missa', 'glo': True,
                             'cre': True, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
@@ -549,6 +586,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Feria II in Rogationibus",
                         [18, 'feria'],
+                        'color',
                         {'int': 'Exaudivit', 'glo': False,
                             'cre': True, 'pre': 'Paschalis'},
                         {'proper': False, 'admag': '',
@@ -560,6 +598,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Feria III in Rogationibus",
                         [18, 'feria'],
+                        'color',
                         {'int': 'Exaudivit', 'glo': False,
                             'cre': True, 'pre': 'Paschalis'},
                         {'proper': False, 'admag': '',
@@ -571,6 +610,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Feria IV in Rogationibus in Vigilia Ascensionis ",
                         [18, 'feria'],
+                        'color',
                         {'int': 'Exaudivit', 'glo': False,
                             'cre': True, 'pre': 'Paschalis'},
                         {'proper': False, 'admag': '',
@@ -582,6 +622,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Ascensio DNJC",
                         [2, 'd I cl cum Oct privil 3 ord'],
+                        'color',
                         {'int': 'Viri Galilæi', 'glo': True,
                             'cre': True, 'pre': 'et Comm de Ascensione'},
                         {'proper': False, 'admag': '',
@@ -593,6 +634,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Oct. Ascensionis DNJC",
                         [13, 'dm'],
+                        'color',
                         {'int': 'Viri Galilæi', 'glo': True,
                             'cre': True, 'pre': 'et Comm de Ascensione'},
                         {'proper': False, 'admag': '',
@@ -613,6 +655,7 @@ def build_temporal(year):
                         [  # ! vespers
                             "Sabbatum infra Oct. Ascensionis",
                             [16, 'sd'],
+                            'color',
                             {'int': 'Missa', 'glo': True,
                                 'cre': False, 'pre': 'de Ascensione'},
                             {'proper': False, 'admag': '',
@@ -627,6 +670,7 @@ def build_temporal(year):
                         [  # ! vespers
                             "De " + y + " die infra Oct. Ascensionis",
                             [16, 'sd'],
+                            'color',
                             {'int': 'Viri galilaei', 'glo': True,
                                 'cre': False, 'pre': 'de Ascensione'},
                             {'proper': False, 'admag': '',
@@ -641,6 +685,7 @@ def build_temporal(year):
                 [  # ! vespers
                     x,
                     [1, 'dm'],
+                    'color',
                     {'int': 'Quasi modo', 'glo': True,
                         'cre': True, 'pre': 'Paschalis'},
                     {'proper': False, 'admag': [
@@ -655,6 +700,7 @@ def build_temporal(year):
                 [  # ! mass, vespers
                     x,
                     [12, 'sd'],
+                    'color',
                     {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
@@ -669,6 +715,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Sabbatum Vigilia Pentecostes",
                 [3, 'd I cl Vig privil I cl'],
+                'color',
                 {'int': 'Cum sanctificatus', 'glo': True, 'cre': False,
                     'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
@@ -680,6 +727,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Dominica Pentecostes",
                 [1, 'd I cl cum Oct privil I ord'],
+                'color',
                 {'int': 'Spiritus Domini', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
                     'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
@@ -696,6 +744,7 @@ def build_temporal(year):
                 [  # ! vespers
                     "Feria " + y + " infra Oct. Pentecostes",
                     [2, 'd I cl'],
+                    'color',
                     {'int': 'Cibavit eos', 'glo': True, 'cre': True, 'seq': 'Veni, Sancte Spiritus',
                         'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                     {'proper': False, 'admag': [
@@ -710,6 +759,7 @@ def build_temporal(year):
                 [  # ! mass, vespers
                     "Feria " + y + " infra Oct. Pentecostes",
                     [3, 'd I cl'],
+                    'color',
                     {'int': 'Accepite jucunditatem', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
                         'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                     {'proper': False, 'admag': [
@@ -724,6 +774,7 @@ def build_temporal(year):
             [  # ! mass, vespers
                 "Sabbatum infra Oct. Pentecostes",
                 [3, 'sd'],
+                'color',
                 {'int': 'Missa', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
                     'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': [
@@ -735,6 +786,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria IV Quatuor Temporum infra Oct. Pentecostes",
                 [18, 'sd'],
+                'color',
                 {'int': 'Deus, dum egredereris', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
                     'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
@@ -746,6 +798,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Feria VI Quatuor Temporum infra Oct. Pentecostes",
                 [18, 'sd'],
+                'color',
                 {'int': 'Repleatur os meum', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
                     'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
@@ -757,6 +810,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Sabbatum Quatuor Temporum infra Oct. Pentecostes",
                 [18, 'sd'],
+                'color',
                 {'int': 'Caritas Dei', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
                     'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
@@ -772,6 +826,7 @@ def build_temporal(year):
         [  # ! vespers
             "Festum Sanctissimæ Trinitatis",
             [2, 'd I cl'],
+            'color',
             {'int': 'Benedicta sit', 'glo': True,
                 'cre': True, 'pre': 'de Ssma Trinitate'},
             {'proper': False, 'admag': [
@@ -782,6 +837,7 @@ def build_temporal(year):
         [  # ! vespers
             "Dominica infra Oct. Ssmi Corporis Christi (Dominica II post Pentecosten)",
             [12, 'sd'],
+            'color',
             {'int': 'Factus est', 'glo': True, 'seq': 'Lauda, Sion, Salvatorem',
                 'cre': True, 'pre': 'de Nativitate, vel de Ssma Trinitate'},
             {'proper': False, 'admag': [
@@ -792,6 +848,7 @@ def build_temporal(year):
         [  # ! mass, vespers
             "Dominica infra Oct. Ssmi Cordis DNJC (Dominica III post Pentecosten)",
             [12, 'sd'],
+            'color',
             {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
             {'proper': False, 'admag': [
                 'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
@@ -813,6 +870,7 @@ def build_temporal(year):
                         [
                             fer_num + " infra Oct. Ssmi Corporis Christi",
                             [9, 'sd'],
+                            'color',
                             {'int': 'Missa', 'glo': True, 'seq': 'Lauda, Sion, Salvatorem',
                                 'cre': True, 'pre': 'Communis'},
                             {'proper': False, 'admag': '',
@@ -826,6 +884,7 @@ def build_temporal(year):
                 [  # ! vespers
                     "Sanctissimi Corporis Christi",
                     [2, 'd I cl cum Oct privil 2 ord'],
+                    'color',
                     {'int': 'Cibavit eos', 'glo': True, 'seq': 'Lauda, Sion',
                         'cre': True, 'pre': 'de Nativitate'},
                     {'proper': False, 'admag': [
@@ -839,6 +898,7 @@ def build_temporal(year):
                 [  # ! vespers
                     "Octava Ssmi Corporis Christi",
                     [4, 'dm'],
+                    'color',
                     {'int': 'Cibavit eos', 'glo': True, 'seq': 'Lauda, Sion',
                         'cre': True, 'pre': 'de Nativitate'},
                     {'proper': False, 'admag': [
@@ -862,6 +922,7 @@ def build_temporal(year):
                             fer_num + " infra Oct. Ssmi Cordis DNJC",
                             # ? is this supposed to be within a common octave?
                             [17, 'sd'],
+                            'color',
                             {'int': 'Respice in me', 'glo': True,
                                 'cre': True, 'pre': 'de Ssmo Corde Iesu vel de Ssma Trinitate'},
                             {'proper': False, 'admag': '',
@@ -876,6 +937,7 @@ def build_temporal(year):
                     [  # ! mass, vespers
                         "Sacratissimi Cordis Jesu",
                         [2, 'd I cl cum Oct privil 3 ord'],
+                        'color',
                         {'int': 'Cogitationes', 'glo': True,
                             'cre': True, 'pre': 'de Ssmo Corde Iesu'},
                         {'proper': False, 'admag': '',
@@ -887,6 +949,7 @@ def build_temporal(year):
                     [  # ! mass, vespers
                         "Octava Sacratissimi Cordis Jesu",
                         [13, 'dm'],
+                        'color',
                         {'int': 'Cogitationes', 'glo': True,
                             'cre': True, 'pre': 'de Ssmo Corde Iesu'},
                         {'proper': False, 'admag': '',
@@ -914,6 +977,7 @@ def build_temporal(year):
                 [  # ! vespers
                     "Dominica " + x + " post Pentecosten",
                     [12, 'sd'],
+                    'color',
                     {'int': PENTECOST_MASSES[p], 'glo': True,
                         'cre': True, 'pre': 'de Trinitate'},
                     {'proper': False, 'admag': [
@@ -928,6 +992,7 @@ def build_temporal(year):
                     [  # ! vespers
                         'De ea',
                         [22, 's'],
+                        'color',
                         {'int': PENTECOST_MASSES[p], 'note': 'de Dom præc', 'glo': True,
                          'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
@@ -942,6 +1007,7 @@ def build_temporal(year):
                 [  # ! vespers
                     "Dominica XXIII et ultima post Pentecosten",
                     [12, 'sd'],
+                    'color',
                     {'int': PENTECOST_MASSES[-1], 'glo': True,
                         'cre': True, 'pre': 'de Trinitate'},
                     {'proper': False, 'admag': [
@@ -956,6 +1022,7 @@ def build_temporal(year):
                     [  # ! vespers
                         'De ea',
                         [22, 's'],
+                        'color',
                         {'int': PENTECOST_MASSES[-1], 'note': 'de Dom præc', 'glo': True,
                          'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
@@ -971,6 +1038,7 @@ def build_temporal(year):
                 [  # ! vespers
                     "Dominica " + x + " et ultima post Pentecosten",
                     [12, 'sd'],
+                    'color',
                     {'int': PENTECOST_MASSES[-1], 'glo': True,
                         'cre': True, 'pre': 'de Trinitate'},
                     {'proper': False, 'admag': [
@@ -985,6 +1053,7 @@ def build_temporal(year):
                     [  # ! vespers
                         'De ea',
                         [22, 's'],
+                        'color',
                         {'int': PENTECOST_MASSES[-1], 'note': 'de Dom præc', 'glo': True,
                          'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
@@ -1002,6 +1071,7 @@ def build_temporal(year):
                         "Dominica " + ROMANS[p+y+3]
                         + " post Pentecosten, " + x + 'Epiphany',
                         [12, 'sd'],
+                        'color',
                         {'int': 'Dicit Dominus', 'glo': True,
                             'cre': True, 'pre': 'de Trinitate'},
                         {'proper': False, 'admag': '',
@@ -1016,6 +1086,7 @@ def build_temporal(year):
                         [  # ! vespers
                             'De ea',
                             [22, 's'],
+                            'color',
                             {'int': 'Dicit Dominus', 'note': 'de Dom præc', 'glo': True,
                              'cre': False, 'pre': 'Communis'},
                             {'proper': False, 'admag': '',
@@ -1036,6 +1107,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Feria IV Quatuor Temporum Septembris",
                         [18, 's'],
+                        'color',
                         {'int': 'Exsultate Deo', 'glo': False,
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
@@ -1047,6 +1119,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Feria VI Quatuor Temporum Septembris",
                         [18, 's'],
+                        'color',
                         {'int': 'Laetetur cor', 'glo': False,
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
@@ -1058,6 +1131,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Sabbatum Quatuor Temporum Septembris",
                         [18, 's'],
+                        'color',
                         {'int': 'Venite, adoremus', 'glo': False,
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
@@ -1076,6 +1150,7 @@ def build_temporal(year):
                     [  # ! vespers
                         'In Festo DNJC Regis',
                         [2, 'd I cl'],
+                        'color',
                         {'int': 'Dignus est', 'glo': True,
                             'cre': True, 'pre': 'de DNJC Rege'},
                         {'proper': False, 'admag': '',
@@ -1094,13 +1169,14 @@ def build_temporal(year):
         "Dominica II Adventus",
         "Dominica I Adventus",
     ]
-    advent_introits = []
+    advent_introits = []  # ! not used
     for i, x in enumerate(advents):
         for k, y in enumerate(ROMANS[3:7], start=1):
             cycle.append(
                 [  # ! mass, vespers
                     'Feria ' + y + " infra Hebd" + x.strip('Dominica'),
                     [18, 'feria'],
+                    'color',
                     {'int': 'Ad te levavi' if x == 'Dominica I Adventus' else ('Populus Sion' if x == "Dominica II Adventus" else (
                             'Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli')), 'glo': False,
                      'cre': False, 'pre': 'Communis'},
@@ -1115,6 +1191,7 @@ def build_temporal(year):
             [  # ! mass, vespers
                 'Sabbatum infra Hebd' + x.strip('Dominica'),
                 [18, 'feria'],
+                'color',
                 {'int': 'Ad te levavi' if x == 'Dominica I Adventus' else ('Populus Sion' if x == "Dominica II Adventus" else (
                     'Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli')), 'glo': False,
                  'cre': False, 'pre': 'Communis'},
@@ -1132,6 +1209,7 @@ def build_temporal(year):
                         x,
                         [8, 'sd II cl'],
                         # ? Not really necessary?
+                        'color',
                         {'int': 'Populus Sion' if x == "Dominica II Adventus" else (
                             'Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli'), 'glo': False, 'cre': True, 'pre': 'de Trinitate'},
                         {'proper': False, 'admag': '',
@@ -1143,6 +1221,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Feria IV Quatuor Temporum in Adventus",
                         [18, 's'],
+                        'color',
                         {'int': 'Rorate cæli', 'glo': False,
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
@@ -1154,6 +1233,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Feria VI Quatuor Temporum in Adventus",
                         [18, 's'],
+                        'color',
                         {'int': 'Prope es tu', 'glo': False,
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
@@ -1165,6 +1245,7 @@ def build_temporal(year):
                     [  # ! vespers
                         "Sabbatum Quatuor Temporum in Adventus",
                         [18, 's'],
+                        'color',
                         {'int': 'Veni, et ostende', 'glo': False,
                             'cre': False, 'pre': 'Communis'},
                         {'proper': False, 'admag': '',
@@ -1180,6 +1261,7 @@ def build_temporal(year):
                 [  # ! vespers
                     x,
                     [1, 'sd'],
+                    'color',
                     {'int': 'Ad te levavi', 'glo': False,
                         'cre': True, 'pre': 'de Trinitate'},
                     {'proper': False, 'admag': [
@@ -1194,6 +1276,7 @@ def build_temporal(year):
                 [  # ! vespers
                     x,
                     [8, 'sd II cl'],
+                    'color',
                     {'int': 'Populus Sion' if x == "Dominica II Adventus" else (
                         'Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli'),
                      'glo': False, 'cre': True, 'pre': 'de Trinitate'},
@@ -1208,6 +1291,7 @@ def build_temporal(year):
         [  # ! vespers
             "Vigilia Nativitas DNJC",
             [3, 'd I cl Vig privil I cl'],
+            'color',
             {'int': 'Hodie scietis', 'glo': False,
                 'cre': False, 'pre': 'Communis'},
             {'proper': False, 'admag': [
@@ -1219,6 +1303,7 @@ def build_temporal(year):
         [  # ! vespers
             "Nativitas DNJC",
             [2, 'd I cl cum Oct privil 3 ord'],
+            'color',
             {
                 'Ad Primam Missam': {'int': 'Domine dixit', 'glo': True, 'cre': True, 'pre': 'et Comm (in hac Missa tantum dicitur "noctem") de Nativitate'},
                 'Ad Secundam Missam': {'int': 'Lux fulgebit', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
@@ -1238,6 +1323,7 @@ def build_temporal(year):
             [  # ! mass, vespers
                 "Dominica Infra Octavam Nativitatis reposita",
                 [12, 'sd'],
+                'color',
                 {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
@@ -1251,6 +1337,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Dominica Infra Octavam Nativitatis",
                 [12, 'sd'],
+                'color',
                 {'int': 'Dum medium', 'glo': True, 'cre': True,
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
@@ -1268,6 +1355,7 @@ def build_temporal(year):
             [  # ! mass, vespers
                 "Feria VI infra Octavam Nativitatis",
                 [16, 'sd'],
+                'color',
                 {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
@@ -1281,6 +1369,7 @@ def build_temporal(year):
             [  # ! vespers
                 "S. Stephani Protomartyris",
                 [10, 'd II cl cum Oct simplici'],
+                'color',
                 {'int': 'Sederunt', 'glo': True, 'cre': True,
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
@@ -1292,6 +1381,7 @@ def build_temporal(year):
             [  # ! vespers
                 "S. Joannis Ap. Ev.",
                 [10, 'd II cl cum Oct simplici'],
+                'color',
                 {'int': 'In medio ecclesiæ', 'glo': True, 'cre': True,
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
@@ -1303,6 +1393,7 @@ def build_temporal(year):
             [  # ! vespers
                 "Ss Innocentium Mm.",
                 [10, 'd II cl cum Oct simplici'],
+                'color',
                 {'int': 'Ex ore infantium', 'glo': True, 'cre': True,
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
@@ -1314,6 +1405,7 @@ def build_temporal(year):
             [  # ! vespers
                 "S. Thomæ E.M.",
                 [15, 'd'],
+                'color',
                 {'int': 'Gaudeamus omnes', 'glo': True, 'cre': True,
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
@@ -1325,6 +1417,7 @@ def build_temporal(year):
             [  # ! vespers
                 "S. Silvestri I P.C.",
                 [15, 'd'],
+                'color',
                 {'int': 'Si diligis me', 'glo': False, 'cre': True,
                     'pre': 'et Communicantes de Nativitate'},
                 {'proper': False, 'admag': [
@@ -1340,9 +1433,9 @@ def build_temporal(year):
         gen_file = "temporal/temporal_" + str(year)
         with open(gen_file + ".py", "w") as f:
             f.write("temporal = {")
-            keylist_alt = ['feast', 'rank', 'com_1',
+            keylist_alt = ['feast', 'rank', 'com_1', 'color',
                            'mass', 'vespers', 'office_type', 'nobility']
-            keylist = ['feast', 'rank', 'mass',
+            keylist = ['feast', 'rank', 'color', 'mass',
                        'vespers', 'office_type', 'nobility']
             memory = []
             for row in cycle:
@@ -1363,6 +1456,7 @@ def build_temporal(year):
                                     row[3],
                                     row[4],
                                     row[5],
+                                    row[6],
                                 ],
                             )
                         )
@@ -1381,6 +1475,7 @@ def build_temporal(year):
                                     row[4],
                                     row[5],
                                     row[6],
+                                    row[7],
                                 ],
                             )
                         )
