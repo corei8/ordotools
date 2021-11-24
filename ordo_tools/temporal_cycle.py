@@ -15,7 +15,7 @@ def build_temporal(year: int):
                 {'feast': 'S. Telesphori PM'},
                 'white',
                 {'int': 'Puer natus', 'glo': True, 'cre': True,
-                    'pre': 'et Communicantes de Nativitate'},
+                    'pre': 'et Comm de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 'festiva',
@@ -471,7 +471,7 @@ def build_temporal(year: int):
                 [2, 'd I cl'],
                 'color',
                 {'int': 'Introduxit', 'glo': True, 'seq': 'Victimae paschali laudes',
-                    'cre': True, 'pre': 'et communicantes et Hanc Igitur, ut in die Paschae'},
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 False,
@@ -483,7 +483,7 @@ def build_temporal(year: int):
                 [2, 'd I cl'],
                 'color',
                 {'int': 'Aqua sapientiae', 'glo': True, 'seq': 'Victimae paschali laudes',
-                    'cre': True, 'pre': 'et communicantes et Hanc Igitur, ut in die Paschae'},
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 False,
@@ -495,7 +495,7 @@ def build_temporal(year: int):
                 [3, 'sd'],
                 'color',
                 {'int': 'Venite', 'glo': True, 'seq': 'Victimae paschali laudes',
-                    'cre': True, 'pre': 'et Communicantes et Hanc Igitur, ut in die Paschae'},
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 False,
@@ -507,7 +507,7 @@ def build_temporal(year: int):
                 [3, 'sd'],
                 'color',
                 {'int': 'Victricem', 'glo': True, 'seq': 'Victimae paschali laudes',
-                    'cre': True, 'pre': 'et Communicantes et Hang Igitur, ut in die Paschae'},
+                    'cre': True, 'pre': 'et Comm et Hang Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 False,
@@ -519,7 +519,7 @@ def build_temporal(year: int):
                 [3, 'sd'],
                 'color',
                 {'int': 'Eduxit eos', 'glo': True, 'seq': 'Victimae paschali laudes',
-                    'cre': True, 'pre': 'et Communicantes et Hanc Igitur, ut in die Paschae'},
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 False,
@@ -531,7 +531,7 @@ def build_temporal(year: int):
                 [3, 'sd'],
                 'color',
                 {'int': 'Eduxit Dominus', 'glo': True, 'seq': 'Victimae paschali laudes',
-                    'cre': True, 'pre': 'et Communicantes et Hanc Igitur, ut in die Paschae'},
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 False,
@@ -717,7 +717,7 @@ def build_temporal(year: int):
                 [3, 'd I cl Vig privil I cl'],
                 'color',
                 {'int': 'Cum sanctificatus', 'glo': True, 'cre': False,
-                    'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
+                    'pre': 'et Comm et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 False,
@@ -729,7 +729,7 @@ def build_temporal(year: int):
                 [1, 'd I cl cum Oct privil I ord'],
                 'color',
                 {'int': 'Spiritus Domini', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
-                    'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 'festiva',
@@ -746,7 +746,7 @@ def build_temporal(year: int):
                     [2, 'd I cl'],
                     'color',
                     {'int': 'Cibavit eos', 'glo': True, 'cre': True, 'seq': 'Veni, Sancte Spiritus',
-                        'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
+                        'pre': 'et Comm et Hanc Igitur de Pentecoste'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                     'feria',
@@ -761,7 +761,7 @@ def build_temporal(year: int):
                     [3, 'd I cl'],
                     'color',
                     {'int': 'Accepite jucunditatem', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
-                        'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
+                        'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
                     {'proper': False, 'admag': [
                         'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                     'feria',
@@ -788,7 +788,7 @@ def build_temporal(year: int):
                 [18, 'sd'],
                 'color',
                 {'int': 'Deus, dum egredereris', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
-                    'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 'feria',
@@ -800,7 +800,7 @@ def build_temporal(year: int):
                 [18, 'sd'],
                 'color',
                 {'int': 'Repleatur os meum', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
-                    'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 'feria',
@@ -812,7 +812,7 @@ def build_temporal(year: int):
                 [18, 'sd'],
                 'color',
                 {'int': 'Caritas Dei', 'glo': True, 'seq': 'Veni, Sancte Spiritus',
-                    'cre': True, 'pre': 'et Communicantes et Hanc Igitur de Pentecoste'},
+                    'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 'feria',
@@ -1339,7 +1339,7 @@ def build_temporal(year: int):
                 [12, 'sd'],
                 'color',
                 {'int': 'Dum medium', 'glo': True, 'cre': True,
-                    'pre': 'et Communicantes de Nativitate'},
+                    'pre': 'et Comm de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 'dominica',
@@ -1371,7 +1371,7 @@ def build_temporal(year: int):
                 [10, 'd II cl cum Oct simplici'],
                 'color',
                 {'int': 'Sederunt', 'glo': True, 'cre': True,
-                    'pre': 'et Communicantes de Nativitate'},
+                    'pre': 'et Comm de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 'festiva',
@@ -1383,7 +1383,7 @@ def build_temporal(year: int):
                 [10, 'd II cl cum Oct simplici'],
                 'color',
                 {'int': 'In medio ecclesiæ', 'glo': True, 'cre': True,
-                    'pre': 'et Communicantes de Nativitate'},
+                    'pre': 'et Comm de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 'festiva',
@@ -1395,7 +1395,7 @@ def build_temporal(year: int):
                 [10, 'd II cl cum Oct simplici'],
                 'color',
                 {'int': 'Ex ore infantium', 'glo': True, 'cre': True,
-                    'pre': 'et Communicantes de Nativitate'},
+                    'pre': 'et Comm de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 'festiva',
@@ -1407,7 +1407,7 @@ def build_temporal(year: int):
                 [15, 'd'],
                 'color',
                 {'int': 'Gaudeamus omnes', 'glo': True, 'cre': True,
-                    'pre': 'et Communicantes de Nativitate'},
+                    'pre': 'et Comm de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 'festiva',
@@ -1419,7 +1419,7 @@ def build_temporal(year: int):
                 [15, 'd'],
                 'color',
                 {'int': 'Si diligis me', 'glo': False, 'cre': True,
-                    'pre': 'et Communicantes de Nativitate'},
+                    'pre': 'et Comm de Nativitate'},
                 {'proper': False, 'admag': [
                     'firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
                 'festiva',

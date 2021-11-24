@@ -118,25 +118,14 @@ class Feast:
             else:
                 return ''
 
-        def com_glo_cre(self):
-            gloria = self.com_mass['glo']
-            creed = self.com_mass['cre']
-            status = []
-            if gloria == True:
-                status.append('G, ')
-            if creed == True:
-                status.append('C, ')
-            return status
+        def com_feast_inline(self) -> str:
+            """ display the commemoration as an oration """
+            # todo write a method that lables the commemorations with numbers 
+            if 'feast' in self.details.keys():
+                return r'com \textit{' + self.details['feast'] + '}, '
+            else:
+                return ''
 
-        @property
-        def com_mass2latex(self) -> str:
-            # todo add orations
-            latexed_mass = '\\textbf{Ad Missam:} \\textit{' + \
-                self.com_mass['int'] + ', } '
-            for x in self.com_glo_cre():
-                latexed_mass += x
-            latexed_mass += 'Præf ' + self.com_mass['pre'] + ', '
-            return latexed_mass
 
     def date(self):
         return datetime.strptime('%m%d', self.feast_date)
@@ -222,6 +211,14 @@ class Feast:
         latin_color = translations[self.color]
         return latin_color + ', '
 
+    # add the commemorations to display_mass_as_latex
+    def commemorations_as_latex(self) -> str:
+        """ returns the commemorations as latex """
+        if self.com_1:
+            return self.com_1.com_feast_inline()
+        else:
+            return ''
+
     def display_mass_as_latex(self) -> str:
         """ return the Mass as LaTeX code """
         # todo add orations
@@ -243,7 +240,7 @@ class Feast:
             # todo use the second in the string if it is Paschaltime.
             latexed_mass += '\\textbf{'+x+'}: ' + self.translate_color() + '\\textit{' + \
                 self.introit()[i] + ',} ' + \
-                status[i]+'Pre '+y['pre']
+                status[i]+'Pre '+y['pre'] + ', ' + self.commemorations_as_latex()
             i += 1
         return latexed_mass
 
