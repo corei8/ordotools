@@ -248,7 +248,7 @@ def build_latin_calendar(year) -> None:
 
 
 def build_latex_ordo(year):
-    # todo make this calendar import work with a variable
+    """ build an ordo booklet in 8.5 by 5.5 """
     mdl = importlib.import_module(
         'calen.calendar_' + str(year)).calen
     mdldates = sorted(mdl)
@@ -272,67 +272,75 @@ def build_latex_ordo(year):
 \setmainfont[Path = /Library/Fonts/, Extension = .ttf, Ligatures = TeX, BoldFont = Cardob101, ItalicFont = Cardoi99,]{Cardo104s}
 \usepackage[latin]{babel}
 \setlength{\columnseprule}{0.4pt}
-\geometry{paperwidth=8.5in, paperwidth=5.5in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
+\geometry{paperheight=8.5in, paperwidth=5.5in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
 \usepackage{fancyhdr}
 \begin{document}
-\pagestyle{fancy}
-\thispagestyle{empty}
-\begin{center}
-\begin{minipage}[c][3in][c]{3.5in}
-\begin{center}
-{\HUGE \lsstyle ORDO}\\
-\vspace{0.2in}
-{\lsstyle \LARGE ''' + str(year) + r'''}
-\end{center}
-\end{minipage}
-\begin{minipage}[b][][b]{3.5in}
-\begin{center}
-\vspace*{4.5in}
-\textsc{\normalsize Roman Catholic Institute}
-\end{center}
-\end{minipage}
-\end{center}
-\pagebreak
-\clearpage
-\pagenumbering{arabic}
+    \pagestyle{fancy}
+    
+    %% make the title page
+    \thispagestyle{empty}
+    \begin{center}
+        \begin{minipage}[c][3in][c]{3.5in}
+            \begin{center}
+                {\HUGE \lsstyle ORDO}\\
+                \vspace{0.2in}
+                {\lsstyle \LARGE ''' + str(year) + r'''}
+            \end{center}
+        \end{minipage}
+        \fancyfoot{\textsc{\normalsize Roman Catholic Institute}} % not displayed because of empty pagestyle!!
+        %\begin{minipage}[b][][b]{3.5in}
+        %    \begin{center}
+        %        \vspace*{4.5in}
+        %        \textsc{\normalsize Roman Catholic Institute}
+        %    \end{center}
+        %\end{minipage}
+    \end{center}
+    \clearpage
+    \pagebreak
+    
+    % rest of the document
+    \pagenumbering{arabic}
 '''
-                )
-        for x in mdldates:
-            feast = Feast(x, mdl[x])
-            # todo #6 make the latin day of the week using FERIAS in temporal_cycle.py
-            # todo use tables for the ordo parts to prevent breaking across pages
-            f.write('\n')
-            f.write('\\begin{minipage}{3.5in}\n')
-            f.write('\\vspace{2em}')
-            f.write('\\begin{center}\n')
-            f.write(latex_replacement(feast.feast_date_display) + '\n')
-            f.write('\\end{center}')
-            f.write('\\textbf{ \\large ' + latex_replacement(feast.name) +
-                    ', \\textnormal{\\normalsize ' + feast.rank_v + '}}')
-            f.write(latex_replacement(feast.commemoration2latex()))
-            f.write('\\begin{justify}\n')
-            f.write(feast.office_type2latex)
-            f.write('\n')
-            f.write('\\textbf{Ad Mat: }')
-            f.write('\n')
-            f.write('\\textbf{Ad Lau: }')
-            f.write('\n')
-            f.write('\\textbf{Ad Horas: }')
-            f.write(feast.preces)
-            f.write('\n')
-            f.write('\\textbf{Ad Primam: }')
-            f.write(feast.preces)
-            f.write('\n')
-            f.write(feast.display_mass_as_latex())
-            f.write('\n')
-            f.write('\\textbf{In Vesp: }')
-            f.write('\n')
-            f.write('\\textbf{Ad Compl: }')
-            f.write(feast.preces)
-            f.write('\\end{justify}\n')
-            f.write('\\end{minipage}\n')
-            f.write('\n\n')
-            # todo find a solution for labeling the commemorations
+        )
+        for i in range(1, 13):
+            month = datetime.strptime(
+                str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%B')
+            f.write(
+                r'''
+\fancyhead[LO, RE]{'''+ month +r'''}
+\begin{center}
+% \vspace{0.5in}
+\pagebreak
+\thispagestyle{empty}
+{\Huge ''' + month +r'''}
+\end{center}
+                    ''')
+            for x in mdldates:
+                if int(x.split('/')[0]) == i:
+                    feast = Feast(x, mdl[x])
+                    # todo #6 make the latin day of the week using FERIAS in temporal_cycle.py
+                    # todo make the header of the last page of the previous month match the previous month
+                    f.write(
+                        r'''
+\begin{center}
+\begin{minipage}{3.5in}
+\vspace{2em}
+\begin{center}'''+latex_replacement(feast.feast_date_display)+r'''
+\end{center}
+\textbf{ \large '''+latex_replacement(feast.name)+r'''
+\textnormal{\normalsize '''+feast.rank_v+r'''}}''' +latex_replacement(feast.commemoration2latex())+r'''
+\begin{justify}'''+feast.office_type2latex+r'''
+\textbf{Ad Mat: }
+\textbf{Ad Lau: }
+\textbf{Ad Horas: }'''+feast.preces+r'''
+\textbf{Ad Primam: }'''+feast.preces+
+feast.display_mass_as_latex()+r'''
+\textbf{In Vesp: }
+\textbf{Ad Compl: }'''+feast.preces+r'''
+\end{justify}
+\end{minipage}
+\end{center}
+''')
         f.write("\n\end{document}")
     file = 'ordo_'+str(year)+'.tex'
     working_dir = os.getcwd()

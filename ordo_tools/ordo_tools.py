@@ -78,10 +78,12 @@ class Feast:
             'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%a, %b %-d')
         self.feast_properties = properties
         self.name = properties['feast']
+        print(self.name)
         if 'infra_octave_name' in properties.keys():
             self.infra_octave_name = properties['infra_octave_name']
         self.rank_v = properties['rank'][-1]  # verbose rank
         self.rank_n = properties['rank'][0]   # numeric rank
+        self.color = properties['color']
         self.mass = {}
         if 'int' in properties['mass'].keys():
             self.mass = {'Ad Missam': properties['mass']}
@@ -156,6 +158,7 @@ class Feast:
         dic = {
             'feast': self.name,
             'rank': [self.rank_n, self.rank_v],
+            'color': self.color,
             'mass': self.mass,
             'vespers': self.vespers,
             'nobility': self.nobility,
@@ -206,6 +209,19 @@ class Feast:
                 introit_list.append(self.mass[y]['int'])
         return introit_list
 
+    def translate_color(self) -> str:
+        """ translate the color from english to latin """
+        translations = {
+            'white': 'albus',
+            'green': 'viridis',
+            'red': 'ruber',
+            'violet': 'violaceus',
+            'black': 'niger',
+            'color': 'COLOR NOT DEFINED',
+        }
+        latin_color = translations[self.color]
+        return latin_color + ', '
+
     def display_mass_as_latex(self) -> str:
         """ return the Mass as LaTeX code """
         # todo add orations
@@ -225,7 +241,7 @@ class Feast:
         i = 0
         for x, y in self.mass.items():
             # todo use the second in the string if it is Paschaltime.
-            latexed_mass += '\\textbf{'+x+'}: \\textit{' + \
+            latexed_mass += '\\textbf{'+x+'}: ' + self.translate_color() + '\\textit{' + \
                 self.introit()[i] + ',} ' + \
                 status[i]+'Pre '+y['pre']
             i += 1
