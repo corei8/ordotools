@@ -307,7 +307,8 @@ def build_latex_ordo(year):
 '''
         )
         for i in range(1, 13):
-            month = datetime.strptime(str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%B')
+            month = datetime.strptime(
+                str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%B')
             _month = translate_month(month)
             f.write(
                 r'''
@@ -321,24 +322,28 @@ def build_latex_ordo(year):
                     # todo make the header of the last page of the previous month match the previous month
                     f.write(
                         r'''
-\begin{center}
-\begin{minipage}{3.5in}
-\vspace{2em}
-\begin{center}'''+latex_replacement(feast.feast_date_display)+r'''
-\end{center}
-\textbf{ \large '''+latex_replacement(feast.name)+r'''
-\textnormal{\normalsize '''+feast.rank_v+r'''}}''' + latex_replacement(feast.commemoration2latex())+r'''
-\begin{justify}'''+feast.office_type2latex+r'''
-\textbf{Ad Mat: }
-\textbf{Ad Lau: }
-\textbf{Ad Horas: }'''+feast.preces+r'''
-\textbf{Ad Primam: }'''+feast.preces +
+    \begin{center}
+        \begin{minipage}{3.5in}
+            \vspace{2em}
+            \begin{minipage}{0.5in}
+                {\Huge '''+latex_replacement(feast.feast_date_display)+r'''} \\
+                {\normalsize '''+feast.translate_color+r'''}
+            \end{minipage}
+            \begin{minipage}{3.0in}
+                \textbf{ \large '''+latex_replacement(feast.name)+r''' \\
+                \textnormal{\normalsize '''+feast.rank_v+r'''}}''' + latex_replacement(feast.commemoration2latex())+r'''
+            \end{minipage}
+            \begin{justify}'''+feast.office_type2latex+r'''
+                \textbf{Ad Mat: }
+                \textbf{Ad Lau: }
+                \textbf{Ad Horas: }'''+feast.preces+r'''
+                \textbf{Ad Primam: }'''+feast.preces +
                         feast.display_mass_as_latex()+r'''
-\textbf{In Vesp: }
-\textbf{Ad Compl: }'''+feast.preces+r'''
-\end{justify}
-\end{minipage}
-\end{center}
+                \textbf{In Vesp: }
+                \textbf{Ad Compl: }'''+feast.preces+r'''
+            \end{justify}
+        \end{minipage}
+    \end{center}
 ''')
         f.write("\n\end{document}")
     file = 'ordo_'+str(year)+'.tex'

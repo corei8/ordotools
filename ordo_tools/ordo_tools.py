@@ -74,8 +74,11 @@ class Feast:
     def __init__(self, feast_date: str, properties: dict):
         # todo #11 make a method that takes all the adjusted data and returns it as a dictionary
         self.feast_date = feast_date
+        # self.feast_date_display = datetime.strptime(self.feast_date.strip(
+        #     'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%a, %b %-d')
         self.feast_date_display = datetime.strptime(self.feast_date.strip(
-            'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%a, %b %-d')
+            'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%d')
+        # todo add liturgical day of the week
         self.feast_properties = properties
         self.name = properties['feast']
         print(self.name)
@@ -197,6 +200,7 @@ class Feast:
                 introit_list.append(self.mass[y]['int'])
         return introit_list
 
+    @property
     def translate_color(self) -> str:
         """ translate the color from english to latin """
         translations = {
@@ -205,10 +209,10 @@ class Feast:
             'red': 'ruber',
             'violet': 'violaceus',
             'black': 'niger',
-            'color': 'COLOR NOT DEFINED',
+            'color': '????',
         }
         latin_color = translations[self.color]
-        return latin_color + ', '
+        return latin_color
 
     # add the commemorations to display_mass_as_latex
     def commemorations_as_latex(self) -> str:
@@ -237,7 +241,7 @@ class Feast:
         i = 0
         for x, y in self.mass.items():
             # todo use the second in the string if it is Paschaltime.
-            latexed_mass += '\\textbf{'+x+'}: ' + self.translate_color() + '\\textit{' + \
+            latexed_mass += '\\textbf{'+x+'}: \\textit{' + \
                 self.introit()[i] + ',} ' + \
                 status[i]+'Pre '+y['pre'] + ', ' + \
                 self.commemorations_as_latex()
