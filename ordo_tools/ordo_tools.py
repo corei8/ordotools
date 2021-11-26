@@ -120,12 +120,11 @@ class Feast:
 
         def com_feast_inline(self) -> str:
             """ display the commemoration as an oration """
-            # todo write a method that lables the commemorations with numbers 
+            # todo write a method that lables the commemorations with numbers
             if 'feast' in self.details.keys():
                 return r'com \textit{' + self.details['feast'] + '}, '
             else:
                 return ''
-
 
     def date(self):
         return datetime.strptime('%m%d', self.feast_date)
@@ -240,7 +239,8 @@ class Feast:
             # todo use the second in the string if it is Paschaltime.
             latexed_mass += '\\textbf{'+x+'}: ' + self.translate_color() + '\\textit{' + \
                 self.introit()[i] + ',} ' + \
-                status[i]+'Pre '+y['pre'] + ', ' + self.commemorations_as_latex()
+                status[i]+'Pre '+y['pre'] + ', ' + \
+                self.commemorations_as_latex()
             i += 1
         return latexed_mass
 
@@ -319,6 +319,24 @@ def latex_replacement(string: str) -> str:
     """ return a string formatted for LaTeX """
     return re.sub('&', '\&', re.sub('_', '\_', string))
 
+
+def translate_month(month: str) -> str:
+    """ return the latin name for a given english month """
+    months_in_latin = {
+        'January': 'Januarius',
+        'February': 'Februarius',
+        'March': 'Martius',
+        'April': 'Aprilis',
+        'May': 'Majus',
+        'June': 'Junis',
+        'July': 'Julius',
+        'August': 'Augustus',
+    }
+    if month in months_in_latin:
+        return months_in_latin[month]
+    else:
+        return month
+
 #===-===-=== HEAVY-HITTING FUNCTIONS ===-===-=== #
 
 
@@ -354,6 +372,8 @@ def find_module(name: str) -> tuple:
         dict_name = ''
         dict_name_json = ''
     return (file_name, mdl_name, dict_name, dict_name_json)
+
+# todo maybe use a decorator to make this more readable?
 
 
 def commit_to_dictionary(target_file: str, dic: dict) -> None:
@@ -412,7 +432,7 @@ def commemoration_ordering(direct: str) -> None:
         for data in list(dic[x].keys()):
             if 'com_1' in data:
                 continue
-            elif 'com_2' in data:  # ! use a for loop for this
+            elif 'com_2' in data:
                 dic[x].update({'com_1': dic[x]['com_2']})
                 dic[x].pop('com_2')
                 if 'com_3' in data:
@@ -508,6 +528,7 @@ def dict_clean(direct: str, str_flag: str) -> None:
                     pass
                 else:
                     # * translation
+                    # ! is this still working for the translations?
                     if first.rank_n <= 4 and second.rank_n <= 10:
                         dic.update(
                             {first.feast_date.strip(flag): first.feast_properties})
@@ -556,7 +577,6 @@ def stitch(sanctoral: dict) -> None:
     if leap_year(YEAR) == False:
         pass
     else:
-        # todo leapyear should be solved before the stitching
         for event in mdls:
             if not 'leapdate' in mdl_sanctoral[event]:
                 pass
@@ -575,8 +595,6 @@ def stitch(sanctoral: dict) -> None:
     commit_to_dictionary(target_file='calendar', dic=calen)
     return 0
 
-#! the sanctoral cycle should be immutable!
-
 
 def explode_octaves(region_diocese: str) -> dict:
     """ Takes the Octaves in the Sanctoral cycle and explodes them into their days within the octave.
@@ -592,7 +610,6 @@ def explode_octaves(region_diocese: str) -> dict:
     return_dict = {}
     for x in sorted(mdl):
         feast = Feast(x, mdl[x])
-        # todo have the program check the nobility to see if the feast is an octave
         if 'Oct' in feast.rank_v:
             if feast.nobility[2] == 4:  # common octave
                 # todo update this to handle every octave type
@@ -600,10 +617,13 @@ def explode_octaves(region_diocese: str) -> dict:
                     feast.name = 'De '+y+' die infra '+feast.infra_octave_name
                     feast.rank_v = 'feria'
                     feast.rank_n = 18
-                    # ? is this the correct way to do this?
                     return_dict.update({str((datetime.strptime(feast.feast_date, '%m/%d') +
                                              indays(k)).strftime('%m/%d'))+'_': feast.updated_properties})
         else:
             return_dict.update({feast.feast_date: feast.feast_properties})
-    # todo create a dictionary of the new feast dates and properties
     return return_dict
+
+
+def our_ladys_saturday(dictionary: dict) -> None:
+    # Add all the Satuday offices of Our Lady.
+    return None

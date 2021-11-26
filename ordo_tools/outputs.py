@@ -2,7 +2,7 @@ import subprocess
 from datetime import datetime
 import os
 import importlib
-from ordo_tools.ordo_tools import latex_replacement, Feast
+from ordo_tools.ordo_tools import latex_replacement, Feast, translate_month
 
 
 def readme_calendar(year):
@@ -257,44 +257,48 @@ def build_latex_ordo(year):
         f.write(
             r'''
 % !TEX program = lualatex
-\documentclass[10pt]{memoir}
-\title{Ordo 2022}
-%\usepackage{tabularx}
-%\tracingtabularx
+\documentclass[10pt]{book}
+
+\title{Ordo '''+str(year)+r'''}
+\author{Roman Catholic Institute}
+
 \usepackage{ragged2e}
 \usepackage{geometry}
 \usepackage[letterspace=1000]{microtype}
 \usepackage[T1]{fontenc}
-%\usepackage[usefilenames,RMstyle={Text,Semibold},SSstyle={Text,Semibold},TTstyle={Text,Semibold},DefaultFeatures={Ligatures=Common}]{plex-otf} %
-% \usepackage{librecaslon}
-% \usepackage{tgpagella}
 \usepackage{fontspec}
-\setmainfont[Path = /Library/Fonts/, Extension = .ttf, Ligatures = TeX, BoldFont = Cardob101, ItalicFont = Cardoi99,]{Cardo104s}
+\setmainfont[
+    Path = /Library/Fonts/, 
+    Extension = .ttf, 
+    Ligatures = TeX, 
+    BoldFont = Cardob101, 
+    ItalicFont = Cardoi99,
+    ]{Cardo104s}
 \usepackage[latin]{babel}
 \setlength{\columnseprule}{0.4pt}
 \geometry{paperheight=8.5in, paperwidth=5.5in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
 \usepackage{fancyhdr}
 \begin{document}
     \pagestyle{fancy}
-    
+    \maketitle
     %% make the title page
     \thispagestyle{empty}
-    \begin{center}
-        \begin{minipage}[c][3in][c]{3.5in}
-            \begin{center}
-                {\HUGE \lsstyle ORDO}\\
-                \vspace{0.2in}
-                {\lsstyle \LARGE ''' + str(year) + r'''}
-            \end{center}
-        \end{minipage}
-        \fancyfoot{\textsc{\normalsize Roman Catholic Institute}} % not displayed because of empty pagestyle!!
-        %\begin{minipage}[b][][b]{3.5in}
-        %    \begin{center}
-        %        \vspace*{4.5in}
-        %        \textsc{\normalsize Roman Catholic Institute}
-        %    \end{center}
-        %\end{minipage}
-    \end{center}
+    %\begin{center}
+    %    \begin{minipage}[c][3in][c]{3.5in}
+    %        \begin{center}
+    %            {\Huge \lsstyle ORDO}\\
+    %            \vspace{0.2in}
+    %            {\lsstyle \LARGE ''' + str(year) + r'''}
+    %        \end{center}
+    %    \end{minipage}
+    %    \fancyfoot{\textsc{\normalsize Roman Catholic Institute}} % not displayed because of empty pagestyle!!
+    %    %\begin{minipage}[b][][b]{3.5in}
+    %    %    \begin{center}
+    %    %        \vspace*{4.5in}
+    %    %        \textsc{\normalsize Roman Catholic Institute}
+    %    %    \end{center}
+    %    %\end{minipage}
+    %\end{center}
     \clearpage
     \pagebreak
     
@@ -303,17 +307,12 @@ def build_latex_ordo(year):
 '''
         )
         for i in range(1, 13):
-            month = datetime.strptime(
-                str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%B')
+            month = datetime.strptime(str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%B')
+            _month = translate_month(month)
             f.write(
                 r'''
-\fancyhead[LO, RE]{'''+ month +r'''}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge ''' + month +r'''}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{''' + _month + r'''}
                     ''')
             for x in mdldates:
                 if int(x.split('/')[0]) == i:
@@ -328,13 +327,13 @@ def build_latex_ordo(year):
 \begin{center}'''+latex_replacement(feast.feast_date_display)+r'''
 \end{center}
 \textbf{ \large '''+latex_replacement(feast.name)+r'''
-\textnormal{\normalsize '''+feast.rank_v+r'''}}''' +latex_replacement(feast.commemoration2latex())+r'''
+\textnormal{\normalsize '''+feast.rank_v+r'''}}''' + latex_replacement(feast.commemoration2latex())+r'''
 \begin{justify}'''+feast.office_type2latex+r'''
 \textbf{Ad Mat: }
 \textbf{Ad Lau: }
 \textbf{Ad Horas: }'''+feast.preces+r'''
-\textbf{Ad Primam: }'''+feast.preces+
-feast.display_mass_as_latex()+r'''
+\textbf{Ad Primam: }'''+feast.preces +
+                        feast.display_mass_as_latex()+r'''
 \textbf{In Vesp: }
 \textbf{Ad Compl: }'''+feast.preces+r'''
 \end{justify}

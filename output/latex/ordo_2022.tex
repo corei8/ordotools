@@ -1,56 +1,55 @@
 
 % !TEX program = lualatex
-\documentclass[10pt]{memoir}
+\documentclass[10pt]{book}
+
 \title{Ordo 2022}
-%\usepackage{tabularx}
-%\tracingtabularx
+\author{Roman Catholic Institute}
+
 \usepackage{ragged2e}
 \usepackage{geometry}
 \usepackage[letterspace=1000]{microtype}
 \usepackage[T1]{fontenc}
-%\usepackage[usefilenames,RMstyle={Text,Semibold},SSstyle={Text,Semibold},TTstyle={Text,Semibold},DefaultFeatures={Ligatures=Common}]{plex-otf} %
-% \usepackage{librecaslon}
-% \usepackage{tgpagella}
 \usepackage{fontspec}
-\setmainfont[Path = /Library/Fonts/, Extension = .ttf, Ligatures = TeX, BoldFont = Cardob101, ItalicFont = Cardoi99,]{Cardo104s}
+\setmainfont[
+    Path = /Library/Fonts/, 
+    Extension = .ttf, 
+    Ligatures = TeX, 
+    BoldFont = Cardob101, 
+    ItalicFont = Cardoi99,
+    ]{Cardo104s}
 \usepackage[latin]{babel}
 \setlength{\columnseprule}{0.4pt}
 \geometry{paperheight=8.5in, paperwidth=5.5in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
 \usepackage{fancyhdr}
 \begin{document}
     \pagestyle{fancy}
-    
+    \maketitle
     %% make the title page
     \thispagestyle{empty}
-    \begin{center}
-        \begin{minipage}[c][3in][c]{3.5in}
-            \begin{center}
-                {\HUGE \lsstyle ORDO}\\
-                \vspace{0.2in}
-                {\lsstyle \LARGE 2022}
-            \end{center}
-        \end{minipage}
-        \fancyfoot{\textsc{\normalsize Roman Catholic Institute}} % not displayed because of empty pagestyle!!
-        %\begin{minipage}[b][][b]{3.5in}
-        %    \begin{center}
-        %        \vspace*{4.5in}
-        %        \textsc{\normalsize Roman Catholic Institute}
-        %    \end{center}
-        %\end{minipage}
-    \end{center}
+    %\begin{center}
+    %    \begin{minipage}[c][3in][c]{3.5in}
+    %        \begin{center}
+    %            {\Huge \lsstyle ORDO}\\
+    %            \vspace{0.2in}
+    %            {\lsstyle \LARGE 2022}
+    %        \end{center}
+    %    \end{minipage}
+    %    \fancyfoot{\textsc{\normalsize Roman Catholic Institute}} % not displayed because of empty pagestyle!!
+    %    %\begin{minipage}[b][][b]{3.5in}
+    %    %    \begin{center}
+    %    %        \vspace*{4.5in}
+    %    %        \textsc{\normalsize Roman Catholic Institute}
+    %    %    \end{center}
+    %    %\end{minipage}
+    %\end{center}
     \clearpage
     \pagebreak
     
     % rest of the document
     \pagenumbering{arabic}
 
-\fancyhead[LO, RE]{January}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge January}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{Januarius}
                     
 \begin{center}
 \begin{minipage}{3.5in}
@@ -643,13 +642,8 @@
 \end{minipage}
 \end{center}
 
-\fancyhead[LO, RE]{February}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge February}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{Februarius}
                     
 \begin{center}
 \begin{minipage}{3.5in}
@@ -1050,13 +1044,8 @@
 \end{minipage}
 \end{center}
 
-\fancyhead[LO, RE]{March}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge March}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{Martius}
                     
 \begin{center}
 \begin{minipage}{3.5in}
@@ -1628,13 +1617,8 @@
 \end{minipage}
 \end{center}
 
-\fancyhead[LO, RE]{April}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge April}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{Aprilis}
                     
 \begin{center}
 \begin{minipage}{3.5in}
@@ -2206,13 +2190,8 @@
 \end{minipage}
 \end{center}
 
-\fancyhead[LO, RE]{May}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge May}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{Majus}
                     
 \begin{center}
 \begin{minipage}{3.5in}
@@ -2784,13 +2763,8 @@
 \end{minipage}
 \end{center}
 
-\fancyhead[LO, RE]{June}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge June}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{Junis}
                     
 \begin{center}
 \begin{minipage}{3.5in}
@@ -3362,13 +3336,8 @@
 \end{minipage}
 \end{center}
 
-\fancyhead[LO, RE]{July}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge July}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{Julius}
                     
 \begin{center}
 \begin{minipage}{3.5in}
@@ -3959,13 +3928,8 @@
 \end{minipage}
 \end{center}
 
-\fancyhead[LO, RE]{August}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge August}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{Augustus}
                     
 \begin{center}
 \begin{minipage}{3.5in}
@@ -4556,13 +4520,8 @@
 \end{minipage}
 \end{center}
 
-\fancyhead[LO, RE]{September}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge September}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{September}
                     
 \begin{center}
 \begin{minipage}{3.5in}
@@ -5134,13 +5093,8 @@
 \end{minipage}
 \end{center}
 
-\fancyhead[LO, RE]{October}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge October}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{October}
                     
 \begin{center}
 \begin{minipage}{3.5in}
@@ -5731,13 +5685,8 @@
 \end{minipage}
 \end{center}
 
-\fancyhead[LO, RE]{November}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge November}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{November}
                     
 \begin{center}
 \begin{minipage}{3.5in}
@@ -6309,13 +6258,8 @@
 \end{minipage}
 \end{center}
 
-\fancyhead[LO, RE]{December}
-\begin{center}
-% \vspace{0.5in}
-\pagebreak
-\thispagestyle{empty}
-{\Huge December}
-\end{center}
+    % \fancyhead[LO, RE]{}
+    \chapter*{December}
                     
 \begin{center}
 \begin{minipage}{3.5in}
