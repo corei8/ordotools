@@ -1,13 +1,10 @@
 
 % !TEX program = lualatex
-\documentclass[10pt]{book}
-
+\documentclass[10pt, openany]{book}
 \title{Ordo 2022}
 \author{Roman Catholic Institute}
-
 \usepackage{ragged2e}
-\usepackage{geometry}
-\usepackage[letterspace=1000]{microtype}
+\usepackage{microtype}
 \usepackage[T1]{fontenc}
 \usepackage{fontspec}
 \setmainfont[
@@ -18,38 +15,25 @@
     ItalicFont = Cardoi99,
     ]{Cardo104s}
 \usepackage[latin]{babel}
-\setlength{\columnseprule}{0.4pt}
-\geometry{paperheight=8.5in, paperwidth=5.5in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
+\usepackage{geometry}
+\geometry{
+    paperheight=8.5in, 
+    paperwidth=5.5in, 
+    left=1.0in, 
+    right=1.0in, 
+    top=1.0in, 
+    bottom=1.0in,
+    }
 \usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{% 
+    \markboth{#1}{}
+    }
 \begin{document}
-    \pagestyle{fancy}
     \maketitle
-    %% make the title page
-    \thispagestyle{empty}
-    %\begin{center}
-    %    \begin{minipage}[c][3in][c]{3.5in}
-    %        \begin{center}
-    %            {\Huge \lsstyle ORDO}\\
-    %            \vspace{0.2in}
-    %            {\lsstyle \LARGE 2022}
-    %        \end{center}
-    %    \end{minipage}
-    %    \fancyfoot{\textsc{\normalsize Roman Catholic Institute}} % not displayed because of empty pagestyle!!
-    %    %\begin{minipage}[b][][b]{3.5in}
-    %    %    \begin{center}
-    %    %        \vspace*{4.5in}
-    %    %        \textsc{\normalsize Roman Catholic Institute}
-    %    %    \end{center}
-    %    %\end{minipage}
-    %\end{center}
-    \clearpage
-    \pagebreak
-    
-    % rest of the document
-    \pagenumbering{arabic}
+    \clearpage\begingroup\pagestyle{empty}\cleardoublepage\endgroup
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{Januarius}
+    \chapter{Januarius}
                     
     \begin{center}
         \begin{minipage}{3.5in}
@@ -766,8 +750,7 @@
         \end{minipage}
     \end{center}
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{Februarius}
+    \chapter{Februarius}
                     
     \begin{center}
         \begin{minipage}{3.5in}
@@ -1252,8 +1235,7 @@
         \end{minipage}
     \end{center}
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{Martius}
+    \chapter{Martius}
                     
     \begin{center}
         \begin{minipage}{3.5in}
@@ -1945,8 +1927,7 @@
         \end{minipage}
     \end{center}
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{Aprilis}
+    \chapter{Aprilis}
                     
     \begin{center}
         \begin{minipage}{3.5in}
@@ -2638,8 +2619,7 @@
         \end{minipage}
     \end{center}
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{Majus}
+    \chapter{Majus}
                     
     \begin{center}
         \begin{minipage}{3.5in}
@@ -3331,8 +3311,7 @@
         \end{minipage}
     \end{center}
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{Junis}
+    \chapter{Junis}
                     
     \begin{center}
         \begin{minipage}{3.5in}
@@ -4024,8 +4003,7 @@
         \end{minipage}
     \end{center}
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{Julius}
+    \chapter{Julius}
                     
     \begin{center}
         \begin{minipage}{3.5in}
@@ -4740,8 +4718,7 @@
         \end{minipage}
     \end{center}
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{Augustus}
+    \chapter{Augustus}
                     
     \begin{center}
         \begin{minipage}{3.5in}
@@ -5456,8 +5433,7 @@
         \end{minipage}
     \end{center}
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{September}
+    \chapter{September}
                     
     \begin{center}
         \begin{minipage}{3.5in}
@@ -6149,8 +6125,7 @@
         \end{minipage}
     \end{center}
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{October}
+    \chapter{October}
                     
     \begin{center}
         \begin{minipage}{3.5in}
@@ -6865,8 +6840,7 @@
         \end{minipage}
     \end{center}
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{November}
+    \chapter{November}
                     
     \begin{center}
         \begin{minipage}{3.5in}
@@ -7558,8 +7532,7 @@
         \end{minipage}
     \end{center}
 
-    % \fancyhead[LO, RE]{}
-    \chapter*{December}
+    \chapter{December}
                     
     \begin{center}
         \begin{minipage}{3.5in}
