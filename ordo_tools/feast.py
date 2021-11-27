@@ -7,7 +7,6 @@ class Feast:
         self.feast_date = feast_date
         self.feast_properties = properties
         self.name = properties['feast']
-        print('OBJECTIFY: \t' + self.name)
         if 'infra_octave_name' in properties.keys():
             self.infra_octave_name = properties['infra_octave_name']
         self.rank_v = properties['rank'][-1]  # verbose rank
@@ -31,7 +30,6 @@ class Feast:
             'com_4': properties['com_4'] if 'com_4' in properties.keys() else '',
             'com_5': properties['com_5'] if 'com_5' in properties.keys() else '',
         }
-        print(self.coms)
 
     @ property
     def feast_date_display(self) -> str:
@@ -90,6 +88,8 @@ class Feast:
             off_type = 'Festiv'
         elif self.office_type == 'dominica':
             off_type = 'Dom'
+        elif self.office_type == 'ut in pr loco':
+            off_type = 'ut in pr loco'
         else:
             return 'ERROR!'
         return 'Off ' + off_type

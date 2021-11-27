@@ -1,4 +1,4 @@
-from datetime import timedelta, datetime
+from datetime import timedelta, datetime, date
 import dateutil.easter
 import importlib
 import re
@@ -209,44 +209,44 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
     return 0
 
 
-def commemoration_ordering(direct: str) -> None:
-    """ Adjusts the ordering of the commeorations so so that the first commemoration is always COM_1
+# def commemoration_ordering(direct: str) -> None:
+#     """ Adjusts the ordering of the commeorations so so that the first commemoration is always COM_1
 
-    Args:
-        direct (str): dictionary whose commemorations are to be ordered
+#     Args:
+#         direct (str): dictionary whose commemorations are to be ordered
 
-    Returns:
-        None: Commemorations are ordered without return.
-    """
-    dict_information = find_module(direct)
-    dictionary = importlib.import_module(dict_information[1])
-    dic = dictionary.__dict__[dict_information[2]]
-    # todo use the Feast class for this, but it works for now
-    for x in list(dic.keys()):
-        for data in list(dic[x].keys()):
-            if 'com_1' in data:
-                continue # the first oration is com_1
-            elif 'com_2' in data:
-                dic[x].update({'com_1': dic[x]['com_2']})
-                dic[x].pop('com_2')
-                if 'com_3' in data:
-                    dic[x].update({'com_2': dic[x]['com_3']})
-                    dic[x].pop('com_3')
-                    if 'com_4' in data:
-                        dic[x].update({'com_3': dic[x]['com_4']})
-                        dic[x].pop('com_4')
-                        if 'com_5' in data:
-                            dic[x].update({'com_4': dic[x]['com_5']})
-                            dic[x].pop('com_5')
-                        else:
-                            pass
-                    else:
-                        pass
-                else:
-                    pass
-            else:
-                pass
-    return 0
+#     Returns:
+#         None: Commemorations are ordered without return.
+#     """
+#     dict_information = find_module(direct)
+#     dictionary = importlib.import_module(dict_information[1])
+#     dic = dictionary.__dict__[dict_information[2]]
+#     # todo use the Feast class for this, but it works for now
+#     for x in list(dic.keys()):
+#         for data in list(dic[x].keys()):
+#             if 'com_1' in data:
+#                 continue # the first oration is com_1
+#             elif 'com_2' in data:
+#                 dic[x].update({'com_1': dic[x]['com_2']})
+#                 dic[x].pop('com_2')
+#                 if 'com_3' in data:
+#                     dic[x].update({'com_2': dic[x]['com_3']})
+#                     dic[x].pop('com_3')
+#                     if 'com_4' in data:
+#                         dic[x].update({'com_3': dic[x]['com_4']})
+#                         dic[x].pop('com_4')
+#                         if 'com_5' in data:
+#                             dic[x].update({'com_4': dic[x]['com_5']})
+#                             dic[x].pop('com_5')
+#                         else:
+#                             pass
+#                     else:
+#                         pass
+#                 else:
+#                     pass
+#             else:
+#                 pass
+#     return 0
 
 
 def dict_clean(direct: str, str_flag: str) -> None:
@@ -418,6 +418,42 @@ def explode_octaves(region_diocese: str) -> dict:
     return return_dict
 
 
-def our_ladys_saturday(dictionary: dict) -> None:
-    # Add all the Satuday offices of Our Lady.
+def our_ladys_saturday(direct: str) -> None:
+    """ Adds all the Saturday Offices of the Blessed Virgin to the temporal calendar """
+    # todo add mass number according to season
+    office = {
+        'feast': 'De Sancta Maria in Sabbato',
+        'rank': [20, 's'],
+        'color': 'white',
+        'mass': {'int': 'Salve sancta parens', 'glo': True, 'cre': False, 'pre': 'de B Maria Virg (et te in Veneratione)'},
+        'com_1': {'oration': 'Deus qui corda', },
+        'com_2': {'oration': 'Ecclesiæ', },
+        'matins': {},
+        'lauds': {},
+        'prime': {'responsory': 'Qui natus est', 'preces': True},
+        'little_hours': {},
+        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
+        'compline': {},
+        'office_type': 'ut in pr loco',
+        'nobility': (8, 2, 6, 13, 3, 0,),
+        }
+    dict_information = find_module(direct)
+    dictionary = importlib.import_module(dict_information[1])
+    dic = dictionary.__dict__[dict_information[2]]
+    # todo add ranges where Our Lady's Saturday is impossible (Advent, Lent, Ember Days, Vigils)
+    begin_year = date(YEAR, 1, 1)
+    if begin_year.strftime('%A') == 'Saturday':
+        saturday = begin_year
+    else:
+        saturday = begin_year - indays(findsunday(begin_year)+6)
+    while saturday <= date(YEAR, 12, 31):
+        if saturday.strftime('%m/%d') in sorted(dic):
+            if not saturday.strftime('%m/%d')+'.' in sorted(dic):
+                dic.update({saturday.strftime('%m/%d')+'.': office})
+            else:
+                pass # we can presume that it is impossible
+        else:
+            dic.update({saturday.strftime('%m/%d'): office})
+        saturday = saturday + indays(7)
+    commit_to_dictionary(target_file='calendar', dic=dic)
     return None

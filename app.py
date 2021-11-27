@@ -19,7 +19,7 @@ def main(year: int, diocese: str):
     set_global_year(year)
 
     from ordo_tools.temporal_cycle import build_temporal
-    from ordo_tools.utils import explode_octaves, stitch, dict_clean, commemoration_ordering
+    from ordo_tools.utils import explode_octaves, stitch, dict_clean
     from ordo_tools.outputs import build_latex_ordo
 
     build_temporal(year)

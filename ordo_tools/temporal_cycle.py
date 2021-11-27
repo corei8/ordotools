@@ -1,6 +1,6 @@
 import re
 from datetime import datetime, date
-from ordo_tools.utils import *
+from ordo_tools.utils import dict_clean, our_ladys_saturday, indays, day, weekday, findsunday, week, easter, ROMANS, LENT_MASSES, FERIA, find_extra_epiphany, PENTECOST_MASSES
 
 
 def build_temporal(year: int) -> None:
@@ -1268,5 +1268,7 @@ def build_temporal(year: int) -> None:
                 )
             f.write("}")
         dict_clean('temporal', '.')
-
+        
     make_dict(year)
+    
+    our_ladys_saturday('temporal')
