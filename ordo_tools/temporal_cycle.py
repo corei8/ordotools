@@ -1,6 +1,6 @@
 import re
 from datetime import datetime, date
-from ordo_tools.ordo_tools import *
+from ordo_tools.utils import *
 
 
 def build_temporal(year: int) -> None:
@@ -579,7 +579,7 @@ def build_temporal(year: int) -> None:
                     cycle.update(
                         {
                             str(ascension_day + indays(j)): {  # ! vespers
-                                'feast': "De " + y + " die infra Oct. Ascensionis",
+                                'feast': "De "+y+" die infra Oct. Ascensionis",
                                 'rank': [16, 'sd'],
                                 'color': 'color',
                                 'mass': {'int': 'Viri galilaei', 'glo': True, 'cre': False, 'pre': 'de Ascensione'},
@@ -593,7 +593,7 @@ def build_temporal(year: int) -> None:
             cycle.update(
                 {
                     str(easter(year) + week(i)): {  # ! vespers
-						'feast': x,
+                        'feast': x,
                         'rank': [1, 'dm'],
                         'color': 'color',
                         'mass': {'int': 'Quasi modo', 'glo': True, 'cre': True, 'pre': 'Paschalis'},
@@ -659,13 +659,13 @@ def build_temporal(year: int) -> None:
             cycle.update(
                 {
                     str(pent_date + indays(j + 1)): {  # ! vespers
-                        'feast': "Feria " + y + " infra Oct. Pentecostes",
-                                                'rank': [3, 'd I cl'],
-                                                'color': 'color',
-                                                'mass': {'int': 'Accepite jucunditatem', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
-                                                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                                                'office_type': 'feria',
-                                                'nobility': (False,),
+                        'feast': "Feria "+y+" infra Oct. Pentecostes",
+                        'rank': [3, 'd I cl'],
+                        'color': 'color',
+                        'mass': {'int': 'Accepite jucunditatem', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
+                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
+                        'office_type': 'feria',
+                        'nobility': (False,),
                     }
                 }
             )
@@ -844,10 +844,12 @@ def build_temporal(year: int) -> None:
             cycle.update(
                 {
                     str(post_pent_count + week(p)): {  # ! vespers
-                        'feast': "Dominica " + x + " post Pentecosten",
+                        'feast': "Dominica "+x+" post Pentecosten",
                         'rank': [12, 'sd'],
                         'color': 'green',
                         'mass': {'int': PENTECOST_MASSES[p], 'glo': True, 'cre': True, 'pre': 'de Trinitate'},
+                        'com_1': {'oration': 'A cunctis', },
+                        'com_2': {'oration': 'ad libitum', },
                         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
                         'office_type': 'dominica',
                         'nobility': (False,),
@@ -862,6 +864,8 @@ def build_temporal(year: int) -> None:
                             'rank': [22, 's'],
                             'color': 'green',
                             'mass': {'int': PENTECOST_MASSES[p], 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
+                            'com_1': {'oration': 'A cunctis', },
+                            'com_2': {'oration': 'ad libitum', },
                             'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
                             'office_type': 'feria',
                             'nobility': (8, 2, 6, 13, 3, 0,),
@@ -876,6 +880,8 @@ def build_temporal(year: int) -> None:
                         'rank': [12, 'sd'],
                         'color': 'green',
                         'mass': {'int': PENTECOST_MASSES[-1], 'glo': True, 'cre': True, 'pre': 'de Trinitate'},
+                        'com_1': {'oration': 'A cunctis', },
+                        'com_2': {'oration': 'ad libitum', },
                         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
                         'office_type': False,
                         'nobility': (False,),
@@ -890,6 +896,8 @@ def build_temporal(year: int) -> None:
                             'rank': [22, 's'],
                             'color': 'green',
                             'mass': {'int': PENTECOST_MASSES[-1], 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
+                            'com_1': {'oration': 'A cunctis', },
+                            'com_2': {'oration': 'ad libitum', },
                             'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
                             'office_type': 'feria',
                             'nobility': (8, 2, 6, 13, 3, 0,),
@@ -905,6 +913,8 @@ def build_temporal(year: int) -> None:
                         'rank': [12, 'sd'],
                         'color': 'green',
                         'mass': {'int': PENTECOST_MASSES[-1], 'glo': True, 'cre': True, 'pre': 'de Trinitate'},
+                        'com_1': {'oration': 'A cunctis', },
+                        'com_2': {'oration': 'ad libitum', },
                         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
                         'office_type': 'dominica',
                         'nobility': (False,),
@@ -919,6 +929,8 @@ def build_temporal(year: int) -> None:
                             'rank': [22, 's'],
                             'color': 'green',
                             'mass': {'int': PENTECOST_MASSES[-1], 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
+                            'com_1': {'oration': 'A cunctis', },
+                            'com_2': {'oration': 'ad libitum', },
                             'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
                             'office_type': 'feria',
                             'nobility': (8, 2, 6, 13, 3, 0,),
@@ -931,13 +943,15 @@ def build_temporal(year: int) -> None:
                 cycle.update(
                     {
                         str(post_pent_count + week(p+y)): {  # ! vespers
-                                                        'feast': 'Dominica '+ROMANS[p+y+3]+' post Pentecosten, '+x+'Epiphany',
-                                                        'rank': [12, 'sd'],
-                                                        'color': 'green',
-                                                        'mass': {'int': 'Dicit Dominus', 'glo': True, 'cre': True, 'pre': 'de Trinitate'},
-                                                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                                                        'office_type': 'dominica',
-                                                        'nobility': (False,),
+                            'feast': 'Dominica '+ROMANS[p+y+3]+' post Pentecosten, '+x+'Epiphany',
+                            'rank': [12, 'sd'],
+                            'color': 'green',
+                            'mass': {'int': 'Dicit Dominus', 'glo': True, 'cre': True, 'pre': 'de Trinitate'},
+                            'com_1': {'oration': 'A cunctis', },
+                            'com_2': {'oration': 'ad libitum', },
+                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
+                            'office_type': 'dominica',
+                            'nobility': (False,),
                         },
                     }  # ! vespers
                 )
@@ -949,6 +963,8 @@ def build_temporal(year: int) -> None:
                                 'rank': [22, 's'],
                                 'color': 'green',
                                 'mass': {'int': 'Dicit Dominus', 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
+                                'com_1': {'oration': 'A cunctis', },
+                                'com_2': {'oration': 'ad libitum', },
                                 'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
                                 'office_type': 'feria',
                                 'nobility': (8, 2, 6, 13, 3, 0,),
@@ -1252,5 +1268,5 @@ def build_temporal(year: int) -> None:
                 )
             f.write("}")
         dict_clean('temporal', '.')
-    
+
     make_dict(year)
