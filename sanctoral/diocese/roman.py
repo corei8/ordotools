@@ -387,7 +387,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''}
     },
     '03/08': {
-        'feast': 'S Ioannis a Deo C',
+        'feast': 'S Joannis a Deo C',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -477,7 +477,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''}
     },
     '03/27': {
-        'feast': 'S Ioannis Damasceni CD',
+        'feast': 'S Joannis Damasceni CD',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -486,7 +486,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''}
     },
     '03/28': {
-        'feast': 'S Ioannis a Capistrano C',
+        'feast': 'S Joannis a Capistrano C',
         'rank': [16.1, 'sd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -699,7 +699,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''}
     },
     '05/06': {
-        'feast': 'S Ioannis ApEv Ante Portam Latinam',
+        'feast': 'S Joannis ApEv Ante Portam Latinam',
         'rank': [14, 'dm'],
         'nobility': (False,),
         'office_type': False,
@@ -772,7 +772,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''}
     },
     '05/15': {
-        'feast': 'S Ioannis Baptistae de la Salle C',
+        'feast': 'S Joannis Baptistae de la Salle C',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,

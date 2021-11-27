@@ -1,0 +1,204 @@
+from datetime import datetime
+from ordo_tools.settings import YEAR
+
+
+class Feast:
+    def __init__(self, feast_date: str, properties: dict):
+        self.feast_date = feast_date
+        self.feast_properties = properties
+        self.name = properties['feast']
+        print('OBJECTIFY: \t' + self.name)
+        if 'infra_octave_name' in properties.keys():
+            self.infra_octave_name = properties['infra_octave_name']
+        self.rank_v = properties['rank'][-1]  # verbose rank
+        self.rank_n = properties['rank'][0]   # numeric rank
+        self.color = properties['color']
+        self.mass = {}
+        if 'int' in properties['mass'].keys():
+            self.mass = {'Ad Missam': properties['mass']}
+        else:
+            for x, y in properties['mass'].items():
+                self.mass.update({x: y})
+        self.vespers = properties['vespers'] if 'vespers' in properties.keys(
+        ) else {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
+        self.nobility = properties['nobility'] if 'nobility' in properties.keys(
+        ) else ('0', '0', '0', '0', '0', '0', )
+        self.office_type = properties['office_type']
+        self.coms = {
+            'com_1': properties['com_1'] if 'com_1' in properties.keys() else '',
+            'com_2': properties['com_2'] if 'com_2' in properties.keys() else '',
+            'com_3': properties['com_3'] if 'com_3' in properties.keys() else '',
+            'com_4': properties['com_4'] if 'com_4' in properties.keys() else '',
+            'com_5': properties['com_5'] if 'com_5' in properties.keys() else '',
+        }
+        print(self.coms)
+
+    @ property
+    def feast_date_display(self) -> str:
+        """ Displays the feast date for the ordo """
+        return datetime.strptime(self.feast_date.strip('tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%d')
+
+    def date(self):
+        # ? is this used?
+        return datetime.strptime('%m%d', self.feast_date)
+
+    @ property
+    # todo #9 expand Preces method to provide for 1. Preces Feriales 2. Compline 3. Little Hours
+    def preces(self) -> str:
+        if self.rank_n <= 16:
+            return ''
+        else:
+            return 'Preces'
+
+    @ property
+    def feast(self) -> str:
+        return self.feast_properties['feast']
+
+    @ property
+    def updated_properties(self) -> dict:
+        """ Updates all values of the feast's dictionary """
+        dic = {
+            'feast': self.name,
+            'rank': [self.rank_n, self.rank_v],
+            'color': self.color,
+            'mass': self.mass,
+            'matins': {},
+            'lauds': {},
+            'prime': {},
+            'little_hours': {},
+            'vespers': self.vespers,
+            'compline': {},
+            'nobility': self.nobility,
+            'office_type': self.office_type,
+            'com_1': self.coms['com_1'],
+            'com_2': self.coms['com_2'],
+            'com_3': self.coms['com_3'],
+            'com_4': self.coms['com_4'],
+            'com_5': self.coms['com_5'],
+        }
+        return dic
+
+    @ property
+    def office_type2latex(self) -> str:
+        """ returns formatted office type based on office_type key """
+        # todo write all office types in english
+        if self.office_type == False:
+            off_type = 'Ord'
+        elif self.office_type == 'feria':
+            off_type = 'Fer'
+        elif self.office_type == 'festiva':
+            off_type = 'Festiv'
+        elif self.office_type == 'dominica':
+            off_type = 'Dom'
+        else:
+            return 'ERROR!'
+        return 'Off ' + off_type
+
+    @ property
+    def com_in_title(self) -> str:
+        """ returns formatted commemorations in title """
+        results = ''
+        for x in self.coms.values():
+                if type(x) == dict:
+                    if 'feast' in x.keys():
+                        results += r'\textit{['+x['feast'] + r']} \\ '
+                    else:
+                        results += ''
+                else:
+                    results += ''
+        return results
+
+    def introit(self) -> list:
+        """ Finds the Introit text for the feast """
+        # todo add a methed to determine if it is a three Mass Introit or not.
+        introit_list = []
+        if len(self.mass.items()) == 1:
+            if 'Ad Missam' in self.mass.keys():
+                if type(self.mass['Ad Missam']['int']) == str:
+                    introit_list.append(self.mass['Ad Missam']['int'])
+                else:
+                    # todo add a method to determine whether it is still pascahltime or not
+                    # ! just for testing purposes
+                    introit_list.append(self.mass['Ad Missam']['int'][0])
+            else:
+                pass
+        else:
+            for y in self.mass.keys():
+                introit_list.append(self.mass[y]['int'])
+        return introit_list
+
+    @ property
+    def translate_color(self) -> str:
+        """ translate the color from english to latin """
+        translations = {
+            'white': 'albus',
+            'green': 'viridis',
+            'red': 'ruber',
+            'violet': 'violaceus',
+            'black': 'niger',
+            'color': 'void',
+        }
+        latin_color = translations[self.color]
+        return latin_color
+
+    @ property
+    def translate_weekday(self) -> str:
+        """ translate the weekday from english to latin """
+        translations = {
+            'Sunday': 'Dom',
+            'Monday': 'Fer II',
+            'Tuesday': 'Fer III',
+            'Wednesday': 'Fer IV',
+            'Thursday': 'Fer V',
+            'Friday': 'Fer VI',
+            'Saturday': 'Sabb',
+        }
+        latin_weekday = translations[datetime.strptime(self.feast_date.strip(
+            'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%A')]
+        return latin_weekday
+
+    def mass_commemorations(self) -> str:
+        """ returns formatted and ordered mass commemorations in title """
+        results = ''
+        i = 2
+        for x in self.coms.keys():
+            if type(self.coms[x]) == dict:
+                if 'feast' in self.coms[x].keys():
+                    results += str(i) + r' or ' + self.coms[x]['feast'] + r', '
+                    i += 1
+                elif 'oration' in self.coms[x].keys():
+                    if self.coms[x]['oration'] == 'ad libitum':
+                        results += str(i) + r' or ' + self.coms[x]['oration'] + r', '
+                    else:
+                        results += str(i) + r' or \textit{' + self.coms[x]['oration'] + r',} '
+                    i += 1
+                else:
+                    pass
+            else:
+                pass
+        return results
+
+    def display_mass_as_latex(self) -> str:
+        """ return the Mass as LaTeX code """
+        # todo add orations
+        latexed_mass = ''
+        status = []
+        for y in self.mass.values():
+            gloria = y['glo']
+            creed = y['cre']
+            if gloria == True and creed == True:
+                status.append('G, C, ')
+            elif gloria == True and creed == False:
+                status.append('G, ')
+            elif gloria == False and creed == True:
+                status.append('C, ')
+            else:
+                status.append('')
+        i = 0
+        for x, y in self.mass.items():
+            # todo use the second in the string if it is Paschaltime.
+            latexed_mass += '\\textbf{'+x+'}: \\textit{' + \
+                self.introit()[i] + ',} ' + \
+                status[i]+'Pre '+y['pre'] + ', ' + self.mass_commemorations() + ' '
+            i += 1
+        return latexed_mass

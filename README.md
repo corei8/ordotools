@@ -112,7 +112,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Sat | 03/05 | feria | Sabbatum post Diem Cinerum | 
 | Sun | 03/06 | sd I cl | Dominica I in Quadragesima | 
 | Mon | 03/07 | d | S Thomas De Aquino C | 
-| Tue | 03/08 | d | S Ioannis a Deo C | 
+| Tue | 03/08 | d | S Joannis a Deo C | 
 | Wed | 03/09 | feria | Feria IV Quatuor Temporum Quadragesimæ | 
 | Thu | 03/10 | sd | Ss Quadraginta Mm | 
 | Fri | 03/11 | feria | Feria VI Quatuor Temporum Quadragesimæ | 
@@ -132,7 +132,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fri | 03/25 | d I cl | In Annuntiatione BMV | 
 | Sat | 03/26 | feria | Sabbatum infra Hebd III in Quadragesima | 
 | Sun | 03/27 | sd I cl | Dominica IV in Quadragesima (Lætare) | 
-| Mon | 03/28 | sd | S Ioannis a Capistrano C | 
+| Mon | 03/28 | sd | S Joannis a Capistrano C | 
 | Tue | 03/29 | feria | Feria III infra Hebd IV in Quadragesima  | 
 | Wed | 03/30 | feria | Feria IV infra Hebd IV in Quadragesima  | 
 | Thu | 03/31 | feria | Feria V infra Hebd IV in Quadragesima  | 
@@ -169,7 +169,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
  | | | | *Com:* Ss Alexandro I Pp, Event et Theodulo Mm ac Juvenile Ep C | 
 | Wed | 05/04 | d I cl cum Oct Communi | Solemnitas S. Joseph, Sponsi BMV C. et Ecclesiæ Universalis Patroni | 
 | Thu | 05/05 | d | S Pii V Pp C | 
-| Fri | 05/06 | dm | S Ioannis Ap et Ev Ante Portam Latinam | 
+| Fri | 05/06 | dm | S Joannis Ap et Ev Ante Portam Latinam | 
 | Sat | 05/07 | d | S Stanislai Ep M | 
 | Sun | 05/08 | sd | Dominica III post Pascha | 
 | Mon | 05/09 | d | S Gregorii Nanzanzeni Ep CD | 

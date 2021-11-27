@@ -2,7 +2,7 @@ import subprocess
 from datetime import datetime
 import os
 import importlib
-from ordo_tools.ordo_tools import latex_replacement, Feast, translate_month
+from ordo_tools.utils import latex_replacement, Feast, translate_month
 
 
 def build_latex_ordo(year):
@@ -70,18 +70,19 @@ def build_latex_ordo(year):
             \vspace{2em}
             \begin{minipage}{0.5in}
                 {\Huge '''+latex_replacement(feast.feast_date_display)+r'''} \\
+                {\normalsize '''+feast.translate_weekday+r'''} \\
                 {\normalsize '''+feast.translate_color+r'''}
             \end{minipage}
             \begin{minipage}{3.0in}
                 \textbf{ \large '''+latex_replacement(feast.name)+r''' \\
-                \textnormal{\normalsize '''+feast.rank_v+r'''}}''' + latex_replacement(feast.commemoration2latex())+r'''
+                \textnormal{\normalsize '''+feast.rank_v+r'''}} \\ ''' + latex_replacement(feast.com_in_title)+r'''
             \end{minipage}
             \begin{justify}'''+feast.office_type2latex+r'''
                 \textbf{Ad Mat: }
                 \textbf{Ad Lau: }
                 \textbf{Ad Horas: }'''+feast.preces+r'''
                 \textbf{Ad Primam: }'''+feast.preces +
-                        feast.display_mass_as_latex()+r'''
+                        latex_replacement(feast.display_mass_as_latex())+r'''
                 \textbf{In Vesp: }
                 \textbf{Ad Compl: }'''+feast.preces+r'''
             \end{justify}
@@ -93,7 +94,7 @@ def build_latex_ordo(year):
     working_dir = os.getcwd()
     os.chdir('output/latex/')
     subprocess.run('lualatex '+file+' -interaction nonstopmode',
-                   shell=True)
+                   shell=True)# , stdout=subprocess.DEVNULL)
     os.chdir(working_dir)
     return 0
 
@@ -108,7 +109,9 @@ def readme_calendar(year):
             r'''
 # Ordo
 
-Pre-Vatican II Roman Catholic Ordo with proper readings indicated for the Divine Office and the Mass.
+Traditional Catholic Ordo for the United States, Australia, Canada and Nantes.
+
+Managed by the Roman Catholic Institute.
 
 ## Python Specifications
 
@@ -116,7 +119,10 @@ Python 3.x.x 64-bit
 
 ### Modules:
 
-dateutil
+[dateutil](https://dateutil.readthedocs.io/en/stable/)
+```bash
+pip install python-dateutil
+```
 
 ## Overview
 
@@ -133,7 +139,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 ## Progress
 
 - [x] Temporal Calendar
-- [ ] Combined Temporal and Sanctoral Calendar
+- [x] Combined Temporal and Sanctoral Calendar
 - [ ] Masses
 - [ ] Vespers
 - [ ] Colors of Mass and Office
@@ -187,86 +193,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
                     pass
             else:
                 pass
-
-
-def latex_full_cal_test(year):
-    # todo make this calendar import work with a variable
-    mdl = importlib.import_module(
-        'calen.calendar_' + str(year)).calen
-    mdldates = sorted(mdl)
-    with open("output/latex/calendar_" + str(year) + ".tex", "a") as f:
-        f.truncate(0)
-        f.write(
-            r"""
-% !TEX program = lualatex
-\documentclass[10pt]{article}
-\title{Ordo -- Full Calendar -- 2022}
-\usepackage{longtable}
-\usepackage{geometry}
-\usepackage[letterspace=500]{microtype}
-\usepackage[T1]{fontenc}
-\usepackage[usefilenames,RMstyle={Text,Semibold},SSstyle={Text,Semibold},TTstyle={Text,Semibold},DefaultFeatures={Ligatures=Common}]{plex-otf} %
-\usepackage[latin]{babel}
-\usepackage{fontspec}
-% LETTERPAPER:
-\geometry{paperheight=8.5in, paperwidth=11in, left=1.0in, right=1.0in, top=1.0in, bottom=1.0in,}
-\usepackage[table]{xcolor}
-\definecolor{lightblue}{rgb}{0.93,0.95,1.0}
-\begin{document}
-\begin{enumerate}
-    \item Ignore dates with a period or an underscore after the day -- these are being worked on.
-    \item Check only that the commemorations are present and are spelt correctly.
-    \item Check for consistency in ranks and feast naming.
-\end{enumerate}
-\rowcolors{1}{}{lightblue}
-\begin{longtable}{ l l l l }
-\hline
-\textsc{Day} & \textsc{Date} & \textsc{Rank} & \textsc{Feast} \\
-\hline
-\endhead
-"""
-        )
-        for x in mdldates:
-            dow = datetime.strptime(
-                x.strip('tranlsated ._')+'/'+str(year), '%m/%d/%Y'
-            ).strftime('%a')
-            if len(x) <= 6:
-                f.write(""+dow+' & '+latex_replacement(x) + " & " + mdl[x]['rank'][-1] +
-                        " & "+latex_replacement(mdl[x]['feast'])+"\\\\\n")
-            else:
-                f.write(""+dow+' & '+latex_replacement(x) + " & " + mdl[x]['rank'][-1] +
-                        " & " + latex_replacement(mdl[x]['feast']) + "\\\\\n")
-            # todo find a solution for labeling commemorations
-            if 'com_1' in mdl[x].keys():
-                f.write("" + '' + " & & & " + '\\textit{Com:} ' +
-                        latex_replacement(mdl[x]['com_1']) + "\\\\\n")
-            else:
-                pass
-            if 'com_2' in mdl[x].keys():
-                if len(mdl[x]['com_2']['feast']) > 0:
-                    f.write("" + '' + " & & & " + '\\textit{Com:} ' +
-                            latex_replacement(mdl[x]['com_2']['feast']) + "\\\\\n")
-                else:
-                    pass
-            else:
-                pass
-            if 'com_3' in mdl[x].keys():
-                if len(mdl[x]['com_3']['feast']) > 0:
-                    f.write("" + '' + " & & & " + '\\textit{Com:} ' +
-                            latex_replacement(mdl[x]['com_3']['feast']) + "\\\\\n")
-                else:
-                    pass
-            else:
-                pass
-        f.write("\end{longtable}\n\end{document}")
-    file = 'calendar_'+str(year)+'.tex'
-    working_dir = os.getcwd()
-    os.chdir('output/latex/')
-    subprocess.run('lualatex '+file+' -interaction nonstopmode',
-                   shell=True, stdout=subprocess.DEVNULL)
-    os.chdir(working_dir)
     return 0
-
 
 def build_latin_calendar(year) -> None:
     # todo make this calendar import work with a variable
