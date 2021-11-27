@@ -1,7 +1,7 @@
 
 # Ordo
 
-Pre-Vatican II Roman Catholic Ordo with proper readings indicated for the Divine Office and the Mass.
+Pre 1955 Ordo
 
 ## Python Specifications
 
@@ -9,7 +9,10 @@ Python 3.x.x 64-bit
 
 ### Modules:
 
-dateutil
+[dateutil](https://dateutil.readthedocs.io/en/stable/)
+```bash
+pip install python-dateutil
+```
 
 ## Overview
 
@@ -26,7 +29,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 ## Progress
 
 - [x] Temporal Calendar
-- [ ] Combined Temporal and Sanctoral Calendar
+- [x] Combined Temporal and Sanctoral Calendar
 - [ ] Masses
 - [ ] Vespers
 - [ ] Colors of Mass and Office
