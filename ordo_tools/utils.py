@@ -218,17 +218,9 @@ def commemoration_ordering(direct: str) -> None:
     Returns:
         None: Commemorations are ordered without return.
     """
-    try:
-        mdl = importlib.import_module(direct + str(YEAR))
-    except ModuleNotFoundError:
-        mdl = importlib.import_module(direct)
-    try:
-        dic = mdl.temporal
-    except AttributeError:
-        try:
-            dic = mdl.calen
-        except AttributeError:
-            dic = mdl.sanctoral
+    dict_information = find_module(direct)
+    dictionary = importlib.import_module(dict_information[1])
+    dic = dictionary.__dict__[dict_information[2]]
         # todo use the Feast class for this
     for x in list(dic.keys()):
         for data in list(dic[x].keys()):

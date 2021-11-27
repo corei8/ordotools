@@ -1,14 +1,13 @@
 from datetime import datetime
 from ordo_tools.settings import YEAR
 
+
 class Feast:
     def __init__(self, feast_date: str, properties: dict):
         self.feast_date = feast_date
-        self.feast_date_display = datetime.strptime(self.feast_date.strip(
-            'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%d')
         self.feast_properties = properties
         self.name = properties['feast']
-        print(self.name)
+        print('OBJECTIFY: \t' + self.name)
         if 'infra_octave_name' in properties.keys():
             self.infra_octave_name = properties['infra_octave_name']
         self.rank_v = properties['rank'][-1]  # verbose rank
@@ -25,42 +24,22 @@ class Feast:
         self.nobility = properties['nobility'] if 'nobility' in properties.keys(
         ) else ('0', '0', '0', '0', '0', '0', )
         self.office_type = properties['office_type']
-        self.com_1 = {'oration': ''}
-        self.com_2 = {'oration': ''}
-        self.com_3 = {'oration': ''}
-        self.com_4 = {'oration': ''}
-        self.com_5 = {'oration': ''}
-        self_coms = [self.com_1, self.com_2,
-                     self.com_3, self.com_4, self.com_5]
-        coms = ('com_1', 'com_2', 'com_3', 'com_4', 'com_5')
-        for i, com in enumerate(coms):
-            try:
-                if properties[com]:
-                    self_coms[i] = self.Commemoration(
-                        properties[com]) if com in properties.keys() else None
-                    print('assigning ' + com + ' to ' + str(self_coms[i]))
-            except KeyError:
-                pass
+        self.coms = {
+            'com_1': properties['com_1'] if 'com_1' in properties.keys() else '',
+            'com_2': properties['com_2'] if 'com_2' in properties.keys() else '',
+            'com_3': properties['com_3'] if 'com_3' in properties.keys() else '',
+            'com_4': properties['com_4'] if 'com_4' in properties.keys() else '',
+            'com_5': properties['com_5'] if 'com_5' in properties.keys() else '',
+        }
+        print(self.coms)
 
-    class Commemoration:
-        def __init__(self, detail: dict):
-            self.details = detail
-            self.com_mass = detail['mass'] if 'mass' in detail.keys() else None
-            self.com_name = detail['feast'] if 'feast' in detail.keys(
-            ) else detail['oration']
-
-        def com_feast_inline(self) -> str:
-            """ display the commemoration as an oration """
-            # todo write a method that lables the commemorations with numbers
-            try:
-                if 'feast' in self.details.keys():
-                    return r'\normaltext{' + self.details['feast'] + '}'
-                else:
-                    return r'\textit{' + self.details['oration'] + '}'
-            except KeyError:
-                return ''
+    @ property
+    def feast_date_display(self) -> str:
+        """ Displays the feast date for the ordo """
+        return datetime.strptime(self.feast_date.strip('tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%d')
 
     def date(self):
+        # ? is this used?
         return datetime.strptime('%m%d', self.feast_date)
 
     @ property
@@ -77,25 +56,32 @@ class Feast:
 
     @ property
     def updated_properties(self) -> dict:
+        """ Updates all values of the feast's dictionary """
         dic = {
             'feast': self.name,
             'rank': [self.rank_n, self.rank_v],
             'color': self.color,
             'mass': self.mass,
+            'matins': {},
+            'lauds': {},
+            'prime': {},
+            'little_hours': {},
             'vespers': self.vespers,
+            'compline': {},
             'nobility': self.nobility,
             'office_type': self.office_type,
-            'com_1': self.com_1.details if self.com_1 else '',
-            'com_2': self.com_2.details if self.com_2 else '',
-            'com_3': self.com_3.details if self.com_3 else '',
-            'com_4': self.com_4.details if self.com_4 else '',
-            'com_5': self.com_5.details if self.com_5 else '',
+            'com_1': self.coms['com_1'],
+            'com_2': self.coms['com_2'],
+            'com_3': self.coms['com_3'],
+            'com_4': self.coms['com_4'],
+            'com_5': self.coms['com_5'],
         }
         return dic
 
     @ property
     def office_type2latex(self) -> str:
         """ returns formatted office type based on office_type key """
+        # todo write all office types in english
         if self.office_type == False:
             off_type = 'Ord'
         elif self.office_type == 'feria':
@@ -108,12 +94,22 @@ class Feast:
             return 'ERROR!'
         return 'Off ' + off_type
 
-    def introit(self) -> list:
-        """Find the introit text for the feast
+    @ property
+    def com_in_title(self) -> str:
+        """ returns formatted commemorations in title """
+        results = ''
+        for x in self.coms.values():
+                if type(x) == dict:
+                    if 'feast' in x.keys():
+                        results += r'\textit{['+x['feast'] + r']} \\ '
+                    else:
+                        results += ''
+                else:
+                    results += ''
+        return results
 
-        Returns:
-            str: Introit text
-        """
+    def introit(self) -> list:
+        """ Finds the Introit text for the feast """
         # todo add a methed to determine if it is a three Mass Introit or not.
         introit_list = []
         if len(self.mass.items()) == 1:
@@ -140,22 +136,41 @@ class Feast:
             'red': 'ruber',
             'violet': 'violaceus',
             'black': 'niger',
-            'color': '????',
+            'color': 'void',
         }
         latin_color = translations[self.color]
         return latin_color
 
-    # add the commemorations to display_mass_as_latex
-    def commemorations_as_latex(self) -> str:
-        """ returns the commemorations as latex """
-        coms = (self.com_1, self.com_2, self.com_3, self.com_4, self.com_5)
-        oration = ''
-        for i, com in enumerate(coms):
-            try:
-                oration += str(i)+' or '+com.com_name + ', '
-            except KeyError:
+    @ property
+    def translate_weekday(self) -> str:
+        """ translate the weekday from english to latin """
+        translations = {
+            'Sunday': 'Dom',
+            'Monday': 'Fer II',
+            'Tuesday': 'Fer III',
+            'Wednesday': 'Fer IV',
+            'Thursday': 'Fer V',
+            'Friday': 'Fer VI',
+            'Saturday': 'Sabb',
+        }
+        latin_weekday = translations[datetime.strptime(self.feast_date.strip(
+            'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%A')]
+        return latin_weekday
+
+    def mass_commemorations(self) -> str:
+        """ returns formatted mass commemorations in title """
+        results = ''
+        for i, x in enumerate(self.coms.keys(), start=2):
+            if type(self.coms[x]) == dict:
+                if 'feast' in self.coms[x].keys():
+                    results += str(i) + r' or ' + self.coms[x]['feast'] + r', '
+                elif 'oration' in self.coms[x].keys():
+                    results += str(i) + r' or \textit{' + self.coms[x]['oration'] + r',} '
+                else:
+                    pass
+            else:
                 pass
-        return oration
+        return results
 
     def display_mass_as_latex(self) -> str:
         """ return the Mass as LaTeX code """
@@ -178,24 +193,6 @@ class Feast:
             # todo use the second in the string if it is Paschaltime.
             latexed_mass += '\\textbf{'+x+'}: \\textit{' + \
                 self.introit()[i] + ',} ' + \
-                status[i]+'Pre '+y['pre'] + ', ' + \
-                self.commemorations_as_latex()
+                status[i]+'Pre '+y['pre'] + ', ' + self.mass_commemorations() + ' '
             i += 1
         return latexed_mass
-
-    def commemoration2latex(self):
-        """ return the commemorations as LaTeX code """
-        com_list = '\n'
-        if self.com_1 != False:
-            com_list += self.com_1
-        elif self.com_2 != False:
-            com_list += self.com_2
-        elif self.com_3 != False:
-            com_list += self.com_3
-        elif self.com_4 != False:
-            com_list += self.com_4
-        elif self.com_5 != False:
-            com_list += self.com_5
-        else:
-            return com_list + '\n\\textit{No Commemoration}'
-        return com_list

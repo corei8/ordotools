@@ -70,18 +70,19 @@ def build_latex_ordo(year):
             \vspace{2em}
             \begin{minipage}{0.5in}
                 {\Huge '''+latex_replacement(feast.feast_date_display)+r'''} \\
+                {\normalsize '''+feast.translate_weekday+r'''} \\
                 {\normalsize '''+feast.translate_color+r'''}
             \end{minipage}
             \begin{minipage}{3.0in}
                 \textbf{ \large '''+latex_replacement(feast.name)+r''' \\
-                \textnormal{\normalsize '''+feast.rank_v+r'''}}''' + latex_replacement(feast.commemoration2latex())+r'''
+                \textnormal{\normalsize '''+feast.rank_v+r'''}} \\ ''' + latex_replacement(feast.com_in_title)+r'''
             \end{minipage}
             \begin{justify}'''+feast.office_type2latex+r'''
                 \textbf{Ad Mat: }
                 \textbf{Ad Lau: }
                 \textbf{Ad Horas: }'''+feast.preces+r'''
                 \textbf{Ad Primam: }'''+feast.preces +
-                        feast.display_mass_as_latex()+r'''
+                        latex_replacement(feast.display_mass_as_latex())+r'''
                 \textbf{In Vesp: }
                 \textbf{Ad Compl: }'''+feast.preces+r'''
             \end{justify}
@@ -93,7 +94,7 @@ def build_latex_ordo(year):
     working_dir = os.getcwd()
     os.chdir('output/latex/')
     subprocess.run('lualatex '+file+' -interaction nonstopmode',
-                   shell=True, stdout=subprocess.DEVNULL)
+                   shell=True)# , stdout=subprocess.DEVNULL)
     os.chdir(working_dir)
     return 0
 

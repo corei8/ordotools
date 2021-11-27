@@ -8,22 +8,29 @@
 #####################################################
 
 
-from ordo_tools.temporal_cycle import build_temporal
-from ordo_tools.settings import global_year
-from ordo_tools.utils import *
-from ordo_tools.outputs import build_latex_ordo
-
-
 def main(year: int, diocese: str):
-    global_year(year)
+
+    def set_global_year(year: int) -> None:
+        """ Writes the global year to a file """
+        with open("ordo_tools/settings.py", "w") as f:
+            f.write('YEAR = ' + str(year))
+        return None
+
+    set_global_year(year)
+
+    from ordo_tools.temporal_cycle import build_temporal
+    from ordo_tools.utils import explode_octaves, stitch, dict_clean, commemoration_ordering
+    from ordo_tools.outputs import build_latex_ordo
+
     build_temporal(year)
+
     stitch(sanctoral=explode_octaves(region_diocese=diocese))
     dict_clean('calendar', '.')
     dict_clean('calendar', '_')
+    commemoration_ordering('calendar')
     build_latex_ordo(year)
     # build_latin_calendar(year)
 
- # todo use os to get a list of the dioceses or regions needed to complete an ordo
 
 if __name__ == '__main__':
     main(year=2022, diocese='roman')

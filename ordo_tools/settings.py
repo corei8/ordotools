@@ -1,3 +1,1 @@
-def global_year(year):
-    global YEAR
-    YEAR = year
+YEAR = 2022
