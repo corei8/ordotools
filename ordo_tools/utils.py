@@ -5,10 +5,7 @@ import re
 from os import listdir
 from ordo_tools.settings import YEAR
 from ordo_tools.feast import Feast
-# from ordo_tools.logger import logger
 
-
-#===-===-=== GLOBALS ===-===-=== #
 
 ROMANS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
           'VIII', 'IX', 'X', 'XI', 'XII', 'XIII',
@@ -42,28 +39,33 @@ FERIA = [
     'Sabbatum',
 ]
 
-# not working right now...
-# EASTER_SEASON_START = datetime(
-#     year=int(dateutil.easter.easter(YEAR).strftime('%Y')),
-#     month=int(dateutil.easter.easter(YEAR).strftime('%m')),
-#     day=int(dateutil.easter.easter(YEAR).strftime('%d'))
-# ) + timedelta(days=8)
 
-# EASTER_SEASON_END = datetime(
-#     year=int(dateutil.easter.easter(YEAR).strftime('%Y')),
-#     month=int(dateutil.easter.easter(YEAR).strftime('%m')),
-#     day=int(dateutil.easter.easter(YEAR).strftime('%d'))
-# ) + timedelta(days=39)
+def findsunday(date: datetime) -> timedelta:
+    """ return the distance of the datetime date from the previous Sunday, as a days timedelta """
+    return timedelta(days=int(date.strftime('%w')))
+
+
+CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
+lastadvent = CHRISTMAS - findsunday(CHRISTMAS)
+
+FIRST_ADVENT  = lastadvent - timedelta(weeks=3)
+
+EASTER_SEASON_START = datetime(
+    year=int(dateutil.easter.easter(YEAR).strftime('%Y')),
+    month=int(dateutil.easter.easter(YEAR).strftime('%m')),
+    day=int(dateutil.easter.easter(YEAR).strftime('%d'))
+) + timedelta(days=8)
+
+EASTER_SEASON_END = datetime(
+    year=int(dateutil.easter.easter(YEAR).strftime('%Y')),
+    month=int(dateutil.easter.easter(YEAR).strftime('%m')),
+    day=int(dateutil.easter.easter(YEAR).strftime('%d'))
+) + timedelta(days=39)
 
 
 # todo range for pentecost
 
-# todo range for advent
-
 # todo range for lent
-
-
-#===-===-=== COMMON FUNCTIONS ===-===-=== #
 
 
 def easter(year: int) -> datetime:
@@ -90,11 +92,6 @@ def weekday(date: datetime) -> str:
     return date.strftime('%a')
 
 
-def findsunday(date: datetime) -> timedelta:
-    """ return the distance of the datetime date from the previous Sunday, as a days timedelta """
-    return timedelta(days=int(date.strftime('%w')))
-
-
 def find_extra_epiphany(pents: int) -> int:
     """ return the number of Sundays not celebrated after Epiphany """
     if pents == 23:
@@ -118,7 +115,7 @@ def leap_year(year: int) -> bool:
 
 
 def latex_replacement(string: str) -> str:
-    """ return a string formatted for LaTeX """
+    """ return a string formatted for LaTeX with escape characters """
     return re.sub('&', '\&', re.sub('_', '\_', string))
 
 
@@ -186,15 +183,7 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
         dic (dict): dictionary to write
     """
     def write_dictionary(target_file: tuple, dic: dict) -> None:
-        """ Writes a dictionary to a file.
-
-        Args:
-            target_file (tuple): The name and path of the file to write to.
-            dic (dict): dictionary to write
-
-        Returns:
-            None: Writes the dictionary to the file with no return.
-        """
+        """ Writes a dictionary to a file """
         with open(target_file[0], 'a') as f:
             f.truncate(0)  # clean the file
             for i, line in enumerate(sorted(dic)):
@@ -210,7 +199,7 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
 
 
 # def commemoration_ordering(direct: str) -> None:
-#     """ Adjusts the ordering of the commeorations so so that the first commemoration is always COM_1
+#     """ Adjusts the ordering of the commemorations so that the first commemoration is always COM_1
 
 #     Args:
 #         direct (str): dictionary whose commemorations are to be ordered
@@ -221,7 +210,6 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
 #     dict_information = find_module(direct)
 #     dictionary = importlib.import_module(dict_information[1])
 #     dic = dictionary.__dict__[dict_information[2]]
-#     # todo use the Feast class for this, but it works for now
 #     for x in list(dic.keys()):
 #         for data in list(dic[x].keys()):
 #             if 'com_1' in data:
@@ -436,7 +424,7 @@ def our_ladys_saturday(direct: str) -> None:
         'compline': {},
         'office_type': 'ut in pr loco',
         'nobility': (8, 2, 6, 13, 3, 0,),
-        }
+    }
     dict_information = find_module(direct)
     dictionary = importlib.import_module(dict_information[1])
     dic = dictionary.__dict__[dict_information[2]]
@@ -451,7 +439,7 @@ def our_ladys_saturday(direct: str) -> None:
             if not saturday.strftime('%m/%d')+'.' in sorted(dic):
                 dic.update({saturday.strftime('%m/%d')+'.': office})
             else:
-                pass # we can presume that it is impossible
+                pass  # we can presume that it is impossible
         else:
             dic.update({saturday.strftime('%m/%d'): office})
         saturday = saturday + indays(7)
