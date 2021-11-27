@@ -158,14 +158,20 @@ class Feast:
         return latin_weekday
 
     def mass_commemorations(self) -> str:
-        """ returns formatted mass commemorations in title """
+        """ returns formatted and ordered mass commemorations in title """
         results = ''
-        for i, x in enumerate(self.coms.keys(), start=2):
+        i = 2
+        for x in self.coms.keys():
             if type(self.coms[x]) == dict:
                 if 'feast' in self.coms[x].keys():
                     results += str(i) + r' or ' + self.coms[x]['feast'] + r', '
+                    i += 1
                 elif 'oration' in self.coms[x].keys():
-                    results += str(i) + r' or \textit{' + self.coms[x]['oration'] + r',} '
+                    if self.coms[x]['oration'] == 'ad libitum':
+                        results += str(i) + r' or ' + self.coms[x]['oration'] + r', '
+                    else:
+                        results += str(i) + r' or \textit{' + self.coms[x]['oration'] + r',} '
+                    i += 1
                 else:
                     pass
             else:

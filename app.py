@@ -27,7 +27,7 @@ def main(year: int, diocese: str):
     stitch(sanctoral=explode_octaves(region_diocese=diocese))
     dict_clean('calendar', '.')
     dict_clean('calendar', '_')
-    commemoration_ordering('calendar')
+    # commemoration_ordering('calendar')
     build_latex_ordo(year)
     # build_latin_calendar(year)
 

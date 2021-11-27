@@ -221,11 +221,11 @@ def commemoration_ordering(direct: str) -> None:
     dict_information = find_module(direct)
     dictionary = importlib.import_module(dict_information[1])
     dic = dictionary.__dict__[dict_information[2]]
-        # todo use the Feast class for this
+    # todo use the Feast class for this, but it works for now
     for x in list(dic.keys()):
         for data in list(dic[x].keys()):
             if 'com_1' in data:
-                continue
+                continue # the first oration is com_1
             elif 'com_2' in data:
                 dic[x].update({'com_1': dic[x]['com_2']})
                 dic[x].pop('com_2')
