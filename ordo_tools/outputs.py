@@ -39,13 +39,23 @@ def build_latex_ordo(year):
     top=1.0in, 
     bottom=1.0in,
     }
+\usepackage{anyfontsize}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{% 
     \markboth{#1}{}
     }
 \begin{document}
-    \maketitle
+    % \maketitle
+    % just something temporary for now
+    \begin{titlepage}
+        \begin{center}
+            {\fontsize{50}{60}\selectfont \textsc{Ordo '''+str(year)+r'''}}
+        \end{center}
+        \begin{center}
+            {\footnotesize \textsc{Roman Catholic Institute}}
+        \end{center}
+    \end{titlepage}
     \clearpage\begingroup\pagestyle{empty}\cleardoublepage\endgroup
 '''
         )
@@ -94,7 +104,7 @@ def build_latex_ordo(year):
     working_dir = os.getcwd()
     os.chdir('output/latex/')
     subprocess.run('lualatex '+file+' -interaction nonstopmode',
-                   shell=True , stdout=subprocess.DEVNULL)
+                   shell=True) #, stdout=subprocess.DEVNULL)
     os.chdir(working_dir)
     return 0
 
@@ -142,13 +152,14 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 - [x] Combined Temporal and Sanctoral Calendar
 - [ ] Masses
 - [ ] Vespers
-- [ ] Colors of Mass and Office
+- [x] Colors of Mass and Office
 - [ ] Lessons for Laudes
 - [ ] Prime
 - [ ] Little Hours
-- [ ] Solemnities
+- [ ] US Calendar
 - [ ] Australian Calendar
 - [ ] Canadian Calendar
+- [ ] Solemnities
                 ''')
         f.write('\n\n')
         f.write('## Calendar for ' + str(year))
@@ -158,42 +169,11 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
         f.write('|---|---|---|---|')
         f.write('\n')
         for x in mdldates:
-            dow = datetime.strptime(
-                x.strip('tranlsated ._')+'/'+str(year), '%m/%d/%Y').strftime('%a')
-            if len(x) <= 6:
-                f.write('| '+dow+' | '+latex_replacement(x)+' | ' +
-                        mdl[x]['rank'][-1]+' | '+latex_replacement(mdl[x]['feast'])+' | ')
-                f.write('\n')
-            else:
-                f.write('| '+dow+' | '+latex_replacement(x) + ' | ' +
-                        mdl[x]['rank'][-1] + " | " + latex_replacement(mdl[x]['feast']) + ' | ')
-                f.write('\n')
-            # todo find a solution for labeling commemorations
-            if 'com_1' in mdl[x].keys():
-                f.write(" | | | | " + '*Com:* ' +
-                        latex_replacement(mdl[x]['com_1']) + ' | ')
-                f.write('\n')
-            else:
-                pass
-            if 'com_2' in mdl[x].keys():
-                if len(mdl[x]['com_2']['feast']) > 0:
-                    f.write(" | | | | " + '*Com:* ' +
-                            latex_replacement(mdl[x]['com_2']['feast']) + ' | ')
-                    f.write('\n')
-                else:
-                    pass
-            else:
-                pass
-            if 'com_3' in mdl[x].keys():
-                if len(mdl[x]['com_3']['feast']) > 0:
-                    f.write(" | | | | " + '*Com:* ' +
-                            latex_replacement(mdl[x]['com_3']['feast']) + ' | ')
-                    f.write('\n')
-                else:
-                    pass
-            else:
-                pass
+            feast = Feast(x, mdl[x])
+            f.write('| ' + feast.translate_weekday + ' | ' + feast.feast_date_display + ' | ' + feast.rank_v + ' | ' + feast.name + ' |')
+            f.write('\n')
     return 0
+
 
 def build_latin_calendar(year) -> None:
     # todo make this calendar import work with a variable

@@ -207,7 +207,6 @@ def build_temporal(year: int) -> None:
                     str(epiph_counter): {  # ! vespers
                         'feast': "Dominica "+epiph_sundays[o]+" post Epiphaniam",
                         'rank': [12, 'sd'],
-                        # todo add the correct introits
                         'color': 'white',
                         'mass': {'int': 'Omnis terra', 'glo': True, 'cre': True, 'pre': 'de Ssma Trinitate'},
                         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
@@ -487,7 +486,8 @@ def build_temporal(year: int) -> None:
                 {
                     str(easter(year) + week(i) + indays(3)): {  # ! mass, vespers
                         'feast': "Solemnitas S. Joseph, Sponsi BMV C. et Ecclesiæ Universalis Patroni",
-                        'rank': [2, 'd I cl cum Oct Communi'], # ! No octave (?)
+                        # ! No octave (?)
+                        'rank': [2, 'd I cl cum Oct Communi'],
                         'color': 'white',
                         'mass': {'int': 'Justus ut palma', 'glo': True, 'cre': True, 'pre': 'de S. Joseph'},
                         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
@@ -1268,7 +1268,7 @@ def build_temporal(year: int) -> None:
                 )
             f.write("}")
         dict_clean('temporal', '.')
-        
+
     make_dict(year)
-    
+
     our_ladys_saturday('temporal')

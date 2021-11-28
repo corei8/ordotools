@@ -20,7 +20,7 @@ def main(year: int, diocese: str):
 
     from ordo_tools.temporal_cycle import build_temporal
     from ordo_tools.utils import explode_octaves, stitch, dict_clean
-    from ordo_tools.outputs import build_latex_ordo
+    from ordo_tools.outputs import build_latex_ordo, readme_calendar, build_latin_calendar
 
     build_temporal(year)
 
@@ -29,6 +29,8 @@ def main(year: int, diocese: str):
     dict_clean('calendar', '_')
     # commemoration_ordering('calendar')
     build_latex_ordo(year)
+    readme_calendar(year)
+    
     # build_latin_calendar(year)
 
 
