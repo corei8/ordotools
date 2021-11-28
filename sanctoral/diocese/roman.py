@@ -2053,7 +2053,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'color': 'white',
-        'mass': {'int': 'Sub unbra', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'mass': {'int': 'Sub umbra', 'glo': True, 'cre': False, 'pre': 'Communis'},
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
     },
     '10/18': {
@@ -2117,7 +2117,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'color': 'red',
-        'mass': {'int': 'Si diligis mei', 'glo': True, 'cre': False, 'pre': 'de Apostolis'},
+        'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'de Apostolis'},
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
     },
     '10/27': {
