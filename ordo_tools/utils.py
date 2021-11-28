@@ -48,7 +48,18 @@ def findsunday(date: datetime) -> timedelta:
 CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
 lastadvent = CHRISTMAS - findsunday(CHRISTMAS)
 
-FIRST_ADVENT  = lastadvent - timedelta(weeks=3)
+FIRST_ADVENT = lastadvent - timedelta(weeks=3)
+
+
+def easter(year: int) -> datetime:
+    """ return the date of easter for this year """
+    return datetime(year=int(dateutil.easter.easter(year).strftime('%Y')), month=int(dateutil.easter.easter(year).strftime('%m')), day=int(dateutil.easter.easter(year).strftime('%d')))
+
+
+# ! check this one -- does it start on the following Sunday?
+LENT_BEGINS = easter(YEAR) - timedelta(weeks=6, days=4)
+
+LENT_ENDS = easter(YEAR) - timedelta(days=1)
 
 EASTER_SEASON_START = datetime(
     year=int(dateutil.easter.easter(YEAR).strftime('%Y')),
@@ -66,12 +77,6 @@ EASTER_SEASON_END = datetime(
 # todo range for pentecost
 
 # todo range for lent
-
-
-def easter(year: int) -> datetime:
-    """ return the date of easter for this year """
-    return datetime(year=int(dateutil.easter.easter(year).strftime('%Y')), month=int(dateutil.easter.easter(year).strftime('%m')), day=int(dateutil.easter.easter(year).strftime('%d')))
-
 
 def day(year: int, month: int, day: int) -> datetime:
     return datetime(year=year, month=month, day=day)
@@ -196,45 +201,6 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
             return 0
     write_dictionary(find_module(target_file), dic)
     return 0
-
-
-# def commemoration_ordering(direct: str) -> None:
-#     """ Adjusts the ordering of the commemorations so that the first commemoration is always COM_1
-
-#     Args:
-#         direct (str): dictionary whose commemorations are to be ordered
-
-#     Returns:
-#         None: Commemorations are ordered without return.
-#     """
-#     dict_information = find_module(direct)
-#     dictionary = importlib.import_module(dict_information[1])
-#     dic = dictionary.__dict__[dict_information[2]]
-#     for x in list(dic.keys()):
-#         for data in list(dic[x].keys()):
-#             if 'com_1' in data:
-#                 continue # the first oration is com_1
-#             elif 'com_2' in data:
-#                 dic[x].update({'com_1': dic[x]['com_2']})
-#                 dic[x].pop('com_2')
-#                 if 'com_3' in data:
-#                     dic[x].update({'com_2': dic[x]['com_3']})
-#                     dic[x].pop('com_3')
-#                     if 'com_4' in data:
-#                         dic[x].update({'com_3': dic[x]['com_4']})
-#                         dic[x].pop('com_4')
-#                         if 'com_5' in data:
-#                             dic[x].update({'com_4': dic[x]['com_5']})
-#                             dic[x].pop('com_5')
-#                         else:
-#                             pass
-#                     else:
-#                         pass
-#                 else:
-#                     pass
-#             else:
-#                 pass
-#     return 0
 
 
 def dict_clean(direct: str, str_flag: str) -> None:

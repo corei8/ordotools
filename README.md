@@ -1,7 +1,9 @@
 
 # Ordo
 
-Pre 1955 Ordo
+Traditional Catholic Ordo for the United States, Australia, Canada and Nantes.
+
+Managed by the Roman Catholic Institute.
 
 ## Python Specifications
 
@@ -32,413 +34,374 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 - [x] Combined Temporal and Sanctoral Calendar
 - [ ] Masses
 - [ ] Vespers
-- [ ] Colors of Mass and Office
+- [x] Colors of Mass and Office
 - [ ] Lessons for Laudes
 - [ ] Prime
 - [ ] Little Hours
-- [ ] Solemnities
+- [ ] US Calendar
 - [ ] Australian Calendar
 - [ ] Canadian Calendar
+- [ ] Solemnities
                 
 
 ## Calendar for 2022
 
 | Day | Date | Rank | Feast |
 |---|---|---|---|
-| Sat | 01/01 | d II cl | Circumcisio DNJC et Oct. Nativitatis | 
- | | | | *Com:* S. Telesphori PM | 
-| Sun | 01/02 | d II cl | Ssmi Nominis Jesu | 
-| Mon | 01/03 | s | Octava S. Joannis Ap Ev | 
-| Tue | 01/04 | s | Octava Ss Innocentium Mm. | 
-| Wed | 01/05 | sd Vig privil 2 cl | Vigilia Epiphaniæ | 
-| Thu | 01/06 | d I cl cum Oct privil 2 ord | Epiphania DNJC | 
-| Fri | 01/07 | feria | De II die infra Oct. Epiphaniæ | 
-| Sat | 01/08 | feria | De III die infra Oct. Epiphaniæ | 
-| Sun | 01/09 | dm | S. Familiæ Jesu, Mariæ, Joseph; Dominica I infra Oct. Epiphaniæ | 
-| Mon | 01/10 | feria | De V die infra Oct. Epiphaniæ | 
-| Tue | 01/11 | feria | De VI die infra Oct. Epiphaniæ | 
-| Wed | 01/12 | feria | De VII die infra Oct. Epiphaniæ | 
-| Thu | 01/13 | dm | Octava Epiphaniæ | 
-| Fri | 01/14 | d | S Hilarii Episcopi ECD | 
- | | | | *Com:* S Felix SM | 
-| Sat | 01/15 | d | S Pauli Primi Eremitæ C | 
- | | | | *Com:* S Mauri Abb | 
-| Sun | 01/16 | sd | Dominica II post Epiphaniam | 
-| Mon | 01/17 | d | S Antonii Abb | 
-| Tue | 01/18 | dm | Cathedræ S Petri Ap Romæ | 
- | | | | *Com:* S Pauli Apostoli | 
- | | | | *Com:* S Priscæ VM | 
-| Wed | 01/19 | s | Ss Marii, Marthæ, Audifacis et Abachum Mm | 
- | | | | *Com:* S Canuti RM | 
-| Thu | 01/20 | d | Ss Fabiani P \& Sebastiani Mm | 
-| Fri | 01/21 | d | S Agnetis VM | 
-| Sat | 01/22 | sd | Ss Vincentii \& Anastasii Mm | 
-| Sun | 01/23 | sd | Dominica III post Epiphaniam | 
-| Mon | 01/24 | d | S Timothei EM | 
-| Tue | 01/25 | dm | Conversio S Pauli Ap | 
-| Wed | 01/26 | d | S Polycarpi EM | 
-| Thu | 01/27 | d | S Joannis Chrysostomi | 
-| Fri | 01/28 | d | S Petri Nolasci C mtv | 
- | | | | *Com:* S Agnetis VM secundo | 
-| Sat | 01/29 | d | S Francisci Salesii ECD | 
-| Sun | 01/30 | sd | Dominica IV post Epiphaniam | 
-| Mon | 01/31 | d | S Joannis Bosco C | 
-| Tue | 02/01 | d | S Ignatii EM | 
-| Wed | 02/02 | d II cl | In Purificatione BMV | 
-| Thu | 02/03 | s | S Blasii EM | 
-| Fri | 02/04 | d | S Andreæ Corsini EC | 
-| Sat | 02/05 | d | S Agathæ VM | 
-| Sun | 02/06 | sd | Dominica V post Epiphaniam | 
-| Mon | 02/07 | d | S Romualdi Abb | 
-| Tue | 02/08 | d | S Joannis de Matha C | 
-| Wed | 02/09 | d | S Cyrilli ECD | 
- | | | | *Com:* S Apollonia VM | 
-| Thu | 02/10 | d | S Scholasticæ V | 
-| Fri | 02/11 | dm | In Apparitione BMV Immaculatæ | 
-| Sat | 02/12 | d | Ss Septem Fundatorum Ordinis Servorum BMV C | 
-| Sun | 02/13 | sd II cl | Dominica in Septuagesima | 
-| Mon | 02/14 | s | S Valentini PM | 
-| Tue | 02/15 | s | Ss Faustini \& Jovitæ | 
-| Fri | 02/18 | s | S Simeonis EM | 
-| Sun | 02/20 | sd II cl | Dominica in Sexagesima | 
-| Tue | 02/22 | dm | In Cathedra S Petri Ap | 
-| Wed | 02/23 | d | S Petri Damiani ECD | 
-| Thu | 02/24 | d II cl | S Matthiæ Ap | 
-| Sun | 02/27 | sd II cl | Dominica in Quinquagesima | 
-| Wed | 03/02 | feria | Dies Cinerum | 
-| Thu | 03/03 | feria | Feria V post Diem Cinerum | 
-| Fri | 03/04 | sd | S Casimiri C | 
- | | | | *Com:* S Lucii I PM | 
-| Sat | 03/05 | feria | Sabbatum post Diem Cinerum | 
-| Sun | 03/06 | sd I cl | Dominica I in Quadragesima | 
-| Mon | 03/07 | d | S Thomas De Aquino C | 
-| Tue | 03/08 | d | S Joannis a Deo C | 
-| Wed | 03/09 | feria | Feria IV Quatuor Temporum Quadragesimæ | 
-| Thu | 03/10 | sd | Ss Quadraginta Mm | 
-| Fri | 03/11 | feria | Feria VI Quatuor Temporum Quadragesimæ | 
-| Sat | 03/12 | feria | Sabbatum Quatuor Temporum Quadragesimæ | 
-| Sun | 03/13 | sd I cl | Dominica II in Quadragesima | 
-| Mon | 03/14 | feria | Feria II infra Hebd II in Quadragesima | 
-| Tue | 03/15 | feria | Feria III infra Hebd II in Quadragesima | 
-| Wed | 03/16 | feria | Feria IV infra Hebd II in Quadragesima | 
-| Thu | 03/17 | d | S Patricii Ep C | 
-| Fri | 03/18 | d | S Cyrilli Ep CD | 
-| Sat | 03/19 | d I cl | S Joseph Sponsi BMV C | 
-| Sun | 03/20 | sd I cl | Dominica III in Quadragesima | 
-| Mon | 03/21 | dm | S Benedicti Abb | 
-| Tue | 03/22 | feria | Feria III infra Hebd III in Quadragesima | 
-| Wed | 03/23 | feria | Feria IV infra Hebd III in Quadragesima | 
-| Thu | 03/24 | dm | S Gabrielis Arch | 
-| Fri | 03/25 | d I cl | In Annuntiatione BMV | 
-| Sat | 03/26 | feria | Sabbatum infra Hebd III in Quadragesima | 
-| Sun | 03/27 | sd I cl | Dominica IV in Quadragesima (Lætare) | 
-| Mon | 03/28 | sd | S Joannis a Capistrano C | 
-| Tue | 03/29 | feria | Feria III infra Hebd IV in Quadragesima  | 
-| Wed | 03/30 | feria | Feria IV infra Hebd IV in Quadragesima  | 
-| Thu | 03/31 | feria | Feria V infra Hebd IV in Quadragesima  | 
-| Fri | 04/01 | feria | Feria VI infra Hebd IV in Quadragesima  | 
-| Sat | 04/02 | d | S Francisco de Paula C | 
-| Sun | 04/03 | sd I cl | Dominica de Passione | 
-| Mon | 04/04 | d | S Isidori CD | 
-| Tue | 04/05 | d | S Vincentii Ferrerii C | 
-| Wed | 04/06 | feria | Feria IV infra Hebd de Passione | 
-| Thu | 04/07 | feria | Feria V infra Hebd de Passione | 
-| Fri | 04/08 | dm | Septem Dolorum BMV | 
-| Sat | 04/09 | feria | Sabbatum infra Hebd de Passione | 
-| Sun | 04/10 | sd I cl | Dominica in Palmis | 
-| Mon | 04/11 | feria | Feria II Majoris Hebd | 
-| Tue | 04/12 | feria | Feria III Majoris Hebd | 
-| Wed | 04/13 | feria | Feria IV Majoris Hebd | 
-| Thu | 04/14 | d I cl | Feria V in Cœna Domini | 
-| Fri | 04/15 | d I cl | Feria VI in Parasceve | 
-| Sat | 04/16 | d I cl | Sabbatum Sanctum | 
-| Sun | 04/17 | d I cl cum Oct privil I ord | Dominica Resurrectionis | 
-| Mon | 04/18 | d I cl | Feria II infra Oct. Paschæ | 
-| Tue | 04/19 | d I cl | Feria III infra Oct. Paschæ | 
-| Wed | 04/20 | sd | Feria IV infra Oct. Paschæ | 
-| Thu | 04/21 | sd | Feria V infra Oct. Paschæ | 
-| Fri | 04/22 | sd | Feria VI infra Oct. Paschæ | 
-| Sat | 04/23 | sd | Sabbatum in Albis | 
-| Sun | 04/24 | dm | Dominica in Albis | 
-| Mon | 04/25 | d II cl | S Marci Ev | 
-| Tue | 04/26 | sd | Ss Cleti et Marcellini PP Mm | 
-| Wed | 04/27 | d | S Petri Canisii CD | 
-| Sun | 05/01 | d II cl | Ss Philippi et Iacobi APp | 
-| Mon | 05/02 | d | S Athanasii Ep CD | 
-| Tue | 05/03 | d II cl | In Inventione S Crucis | 
- | | | | *Com:* Ss Alexandro I Pp, Event et Theodulo Mm ac Juvenile Ep C | 
-| Wed | 05/04 | d I cl cum Oct Communi | Solemnitas S. Joseph, Sponsi BMV C. et Ecclesiæ Universalis Patroni | 
-| Thu | 05/05 | d | S Pii V Pp C | 
-| Fri | 05/06 | dm | S Joannis Ap et Ev Ante Portam Latinam | 
-| Sat | 05/07 | d | S Stanislai Ep M | 
-| Sun | 05/08 | sd | Dominica III post Pascha | 
-| Mon | 05/09 | d | S Gregorii Nanzanzeni Ep CD | 
-| Tue | 05/10 | d | S Antonini Ep C | 
- | | | | *Com:* Ss Gordiani et Epimachi Mm | 
-| Wed | 05/11 | dm | Octava Solemnitatis S. Joseph | 
-| Thu | 05/12 | sd | Ss Nerei, Achillei at Domitillae V atq Pancratii Mm | 
-| Fri | 05/13 | d | S Roberti Bellarmini Ep CD | 
-| Sat | 05/14 | s | S Bonifatii M | 
-| Sun | 05/15 | sd | Dominica IV post Pascha | 
-| Mon | 05/16 | sd | S Ubaldi EC | 
-| Wed | 05/18 | d | S Venantii M | 
-| Thu | 05/19 | d | S Petri Celestini PC | 
- | | | | *Com:* S Pudentianae V | 
-| Fri | 05/20 | sd | S Bernardini Senensis C | 
-| Sun | 05/22 | sd | Dominica V post Pascha | 
-| Mon | 05/23 | feria | Feria II in Rogationibus | 
-| Tue | 05/24 | feria | Feria III in Rogationibus | 
-| Wed | 05/25 | d | S Gregorii VII PC | 
- | | | | *Com:* S Urbano I PM | 
-| Thu | 05/26 | d I cl cum Oct privil 3 ord | Ascensio DNJC | 
-| Fri | 05/27 | d | S Bedæ Venerabilis CD | 
- | | | | *Com:* S Joanne I PM | 
-| Sat | 05/28 | d | S Augustini EC | 
-| Sun | 05/29 | sd | Dominica infra Octavam Ascensionis | 
-| Mon | 05/30 | sd | De IV die infra Oct. Ascensionis | 
-| Tue | 05/31 | d | S Angelæ Mericiæ V | 
- | | | | *Com:* S Petronilla V | 
-| Wed | 06/01 | sd | De VI die infra Oct. Ascensionis | 
-| Thu | 06/02 | dm | Oct. Ascensionis DNJC | 
-| Fri | 06/03 | feria | Feria VI Quatuor Temporum infra Oct. Pentecostes | 
-| Sat | 06/04 | d I cl Vig privil I cl | Vigilia Pentecostes | 
-| Sun | 06/05 | d I cl cum Oct privil I ord | Dominica Pentecostes | 
-| Mon | 06/06 | d I cl | Feria II infra Oct. Pentecostes | 
-| Tue | 06/07 | d I cl | Feria III infra Oct. Pentecostes | 
-| Wed | 06/08 | sd | Feria IV infra Oct. Pentecostes | 
-| Thu | 06/09 | sd | Feria V infra Oct. Pentecostes | 
-| Fri | 06/10 | sd | Feria VI infra Oct. Pentecostes | 
-| Sat | 06/11 | sd | Sabbatum infra Oct. Pentecostes | 
-| Sun | 06/12 | d I cl | Festum Sanctissimæ Trinitatis | 
-| Mon | 06/13 | d | S Antonii de Padua C | 
-| Tue | 06/14 | d | S Basilii Magni ECD | 
-| Wed | 06/15 | s | Ss Vili, Modesti \& Crescentiæ Mm | 
-| Thu | 06/16 | d I cl cum Oct privil 2 ord | Sanctissimi Corporis Christi | 
-| Fri | 06/17 | sd | Feria VI infra Oct. Ssmi Corporis Christi | 
-| Sat | 06/18 | sd | Sabbatum infra Oct. Ssmi Corporis Christi | 
-| Sun | 06/19 | sd | Dominica infra Oct. Ssmi Corporis Christi (Dominica II post Pentecosten) | 
-| Mon | 06/20 | sd | Feria II infra Oct. Ssmi Corporis Christi | 
-| Tue | 06/21 | sd | Feria III infra Oct. Ssmi Corporis Christi | 
-| Wed | 06/22 | sd | Feria IV infra Oct. Ssmi Corporis Christi | 
-| Thu | 06/23 | dm | Octava Ssmi Corporis Christi | 
-| Fri | 06/24 | d I cl cum Oct communi | In Nativitate S Joannis Baptistæ | 
-| Fri | 06/24 tranlsated | d I cl cum Oct privil 3 ord | Sacratissimi Cordis Jesu | 
-| Sat | 06/25 | d | S Gulielmi Abb | 
-| Sun | 06/26 | sd | Dominica infra Oct. Ssmi Cordis DNJC (Dominica III post Pentecosten) | 
-| Mon | 06/27 | sd | Feria II infra Oct. Ssmi Cordis DNJC | 
-| Tue | 06/28 | d | Irinæi EM | 
- | | | | *Com:* In Vigilia Ss Petri \& Pauli App | 
-| Wed | 06/29 | d I cl cum Oct communi | Ss Petri \& Pauli App | 
-| Thu | 06/30 | dm | In Commemoratione S Pauli Apostoli | 
- | | | | *Com:* S Petri Ap | 
-| Fri | 07/01 | d I cl | In Festo Pretiosissimi Sanguis DNJC | 
-| Sat | 07/02 | d II cl | In Visitatione BMV | 
- | | | | *Com:* Ss Processo \& Martiniano Mm | 
-| Sun | 07/03 | sd | Dominica IV post Pentecosten | 
-| Mon | 07/04 | s | De ea | 
-| Tue | 07/05 | d | S Antonii Mariæ Zaccaria C | 
-| Wed | 07/06 | dm | In Octava Ss Petri \& Pauli App | 
-| Thu | 07/07 | d | Ss Cyrilli \& Methodii EppCc | 
-| Fri | 07/08 | sd | S Elisabeth Reginæ Vid | 
-| Sat | 07/09 | s | De ea | 
-| Sun | 07/10 | sd | Dominica V post Pentecosten | 
-| Mon | 07/11 | s | S Pii I PM | 
-| Tue | 07/12 | d | S Joannis Gualberti Abb | 
- | | | | *Com:* Ss Nabore \& Felice Mm | 
-| Wed | 07/13 | sd | S Anacleti PM | 
-| Thu | 07/14 | d | S Bonaventuræ ECD | 
-| Fri | 07/15 | sd | S Henrici Imperatoris, C | 
-| Sat | 07/16 | dm | In Commemoratione BMV de Monte Carmelo | 
-| Sun | 07/17 | sd | Dominica VI post Pentecosten | 
-| Mon | 07/18 | d | S Camilli de Lellis C | 
- | | | | *Com:* Ss Symphorosa \& septem Filiis ejus Mm | 
-| Tue | 07/19 | d | S Vincent a Paulo C | 
-| Wed | 07/20 | d | S Hieronymi Æmiliani C | 
- | | | | *Com:* S Margarita VM | 
-| Thu | 07/21 | s | S Praxedis V | 
-| Fri | 07/22 | d | S Mariæ Magdalenæ Pænitentis | 
-| Sat | 07/23 | d | S Apollinaris EM | 
- | | | | *Com:* S Liborio EC | 
-| Sun | 07/24 | sd | Dominica VII post Pentecosten | 
-| Mon | 07/25 | d II cl | S Jacobi Ap | 
- | | | | *Com:* S Christophori M | 
-| Tue | 07/26 | d II cl | S Annæ Matris BMV | 
-| Wed | 07/27 | s | S Pantaleonis M | 
-| Thu | 07/28 | sd | Ss Nazarii \& Celsi Mm, Victoris I PM, ac Innocentii I PC | 
-| Fri | 07/29 | sd | S Marthæ V | 
- | | | | *Com:* Ss Felice I P, Simplicis, Faustino \& Beatrice Mm | 
-| Sat | 07/30 | s | Ss Abdon \& Sennen Mm | 
-| Sun | 07/31 | sd | Dominica VIII post Pentecosten | 
-| Mon | 08/01 | dm | S Petri Ap, ad Vincula | 
- | | | | *Com:* S Pauli Ap | 
- | | | | *Com:* Ss Machabæis Mm | 
-| Tue | 08/02 | d | s Alphonso Mariæ de Ligourio ECD | 
- | | | | *Com:* S Stephano PM | 
-| Wed | 08/03 | sd | In Inventione S Stephani Protomartyris | 
-| Thu | 08/04 | dm | S Dominici C | 
-| Fri | 08/05 | dm | In Dedicatione Mariæ ad Nives | 
-| Sat | 08/06 | dm | In Transfiguratione DNJC | 
- | | | | *Com:* Ss Xysto P, Felicissimo \& Agapito Mm | 
-| Sun | 08/07 | sd | Dominica IX post Pentecosten | 
-| Mon | 08/08 | sd | Ss Cyriaci, Largi \& Smaragdi Mm | 
-| Tue | 08/09 | d | S Joannis Mariæ Vianney C | 
- | | | | *Com:* Vigilia S Laurentii M | 
- | | | | *Com:* S Romano M | 
-| Wed | 08/10 | d II cl | S Laurentii M | 
-| Thu | 08/11 | s | Ss Tiburtii \& Susannæ VM | 
-| Fri | 08/12 | d | S Claræ V | 
-| Sat | 08/13 | s | Ss Hippolyti \& Cassiani Mm | 
-| Sun | 08/14 | sd | Dominica X post Pentecosten | 
-| Mon | 08/15 | d I cl cum Oct communi | In Assumptione BMV | 
-| Tue | 08/16 | d II cl | S Joachim Patris BMV | 
-| Wed | 08/17 | d | S Hyacinthi C | 
- | | | | *Com:* Octava S Laurentii M | 
-| Thu | 08/18 | s | S Agapito M | 
-| Fri | 08/19 | d | S Joannis Eudes C | 
-| Sat | 08/20 | d | S Bernardi AbbD | 
-| Sun | 08/21 | sd | Dominica XI post Pentecosten | 
-| Mon | 08/22 | d II cl | In Festo Immaculati Cordis BMV | 
- | | | | *Com:* Ss Timotheo, Hippolyto \& Symphoriano Mm | 
-| Tue | 08/23 | v | In Vigilia S Bartholomæi Ap | 
-| Wed | 08/24 | d II cl | S Bartholomæi Ap | 
-| Thu | 08/25 | sd | S Ludovici RC | 
-| Fri | 08/26 | sd | S Zephrini PM | 
-| Sat | 08/27 | d | S Josephi Calasantii C | 
-| Sun | 08/28 | sd | Dominica XII post Pentecosten | 
-| Mon | 08/29 | dm | In Decollatione S Joannis Baptistæ | 
- | | | | *Com:* S Sabina M | 
-| Tue | 08/30 | d | S Rosæ a S Maria V | 
- | | | | *Com:* Ss Felice \& Adaucto Mm | 
-| Wed | 08/31 | d | S Raymundi Nonnati C | 
-| Thu | 09/01 | s | S Ægidii Abb | 
-| Fri | 09/02 | sd | S Stephani Regis C | 
-| Sat | 09/03 | s | De ea | 
-| Sun | 09/04 | sd | Dominica XIII post Pentecosten | 
-| Mon | 09/05 | sd | S Laurentii Justiniani EC | 
-| Tue | 09/06 | s | De ea | 
-| Wed | 09/07 | s | De ea | 
-| Thu | 09/08 | d II cl | In Nativitate BMV | 
- | | | | *Com:* S Hadriano M | 
-| Fri | 09/09 | s | S Gorgonii M | 
-| Sat | 09/10 | d | S Nicolai de Tolentino C | 
-| Sun | 09/11 | sd | Dominica XIV post Pentecosten | 
-| Mon | 09/12 | dm | Ssmi Nominis Mariæ | 
-| Tue | 09/13 | s | De ea | 
-| Wed | 09/14 | dm | in Exaltatione S Cruce | 
-| Thu | 09/15 | d II cl | Septem Dolorum BMV | 
- | | | | *Com:* S Nicomede M | 
-| Fri | 09/16 | sd | Ss Cornelii P \& Cypriani E Mm | 
- | | | | *Com:* Ss Euphemia V, Lucia \& Geminiano Mm | 
-| Sat | 09/17 | d | In Impressione Ss Stigmatum S Francisci C | 
-| Sun | 09/18 | sd | Dominica XV post Pentecosten | 
-| Mon | 09/19 | s | De ea | 
-| Tue | 09/20 | d | Ss Eustachii \& Soc Mm | 
- | | | | *Com:* In Vigilia S Matthæi ApEv | 
-| Wed | 09/21 | feria | Feria IV Quatuor Temporum Septembris | 
-| Thu | 09/22 | d | S Thomæ de Villanova EC | 
- | | | | *Com:* Ss Mauritio \& Soc Mm | 
-| Fri | 09/23 | sd | S Lini | 
- | | | | *Com:* S Thecla VM | 
-| Sat | 09/24 | dm | BMV de Merdece | 
-| Sun | 09/25 | sd | Dominica XVI post Pentecosten | 
-| Mon | 09/26 | s | Ss Cypriani \& Justinæ Mm | 
-| Tue | 09/27 | s | Ss Cosmæ \& Damiani Mm | 
-| Wed | 09/28 | sd | S Wenceslau Ducis M | 
-| Thu | 09/29 | d I cl | In Dedicatione S Michaelis Arch | 
-| Fri | 09/30 | d | S Hieronymi SCD | 
-| Sat | 10/01 | s | S Remigii EC | 
-| Sun | 10/02 | sd | Dominica XVII post Pentecosten | 
-| Mon | 10/03 | d | S Teresiæ a Jesu Infante V | 
-| Tue | 10/04 | dm | S Francisci C | 
-| Wed | 10/05 | s | Ss Placidi \& Sociorum Mm | 
-| Thu | 10/06 | d | S Brunonis C | 
-| Fri | 10/07 | d II cl | Sacratissimi Rosarii BMV | 
- | | | | *Com:* S Marco PC | 
- | | | | *Com:* Ss Sergio, Baccho, Marcello \& Apulejo MM | 
-| Sat | 10/08 | d | S Birgittæ Vid | 
-| Sun | 10/09 | sd | Dominica XVIII post Pentecosten | 
-| Mon | 10/10 | sd | S Francisci Borgiæ C | 
-| Tue | 10/11 | d II cl | In Maternitate BMV | 
-| Wed | 10/12 | s | De ea | 
-| Thu | 10/13 | sd | S Eduardi Regis C | 
-| Fri | 10/14 | d | S Callisti I PM | 
-| Sat | 10/15 | d | S Teresiæ V | 
-| Sun | 10/16 | sd | Dominica XIX post Pentecosten | 
-| Mon | 10/17 | d | S Margaritæ Mariæ Alacoque V | 
-| Tue | 10/18 | d II cl | S Lucæ Ev | 
-| Wed | 10/19 | d | S Petri Alcantara C | 
-| Thu | 10/20 | d | S Joannis Cantii C | 
-| Fri | 10/21 | s | S Hilarionis Abb | 
- | | | | *Com:* Ss Ursula \& Sociabus VM | 
-| Sat | 10/22 | s | De ea | 
-| Sun | 10/23 | sd | Dominica XX post Pentecosten | 
-| Mon | 10/24 | dm | S Raphaelis Arch | 
-| Tue | 10/25 | s | Ss Chrysanthi \& Dariæ Mm | 
-| Wed | 10/26 | s | S Evaristi PM | 
-| Thu | 10/27 | v | In Vigilia Ss Simonis \& Judæ App | 
-| Fri | 10/28 | d II cl | Ss Simonis \& Judæ App | 
-| Sat | 10/29 | s | De ea | 
-| Sun | 10/30 | sd | Dominica XXI post Pentecosten | 
-| Mon | 10/31 | v | In Vigilia Omnium Sanctorum | 
-| Tue | 11/01 | d I cl cum Oct communi | In Festo Omnium Sanctorum | 
-| Wed | 11/02 | d | In Commemoratione Omnium Fidelium Defunctorum | 
-| Thu | 11/03 | s | De ea | 
-| Fri | 11/04 | d | S Caroli EC | 
- | | | | *Com:* Ss Vitale \& Agricola Mm | 
-| Sat | 11/05 | s | De ea | 
-| Sun | 11/06 | sd | Dominica XXII post Pentecosten | 
-| Mon | 11/07 | s | De ea | 
-| Tue | 11/08 | sd | Ss Quatuor Coronatis Mm | 
-| Wed | 11/09 | d II cl | In Dedicatione Archibasilicæ Ssmi Salvatoris | 
- | | | | *Com:* S Theodoro M | 
-| Thu | 11/10 | d | S Andreæ Avellini C | 
- | | | | *Com:* Ss Tryphone, Respicio \& Nympha VM | 
-| Fri | 11/11 | d | S Martini  EC | 
- | | | | *Com:* S Menna M | 
-| Sat | 11/12 | sd | S Martini I PM | 
-| Sun | 11/13 | sd | Dominica XXIII post Pentecosten | 
-| Mon | 11/14 | d | Josaphat EM | 
-| Tue | 11/15 | d | S Alberti Magni ECD | 
-| Wed | 11/16 | d | S Gertrudis V | 
-| Thu | 11/17 | sd | S Gregorii Thaumaturgi EC | 
-| Fri | 11/18 | dm | In Dedicatione Basilicarum Ss Petri \& Pauli App | 
-| Sat | 11/19 | d | S Elisabeth Vid | 
- | | | | *Com:* S Pontiano PM | 
-| Sun | 11/20 | sd | Dominica XXIV et ultima post Pentecosten | 
-| Mon | 11/21 | dm | In Præsentatione BMV | 
-| Tue | 11/22 | d | S Cæciliæ VM | 
-| Wed | 11/23 | d | S Clementis I PM | 
- | | | | *Com:* S Felicitate M | 
-| Thu | 11/24 | d | S Joannis de Cruce CD | 
- | | | | *Com:* S Chrysogono M | 
-| Fri | 11/25 | d | S Catharinæ VM | 
-| Sat | 11/26 | d | S Sylvestri Abb | 
- | | | | *Com:* S Petro Alexandrino EM | 
-| Sun | 11/27 | sd | Dominica I Adventus | 
-| Tue | 11/29 | v | In Vigilia S Andreæ Ap | 
- | | | | *Com:* S Saturnino M | 
-| Wed | 11/30 | d II cl | S Andreæ Ap | 
-| Fri | 12/02 | sd | S Bibianæ VM | 
-| Sat | 12/03 | dm | S Francisci Xaverii C | 
-| Sun | 12/04 | sd II cl | Dominica II Adventus | 
-| Mon | 12/05 | s | S Sabba Abb | 
-| Tue | 12/06 | d | S Nicolai EC | 
-| Wed | 12/07 | d | S Ambrosii ECD | 
-| Thu | 12/08 | d I cl cum Oct communi | In Conceptione Immaculata BMV | 
-| Sat | 12/10 | s | S Melchide PM | 
-| Sun | 12/11 | sd II cl | Dominica III Adventus | 
-| Tue | 12/13 | d | S Luciæ VM | 
-| Wed | 12/14 | feria | Feria IV Quatuor Temporum in Adventus | 
-| Fri | 12/16 | sd | S Eusebii EM | 
-| Sat | 12/17 | feria | Sabbatum Quatuor Temporum in Adventus | 
-| Sun | 12/18 | sd II cl | Dominica IV Adventus | 
-| Tue | 12/20 | v | In Vigilia S Thomæ Ap | 
-| Wed | 12/21 | d II cl | S Thomæ Ap | 
-| Sat | 12/24 | d I cl Vig privil I cl | Vigilia Nativitas DNJC | 
-| Sun | 12/25 | d I cl cum Oct privil 3 ord | Nativitas DNJC | 
-| Mon | 12/26 | d II cl cum Oct simplici | S. Stephani Protomartyris | 
-| Tue | 12/27 | d II cl cum Oct simplici | S. Joannis Ap. Ev. | 
-| Wed | 12/28 | d II cl cum Oct simplici | Ss Innocentium Mm. | 
-| Thu | 12/29 | d | S. Thomæ E.M. | 
-| Fri | 12/30 | sd | Dominica Infra Octavam Nativitatis reposita | 
-| Sat | 12/31 | d | S. Silvestri I P.C. | 
+| Sabb | 01 | d II cl | Circumcisio DNJC et Oct. Nativitatis |
+| Dom | 02 | d II cl | Ssmi Nominis Jesu |
+| Fer II | 03 | s | Octava S. Joannis Ap Ev |
+| Fer III | 04 | s | Octava Ss Innocentium Mm. |
+| Fer IV | 05 | sd Vig privil 2 cl | Vigilia Epiphaniæ |
+| Fer V | 06 | d I cl cum Oct privil 2 ord | Epiphania DNJC |
+| Fer VI | 07 | feria | De II die infra Oct. Epiphaniæ |
+| Sabb | 08 | feria | De III die infra Oct. Epiphaniæ |
+| Dom | 09 | dm | S. Familiæ Jesu, Mariæ, Joseph; Dominica I infra Oct. Epiphaniæ |
+| Fer II | 10 | feria | De V die infra Oct. Epiphaniæ |
+| Fer III | 11 | feria | De VI die infra Oct. Epiphaniæ |
+| Fer IV | 12 | feria | De VII die infra Oct. Epiphaniæ |
+| Fer V | 13 | dm | Octava Epiphaniæ |
+| Fer VI | 14 | d | S Hilarii Episcopi ECD |
+| Sabb | 15 | d | S Pauli Primi Eremitæ C |
+| Dom | 16 | sd | Dominica II post Epiphaniam |
+| Fer II | 17 | d | S Antonii Abb |
+| Fer III | 18 | dm | Cathedræ S Petri Ap Romæ |
+| Fer IV | 19 | s | Ss Marii, Marthæ, Audifacis et Abachum Mm |
+| Fer V | 20 | d | Ss Fabiani P & Sebastiani Mm |
+| Fer VI | 21 | d | S Agnetis VM |
+| Sabb | 22 | sd | Ss Vincentii & Anastasii Mm |
+| Dom | 23 | sd | Dominica III post Epiphaniam |
+| Fer II | 24 | d | S Timothei EM |
+| Fer III | 25 | dm | Conversio S Pauli Ap |
+| Fer IV | 26 | d | S Polycarpi EM |
+| Fer V | 27 | d | S Joannis Chrysostomi ECD |
+| Fer VI | 28 | d | S Petri Nolasci C mtv |
+| Sabb | 29 | d | S Francisci Salesii ECD |
+| Dom | 30 | sd | Dominica IV post Epiphaniam |
+| Fer II | 31 | d | S Joannis Bosco C |
+| Fer III | 01 | d | S Ignatii EM |
+| Fer IV | 02 | d II cl | In Purificatione BMV |
+| Fer V | 03 | s | S Blasii EM |
+| Fer VI | 04 | d | S Andreæ Corsini EC |
+| Sabb | 05 | d | S Agathæ VM |
+| Dom | 06 | sd | Dominica V post Epiphaniam |
+| Fer II | 07 | d | S Romualdi Abb |
+| Fer III | 08 | d | S Joannis de Matha C |
+| Fer IV | 09 | d | S Cyrilli ECD |
+| Fer V | 10 | d | S Scholasticæ V |
+| Fer VI | 11 | dm | In Apparitione BMV Immaculatæ |
+| Sabb | 12 | d | Ss Septem Fundatores Ordinis Servorum BMV C |
+| Dom | 13 | sd II cl | Dominica in Septuagesima |
+| Fer II | 14 | s | S Valentini PM |
+| Fer III | 15 | s | Ss Faustini & Jovitæ Mm |
+| Fer VI | 18 | s | S Simeonis EM |
+| Sabb | 19 | s | De Sancta Maria in Sabbato |
+| Dom | 20 | sd II cl | Dominica in Sexagesima |
+| Fer III | 22 | dm | In Cathedra S Petri Ap |
+| Fer IV | 23 | d | S Petri Damiani ECD |
+| Fer V | 24 | d II cl | S Matthiæ Ap |
+| Sabb | 26 | s | De Sancta Maria in Sabbato |
+| Dom | 27 | sd II cl | Dominica in Quinquagesima |
+| Fer IV | 02 | s I cl | Dies Cinerum |
+| Fer V | 03 | s | Feria V post Diem Cinerum |
+| Fer VI | 04 | sd | S Casimiri C |
+| Sabb | 05 | s | Sabbatum post Diem Cinerum |
+| Dom | 06 | sd I cl | Dominica I in Quadragesima |
+| Fer II | 07 | d | S Thomae De Aquino C |
+| Fer III | 08 | d | S Joannis a Deo C |
+| Fer IV | 09 | s | Feria IV Quatuor Temporum Quadragesimæ |
+| Fer V | 10 | sd | Ss Quadragintarum Mm |
+| Fer VI | 11 | s | Feria VI Quatuor Temporum Quadragesim |
+| Sabb | 12 | s | Sabbatum Quatuor Temporum Quadragesim |
+| Dom | 13 | sd I cl | Dominica II in Quadragesima |
+| Fer II | 14 | sd I cl | Feria II infra Hebd II in Quadragesima |
+| Fer III | 15 | sd I cl | Feria III infra Hebd II in Quadragesima |
+| Fer IV | 16 | sd I cl | Feria IV infra Hebd II in Quadragesima |
+| Fer V | 17 | d | S Patricii EC |
+| Fer VI | 18 | d | S Cyrilli ECD |
+| Sabb | 19 | sd I cl | Sabbatum infra Hebd II in Quadragesima |
+| Dom | 20 | sd I cl | Dominica III in Quadragesima |
+| Fer II | 21 | dm | S Benedicti Abb |
+| Fer III | 22 | sd I cl | Feria III infra Hebd III in Quadragesima |
+| Fer IV | 23 | sd I cl | Feria IV infra Hebd III in Quadragesima |
+| Fer V | 24 | dm | S Gabrielis Arch |
+| Fer VI | 25 | d I cl | In Annuntiatione BMV |
+| Sabb | 26 | sd I cl | Sabbatum infra Hebd III in Quadragesima |
+| Dom | 27 | sd I cl | Dominica IV in Quadragesima (Lætare) |
+| Fer II | 28 | sd | S Joannis a Capistrano C |
+| Fer III | 29 | sd I cl | Feria III infra Hebd IV in Quadragesima  |
+| Fer IV | 30 | sd I cl | Feria IV infra Hebd IV in Quadragesima  |
+| Fer V | 31 | sd I cl | Feria V infra Hebd IV in Quadragesima  |
+| Fer VI | 01 | sd I cl | Feria VI infra Hebd IV in Quadragesima  |
+| Sabb | 02 | sd I cl | Sabbatum infra Hebd IV in Quadragesima  |
+| Dom | 03 | sd I cl | Dominica de Passione |
+| Fer II | 04 | d | S Isidori CD |
+| Fer III | 05 | d | S Vincentii Ferrerii C |
+| Fer IV | 06 | sd I cl | Feria IV infra Hebd de Passione |
+| Fer V | 07 | sd I cl | Feria V infra Hebd de Passione |
+| Fer VI | 08 | dm | Septem Dolorum BMV |
+| Sabb | 09 | sd I cl | Sabbatum infra Hebd de Passione |
+| Dom | 10 | sd I cl | Dominica in Palmis |
+| Fer II | 11 | s | Feria II Majoris Hebd |
+| Fer III | 12 | s | Feria III Majoris Hebd |
+| Fer IV | 13 | s | Feria IV Majoris Hebd |
+| Fer V | 14 | d I cl | Feria V in Cœna Domini |
+| Fer VI | 15 | d I cl | Feria VI in Parasceve |
+| Sabb | 16 | d I cl | Sabbatum Sanctum |
+| Dom | 17 | d I cl cum Oct privil I ord | Dominica Resurrectionis |
+| Fer II | 18 | d I cl | Feria II infra Oct. Paschæ |
+| Fer III | 19 | d I cl | Feria III infra Oct. Paschæ |
+| Fer IV | 20 | sd | Feria IV infra Oct. Paschæ |
+| Fer V | 21 | sd | Feria V infra Oct. Paschæ |
+| Fer VI | 22 | sd | Feria VI infra Oct. Paschæ |
+| Sabb | 23 | sd | Sabbatum in Albis |
+| Dom | 24 | dm | Dominica in Albis |
+| Fer II | 25 | d II cl | S Marci Ev |
+| Fer III | 26 | sd | Ss Cleti et Marcellini PpMm |
+| Fer IV | 27 | d | S Petri Canisii CD |
+| Fer V | 28 | d | S Pauli a Cruce C |
+| Fer VI | 29 | d | S Petri M |
+| Sabb | 30 | d | S Catharinae Senensis V |
+| Dom | 01 | d II cl | Ss Philippi et Iacobi App |
+| Fer II | 02 | d | S Athanasii ECD |
+| Fer III | 03 | d II cl | In Inventione S Crucis |
+| Fer IV | 04 | d I cl cum Oct Communi | Solemnitas S. Joseph, Sponsi BMV C. et Ecclesiæ Universalis Patroni |
+| Fer V | 05 | d | S Pii V PC |
+| Fer VI | 06 | dm | S Joannis ApEv Ante Portam Latinam |
+| Sabb | 07 | d | S Stanislai EM |
+| Dom | 08 | sd | Dominica III post Pascha |
+| Fer II | 09 | d | S Gregorii Nanzanzeni ECD |
+| Fer III | 10 | d | S Antonini EC |
+| Fer IV | 11 | dm | Octava Solemnitatis S. Joseph |
+| Fer V | 12 | sd | Ss Nerei, Achillei at Domitillae V atque Pancratii Mm |
+| Fer VI | 13 | d | S Roberti Bellarmino ECD |
+| Sabb | 14 | s | S Bonifatii M |
+| Dom | 15 | sd | Dominica IV post Pascha |
+| Fer II | 16 | sd | S Ubaldi EC |
+| Fer III | 17 | d | S Paschalis Baylon C |
+| Fer IV | 18 | d | S Venantii M |
+| Fer V | 19 | d | S Petri Caelestini PC |
+| Fer VI | 20 | sd | S Bernardini Senensis C |
+| Sabb | 21 | s | De Sancta Maria in Sabbato |
+| Dom | 22 | sd | Dominica V post Pascha |
+| Fer II | 23 | feria | Feria II in Rogationibus |
+| Fer III | 24 | feria | Feria III in Rogationibus |
+| Fer IV | 25 | d | S Gregorii VII PC |
+| Fer V | 26 | d I cl cum Oct privil 3 ord | Ascensio DNJC |
+| Fer VI | 27 | d | S Bedæ Venerabilis CD |
+| Sabb | 28 | sd | Sabbatum infra Oct. Ascensionis |
+| Dom | 29 | sd | Dominica infra Octavam Ascensionis |
+| Fer II | 30 | sd | De IV die infra Oct. Ascensionis |
+| Fer III | 31 | d II cl | B Mariae Virginis Reginae |
+| Fer IV | 01 | d | S Angelæ Mericiæ V |
+| Fer V | 02 | dm | Oct. Ascensionis DNJC |
+| Fer VI | 03 | sd | Feria VI Quatuor Temporum infra Oct. Pentecostes |
+| Sabb | 04 | sd | Sabbatum Quatuor Temporum infra Oct. Pentecostes |
+| Dom | 05 | d I cl cum Oct privil I ord | Dominica Pentecostes |
+| Fer II | 06 | d I cl | Feria II infra Oct. Pentecostes |
+| Fer III | 07 | d I cl | Feria III infra Oct. Pentecostes |
+| Fer IV | 08 | d I cl | Feria IV infra Oct. Pentecostes |
+| Fer V | 09 | d I cl | Feria V infra Oct. Pentecostes |
+| Fer VI | 10 | d I cl | Feria VI infra Oct. Pentecostes |
+| Sabb | 11 | sd | Sabbatum infra Oct. Pentecostes |
+| Dom | 12 | d I cl | Festum Sanctissimæ Trinitatis |
+| Fer II | 13 | d | S Antonii de Padua C |
+| Fer III | 14 | d | S Basilii Magni ECD |
+| Fer IV | 15 | s | Ss Viti, Modesti & Crescentiæ Mm |
+| Fer V | 16 | d I cl cum Oct privil 2 ord | Sanctissimi Corporis Christi |
+| Fer VI | 17 | sd | Feria VI infra Oct. Ssmi Corporis Christi |
+| Sabb | 18 | sd | Sabbatum infra Oct. Ssmi Corporis Christi |
+| Dom | 19 | sd | Dominica infra Oct. Ssmi Corporis Christi (Dominica II post Pentecosten) |
+| Fer II | 20 | sd | Feria II infra Oct. Ssmi Corporis Christi |
+| Fer III | 21 | sd | Feria III infra Oct. Ssmi Corporis Christi |
+| Fer IV | 22 | sd | Feria IV infra Oct. Ssmi Corporis Christi |
+| Fer V | 23 | dm | Octava Ssmi Corporis Christi |
+| Fer VI | 24 | d I cl cum Oct privil 3 ord | Sacratissimi Cordis Jesu |
+| Sabb | 25 | sd | Sabbatum infra Oct. Ssmi Cordis DNJC |
+| Dom | 26 | sd | Dominica infra Oct. Ssmi Cordis DNJC (Dominica III post Pentecosten) |
+| Fer II | 27 | sd | Feria II infra Oct. Ssmi Cordis DNJC |
+| Fer III | 28 | d | Irinæi EM |
+| Fer IV | 29 | sd | Feria IV infra Oct. Ssmi Cordis DNJC |
+| Fer V | 30 | dm | In Commemoratione S Pauli Apostoli |
+| Fer VI | 01 | d I cl | In Festo Pretiosissimi Sanguinis DNJC |
+| Sabb | 02 | d II cl | In Visitatione BMV |
+| Dom | 03 | sd | Dominica IV post Pentecosten |
+| Fer II | 04 | s | De ea |
+| Fer III | 05 | d | S Antonii Mariæ Zaccaria C |
+| Fer IV | 06 | s | De ea |
+| Fer V | 07 | d | Ss Cyrilli & Methodii EeCc |
+| Fer VI | 08 | sd | S Elisabeth R Vid |
+| Sabb | 09 | s | De Sancta Maria in Sabbato |
+| Dom | 10 | sd | Dominica V post Pentecosten |
+| Fer II | 11 | s | S Pii I PM |
+| Fer III | 12 | d | S Joannis Gualberti Abb |
+| Fer IV | 13 | sd | S Anacleti PM |
+| Fer V | 14 | d | S Bonaventuræ ECD |
+| Fer VI | 15 | sd | S Henrici Imp C |
+| Sabb | 16 | s | De Sancta Maria in Sabbato |
+| Dom | 17 | sd | Dominica VI post Pentecosten |
+| Fer II | 18 | d | S Camilli de Lellis C |
+| Fer III | 19 | d | S Vincentii a Paulo C |
+| Fer IV | 20 | d | S Hieronymi Æmiliani C |
+| Fer V | 21 | s | S Praxedis V |
+| Fer VI | 22 | d | S Mariæ Magdalenæ Pænitentis |
+| Sabb | 23 | s | De Sancta Maria in Sabbato |
+| Dom | 24 | sd | Dominica VII post Pentecosten |
+| Fer II | 25 | d II cl | S Jacobi Ap |
+| Fer III | 26 | d II cl | S Annæ Matris BMV |
+| Fer IV | 27 | s | S Pantaleonis M |
+| Fer V | 28 | sd | Ss Nazarii & Celsi Mm, Victoris I PM, ac Innocentii I PC |
+| Fer VI | 29 | sd | S Marthæ V |
+| Sabb | 30 | s | De Sancta Maria in Sabbato |
+| Dom | 31 | sd | Dominica VIII post Pentecosten |
+| Fer II | 01 | dm | S Petri Ap ad Vincula |
+| Fer III | 02 | d | S Alphonsi Mariæ de Ligourio ECD |
+| Fer IV | 03 | sd | In Inventione S Stephani Protomartyris |
+| Fer V | 04 | dm | S Dominici C |
+| Fer VI | 05 | dm | In Dedicatione S Mariæ ad Nives |
+| Sabb | 06 | s | De Sancta Maria in Sabbato |
+| Dom | 07 | sd | Dominica IX post Pentecosten |
+| Fer II | 08 | sd | Ss Cyriaci, Largi & Smaragdi Mm |
+| Fer III | 09 | d | S Joannis Mariæ Vianney C |
+| Fer IV | 10 | d II cl | S Laurenti M |
+| Fer V | 11 | s | Ss Tiburtii et Susannæ VM |
+| Fer VI | 12 | d | S Claræ V |
+| Sabb | 13 | s | De Sancta Maria in Sabbato |
+| Dom | 14 | sd | Dominica X post Pentecosten |
+| Fer II | 15 | s | De ea |
+| Fer III | 16 | d II cl | S Joachim Patris BMV |
+| Fer IV | 17 | d | S Hyacinthi C |
+| Fer V | 18 | feria | De VI die infra Octava Assumptionis BMV |
+| Fer VI | 19 | d | S Joannis Eudes C |
+| Sabb | 20 | s | De Sancta Maria in Sabbato |
+| Dom | 21 | sd | Dominica XI post Pentecosten |
+| Fer II | 22 | d II cl | In Festo Immaculati Cordis BMV |
+| Fer III | 23 | d | S Philippi Benitii C |
+| Fer IV | 24 | d II cl | S Bartholomæi Ap |
+| Fer V | 25 | sd | S Ludovici RC |
+| Fer VI | 26 | sd | S Zephrini PM |
+| Sabb | 27 | s | De Sancta Maria in Sabbato |
+| Dom | 28 | sd | Dominica XII post Pentecosten |
+| Fer II | 29 | dm | In Decollatione S Joannis Baptistæ |
+| Fer III | 30 | d | S Rosæ a S Maria V |
+| Fer IV | 31 | d | S Raymundi Nonnati C |
+| Fer V | 01 | s | S Ægidii Abb |
+| Fer VI | 02 | sd | S Stephani R C |
+| Sabb | 03 | s | De Sancta Maria in Sabbato |
+| Dom | 04 | sd | Dominica XIII post Pentecosten |
+| Fer II | 05 | sd | S Laurentii Justiniani EC |
+| Fer III | 06 | s | De ea |
+| Fer IV | 07 | s | De ea |
+| Fer V | 08 | d II cl | In Nativitate BMV |
+| Fer VI | 09 | s | S Gorgonii M |
+| Sabb | 10 | s | De Sancta Maria in Sabbato |
+| Dom | 11 | sd | Dominica XIV post Pentecosten |
+| Fer II | 12 | dm | Ssmi Nominis Mariæ |
+| Fer III | 13 | s | De ea |
+| Fer IV | 14 | dm | In Exaltatione S Crucis |
+| Fer V | 15 | d II cl | Septem Dolorum BMV |
+| Fer VI | 16 | sd | Ss Cornelii P et Cypriani E Mm |
+| Sabb | 17 | s | De Sancta Maria in Sabbato |
+| Dom | 18 | sd | Dominica XV post Pentecosten |
+| Fer II | 19 | d | Ss Januarii E & Soc Mm |
+| Fer III | 20 | d | Ss Eustachii & Soc Mm |
+| Fer IV | 21 | s | Feria IV Quatuor Temporum Septembris |
+| Fer V | 22 | d | S Thomæ de Villanova EC |
+| Fer VI | 23 | sd | S Lini PM |
+| Sabb | 24 | s | Sabbatum Quatuor Temporum Septembris |
+| Dom | 25 | sd | Dominica XVI post Pentecosten |
+| Fer II | 26 | s | Ss Cypriani & Justinæ Mm |
+| Fer III | 27 | s | Ss Cosmæ & Damiani Mm |
+| Fer IV | 28 | sd | S Wenceslai Ducis M |
+| Fer V | 29 | d I cl | In Dedicatione S Michaelis Arch |
+| Fer VI | 30 | d | S Hieronymi SCD |
+| Sabb | 01 | s | De Sancta Maria in Sabbato |
+| Dom | 02 | sd | Dominica XVII post Pentecosten |
+| Fer II | 03 | d | S Teresiæ a Jesu Infante V |
+| Fer III | 04 | dm | S Francisci C |
+| Fer IV | 05 | s | Ss Placidi & Sociorum Mm |
+| Fer V | 06 | d | S Brunonis C |
+| Fer VI | 07 | d II cl | Sacratissimi Rosarii BMV |
+| Sabb | 08 | s | De Sancta Maria in Sabbato |
+| Dom | 09 | sd | Dominica XVIII post Pentecosten |
+| Fer II | 10 | sd | S Francisci Borgiæ C |
+| Fer III | 11 | d II cl | In Maternitate BMV |
+| Fer IV | 12 | s | De ea |
+| Fer V | 13 | sd | S Eduardi Regis C |
+| Fer VI | 14 | d | S Callisti I PM |
+| Sabb | 15 | s | De Sancta Maria in Sabbato |
+| Dom | 16 | sd | Dominica XIX post Pentecosten |
+| Fer II | 17 | d | S Margaritæ Mariæ Alacoque V |
+| Fer III | 18 | d II cl | S Lucæ Ev |
+| Fer IV | 19 | d | S Petri de Alcantara C |
+| Fer V | 20 | d | S Joannis Cantii C |
+| Fer VI | 21 | s | S Hilarionis Abb |
+| Sabb | 22 | s | De Sancta Maria in Sabbato |
+| Dom | 23 | sd | Dominica XX post Pentecosten |
+| Fer II | 24 | dm | S Raphaelis Arch |
+| Fer III | 25 | s | Ss Chrysanthi et Dariæ Mm |
+| Fer IV | 26 | s | S Evaristi PM |
+| Fer V | 27 | v | In Vigilia Ss Simonis & Judæ App |
+| Fer VI | 28 | d II cl | Ss Simonis & Judæ App |
+| Sabb | 29 | s | De Sancta Maria in Sabbato |
+| Dom | 30 | sd | Dominica XXI post Pentecosten |
+| Fer II | 31 | v | In Vigilia Omnium Sanctorum |
+| Fer III | 01 | s | De ea |
+| Fer IV | 02 | d | In Commemoratione Omnium Fidelium Defunctorum |
+| Fer V | 03 | feria | De V die infra Octava Omnium Sanctorum |
+| Fer VI | 04 | d | S Caroli EC |
+| Sabb | 05 | s | De Sancta Maria in Sabbato |
+| Dom | 06 | sd | Dominica XXII post Pentecosten |
+| Fer II | 07 | s | De ea |
+| Fer III | 08 | sd | In Octava Omnium Sanctorum |
+| Fer IV | 09 | d II cl | In Dedicatione Archibasilicæ Ssmi Salvatoris |
+| Fer V | 10 | d | S Andreæ Avellini C |
+| Fer VI | 11 | d | S Martini  EC |
+| Sabb | 12 | s | De Sancta Maria in Sabbato |
+| Dom | 13 | sd | Dominica XXIII post Pentecosten |
+| Fer II | 14 | d | Josaphat EM |
+| Fer III | 15 | d | S Alberti Magni ECD |
+| Fer IV | 16 | d | S Gertrudis V |
+| Fer V | 17 | sd | S Gregorii Thaumaturgi EC |
+| Fer VI | 18 | dm | In Dedicatione Basilicarum Ss Petri & Pauli App |
+| Sabb | 19 | s | De Sancta Maria in Sabbato |
+| Dom | 20 | sd | Dominica XXIV et ultima post Pentecosten |
+| Fer II | 21 | dm | In Præsentatione BMV |
+| Fer III | 22 | d | S Cæciliæ VM |
+| Fer IV | 23 | d | S Clementis I PM |
+| Fer V | 24 | d | S Joannis a Cruce CD |
+| Fer VI | 25 | d | S Catharinæ VM |
+| Sabb | 26 | s | De Sancta Maria in Sabbato |
+| Dom | 27 | sd | Dominica I Adventus |
+| Fer II | 28 | feria | Feria IV infra Hebd I Adventus |
+| Fer III | 29 | feria | Feria V infra Hebd I Adventus |
+| Fer IV | 30 | d II cl | S Andreæ Ap |
+| Fer V | 01 | feria | Feria VII infra Hebd I Adventus |
+| Fer VI | 02 | sd | S Bibianæ VM |
+| Sabb | 03 | feria | Sabbatum infra Hebd I Adventus |
+| Dom | 04 | sd II cl | Dominica II Adventus |
+| Fer II | 05 | feria | Feria IV infra Hebd II Adventus |
+| Fer III | 06 | d | S Nicolai EC |
+| Fer IV | 07 | feria | Feria VI infra Hebd II Adventus |
+| Fer V | 08 | feria | Feria VII infra Hebd II Adventus |
+| Sabb | 10 | feria | Sabbatum infra Hebd II Adventus |
+| Dom | 11 | sd II cl | Dominica III Adventus |
+| Fer II | 12 | feria | Feria IV infra Hebd III Adventus |
+| Fer III | 13 | d | S Luciæ VM |
+| Fer IV | 14 | s | Feria IV Quatuor Temporum in Adventus |
+| Fer V | 15 | feria | Feria VII infra Hebd III Adventus |
+| Fer VI | 16 | sd | S Eusebii EM |
+| Sabb | 17 | s | Sabbatum Quatuor Temporum in Adventus |
+| Dom | 18 | sd II cl | Dominica IV Adventus |
+| Fer II | 19 | feria | Feria IV infra Hebd IV Adventus |
+| Fer III | 20 | feria | Feria V infra Hebd IV Adventus |
+| Fer IV | 21 | d II cl | S Thomæ Ap |
+| Fer V | 22 | feria | Feria VII infra Hebd IV Adventus |
+| Sabb | 24 | d I cl Vig privil I cl | Vigilia Nativitas DNJC |
+| Dom | 25 | d I cl cum Oct privil 3 ord | Nativitas DNJC |
+| Fer II | 26 | d II cl cum Oct simplici | S. Stephani Protomartyris |
+| Fer III | 27 | d II cl cum Oct simplici | S. Joannis Ap. Ev. |
+| Fer IV | 28 | d II cl cum Oct simplici | Ss Innocentium Mm. |
+| Fer V | 29 | d | S. Thomæ E.M. |
+| Fer VI | 30 | sd | Dominica Infra Octavam Nativitatis reposita |
+| Sabb | 31 | d | S. Silvestri I P.C. |
