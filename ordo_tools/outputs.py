@@ -166,7 +166,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
         f.write('\n\n')
         f.write('| Day | Date | Feast |')
         f.write('\n')
-        f.write('|---|---|---|---|')
+        f.write('|---|---|---|')
         f.write('\n')
         for x in mdldates:
             feast = Feast(x, mdl[x])

@@ -46,8 +46,8 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 
 ## Calendar for 2022
 
-| Day | Date | Rank | Feast |
-|---|---|---|---|
+| Day | Date | Feast |
+|---|---|---|
 | Sabb | 01/01 | Circumcisio DNJC et Oct. Nativitatis |
 | Dom | 01/02 | Ssmi Nominis Jesu |
 | Fer II | 01/03 | Octava S. Joannis Ap Ev |
