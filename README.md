@@ -373,30 +373,32 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer VI | 11/25 | S Catharinæ VM |
 | Sabb | 11/26 | De Sancta Maria in Sabbato |
 | Dom | 11/27 | Dominica I Adventus |
-| Fer II | 11/28 | Feria IV infra Hebd I Adventus |
-| Fer III | 11/29 | Feria V infra Hebd I Adventus |
+| Fer II | 11/28 | Feria II infra Hebd I Adventus |
+| Fer III | 11/29 | Feria III infra Hebd I Adventus |
 | Fer IV | 11/30 | S Andreæ Ap |
-| Fer V | 12/01 | Feria VII infra Hebd I Adventus |
+| Fer V | 12/01 | Feria V infra Hebd I Adventus |
 | Fer VI | 12/02 | S Bibianæ VM |
 | Sabb | 12/03 | Sabbatum infra Hebd I Adventus |
 | Dom | 12/04 | Dominica II Adventus |
-| Fer II | 12/05 | Feria IV infra Hebd II Adventus |
+| Fer II | 12/05 | Feria II infra Hebd II Adventus |
 | Fer III | 12/06 | S Nicolai EC |
-| Fer IV | 12/07 | Feria VI infra Hebd II Adventus |
-| Fer V | 12/08 | Feria VII infra Hebd II Adventus |
+| Fer IV | 12/07 | Feria IV infra Hebd II Adventus |
+| Fer V | 12/08 | Feria V infra Hebd II Adventus |
+| Fer VI | 12/09 | Feria VI infra Hebd II Adventus |
 | Sabb | 12/10 | Sabbatum infra Hebd II Adventus |
 | Dom | 12/11 | Dominica III Adventus |
-| Fer II | 12/12 | Feria IV infra Hebd III Adventus |
+| Fer II | 12/12 | Feria II infra Hebd III Adventus |
 | Fer III | 12/13 | S Luciæ VM |
 | Fer IV | 12/14 | Feria IV Quatuor Temporum in Adventus |
-| Fer V | 12/15 | Feria VII infra Hebd III Adventus |
+| Fer V | 12/15 | Feria V infra Hebd III Adventus |
 | Fer VI | 12/16 | S Eusebii EM |
 | Sabb | 12/17 | Sabbatum Quatuor Temporum in Adventus |
 | Dom | 12/18 | Dominica IV Adventus |
-| Fer II | 12/19 | Feria IV infra Hebd IV Adventus |
-| Fer III | 12/20 | Feria V infra Hebd IV Adventus |
+| Fer II | 12/19 | Feria II infra Hebd IV Adventus |
+| Fer III | 12/20 | Feria III infra Hebd IV Adventus |
 | Fer IV | 12/21 | S Thomæ Ap |
-| Fer V | 12/22 | Feria VII infra Hebd IV Adventus |
+| Fer V | 12/22 | Feria V infra Hebd IV Adventus |
+| Fer VI | 12/23 | Feria VI infra Hebd IV Adventus |
 | Sabb | 12/24 | Vigilia Nativitas DNJC |
 | Dom | 12/25 | Nativitas DNJC |
 | Fer II | 12/26 | S. Stephani Protomartyris |

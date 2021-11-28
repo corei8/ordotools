@@ -1414,7 +1414,7 @@ def build_temporal(year: int) -> None:
         "Dominica I Adventus",
     ]
     for i, x in enumerate(advents):
-        for k, y in enumerate(ROMANS[3: 7], start=1):
+        for k, y in enumerate(ROMANS[1: 6], start=1):
             cycle.update(
                 {
                     str(lastadvent - week(i) + indays(k)): {  # ! mass, vespers
@@ -1422,6 +1422,8 @@ def build_temporal(year: int) -> None:
                         'rank': [18, 'feria'],
                         'color': 'violet',
                         'mass': {'int': 'Ad te levavi' if x == 'Dominica I Adventus' else ('Populus Sion' if x == "Dominica II Adventus" else ('Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli')), 'glo': False, 'cre': False, 'pre': 'Communis'},
+                        'com_1': {'oration': 'Deus qui de beate'},
+                        'com_2': {'oration': 'Ecclesiæ'},
                         'matins': {},
                         'lauds': {},
                         'prime': {},
@@ -1433,24 +1435,27 @@ def build_temporal(year: int) -> None:
                     },
                 }
             )
-        cycle.update(
-            {
-                str(lastadvent - week(i) + indays(6)): {  # ! mass, vespers
-                    'feast': 'Sabbatum infra Hebd'+x.strip('Dominica'),
-                    'rank': [18, 'feria'],
-                    'color': 'violet',
-                    'mass': {'int': 'Ad te levavi' if x == 'Dominica I Adventus' else ('Populus Sion' if x == "Dominica II Adventus" else ('Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli')), 'glo': False, 'cre': False, 'pre': 'Communis'},
-                    'matins': {},
-                    'lauds': {},
-                    'prime': {},
-                    'little_hours': {},
-                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                    'compline': {},
-                    'office_type': 'feria',
-                    'nobility': (9, 2, 6, 13, 3, 0),
-                },
-            }
-        )
+        else:
+            cycle.update(
+                {
+                    str(lastadvent - week(i) + indays(6)): {  # ! mass, vespers
+                        'feast': 'Sabbatum infra Hebd'+x.strip('Dominica'),
+                        'rank': [18, 'feria'],
+                        'color': 'violet',
+                        'mass': {'int': 'Ad te levavi' if x == 'Dominica I Adventus' else ('Populus Sion' if x == "Dominica II Adventus" else ('Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli')), 'glo': False, 'cre': False, 'pre': 'Communis'},
+                        'com_1': {'oration': 'Deus qui de beate'},
+                        'com_2': {'oration': 'Ecclesiæ'},
+                        'matins': {},
+                        'lauds': {},
+                        'prime': {},
+                        'little_hours': {},
+                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
+                        'compline': {},
+                        'office_type': 'feria',
+                        'nobility': (9, 2, 6, 13, 3, 0),
+                    },
+                }
+            )
         if x == "Dominica III Adventus":
             cycle.update(
                 {
@@ -1459,6 +1464,8 @@ def build_temporal(year: int) -> None:
                         'rank': [8, 'sd II cl'],
                         'color': 'violet',
                         'mass': {'int': 'Populus Sion' if x == "Dominica II Adventus" else ('Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli'), 'glo': False, 'cre': True, 'pre': 'de Trinitate'},
+                        'com_1': {'oration': 'Deus qui de beate'},
+                        'com_2': {'oration': 'Ecclesiæ'},
                         'matins': {},
                         'lauds': {},
                         'prime': {},
@@ -1473,6 +1480,8 @@ def build_temporal(year: int) -> None:
                         'rank': [18, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Rorate cæli', 'glo': False, 'cre': False, 'pre': 'Communis'},
+                        'com_1': {'oration': 'Deus qui de beate'},
+                        'com_2': {'oration': 'Ecclesiæ'},
                         'matins': {},
                         'lauds': {},
                         'prime': {},
@@ -1487,6 +1496,8 @@ def build_temporal(year: int) -> None:
                         'rank': [18, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Prope es tu', 'glo': False, 'cre': False, 'pre': 'Communis'},
+                        'com_1': {'oration': 'Deus qui de beate'},
+                        'com_2': {'oration': 'Ecclesiæ'},
                         'matins': {},
                         'lauds': {},
                         'prime': {},
@@ -1501,6 +1512,8 @@ def build_temporal(year: int) -> None:
                         'rank': [18, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Veni, et ostende', 'glo': False, 'cre': False, 'pre': 'Communis'},
+                        'com_1': {'oration': 'Deus qui de beate'},
+                        'com_2': {'oration': 'Ecclesiæ'},
                         'matins': {},
                         'lauds': {},
                         'prime': {},
@@ -1520,6 +1533,8 @@ def build_temporal(year: int) -> None:
                         'rank': [1, 'sd'],
                         'color': 'violet',
                         'mass': {'int': 'Ad te levavi', 'glo': False, 'cre': True, 'pre': 'de Trinitate'},
+                        'com_1': {'oration': 'Deus qui de beate'},
+                        'com_2': {'oration': 'Ecclesiæ'},
                         'matins': {},
                         'lauds': {},
                         'prime': {},
@@ -1539,6 +1554,8 @@ def build_temporal(year: int) -> None:
                         'rank': [8, 'sd II cl'],
                         'color': 'violet',
                         'mass': {'int': 'Populus Sion' if x == "Dominica II Adventus" else ('Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli'), 'glo': False, 'cre': True, 'pre': 'de Trinitate'},
+                        'com_1': {'oration': 'Deus qui de beate'},
+                        'com_2': {'oration': 'Ecclesiæ'},
                         'matins': {},
                         'lauds': {},
                         'prime': {},
@@ -1550,43 +1567,44 @@ def build_temporal(year: int) -> None:
                     },
                 }
             )
-    cycle.update(
-        {
-            str(christmas-indays(1)): {  # ! vespers
-                'feast': "Vigilia Nativitas DNJC",
-                'rank': [3, 'd I cl Vig privil I cl'],
-                'color': 'violet',
-                'mass': {'int': 'Hodie scietis', 'glo': False, 'cre': False, 'pre': 'Communis'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'feria',
-                'nobility': (False,),
-            },
-            # TODO If the vigil is a Sunday, there is a commemoration, Creed, de Trinitate, but no Proper Last Gospel
-            str(christmas): {  # ! vespers
-                'feast': "Nativitas DNJC",
-                'rank': [2, 'd I cl cum Oct privil 3 ord'],
-                'color': 'white',
-                'mass': {
-                    'Ad Primam Missam': {'int': 'Domine dixit', 'glo': True, 'cre': True, 'pre': 'et Comm (in hac Missa tantum dicitur "noctem") de Nativitate'},
-                    'Ad Secundam Missam': {'int': 'Lux fulgebit', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
-                    'Ad Tertiam Missam': {'int': 'Puer natus', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
+    else:
+        cycle.update(
+            {
+                str(christmas-indays(1)): {  # ! vespers
+                    'feast': "Vigilia Nativitas DNJC",
+                    'rank': [3, 'd I cl Vig privil I cl'],
+                    'color': 'violet',
+                    'mass': {'int': 'Hodie scietis', 'glo': False, 'cre': False, 'pre': 'Communis'},
+                    'matins': {},
+                    'lauds': {},
+                    'prime': {},
+                    'little_hours': {},
+                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
+                    'compline': {},
+                    'office_type': 'feria',
+                    'nobility': (False,),
                 },
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'festiva',
-                'nobility': (False,),
-            },
-        }
-    )
+                # TODO If the vigil is a Sunday, there is a commemoration, Creed, de Trinitate, but no Proper Last Gospel
+                str(christmas): {  # ! vespers
+                    'feast': "Nativitas DNJC",
+                    'rank': [2, 'd I cl cum Oct privil 3 ord'],
+                    'color': 'white',
+                    'mass': {
+                        'Ad Primam Missam': {'int': 'Domine dixit', 'glo': True, 'cre': True, 'pre': 'et Comm (in hac Missa tantum dicitur "noctem") de Nativitate'},
+                        'Ad Secundam Missam': {'int': 'Lux fulgebit', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
+                        'Ad Tertiam Missam': {'int': 'Puer natus', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
+                    },
+                    'matins': {},
+                    'lauds': {},
+                    'prime': {},
+                    'little_hours': {},
+                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
+                    'compline': {},
+                    'office_type': 'festiva',
+                    'nobility': (False,),
+                },
+            }
+        )
     if 5 <= int(christmas.strftime("%u")) <= 7 or christmas.strftime("%u") == 1:
         # todo this can be simplified
         cycle.update(
