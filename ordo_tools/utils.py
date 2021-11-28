@@ -73,6 +73,7 @@ EASTER_SEASON_END = datetime(
     day=int(dateutil.easter.easter(YEAR).strftime('%d'))
 ) + timedelta(days=39)
 
+# PENTECOST_SEASON_START = easter(YEAR) + week(i+1)
 
 # todo range for pentecost
 
