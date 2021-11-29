@@ -193,20 +193,6 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
         target_file (str): file to write to
         dic (dict): dictionary to write
     """
-    # def write_dictionary(dict_data: tuple, dic: dict) -> None:
-    #     """ Writes a dictionary to a file """
-    #     # ? do we have to write to a file every time?
-    #     with open(dict_data[0], 'a') as f:
-    #         f.truncate(0)  # clean the file
-    #         for i, line in enumerate(sorted(dic)):
-    #             if i != 0:
-    #                 f.write('\''+line+'\' : '+str(dic[line])+',\n')
-    #             else:
-    #                 f.write(dict_data[-1]+'\''+line +
-    #                         '\' : '+str(dic[line])+',\n')
-    #         f.write('}')
-    #         return None
-    # # write_dictionary(find_module(target_file), dic)
     # todo update the parent funtion to use the children dependent upon the target_file
     def update_calendar(data: dict) -> None:
         """ Updates the calendar file """
@@ -420,21 +406,7 @@ def dict_clean_mini(direct: str, str_flag: str) -> None:
 
 
 def leap_year_solver(dic: dict) -> dict:
-    # if status == True:
-    #     # solve the leap year problem
-    #     return dic
-    # else:
-    #     for x in sorted(dic):
-    #             if x+'.' in sorted(dic):
-    #                 cleaned_date = rank_occurring_feasts(
-    #                     date=x,
-    #                     sanctoral_feast=dic[x],
-    #                     temporal_feast=dic[x+'.']
-    #                 )
-    #                 dic.update(cleaned_date)
-    #                 del dic[x+'.']
-    #             else:
-    #                 pass
+    """ Solves the leap year problem. """
     return dic
 
 def stitch_calendars(direct: str) -> None:
