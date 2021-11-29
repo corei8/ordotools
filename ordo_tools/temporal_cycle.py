@@ -1,9 +1,9 @@
 import re
-from datetime import datetime, date
-from ordo_tools.utils import dict_clean, our_ladys_saturday, indays, day, weekday, findsunday, week, easter, ROMANS, LENT_MASSES, FERIA, find_extra_epiphany, PENTECOST_MASSES
+from datetime import datetime
+from ordo_tools.utils import indays, day, weekday, findsunday, week, easter, ROMANS, LENT_MASSES, FERIA, find_extra_epiphany, PENTECOST_MASSES
 
 
-def build_temporal(year: int) -> None:
+def build_temporal(year: int) -> dict:
     """ Builds the temporal cycle for a given year and writes it to a file.
 
     Args:
@@ -1739,23 +1739,4 @@ def build_temporal(year: int) -> None:
             },
         }
     )
-
-    def make_dict(year: int):
-        gen_file = "temporal/temporal_" + str(year)
-        with open(gen_file + ".py", "w") as f:
-            f.write("temporal = {")
-            memory = []
-            for k, v in cycle.items():
-                temporal_event = date.fromisoformat(k[0:10]).strftime("%m/%d")
-                if temporal_event in memory:
-                    temporal_event += "."
-                memory.append(temporal_event)
-                f.write(
-                    str("\n'" + temporal_event + "'" + ": " + str(v) + ",")
-                )
-            f.write("}")
-        dict_clean('temporal', '.')
-
-    make_dict(year)
-
-    our_ladys_saturday('temporal')
+    return cycle

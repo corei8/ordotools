@@ -19,14 +19,14 @@ def main(year: int, diocese: str):
     set_global_year(year)
 
     from ordo_tools.temporal_cycle import build_temporal
-    from ordo_tools.utils import explode_octaves, stitch, dict_clean
+    from ordo_tools.utils import explode_octaves, stitch_calendars, dict_clean, commit_temporal
     from ordo_tools.outputs import build_latex_ordo, readme_calendar, build_latin_calendar
 
-    build_temporal(year)
-
-    stitch(sanctoral=explode_octaves(region_diocese=diocese))
+    commit_temporal()
+    # explode_octaves(region_diocese=diocese)
+    stitch_calendars(direct=diocese)
     dict_clean('calendar', '.')
-    dict_clean('calendar', '_')
+    # dict_clean('calendar', '_')  # ! does this ever come up?
     # commemoration_ordering('calendar')
     build_latex_ordo(year)
     readme_calendar(year)

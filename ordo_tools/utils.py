@@ -193,161 +193,40 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
         target_file (str): file to write to
         dic (dict): dictionary to write
     """
-    def write_dictionary(target_file: tuple, dic: dict) -> None:
-        """ Writes a dictionary to a file """
-        with open(target_file[0], 'a') as f:
-            f.truncate(0)  # clean the file
-            for i, line in enumerate(sorted(dic)):
+    # def write_dictionary(dict_data: tuple, dic: dict) -> None:
+    #     """ Writes a dictionary to a file """
+    #     # ? do we have to write to a file every time?
+    #     with open(dict_data[0], 'a') as f:
+    #         f.truncate(0)  # clean the file
+    #         for i, line in enumerate(sorted(dic)):
+    #             if i != 0:
+    #                 f.write('\''+line+'\' : '+str(dic[line])+',\n')
+    #             else:
+    #                 f.write(dict_data[-1]+'\''+line +
+    #                         '\' : '+str(dic[line])+',\n')
+    #         f.write('}')
+    #         return None
+    # # write_dictionary(find_module(target_file), dic)
+    # todo update the parent funtion to use the children dependent upon the target_file
+    def update_calendar(data: dict) -> None:
+        """ Updates the calendar file """
+        cal = importlib.import_module('calen.calendar_'+str(YEAR)).calen
+        for x, y in data.items():
+            cal.update({x: y})
+        with open('calen/calendar_'+str(YEAR)+'.py', 'a') as f:
+            f.truncate(0)
+            f.write('calen = {\n')
+            for i, line in enumerate(sorted(cal)):
                 if i != 0:
-                    f.write('\''+line+'\' : '+str(dic[line])+',\n')
+                    f.write('\''+line+'\' : '+str(cal[line])+',\n')
                 else:
-                    f.write(target_file[-1]+'\''+line +
-                            '\' : '+str(dic[line])+',\n')
+                    f.write('\''+line+'\' : '+str(cal[line])+',\n')
             f.write('}')
-            return 0
-    write_dictionary(find_module(target_file), dic)
-    return 0
+        return None
 
+    update_calendar(data=dic)
 
-def dict_clean(direct: str, str_flag: str) -> None:
-    """ Resolves conflicts between the sanctoral and temporal dictionaries, which are flagged with either a period or an underscore.
-
-    Args:
-        direct (str): The calendar to be cleaned.
-        str_flag (str): The flag to be used to identify the conflicts, either . or _.
-
-    Returns:
-        None: Confliecs are resolved without return.
-    """
-    dict_information = find_module(direct)
-    dictionary = importlib.import_module(dict_information[1])
-    dic = dictionary.__dict__[dict_information[2]]
-    flag = str_flag
-    for x in sorted(dic):
-        nobility_free = True
-        if len(x) >= 6:
-            continue
-        else:
-            second_ = Feast(x, dic[x])
-            if not second_.feast_date+flag in sorted(dic):
-                continue
-            else:
-                second_ = Feast(x, dic[x])
-                first_ = Feast(second_.feast_date+flag,
-                               dic[second_.feast_date+flag])
-                if second_.rank_n > first_.rank_n:
-                    first, second = first_, second_
-                elif second_.rank_n == first_.rank_n:
-                    less_noble, more_noble = first_, second_
-                    for x, y in zip(
-                        second_.nobility,
-                        first_.nobility
-                    ):
-                        for i in range(6):
-                            if x == y:
-                                continue
-                            elif x != y:
-                                if x > y:
-                                    less_noble, more_noble = first_, second_
-                                    break
-                                else:
-                                    less_noble, more_noble = second_, first_
-                                    break
-                        else:
-                            pass
-                    rank = second_.rank_n
-                    if rank <= 10:  # ! refine this to exclude all but D1 and D2
-                        dic.update(
-                            {more_noble.feast_date.strip(
-                                flag): more_noble.feast_properties}
-                        )
-                        dic.update(
-                            {less_noble.feast_date.strip(
-                                flag)+' tranlsated': less_noble.feast_properties}
-                        )
-                    else:
-                        more_noble.com_1 = {
-                            'com_1': less_noble.feast_properties}
-                        dic.update({more_noble.feast_date.strip(
-                            flag): more_noble.feast_properties})
-                    if len(more_noble.feast_date) == 6:
-                        dic.pop(more_noble.feast_date)
-                    if len(less_noble.feast_date) == 6:
-                        dic.pop(less_noble.feast_date)
-                    nobility_free = False
-                    pass
-                else:
-                    first, second = second_, first_
-                if nobility_free == False:
-                    pass
-                else:
-                    # * translation
-                    # ! is this still working for the translations?
-                    if first.rank_n <= 4 and second.rank_n <= 10:
-                        dic.update(
-                            {first.feast_date.strip(flag): first.feast_properties})
-                        dic.update(
-                            {second.feast_date.strip(flag)+'_': second.feast_properties})
-                    # * no commemoration
-                    elif first.rank_n <= 4 and second.rank_n > 10:
-                        dic.update(
-                            {first.feast_date.strip(flag): first.feast_properties})
-                    # * commemoration
-                    # todo refine these ranges:
-                    elif 19 > first.rank_n > 4 and 19 > second.rank_n >= 6:
-                        first.com_1 = second.feast
-                        dic.update(
-                            {first.feast_date.strip(flag): first.feast_properties})
-                    elif second.rank_n == 22:
-                        dic.update(
-                            {first.feast_date.strip(flag): first.feast_properties})
-                    # * no commemoration
-                    else:
-                        dic.update(
-                            {first.feast_date.strip(flag): first.feast_properties})
-                    if len(first.feast_date) == 6:
-                        dic.pop(first.feast_date)
-                    if len(second.feast_date) == 6:
-                        dic.pop(second.feast_date)
-    commit_to_dictionary(target_file=direct, dic=dic)
-    return 0
-
-
-def stitch(sanctoral: dict) -> None:
-    """ This function stitches the sanctoral and temporal dictionaries.
-
-    Args:
-        sanctoral (str): Sanctoral dictionary for the calendar.
-
-    Returns:
-        None: Creates the new calendar without returning anything.
-    """
-    mdl_temporal = importlib.import_module(
-        'temporal.temporal_'+str(YEAR)).temporal
-    mdl_sanctoral = sanctoral
-    # todo add a method here to add the other modules required for the sanctoral cycle
-    mdlt, mdls = sorted(mdl_temporal), sorted(mdl_sanctoral)
-    calen = {}
-    if leap_year(YEAR) == False:
-        pass
-    else:
-        for event in mdls:
-            if not 'leapdate' in mdl_sanctoral[event]:
-                pass
-            else:
-                new_date = mdl_sanctoral[event].get('leapdate')
-                mdl_sanctoral.update({new_date if not new_date in mdl_sanctoral else (
-                    new_date+'.' if not new_date+'.' in mdl_sanctoral else new_date+'_'): mdl_sanctoral[event]})
-    for x in mdls:
-        feast = Feast(x, mdl_sanctoral[x])
-        calen.update(
-            {feast.feast_date+'.' if x in mdlt else feast.feast_date: feast.feast_properties}
-        )
-    for y in mdlt:
-        feast = Feast(y, mdl_temporal[y])
-        calen.update({feast.feast_date: feast.feast_properties})
-    commit_to_dictionary(target_file='calendar', dic=calen)
-    return 0
+    return None
 
 
 def explode_octaves(region_diocese: str) -> dict:
@@ -377,92 +256,220 @@ def explode_octaves(region_diocese: str) -> dict:
             return_dict.update({feast.feast_date: feast.feast_properties})
     return return_dict
 
+
 def add_commemoration(feast: Feast, commemoration: Feast) -> dict:
     """ Adds one feast as the commemoration of another feast """
     for x in feast.coms.keys():
-        if feast.coms[x] != '':
-            pass
+        if feast.coms[x] == '':
+            feast.coms[x] = commemoration.feast_properties
+            break
         else:
-            feast.coms.update({x: commemoration.feast_properties})
-        return feast
-    
+            pass
+    return feast.updated_properties
+
+# * maybe use recursion to solve problems with transfers?
+
+
+def rank_by_nobility(feast_1: Feast, feast_2: Feast) -> dict:
+    """ Takes two feasts and returns the one with the higher rank.
+
+    Args:
+        feast_1 (Feast): First feast to be compared.
+        feast_2 (Feast): Second feast to be compared.
+
+    Returns:
+        dict: dictionary of the higher ranked feast and the transfered feast.
+    """
+    ranks_1 = feast_1.nobility
+    ranks_2 = feast_2.nobility
+    for x in range(len(ranks_1)):
+        if ranks_1[x] < ranks_2[x]:
+            return {'higher': feast_1, 'lower': feast_2}
+        elif ranks_1[x] > ranks_2[x]:
+            return {'higher': feast_2, 'lower': feast_1}
+        else:
+            pass
+    return {'higher': feast_1, 'lower': feast_2}
+
 
 def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict) -> dict:
     """ This function ranks the feasts occurring on a given date.
 
     Args:
         date (str): Date for which the feasts are to be ranked.
-    """ 
+        sanctoral_feast (dict): Sanctoral feast dictionary.
+        temporal_feast (dict): Temporal feast dictionary.
+    """
     ranked_feasts = {}
     sanct = Feast(date, sanctoral_feast)
     tempo = Feast(date, temporal_feast)
     if sanct.rank_n == tempo.rank_n:
-        pass # nobility check
+        # nobility check
+        transfer_date = datetime.strptime(date, '%m/%d')+timedelta(days=1)
+        print(date)
+        ranked_feasts.update(
+            {
+                date: rank_by_nobility(sanct, tempo)['higher'].feast_properties,
+                transfer_date.strftime('%m/%d'): rank_by_nobility(sanct, tempo)['lower'].feast_properties,
+            }
+        )
     else:
-        higher = max(sanct.rank_n, tempo.rank_n)
-        lower = min(sanct.rank_n, tempo.rank_n)
-        if higher <= 4:
-            if lower <= 10:
-                lower_date = (datetime.strptime(date, '%m/%d')+timedelta(days=1)).strftime('%m/%d')
-                ranked_feasts.update({lower_date: lower.feast_properties})
+        candidates = {
+            sanct.rank_n: sanct,
+            tempo.rank_n: tempo,
+        }
+        higher = candidates[sorted(candidates)[0]]
+        lower = candidates[sorted(candidates)[1]]
+        if higher.rank_n <= 4:  # feasts that exclude commemorations
+            # transfer
+            if lower.rank_n <= 10:
+                transfer_date = (datetime.strptime(date, '%m/%d') +
+                                 timedelta(days=1)).strftime('%m/%d')
+                ranked_feasts.update({transfer_date: lower.feast_properties})
             else:
-                pass # feast can be ignored
+                pass  # lesser feast can be ignored
             ranked_feasts.update({date: higher.feast_properties})
-        elif higher <= 10:
-            if lower <= 10:
-                # transfer the feast
-                lower_date = (datetime.strptime(date, '%m/%d')+timedelta(days=1)).strftime('%m/%d')
-                ranked_feasts.update({lower_date: lower.feast_properties})
-            elif 10 < lower <= 16:
-                # commemorate the feast
-                    ranked_feasts.update(
-                        {date: add_commemoration(feast=higher, commemoration=lower)}
-                        )
+        elif 14 <= lower.rank_n <= 16:  # impeded double majors, doubles and semidoubles
+            # todo exclude this commemoration in privileged feasts, etc. p. 309 Matters Liturgical
+            if higher.rank_n == 12 or 19:
+                ranked_feasts.update(
+                    {date: add_commemoration(
+                        feast=higher, commemoration=lower)}
+                )
+            elif higher.rank_n < higher.rank_n:
+                ranked_feasts.update(
+                    {date: add_commemoration(
+                        feast=higher, commemoration=lower)}
+                )
             else:
                 pass
-        elif  14 <= lower <= 16 and higher == 12 or 19:
-            # exclude this commemoration in privileged feasts p. 309
-            ranked_feasts.update(
-                {date: add_commemoration(feast=higher, commemoration=lower)}
-            )
         else:
-            pass
-            # ranked_feasts.update({date: higher.feast_properties})
-            # ranked_feasts.update({date: sanct.feast_properties})
+            ranked_feasts.update({date: higher.feast_properties})
     return ranked_feasts
-    
-    
-    
 
-def stitch_calendars(direct: dict) -> None:
-    """ stitch the temporal and sanctoral calendars together """
+
+def add_sanctoral_feasts(temporal_dict: dict, sanctoral_dict: dict) -> dict:
+    """ Adds the sanctoral feasts to the temporal feast dictionary.
+
+    Args:
+        temporal_dict (dict): Temporal feast dictionary.
+        sanctoral_feast (dict): Sanctoral feast dictionary.
+    """
+    sanctoral = sanctoral_dict.copy()
+    temporal = temporal_dict.copy()
+    full_calendar = {}
+    for x in sanctoral.keys():
+        if x in temporal.keys():
+            ranked_feast = rank_occurring_feasts(
+                date=x, sanctoral_feast=sanctoral[x], temporal_feast=temporal[x]
+            )
+            full_calendar.update(ranked_feast)
+        else:
+            full_calendar.update({x: sanctoral[x]})
+    return full_calendar
+
+
+def dict_clean(direct: str, str_flag: str) -> None:
+    """ Resolves conflicts between the sanctoral and temporal dictionaries, which are flagged with either a period or an underscore.
+
+    Args:
+        direct (str): The calendar to be cleaned.
+        str_flag (str): The flag to be used to identify the conflicts, either . or _.
+    """
     dict_information = find_module(direct)
     dictionary = importlib.import_module(dict_information[1])
-    sanctoral = dictionary.__dict__[dict_information[2]]
-    temporal = importlib.import_module('calendar_'+str(YEAR)).calendar
-    # assume that the temporal calendar is already cleaned and correctly ordered
-    full_calendar = {}
-    if leap_year(YEAR) == True:
-        pass
-    for x in sanctoral.keys():
-        if x not in temporal.keys():
-            full_calendar.update({x: sanctoral[x]})
-        elif x in temporal.keys():
-            rank_occurring_feasts(date=x, sanctoral_feast=sanctoral[x], temporal_feast=temporal[x])
-        else:
-            print("WARNING! problem with " + x + " in the temporal calendar -- stitch_calendars().")
+    dic = dictionary.__dict__[dict_information[2]]
+    flag = str_flag
+    for x in sorted(dic):
+        if flag in x:
+            continue
+        if x+flag in sorted(dic):
+            rank_occurring_feasts(
+                date=x, sanctoral_feast=dic[x], temporal_feast=dic[x+flag])
     else:
-        commit_to_dictionary(target_file='calendar', dic=full_calendar)
-    return None            
-            
-    
+        commit_to_dictionary(target_file=direct, dic=dic)
+    return 0
+
+
+def dict_clean_mini(direct: str, str_flag: str) -> None:
+    """ Resolves conflicts in a single file, which are flagged with either a period or an underscore.
+
+    Args:
+        direct (str): The calendar to be cleaned.
+        str_flag (str): The flag to be used to identify the conflicts, either . or _.
+    """
+    dict_information = find_module(direct)
+    dictionary = importlib.import_module(dict_information[1])
+    dic = dictionary.__dict__[dict_information[2]]
+    flag = str_flag
+    list_of_keys = [k for k in dic.keys()]
+    for x in list_of_keys:
+        if flag in x:
+            continue
+        if x+flag in dic.keys():
+            new_rank = rank_occurring_feasts(
+                date=x, sanctoral_feast=dic[x], temporal_feast=dic[x+flag]
+                )
+            dic.update(new_rank)
+            del dic[x+flag]
+    else:
+        return dic
+
+
+def leap_year_solver(dic: dict) -> dict:
+    # if status == True:
+    #     # solve the leap year problem
+    #     return dic
+    # else:
+    #     for x in sorted(dic):
+    #             if x+'.' in sorted(dic):
+    #                 cleaned_date = rank_occurring_feasts(
+    #                     date=x,
+    #                     sanctoral_feast=dic[x],
+    #                     temporal_feast=dic[x+'.']
+    #                 )
+    #                 dic.update(cleaned_date)
+    #                 del dic[x+'.']
+    #             else:
+    #                 pass
+    return dic
+
+def stitch_calendars(direct: str) -> None:
+    """ stitch the temporal and sanctoral calendars together 
+
+    Args: 
+        direct (str): dictionary name of the sanctoral calendar
+    """
+    temp_dict_information = find_module('calendar')
+    temp_dictionary = importlib.import_module(temp_dict_information[1])
+    temporal = temp_dictionary.__dict__[temp_dict_information[2]]
+    # assume that the temporal calendar is already cleaned and correctly ordered
+    if leap_year(YEAR) == True:
+        pass  # work on this later
+        # update the calendar with the leap year feasts
+    else:
+        sanctoral = dict_clean_mini(direct, '.')
+        full_calendar = add_sanctoral_feasts(temporal, sanctoral).copy()
+        for y in temporal.keys():
+            if len(y) == 6: 
+                print(f'problem with {y}')
+            if y in sanctoral.keys():
+                continue
+            else:
+                full_calendar.update({y: temporal[y]})
+    commit_to_dictionary(
+        target_file='calendar',
+        dic=full_calendar,
+    )
+    return None
+
 
 def our_ladys_saturday(direct: str) -> None:
     """ Adds all the Saturday Offices of the Blessed Virgin to the temporal calendar """
     # todo add mass number according to season
     office = {
         'feast': 'De Sancta Maria in Sabbato',
-        'rank': [20, 's'],
+        'rank': [21, 's'],
         'color': 'white',
         'mass': {'int': 'Salve sancta parens', 'glo': True, 'cre': False, 'pre': 'de B Maria Virg (et te in Veneratione)'},
         'com_1': {'oration': 'Deus qui corda', },
@@ -486,13 +493,42 @@ def our_ladys_saturday(direct: str) -> None:
     else:
         saturday = begin_year - indays(findsunday(begin_year)+6)
     while saturday <= date(YEAR, 12, 31):
-        if saturday.strftime('%m/%d') in sorted(dic):
-            if not saturday.strftime('%m/%d')+'.' in sorted(dic):
-                dic.update({saturday.strftime('%m/%d')+'.': office})
-            else:
+        try:
+            saturday_in_temporal = Feast(feast_date=saturday.strftime(
+                '%m%d'), properties=dic[saturday.strftime('%m/%d')])
+        except KeyError:
+            if saturday.strftime('%m/%d')+'.' in sorted(dic):
                 pass  # we can presume that it is impossible
+            else:
+                dic.update({saturday.strftime('%m/%d'): office})
         else:
-            dic.update({saturday.strftime('%m/%d'): office})
+            dic.update(
+                rank_occurring_feasts(date=saturday.strftime(
+                    '%m/%d'), sanctoral_feast=office, temporal_feast=saturday_in_temporal.feast_properties)
+            )
         saturday = saturday + indays(7)
     commit_to_dictionary(target_file='calendar', dic=dic)
+    return None
+
+
+def commit_temporal() -> None:
+    from ordo_tools.temporal_cycle import build_temporal
+    cycle = build_temporal(YEAR)
+    gen_file = "temporal/temporal_" + str(YEAR)
+    with open(gen_file + ".py", "w") as f:
+        f.write("temporal = {")
+        memory = []
+        for k, v in cycle.items():
+            temporal_event = date.fromisoformat(k[0:10]).strftime("%m/%d")
+            if temporal_event in memory:
+                temporal_event += "."
+            memory.append(temporal_event)
+            f.write(
+                str("\n'" + temporal_event + "'" + ": " + str(v) + ",")
+            )
+        f.write("}")
+
+    dict_clean('temporal', '.')
+    our_ladys_saturday('temporal')
+
     return None
