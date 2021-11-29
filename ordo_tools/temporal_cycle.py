@@ -594,7 +594,7 @@ def build_temporal(year: int) -> None:
                 {
                     str(easter(year) + week(i)): {  # ! vespers
                         'feast': x,
-                        'rank': [1, 'dm'],
+                        'rank': [1, 'dm I cl'],
                         'color': 'white',
                         'mass': {'int': 'Quasi modo', 'glo': True, 'cre': True, 'pre': 'Paschalis'},
                         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},

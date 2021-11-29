@@ -903,7 +903,6 @@ sanctoral = {
         'compline': {},
     },
     '04/24': {
-        # todo find the rank of the feast
         'feast': 'S Fidelis a Sigmaringa M',
         'rank': [15, 'd'],
         'nobility': (False,),
@@ -1799,7 +1798,7 @@ sanctoral = {
         'compline': {},
     },
     '07/08': {
-        'feast': 'S Elisabeth R Vid',
+        'feast': 'S Elisabeth R V',
         'rank': [16.1, 'sd'],
         'nobility': (False,),
         'office_type': False,
@@ -2100,7 +2099,7 @@ sanctoral = {
         'compline': {},
     },
     '07/30': {
-        'feast': 'Ss Abdonis et Sennenis Mm',
+        'feast': 'Ss Abdon et Sennen Mm',
         'rank': [21, 's'],
         'nobility': (False,),
         'office_type': False,
@@ -2144,7 +2143,7 @@ sanctoral = {
         'compline': {},
     },
     '08/02': {
-        'feast': 'S Alphonsi Mariæ de Ligourio ECD mtv',
+        'feast': 'S Alphonsi Mariæ de Ligorio ECD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'S Stephani PM', 'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'de Apostolis'}},
@@ -2202,7 +2201,7 @@ sanctoral = {
     },
     '08/06': {
         'feast': 'In Transfiguratione DNJC',
-        'rank': [11, 'dm'],
+        'rank': [11, 'd II cl'],
         'nobility': (False,),
         'com_2': {'feast': 'Ss Xysti P, Felicissimi atq Agapiti Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'de Apostolis'}},
         'office_type': False,
@@ -2834,7 +2833,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
         'compline': {},
     },
-    '09/23': {  # ! check the rank
+    '09/23': {
         'feast': 'S Lini PM',
         'rank': [16.1, 'sd'],
         'nobility': (False,),
