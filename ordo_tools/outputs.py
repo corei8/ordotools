@@ -7,241 +7,251 @@ from ordo_tools.utils import latex_replacement, Feast, translate_month
 
 def build_latex_ordo(year):
     """ build an ordo booklet in 8.5 by 5.5 """
-    mdl = importlib.import_module(
-        'calen.calendar_' + str(year)).calen
-    mdldates = sorted(mdl)
-    with open("output/latex/ordo_" + str(year) + ".tex", "a") as f:
-        f.truncate(0)
-        f.write(
-            r'''
-% !TEX program = lualatex
-\documentclass[10pt, openany]{book}
-\title{Ordo '''+str(year)+r'''}
-\author{Roman Catholic Institute}
-\usepackage{ragged2e}
-\usepackage{microtype}
-\usepackage[T1]{fontenc}
-\usepackage{fontspec}
-\setmainfont[
-    Path = /Library/Fonts/, 
-    Extension = .ttf, 
-    Ligatures = TeX, 
-    BoldFont = Cardob101, 
-    ItalicFont = Cardoi99,
-    ]{Cardo104s}
-\usepackage[latin]{babel}
-\usepackage{geometry}
-\geometry{
-    paperheight=8.5in, 
-    paperwidth=5.5in, 
-    left=1.0in, 
-    right=1.0in, 
-    top=1.0in, 
-    bottom=1.0in,
-    }
-\usepackage{anyfontsize}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{% 
-    \markboth{#1}{}
-    }
-\begin{document}
-    % \maketitle
-    % just something temporary for now
-    \begin{titlepage}
-        \begin{center}
-            {\fontsize{50}{60}\selectfont \textsc{Ordo '''+str(year)+r'''}}
-        \end{center}
-        \begin{center}
-            {\footnotesize \textsc{Roman Catholic Institute}}
-        \end{center}
-    \end{titlepage}
-    \clearpage\begingroup\pagestyle{empty}\cleardoublepage\endgroup
-'''
-        )
-        for i in range(1, 13):
-            month = datetime.strptime(
-                str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%B')
-            _month = translate_month(month)
-            # todo get rid of the chapter number
+    try:
+        mdl = importlib.import_module('calen.calendar_' + str(year)).calen
+    except AttributeError:
+        pass
+    else:
+        mdldates = sorted(mdl)
+        with open("output/latex/ordo_" + str(year) + ".tex", "a") as f:
+            f.truncate(0)
             f.write(
                 r'''
-    \chapter{''' + _month + r'''}
-                    ''')
-            for x in mdldates:
-                if int(x.split('/')[0]) == i:
-                    feast = Feast(x, mdl[x])
-                    # todo #6 make the latin day of the week using FERIAS in temporal_cycle.py
-                    # todo make the header of the last page of the previous month match the previous month
-                    f.write(
-                        r'''
-    \begin{center}
-        \begin{minipage}{3.5in}
-            \vspace{2em}
-            \begin{minipage}{0.5in}
-                {\Huge '''+latex_replacement(feast.feast_date_display)+r'''} \\
-                {\normalsize '''+feast.translate_weekday+r'''} \\
-                {\normalsize '''+feast.translate_color+r'''}
+    % !TEX program = lualatex
+    \documentclass[10pt, openany]{book}
+    \title{Ordo '''+str(year)+r'''}
+    \author{Roman Catholic Institute}
+    \usepackage{ragged2e}
+    \usepackage{microtype}
+    \usepackage[T1]{fontenc}
+    \usepackage{fontspec}
+    \setmainfont[
+        Path = /Library/Fonts/, 
+        Extension = .ttf, 
+        Ligatures = TeX, 
+        BoldFont = Cardob101, 
+        ItalicFont = Cardoi99,
+        ]{Cardo104s}
+    \usepackage[latin]{babel}
+    \usepackage{geometry}
+    \geometry{
+        paperheight=8.5in, 
+        paperwidth=5.5in, 
+        left=1.0in, 
+        right=1.0in, 
+        top=1.0in, 
+        bottom=1.0in,
+        }
+    \usepackage{anyfontsize}
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \renewcommand{\chaptermark}[1]{% 
+        \markboth{#1}{}
+        }
+    \begin{document}
+        % \maketitle
+        % just something temporary for now
+        \begin{titlepage}
+            \begin{center}
+                {\fontsize{50}{60}\selectfont \textsc{Ordo '''+str(year)+r'''}}
+            \end{center}
+            \begin{center}
+                {\footnotesize \textsc{Roman Catholic Institute}}
+            \end{center}
+        \end{titlepage}
+        \clearpage\begingroup\pagestyle{empty}\cleardoublepage\endgroup
+    '''
+            )
+            for i in range(1, 13):
+                month = datetime.strptime(
+                    str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%B')
+                _month = translate_month(month)
+                # todo get rid of the chapter number
+                f.write(
+                    r'''
+        \chapter{''' + _month + r'''}
+                        ''')
+                for x in mdldates:
+                    if int(x.split('/')[0]) == i:
+                        feast = Feast(x, mdl[x])
+                        # todo #6 make the latin day of the week using FERIAS in temporal_cycle.py
+                        # todo make the header of the last page of the previous month match the previous month
+                        f.write(
+                            r'''
+        \begin{center}
+            \begin{minipage}{3.5in}
+                \vspace{2em}
+                \begin{minipage}{0.5in}
+                    {\Huge '''+latex_replacement(feast.feast_date_display)+r'''} \\
+                    {\normalsize '''+feast.translate_weekday+r'''} \\
+                    {\normalsize '''+feast.translate_color+r'''}
+                \end{minipage}
+                \begin{minipage}{3.0in}
+                    \textbf{ \large '''+latex_replacement(feast.name)+r''' \\
+                    \textnormal{\normalsize '''+feast.rank_v+r'''}} \\ ''' + latex_replacement(feast.com_in_title)+r'''
+                \end{minipage}
+                \begin{justify}'''+feast.office_type2latex+r'''
+                    \textbf{Ad Mat: }
+                    \textbf{Ad Lau: }
+                    \textbf{Ad Horas: }'''+feast.preces+r'''
+                    \textbf{Ad Primam: }'''+feast.preces +
+                            latex_replacement(feast.display_mass_as_latex())+r'''
+                    \textbf{In Vesp: }
+                    \textbf{Ad Compl: }'''+feast.preces+r'''
+                \end{justify}
             \end{minipage}
-            \begin{minipage}{3.0in}
-                \textbf{ \large '''+latex_replacement(feast.name)+r''' \\
-                \textnormal{\normalsize '''+feast.rank_v+r'''}} \\ ''' + latex_replacement(feast.com_in_title)+r'''
-            \end{minipage}
-            \begin{justify}'''+feast.office_type2latex+r'''
-                \textbf{Ad Mat: }
-                \textbf{Ad Lau: }
-                \textbf{Ad Horas: }'''+feast.preces+r'''
-                \textbf{Ad Primam: }'''+feast.preces +
-                        latex_replacement(feast.display_mass_as_latex())+r'''
-                \textbf{In Vesp: }
-                \textbf{Ad Compl: }'''+feast.preces+r'''
-            \end{justify}
-        \end{minipage}
-    \end{center}
-''')
-        f.write("\n\end{document}")
-    file = 'ordo_'+str(year)+'.tex'
-    working_dir = os.getcwd()
-    os.chdir('output/latex/')
-    subprocess.run('lualatex '+file+' -interaction nonstopmode',
-                   shell=True, stdout=subprocess.DEVNULL)
-    os.chdir(working_dir)
-    return 0
+        \end{center}
+    ''')
+            f.write("\n\end{document}")
+        file = 'ordo_'+str(year)+'.tex'
+        working_dir = os.getcwd()
+        os.chdir('output/latex/')
+        subprocess.run('lualatex '+file+' -interaction nonstopmode',
+                    shell=True, stdout=subprocess.DEVNULL)
+        os.chdir(working_dir)
+    return None
 
 
 def readme_calendar(year):
-    mdl = importlib.import_module(
-        'calen.calendar_' + str(year)).calen
-    mdldates = sorted(mdl)
-    with open('README.md', 'a') as f:
-        f.truncate(0)
-        f.write(
-            r'''
-# Ordo
+    try:
+        mdl = importlib.import_module(
+            'calen.calendar_' + str(year)).calen
+    except AttributeError:
+        pass
+    else:
+        mdldates = sorted(mdl)
+        with open('README.md', 'a') as f:
+            f.truncate(0)
+            f.write(
+                r'''
+    # Ordo
 
-Traditional Catholic Ordo for the United States, Australia, Canada and Nantes.
+    Traditional Catholic Ordo for the United States, Australia, Canada and Nantes.
 
-Managed by the Roman Catholic Institute.
+    Managed by the Roman Catholic Institute.
 
-## Python Specifications
+    ## Python Specifications
 
-Python 3.x.x 64-bit
+    Python 3.x.x 64-bit
 
-### Modules:
+    ### Modules:
 
-[dateutil](https://dateutil.readthedocs.io/en/stable/)
-```bash
-pip install python-dateutil
-```
+    [dateutil](https://dateutil.readthedocs.io/en/stable/)
+    ```bash
+    pip install python-dateutil
+    ```
 
-## Overview
+    ## Overview
 
-The temporal cycle is generated by a funtion as a dictionary. The sanctoral cycle is made up of several files for country, region and diocese, and each file is a pre-built dictionary. These are combined with the temporal cycle after the latter is generated.
+    The temporal cycle is generated by a funtion as a dictionary. The sanctoral cycle is made up of several files for country, region and diocese, and each file is a pre-built dictionary. These are combined with the temporal cycle after the latter is generated.
 
-The result is a dictionary containing:
+    The result is a dictionary containing:
 
-1. A liturgical calendar proper to an specified diocese (or several dioceses);
-2. Indications of the peculiarities of the office of that day;
-3. An ordo for the Mass of that day, or multiple Masses, if applicable.
+    1. A liturgical calendar proper to an specified diocese (or several dioceses);
+    2. Indications of the peculiarities of the office of that day;
+    3. An ordo for the Mass of that day, or multiple Masses, if applicable.
 
-Easter is the first feast (every 'event' is treated as a feast) to be determined, since most of the liturgical year depends upon the date of Easter. Christmas, being static with regard to its date, requires that we only find the day of the week on which it falls. We begin building the temporal calendar with 01-01.
+    Easter is the first feast (every 'event' is treated as a feast) to be determined, since most of the liturgical year depends upon the date of Easter. Christmas, being static with regard to its date, requires that we only find the day of the week on which it falls. We begin building the temporal calendar with 01-01.
 
-## Progress
+    ## Progress
 
-- [x] Temporal Calendar
-- [x] Combined Temporal and Sanctoral Calendar
-- [ ] Masses
-- [ ] Vespers
-- [x] Colors of Mass and Office
-- [ ] Lessons for Laudes
-- [ ] Prime
-- [ ] Little Hours
-- [ ] US Calendar
-- [ ] Australian Calendar
-- [ ] Canadian Calendar
-- [ ] Solemnities
-                ''')
-        f.write('\n\n')
-        f.write('## Calendar for ' + str(year))
-        f.write('\n\n')
-        f.write('| Day | Date | Feast |')
-        f.write('\n')
-        f.write('|---|---|---|')
-        f.write('\n')
-        for x in mdldates:
-            feast = Feast(x, mdl[x])
-            f.write('| ' + feast.translate_weekday + ' | ' + feast.feast_date + ' | ' + feast.name + ' |')
+    - [x] Temporal Calendar
+    - [x] Combined Temporal and Sanctoral Calendar
+    - [ ] Masses
+    - [ ] Vespers
+    - [x] Colors of Mass and Office
+    - [ ] Lessons for Laudes
+    - [ ] Prime
+    - [ ] Little Hours
+    - [ ] US Calendar
+    - [ ] Australian Calendar
+    - [ ] Canadian Calendar
+    - [ ] Solemnities
+                    ''')
+            f.write('\n\n')
+            f.write('## Calendar for ' + str(year))
+            f.write('\n\n')
+            f.write('| Day | Date | Feast |')
             f.write('\n')
-    return 0
+            f.write('|---|---|---|')
+            f.write('\n')
+            for x in mdldates:
+                feast = Feast(x, mdl[x])
+                f.write('| ' + feast.translate_weekday + ' | ' + feast.feast_date + ' | ' + feast.name + ' |')
+                f.write('\n')
+    return None
 
 
 def build_latin_calendar(year) -> None:
     # todo make this calendar import work with a variable
-    mdl = importlib.import_module(
-        'calen.calendar_' + str(year)).calen
-    mdldates = sorted(mdl)
-    with open('output/latex_calendar/calendar_'+str(year)+'.tex', 'a') as f:
-        f.truncate(0)
-        f.write(
-            r"""
-% !TEX program = lualatex
-\documentclass[10pt]{article}
-\usepackage{calendar_letter}
-\usepackage[landscape, letterpaper, margin=.25in]{geometry}
-\usepackage{palatino}
-\begin{document}
-\pagestyle{empty}
-\setlength{\parindent}{0pt}
-\StartingDayNumber=1
-"""
-        )
-        for i in range(1, 13):
-            blank_days = datetime.strptime(
-                str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%w')
-            month = datetime.strptime(
-                str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%B')
+    try:
+        mdl = importlib.import_module('calen.calendar_' + str(year)).calen
+    except AttributeError:
+        pass
+    else:
+        mdldates = sorted(mdl)
+        with open('output/latex_calendar/calendar_'+str(year)+'.tex', 'a') as f:
+            f.truncate(0)
             f.write(
-                r'''
-\begin{center}
-    \textsc{\LARGE '''+month+r'''}\\ % Month
-    % \textsc{\large Year} \\ % Year
-\end{center}
-\begin{calendar}{\textwidth}
-'''
+                r"""
+    % !TEX program = lualatex
+    \documentclass[10pt]{article}
+    \usepackage{calendar_letter}
+    \usepackage[landscape, letterpaper, margin=.25in]{geometry}
+    \usepackage{palatino}
+    \begin{document}
+    \pagestyle{empty}
+    \setlength{\parindent}{0pt}
+    \StartingDayNumber=1
+    """
             )
-            for x in range(int(blank_days)):
+            for i in range(1, 13):
+                blank_days = datetime.strptime(
+                    str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%w')
+                month = datetime.strptime(
+                    str(i)+'/1/'+str(year), '%m/%d/%Y').strftime('%B')
                 f.write(
                     r'''
-\BlankDay
-'''
+    \begin{center}
+        \textsc{\LARGE '''+month+r'''}\\ % Month
+        % \textsc{\large Year} \\ % Year
+    \end{center}
+    \begin{calendar}{\textwidth}
+    '''
                 )
-            f.write(r'''
-\setcounter{calendardate}{1}
-'''
-                    )
-            for x in mdldates:
-                if int(x.split('/')[0]) == i:
-                    feast = Feast(x, mdl[x])
+                for x in range(int(blank_days)):
                     f.write(
                         r'''
-\day{'''+latex_replacement(feast.name)+r'''}{\vspace{1.5cm}}
-'''
+    \BlankDay
+    '''
                     )
+                f.write(r'''
+    \setcounter{calendardate}{1}
+    '''
+                        )
+                for x in mdldates:
+                    if int(x.split('/')[0]) == i:
+                        feast = Feast(x, mdl[x])
+                        f.write(
+                            r'''
+    \day{'''+latex_replacement(feast.name)+r'''}{\vspace{1.5cm}}
+    '''
+                        )
+                f.write(
+                    r'''
+    \finishCalendar
+    \end{calendar}
+    \pagebreak
+    '''
+                )
             f.write(
                 r'''
-\finishCalendar
-\end{calendar}
-\pagebreak
-'''
+    \end{document}
+                '''
             )
-        f.write(
-            r'''
-\end{document}
-            '''
-        )
-    file = 'calendar_'+str(year)+'.tex'
-    working_dir = os.getcwd()
-    os.chdir('output/latex_calendar/')
-    subprocess.run('lualatex '+file+' -interaction nonstopmode', shell=True)
-    os.chdir(working_dir)
+        file = 'calendar_'+str(year)+'.tex'
+        working_dir = os.getcwd()
+        os.chdir('output/latex_calendar/')
+        subprocess.run('lualatex '+file+' -interaction nonstopmode', shell=True)
+        os.chdir(working_dir)
     return None

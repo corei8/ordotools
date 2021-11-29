@@ -210,7 +210,7 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
     # todo update the parent funtion to use the children dependent upon the target_file
     def update_calendar(data: dict) -> None:
         """ Updates the calendar file """
-        cal = importlib.import_module('calen.calendar_'+str(YEAR)).calen
+        cal = {}
         for x, y in data.items():
             cal.update({x: y})
         with open('calen/calendar_'+str(YEAR)+'.py', 'a') as f:
@@ -306,7 +306,6 @@ def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict
     if sanct.rank_n == tempo.rank_n:
         # nobility check
         transfer_date = datetime.strptime(date, '%m/%d')+timedelta(days=1)
-        print(date)
         ranked_feasts.update(
             {
                 date: rank_by_nobility(sanct, tempo)['higher'].feast_properties,
@@ -378,16 +377,20 @@ def dict_clean(direct: str, str_flag: str) -> None:
     """
     dict_information = find_module(direct)
     dictionary = importlib.import_module(dict_information[1])
-    dic = dictionary.__dict__[dict_information[2]]
-    flag = str_flag
-    for x in sorted(dic):
-        if flag in x:
-            continue
-        if x+flag in sorted(dic):
-            rank_occurring_feasts(
-                date=x, sanctoral_feast=dic[x], temporal_feast=dic[x+flag])
+    try:
+        dic = dictionary.__dict__[dict_information[2]]
+    except KeyError:
+        pass
     else:
-        commit_to_dictionary(target_file=direct, dic=dic)
+        flag = str_flag
+        for x in sorted(dic):
+            if flag in x:
+                continue
+            if x+flag in sorted(dic):
+                rank_occurring_feasts(
+                    date=x, sanctoral_feast=dic[x], temporal_feast=dic[x+flag])
+        else:
+            commit_to_dictionary(target_file=direct, dic=dic)
     return 0
 
 
@@ -440,9 +443,9 @@ def stitch_calendars(direct: str) -> None:
     Args: 
         direct (str): dictionary name of the sanctoral calendar
     """
-    temp_dict_information = find_module('calendar')
+    temp_dict_information = find_module('temporal')
     temp_dictionary = importlib.import_module(temp_dict_information[1])
-    temporal = temp_dictionary.__dict__[temp_dict_information[2]]
+    temporal = temp_dictionary.__dict__[temp_dict_information[2]]    
     # assume that the temporal calendar is already cleaned and correctly ordered
     if leap_year(YEAR) == True:
         pass  # work on this later

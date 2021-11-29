@@ -18,7 +18,7 @@ def main(year: int, diocese: str):
 
     set_global_year(year)
 
-    from ordo_tools.temporal_cycle import build_temporal
+    # from ordo_tools.temporal_cycle import build_temporal
     from ordo_tools.utils import explode_octaves, stitch_calendars, dict_clean, commit_temporal
     from ordo_tools.outputs import build_latex_ordo, readme_calendar, build_latin_calendar
 
