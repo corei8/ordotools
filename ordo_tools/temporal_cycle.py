@@ -639,7 +639,7 @@ def build_temporal(year: int) -> None:
                 'feast': "Sabbatum in Albis",
                 'rank': [3, 'sd'],
                 'color': 'white',
-                'mass': {'int': 'Eduxit Dominus', 'glo': True, 'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'}, 
+                'mass': {'int': 'Eduxit Dominus', 'glo': True, 'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
                 'matins': {},
                 'lauds': {},
                 'prime': {},

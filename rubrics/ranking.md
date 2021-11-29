@@ -17,13 +17,14 @@
 13. The Octave Day of an Octave of the Third Rank, or of a Common Octave, which is of Major Double Rite
 14. DM, not of Our Lord,
 15. D,
-16. The Days within the Octaves of Christmas and the Ascension, sd (16.1 for SD) 
-17. The days within Common Octaves, 
-18. The Major Ferial Days and Vigils,
-19. The Octave Day of a Simple Octave, *i.e,* of a Feast of the Second Class,
-20. The Saturday Office of the Blessed Virgin Mary,
-21. Feasts of Simple Rite.
-22. De ea
+16. SD,
+17. The Days within the Octaves of Christmas and the Ascension,
+18. The days within Common Octaves, 
+19. The Major Ferial Days and Vigils,
+20. The Octave Day of a Simple Octave, *i.e,* of a Feast of the Second Class,
+21. The Saturday Office of the Blessed Virgin Mary,
+22. Feasts of Simple Rite.
+23. De ea
 
 # Rules for transfer
 

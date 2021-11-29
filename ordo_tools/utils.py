@@ -46,14 +46,17 @@ def findsunday(date: datetime) -> timedelta:
 
 
 CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
-lastadvent = CHRISTMAS - findsunday(CHRISTMAS)
 
-FIRST_ADVENT = lastadvent - timedelta(weeks=3)
+FIRST_ADVENT = CHRISTMAS - findsunday(CHRISTMAS) - timedelta(weeks=3)
 
 
 def easter(year: int) -> datetime:
     """ return the date of easter for this year """
-    return datetime(year=int(dateutil.easter.easter(year).strftime('%Y')), month=int(dateutil.easter.easter(year).strftime('%m')), day=int(dateutil.easter.easter(year).strftime('%d')))
+    return datetime(
+        year=int(dateutil.easter.easter(year).strftime('%Y')),
+        month=int(dateutil.easter.easter(year).strftime('%m')),
+        day=int(dateutil.easter.easter(year).strftime('%d'))
+    )
 
 
 # ! check this one -- does it start on the following Sunday?
@@ -61,6 +64,7 @@ LENT_BEGINS = easter(YEAR) - timedelta(weeks=6, days=4)
 
 LENT_ENDS = easter(YEAR) - timedelta(days=1)
 
+# todo adjust this to use the easter function
 EASTER_SEASON_START = datetime(
     year=int(dateutil.easter.easter(YEAR).strftime('%Y')),
     month=int(dateutil.easter.easter(YEAR).strftime('%m')),
@@ -78,6 +82,7 @@ EASTER_SEASON_END = datetime(
 # todo range for pentecost
 
 # todo range for lent
+
 
 def day(year: int, month: int, day: int) -> datetime:
     return datetime(year=year, month=month, day=day)
@@ -372,6 +377,76 @@ def explode_octaves(region_diocese: str) -> dict:
             return_dict.update({feast.feast_date: feast.feast_properties})
     return return_dict
 
+def add_commemoration(feast: Feast, commemoration: Feast) -> dict:
+    """ Adds one feast as the commemoration of another feast """
+    for x in feast.coms.keys():
+        if feast.coms[x] != '':
+            pass
+        else:
+            feast.coms.update({x: commemoration.feast_properties})
+        return feast
+    
+
+def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict) -> dict:
+    """ This function ranks the feasts occurring on a given date.
+
+    Args:
+        date (str): Date for which the feasts are to be ranked.
+    """ 
+    ranked_feasts = {}
+    sanct = Feast(date, sanctoral_feast)
+    tempo = Feast(date, temporal_feast)
+    if sanct.rank_n == tempo.rank_n:
+        pass # nobility check
+    else:
+        higher = max(sanct.rank_n, tempo.rank_n)
+        lower = min(sanct.rank_n, tempo.rank_n)
+        if higher >= 4:
+            if lower >= 10:
+                lower_date = (datetime.strptime(date, '%m/%d')+timedelta(days=1)).strftime('%m/%d')
+                ranked_feasts.update({lower_date: lower.feast_properties})
+            else:
+                pass
+            ranked_feasts.update({date: higher.feast_properties})
+        elif higher >= 10:
+            if lower >= 10:
+                # transfer the feast
+                lower_date = (datetime.strptime(date, '%m/%d')+timedelta(days=1)).strftime('%m/%d')
+                ranked_feasts.update({lower_date: lower.feast_properties})
+            elif 10 < lower >= 16:
+                # commemorate the feast
+                ranked_feasts.update(
+                    {date: add_commemoration(feast=higher, commemoration=lower)}
+                    )
+            ranked_feasts.update({date: higher.feast_properties})
+            ranked_feasts.update({date: sanct.feast_properties})
+    return ranked_feasts
+    
+    
+    
+
+def stitch_calendars(direct: dict) -> None:
+    """ stitch the temporal and sanctoral calendars together """
+    dict_information = find_module(direct)
+    dictionary = importlib.import_module(dict_information[1])
+    sanctoral = dictionary.__dict__[dict_information[2]]
+    temporal = importlib.import_module('calendar_'+str(YEAR)).calendar
+    # assume that the temporal calendar is already cleaned and correctly ordered
+    full_calendar = {}
+    if leap_year(YEAR) == True:
+        pass
+    for x in sanctoral.keys():
+        if x not in temporal.keys():
+            full_calendar.update({x: sanctoral[x]})
+        elif x in temporal.keys():
+            pass # check the ranking
+        else:
+            print("WARNING! problem with " + x + " in the temporal calendar -- stitch_calendars().")
+    else:
+        commit_to_dictionary(target_file='calendar', dic=full_calendar)
+    return None            
+            
+    
 
 def our_ladys_saturday(direct: str) -> None:
     """ Adds all the Saturday Offices of the Blessed Virgin to the temporal calendar """
