@@ -123,7 +123,7 @@ def build_temporal(year: int) -> None:
                 'color': 'white',
                 'mass': {'int': 'Ecce advenit', 'glo': True, 'cre': True, 'pre': 'de Epiphania'},
                 'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'office_type': 'feastiva',
+                'office_type': 'festiva',
                 'nobility': (False,)
             },
             str(epiphany + indays(7)): {  # ! mass, vespers
@@ -1134,7 +1134,7 @@ def build_temporal(year: int) -> None:
     cycle.update(
         {
             str(christmas-indays(1)): {  # ! vespers
-                'feast': "Vigilia Nativitas DNJC",
+                'feast': "Vigilia Nativitatis DNJC",
                 'rank': [3, 'd I cl Vig privil I cl'],
                 'color': 'violet',
                 'mass': {'int': 'Hodie scietis', 'glo': False, 'cre': False, 'pre': 'Communis'},
@@ -1215,7 +1215,7 @@ def build_temporal(year: int) -> None:
                 'nobility': (False,),
             },
             str(christmas + indays(2)): {  # ! vespers
-                'feast': "S. Joannis Ap. Ev.",
+                'feast': "S. Joannis Ap Ev",
                 'rank': [10, 'd II cl cum Oct simplici'],
                 'color': 'red',
                 'mass': {'int': 'In medio ecclesiæ', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
@@ -1224,7 +1224,7 @@ def build_temporal(year: int) -> None:
                 'nobility': (False,),
             },
             str(christmas + indays(3)): {  # ! vespers
-                'feast': "Ss Innocentium Mm.",
+                'feast': "Ss Innocentium Mm",
                 'rank': [10, 'd II cl cum Oct simplici'],
                 'color': 'violet',
                 'mass': {'int': 'Ex ore infantium', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
@@ -1233,7 +1233,7 @@ def build_temporal(year: int) -> None:
                 'nobility': (False,),
             },
             str(christmas + indays(4)): {  # ! vespers
-                'feast': "S. Thomæ E.M.",
+                'feast': "S. Thomæ EM",
                 'rank': [15, 'd'],
                 'color': 'red',
                 'mass': {'int': 'Gaudeamus omnes', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
@@ -1242,7 +1242,7 @@ def build_temporal(year: int) -> None:
                 'nobility': (False,),
             },
             str(christmas + indays(6)): {  # ! vespers
-                'feast': "S. Silvestri I P.C.",
+                'feast': "S. Silvestri I PC",
                 'rank': [15, 'd'],
                 'color': 'white',
                 'mass': {'int': 'Si diligis me', 'glo': False, 'cre': True, 'pre': 'et Comm de Nativitate'},

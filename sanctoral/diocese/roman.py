@@ -24,7 +24,7 @@ sanctoral = {
         'compline': {},
     },
     '01/15': {
-        'feast': 'S Pauli Primi Eremitæ C',
+        'feast': 'S Pauli Primi Eremitæ C mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'S Mauri Abb', 'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'}},
@@ -93,7 +93,7 @@ sanctoral = {
         'mag': '',
     },
     '01/20': {
-        'feast': 'Ss Fabiani P & Sebastiani Mm',
+        'feast': 'Ss Fabiani P et Sebastiani Mm',
         'rank': [15, 'd'],
         'nobility': (False,),
         'office_type': False,
@@ -121,7 +121,7 @@ sanctoral = {
         'compline': {},
     },
     '01/22': {
-        'feast': 'Ss Vincentii & Anastasii Mm',
+        'feast': 'Ss Vincentii et Anastasii Mm',
         'rank': [16.1, 'sd'],
         'nobility': (False,),
         'office_type': False,
@@ -193,7 +193,7 @@ sanctoral = {
         'compline': {},
     },
     '01/27': {
-        'feast': 'S Joannis Chrysostomi ECD',
+        'feast': 'S Joannis Chrysostomi ECD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -222,7 +222,7 @@ sanctoral = {
         'compline': {},
     },
     '01/29': {
-        'feast': 'S Francisci Salesii ECD',
+        'feast': 'S Francisci Salesii ECD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -349,7 +349,7 @@ sanctoral = {
         'compline': {},
     },
     '02/07': {
-        'feast': 'S Romualdi Abb',
+        'feast': 'S Romualdi Abb mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -363,7 +363,7 @@ sanctoral = {
         'compline': {},
     },
     '02/08': {
-        'feast': 'S Joannis de Matha C',
+        'feast': 'S Joannis de Matha C mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -377,7 +377,7 @@ sanctoral = {
         'compline': {},
     },
     '02/09': {
-        'feast': 'S Cyrilli ECD',
+        'feast': 'S Cyrilli Alexandrini ECD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'S Apollonia VM', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
@@ -448,7 +448,7 @@ sanctoral = {
         'compline': {},
     },
     '02/15': {
-        'feast': 'Ss Faustini & Jovitæ Mm',
+        'feast': 'Ss Faustini et Jovitæ Mm',
         'rank': [22, 's'],
         'nobility': (False,),
         'office_type': False,
@@ -461,6 +461,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
         'compline': {},
     },
+    # todo add ferials in for the 16, 17, 25, 27, 28, and March 1
     '02/18': {
         'feast': 'S Simeonis EM',
         'rank': [22, 's'],
@@ -535,7 +536,7 @@ sanctoral = {
     },
     '02/27': {
         'leapdate': '02/28',
-        'feast': 'S Gabrielis a Virgine Perdolente',
+        'feast': 'S Gabrielis a Virgine Perdolente C',
         'rank': [15, 'd'],
         'nobility': (False,),
         'office_type': False,
@@ -578,7 +579,7 @@ sanctoral = {
         'compline': {},
     },
     '03/07': {
-        'feast': 'S Thomae De Aquino C',
+        'feast': 'S Thomae de Aquino CD',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -606,7 +607,7 @@ sanctoral = {
         'compline': {},
     },
     '03/09': {
-        'feast': 'S Franciscae Romanae Vid',
+        'feast': 'S Franciscae Romanae V',
         'rank': [15, 'd'],
         'nobility': (False,),
         'office_type': False,
@@ -634,7 +635,7 @@ sanctoral = {
         'compline': {},
     },
     '03/12': {
-        'feast': 'S Gregorii I Pp CD',
+        'feast': 'S Gregorii I PCD',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -662,12 +663,12 @@ sanctoral = {
         'compline': {},
     },
     '03/18': {
-        'feast': 'S Cyrilli ECD',
+        'feast': 'S Cyrilli Hierosolymitani ECD',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
         'color': 'white',
-        'mass': {'int': 'In media ecclesiae', 'glo': True, 'cre': True, 'pre': 'Communis'},
+        'mass': {'int': 'In medio ecclesiae', 'glo': True, 'cre': True, 'pre': 'Communis'},
         'matins': {},
         'lauds': {},
         'prime': {},
@@ -676,7 +677,7 @@ sanctoral = {
         'compline': {},
     },
     '03/19': {
-        'feast': 'S Joseph Sponsi BMV C',
+        'feast': 'S Josephi Sponsi BMV C',
         'rank': [2, 'd I cl'],
         'nobility': (False,),
         'office_type': False,
@@ -746,7 +747,7 @@ sanctoral = {
         'compline': {},
     },
     '03/28': {
-        'feast': 'S Joannis a Capistrano C',
+        'feast': 'S Joannis a Capistrano C mtv',
         'rank': [16.1, 'sd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -774,7 +775,7 @@ sanctoral = {
         'compline': {},
     },
     '04/04': {
-        'feast': 'S Isidori CD',
+        'feast': 'S Isidori ECD',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -802,7 +803,7 @@ sanctoral = {
         'compline': {},
     },
     '04/11': {
-        'feast': 'S Leonis Pp CD',
+        'feast': 'S Leonis PCD',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -874,7 +875,7 @@ sanctoral = {
     },
 
     '04/22': {
-        'feast': 'Ss Soteris et Caii PpMm',
+        'feast': 'Ss Soteris et Caji PpMm',
         'rank': [16.1, 'sd'],
         'nobility': (False,),
         'office_type': False,
@@ -945,7 +946,7 @@ sanctoral = {
         'compline': {},
     },
     '04/27': {
-        'feast': 'S Petri Canisii CD',
+        'feast': 'S Petri Canisii CD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -959,7 +960,7 @@ sanctoral = {
         'compline': {},
     },
     '04/28': {
-        'feast': 'S Pauli a Cruce C',
+        'feast': 'S Pauli a Cruce C mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'S Vitali M', 'mass': {'int': ['Protexisti', 'In virtute'], 'glo': True, 'cre': False, 'pre': 'Communis'}},
@@ -1046,7 +1047,7 @@ sanctoral = {
         'compline': {},
     },
     '05/04': {
-        'feast': 'S Monicae Vid',
+        'feast': 'S Monicae V',
         'rank': [15, 'd'],
         'nobility': (False,),
         'office_type': False,
@@ -1060,7 +1061,7 @@ sanctoral = {
         'compline': {},
     },
     '05/05': {
-        'feast': 'S Pii V PC',
+        'feast': 'S Pii V PC mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -1074,7 +1075,7 @@ sanctoral = {
         'compline': {},
     },
     '05/06': {
-        'feast': 'S Joannis ApEv Ante Portam Latinam',
+        'feast': 'S Joannis ApEv ante Portam Latinam',
         'rank': [14, 'dm'],
         'nobility': (False,),
         'office_type': False,
@@ -1102,7 +1103,7 @@ sanctoral = {
         'compline': {},
     },
     '05/08': {
-        'feast': 'In Apparitione S Michaelis Archangelis',
+        'feast': 'In Apparitione S Michaelis Arch',
         'rank': [14, 'dm'],
         'nobility': (False,),
         'office_type': False,
@@ -1130,7 +1131,7 @@ sanctoral = {
         'compline': {},
     },
     '05/10': {
-        'feast': 'S Antonini EC',
+        'feast': 'S Antonini EC mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'Ss Gordiani et Epimachi Mm', 'mass': {'int': 'Sancti tui', 'glo': True, 'cre': False, 'pre': 'Communis'}},
@@ -1145,7 +1146,7 @@ sanctoral = {
         'compline': {},
     },
     '05/12': {
-        'feast': 'Ss Nerei, Achillei at Domitillae V atque Pancratii Mm',
+        'feast': 'Ss Nerei, Achillei at Domitillae V atq Pancratii Mm',
         'rank': [16.1, 'sd'],
         'nobility': (False,),
         'office_type': False,
@@ -1159,7 +1160,7 @@ sanctoral = {
         'compline': {},
     },
     '05/13': {
-        'feast': 'S Roberti Bellarmino ECD',
+        'feast': 'S Roberti Bellarmino ECD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -1302,7 +1303,7 @@ sanctoral = {
         'compline': {},
     },
     '05/27': {
-        'feast': 'S Bedæ Venerabilis CD',
+        'feast': 'S Bedæ Venerabilis CD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'S Joannis I PM', 'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'de Apostolis'}},
@@ -1317,7 +1318,7 @@ sanctoral = {
         'compline': {},
     },
     '05/28': {
-        'feast': 'S Augustini EC',
+        'feast': 'S Augustini EC mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -1458,7 +1459,7 @@ sanctoral = {
         'compline': {},
     },
     '06/10': {
-        'feast': 'S Margaritæ R Vid',
+        'feast': 'S Margaritæ R V',
         'rank': [16.1, 'sd'],
         'nobility': (False,),
         'office_type': False,
@@ -1489,7 +1490,7 @@ sanctoral = {
         'feast': 'S Joannis a S Facundo C',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
-        'com_2': {'feast': 'Ss Basilidi, Cyrini, Nabori & Nazarii Mm', 'mass': {'int': ['Intret in conspectu', 'Sancti tui'], 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Basilidi, Cyrini, Nabori atq Nazarii Mm', 'mass': {'int': ['Intret in conspectu', 'Sancti tui'], 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -1501,7 +1502,7 @@ sanctoral = {
         'compline': {},
     },
     '06/13': {
-        'feast': 'S Antonii de Padua C',
+        'feast': 'S Antonii de Padua CD',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -1515,7 +1516,7 @@ sanctoral = {
         'compline': {},
     },
     '06/14': {
-        'feast': 'S Basilii Magni ECD',
+        'feast': 'S Basilii Magni ECD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -1529,7 +1530,7 @@ sanctoral = {
         'compline': {},
     },
     '06/15': {
-        'feast': 'Ss Viti, Modesti & Crescentiæ Mm',
+        'feast': 'Ss Viti, Modesti atq Crescentiæ Mm',
         'rank': [21, 's'],
         'nobility': (False,),
         'office_type': False,
@@ -1546,7 +1547,7 @@ sanctoral = {
         'feast': 'S Ephræm Syri Diaconi CD',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
-        'com_2': {'feast': 'Ss Marci & Marcelliani Mm', 'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Marci et Marcelliani Mm', 'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'In medio', 'glo': True, 'cre': True, 'pre': 'Communis'},
@@ -1659,7 +1660,7 @@ sanctoral = {
         'compline': {},
     },
     '06/26': {
-        'feast': 'S Joannis & Pauli Mm',
+        'feast': 'S Joannis et Pauli Mm',
         'rank': [15, 'd'],
         'nobility': (False,),
         'office_type': False,
@@ -1673,12 +1674,13 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
         'compline': {},
     },
+    # todo Add '06/27 De IV die infra OCtava Nativitatis S Joannis Baptistae feria
     '06/28': {
         'feast': 'Irinæi EM',
         'rank': [15, 'd'],
         'nobility': (False,),
         'com_2': {'feast': 'In Octava S Joannis Baptistae'},
-        'com_3': {'feast': 'In Vigilia Ss Petri & Pauli App', 'mass': {'int': 'Dicit Dominus', 'glo': False, 'cre': False, 'pre': 'Communis'}},
+        'com_3': {'feast': 'In Vigilia Ss Petri et Pauli App', 'mass': {'int': 'Dicit Dominus', 'glo': False, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'red',
         'mass': {'int': 'Lex veritatis', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -1690,8 +1692,8 @@ sanctoral = {
         'compline': {},
     },
     '06/29': {
-        'feast': 'Ss Petri & Pauli App',
-        'infra_octave_name': 'Octava Ss Petri & Pauli App',
+        'feast': 'Ss Petri et Pauli App',
+        'infra_octave_name': 'Octava Ss Petri et Pauli App',
         'rank': [2, 'd I cl cum Oct communi'],
         'nobility': (1, 2, 4, 5, 1, 0,),
         'office_type': False,
@@ -1739,7 +1741,7 @@ sanctoral = {
         'feast': 'In Visitatione BMV',
         'rank': [10, 'd II cl'],
         'nobility': (False,),
-        'com_2': {'feast': 'Ss Processi & Martiniani Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Processi et Martiniani Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Salve, sancta Parens', 'glo': True, 'cre': True, 'pre': 'de BMV'},
@@ -1765,6 +1767,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
         'compline': {},
     },
+    # todo add '07/04 De VI die infra Octava Ss Petri et Pauli App feria
     '07/05': {
         'feast': 'S Antonii Mariæ Zaccaria C',
         'rank': [15, 'd'],
@@ -1780,8 +1783,9 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
         'compline': {},
     },
+    # todo add '07/06 Octava Ss Petri et Pauli App dm 
     '07/07': {
-        'feast': 'Ss Cyrilli & Methodii EeCc',
+        'feast': 'Ss Cyrilli et Methodii EeCc',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -1809,7 +1813,7 @@ sanctoral = {
         'compline': {},
     },
     '07/10': {
-        'feast': 'Ss Septem Fratrum Mm ac Rufinæ et Secundæ VvMm',
+        'feast': 'Ss Septem Fratrum Mm, ac Rufinæ et Secundæ VvMm',
         'rank': [16.1, 'sd'],
         'nobility': (False,),
         'office_type': False,
@@ -1840,7 +1844,7 @@ sanctoral = {
         'feast': 'S Joannis Gualberti Abb',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
-        'com_2': {'feast': 'Ss Naboris & Felicis Mm', 'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Naboris et Felicis Mm', 'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -1857,7 +1861,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'color': 'red',
-        'mass': {'int': 'si diligis me', 'glo': True, 'cre': False, 'pre': 'de Apostolis'},
+        'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'de Apostolis'},
         'matins': {},
         'lauds': {},
         'prime': {},
@@ -1866,7 +1870,7 @@ sanctoral = {
         'compline': {},
     },
     '07/14': {
-        'feast': 'S Bonaventuræ ECD',
+        'feast': 'S Bonaventuræ ECD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -1880,7 +1884,7 @@ sanctoral = {
         'compline': {},
     },
     '07/15': {
-        'feast': 'S Henrici Imp C',
+        'feast': 'S Henrici Imp C mtv',
         'rank': [16.1, 'sd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -1922,7 +1926,7 @@ sanctoral = {
         'compline': {},
     },
     '07/18': {
-        'feast': 'S Camilli de Lellis C',
+        'feast': 'S Camilli de Lellis C mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'Ss Symphorosae et Septem Filiis ejus Mm', 'mass': {'int': 'Clamaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'}},
@@ -1937,7 +1941,7 @@ sanctoral = {
         'compline': {},
     },
     '07/19': {
-        'feast': 'S Vincentii a Paulo C',
+        'feast': 'S Vincentii a Paulo C mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -1951,7 +1955,7 @@ sanctoral = {
         'compline': {},
     },
     '07/20': {
-        'feast': 'S Hieronymi Æmiliani C',
+        'feast': 'S Hieronymi Æmiliani C mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'S Margaritae VM', 'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'}},
@@ -2067,7 +2071,7 @@ sanctoral = {
         'compline': {},
     },
     '07/28': {
-        'feast': 'Ss Nazarii & Celsi Mm, Victoris I PM, ac Innocentii I PC',
+        'feast': 'Ss Nazarii et Celsi Mm, Victoris I PM, ac Innocentii I PC',
         'rank': [16.1, 'sd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -2084,7 +2088,7 @@ sanctoral = {
         'feast': 'S Marthæ V',
         'rank': [16.1, 'sd'],
         'nobility': (False,),
-        'com_2': {'feast': 'Ss Felicis II P, Simplicis, Faustinis & Beatricae Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Felicis II P, Simplicis, Faustinis atq Beatricae Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -2096,7 +2100,7 @@ sanctoral = {
         'compline': {},
     },
     '07/30': {
-        'feast': 'Ss Abdonis & Sennenis Mm',
+        'feast': 'Ss Abdonis et Sennenis Mm',
         'rank': [21, 's'],
         'nobility': (False,),
         'office_type': False,
@@ -2140,7 +2144,7 @@ sanctoral = {
         'compline': {},
     },
     '08/02': {
-        'feast': 'S Alphonsi Mariæ de Ligourio ECD',
+        'feast': 'S Alphonsi Mariæ de Ligourio ECD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'S Stephani PM', 'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'de Apostolis'}},
@@ -2169,7 +2173,7 @@ sanctoral = {
         'compline': {},
     },
     '08/04': {
-        'feast': 'S Dominici C',
+        'feast': 'S Dominici C mtv',
         'rank': [14, 'dm'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -2200,7 +2204,7 @@ sanctoral = {
         'feast': 'In Transfiguratione DNJC',
         'rank': [11, 'dm'],
         'nobility': (False,),
-        'com_2': {'feast': 'Ss Xysti P, Felicissimi & Agapiti Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'de Apostolis'}},
+        'com_2': {'feast': 'Ss Xysti P, Felicissimi atq Agapiti Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'de Apostolis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Illuxerunt', 'glo': True, 'cre': True, 'pre': 'de Nativitate'},
@@ -2227,7 +2231,7 @@ sanctoral = {
         'compline': {},
     },
     '08/08': {
-        'feast': 'Ss Cyriaci, Largi & Smaragdi Mm',
+        'feast': 'Ss Cyriaci, Largi atq Smaragdi Mm',
         'rank': [16.1, 'sd'],
         'nobility': (False,),
         'office_type': False,
@@ -2241,7 +2245,7 @@ sanctoral = {
         'compline': {},
     },
     '08/09': {
-        'feast': 'S Joannis Mariæ Vianney C',
+        'feast': 'S Joannis Mariæ Vianney C mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'Vigilia S Laurentii M', 'mass': {'int': 'Dispersit', 'glo': False, 'cre': False, 'pre': 'Communis'}},
@@ -2257,7 +2261,7 @@ sanctoral = {
         'compline': {},
     },
     '08/10': {
-        'feast': 'S Laurenti M',
+        'feast': 'S Laurentii M',
         'rank': [10, 'd II cl'],
         'office_type': False,
         'color': 'red',
@@ -2270,7 +2274,7 @@ sanctoral = {
         'compline': {},
     },
     '08/11': {
-        'feast': 'Ss Tiburtii et Susannæ VM',
+        'feast': 'Ss Tiburtii et Susannæ V, Mm',
         'rank': [21, 's'],
         'nobility': (False,),
         'office_type': False,
@@ -2298,7 +2302,7 @@ sanctoral = {
         'compline': {},
     },
     '08/13': {
-        'feast': 'Ss Hippolyti & Cassiani Mm',
+        'feast': 'Ss Hippolyti et Cassiani Mm',
         'rank': [21, 's'],
         'nobility': (False,),
         'office_type': False,
@@ -2344,7 +2348,7 @@ sanctoral = {
         'compline': {},
     },
     '08/16': {
-        'feast': 'S Joachim Patris BMV',
+        'feast': 'S Joachim C, Patris BMV, mtv',
         'rank': [10, 'd II cl'],
         'nobility': (False,),
         'office_type': False,
@@ -2358,7 +2362,7 @@ sanctoral = {
         'compline': {},
     },
     '08/17': {
-        'feast': 'S Hyacinthi C',
+        'feast': 'S Hyacinthi C mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'Octava S Laurentii M', 'mass': {'int': 'Probasti', 'glo': True, 'cre': False, 'pre': 'Communis'}},
@@ -2415,7 +2419,7 @@ sanctoral = {
         'compline': {},
     },
     '08/21': {
-        'feast': 'S Joannæ Franciscæ Fremiot de Chantal Vid',
+        'feast': 'S Joannæ Franciscæ Fremiot de Chantal V',
         'rank': [15, 'd'],
         'nobility': (False,),
         'office_type': False,
@@ -2432,7 +2436,7 @@ sanctoral = {
         'feast': 'In Festo Immaculati Cordis BMV',
         'rank': [10, 'd II cl'],
         'nobility': (False,),
-        'com_2': {'feast': 'Ss Timothei, Hippolyti & Symphoriani Mm', 'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Timothei, Hippolyti atq Symphoriani Mm', 'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Adeamus', 'glo': True, 'cre': True, 'pre': 'de B Maria Virg'},
@@ -2444,7 +2448,7 @@ sanctoral = {
         'compline': {},
     },
     '08/23': {
-        'feast': 'S Philippi Benitii C',
+        'feast': 'S Philippi Benitii C mtv',
         'rank': [18, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -2501,7 +2505,7 @@ sanctoral = {
         'compline': {},
     },
     '08/27': {
-        'feast': 'S Josephi Calasanctii C',
+        'feast': 'S Josephi Calasanctii C mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -2545,10 +2549,10 @@ sanctoral = {
         'compline': {},
     },
     '08/30': {
-        'feast': 'S Rosæ a S Maria V',
+        'feast': 'S Rosæ a S Maria Limanae V',
         'rank': [15, 'd'],
         'nobility': (False,),
-        'com_2': {'feast': 'Ss Felicis & Adaucti Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Felicis et Adaucti Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Dilexisti', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -2560,7 +2564,7 @@ sanctoral = {
         'compline': {},
     },
     '08/31': {
-        'feast': 'S Raymundi Nonnati C',
+        'feast': 'S Raymundi Nonnati C mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -2589,7 +2593,7 @@ sanctoral = {
         'compline': {},
     },
     '09/02': {
-        'feast': 'S Stephani R C',
+        'feast': 'S Stephani R C mtv',
         'rank': [16.1, 'sd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -2603,7 +2607,7 @@ sanctoral = {
         'compline': {},
     },
     '09/03': {
-        'feast': 'S Pii X PC',
+        'feast': 'S Pii X PC mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -2617,7 +2621,7 @@ sanctoral = {
         'compline': {},
     },
     '09/05': {
-        'feast': 'S Laurentii Justiniani EC',
+        'feast': 'S Laurentii Justiniani EC mtv',
         'rank': [16.1, 'sd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -2688,7 +2692,7 @@ sanctoral = {
         'compline': {},
     },
     '09/12': {
-        'feast': 'Ssmi Nominis Mariæ',
+        'feast': 'Ssmi Nominis BMV',
         'rank': [14, 'dm'],
         'nobility': (False,),
         'office_type': False,
@@ -2733,7 +2737,7 @@ sanctoral = {
         'feast': 'Ss Cornelii P et Cypriani E Mm',
         'rank': [16.1, 'sd'],
         'nobility': (False,),
-        'com_2': {'feast': 'Ss Euphemiae V, Luciae & Geminiani Mm', 'mass': {'int': 'Intret', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Euphemiae V, Luciae atq Geminiani Mm', 'mass': {'int': 'Intret', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'red',
         'mass': {'int': 'Intret', 'glo': True, 'cre': False, 'pre': 'de Apostolis'},
@@ -2759,7 +2763,7 @@ sanctoral = {
         'compline': {},
     },
     '09/18': {
-        'feast': 'S Joseph a Cupertino C',
+        'feast': 'S Josephi a Cupertino C',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -2773,7 +2777,7 @@ sanctoral = {
         'compline': {},
     },
     '09/19': {
-        'feast': 'Ss Januarii E & Soc Mm',
+        'feast': 'Ss Januarii E et Sociorum Mm',
         'rank': [15, 'd'],
         'nobility': (False,),
         'office_type': False,
@@ -2787,7 +2791,7 @@ sanctoral = {
         'compline': {},
     },
     '09/20': {
-        'feast': 'Ss Eustachii & Soc Mm',
+        'feast': 'Ss Eustachii et Sociorum Mm',
         'rank': [15, 'd'],
         'nobility': (False,),
         'com_2': {'feast': 'In Vigilia S Matthæi ApEv', 'mass': {'int': 'Ego autem', 'glo': True, 'cre': False, 'pre': 'Communis'}},
@@ -2816,10 +2820,10 @@ sanctoral = {
         'compline': {},
     },
     '09/22': {
-        'feast': 'S Thomæ de Villanova EC',
+        'feast': 'S Thomæ de Villanova EC mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
-        'com_2': {'feast': 'Ss Mauritii & Soc Mm', 'mass': {'int': 'Intret', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Mauritii et Sociorum Mm', 'mass': {'int': 'Intret', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -2860,7 +2864,7 @@ sanctoral = {
         'compline': {},
     },
     '09/26': {
-        'feast': 'Ss Cypriani & Justinæ Mm',
+        'feast': 'Ss Cypriani et Justinæ Mm',
         'rank': [21, 's'],
         'nobility': (False,),
         'office_type': False,
@@ -2874,7 +2878,7 @@ sanctoral = {
         'compline': {},
     },
     '09/27': {
-        'feast': 'Ss Cosmæ & Damiani Mm',
+        'feast': 'Ss Cosmæ et Damiani Mm',
         'rank': [21, 's'],
         'nobility': (False,),
         'office_type': False,
@@ -2986,7 +2990,7 @@ sanctoral = {
         'compline': {},
     },
     '10/05': {
-        'feast': 'Ss Placidi & Sociorum Mm',
+        'feast': 'Ss Placidi et Sociorum Mm',
         'rank': [21, 's'],
         'nobility': (False,),
         'office_type': False,
@@ -3018,7 +3022,7 @@ sanctoral = {
         'rank': [10, 'd II cl'],
         'nobility': (False,),
         'com_2': {'feast': 'S Marci PC', 'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'de Apostolis'}},
-        'com_3': {'feast': 'Ss Sergii, Bacchi, Marcelli & Apuleji MM', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_3': {'feast': 'Ss Sergii, Bacchi, Marcelli atq Apuleji MM', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Gaudeamus', 'glo': True, 'cre': True, 'pre': 'de B Maria Virg'},
@@ -3030,7 +3034,7 @@ sanctoral = {
         'compline': {},
     },
     '10/08': {
-        'feast': 'S Birgittæ Vid',
+        'feast': 'S Birgittæ V',
         'rank': [15, 'd'],
         'nobility': (False,),
         'office_type': False,
@@ -3047,7 +3051,7 @@ sanctoral = {
         'feast': 'S Joannis Leonardi C',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
-        'com_2': {'feast': 'Ss Dionysii E, Rustici & Eleutherii Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Dionysii E, Rustici atq Eleutherii Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'In sermonibus', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -3059,7 +3063,7 @@ sanctoral = {
         'compline': {},
     },
     '10/10': {
-        'feast': 'S Francisci Borgiæ C',
+        'feast': 'S Francisci Borgiæ C mtv',
         'rank': [16.1, 'sd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -3087,7 +3091,7 @@ sanctoral = {
         'compline': {},
     },
     '10/13': {
-        'feast': 'S Eduardi Regis C',
+        'feast': 'S Eduardi R C',
         'rank': [16.1, 'sd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -3129,7 +3133,7 @@ sanctoral = {
         'compline': {},
     },
     '10/16': {
-        'feast': 'S Hedwigis Vid',
+        'feast': 'S Hedwigis V',
         'rank': [16.1, 'sd'],
         'nobility': (False,),
         'office_type': False,
@@ -3171,7 +3175,7 @@ sanctoral = {
         'compline': {},
     },
     '10/19': {
-        'feast': 'S Petri de Alcantara C',
+        'feast': 'S Petri de Alcantara C mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -3202,7 +3206,7 @@ sanctoral = {
         'feast': 'S Hilarionis Abb',
         'rank': [21, 's'],
         'nobility': (4, 2, 6, 8, 3, 0,),
-        'com_2': {'feast': 'Ss Ursulae & Soc VM', 'mass': {'int': 'Loquebar', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Ursulae et Sociarum VM', 'mass': {'int': 'Loquebar', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -3256,7 +3260,7 @@ sanctoral = {
         'compline': {},
     },
     '10/27': {
-        'feast': 'In Vigilia Ss Simonis & Judæ App',
+        'feast': 'In Vigilia Ss Simonis et Judæ App',
         'rank': [18, 'v'],
         'nobility': (False,),
         'office_type': False,
@@ -3270,7 +3274,7 @@ sanctoral = {
         'compline': {},
     },
     '10/28': {
-        'feast': 'Ss Simonis & Judæ App',
+        'feast': 'Ss Simonis et Judæ App',
         'rank': [10, 'd II cl'],
         'nobility': (False,),
         'office_type': False,
@@ -3336,7 +3340,7 @@ sanctoral = {
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'Octavae Omnium Sanctorum', 'mass': {'int': '', 'glo': True, 'cre': True, 'pre': 'Communis'}},
-        'com_3': {'feast': 'Ss Vitalis & Agricolae Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_3': {'feast': 'Ss Vitalis et Agricolae Mm', 'mass': {'int': 'Sapientiam', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Statuit ei', 'glo': True, 'cre': True, 'pre': 'Communis'},
@@ -3347,6 +3351,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
         'compline': {},
     },
+    # todo add '11/05-07 Infra Octava Omnium Sanctorum feria
     '11/08': {
         'feast': 'In Octava Omnium Sanctorum',
         'rank': [16.1, 'sd'],
@@ -3381,7 +3386,7 @@ sanctoral = {
         'feast': 'S Andreæ Avellini C',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
-        'com_2': {'feast': 'Ss Tryphonis, Respicii & Nymphae V Mm', 'mass': {'int': 'Clamaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'}},
+        'com_2': {'feast': 'Ss Tryphonis, Respicii atq Nymphae V Mm', 'mass': {'int': 'Clamaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'}},
         'office_type': False,
         'color': 'white',
         'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -3393,7 +3398,7 @@ sanctoral = {
         'compline': {},
     },
     '11/11': {
-        'feast': 'S Martini  EC',
+        'feast': 'S Martini EC',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'S Mennae M', 'mass': {'int': 'Laetabitur', 'glo': True, 'cre': False, 'pre': 'Communis'}},
@@ -3436,7 +3441,7 @@ sanctoral = {
         'compline': {},
     },
     '11/14': {
-        'feast': 'Josaphat EM',
+        'feast': 'S Josaphat EM',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -3492,7 +3497,7 @@ sanctoral = {
         'compline': {},
     },
     '11/18': {
-        'feast': 'In Dedicatione Basilicarum Ss Petri & Pauli App',
+        'feast': 'In Dedicatione Basilicarum Ss Petri et Pauli App',
         'rank': [14, 'dm'],
         'nobility': (False,),
         'office_type': False,
@@ -3506,7 +3511,7 @@ sanctoral = {
         'compline': {},
     },
     '11/19': {
-        'feast': 'S Elisabeth Vid',
+        'feast': 'S Elisabeth V',
         'rank': [15, 'd'],
         'nobility': (False,),
         'com_2': {'feast': 'S Pontiani PM', 'mass': {'int': 'Si diligis me', 'glo': True, 'cre': False, 'pre': 'de Apostolis'}},
@@ -3578,7 +3583,7 @@ sanctoral = {
         'compline': {},
     },
     '11/24': {
-        'feast': 'S Joannis a Cruce CD',
+        'feast': 'S Joannis a Cruce CD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'com_2': {'feast': 'S Chrysogoni M', 'mass': {'int': '', 'glo': True, 'cre': False, 'pre': 'Communis'}},
@@ -3650,6 +3655,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
         'compline': {},
     },
+    # todo add 12/01 feria
     '12/02': {
         'feast': 'S Bibianæ VM',
         'rank': [16.1, 'sd'],
@@ -3665,7 +3671,7 @@ sanctoral = {
         'compline': {},
     },
     '12/03': {
-        'feast': 'S Francisci Xaverii C',
+        'feast': 'S Francisci Xaverii C mtv',
         'rank': [14, 'dm'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -3722,7 +3728,7 @@ sanctoral = {
         'compline': {},
     },
     '12/07': {
-        'feast': 'S Ambrosii ECD',
+        'feast': 'S Ambrosii ECD mtv',
         'rank': [15, 'd'],
         'nobility': (4, 2, 6, 8, 3, 0,),
         'office_type': False,
@@ -3763,6 +3769,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
         'compline': {},
     },
+    # todo add '12/09 De II die infra Octava Concept. Immac. BMV feria
     '12/10': {
         'feast': 'S Melchidi PM',
         'rank': [21, 's'],
@@ -3791,6 +3798,7 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
         'compline': {},
     },
+    # todo add '12/12 De II die infra Octava Concept. Immac. BMV feria
     '12/13': {
         'feast': 'S Luciæ VM',
         'rank': [15, 'd'],
@@ -3805,6 +3813,8 @@ sanctoral = {
         'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
         'compline': {},
     },
+    # todo add '12/14 De VII die infra Octava Concept. Immac. BMV feria
+    # todo add '12/15 Octava Concept. Immac. BMV dm
     '12/16': {
         'feast': 'S Eusebii EM',
         'rank': [16.1, 'sd'],
