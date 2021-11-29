@@ -34,7 +34,7 @@ def build_temporal(year: int) -> None:
             },
             str(circumcision + indays(1)): {  # ! vespers
                 'feast': "Octava S. Stephani Protomartyris",
-                'rank': [18, 's'],
+                'rank': [19, 's'],
                 'color': 'white',
                 'mass': {'int': 'Sederunt', 'glo': True, 'cre': False, 'pre': 'de Nativitate'},
                 'matins': {},
@@ -48,7 +48,7 @@ def build_temporal(year: int) -> None:
             },
             str(circumcision + indays(2)): {  # ! vespers
                 'feast': "Octava S. Joannis Ap Ev",
-                'rank': [18, 's'],
+                'rank': [19, 's'],
                 'color': 'red',
                 'mass': {'int': 'Introit', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 'matins': {},
@@ -62,7 +62,7 @@ def build_temporal(year: int) -> None:
             },
             str(circumcision + indays(3)): {  # ! vespers
                 'feast': "Octava Ss Innocentium Mm.",
-                'rank': [18, 's'],
+                'rank': [19, 's'],
                 'color': 'red',
                 'mass': {'int': 'Ex ore infantium', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 'matins': {},
@@ -312,7 +312,7 @@ def build_temporal(year: int) -> None:
                     },
                     str(easter(year) - week(6-c) - indays(3)): {  # ! mass, vespers
                         'feast': "Feria V post Diem Cinerum",
-                        'rank': [18, 's'],
+                        'rank': [19, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Dum clamarem', 'glo': False, 'cre': False, 'pre': 'de Quadragesima'},
                         'matins': {},
@@ -326,7 +326,7 @@ def build_temporal(year: int) -> None:
                     },
                     str(easter(year) - week(6-c) - indays(2)): {  # ! vespers
                         'feast': "Feria VI post Diem Cinerum",
-                        'rank': [18, 's'],
+                        'rank': [19, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Audivit', 'glo': False, 'cre': False, 'pre': 'de Quadragesima'},
                         'matins': {},
@@ -340,7 +340,7 @@ def build_temporal(year: int) -> None:
                     },
                     str(easter(year) - week(6-c) - indays(1)): {  # ! mass, vespers
                         'feast': "Sabbatum post Diem Cinerum",
-                        'rank': [18, 's'],
+                        'rank': [19, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Audivit', 'glo': False, 'cre': False, 'pre': 'de Quadragesima'},
                         'matins': {},
@@ -534,7 +534,7 @@ def build_temporal(year: int) -> None:
                     {
                         str(easter(year) - week(6-c) + indays(j+1)): {  # ! vespers
                             'feast': y + " infra Hebd " + new_x,
-                            'rank': [18, 'sd I cl'],
+                            'rank': [19, 'sd I cl'],
                             'color': 'violet',
                             'mass': {'int': LENT_MASSES[j-1], 'glo': False, 'cre': False, 'pre': 'de Quadragesima' if x != 'de Passione' else 'de Cruce'},
                             'matins': {},
@@ -700,7 +700,7 @@ def build_temporal(year: int) -> None:
                 {
                     str(easter(year) + week(i) + indays(1)): {  # ! vespers
                         'feast': "Feria II in Rogationibus",
-                        'rank': [18, 'feria'],
+                        'rank': [19, 'feria'],
                         'color': 'violet',
                         'mass': {'int': 'Exaudivit', 'glo': False, 'cre': True, 'pre': 'Paschalis'},
                         'matins': {},
@@ -714,7 +714,7 @@ def build_temporal(year: int) -> None:
                     },
                     str(easter(year) + week(i) + indays(2)): {  # ! vespers
                         'feast': "Feria III in Rogationibus",
-                        'rank': [18, 'feria'],
+                        'rank': [19, 'feria'],
                         'color': 'violet',
                         'mass': {'int': 'Exaudivit', 'glo': False, 'cre': True, 'pre': 'Paschalis'},
                         'matins': {},
@@ -728,7 +728,7 @@ def build_temporal(year: int) -> None:
                     },
                     str(easter(year) + week(i) + indays(3)): {  # ! vespers
                         'feast': "Feria IV in Rogationibus in Vigilia Ascensionis ",
-                        'rank': [18, 'feria'],
+                        'rank': [19, 'feria'],
                         'color': 'violet',
                         'mass': {'int': 'Exaudivit', 'glo': False, 'cre': True, 'pre': 'Paschalis'},
                         'matins': {},
@@ -941,7 +941,7 @@ def build_temporal(year: int) -> None:
             },
             str(easter(year) + week(i+1) + indays(3)): {  # ! vespers
                 'feast': "Feria IV Quatuor Temporum infra Oct. Pentecostes",
-                'rank': [18, 'sd'],
+                'rank': [19, 'sd'],
                 'color': 'red',
                 'mass': {'int': 'Deus, dum egredereris', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
                 'matins': {},
@@ -955,7 +955,7 @@ def build_temporal(year: int) -> None:
             },
             str(easter(year) + week(i+1) + indays(5)): {  # ! vespers
                 'feast': "Feria VI Quatuor Temporum infra Oct. Pentecostes",
-                'rank': [18, 'sd'],
+                'rank': [19, 'sd'],
                 'color': 'red',
                 'mass': {'int': 'Repleatur os meum', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
                 'matins': {},
@@ -969,7 +969,7 @@ def build_temporal(year: int) -> None:
             },
             str(easter(year) + week(i+1) + indays(6)): {  # ! vespers
                 'feast': "Sabbatum Quatuor Temporum infra Oct. Pentecostes",
-                'rank': [18, 'sd'],
+                'rank': [19, 'sd'],
                 'color': 'red',
                 'mass': {'int': 'Caritas Dei', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
                 'matins': {},
@@ -1102,7 +1102,7 @@ def build_temporal(year: int) -> None:
                             str(ssmi_cordis + indays(j + 1)): {  # ! vespers
                                 'feast': fer_num+" infra Oct. Ssmi Cordis DNJC",
                                 # ? is this supposed to be within a common octave?
-                                'rank': [17, 'sd'],
+                                'rank': [18, 'sd'],
                                 'color': 'white',
                                 'mass': {'int': 'Respice in me', 'glo': True, 'cre': True, 'pre': 'de Ssmo Corde Iesu vel de Ssma Trinitate'},
                                 'matins': {},
@@ -1185,7 +1185,7 @@ def build_temporal(year: int) -> None:
                     {
                         str(post_pent_count + week(p) + indays(t+1)): {  # ! vespers
                             'feast': 'De ea',
-                            'rank': [22, 's'],
+                            'rank': [23, 's'],
                             'color': 'green',
                             'mass': {'int': PENTECOST_MASSES[p], 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
                             'com_1': {'oration': 'A cunctis', },
@@ -1227,7 +1227,7 @@ def build_temporal(year: int) -> None:
                     {
                         str(post_pent_count + week(p) + indays(t+1)): {  # ! vespers
                             'feast': 'De ea',
-                            'rank': [22, 's'],
+                            'rank': [23, 's'],
                             'color': 'green',
                             'mass': {'int': PENTECOST_MASSES[-1], 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
                             'com_1': {'oration': 'A cunctis', },
@@ -1270,7 +1270,7 @@ def build_temporal(year: int) -> None:
                     {
                         str(post_pent_count + week(p) + indays(t+1)): {  # ! vespers
                             'feast': 'De ea',
-                            'rank': [22, 's'],
+                            'rank': [23, 's'],
                             'color': 'green',
                             'mass': {'int': PENTECOST_MASSES[-1], 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
                             'com_1': {'oration': 'A cunctis', },
@@ -1314,7 +1314,7 @@ def build_temporal(year: int) -> None:
                         {
                             str(post_pent_count + week(p+y) + indays(t+1)): {  # ! vespers
                                 'feast': 'De ea',
-                                'rank': [22, 's'],
+                                'rank': [23, 's'],
                                 'color': 'green',
                                 'mass': {'int': 'Dicit Dominus', 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
                                 'com_1': {'oration': 'A cunctis', },
@@ -1340,7 +1340,7 @@ def build_temporal(year: int) -> None:
                 {
                     str(post_pent_count + week(p) + indays(3)): {  # ! vespers
                         'feast': "Feria IV Quatuor Temporum Septembris",
-                        'rank': [18, 's'],
+                        'rank': [19, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Exsultate Deo', 'glo': False, 'cre': False, 'pre': 'Communis'},
                         'matins': {},
@@ -1354,7 +1354,7 @@ def build_temporal(year: int) -> None:
                     },
                     str(post_pent_count + week(p) + indays(5)): {  # ! vespers
                         'feast': "Feria VI Quatuor Temporum Septembris",
-                        'rank': [18, 's'],
+                        'rank': [19, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Laetetur cor', 'glo': False, 'cre': False, 'pre': 'Communis'},
                         'matins': {},
@@ -1368,7 +1368,7 @@ def build_temporal(year: int) -> None:
                     },
                     str(post_pent_count + week(p) + indays(6)): {  # ! vespers
                         'feast': "Sabbatum Quatuor Temporum Septembris",
-                        'rank': [18, 's'],
+                        'rank': [19, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Venite, adoremus', 'glo': False, 'cre': False, 'pre': 'Communis'},
                         'matins': {},
@@ -1419,7 +1419,7 @@ def build_temporal(year: int) -> None:
                 {
                     str(lastadvent - week(i) + indays(k)): {  # ! mass, vespers
                         'feast': 'Feria '+y+" infra Hebd"+x.strip('Dominica'),
-                        'rank': [18, 'feria'],
+                        'rank': [19, 'feria'],
                         'color': 'violet',
                         'mass': {'int': 'Ad te levavi' if x == 'Dominica I Adventus' else ('Populus Sion' if x == "Dominica II Adventus" else ('Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli')), 'glo': False, 'cre': False, 'pre': 'Communis'},
                         'com_1': {'oration': 'Deus qui de beate'},
@@ -1440,7 +1440,7 @@ def build_temporal(year: int) -> None:
                 {
                     str(lastadvent - week(i) + indays(6)): {  # ! mass, vespers
                         'feast': 'Sabbatum infra Hebd'+x.strip('Dominica'),
-                        'rank': [18, 'feria'],
+                        'rank': [19, 'feria'],
                         'color': 'violet',
                         'mass': {'int': 'Ad te levavi' if x == 'Dominica I Adventus' else ('Populus Sion' if x == "Dominica II Adventus" else ('Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli')), 'glo': False, 'cre': False, 'pre': 'Communis'},
                         'com_1': {'oration': 'Deus qui de beate'},
@@ -1477,7 +1477,7 @@ def build_temporal(year: int) -> None:
                     },
                     str(lastadvent - week(i) + indays(3)): {  # ! vespers
                         'feast': "Feria IV Quatuor Temporum in Adventus",
-                        'rank': [18, 's'],
+                        'rank': [19, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Rorate cæli', 'glo': False, 'cre': False, 'pre': 'Communis'},
                         'com_1': {'oration': 'Deus qui de beate'},
@@ -1493,7 +1493,7 @@ def build_temporal(year: int) -> None:
                     },
                     str(lastadvent - week(i) + indays(5)): {  # ! vespers
                         'feast': "Feria VI Quatuor Temporum in Adventus",
-                        'rank': [18, 's'],
+                        'rank': [19, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Prope es tu', 'glo': False, 'cre': False, 'pre': 'Communis'},
                         'com_1': {'oration': 'Deus qui de beate'},
@@ -1509,7 +1509,7 @@ def build_temporal(year: int) -> None:
                     },
                     str(lastadvent - week(i) + indays(6)): {  # ! vespers
                         'feast': "Sabbatum Quatuor Temporum in Adventus",
-                        'rank': [18, 's'],
+                        'rank': [19, 's'],
                         'color': 'violet',
                         'mass': {'int': 'Veni, et ostende', 'glo': False, 'cre': False, 'pre': 'Communis'},
                         'com_1': {'oration': 'Deus qui de beate'},

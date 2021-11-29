@@ -401,25 +401,34 @@ def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict
     else:
         higher = max(sanct.rank_n, tempo.rank_n)
         lower = min(sanct.rank_n, tempo.rank_n)
-        if higher >= 4:
-            if lower >= 10:
+        if higher <= 4:
+            if lower <= 10:
                 lower_date = (datetime.strptime(date, '%m/%d')+timedelta(days=1)).strftime('%m/%d')
                 ranked_feasts.update({lower_date: lower.feast_properties})
             else:
-                pass
+                pass # feast can be ignored
             ranked_feasts.update({date: higher.feast_properties})
-        elif higher >= 10:
-            if lower >= 10:
+        elif higher <= 10:
+            if lower <= 10:
                 # transfer the feast
                 lower_date = (datetime.strptime(date, '%m/%d')+timedelta(days=1)).strftime('%m/%d')
                 ranked_feasts.update({lower_date: lower.feast_properties})
-            elif 10 < lower >= 16:
+            elif 10 < lower <= 16:
                 # commemorate the feast
-                ranked_feasts.update(
-                    {date: add_commemoration(feast=higher, commemoration=lower)}
-                    )
-            ranked_feasts.update({date: higher.feast_properties})
-            ranked_feasts.update({date: sanct.feast_properties})
+                    ranked_feasts.update(
+                        {date: add_commemoration(feast=higher, commemoration=lower)}
+                        )
+            else:
+                pass
+        elif  14 <= lower <= 16 and higher == 12 or 19:
+            # exclude this commemoration in privileged feasts p. 309
+            ranked_feasts.update(
+                {date: add_commemoration(feast=higher, commemoration=lower)}
+            )
+        else:
+            pass
+            # ranked_feasts.update({date: higher.feast_properties})
+            # ranked_feasts.update({date: sanct.feast_properties})
     return ranked_feasts
     
     
@@ -439,7 +448,7 @@ def stitch_calendars(direct: dict) -> None:
         if x not in temporal.keys():
             full_calendar.update({x: sanctoral[x]})
         elif x in temporal.keys():
-            pass # check the ranking
+            rank_occurring_feasts(date=x, sanctoral_feast=sanctoral[x], temporal_feast=temporal[x])
         else:
             print("WARNING! problem with " + x + " in the temporal calendar -- stitch_calendars().")
     else:
