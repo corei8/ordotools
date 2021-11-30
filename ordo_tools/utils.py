@@ -45,11 +45,6 @@ def findsunday(date: datetime) -> timedelta:
     return timedelta(days=int(date.strftime('%w')))
 
 
-CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
-
-FIRST_ADVENT = CHRISTMAS - findsunday(CHRISTMAS) - timedelta(weeks=3)
-
-
 def easter(year: int) -> datetime:
     """ return the date of easter for this year """
     return datetime(
@@ -58,30 +53,21 @@ def easter(year: int) -> datetime:
         day=int(dateutil.easter.easter(year).strftime('%d'))
     )
 
+CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
 
-# ! check this one -- does it start on the following Sunday?
+FIRST_ADVENT = CHRISTMAS - findsunday(CHRISTMAS) - timedelta(weeks=3)
+
+EASTER_SEASON_START = easter(YEAR) - timedelta(week=6, days=4)
+
 LENT_BEGINS = easter(YEAR) - timedelta(weeks=6, days=4)
 
 LENT_ENDS = easter(YEAR) - timedelta(days=1)
 
-# todo adjust this to use the easter function
-EASTER_SEASON_START = datetime(
-    year=int(dateutil.easter.easter(YEAR).strftime('%Y')),
-    month=int(dateutil.easter.easter(YEAR).strftime('%m')),
-    day=int(dateutil.easter.easter(YEAR).strftime('%d'))
-) + timedelta(days=8)
+EASTER_SEASON_END = easter(YEAR) + timedelta(days=39)
 
-EASTER_SEASON_END = datetime(
-    year=int(dateutil.easter.easter(YEAR).strftime('%Y')),
-    month=int(dateutil.easter.easter(YEAR).strftime('%m')),
-    day=int(dateutil.easter.easter(YEAR).strftime('%d'))
-) + timedelta(days=39)
+PENTECOST_SEASON_START = easter(YEAR) + timedelta(days=49)
 
-# PENTECOST_SEASON_START = easter(YEAR) + week(i+1)
-
-# todo range for pentecost
-
-# todo range for lent
+PENTECOST_SEASON_END = FIRST_ADVENT - timedelta(days=1)
 
 
 def day(year: int, month: int, day: int) -> datetime:
@@ -151,14 +137,7 @@ def translate_month(month: str) -> str:
 
 
 def find_module(name: str) -> tuple:
-    """ Finds the module and the function within the module.
-
-    Args:
-        name (str): Name of the dictionary to find.
-
-    Returns:
-        tuple: Contains the name of the module, the function within the module, the name of the dictionary and the file name.
-    """
+    """ Finds the module and the function within the module."""
     if '.' in name:
         name = name.split('.')[1].strip('_')
     if name+'.py' in listdir('sanctoral/diocese'):
@@ -187,12 +166,7 @@ def find_module(name: str) -> tuple:
 
 
 def commit_to_dictionary(target_file: str, dic: dict) -> None:
-    """ Takes a dictionary and writes it to a file.
-
-    Args:
-        target_file (str): file to write to
-        dic (dict): dictionary to write
-    """
+    """ Takes a dictionary and writes it to a file."""
     # todo update the parent funtion to use the children dependent upon the target_file
     def update_calendar(data: dict) -> None:
         """ Updates the calendar file """
@@ -216,14 +190,7 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
 
 
 def explode_octaves(region_diocese: str) -> dict:
-    """ Takes the Octaves in the Sanctoral cycle and explodes them into their days within the octave.
-
-    Args:
-        region_diocese (str): diocese for the calendar to be generated.
-
-    Returns:
-        Dict: Dictionary to be stitched to the temporal calendar.
-    """
+    """ Takes the Octaves in the Sanctoral cycle and explodes them into their days within the octave."""
     mdl = importlib.import_module(
         'sanctoral.diocese.'+region_diocese).sanctoral
     return_dict = {}
@@ -257,15 +224,7 @@ def add_commemoration(feast: Feast, commemoration: Feast) -> dict:
 
 
 def rank_by_nobility(feast_1: Feast, feast_2: Feast) -> dict:
-    """ Takes two feasts and returns the one with the higher rank.
-
-    Args:
-        feast_1 (Feast): First feast to be compared.
-        feast_2 (Feast): Second feast to be compared.
-
-    Returns:
-        dict: dictionary of the higher ranked feast and the transfered feast.
-    """
+    """ Takes two feasts and returns the one with the higher rank."""
     ranks_1 = feast_1.nobility
     ranks_2 = feast_2.nobility
     for x in range(len(ranks_1)):
@@ -279,13 +238,7 @@ def rank_by_nobility(feast_1: Feast, feast_2: Feast) -> dict:
 
 
 def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict) -> dict:
-    """ This function ranks the feasts occurring on a given date.
-
-    Args:
-        date (str): Date for which the feasts are to be ranked.
-        sanctoral_feast (dict): Sanctoral feast dictionary.
-        temporal_feast (dict): Temporal feast dictionary.
-    """
+    """ This function ranks the feasts occurring on a given date."""
     ranked_feasts = {}
     sanct = Feast(date, sanctoral_feast)
     tempo = Feast(date, temporal_feast)
@@ -334,12 +287,7 @@ def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict
 
 
 def add_sanctoral_feasts(temporal_dict: dict, sanctoral_dict: dict) -> dict:
-    """ Adds the sanctoral feasts to the temporal feast dictionary.
-
-    Args:
-        temporal_dict (dict): Temporal feast dictionary.
-        sanctoral_feast (dict): Sanctoral feast dictionary.
-    """
+    """ Adds the sanctoral feasts to the temporal feast dictionary."""
     sanctoral = sanctoral_dict.copy()
     temporal = temporal_dict.copy()
     full_calendar = {}
@@ -355,12 +303,7 @@ def add_sanctoral_feasts(temporal_dict: dict, sanctoral_dict: dict) -> dict:
 
 
 def dict_clean(direct: str, str_flag: str) -> None:
-    """ Resolves conflicts between the sanctoral and temporal dictionaries, which are flagged with either a period or an underscore.
-
-    Args:
-        direct (str): The calendar to be cleaned.
-        str_flag (str): The flag to be used to identify the conflicts, either . or _.
-    """
+    """ Resolves conflicts between the sanctoral and temporal dictionaries, which are flagged with either a period or an underscore."""
     dict_information = find_module(direct)
     dictionary = importlib.import_module(dict_information[1])
     try:
@@ -381,12 +324,7 @@ def dict_clean(direct: str, str_flag: str) -> None:
 
 
 def dict_clean_mini(direct: str, str_flag: str) -> None:
-    """ Resolves conflicts in a single file, which are flagged with either a period or an underscore.
-
-    Args:
-        direct (str): The calendar to be cleaned.
-        str_flag (str): The flag to be used to identify the conflicts, either . or _.
-    """
+    """ Resolves conflicts in a single file, which are flagged with either a period or an underscore."""
     dict_information = find_module(direct)
     dictionary = importlib.import_module(dict_information[1])
     dic = dictionary.__dict__[dict_information[2]]
@@ -398,7 +336,7 @@ def dict_clean_mini(direct: str, str_flag: str) -> None:
         if x+flag in dic.keys():
             new_rank = rank_occurring_feasts(
                 date=x, sanctoral_feast=dic[x], temporal_feast=dic[x+flag]
-                )
+            )
             dic.update(new_rank)
             del dic[x+flag]
     else:
@@ -409,15 +347,12 @@ def leap_year_solver(dic: dict) -> dict:
     """ Solves the leap year problem. """
     return dic
 
-def stitch_calendars(direct: str) -> None:
-    """ stitch the temporal and sanctoral calendars together 
 
-    Args: 
-        direct (str): dictionary name of the sanctoral calendar
-    """
+def stitch_calendars(direct: str) -> None:
+    """ Stitches the temporal and sanctoral calendars together. """
     temp_dict_information = find_module('temporal')
     temp_dictionary = importlib.import_module(temp_dict_information[1])
-    temporal = temp_dictionary.__dict__[temp_dict_information[2]]    
+    temporal = temp_dictionary.__dict__[temp_dict_information[2]]
     # assume that the temporal calendar is already cleaned and correctly ordered
     if leap_year(YEAR) == True:
         pass  # work on this later
@@ -426,7 +361,7 @@ def stitch_calendars(direct: str) -> None:
         sanctoral = dict_clean_mini(direct, '.')
         full_calendar = add_sanctoral_feasts(temporal, sanctoral).copy()
         for y in temporal.keys():
-            if len(y) == 6: 
+            if len(y) == 6:
                 print(f'problem with {y}')
             if y in sanctoral.keys():
                 continue
@@ -487,6 +422,7 @@ def our_ladys_saturday(direct: str) -> None:
 
 
 def commit_temporal() -> None:
+    """ Commits the temporal calendar to the temporal dictionary. """
     from ordo_tools.temporal_cycle import build_temporal
     cycle = build_temporal(YEAR)
     gen_file = "temporal/temporal_" + str(YEAR)

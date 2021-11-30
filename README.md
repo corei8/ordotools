@@ -55,7 +55,7 @@
 | Fer IV | 01/05 | Vigilia Epiphaniæ |
 | Fer V | 01/06 | Epiphania DNJC |
 | Fer VI | 01/07 | De II die infra Oct. Epiphaniæ |
-| Sabb | 01/08 | De III die infra Oct. Epiphaniæ |
+| Sabb | 01/08 | Sabbato infra Oct. Epiphaniæ |
 | Dom | 01/09 | S. Familiæ Jesu, Mariæ, Joseph; Dominica I infra Oct. Epiphaniæ |
 | Fer II | 01/10 | De V die infra Oct. Epiphaniæ |
 | Fer III | 01/11 | De VI die infra Oct. Epiphaniæ |
@@ -343,14 +343,14 @@
 | Fer V | 10/27 | In Vigilia Ss Simonis et Judæ App |
 | Fer VI | 10/28 | Ss Simonis et Judæ App |
 | Sabb | 10/29 | De Sancta Maria in Sabbato |
-| Dom | 10/30 | Dominica XXI post Pentecosten |
+| Dom | 10/30 | In Festo DNJC Regis |
 | Fer II | 10/31 | In Vigilia Omnium Sanctorum |
 | Fer III | 11/01 | In Festo Omnium Sanctorum |
 | Fer IV | 11/02 | In Commemoratione Omnium Fidelium Defunctorum |
 | Fer V | 11/03 | De ea |
 | Fer VI | 11/04 | S Caroli EC |
 | Sabb | 11/05 | De Sancta Maria in Sabbato |
-| Dom | 11/06 | Dominica XXII post Pentecosten |
+| Dom | 11/06 | In Festo DNJC Regis |
 | Fer II | 11/07 | De ea |
 | Fer III | 11/08 | In Octava Omnium Sanctorum |
 | Fer IV | 11/09 | In Dedicatione Archibasilicæ Ssmi Salvatoris |

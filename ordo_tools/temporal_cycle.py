@@ -194,24 +194,45 @@ def build_temporal(year: int) -> dict:
     epiphany_sundays_counter = 1
     for i, x in enumerate(ROMANS[0: 6]):
         if weekday(epiphany + indays(i+1)) != "Sun":
-            cycle.update(
-                {
-                    str(epiphany + indays(i+1)): {  # ! mass, vespers
-                        'feast': "De "+ROMANS[i+1]+" die infra Oct. Epiphaniæ",
-                        'rank': [9, 'feria'],
-                        'color': 'white',
-                        'mass': {'int': 'Ecce advenit', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': False,
-                        'nobility': (False,),
-                    },
-                }
-            )
+            # todo use the global FERIA for these
+            if weekday(epiphany + indays(i+1)) == "Sat":
+                cycle.update(
+                    {
+                        str(epiphany + indays(i+1)): {  # ! mass, vespers
+                            'feast': "Sabbato infra Oct. Epiphaniæ",
+                            'rank': [9, 'feria'],
+                            'color': 'white',
+                            'mass': {'int': 'Ecce advenit', 'glo': True, 'cre': True, 'pre': 'Communis'},
+                            'matins': {},
+                            'lauds': {},
+                            'prime': {},
+                            'little_hours': {},
+                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
+                            'compline': {},
+                            'office_type': 'feria',
+                            'nobility': (False,),
+                        },
+                    }
+                )
+            else:
+                cycle.update(
+                    {
+                        str(epiphany + indays(i+1)): {  # ! mass, vespers
+                            'feast': "De "+ROMANS[i+1]+" die infra Oct. Epiphaniæ",
+                            'rank': [9, 'feria'],
+                            'color': 'white',
+                            'mass': {'int': 'Ecce advenit', 'glo': True, 'cre': True, 'pre': 'Communis'},
+                            'matins': {},
+                            'lauds': {},
+                            'prime': {},
+                            'little_hours': {},
+                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
+                            'compline': {},
+                            'office_type': 'feria',
+                            'nobility': (False,),
+                        },
+                    }
+                )
         else:
             pass
     epiph_counter, o = first_epiph, 0
@@ -219,6 +240,7 @@ def build_temporal(year: int) -> dict:
     while epiph_counter.strftime('%m%d') != septuadate.strftime('%m%d'):
         if epiph_sundays[o] == 'I':
             if epiph_counter == day(year, 1, 13):
+                # todo add ferias
                 cycle.update(
                     {
                         str(epiph_counter): {  # ! vespers
@@ -277,6 +299,7 @@ def build_temporal(year: int) -> dict:
                         'feast': "Dominica "+epiph_sundays[o]+" post Epiphaniam",
                         'rank': [12, 'sd'],
                         'color': 'white',
+                        # ! check the Introit for the Sunday and the feria
                         'mass': {'int': 'Omnis terra', 'glo': True, 'cre': True, 'pre': 'de Ssma Trinitate'},
                         'matins': {},
                         'lauds': {},
@@ -289,6 +312,25 @@ def build_temporal(year: int) -> dict:
                     }
                 }
             )
+            for t in range(6):
+                cycle.update(
+                    {
+                        str(epiph_counter + indays(t+1)): {  # ! vespers
+                            'feast': 'De ea',
+                            'rank': [23, 's'],
+                            'color': 'white', 
+                            'mass': {'int': 'Omnis terra', 'glo': True, 'cre': False, 'pre': 'Communis'},
+                            'matins': {},
+                            'lauds': {},
+                            'prime': {},
+                            'little_hours': {},
+                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
+                            'compline': {},
+                            'office_type': 'feria',
+                            'nobility': (8, 2, 6, 13, 3, 0,),
+                        },
+                    }
+                )
             epiphany_sundays_counter += 1
         o += 1  # ? is enumerate possible?
         epiph_counter += week(1)  # ? this is probably too complicated
@@ -1382,29 +1424,28 @@ def build_temporal(year: int) -> dict:
                     },
                 }
             )
-
-            if (post_pent_count + week(p)).strftime("%B") == "November" and (easter(year) + week(i-1)).strftime("%B") == "October":
-                # if the current Sunday is in November and the previous Sunday is in October
-                christ_king = post_pent_count + week(p) - week(1)
-                cycle.update(
-                    {
-                        str(christ_king): {  # ! vespers
-                            'feast': 'In Festo DNJC Regis',
-                            'rank': [2, 'd I cl'],
-                            'color': 'white',
-                            'mass': {'int': 'Dignus est', 'glo': True, 'cre': True, 'pre': 'de DNJC Rege'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': 'festiva',
-                            'nobility': (False,),
-                        },
-                    }
-                )
-            i += 1
+        if (post_pent_count + week(p)).strftime("%B") == "November" and (easter(year) + week(i-1)).strftime("%B") == "October":
+            # if the current Sunday is in November and the previous Sunday is in October
+            christ_king = post_pent_count + week(p) - week(1)
+            cycle.update(
+                {
+                    str(christ_king): {  # ! vespers
+                        'feast': 'In Festo DNJC Regis',
+                        'rank': [2, 'd I cl'],
+                        'color': 'white',
+                        'mass': {'int': 'Dignus est', 'glo': True, 'cre': True, 'pre': 'de DNJC Rege'},
+                        'matins': {},
+                        'lauds': {},
+                        'prime': {},
+                        'little_hours': {},
+                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
+                        'compline': {},
+                        'office_type': 'festiva',
+                        'nobility': (False,),
+                    },
+                }
+            )
+        i += 1
     if christmas == lastadvent:  # prevents 4th Sunday of Advent and Christmas occurance
         lastadvent -= week(1)
     advents = [
