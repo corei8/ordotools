@@ -1424,7 +1424,7 @@ def build_temporal(year: int) -> dict:
                     },
                 }
             )
-        if (post_pent_count + week(p)).strftime("%B") == "November" and (easter(year) + week(i-1)).strftime("%B") == "October":
+        if (post_pent_count + week(p)).strftime("%B") == "November" and (post_pent_count + week(p-1)).strftime("%B") == "October":
             # if the current Sunday is in November and the previous Sunday is in October
             christ_king = post_pent_count + week(p) - week(1)
             cycle.update(

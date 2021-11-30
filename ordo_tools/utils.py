@@ -57,7 +57,9 @@ CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
 
 FIRST_ADVENT = CHRISTMAS - findsunday(CHRISTMAS) - timedelta(weeks=3)
 
-EASTER_SEASON_START = easter(YEAR) - timedelta(week=6, days=4)
+LAST_ADVENT = CHRISTMAS - timedelta(days=1)
+
+EASTER_SEASON_START = easter(YEAR) - timedelta(weeks=6, days=4)
 
 LENT_BEGINS = easter(YEAR) - timedelta(weeks=6, days=4)
 
@@ -242,6 +244,7 @@ def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict
     ranked_feasts = {}
     sanct = Feast(date, sanctoral_feast)
     tempo = Feast(date, temporal_feast)
+    # todo #20 simples cannot occur in Lent, Advent, Ember days, Monday of the Rogation Days, or Vigils. If a Saturday of the Office of the Blessed Virgin Mary occurs, and the day is free of a feast of Nine Lessons, the simple is commemorated. The feast goes from first Vespers to None (same for Saturday of the BVM).
     if sanct.rank_n == tempo.rank_n:
         # nobility check
         transfer_date = datetime.strptime(date, '%m/%d')+timedelta(days=1)
@@ -396,27 +399,34 @@ def our_ladys_saturday(direct: str) -> None:
     dict_information = find_module(direct)
     dictionary = importlib.import_module(dict_information[1])
     dic = dictionary.__dict__[dict_information[2]]
-    # todo add ranges where Our Lady's Saturday is impossible (Advent, Lent, Ember Days, Vigils)
     begin_year = date(YEAR, 1, 1)
     if begin_year.strftime('%A') == 'Saturday':
         saturday = begin_year
     else:
         saturday = begin_year - indays(findsunday(begin_year)+6)
     while saturday <= date(YEAR, 12, 31):
-        try:
-            saturday_in_temporal = Feast(feast_date=saturday.strftime(
-                '%m%d'), properties=dic[saturday.strftime('%m/%d')])
-        except KeyError:
-            if saturday.strftime('%m/%d')+'.' in sorted(dic):
-                pass  # we can presume that it is impossible
-            else:
-                dic.update({saturday.strftime('%m/%d'): office})
+        if LENT_BEGINS.date() <= saturday <= LENT_ENDS.date():
+            saturday += indays(7)
+            continue
+        elif FIRST_ADVENT.date() <= saturday <= LAST_ADVENT.date():
+            saturday += indays(7)
+            continue
+        # todo #19 #18 also Ember Days, Vigils
         else:
-            dic.update(
-                rank_occurring_feasts(date=saturday.strftime(
-                    '%m/%d'), sanctoral_feast=office, temporal_feast=saturday_in_temporal.feast_properties)
-            )
-        saturday = saturday + indays(7)
+            try:
+                saturday_in_temporal = Feast(feast_date=saturday.strftime(
+                    '%m%d'), properties=dic[saturday.strftime('%m/%d')])
+            except KeyError:
+                if saturday.strftime('%m/%d')+'.' in sorted(dic):
+                    pass  # we can presume that it is impossible
+                else:
+                    dic.update({saturday.strftime('%m/%d'): office})
+            else:
+                dic.update(
+                    rank_occurring_feasts(date=saturday.strftime(
+                        '%m/%d'), sanctoral_feast=office, temporal_feast=saturday_in_temporal.feast_properties)
+                )
+            saturday = saturday + indays(7)
     commit_to_dictionary(target_file='calendar', dic=dic)
     return None
 

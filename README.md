@@ -350,7 +350,7 @@
 | Fer V | 11/03 | De ea |
 | Fer VI | 11/04 | S Caroli EC |
 | Sabb | 11/05 | De Sancta Maria in Sabbato |
-| Dom | 11/06 | In Festo DNJC Regis |
+| Dom | 11/06 | Dominica XXII post Pentecosten |
 | Fer II | 11/07 | De ea |
 | Fer III | 11/08 | In Octava Omnium Sanctorum |
 | Fer IV | 11/09 | In Dedicatione Archibasilicæ Ssmi Salvatoris |
