@@ -242,7 +242,15 @@ class Feast:
             return ''
         else:
             latexed_little_hours = r'\textbf{Ad Horas}: '
-            return ''
+            for k in self.little_hours.keys():
+                if k == 'preces_feriales':
+                    if self.prime[k] == True:
+                        latexed_little_hours += 'Preces feriales, '
+                    else:
+                        pass
+                else:
+                    pass
+            return latexed_little_hours
 
     @ property
     def display_prime_as_latex(self) -> str:
