@@ -30,6 +30,7 @@ class Feast:
             'com_4': properties['com_4'] if 'com_4' in properties.keys() else '',
             'com_5': properties['com_5'] if 'com_5' in properties.keys() else '',
         }
+        self.prime = properties['prime'] if 'prime' in properties.keys() else {}
 
     @ property
     def feast_date_display(self) -> str:
@@ -202,3 +203,29 @@ class Feast:
                 status[i]+'Pre '+y['pre'] + ', ' + self.mass_commemorations() + ' '
             i += 1
         return latexed_mass
+    
+    @ property
+    def display_prime_as_latex(self) -> str:
+        """ return the Prime as LaTeX code """
+        if len(self.prime) == 0:
+            return ''
+        else:
+            latexed_prime = r'\textbf{Primam}: '
+            for k in self.prime.keys():
+                if k == 'four_psalms':
+                    if self.prime[k] == True:
+                        latexed_prime += r'4 Pss, '
+                    else:
+                        pass
+                elif k == 'cap':
+                    latexed_prime += r'\textit{' + f'{self.prime[k]},' +'} '
+                elif k == 'v_r':
+                    latexed_prime += r'\Vbar\ in \Rbar\ brev: ' + r'\textit{' + f'{self.prime[k]},' +'} '
+                elif k == 'preces_feriales':
+                    if self.prime[k] == True:
+                        latexed_prime += 'Preces feriales, '
+                    else:
+                        pass
+                else:
+                    pass
+            return latexed_prime

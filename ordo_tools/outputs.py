@@ -22,6 +22,7 @@ def build_latex_ordo(year):
     \title{Ordo '''+str(year)+r'''}
     \author{Roman Catholic Institute}
     \usepackage{ragged2e}
+    \usepackage{gregoriotex} % for the versicle and response symbols
     \usepackage{microtype}
     \usepackage[T1]{fontenc}
     \usepackage{fontspec}
@@ -93,9 +94,9 @@ def build_latex_ordo(year):
                 \begin{justify}'''+feast.office_type2latex+r'''
                     \textbf{Ad Mat: }
                     \textbf{Ad Lau: }
-                    \textbf{Ad Horas: }'''+feast.preces+r'''
-                    \textbf{Ad Primam: }'''+feast.preces +
-                            latex_replacement(feast.display_mass_as_latex())+r'''
+                    \textbf{Ad Horas: }'''+feast.preces+
+                    feast.display_prime_as_latex +
+                    latex_replacement(feast.display_mass_as_latex())+r'''
                     \textbf{In Vesp: }
                     \textbf{Ad Compl: }'''+feast.preces+r'''
                 \end{justify}
@@ -107,7 +108,7 @@ def build_latex_ordo(year):
         working_dir = os.getcwd()
         os.chdir('output/latex/')
         subprocess.run('lualatex '+file+' -interaction nonstopmode',
-                    shell=True, stdout=subprocess.DEVNULL)
+                    shell=True)#, stdout=subprocess.DEVNULL)
         os.chdir(working_dir)
     return None
 
