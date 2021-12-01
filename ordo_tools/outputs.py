@@ -91,14 +91,14 @@ def build_latex_ordo(year):
                     \textbf{ \large '''+latex_replacement(feast.name)+r''' \\
                     \textnormal{\normalsize '''+feast.rank_v+r'''}} \\ ''' + latex_replacement(feast.com_in_title)+r'''
                 \end{minipage}
-                \begin{justify}'''+feast.office_type2latex+r'''
-                    \textbf{Ad Mat: }
-                    \textbf{Ad Lau: }
-                    \textbf{Ad Horas: }'''+feast.preces+
+                \begin{justify}'''+feast.office_type2latex+
+                    feast.display_matins_as_latex + 
+                    feast.display_lauds_as_latex +
+                    feast.display_little_hours_as_latex +
                     feast.display_prime_as_latex +
-                    latex_replacement(feast.display_mass_as_latex())+r'''
-                    \textbf{In Vesp: }
-                    \textbf{Ad Compl: }'''+feast.preces+r'''
+                    latex_replacement(feast.display_mass_as_latex())+
+                    feast.display_vespers_as_latex + 
+                    feast.display_compline_as_latex +r'''
                 \end{justify}
             \end{minipage}
         \end{center}

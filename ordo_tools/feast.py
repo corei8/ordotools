@@ -18,8 +18,6 @@ class Feast:
         else:
             for x, y in properties['mass'].items():
                 self.mass.update({x: y})
-        self.vespers = properties['vespers'] if 'vespers' in properties.keys(
-        ) else {'proper': False, 'admag': '', 'propers': {}, 'oration': ''}
         self.nobility = properties['nobility'] if 'nobility' in properties.keys(
         ) else ('0', '0', '0', '0', '0', '0', )
         self.office_type = properties['office_type']
@@ -30,7 +28,19 @@ class Feast:
             'com_4': properties['com_4'] if 'com_4' in properties.keys() else '',
             'com_5': properties['com_5'] if 'com_5' in properties.keys() else '',
         }
-        self.prime = properties['prime'] if 'prime' in properties.keys() else {}
+        # parts of the office:
+        self.matins = properties['matins'] if 'matins' in properties.keys() else {
+        }
+        self.lauds = properties['lauds'] if 'lauds' in properties.keys() else {
+        }
+        self.prime = properties['prime'] if 'prime' in properties.keys() else {
+        }
+        self.little_hours = properties['little_hours'] if 'little_hours' in properties.keys() else {
+        }
+        self.vespers = properties['vespers'] if 'vespers' in properties.keys() else {
+        }
+        self.compline = properties['compline'] if 'compline' in properties.keys() else {
+        }
 
     @ property
     def feast_date_display(self) -> str:
@@ -82,15 +92,15 @@ class Feast:
         """ returns formatted office type based on office_type key """
         # todo write all office types in english
         if self.office_type == False:
-            off_type = 'Ord'
+            off_type = 'Ord, '
         elif self.office_type == 'feria':
-            off_type = 'Fer'
+            off_type = 'Fer, '
         elif self.office_type == 'festiva':
-            off_type = 'Festiv'
+            off_type = 'Festiv, '
         elif self.office_type == 'dominica':
-            off_type = 'Dom'
+            off_type = 'Dom, '
         elif self.office_type == 'ut in pr loco':
-            off_type = 'ut in pr loco'
+            off_type = 'ut in pr loco, '
         else:
             return 'ERROR!'
         return 'Off ' + off_type
@@ -100,13 +110,13 @@ class Feast:
         """ returns formatted commemorations in title """
         results = ''
         for x in self.coms.values():
-                if type(x) == dict:
-                    if 'feast' in x.keys():
-                        results += r'\textit{['+x['feast'] + r']} \\ '
-                    else:
-                        results += ''
+            if type(x) == dict:
+                if 'feast' in x.keys():
+                    results += r'\textit{['+x['feast'] + r']} \\ '
                 else:
                     results += ''
+            else:
+                results += ''
         return results
 
     def introit(self) -> list:
@@ -169,9 +179,11 @@ class Feast:
                     i += 1
                 elif 'oration' in self.coms[x].keys():
                     if self.coms[x]['oration'] == 'ad libitum':
-                        results += str(i) + r' or ' + self.coms[x]['oration'] + r', '
+                        results += str(i) + r' or ' + \
+                            self.coms[x]['oration'] + r', '
                     else:
-                        results += str(i) + r' or \textit{' + self.coms[x]['oration'] + r',} '
+                        results += str(i) + \
+                            r' or \textit{' + self.coms[x]['oration'] + r',} '
                     i += 1
                 else:
                     pass
@@ -200,17 +212,45 @@ class Feast:
             # todo use the second in the string if it is Paschaltime.
             latexed_mass += '\\textbf{'+x+'}: \\textit{' + \
                 self.introit()[i] + ',} ' + \
-                status[i]+'Pre '+y['pre'] + ', ' + self.mass_commemorations() + ' '
+                status[i]+'Pre '+y['pre'] + ', ' + \
+                self.mass_commemorations() + ' '
             i += 1
         return latexed_mass
-    
+
+    @ property
+    def display_matins_as_latex(self) -> str:
+        """ return Matins as LaTeX code """
+        if len(self.matins) == 0:
+            return ''
+        else:
+            latexed_matins = r'\textbf{Ad Mat}: '
+            return ''
+
+    @ property
+    def display_lauds_as_latex(self) -> str:
+        """ return Laudes as LaTeX code """
+        if len(self.lauds) == 0:
+            return ''
+        else:
+            latexed_lauds = r'\textbf{Ad Lau}: '
+            return ''
+
+    @ property
+    def display_little_hours_as_latex(self) -> str:
+        """ return the little hours as LaTeX code """
+        if len(self.little_hours) == 0:
+            return ''
+        else:
+            latexed_little_hours = r'\textbf{Ad Horas}: '
+            return ''
+
     @ property
     def display_prime_as_latex(self) -> str:
-        """ return the Prime as LaTeX code """
+        """ return Prime as LaTeX code """
         if len(self.prime) == 0:
             return ''
         else:
-            latexed_prime = r'\textbf{Primam}: '
+            latexed_prime = r'\textbf{Ad Primam}: '
             for k in self.prime.keys():
                 if k == 'four_psalms':
                     if self.prime[k] == True:
@@ -218,9 +258,10 @@ class Feast:
                     else:
                         pass
                 elif k == 'cap':
-                    latexed_prime += r'\textit{' + f'{self.prime[k]},' +'} '
+                    latexed_prime += r'\textit{' + f'{self.prime[k]},' + '} '
                 elif k == 'v_r':
-                    latexed_prime += r'\Vbar\ in \Rbar\ brev: ' + r'\textit{' + f'{self.prime[k]},' +'} '
+                    latexed_prime += r'\Vbar\ in \Rbar\ brev: ' + \
+                        r'\textit{' + f'{self.prime[k]},' + '} '
                 elif k == 'preces_feriales':
                     if self.prime[k] == True:
                         latexed_prime += 'Preces feriales, '
@@ -229,3 +270,21 @@ class Feast:
                 else:
                     pass
             return latexed_prime
+
+    @ property
+    def display_vespers_as_latex(self) -> str:
+        """ return vespers as LaTeX code """
+        if len(self.vespers) == 0:
+            return ''
+        else:
+            latexed_vespers = r'\textbf{In Vesp}: '
+            return ''
+
+    @ property
+    def display_compline_as_latex(self) -> str:
+        """ return compline as LaTeX code """
+        if len(self.compline) == 0:
+            return ''
+        else:
+            latexed_compline = r'\textbf{Ad Compl}: '
+            return ''
