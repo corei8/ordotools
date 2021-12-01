@@ -124,7 +124,7 @@ def readme_calendar(year):
         with open('README.md', 'a') as f:
             f.truncate(0)
             f.write(
-                r'''
+                r"""
     # Ordo
 
     Traditional Catholic Ordo for the United States, Australia, Canada and Nantes.
@@ -168,7 +168,7 @@ def readme_calendar(year):
     - [ ] Australian Calendar
     - [ ] Canadian Calendar
     - [ ] Solemnities
-                    ''')
+                    """)
             f.write('\n\n')
             f.write('## Calendar for ' + str(year))
             f.write('\n\n')
