@@ -5,6 +5,10 @@ from ordo_tools.settings import YEAR
 class Feast:
     def __init__(self, feast_date: str, properties: dict):
         self.feast_date = feast_date
+        try:
+            self.feast_date_datetime = datetime.strptime(feast_date.strip('.'), '%m/%d')
+        except ValueError:
+            self.feast_date_datetime = datetime.strptime(feast_date.strip('.'), '%m%d')
         self.feast_properties = properties
         self.name = properties['feast']
         if 'infra_octave_name' in properties.keys():

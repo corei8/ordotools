@@ -13,6 +13,7 @@ def build_temporal(year: int) -> dict:
             None
     """
     cycle = {}
+    EMBER_DAYS = []
     # todo make cycle a dictionary
     circumcision = day(year, 1, 1)
     cycle.update(
@@ -434,6 +435,7 @@ def build_temporal(year: int) -> dict:
                         }
                     }
                 )
+            # ! unite the redundant ifs
             elif x == "I in Quadragesima" and y == "Feria IV":
                 cycle.update(
                     {
@@ -453,6 +455,7 @@ def build_temporal(year: int) -> dict:
                         }
                     }
                 )
+                EMBER_DAYS.append(easter(year) - week(6-c) + indays(j+1))
             elif x == "I in Quadragesima" and y == "Feria VI":
                 cycle.update(
                     {
@@ -472,6 +475,7 @@ def build_temporal(year: int) -> dict:
                         }
                     }
                 )
+                EMBER_DAYS.append(easter(year) - week(6-c) + indays(j+1))
             elif x == "I in Quadragesima" and y == "Sabbatum":
                 cycle.update(
                     {
@@ -491,6 +495,7 @@ def build_temporal(year: int) -> dict:
                         }
                     }
                 )
+                EMBER_DAYS.append(easter(year) - week(6-c) + indays(j+1))
             elif x == "in Palmis" and y == "Feria V":
                 cycle.update(
                     {
@@ -738,6 +743,7 @@ def build_temporal(year: int) -> dict:
                 }
             )
         if x == "Dominica V post Pascha":
+            ROGATION_MONDAY = easter(year) + week(i) + indays(1)
             cycle.update(
                 {
                     str(easter(year) + week(i) + indays(1)): {  # ! vespers
@@ -1025,6 +1031,7 @@ def build_temporal(year: int) -> dict:
             },
         }
     )
+    EMBER_DAYS.extend([easter(year) + week(i+1) + indays(3), easter(year) + week(i+1) + indays(5), easter(year) + week(i+1) + indays(6)])
     i += 1
     prelim_pents = [
         {  # ! vespers
@@ -1424,6 +1431,7 @@ def build_temporal(year: int) -> dict:
                     },
                 }
             )
+            EMBER_DAYS.extend([post_pent_count + week(p) + indays(3),post_pent_count + week(p) + indays(5), post_pent_count + week(p) + indays(6)])
         if (post_pent_count + week(p)).strftime("%B") == "November" and (post_pent_count + week(p-1)).strftime("%B") == "October":
             # if the current Sunday is in November and the previous Sunday is in October
             christ_king = post_pent_count + week(p) - week(1)
@@ -1566,6 +1574,7 @@ def build_temporal(year: int) -> dict:
                     },
                 }
             )
+            EMBER_DAYS.extend([lastadvent - week(i) + indays(4), lastadvent - week(i) + indays(5), lastadvent - week(i) + indays(6)])
         elif x == "Dominica I Adventus":
             cycle.update(
                 {
@@ -1646,8 +1655,9 @@ def build_temporal(year: int) -> dict:
                 },
             }
         )
-    if 5 <= int(christmas.strftime("%u")) <= 7 or christmas.strftime("%u") == 1:
-        # todo this can be simplified
+    if 5 <= int(christmas.strftime("%w")) <= 7 or christmas.strftime("%w") == 1: #? or should it be a sunday?
+        #? What is the logic here?
+        # if Christmas falls on Friday, Saturday, or Monday:  
         cycle.update(
             {
                 str(christmas + indays(5)): {  # ! mass, vespers

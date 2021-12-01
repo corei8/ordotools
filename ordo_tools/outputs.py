@@ -75,7 +75,6 @@ def build_latex_ordo(year):
                 for x in mdldates:
                     if int(x.split('/')[0]) == i:
                         feast = Feast(x, mdl[x])
-                        # todo #6 make the latin day of the week using FERIAS in temporal_cycle.py
                         # todo make the header of the last page of the previous month match the previous month
                         f.write(
                             r'''

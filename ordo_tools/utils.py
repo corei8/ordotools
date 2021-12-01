@@ -244,7 +244,6 @@ def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict
     ranked_feasts = {}
     sanct = Feast(date, sanctoral_feast)
     tempo = Feast(date, temporal_feast)
-    # todo #20 simples cannot occur in Lent, Advent, Ember days, Monday of the Rogation Days, or Vigils. If a Saturday of the Office of the Blessed Virgin Mary occurs, and the day is free of a feast of Nine Lessons, the simple is commemorated. The feast goes from first Vespers to None (same for Saturday of the BVM).
     if sanct.rank_n == tempo.rank_n:
         # nobility check
         transfer_date = datetime.strptime(date, '%m/%d')+timedelta(days=1)
@@ -261,6 +260,18 @@ def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict
         }
         higher = candidates[sorted(candidates)[0]]
         lower = candidates[sorted(candidates)[1]]
+        if lower == 22: # take care of simple feasts
+            from ordo_tools.temporal_cycle import ROGATION_MONDAY, EMBER_DAYS
+            if (
+                LENT_BEGINS <= lower.feast_date_datetime <= LENT_ENDS 
+                or FIRST_ADVENT <= lower.feast_date_datetime <= LAST_ADVENT 
+                or lower.feast_date_datetime == ROGATION_MONDAY
+                or lower.feast_date_datetime in EMBER_DAYS
+                or higher.rank_n == 19
+                ):
+                ranked_feasts.update({date: higher.feast_properties})
+            else:
+                pass # use the below rules
         if higher.rank_n <= 4:  # feasts that exclude commemorations
             # transfer
             if lower.rank_n <= 10:
