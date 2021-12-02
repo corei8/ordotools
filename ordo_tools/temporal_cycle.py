@@ -1655,9 +1655,8 @@ def build_temporal(year: int) -> dict:
                 },
             }
         )
-    if 5 <= int(christmas.strftime("%w")) <= 7 or christmas.strftime("%w") == 1: #? or should it be a sunday?
-        #? What is the logic here?
-        # if Christmas falls on Friday, Saturday, or Monday:  
+    if findsunday(christmas) == 0 or 1 or 2 or 3:
+        # Dominica infra respsita on 30 if Sunday falls on 25, 26, 27 or 28
         cycle.update(
             {
                 str(christmas + indays(5)): {  # ! mass, vespers
@@ -1677,6 +1676,7 @@ def build_temporal(year: int) -> dict:
             }
         )
     else:
+        # Dominica infra if Sunday falls on 29, 30 or 31
         cycle.update(
             {
                 str(christmas + indays(7) - findsunday(christmas)): {  # ! vespers

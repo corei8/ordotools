@@ -270,6 +270,7 @@ def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict
                 or higher.rank_n == 19
                 ):
                 ranked_feasts.update({date: higher.feast_properties})
+                return ranked_feasts
             else:
                 pass # use the below rules
         if higher.rank_n <= 4:  # feasts that exclude commemorations

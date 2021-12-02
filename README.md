@@ -49,7 +49,6 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Day | Date | Feast |
 |---|---|---|
 | Sabb | 01/01 | Circumcisio DNJC et Oct. Nativitatis |
-| Sabb | 01/01. | Dominica Infra Octavam Nativitatis |
 | Dom | 01/02 | Ssmi Nominis Jesu |
 | Fer II | 01/03 | Octava S. Joannis Ap Ev |
 | Fer III | 01/04 | Octava Ss Innocentium Mm. |
@@ -405,4 +404,5 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer III | 12/27 | S. Joannis Ap Ev |
 | Fer IV | 12/28 | Ss Innocentium Mm |
 | Fer V | 12/29 | S. Thomæ EM |
+| Fer VI | 12/30 | Dominica Infra Octavam Nativitatis reposita |
 | Sabb | 12/31 | S. Silvestri I PC |
