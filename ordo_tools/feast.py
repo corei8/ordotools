@@ -6,9 +6,11 @@ class Feast:
     def __init__(self, feast_date: str, properties: dict):
         self.feast_date = feast_date
         try:
-            self.feast_date_datetime = datetime.strptime(feast_date.strip('.'), '%m/%d')
+            self.feast_date_datetime = datetime.strptime(
+                feast_date.strip('.'), '%m/%d')
         except ValueError:
-            self.feast_date_datetime = datetime.strptime(feast_date.strip('.'), '%m%d')
+            self.feast_date_datetime = datetime.strptime(
+                feast_date.strip('.'), '%m%d')
         self.feast_properties = properties
         self.name = properties['feast']
         if 'infra_octave_name' in properties.keys():
@@ -199,6 +201,7 @@ class Feast:
         """ return the Mass as LaTeX code """
         # todo add orations
         latexed_mass = ''
+        pprlast = ''
         status = []
         for y in self.mass.values():
             gloria = y['glo']
@@ -212,12 +215,17 @@ class Feast:
             else:
                 status.append('')
         i = 0
+        #! refine this to work only for its proper Mass:
+        if 'proper_last_gospel' in y.keys():
+            pprlast = 'ult Evgl ' + y['proper_last_gospel'] + ', '
+        else:
+            pprlast = ''
         for x, y in self.mass.items():
             # todo use the second in the string if it is Paschaltime.
             latexed_mass += '\\textbf{'+x+'}: \\textit{' + \
                 self.introit()[i] + ',} ' + \
                 status[i]+'Pre '+y['pre'] + ', ' + \
-                self.mass_commemorations() + ' '
+                self.mass_commemorations() + ' ' + pprlast + ' '
             i += 1
         return latexed_mass
 
@@ -237,7 +245,14 @@ class Feast:
             return ''
         else:
             latexed_lauds = r'\textbf{Ad Lau}: '
-            return ''
+            for k in self.lauds.keys():
+                if k == 'psalms':
+                    # * make this a bit easier to work with
+                    if self.lauds[k] == 'sunday':
+                        latexed_lauds += 'Pss de Dom, '
+                    else:
+                        pass
+            return latexed_lauds
 
     @ property
     def display_little_hours_as_latex(self) -> str:
@@ -252,6 +267,9 @@ class Feast:
                         latexed_little_hours += 'Preces feriales, '
                     else:
                         pass
+                elif k == 'psalms':
+                    if self.little_hours[k] == 'sunday':
+                        latexed_little_hours += 'Pss de Dom, '
                 else:
                     pass
             return latexed_little_hours
@@ -299,4 +317,13 @@ class Feast:
             return ''
         else:
             latexed_compline = r'\textbf{Ad Compl}: '
-            return ''
+            for k in self.compline.keys():
+                if k == 'sunday':
+                    if self.compline[k] == True:
+                        # * do something fancy with the period -- no trailing commas!!
+                        latexed_compline += 'Pss de Dom. '
+                    else:
+                        pass
+                else:
+                    pass
+            return latexed_compline
