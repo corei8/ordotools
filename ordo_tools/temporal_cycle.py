@@ -21,7 +21,7 @@ def build_temporal(year: int) -> dict:
             str(circumcision): {  # ! vespers
                 'feast': "Circumcisio DNJC et Oct. Nativitatis",
                 'rank': [3, 'd II cl'],
-                'com_1': {'feast': 'S. Telesphori PM'},
+                #'com_1': {'feast': 'S. Telesphori PM'},
                 'color': 'white',
                 'mass': {'int': 'Puer natus', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
                 'matins': {},

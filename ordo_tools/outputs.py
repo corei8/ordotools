@@ -107,7 +107,7 @@ def build_latex_ordo(year):
         working_dir = os.getcwd()
         os.chdir('output/latex/')
         subprocess.run('lualatex '+file+' -interaction nonstopmode',
-                    shell=True)#, stdout=subprocess.DEVNULL)
+                    shell=True, stdout=subprocess.DEVNULL)
         os.chdir(working_dir)
     return None
 

@@ -53,6 +53,7 @@ def easter(year: int) -> datetime:
         day=int(dateutil.easter.easter(year).strftime('%d'))
     )
 
+
 CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
 
 FIRST_ADVENT = CHRISTMAS - findsunday(CHRISTMAS) - timedelta(weeks=3)
@@ -90,6 +91,9 @@ def weekday(date: datetime) -> str:
     """ return the weekday, with datetime as the input """
     return date.strftime('%a')
 
+def advance_a_day(date: str) -> str:
+    """ return a date advanced a day, returns a string mm/dd """
+    return (datetime.strptime(date, '%m/%d')+timedelta(days=1)).strftime('%m/%d')
 
 def find_extra_epiphany(pents: int) -> int:
     """ return the number of Sundays not celebrated after Epiphany """
@@ -97,7 +101,6 @@ def find_extra_epiphany(pents: int) -> int:
         pass
     else:
         return pents - 24
-
 
 def leap_year(year: int) -> bool:
     """ return true if year is a leap year """
@@ -239,13 +242,55 @@ def rank_by_nobility(feast_1: Feast, feast_2: Feast) -> dict:
     return {'higher': feast_1, 'lower': feast_2}
 
 
+# def rank_occurring_feasts_test(date: str, sanctoral_feast: dict, temporal_feast: dict) -> dict:
+#     """ This function ranks the feasts occurring on a given date."""
+#     ranked_feasts = {}
+#     sanct = Feast(date, sanctoral_feast)
+#     tempo = Feast(date, temporal_feast)
+#     if sanct.rank_n == tempo.rank_n:
+#         # nobility check
+#         transfer_date = datetime.strptime(date, '%m/%d')+timedelta(days=1)
+#         ranked_feasts.update(
+#             {
+#                 date: rank_by_nobility(sanct, tempo)['higher'].feast_properties,
+#                 transfer_date.strftime('%m/%d'): rank_by_nobility(sanct, tempo)['lower'].feast_properties,
+#             }
+#         )
+#     else:
+#         candidates = {
+#             sanct.rank_n: sanct,
+#             tempo.rank_n: tempo,
+#         }
+#         higher = candidates[sorted(candidates)[0]]
+#         lower = candidates[sorted(candidates)[1]]
+#         if higher.rank_n <= 4:
+#             if lower.rank_n <= 10:
+#                 # ! special rules for transfer
+#                 pass
+#             else:
+#                 # ! special rules for ferias
+#                 ranked_feasts.update({date: higher.feast_properties})
+#         elif
+#         else:
+#             ranked_feasts.update({date: higher.feast_properties})
+#     return ranked_feasts
+
+transfer_dict = {}
+
+
 def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict) -> dict:
     """ This function ranks the feasts occurring on a given date."""
     ranked_feasts = {}
     sanct = Feast(date, sanctoral_feast)
     tempo = Feast(date, temporal_feast)
+    commemoration_pairs = {
+        15: [i for i in range(1, 14)],
+        14: [i for i in range(1, 14)],
+        16: [i for i in range(1, 14)],
+    }
     if sanct.rank_n == tempo.rank_n:
         # nobility check
+        # ! check the transfer date!
         transfer_date = datetime.strptime(date, '%m/%d')+timedelta(days=1)
         ranked_feasts.update(
             {
@@ -260,44 +305,54 @@ def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict
         }
         higher = candidates[sorted(candidates)[0]]
         lower = candidates[sorted(candidates)[1]]
-        if lower == 22: # take care of simple feasts
-            from ordo_tools.temporal_cycle import ROGATION_MONDAY, EMBER_DAYS
-            if (
-                LENT_BEGINS <= lower.feast_date_datetime <= LENT_ENDS 
-                or FIRST_ADVENT <= lower.feast_date_datetime <= LAST_ADVENT 
-                or lower.feast_date_datetime == ROGATION_MONDAY
-                or lower.feast_date_datetime in EMBER_DAYS
-                or higher.rank_n == 19
-                ):
-                ranked_feasts.update({date: higher.feast_properties})
-                return ranked_feasts
-            else:
-                pass # use the below rules
+        if lower == 22:  # take care of simple feasts
+            pass
+            # ! this is not necessarily true!!
+            # from ordo_tools.temporal_cycle import ROGATION_MONDAY, EMBER_DAYS
+            # if (
+            #     LENT_BEGINS <= lower.feast_date_datetime <= LENT_ENDS
+            #     or FIRST_ADVENT <= lower.feast_date_datetime <= LAST_ADVENT
+            #     or lower.feast_date_datetime == ROGATION_MONDAY
+            #     or lower.feast_date_datetime in EMBER_DAYS
+            #     or higher.rank_n == 19
+            # ):
+            #     ranked_feasts.update({date: higher.feast_properties})
+            #     return ranked_feasts
+            # else:
+            #     pass  # use the below rules
         if higher.rank_n <= 4:  # feasts that exclude commemorations
             # transfer
             if lower.rank_n <= 10:
-                transfer_date = (datetime.strptime(date, '%m/%d') +
-                                 timedelta(days=1)).strftime('%m/%d')
-                ranked_feasts.update({transfer_date: lower.feast_properties})
+                # ! special rules for transfer
+                ranked_feasts.update({date: higher.feast_properties})
+                transfer_dict.update({date: lower.feast_properties})
             else:
-                pass  # lesser feast can be ignored
-            ranked_feasts.update({date: higher.feast_properties})
+                # ! special rules for ferias
+                ranked_feasts.update({date: higher.feast_properties})
+            # if lower.rank_n <= 10:
+            #     transfer_date = (datetime.strptime(date, '%m/%d') +
+            #                      timedelta(days=1)).strftime('%m/%d')
+            #     ranked_feasts.update({transfer_date: lower.feast_properties})
+            # else:
+            #     pass  # lesser feast can be ignored
+            # ranked_feasts.update({date: higher.feast_properties})
         elif 14 <= lower.rank_n <= 16:  # impeded double majors, doubles and semidoubles
             # todo exclude this commemoration in privileged feasts, etc. p. 309 Matters Liturgical
             if higher.rank_n == 12 or 19:
-                ranked_feasts.update(
-                    {date: add_commemoration(
-                        feast=higher, commemoration=lower)}
-                )
-            elif higher.rank_n < higher.rank_n:
+                # ? this is the same thing for all of them??
                 ranked_feasts.update(
                     {date: add_commemoration(
                         feast=higher, commemoration=lower)}
                 )
             else:
-                pass
+                ranked_feasts.update(
+                    {date: add_commemoration(
+                        feast=higher, commemoration=lower)}
+                )
         else:
-            ranked_feasts.update({date: higher.feast_properties})
+            ranked_feasts.update(
+                {date: add_commemoration(feast=higher, commemoration=lower)}
+            )
     return ranked_feasts
 
 
@@ -362,6 +417,18 @@ def leap_year_solver(dic: dict) -> dict:
     """ Solves the leap year problem. """
     return dic
 
+def transfer_feasts(dic: dict) -> dict:
+    """ Solves the transfer feast problem. """
+    for x in transfer_dict.keys():
+        trans_feast = Feast(x, transfer_dict[x])
+        # look one day ahead
+        target_date = advance_a_day(trans_feast.feast_date)
+        if target_date not in dic.keys():
+            dic.update(target_date, trans_feast.feast_properties)
+        else:
+            # ! apply the ranking rules
+            pass
+    return dic
 
 def stitch_calendars(direct: str) -> None:
     """ Stitches the temporal and sanctoral calendars together. """
@@ -382,6 +449,10 @@ def stitch_calendars(direct: str) -> None:
                 continue
             else:
                 full_calendar.update({y: temporal[y]})
+    if len(transfer_dict) > 0:
+        full_calendar = transfer_feasts(full_calendar)
+    else:
+        pass
     commit_to_dictionary(
         target_file='calendar',
         dic=full_calendar,
