@@ -1988,7 +1988,7 @@ sanctoral = {
         'nobility': (False,),
         'office_type': False,
         'color': 'white',
-        'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
+        'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': True, 'pre': 'Communis'},
         'matins': {},
         'lauds': {},
         'prime': {},
