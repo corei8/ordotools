@@ -13,20 +13,24 @@ ROMANS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
           'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV',
           'XXVI', 'XXVII', 'XXVIII', ]
 
-LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere',  'Confessio', 'De necessitatibus',
-               'Intret oratio', 'Redime me', 'Tibi dixit', 'Ne derelinquas me',
-               'Deus, in adjutorium', 'Ego autem', 'Lex Domini', 'In Deo laudabo', 'Ego clamavi',
-               'Ego autem', 'Salus populi', 'Fac mecum', 'Verba mea', 'Deus, in nomine', 'Exaudi, Deus',
-               'Cum sanctificatus', 'Lætetur cor', 'Meditatio', 'Sitientes', 'Miserere mihi',
-               'Expecta Dominum', 'Liberator meus', 'Omnia, quæ fecisti', 'Miserere mihi', 'Miserere mihi',)
+LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere', 'Confessio',
+               'De necessitatibus', 'Intret oratio', 'Redime me', 'Tibi dixit',
+               'Ne derelinquas me', 'Deus, in adjutorium', 'Ego autem',
+               'Lex Domini', 'In Deo laudabo', 'Ego clamavi', 'Ego autem',
+               'Salus populi', 'Fac mecum', 'Verba mea', 'Deus, in nomine',
+               'Exaudi, Deus', 'Cum sanctificatus', 'Lætetur cor', 'Meditatio',
+               'Sitientes', 'Miserere mihi', 'Expecta Dominum',
+               'Liberator meus', 'Omnia, quæ fecisti', 'Miserere mihi',
+               'Miserere mihi',)
 
 # beginning with the fourth Sunday after Pentecost
-PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine', 'Dominus fortitudo', 'Omnes gentes',
-                    'Suscepimus', 'Ecce Deus', 'Cum clamarem', 'Deus in loco',
-                    'Deus in adjutorium', 'Respice Domine', 'Protector noster', 'Inclina Domine',
-                    'Miserere mihi', 'Justus es', 'Da pacem', 'Salus populi',
-                    'Omnia', 'In voluntate tua', 'Si iniquitates', 'Dicit Dominus',
-                    'Dicit Dominus',)
+PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine',
+                    'Dominus fortitudo', 'Omnes gentes', 'Suscepimus',
+                    'Ecce Deus', 'Cum clamarem', 'Deus in loco',
+                    'Deus in adjutorium', 'Respice Domine', 'Protector noster',
+                    'Inclina Domine', 'Miserere mihi', 'Justus es', 'Da pacem',
+                    'Salus populi', 'Omnia', 'In voluntate tua',
+                    'Si iniquitates', 'Dicit Dominus', 'Dicit Dominus',)
 
 EPIPHANY_MASSES = ('', )
 
@@ -40,8 +44,22 @@ FERIA = [
 ]
 
 
+def mart_letter(year) -> str:
+    """ Find the letter of the martyrology for a given year """
+    golden_number = (year + 1) % 19
+    if golden_number == 0:
+        golden_number = 19
+    return golden_number
+
+
+MARTYROLOGY = (lambda year: mart_letter(year))(YEAR)
+
+print(MARTYROLOGY)
+
+
 def findsunday(date: datetime) -> timedelta:
-    """ return the distance of the datetime date from the previous Sunday, as a days timedelta """
+    """ return the distance of the datetime date from the
+    previous Sunday, as a days timedelta """
     return timedelta(days=int(date.strftime('%w')))
 
 
@@ -91,9 +109,12 @@ def weekday(date: datetime) -> str:
     """ return the weekday, with datetime as the input """
     return date.strftime('%a')
 
+
 def advance_a_day(date: str) -> str:
     """ return a date advanced a day, returns a string mm/dd """
-    return (datetime.strptime(date, '%m/%d')+timedelta(days=1)).strftime('%m/%d')
+    return (
+        datetime.strptime(date, '%m/%d') + timedelta(days=1)).strftime('%m/%d')
+
 
 def find_extra_epiphany(pents: int) -> int:
     """ return the number of Sundays not celebrated after Epiphany """
@@ -101,6 +122,7 @@ def find_extra_epiphany(pents: int) -> int:
         pass
     else:
         return pents - 24
+
 
 def leap_year(year: int) -> bool:
     """ return true if year is a leap year """
@@ -118,7 +140,7 @@ def leap_year(year: int) -> bool:
 
 def latex_replacement(string: str) -> str:
     """ return a string formatted for LaTeX with escape characters """
-    return re.sub('&', '\&', re.sub('_', '\_', string))
+    return re.sub('&', r'\&', re.sub('_', r'\_', string))
 
 
 def translate_month(month: str) -> str:
@@ -138,26 +160,26 @@ def translate_month(month: str) -> str:
     else:
         return month
 
-#===-===-=== HEAVY-HITTING FUNCTIONS ===-===-=== #
+# ===-===-=== HEAVY-HITTING FUNCTIONS ===-===-===  #
 
 
 def find_module(name: str) -> tuple:
     """ Finds the module and the function within the module."""
     if '.' in name:
         name = name.split('.')[1].strip('_')
-    if name+'.py' in listdir('sanctoral/diocese'):
-        file_name = 'sanctoral/diocese/'+name+'.py'
-        mdl_name = 'sanctoral.diocese.'+name
+    if name + '.py' in listdir('sanctoral/diocese'):
+        file_name = 'sanctoral/diocese/' + name + '.py'
+        mdl_name = 'sanctoral.diocese.' + name
         dict_name = 'sanctoral'
         dict_name_json = 'sanctoral = {'
     elif name == 'temporal':
-        file_name = 'temporal/'+name+'_'+str(YEAR)+'.py'
-        mdl_name = 'temporal.'+name+'_'+str(YEAR)
+        file_name = 'temporal/' + name + '_' + str(YEAR) + '.py'
+        mdl_name = 'temporal.' + name + '_' + str(YEAR)
         dict_name = 'temporal'
         dict_name_json = 'temporal = {'
     elif name == 'calendar':
-        file_name = 'calen/'+name+'_'+str(YEAR)+'.py'
-        mdl_name = 'calen.'+name+'_'+str(YEAR)
+        file_name = 'calen/' + name + '_' + str(YEAR) + '.py'
+        mdl_name = 'calen.' + name + '_' + str(YEAR)
         dict_name = 'calen'
         dict_name_json = 'calen = {'
     else:
@@ -172,20 +194,19 @@ def find_module(name: str) -> tuple:
 
 def commit_to_dictionary(target_file: str, dic: dict) -> None:
     """ Takes a dictionary and writes it to a file."""
-    # todo update the parent funtion to use the children dependent upon the target_file
     def update_calendar(data: dict) -> None:
         """ Updates the calendar file """
         cal = {}
         for x, y in data.items():
             cal.update({x: y})
-        with open('calen/calendar_'+str(YEAR)+'.py', 'a') as f:
+        with open('calen/calendar_' + str(YEAR) + '.py', 'a') as f:
             f.truncate(0)
             f.write('calen = {\n')
             for i, line in enumerate(sorted(cal)):
                 if i != 0:
-                    f.write('\''+line+'\' : '+str(cal[line])+',\n')
+                    f.write('\'' + line + '\' : ' + str(cal[line]) + ',\n')
                 else:
-                    f.write('\''+line+'\' : '+str(cal[line])+',\n')
+                    f.write('\'' + line + '\' : ' + str(cal[line]) + ',\n')
             f.write('}')
         return None
 
@@ -195,9 +216,10 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
 
 
 def explode_octaves(region_diocese: str) -> dict:
-    """ Takes the Octaves in the Sanctoral cycle and explodes them into their days within the octave."""
+    """ Takes the Octaves in the Sanctoral cycle and explodes them into
+    their days within the octave."""
     mdl = importlib.import_module(
-        'sanctoral.diocese.'+region_diocese).sanctoral
+        'sanctoral.diocese.' + region_diocese).sanctoral
     return_dict = {}
     for x in sorted(mdl):
         feast = Feast(x, mdl[x])
@@ -205,11 +227,17 @@ def explode_octaves(region_diocese: str) -> dict:
             if feast.nobility[2] == 4:  # common octave
                 # todo update this to handle every octave type
                 for k, y in enumerate(ROMANS[3:6], start=1):
-                    feast.name = 'De '+y+' die infra '+feast.infra_octave_name
+                    feast.name = 'De ' + y + ' die infra '
+                    + feast.infra_octave_name
                     feast.rank_v = 'feria'
                     feast.rank_n = 18
-                    return_dict.update({str((datetime.strptime(feast.feast_date, '%m/%d') +
-                                             indays(k)).strftime('%m/%d'))+'_': feast.updated_properties})
+                    return_dict.update(
+                        {
+                            str((datetime.strptime(feast.feast_date, '%m/%d')
+                                + indays(k)).strftime('%m/%d')) + '_':
+                            feast.updated_properties
+                        }
+                    )
         else:
             return_dict.update({feast.feast_date: feast.feast_properties})
     return return_dict
@@ -242,60 +270,35 @@ def rank_by_nobility(feast_1: Feast, feast_2: Feast) -> dict:
     return {'higher': feast_1, 'lower': feast_2}
 
 
-# def rank_occurring_feasts_test(date: str, sanctoral_feast: dict, temporal_feast: dict) -> dict:
-#     """ This function ranks the feasts occurring on a given date."""
-#     ranked_feasts = {}
-#     sanct = Feast(date, sanctoral_feast)
-#     tempo = Feast(date, temporal_feast)
-#     if sanct.rank_n == tempo.rank_n:
-#         # nobility check
-#         transfer_date = datetime.strptime(date, '%m/%d')+timedelta(days=1)
-#         ranked_feasts.update(
-#             {
-#                 date: rank_by_nobility(sanct, tempo)['higher'].feast_properties,
-#                 transfer_date.strftime('%m/%d'): rank_by_nobility(sanct, tempo)['lower'].feast_properties,
-#             }
-#         )
-#     else:
-#         candidates = {
-#             sanct.rank_n: sanct,
-#             tempo.rank_n: tempo,
-#         }
-#         higher = candidates[sorted(candidates)[0]]
-#         lower = candidates[sorted(candidates)[1]]
-#         if higher.rank_n <= 4:
-#             if lower.rank_n <= 10:
-#                 # ! special rules for transfer
-#                 pass
-#             else:
-#                 # ! special rules for ferias
-#                 ranked_feasts.update({date: higher.feast_properties})
-#         elif
-#         else:
-#             ranked_feasts.update({date: higher.feast_properties})
-#     return ranked_feasts
-
 transfer_dict = {}
 
+# * TRY to use ranges for special times: regualar, epiphnay, etc.
 
-def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict) -> dict:
+
+def rank_occurring_feasts(
+        date: str,
+        sanctoral_feast: dict,
+        temporal_feast: dict
+) -> dict:
     """ This function ranks the feasts occurring on a given date."""
     ranked_feasts = {}
     sanct = Feast(date, sanctoral_feast)
     tempo = Feast(date, temporal_feast)
-    commemoration_pairs = {
-        15: [i for i in range(1, 14)],
-        14: [i for i in range(1, 14)],
-        16: [i for i in range(1, 14)],
-    }
+    # commemoration_pairs = {
+    #     15: [i for i in range(1, 14)],
+    #     14: [i for i in range(1, 14)],
+    #     16: [i for i in range(1, 14)],
+    # }
     if sanct.rank_n == tempo.rank_n:
         # nobility check
         # ! check the transfer date!
-        transfer_date = datetime.strptime(date, '%m/%d')+timedelta(days=1)
+        transfer_date = datetime.strptime(date, '%m/%d') + timedelta(days=1)
         ranked_feasts.update(
             {
-                date: rank_by_nobility(sanct, tempo)['higher'].feast_properties,
-                transfer_date.strftime('%m/%d'): rank_by_nobility(sanct, tempo)['lower'].feast_properties,
+                date: rank_by_nobility(
+                    sanct, tempo)['higher'].feast_properties,
+                transfer_date.strftime('%m/%d'): rank_by_nobility(
+                    sanct, tempo)['lower'].feast_properties,
             }
         )
     else:
@@ -336,8 +339,10 @@ def rank_occurring_feasts(date: str, sanctoral_feast: dict, temporal_feast: dict
             # else:
             #     pass  # lesser feast can be ignored
             # ranked_feasts.update({date: higher.feast_properties})
-        elif 14 <= lower.rank_n <= 16:  # impeded double majors, doubles and semidoubles
-            # todo exclude this commemoration in privileged feasts, etc. p. 309 Matters Liturgical
+        # ! something is not right here
+        elif 14 <= lower.rank_n <= 16:  # impeded dm, d and sd
+            # todo exclude this commemoration in privileged feasts, etc.
+            # see p. 309 Matters Liturgical
             if higher.rank_n == 12 or 19:
                 # ? this is the same thing for all of them??
                 ranked_feasts.update(
@@ -364,7 +369,9 @@ def add_sanctoral_feasts(temporal_dict: dict, sanctoral_dict: dict) -> dict:
     for x in sanctoral.keys():
         if x in temporal.keys():
             ranked_feast = rank_occurring_feasts(
-                date=x, sanctoral_feast=sanctoral[x], temporal_feast=temporal[x]
+                date=x,
+                sanctoral_feast=sanctoral[x],
+                temporal_feast=temporal[x]
             )
             full_calendar.update(ranked_feast)
         else:
@@ -373,7 +380,8 @@ def add_sanctoral_feasts(temporal_dict: dict, sanctoral_dict: dict) -> dict:
 
 
 def dict_clean(direct: str, str_flag: str) -> None:
-    """ Resolves conflicts between the sanctoral and temporal dictionaries, which are flagged with either a period or an underscore."""
+    """ Resolves conflicts between the sanctoral and temporal dictionaries,
+    which are flagged with either a period or an underscore."""
     dict_information = find_module(direct)
     dictionary = importlib.import_module(dict_information[1])
     try:
@@ -385,16 +393,20 @@ def dict_clean(direct: str, str_flag: str) -> None:
         for x in sorted(dic):
             if flag in x:
                 continue
-            if x+flag in sorted(dic):
+            if x + flag in sorted(dic):
                 rank_occurring_feasts(
-                    date=x, sanctoral_feast=dic[x], temporal_feast=dic[x+flag])
+                    date=x,
+                    sanctoral_feast=dic[x],
+                    temporal_feast=dic[x + flag]
+                )
         else:
             commit_to_dictionary(target_file=direct, dic=dic)
     return 0
 
 
 def dict_clean_mini(direct: str, str_flag: str) -> None:
-    """ Resolves conflicts in a single file, which are flagged with either a period or an underscore."""
+    """ Resolves conflicts in a single file, which are flagged with either
+    a period or an underscore."""
     dict_information = find_module(direct)
     dictionary = importlib.import_module(dict_information[1])
     dic = dictionary.__dict__[dict_information[2]]
@@ -403,12 +415,12 @@ def dict_clean_mini(direct: str, str_flag: str) -> None:
     for x in list_of_keys:
         if flag in x:
             continue
-        if x+flag in dic.keys():
+        if x + flag in dic.keys():
             new_rank = rank_occurring_feasts(
-                date=x, sanctoral_feast=dic[x], temporal_feast=dic[x+flag]
+                date=x, sanctoral_feast=dic[x], temporal_feast=dic[x + flag]
             )
             dic.update(new_rank)
-            del dic[x+flag]
+            del dic[x + flag]
     else:
         return dic
 
@@ -416,6 +428,7 @@ def dict_clean_mini(direct: str, str_flag: str) -> None:
 def leap_year_solver(dic: dict) -> dict:
     """ Solves the leap year problem. """
     return dic
+
 
 def transfer_feasts(dic: dict) -> dict:
     """ Solves the transfer feast problem. """
@@ -430,13 +443,15 @@ def transfer_feasts(dic: dict) -> dict:
             pass
     return dic
 
+
 def stitch_calendars(direct: str) -> None:
     """ Stitches the temporal and sanctoral calendars together. """
     temp_dict_information = find_module('temporal')
     temp_dictionary = importlib.import_module(temp_dict_information[1])
     temporal = temp_dictionary.__dict__[temp_dict_information[2]]
-    # assume that the temporal calendar is already cleaned and correctly ordered
-    if leap_year(YEAR) == True:
+    # assume that the temporal calendar is already
+    # cleaned and correctly ordered
+    if leap_year(YEAR):
         pass  # work on this later
         # update the calendar with the leap year feasts
     else:
@@ -461,20 +476,31 @@ def stitch_calendars(direct: str) -> None:
 
 
 def our_ladys_saturday(direct: str) -> None:
-    """ Adds all the Saturday Offices of the Blessed Virgin to the temporal calendar """
+    """ Adds all the Saturday Offices of the Blessed Virgin
+     to the temporal calendar """
     # todo add mass number according to season
     office = {
         'feast': 'De Sancta Maria in Sabbato',
         'rank': [21, 's'],
         'color': 'white',
-        'mass': {'int': 'Salve sancta parens', 'glo': True, 'cre': False, 'pre': 'de B Maria Virg (et te in Veneratione)'},
+        'mass': {
+            'int': 'Salve sancta parens',
+            'glo': True,
+            'cre': False,
+            'pre': 'de B Maria Virg (et te in Veneratione)'
+        },
         'com_1': {'oration': 'Deus qui corda', },
         'com_2': {'oration': 'Ecclesiæ', },
         'matins': {},
         'lauds': {},
         'prime': {'responsory': 'Qui natus est', 'preces': True},
         'little_hours': {},
-        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
+        'vespers': {
+            'proper': False,
+            'admag': ('firstVespers', 'secondVerspers'),
+            'propers': {},
+            'oration': ''
+        },
         'compline': {},
         'office_type': 'ut in pr loco',
         'nobility': (8, 2, 6, 13, 3, 0,),
@@ -486,7 +512,7 @@ def our_ladys_saturday(direct: str) -> None:
     if begin_year.strftime('%A') == 'Saturday':
         saturday = begin_year
     else:
-        saturday = begin_year - indays(findsunday(begin_year)+6)
+        saturday = begin_year - indays(findsunday(begin_year) + 6)
     while saturday <= date(YEAR, 12, 31):
         if LENT_BEGINS.date() <= saturday <= LENT_ENDS.date():
             saturday += indays(7)
@@ -500,14 +526,17 @@ def our_ladys_saturday(direct: str) -> None:
                 saturday_in_temporal = Feast(feast_date=saturday.strftime(
                     '%m%d'), properties=dic[saturday.strftime('%m/%d')])
             except KeyError:
-                if saturday.strftime('%m/%d')+'.' in sorted(dic):
+                if saturday.strftime('%m/%d') + '.' in sorted(dic):
                     pass  # we can presume that it is impossible
                 else:
                     dic.update({saturday.strftime('%m/%d'): office})
             else:
                 dic.update(
-                    rank_occurring_feasts(date=saturday.strftime(
-                        '%m/%d'), sanctoral_feast=office, temporal_feast=saturday_in_temporal.feast_properties)
+                    rank_occurring_feasts(
+                        date=saturday.strftime('%m/%d'),
+                        sanctoral_feast=office,
+                        temporal_feast=saturday_in_temporal.feast_properties
+                    )
                 )
             saturday = saturday + indays(7)
     commit_to_dictionary(target_file='calendar', dic=dic)

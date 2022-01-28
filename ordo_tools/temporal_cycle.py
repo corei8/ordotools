@@ -35,7 +35,7 @@ def build_temporal(year: int) -> dict:
             },
             str(circumcision + indays(1)): {  # ! vespers
                 'feast': "Octava S. Stephani Protomartyris",
-                'rank': [19, 's'],
+                'rank': [20, 's'],
                 'color': 'white',
                 'mass': {'int': 'Sederunt', 'glo': True, 'cre': False, 'pre': 'de Nativitate'},
                 'matins': {},
@@ -49,7 +49,7 @@ def build_temporal(year: int) -> dict:
             },
             str(circumcision + indays(2)): {  # ! vespers
                 'feast': "Octava S. Joannis Ap Ev",
-                'rank': [19, 's'],
+                'rank': [20, 's'],
                 'color': 'red',
                 'mass': {'int': 'Introit', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 'matins': {},
@@ -63,7 +63,7 @@ def build_temporal(year: int) -> dict:
             },
             str(circumcision + indays(3)): {  # ! vespers
                 'feast': "Octava Ss Innocentium Mm.",
-                'rank': [19, 's'],
+                'rank': [20, 's'],
                 'color': 'red',
                 'mass': {'int': 'Ex ore infantium', 'glo': True, 'cre': True, 'pre': 'Communis'},
                 'matins': {},
