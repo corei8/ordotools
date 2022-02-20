@@ -7,8 +7,10 @@ import dateutil.easter
 from icecream import ic
 
 from ordo_tools.feast import Feast
-from ordo_tools.settings import YEAR
+from ordo_tools.settings import YEAR #? is this still in use?
+from ordo_tools.liturgical_dates import epact, interger_to_roman
 
+# todo use interger_to_roman to convert the number to roman numerals
 ROMANS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
           'VIII', 'IX', 'X', 'XI', 'XII', 'XIII',
           'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX',
@@ -217,7 +219,8 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
     return None
 
 
-def explode_octaves(region_diocese: str) -> dict:
+def explode_octaves(region_diocese: str) -> dict: 
+    # todo reimplement this to have a seperate dictionary for these
     """ Takes the Octaves in the Sanctoral cycle and explodes them into
     their days within the octave."""
     mdl = importlib.import_module(
@@ -228,7 +231,7 @@ def explode_octaves(region_diocese: str) -> dict:
         if 'Oct' in feast.rank_v:
             if feast.nobility[2] == 4:  # common octave
                 # todo update this to handle every octave type
-                for k, y in enumerate(ROMANS[3:6], start=1):
+                for k, y in enumerate(ROMANS[3:6], start=1): # * this is an ok use of ROMANS
                     feast.name = 'De ' + y + ' die infra '
                     + feast.infra_octave_name
                     feast.rank_v = 'feria'
