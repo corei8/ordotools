@@ -49,14 +49,14 @@ FERIA = [
 def mart_letter(year) -> str:
     """ Find the letter of the martyrology for a given year """
     golden_number = (year + 1) % 19
-    if golden_number == 0:
+    if golden_number == 0: # ? is this true?
         golden_number = 19
     return golden_number
 
 
 MARTYROLOGY = (lambda year: mart_letter(year))(YEAR)
 
-print(MARTYROLOGY)
+ic(MARTYROLOGY)
 
 
 def findsunday(date: datetime) -> timedelta:
@@ -126,7 +126,7 @@ def find_extra_epiphany(pents: int) -> int:
         return pents - 24
 
 
-def leap_year(year: int) -> bool:
+def leap_year(year: int) -> bool: # todo see if there is a more efficient way of taking care of this.
     """ return true if year is a leap year """
     if (year % 4) == 0:
         if (year % 100) == 0:
@@ -461,7 +461,7 @@ def stitch_calendars(direct: str) -> None:
         full_calendar = add_sanctoral_feasts(temporal, sanctoral).copy()
         for y in temporal.keys():
             if len(y) == 6:
-                print(f'problem with {y}')
+                ic(f'problem with {y}')
             if y in sanctoral.keys():
                 continue
             else:
