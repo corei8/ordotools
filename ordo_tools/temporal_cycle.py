@@ -333,8 +333,8 @@ def build_temporal(year: int) -> dict:
                     }
                 )
             epiphany_sundays_counter += 1
-        o += 1  # ? is enumerate possible?
-        epiph_counter += week(1)  # ? this is probably too complicated
+        o += 1  #? is enumerate possible
+        epiph_counter += week(1)  #! this is probably too complicated
     for c, x in enumerate(["I in Quadragesima", "II in Quadragesima", "III in Quadragesima", "IV in Quadragesima (Lætare)", "de Passione", "in Palmis", ]):
         if x == "I in Quadragesima":
             cycle.update(
@@ -1791,3 +1791,4 @@ def build_temporal(year: int) -> dict:
         }
     )
     return cycle
+

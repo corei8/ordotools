@@ -106,8 +106,7 @@ def build_latex_ordo(year):
         file = 'ordo_'+str(year)+'.tex'
         working_dir = os.getcwd()
         os.chdir('output/latex/')
-        subprocess.run('lualatex '+file+' -interaction nonstopmode', shell=True)
-        # , stdout=subprocess.DEVNULL)
+        subprocess.run('lualatex '+file+' -interaction nonstopmode', shell=True , stdout=subprocess.DEVNULL)
         # todo move the pdf into a seperate directory and overwrite the old one
         os.chdir(working_dir)
     return None

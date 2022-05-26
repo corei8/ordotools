@@ -1,4 +1,4 @@
-#!
+#!/usr/bin/python3
 #####################################################
 #                                                   #
 #   (c) 2021 - GREGORY ROBERT BARNES                #
@@ -7,6 +7,10 @@
 #   corei8.github@gmail.com                         #
 #                                                   #
 #####################################################
+
+from icecream import install
+
+install()
 
 
 def main(year: int, diocese: str):
@@ -20,8 +24,8 @@ def main(year: int, diocese: str):
     set_global_year(year)
 
     # from ordo_tools.temporal_cycle import build_temporal
-    from ordo_tools.utils import stitch_calendars, dict_clean, commit_temporal
     from ordo_tools.outputs import build_latex_ordo, readme_calendar
+    from ordo_tools.utils import commit_temporal, dict_clean, stitch_calendars
 
     commit_temporal()
     # explode_octaves(region_diocese=diocese)
@@ -36,4 +40,4 @@ def main(year: int, diocese: str):
 
 
 if __name__ == '__main__':
-    main(year=2022, diocese='roman')
+    main(year=2023, diocese='roman')

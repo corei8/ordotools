@@ -4,11 +4,14 @@ from datetime import date, datetime, timedelta
 from os import listdir
 
 import dateutil.easter
-from icecream import ic
 
 from ordo_tools.feast import Feast
-from ordo_tools.settings import YEAR #? is this still in use?
-from ordo_tools.liturgical_dates import epact, interger_to_roman
+from ordo_tools.settings import YEAR  # ? is this still in use?
+from ordo_tools.liturgical_dates import interger_to_roman, epact_chart, dominical
+
+# * just for testing purposes
+ic(epact_chart(year=YEAR))
+ic(dominical(year=YEAR))
 
 # todo use interger_to_roman to convert the number to roman numerals
 ROMANS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
@@ -48,17 +51,17 @@ FERIA = [
 ]
 
 
-def mart_letter(year) -> str:
-    """ Find the letter of the martyrology for a given year """
-    golden_number = (year + 1) % 19
-    if golden_number == 0: # ? is this true?
-        golden_number = 19
-    return golden_number
+# def mart_letter(year) -> str:
+#     """ Find the letter of the martyrology for a given year """
+#     golden_number = (year + 1) % 19
+#     if golden_number == 0:  # ? is this true?
+#         golden_number = 19
+#     return golden_number
 
 
-MARTYROLOGY = (lambda year: mart_letter(year))(YEAR)
+# MARTYROLOGY = (lambda year: mart_letter(year))(YEAR)
 
-ic(MARTYROLOGY)
+# ic(MARTYROLOGY)
 
 
 def findsunday(date: datetime) -> timedelta:
@@ -128,7 +131,8 @@ def find_extra_epiphany(pents: int) -> int:
         return pents - 24
 
 
-def leap_year(year: int) -> bool: # todo see if there is a more efficient way of taking care of this.
+# todo see if there is a more efficient way of taking care of this.
+def leap_year(year: int) -> bool:
     """ return true if year is a leap year """
     if (year % 4) == 0:
         if (year % 100) == 0:
@@ -219,7 +223,7 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
     return None
 
 
-def explode_octaves(region_diocese: str) -> dict: 
+def explode_octaves(region_diocese: str) -> dict:
     # todo reimplement this to have a seperate dictionary for these
     """ Takes the Octaves in the Sanctoral cycle and explodes them into
     their days within the octave."""
@@ -231,7 +235,8 @@ def explode_octaves(region_diocese: str) -> dict:
         if 'Oct' in feast.rank_v:
             if feast.nobility[2] == 4:  # common octave
                 # todo update this to handle every octave type
-                for k, y in enumerate(ROMANS[3:6], start=1): # * this is an ok use of ROMANS
+                # * this is an ok use of ROMANS
+                for k, y in enumerate(ROMANS[3:6], start=1):
                     feast.name = 'De ' + y + ' die infra '
                     + feast.infra_octave_name
                     feast.rank_v = 'feria'

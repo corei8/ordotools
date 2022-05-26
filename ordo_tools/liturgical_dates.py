@@ -1,5 +1,7 @@
-from math import floor
 from datetime import datetime
+from math import floor
+
+from icecream import ic
 
 
 def interger_to_roman(num=int) -> int:
@@ -44,6 +46,7 @@ def dominical(year=int) -> str:
 
 
 def golden_number(year=int) -> int:
+    # todo remove the other golden number function in utils
     return (year+1) % 19
 
 
@@ -83,6 +86,7 @@ def epact_build(adjust=int) -> list:
 
 
 def epact(year=int) -> str:
+    # ? should we nest the other two functions here?
     e, base, i = '', 1600, 0
     while year >= base:
         i += epact_adjust(year)
@@ -92,3 +96,45 @@ def epact(year=int) -> str:
     if e == 'XXXI':
         e = '*'
     return e
+
+
+def epact_chart(year=int) -> int:
+    """ This function is guaranteed to be accurate """
+    gn = golden_number(year)
+    epct = 0
+    if 0 <= year <= 1582:
+        epct = 0
+    elif 1583 <= year <= 1699:
+        epct = 1
+    elif 1700 <= year <= 1899:
+        epct = 2
+    elif 1900 <= year <= 2199:
+        epct = 3
+    elif 2200 <= year <= 2299:
+        epct = 4
+    elif 2300 <= year <= 2399:
+        epct = 5
+    elif 2400 <= year <= 2499:
+        epct = 6
+    elif 2500 <= year <= 2599:
+        epct = 7
+    elif 2600 <= year <= 2899:
+        epct = 8
+    elif 2900 <= year <= 3099:
+        epct = 9
+    else:
+        epct = 0
+    matrix = [
+        [30, 11, 22, 3, 14, 25, 6, 17, 28, 9, 20, 1, 12, 23, 4, 15, 26, 7, 18, ],
+        [1, 12, 23, 4, 15, 26, 7, 18, 29, 10, 21, 2, 13, 24, 5, 16, 27, 8, 19, ],
+        [30, 11, 22, 3, 14, 25, 6, 17, 28, 9, 20, 1, 12, 23, 4, 15, 26, 7, 18, ],
+        [29, 10, 21, 2, 13, 24, 5, 16, 27, 8, 19, 30, 11, 22, 3, 14, 25, 6, 17, ],
+        [28, 9, 20, 1, 12, 23, 4, 15, 26, 7, 18, 29, 10, 21, 2, 13, 24, 5, 16, ],
+        [27, 8, 19, 30, 11, 22, 3, 14, 25, 6, 17, 28, 9, 20, 1, 12, 23, 4, 15, ],
+        [28, 9, 20, 1, 12, 23, 4, 15, 26, 7, 18, 29, 10, 21, 2, 13, 24, 5, 16, ],
+        [27, 8, 19, 30, 11, 22, 3, 14, 25, 6, 17, 28, 9, 20, 1, 12, 23, 4, 15, ],
+        [26, 7, 18, 29, 10, 21, 2, 13, 24, 5, 16, 27, 8, 19, 30, 11, 22, 3, 14, ],
+        [25, 6, 17, 28, 9, 20, 1, 12, 23, 4, 15, 26, 7, 18, 29, 10, 21, 2, 13, ],
+    ]
+    return matrix[epct][gn-1]
+
