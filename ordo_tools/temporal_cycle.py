@@ -184,7 +184,6 @@ def build_temporal(year: int) -> dict:
                 'compline': {},
                 'office_type': False,
                 'nobility': (False,)
-
             },
         }
     )
