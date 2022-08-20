@@ -91,11 +91,14 @@ LENT_BEGINS = easter(YEAR) - timedelta(weeks=6, days=4)
 
 LENT_ENDS = easter(YEAR) - timedelta(days=1)
 
+EASTER = easter(YEAR)
+
 EASTER_SEASON_END = easter(YEAR) + timedelta(days=39)
 
 PENTECOST_SEASON_START = easter(YEAR) + timedelta(days=49)
 
 PENTECOST_SEASON_END = FIRST_ADVENT - timedelta(days=1)
+
 
 
 def day(year: int, month: int, day: int) -> datetime:

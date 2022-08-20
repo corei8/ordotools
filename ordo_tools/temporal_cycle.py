@@ -3,7 +3,7 @@ from datetime import datetime
 from utils import (
         indays, day, weekday, findsunday, 
         week, easter, ROMANS, LENT_MASSES, 
-        FERIA, find_extra_epiphany, PENTECOST_MASSES
+        FERIA, EASTER, find_extra_epiphany, PENTECOST_MASSES
         )
 
 EMBER_DAYS = []
@@ -16,6 +16,7 @@ def build_temporal(year: int) -> dict:
     Builds the temporal cycle for a given year and writes it to a file.
     """
     cycle = {}
+    # EASTER = easter(year)
     circumcision = day(year, 1, 1)
     cycle.update(
         {
@@ -43,10 +44,10 @@ def build_temporal(year: int) -> dict:
         )
     for i, x in enumerate(("Septuagesima", "Sexagesima", "Quinquagesima")):
         if x == "Septuagesima":
-            septuadate = easter(year) - week(9 - i)
+            septuadate = EASTER - week(9 - i)
         cycle.update(
             {
-                str(easter(year) - week(9 - i)): "Dominica in " + x,
+                str(EASTER - week(9 - i)): "Dominica in " + x,
             }
         )
     epiphany = day(year, 1, 6)
@@ -116,68 +117,68 @@ def build_temporal(year: int) -> dict:
         if x == "I in Quadragesima":
             cycle.update(
                 {
-                    str(easter(year) - week(6-c) - indays(4)): "Dies Cinerum",
-                    str(easter(year) - week(6-c) - indays(3)): "Feria V post Diem Cinerum",
-                    str(easter(year) - week(6-c) - indays(2)): "Feria VI post Diem Cinerum",
-                    str(easter(year) - week(6-c) - indays(1)): "Sabbatum post Diem Cinerum",
+                    str(EASTER - week(6-c) - indays(4)): "Dies Cinerum",
+                    str(EASTER - week(6-c) - indays(3)): "Feria V post Diem Cinerum",
+                    str(EASTER - week(6-c) - indays(2)): "Feria VI post Diem Cinerum",
+                    str(EASTER - week(6-c) - indays(1)): "Sabbatum post Diem Cinerum",
                 }
             )
         cycle.update(
             {
-                str(easter(year) - week(6-c)): "Dominica "+x,
+                str(EASTER - week(6-c)): "Dominica "+x,
             }
         )
         for j, y in enumerate(FERIA):
             if x == "de Passione" and y == "Feria VI":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): "Septem Dolorum BMV",
+                        str(EASTER - week(6-c) + indays(j+1)): "Septem Dolorum BMV",
                     }
                 )
             # ! unite the redundant ifs
             elif x == "I in Quadragesima" and y == "Feria IV":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): "Feria IV Quatuor Temporum Quadragesimæ",
+                        str(EASTER - week(6-c) + indays(j+1)): "Feria IV Quatuor Temporum Quadragesimæ",
                     }
                 )
-                EMBER_DAYS.append(easter(year) - week(6-c) + indays(j+1))
+                EMBER_DAYS.append(EASTER - week(6-c) + indays(j+1))
             elif x == "I in Quadragesima" and y == "Feria VI":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): "Feria VI Quatuor Temporum Quadragesim",
+                        str(EASTER - week(6-c) + indays(j+1)): "Feria VI Quatuor Temporum Quadragesim",
                     }
                 )
-                EMBER_DAYS.append(easter(year) - week(6-c) + indays(j+1))
+                EMBER_DAYS.append(EASTER - week(6-c) + indays(j+1))
             elif x == "I in Quadragesima" and y == "Sabbatum":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): "Sabbatum Quatuor Temporum Quadragesim",
+                        str(EASTER - week(6-c) + indays(j+1)): "Sabbatum Quatuor Temporum Quadragesim",
                     }
                 )
-                EMBER_DAYS.append(easter(year) - week(6-c) + indays(j+1))
+                EMBER_DAYS.append(EASTER - week(6-c) + indays(j+1))
             elif x == "in Palmis" and y == "Feria V":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): y + " in Cœna Domini",
+                        str(EASTER - week(6-c) + indays(j+1)): y + " in Cœna Domini",
                     }
                 )
             elif x == "in Palmis" and y == "Feria VI":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): y + " in Parasceve",
+                        str(EASTER - week(6-c) + indays(j+1)): y + " in Parasceve",
                     }
                 )
             elif x == "in Palmis" and y == "Sabbatum":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): "Sabbatum Sanctum",
+                        str(EASTER - week(6-c) + indays(j+1)): "Sabbatum Sanctum",
                     }
                 )
             elif x == "in Palmis":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): y + " Majoris Hebd",
+                        str(EASTER - week(6-c) + indays(j+1)): y + " Majoris Hebd",
                     }
                 )
             else:
@@ -187,19 +188,19 @@ def build_temporal(year: int) -> dict:
                     new_x = x
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): y + " infra Hebd " + new_x,
+                        str(EASTER - week(6-c) + indays(j+1)): y + " infra Hebd " + new_x,
                     }
                 )
         i += 1
     cycle.update(
         {
-            str(easter(year)): "Dominica Resurrectionis",
-            str(easter(year) + indays(1)): "Feria II infra Oct. Paschæ",
-            str(easter(year) + indays(2)): "Feria III infra Oct. Paschæ",
-            str(easter(year) + indays(3)): "Feria IV infra Oct. Paschæ",
-            str(easter(year) + indays(4)): "Feria V infra Oct. Paschæ",
-            str(easter(year) + indays(5)): "Feria VI infra Oct. Paschæ",
-            str(easter(year) + indays(6)): "Sabbatum in Albis",
+            str(EASTER): "Dominica Resurrectionis",
+            str(EASTER + indays(1)): "Feria II infra Oct. Paschæ",
+            str(EASTER + indays(2)): "Feria III infra Oct. Paschæ",
+            str(EASTER + indays(3)): "Feria IV infra Oct. Paschæ",
+            str(EASTER + indays(4)): "Feria V infra Oct. Paschæ",
+            str(EASTER + indays(5)): "Feria VI infra Oct. Paschæ",
+            str(EASTER + indays(6)): "Sabbatum in Albis",
         }
     )
     post_pent = [
@@ -208,32 +209,32 @@ def build_temporal(year: int) -> dict:
         "Dominica III post Pascha",
         "Dominica IV post Pascha",
         "Dominica V post Pascha",
-        "Dominica infra Octavam Ascensionis",
+        "Dominica infra Oct. Ascensionis",
     ]
     for i, x in enumerate(post_pent, start=1):
         if x == "Dominica II post Pascha":
             cycle.update(
                 {
-                    str(easter(year) + week(i) + indays(3)): "Solemnitas S. Joseph, Sponsi BMV C. et Ecclesiæ Universalis Patroni",
+                    str(EASTER + week(i) + indays(3)): "Solemnitas S. Joseph, Sponsi BMV C. et Ecclesiæ Universalis Patroni",
                     # todo We need all the days within the octave
-                    str(easter(year) + week(i + 1) + indays(3)): "Octava Solemnitatis S. Joseph",
+                    str(EASTER + week(i + 1) + indays(3)): "Octava Solemnitatis S. Joseph",
                 }
             )
         if x == "Dominica V post Pascha":
-            ROGATION_MONDAY = easter(year) + week(i) + indays(1)
+            ROGATION_MONDAY = EASTER + week(i) + indays(1)
             cycle.update(
                 {
-                    str(easter(year) + week(i) + indays(1)): "Feria II in Rogationibus",
-                    str(easter(year) + week(i) + indays(2)): "Feria III in Rogationibus",
-                    str(easter(year) + week(i) + indays(3)): "Feria IV in Rogationibus in Vigilia Ascensionis ",
-                    str(easter(year) + week(i) + indays(4)): "Ascensio DNJC",
-                    str(easter(year) + week(i) + indays(4+7)): "Oct. Ascensionis DNJC",
+                    str(EASTER + week(i) + indays(1)): "Feria II in Rogationibus",
+                    str(EASTER + week(i) + indays(2)): "Feria III in Rogationibus",
+                    str(EASTER + week(i) + indays(3)): "Feria IV in Rogationibus in Vigilia Ascensionis ",
+                    str(EASTER + week(i) + indays(4)): "Ascensio DNJC",
+                    str(EASTER + week(i) + indays(4+7)): "Oct. Ascensionis DNJC",
                 }
             )
-            asc_day = easter(year) + week(i) + indays(5)
+            asc_day = EASTER + week(i) + indays(5)
         if x == "Dominica infra Octavam Ascensionis":
             for j, y in enumerate(ROMANS[1: 6], start=1):
-                if asc_day + indays(j) == easter(year) + week(i):
+                if asc_day + indays(j) == EASTER + week(i):
                     continue
                 elif (asc_day + indays(j)).strftime("%A") == "Saturday":
                     cycle.update(
@@ -250,16 +251,16 @@ def build_temporal(year: int) -> dict:
         if x == "Dominica in Albis":
             cycle.update(
                 {
-                    str(easter(year) + week(i)): x,
+                    str(EASTER + week(i)): x,
                 }
             )
         else:
             cycle.update(
                 {
-                    str(easter(year) + week(i)): x,
+                    str(EASTER + week(i)): x,
                 }
             )
-    pent_date = easter(year) + week(i+1)
+    pent_date = EASTER + week(i+1)
     cycle.update(
         {
             str(pent_date - indays(1)): "Sabbatum Vigilia Pentecostes",
@@ -283,16 +284,16 @@ def build_temporal(year: int) -> dict:
     cycle.update(
         {
             str(pent_date + indays(j + 2)): "Sabbatum infra Oct. Pentecostes",
-            str(easter(year) + week(i+1) + indays(3)): "Feria IV Quatuor Temporum infra Oct. Pentecostes",
-            str(easter(year) + week(i+1) + indays(5)): "Feria VI Quatuor Temporum infra Oct. Pentecostes",
-            str(easter(year) + week(i+1) + indays(6)): "Sabbatum Quatuor Temporum infra Oct. Pentecostes",
+            str(EASTER + week(i+1) + indays(3)): "Feria IV Quatuor Temporum infra Oct. Pentecostes",
+            str(EASTER + week(i+1) + indays(5)): "Feria VI Quatuor Temporum infra Oct. Pentecostes",
+            str(EASTER + week(i+1) + indays(6)): "Sabbatum Quatuor Temporum infra Oct. Pentecostes",
         }
     )
     EMBER_DAYS.extend(
             [
-                easter(year) + week(i+1) + indays(3), 
-                easter(year) + week(i+1) + indays(5), 
-                easter(year) + week(i+1) + indays(6)
+                EASTER + week(i+1) + indays(3), 
+                EASTER + week(i+1) + indays(5), 
+                EASTER + week(i+1) + indays(6)
                 ]
             )
     i += 1
