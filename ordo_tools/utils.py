@@ -100,7 +100,6 @@ PENTECOST_SEASON_START = easter(YEAR) + timedelta(days=49)
 PENTECOST_SEASON_END = FIRST_ADVENT - timedelta(days=1)
 
 
-
 def day(year: int, month: int, day: int) -> datetime:
     return datetime(year=year, month=month, day=day)
 
@@ -110,7 +109,7 @@ def week(i: int) -> timedelta:
     return timedelta(weeks=i)
 
 
-def indays(numdays: int) -> timedelta:
+def days(numdays: int) -> timedelta:
     """ return a timedelta day(s), with integers as the input """
     return timedelta(days=numdays)
 
