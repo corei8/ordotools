@@ -1,14 +1,21 @@
 import re
 from datetime import datetime
-from ordo_tools.utils import indays, day, weekday, findsunday, week, easter, ROMANS, LENT_MASSES, FERIA, find_extra_epiphany, PENTECOST_MASSES
+from utils import (
+        indays, day, weekday, findsunday, 
+        week, easter, ROMANS, LENT_MASSES, 
+        FERIA, find_extra_epiphany, PENTECOST_MASSES
+        )
+
+EMBER_DAYS = []
 
 # TODO: this function should be broken down
+# TODO: make ids for all the feasts
+
 def build_temporal(year: int) -> dict:
     """ 
     Builds the temporal cycle for a given year and writes it to a file.
     """
     cycle = {}
-    EMBER_DAYS = []
     circumcision = day(year, 1, 1)
     cycle.update(
         {
@@ -223,21 +230,21 @@ def build_temporal(year: int) -> dict:
                     str(easter(year) + week(i) + indays(4+7)): "Oct. Ascensionis DNJC",
                 }
             )
-            ascension_day = easter(year) + week(i) + indays(5)
+            asc_day = easter(year) + week(i) + indays(5)
         if x == "Dominica infra Octavam Ascensionis":
             for j, y in enumerate(ROMANS[1: 6], start=1):
-                if ascension_day + indays(j) == easter(year) + week(i):
+                if asc_day + indays(j) == easter(year) + week(i):
                     continue
-                elif (ascension_day + indays(j)).strftime("%A") == "Saturday":
+                elif (asc_day + indays(j)).strftime("%A") == "Saturday":
                     cycle.update(
                         {
-                            str(ascension_day + indays(j)): "Sabbatum infra Oct. Ascensionis",
+                            str(asc_day + indays(j)): "Sabbatum infra Oct. Ascensionis",
                         }
                     )
                 else:
                     cycle.update(
                         {
-                            str(ascension_day + indays(j)): "De "+y+" die infra Oct. Ascensionis",
+                            str(asc_day + indays(j)): "De "+y+" die infra Oct. Ascensionis",
                         }
                     )
         if x == "Dominica in Albis":
@@ -516,5 +523,24 @@ def build_temporal(year: int) -> dict:
             str(christmas + indays(6)): "S. Silvestri I PC",
         }
     )
+    # TODO: return the dict sorted
     return cycle
+
+
+# NOTE: Testing purposes:
+
+def test_temporal(year: int):
+    temp_cycle = build_temporal(year=year)
+    for item in sorted(temp_cycle):
+        format = "%Y-%m-%d %H:%M:%S"
+        date = datetime.strftime(datetime.strptime(item, format), '%a, %b %d')
+        print(date + " --> " + temp_cycle[item])
+    return None
+
+test_year = int(input('test year: '))
+
+print('-'*20)
+
+test_temporal(test_year)
+
 
