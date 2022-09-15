@@ -41,13 +41,22 @@ PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine',
 
 EPIPHANY_MASSES = ('', )
 
+# FERIA = [
+    # 'Feria II',
+    # 'Feria III',
+    # 'Feria IV',
+    # 'Feria V',
+    # 'Feria VI',
+    # 'Sabbatum',
+# ]
+
 FERIA = [
-    'Feria II',
-    'Feria III',
-    'Feria IV',
-    'Feria V',
-    'Feria VI',
-    'Sabbatum',
+    '_f2',
+    '_f3',
+    '_f4',
+    '_f5',
+    '_f6',
+    '_fs',
 ]
 
 
