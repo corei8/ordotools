@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 #####################################################
 #                                                   #
-#   (c) 2021 - GREGORY ROBERT BARNES                #
+#   (c) 2022 - GREGORY ROBERT BARNES                #
 #   THIS SOFTWARE MAY NOT BE USED EXCEPT WITH THE   #
 #   EXPLICIT PERMISSION OF GREGORY ROBERT BARNES.   #
 #   corei8.github@gmail.com                         #
+#   fr.grbarnes@gmail.com                           #
 #                                                   #
 #####################################################
 

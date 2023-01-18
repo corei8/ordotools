@@ -1,80 +1,30 @@
 import re
 from datetime import datetime
-from ordo_tools.utils import indays, day, weekday, findsunday, week, easter, ROMANS, LENT_MASSES, FERIA, find_extra_epiphany, PENTECOST_MASSES
+from utils import (
+        days, day, weekday, findsunday, 
+        week, easter, find_extra_epiphany,
+        ROMANS, LENT_MASSES, 
+        FERIA, EASTER, PENTECOST_MASSES
+        )
 
+EMBER_DAYS = []
+
+# TODO: this function should be broken down
+# TODO: make ids for all the feasts
 
 def build_temporal(year: int) -> dict:
-    """ Builds the temporal cycle for a given year and writes it to a file.
-
-    Args:
-            year (int): Year for the temporal cycle
-
-    Returns:
-            None
+    """ 
+    Builds the temporal cycle for a given year and writes it to a file.
     """
     cycle = {}
-    EMBER_DAYS = []
-    # todo make cycle a dictionary
+    # EASTER = easter(year)
     circumcision = day(year, 1, 1)
     cycle.update(
         {
-            str(circumcision): {  # ! vespers
-                'feast': "Circumcisio DNJC et Oct. Nativitatis",
-                'rank': [3, 'd II cl'],
-                #'com_1': {'feast': 'S. Telesphori PM'},
-                'color': 'white',
-                'mass': {'int': 'Puer natus', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'festiva',
-                'nobility': (False,),
-            },
-            str(circumcision + indays(1)): {  # ! vespers
-                'feast': "Octava S. Stephani Protomartyris",
-                'rank': [20, 's'],
-                'color': 'white',
-                'mass': {'int': 'Sederunt', 'glo': True, 'cre': False, 'pre': 'de Nativitate'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': False,
-                'nobility': (False,),
-            },
-            str(circumcision + indays(2)): {  # ! vespers
-                'feast': "Octava S. Joannis Ap Ev",
-                'rank': [20, 's'],
-                'color': 'red',
-                'mass': {'int': 'Introit', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ['firstVespers', 'secondVerspers'], 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': False,
-                'nobility': (False,),
-            },
-            str(circumcision + indays(3)): {  # ! vespers
-                'feast': "Octava Ss Innocentium Mm.",
-                'rank': [20, 's'],
-                'color': 'red',
-                'mass': {'int': 'Ex ore infantium', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': False,
-                'nobility': (False,),
-            },
+            str(circumcision): "Circumcisio DNJC et Oct. Nativitatis",
+            str(circumcision + days(1)): "Octava S. Stephani Protomartyris",
+            str(circumcision + days(2)): "Octava S. Joannis Ap Ev",
+            str(circumcision + days(3)): "Octava Ss Innocentium Mm.",
         }
     )
     if (
@@ -84,107 +34,31 @@ def build_temporal(year: int) -> dict:
     ):
         cycle.update(
             {
-                str(day(year, 1, 2)): {  # ! vespers
-                    'feast': "Ssmi Nominis Jesu",
-                    'rank': [10, 'd II cl'],
-                    'color': 'color',
-                    'mass': {'int': 'In nomine Jesu', 'glo': True, 'cre': True, 'pre': 'de Nativitate'},
-                    'matins': {},
-                    'lauds': {},
-                    'prime': {},
-                    'little_hours': {},
-                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                    'compline': {},
-                    'office_type': 'festiva',
-                    'nobility': (False,),
-                }
+                str(day(year, 1, 2)): "Ssmi Nominis Jesu",
             }
         )
     else:
         cycle.update(
             {
-                str(circumcision-findsunday(circumcision)+week(1)): {  # ! vespers
-                    'feast': "Ssmi Nominis Jesu",
-                    'rank': [10, 'd II cl'],
-                    'color': 'white',
-                    'mass': {'int': 'In nomine Jesu', 'glo': True, 'cre': True, 'pre': 'de Nativitate'},
-                    'matins': {},
-                    'lauds': {},
-                    'prime': {},
-                    'little_hours': {},
-                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                    'compline': {},
-                    'office_type': 'festiva',
-                    'nobility': (False,),
-                }
+                str(circumcision-findsunday(circumcision)+week(1)): "Ssmi Nominis Jesu",
             }
         )
+
     for i, x in enumerate(("Septuagesima", "Sexagesima", "Quinquagesima")):
         if x == "Septuagesima":
-            septuadate = easter(year) - week(9 - i)
+            septuadate = EASTER - week(9 - i)
         cycle.update(
             {
-                str(easter(year) - week(9 - i)): {  # ! mass, vespers
-                    'feast': "Dominica in " + x,
-                    'rank': [8, 'sd II cl'],
-                    'color': 'white',
-                    'mass': {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                    'matins': {},
-                    'lauds': {},
-                    'prime': {},
-                    'little_hours': {},
-                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                    'compline': {},
-                    'office_type': 'dominica',
-                    'nobility': (False,),
-                },
+                str(EASTER - week(9 - i)): "Dominica in " + x,
             }
         )
+
     epiphany = day(year, 1, 6)
     cycle.update(
         {
-            str(epiphany - indays(1)): {  # ! vespers
-                'feast': "Vigilia Epiphaniæ",
-                'rank': [12, 'sd Vig privil 2 cl'],
-                'color': 'white',
-                'mass': {'int': 'Dum medium silentium', 'glo': True, 'cre': True, 'pre': 'de Nativitate'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'feria',
-                'nobility': (False,)
-            },
-            str(epiphany): {  # ! vespers
-                'feast': "Epiphania DNJC",
-                'rank': [2, 'd I cl cum Oct privil 2 ord'],
-                'color': 'white',
-                'mass': {'int': 'Ecce advenit', 'glo': True, 'cre': True, 'pre': 'de Epiphania'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'festiva',
-                'nobility': (False,)
-            },
-            str(epiphany + indays(7)): {  # ! mass, vespers
-                'feast': "Octava Epiphaniæ",
-                'rank': [13, 'dm'],
-                'color': 'white',
-                'mass': {'int': 'Ecce advenit', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': False,
-                'nobility': (False,)
-            },
+            str(epiphany - days(1)): "Vigilia Epiphaniæ",
+            str(epiphany): "Epiphania DNJC",
+            str(epiphany + days(7)): "Octava Epiphaniæ",
         }
     )
     if weekday(epiphany) == "Sun":
@@ -193,382 +67,128 @@ def build_temporal(year: int) -> dict:
         first_epiph = epiphany - findsunday(epiphany) + week(1)
     epiphany_sundays_counter = 1
     for i, x in enumerate(ROMANS[0: 6]):
-        if weekday(epiphany + indays(i+1)) != "Sun":
-            # todo use the global FERIA for these
-            if weekday(epiphany + indays(i+1)) == "Sat":
+        if weekday(epiphany + days(i+1)) != "Sun":
+            # TODO: the the global FERIA for these
+            if weekday(epiphany + days(i+1)) == "Sat":
                 cycle.update(
                     {
-                        str(epiphany + indays(i+1)): {  # ! mass, vespers
-                            'feast': "Sabbato infra Oct. Epiphaniæ",
-                            'rank': [9, 'feria'],
-                            'color': 'white',
-                            'mass': {'int': 'Ecce advenit', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': 'feria',
-                            'nobility': (False,),
-                        },
+                        str(epiphany + days(i+1)): "Sabbato infra Oct. Epiphaniæ",
                     }
                 )
             else:
                 cycle.update(
                     {
-                        str(epiphany + indays(i+1)): {  # ! mass, vespers
-                            'feast': "De "+ROMANS[i+1]+" die infra Oct. Epiphaniæ",
-                            'rank': [9, 'feria'],
-                            'color': 'white',
-                            'mass': {'int': 'Ecce advenit', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': 'feria',
-                            'nobility': (False,),
-                        },
+                        str(epiphany + days(i+1)): "De "+ROMANS[i+1]+" die infra Oct. Epiphaniæ",
                     }
                 )
         else:
             pass
+
     epiph_counter, o = first_epiph, 0
-    epiph_sundays = ["I", "II", "III", "IV", "V", "VI"]
+    # epiph_sundays = ["I", "II", "III", "IV", "V", "VI"]
+    epiph_sundays = ROMANS[0:5]
     while epiph_counter.strftime('%m%d') != septuadate.strftime('%m%d'):
-        if epiph_sundays[o] == 'I':
+        print("iteration: ", o)
+        if o+1 > len(epiph_sundays):
+            print("out of range!")
+            break
+        elif epiph_sundays[o] == 'I':
             if epiph_counter == day(year, 1, 13):
-                # todo add ferias
+                # TODO: add ferias
                 cycle.update(
                     {
-                        str(epiph_counter): {  # ! vespers
-                            'feast': "In Octava Epiphaniæ",
-                            'rank': [13, 'dm'],
-                            'color': 'white',
-                            'mass': {'int': 'Ecce advenit', 'glo': True, 'cre': True, 'pre': 'et Comm de Epiphania'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        },
-                        str(epiph_counter - indays(1)): {  # ! vespers
-                            'feast': "S. Familiæ Jesu, Mariæ, Joseph",
-                            'rank': [11, 'dm'],
-                            'color': 'white',
-                            'mass': {'int': 'Exultat', 'glo': True, 'cre': True, 'pre': 'et communcantes de Epiphania'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        },
+                        str(epiph_counter): "In Octava Epiphaniæ",
+                        str(epiph_counter - days(1)): "S. Familiæ Jesu, Mariæ, Joseph",
                     }
                 )
             else:
                 cycle.update(
                     {
-                        str(epiph_counter): {  # !  vespers
-                            'feast': "S. Familiæ Jesu, Mariæ, Joseph; Dominica "+epiph_sundays[o]+" infra Oct. Epiphaniæ",
-                            'rank': [11, 'dm'],
-                            'color': 'white',
-                            'mass': {'int': 'In excelso', 'glo': True, 'cre': True, 'pre': 'et Comm de Epiphania'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        }
+                        str(epiph_counter): "S. Familiæ Jesu, Mariæ, Joseph; Dominica "+epiph_sundays[o]+" infra Oct. Epiphaniæ",
                     }
                 )
         else:
             cycle.update(
                 {
-                    str(epiph_counter): {  # ! vespers
-                        'feast': "Dominica "+epiph_sundays[o]+" post Epiphaniam",
-                        'rank': [12, 'sd'],
-                        'color': 'white',
-                        # ! check the Introit for the Sunday and the feria
-                        'mass': {'int': 'Omnis terra', 'glo': True, 'cre': True, 'pre': 'de Ssma Trinitate'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'dominica',
-                        'nobility': (False,),
-                    }
+                    str(epiph_counter): "Dominica "+epiph_sundays[o]+" post Epiphaniam",
                 }
             )
             for t in range(6):
                 cycle.update(
                     {
-                        str(epiph_counter + indays(t+1)): {  # ! vespers
-                            'feast': 'De ea',
-                            'rank': [23, 's'],
-                            'color': 'white', 
-                            'mass': {'int': 'Omnis terra', 'glo': True, 'cre': False, 'pre': 'Communis'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': 'feria',
-                            'nobility': (8, 2, 6, 13, 3, 0,),
-                        },
+                        str(epiph_counter + days(t+1)): 'De ea',
                     }
                 )
             epiphany_sundays_counter += 1
         o += 1  #? is enumerate possible
         epiph_counter += week(1)  #! this is probably too complicated
+
     for c, x in enumerate(["I in Quadragesima", "II in Quadragesima", "III in Quadragesima", "IV in Quadragesima (Lætare)", "de Passione", "in Palmis", ]):
         if x == "I in Quadragesima":
             cycle.update(
                 {
-                    str(easter(year) - week(6-c) - indays(4)): {  # ! vespers
-                        'feast': "Dies Cinerum",
-                        'rank': [3, 's I cl'],
-                        'color': 'violet',
-                        'mass': {'int': 'Misereris', 'glo': True, 'cre': True, 'pre': 'de Quadragesima'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (False,),
-                    },
-                    str(easter(year) - week(6-c) - indays(3)): {  # ! mass, vespers
-                        'feast': "Feria V post Diem Cinerum",
-                        'rank': [19, 's'],
-                        'color': 'violet',
-                        'mass': {'int': 'Dum clamarem', 'glo': False, 'cre': False, 'pre': 'de Quadragesima'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (False,),
-                    },
-                    str(easter(year) - week(6-c) - indays(2)): {  # ! vespers
-                        'feast': "Feria VI post Diem Cinerum",
-                        'rank': [19, 's'],
-                        'color': 'violet',
-                        'mass': {'int': 'Audivit', 'glo': False, 'cre': False, 'pre': 'de Quadragesima'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (False,),
-                    },
-                    str(easter(year) - week(6-c) - indays(1)): {  # ! mass, vespers
-                        'feast': "Sabbatum post Diem Cinerum",
-                        'rank': [19, 's'],
-                        'color': 'violet',
-                        'mass': {'int': 'Audivit', 'glo': False, 'cre': False, 'pre': 'de Quadragesima'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (False,),
-                    },
+                    str(EASTER - week(6-c) - days(4)): "Dies Cinerum",
+                    str(EASTER - week(6-c) - days(3)): "Feria V post Diem Cinerum",
+                    str(EASTER - week(6-c) - days(2)): "Feria VI post Diem Cinerum",
+                    str(EASTER - week(6-c) - days(1)): "Sabbatum post Diem Cinerum",
                 }
             )
         cycle.update(
             {
-                str(easter(year) - week(6-c)): {
-                    'feast': "Dominica "+x,
-                    'rank': [1, 'sd I cl'],
-                    'color': 'violet',
-                    'mass': {'int': 'Invocabit me', 'glo': False, 'cre': True, 'pre': 'de Quadragesima'},
-                    'matins': {},
-                    'lauds': {},
-                    'prime': {},
-                    'little_hours': {},
-                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                    'compline': {},
-                    'office_type': 'dominica',
-                    'nobility': (False,),
-                }
+                str(EASTER - week(6-c)): "Dominica "+x,
             }
         )
         for j, y in enumerate(FERIA):
             if x == "de Passione" and y == "Feria VI":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): {  # ! vespers
-                            'feast': "Septem Dolorum BMV",
-                            'rank': [14, 'dm'],
-                            'color': 'violet',
-                            'mass': {'int': 'Stabant', 'glo': False, 'seq': 'Stabat Mater', 'cre': True, 'pre': 'de B. Maria Virg.'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        }
+                        str(EASTER - week(6-c) + days(j+1)): "Septem Dolorum BMV",
                     }
                 )
             # ! unite the redundant ifs
             elif x == "I in Quadragesima" and y == "Feria IV":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): {  # ! vespers
-                            'feast': "Feria IV Quatuor Temporum Quadragesimæ",
-                            'rank': [3, 's'],
-                            'color': 'violet',
-                            'mass': {'int': 'Reminiscere', 'glo': False, 'cre': False, 'pre': 'de Quadragesima'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        }
+                        str(EASTER - week(6-c) + days(j+1)): "Feria IV Quatuor Temporum Quadragesimæ",
                     }
                 )
-                EMBER_DAYS.append(easter(year) - week(6-c) + indays(j+1))
+                EMBER_DAYS.append(EASTER - week(6-c) + days(j+1))
             elif x == "I in Quadragesima" and y == "Feria VI":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): {  # ! vespers
-                            'feast': "Feria VI Quatuor Temporum Quadragesim",
-                            'rank': [3, 's'],
-                            'color': 'violet',
-                            'mass': {'int': 'De necessitatibus', 'glo': False, 'cre': False, 'pre': 'de Quadragesima'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        }
+                        str(EASTER - week(6-c) + days(j+1)): "Feria VI Quatuor Temporum Quadragesim",
                     }
                 )
-                EMBER_DAYS.append(easter(year) - week(6-c) + indays(j+1))
+                EMBER_DAYS.append(EASTER - week(6-c) + days(j+1))
             elif x == "I in Quadragesima" and y == "Sabbatum":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): {  # ! vespers
-                            'feast': "Sabbatum Quatuor Temporum Quadragesim",
-                            'rank': [3, 's'],
-                            'color': 'violet',
-                            'mass': {'int': 'Intret', 'glo': False, 'cre': False, 'pre': 'de Quadragesima'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        }
+                        str(EASTER - week(6-c) + days(j+1)): "Sabbatum Quatuor Temporum Quadragesim",
                     }
                 )
-                EMBER_DAYS.append(easter(year) - week(6-c) + indays(j+1))
+                EMBER_DAYS.append(EASTER - week(6-c) + days(j+1))
             elif x == "in Palmis" and y == "Feria V":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): {  # ! vespers
-                            'feast': y + " in Cœna Domini",
-                            'rank': [2, 'd I cl'],
-                            'color': 'white',
-                            'mass': {'int': 'Nos autem', 'glo': True, 'cre': False, 'pre': 'de Cruce'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        }
+                        str(EASTER - week(6-c) + days(j+1)): y + " in Cœna Domini",
                     }
                 )
             elif x == "in Palmis" and y == "Feria VI":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): {  # ! vespers
-                            'feast': y + " in Parasceve",
-                            'rank': [2, 'd I cl'],
-                            'color': 'black',
-                            'mass': {'int': 'Haec dicit', 'glo': False, 'cre': False, 'pre': ''},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        }
+                        str(EASTER - week(6-c) + days(j+1)): y + " in Parasceve",
                     }
                 )
             elif x == "in Palmis" and y == "Sabbatum":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): {  # ! vespers
-                            'feast': "Sabbatum Sanctum",
-                            'rank': [2, 'd I cl'],
-                            'color': 'violet',
-                            'mass': {'int': 'In Missa', 'glo': True, 'cre': False, 'pre': 'Te quidem'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        }
+                        str(EASTER - week(6-c) + days(j+1)): "Sabbatum Sanctum",
                     }
                 )
             elif x == "in Palmis":
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): {  # ! vespers
-                            'feast': y + " Majoris Hebd",
-                            'rank': [3, 's'],
-                            'color': 'violet',
-                            'mass': {'int': 'Judica, Domine' if y == 'Feria II' else ('Nos autem' if y == 'Feria III' else 'In nomine Jesu'), 'glo': False, 'cre': False, 'pre': 'de Cruce'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        }
+                        str(EASTER - week(6-c) + days(j+1)): y + " Majoris Hebd",
                     }
                 )
             else:
@@ -578,123 +198,19 @@ def build_temporal(year: int) -> dict:
                     new_x = x
                 cycle.update(
                     {
-                        str(easter(year) - week(6-c) + indays(j+1)): {  # ! vespers
-                            'feast': y + " infra Hebd " + new_x,
-                            'rank': [19, 'sd I cl'],
-                            'color': 'violet',
-                            'mass': {'int': LENT_MASSES[j-1], 'glo': False, 'cre': False, 'pre': 'de Quadragesima' if x != 'de Passione' else 'de Cruce'},
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': False,
-                            'nobility': (False,),
-                        }
+                        str(EASTER - week(6-c) + days(j+1)): y + " infra Hebd " + new_x,
                     }
                 )
         i += 1
     cycle.update(
         {
-            str(easter(year)): {  # !  vespers
-                'feast': "Dominica Resurrectionis",
-                'rank': [1, 'd I cl cum Oct privil I ord'],
-                'color': 'white',
-                'mass': {'int': 'Ressurexi', 'glo': True, 'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'Paschalis'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'festiva',
-                'nobility': (False,),
-            },
-            str(easter(year) + indays(1)): {  # ! vespers
-                'feast': "Feria II infra Oct. Paschæ",
-                'rank': [2, 'd I cl'],
-                'color': 'white',
-                'mass': {'int': 'Introduxit', 'glo': True, 'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': False,
-                'nobility': (False,),
-            },
-            str(easter(year) + indays(2)): {  # ! vespers
-                'feast': "Feria III infra Oct. Paschæ",
-                'rank': [2, 'd I cl'],
-                'color': 'white',
-                'mass': {'int': 'Aqua sapientiae', 'glo': True, 'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': False,
-                'nobility': (False,),
-            },
-            str(easter(year) + indays(3)): {  # ! vespers
-                'feast': "Feria IV infra Oct. Paschæ",
-                'rank': [3, 'sd'],
-                'color': 'white',
-                'mass': {'int': 'Venite', 'glo': True, 'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': False,
-                'nobility': (False,),
-            },
-            str(easter(year) + indays(4)): {  # ! vespers
-                'feast': "Feria V infra Oct. Paschæ",
-                'rank': [3, 'sd'],
-                'color': 'white',
-                'mass': {'int': 'Victricem', 'glo': True, 'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hang Igitur, ut in die Paschae'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': False,
-                'nobility': (False,),
-            },
-            str(easter(year) + indays(5)): {  # ! vespers
-                'feast': "Feria VI infra Oct. Paschæ",
-                'rank': [3, 'sd'],
-                'color': 'white',
-                'mass': {'int': 'Eduxit eos', 'glo': True, 'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': False,
-                'nobility': (False,),
-            },
-            str(easter(year) + indays(6)): {  # ! vespers
-                'feast': "Sabbatum in Albis",
-                'rank': [3, 'sd'],
-                'color': 'white',
-                'mass': {'int': 'Eduxit Dominus', 'glo': True, 'seq': 'Victimae paschali laudes', 'cre': True, 'pre': 'et Comm et Hanc Igitur, ut in die Paschae'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': False,
-                'nobility': (False,),
-            },
+            str(EASTER): "Dominica Resurrectionis",
+            str(EASTER + days(1)): "Feria II infra Oct. Paschæ",
+            str(EASTER + days(2)): "Feria III infra Oct. Paschæ",
+            str(EASTER + days(3)): "Feria IV infra Oct. Paschæ",
+            str(EASTER + days(4)): "Feria V infra Oct. Paschæ",
+            str(EASTER + days(5)): "Feria VI infra Oct. Paschæ",
+            str(EASTER + days(6)): "Sabbatum in Albis",
         }
     )
     post_pent = [
@@ -703,497 +219,139 @@ def build_temporal(year: int) -> dict:
         "Dominica III post Pascha",
         "Dominica IV post Pascha",
         "Dominica V post Pascha",
-        "Dominica infra Octavam Ascensionis",
+        "Dominica infra Oct. Ascensionis",
     ]
     for i, x in enumerate(post_pent, start=1):
         if x == "Dominica II post Pascha":
             cycle.update(
                 {
-                    str(easter(year) + week(i) + indays(3)): {  # ! mass, vespers
-                        'feast': "Solemnitas S. Joseph, Sponsi BMV C. et Ecclesiæ Universalis Patroni",
-                        # ! No octave (?)
-                        'rank': [2, 'd I cl cum Oct Communi'],
-                        'color': 'white',
-                        'mass': {'int': 'Justus ut palma', 'glo': True, 'cre': True, 'pre': 'de S. Joseph'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': False,
-                        'nobility': (False,),
-                    },
+                    str(EASTER + week(i) + days(3)): "Solemnitas S. Joseph, Sponsi BMV C. et Ecclesiæ Universalis Patroni",
                     # todo We need all the days within the octave
-                    str(easter(year) + week(i + 1) + indays(3)): {  # ! mass, vespers
-                        'feast': "Octava Solemnitatis S. Joseph",
-                        'rank': [13, 'dm'],
-                        'color': 'white',
-                        'mass': {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': False,
-                        'nobility': (False,),
-                    },
+                    str(EASTER + week(i + 1) + days(3)): "Octava Solemnitatis S. Joseph",
                 }
             )
         if x == "Dominica V post Pascha":
-            ROGATION_MONDAY = easter(year) + week(i) + indays(1)
+            ROGATION_MONDAY = EASTER + week(i) + days(1)
             cycle.update(
                 {
-                    str(easter(year) + week(i) + indays(1)): {  # ! vespers
-                        'feast': "Feria II in Rogationibus",
-                        'rank': [19, 'feria'],
-                        'color': 'violet',
-                        'mass': {'int': 'Exaudivit', 'glo': False, 'cre': True, 'pre': 'Paschalis'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (0, 0, 0, 13, 0, 0,),
-                    },
-                    str(easter(year) + week(i) + indays(2)): {  # ! vespers
-                        'feast': "Feria III in Rogationibus",
-                        'rank': [19, 'feria'],
-                        'color': 'violet',
-                        'mass': {'int': 'Exaudivit', 'glo': False, 'cre': True, 'pre': 'Paschalis'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (0, 0, 0, 13, 0, 0,),
-                    },
-                    str(easter(year) + week(i) + indays(3)): {  # ! vespers
-                        'feast': "Feria IV in Rogationibus in Vigilia Ascensionis ",
-                        'rank': [19, 'feria'],
-                        'color': 'violet',
-                        'mass': {'int': 'Exaudivit', 'glo': False, 'cre': True, 'pre': 'Paschalis'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (9, 2, 6, 13, 3, 0,),
-                    },
-                    str(easter(year) + week(i) + indays(4)): {  # ! vespers
-                        'feast': "Ascensio DNJC",
-                        'rank': [2, 'd I cl cum Oct privil 3 ord'],
-                        'color': 'white',
-                        'mass': {'int': 'Viri Galilæi', 'glo': True, 'cre': True, 'pre': 'et Comm de Ascensione'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'festiva',
-                        'nobility': (False,),
-                    },
-                    str(easter(year) + week(i) + indays(4+7)): {  # ! vespers
-                        'feast': "Oct. Ascensionis DNJC",
-                        'rank': [13, 'dm'],
-                        'color': 'white',
-                        'mass': {'int': 'Viri Galilæi', 'glo': True, 'cre': True, 'pre': 'et Comm de Ascensione'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': False,
-                        'nobility': (False,),
-                    },
+                    str(EASTER + week(i) + days(1)): "Feria II in Rogationibus",
+                    str(EASTER + week(i) + days(2)): "Feria III in Rogationibus",
+                    str(EASTER + week(i) + days(3)): "Feria IV in Rogationibus in Vigilia Ascensionis ",
+                    str(EASTER + week(i) + days(4)): "Ascensio DNJC",
+                    str(EASTER + week(i) + days(4+7)): "Oct. Ascensionis DNJC",
                 }
             )
-            ascension_day = easter(year) + week(i) + indays(5)
+            asc_day = EASTER + week(i) + days(5)
         if x == "Dominica infra Octavam Ascensionis":
             for j, y in enumerate(ROMANS[1: 6], start=1):
-                if ascension_day + indays(j) == easter(year) + week(i):
+                if asc_day + days(j) == EASTER + week(i):
                     continue
-                elif (ascension_day + indays(j)).strftime("%A") == "Saturday":
+                elif (asc_day + days(j)).strftime("%A") == "Saturday":
                     cycle.update(
                         {
-                            str(ascension_day + indays(j)): {  # ! vespers
-                                'feast': "Sabbatum infra Oct. Ascensionis",
-                                'rank': [16, 'sd'],
-                                'color': 'white',
-                                'mass': {'int': 'Exaudi, Domine', 'glo': True, 'cre': False, 'pre': 'de Ascensione'},
-                                'matins': {},
-                                'lauds': {},
-                                'prime': {},
-                                'little_hours': {},
-                                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                                'compline': {},
-                                'office_type': False,
-                                'nobility': (False,),
-                            }
+                            str(asc_day + days(j)): "Sabbatum infra Oct. Ascensionis",
                         }
                     )
                 else:
                     cycle.update(
                         {
-                            str(ascension_day + indays(j)): {  # ! vespers
-                                'feast': "De "+y+" die infra Oct. Ascensionis",
-                                'rank': [16, 'sd'],
-                                'color': 'white',
-                                'mass': {'int': 'Viri galilaei', 'glo': True, 'cre': False, 'pre': 'de Ascensione'},
-                                'matins': {},
-                                'lauds': {},
-                                'prime': {},
-                                'little_hours': {},
-                                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                                'compline': {},
-                                'office_type': False,
-                                'nobility': (False,),
-                            }
+                            str(asc_day + days(j)): "De "+y+" die infra Oct. Ascensionis",
                         }
                     )
         if x == "Dominica in Albis":
             cycle.update(
                 {
-                    str(easter(year) + week(i)): {  # ! vespers
-                        'feast': x,
-                        'rank': [1, 'dm I cl'],
-                        'color': 'white',
-                        'mass': {'int': 'Quasi modo', 'glo': True, 'cre': True, 'pre': 'Paschalis'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'dominica',
-                        'nobility': (False,),
-                    }
+                    str(EASTER + week(i)): x,
                 }
             )
         else:
             cycle.update(
                 {
-                    str(easter(year) + week(i)): {  # ! mass, vespers
-                        'feast': x,
-                        'rank': [12, 'sd'],
-                        'color': 'white',
-                        'mass': {'int': 'Missa', 'glo': True, 'cre': True, 'pre': 'Communis'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'dominica',
-                        'nobility': (False,),
-                    }
+                    str(EASTER + week(i)): x,
                 }
             )
-    pent_date = easter(year) + week(i+1)
+    pent_date = EASTER + week(i+1)
     cycle.update(
         {
-            str(pent_date - indays(1)): {  # ! vespers
-                'feast': "Sabbatum Vigilia Pentecostes",
-                'rank': [3, 'd I cl Vig privil I cl'],
-                'color': 'red',
-                'mass': {'int': 'Cum sanctificatus', 'glo': True, 'cre': False, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': False,
-                'nobility': (False,),
-            },
-            str(pent_date): {  # ! vespers
-                'feast': "Dominica Pentecostes",
-                'rank': [1, 'd I cl cum Oct privil I ord'],
-                'color': 'red',
-                'mass': {'int': 'Spiritus Domini', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'festiva',
-                'nobility': (False,),
-            },
+            str(pent_date - days(1)): "Sabbatum Vigilia Pentecostes",
+            str(pent_date): "Dominica Pentecostes",
         }
     )
     for j, y in enumerate(ROMANS[1: 6]):
         if y == "II" or y == "III":
             cycle.update(
                 {
-                    str(pent_date + indays(j + 1)): {  # ! vespers # ! Add all days within octave of pentecost
-                        'feast': "Feria "+y+" infra Oct. Pentecostes",
-                        'rank': [2, 'd I cl'],
-                        'color': 'red',
-                        'mass': {'int': 'Cibavit eos', 'glo': True, 'cre': True, 'seq': 'Veni, Sancte Spiritus', 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (False,),
-                    }
+                    str(pent_date + days(j + 1)): "Feria "+y+" infra Oct. Pentecostes",
+                    # ! Add all days within octave of pentecost
                 }
             )
         else:
             cycle.update(
                 {
-                    str(pent_date + indays(j + 1)): {  # ! vespers
-                        'feast': "Feria " + y + " infra Oct. Pentecostes",
-                        'rank': [3, 'd I cl'],
-                        'color': 'red',
-                        'mass': {'int': 'Accepite jucunditatem', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (False,),
-                    }
+                    str(pent_date + days(j + 1)): "Feria " + y + " infra Oct. Pentecostes",
                 }
             )
     cycle.update(
         {
-            str(pent_date + indays(j + 2)): {  # ! mass, vespers
-                'feast': "Sabbatum infra Oct. Pentecostes",
-                'rank': [3, 'sd'],
-                'color': 'red',
-                'mass': {'int': 'Missa', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'Communis'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'feria',
-                'nobility': (False,),
-            },
-            str(easter(year) + week(i+1) + indays(3)): {  # ! vespers
-                'feast': "Feria IV Quatuor Temporum infra Oct. Pentecostes",
-                'rank': [19, 'sd'],
-                'color': 'red',
-                'mass': {'int': 'Deus, dum egredereris', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'feria',
-                'nobility': (False,),
-            },
-            str(easter(year) + week(i+1) + indays(5)): {  # ! vespers
-                'feast': "Feria VI Quatuor Temporum infra Oct. Pentecostes",
-                'rank': [19, 'sd'],
-                'color': 'red',
-                'mass': {'int': 'Repleatur os meum', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'feria',
-                'nobility': (False,),
-            },
-            str(easter(year) + week(i+1) + indays(6)): {  # ! vespers
-                'feast': "Sabbatum Quatuor Temporum infra Oct. Pentecostes",
-                'rank': [19, 'sd'],
-                'color': 'red',
-                'mass': {'int': 'Caritas Dei', 'glo': True, 'seq': 'Veni, Sancte Spiritus', 'cre': True, 'pre': 'et Comm et Hanc Igitur de Pentecoste'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'feria',
-                'nobility': (False,),
-            },
+            str(pent_date + days(j + 2)): "Sabbatum infra Oct. Pentecostes",
+            str(EASTER + week(i+1) + days(3)): "Feria IV Quatuor Temporum infra Oct. Pentecostes",
+            str(EASTER + week(i+1) + days(5)): "Feria VI Quatuor Temporum infra Oct. Pentecostes",
+            str(EASTER + week(i+1) + days(6)): "Sabbatum Quatuor Temporum infra Oct. Pentecostes",
         }
     )
-    EMBER_DAYS.extend([easter(year) + week(i+1) + indays(3), easter(year) + week(i+1) + indays(5), easter(year) + week(i+1) + indays(6)])
+    EMBER_DAYS.extend(
+            [
+                EASTER + week(i+1) + days(3), 
+                EASTER + week(i+1) + days(5), 
+                EASTER + week(i+1) + days(6)
+                ]
+            )
     i += 1
     prelim_pents = [
-        {  # ! vespers
-            'feast': "Festum Sanctissimæ Trinitatis",
-            'rank': [2, 'd I cl'],
-            'color': 'white',
-            'mass': {'int': 'Benedicta sit', 'glo': True, 'cre': True, 'pre': 'de Ssma Trinitate'},
-            'matins': {},
-            'lauds': {},
-            'prime': {},
-            'little_hours': {},
-            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-            'compline': {},
-            'office_type': 'festiva',
-            'nobility': (False,)
-        },
-        {  # ! vespers
-            'feast': "Dominica infra Oct. Ssmi Corporis Christi (Dominica II post Pentecosten)",
-            'rank': [12, 'sd'],
-            'color': 'white',
-            'mass': {'int': 'Factus est', 'glo': True, 'seq': 'Lauda, Sion, Salvatorem', 'cre': True, 'pre': 'de Nativitate, vel de Ssma Trinitate'},
-            'matins': {},
-            'lauds': {},
-            'prime': {},
-            'little_hours': {},
-            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-            'compline': {},
-            'office_type': 'dominica',
-            'nobility': (False,)
-        },
-        {  # ! mass, vespers
-            'feast': "Dominica infra Oct. Ssmi Cordis DNJC (Dominica III post Pentecosten)",
-            'rank': [12, 'sd'],
-            'color': 'white',
-            'mass': {'int': 'Respice in me', 'glo': True, 'cre': True, 'pre': 'de sacratissimo Code Jesu'},
-            'matins': {},
-            'lauds': {},
-            'prime': {},
-            'little_hours': {},
-            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-            'compline': {},
-            'office_type': 'dominica',
-            'nobility': (False,)
-        },
-    ]
+            "Festum Sanctissimæ Trinitatis",
+            "Dominica infra Oct. Ssmi Corporis Christi (Dominica II post Pentecosten)",
+            "Dominica infra Oct. Ssmi Cordis DNJC (Dominica III post Pentecosten)",
+            ]
     for l, x in enumerate(prelim_pents):
-        if x['feast'] == "Dominica infra Oct. Ssmi Corporis Christi (Dominica II post Pentecosten)":
-            corpus_christi = pent_date + week(2) - indays(3)
+        if x == "Dominica infra Oct. Ssmi Corporis Christi (Dominica II post Pentecosten)":
+            corpus_christi = pent_date + week(2) - days(3)
             for j, y in enumerate(ROMANS[1: 7]):
-                if (corpus_christi + indays(j+1)) == (pent_date + week(2)):
+                if (corpus_christi + days(j+1)) == (pent_date + week(2)):
                     pass  # ? necessary?
                 else:
                     feria_index = int(
-                        (corpus_christi+indays(j+1)).strftime("%w"))-1
+                        (corpus_christi+days(j+1)).strftime("%w"))-1
                     fer_num = FERIA[feria_index]
                     cycle.update(
                         {
-                            str(corpus_christi + indays(j + 1)): {
-                                'feast': fer_num+" infra Oct. Ssmi Corporis Christi",
-                                'rank': [9, 'sd'],
-                                'color': 'white',
-                                'mass': {'int': 'Factus est', 'glo': True, 'seq': 'Lauda, Sion, Salvatorem', 'cre': True, 'pre': 'de Nativitate'},
-                                'matins': {},
-                                'lauds': {},
-                                'prime': {},
-                                'little_hours': {},
-                                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                                'compline': {},
-                                'office_type': 'feria',
-                                'nobility': (False,),
-                            }
+                            str(corpus_christi + days(j + 1)): fer_num+" infra Oct. Ssmi Corporis Christi",
                         }
                     )
             cycle.update(
                 {
-                    str(corpus_christi): {  # ! vespers
-                        'feast': "Sanctissimi Corporis Christi",
-                        'rank': [2, 'd I cl cum Oct privil 2 ord'],
-                        'color': 'white',
-                        'mass': {'int': 'Cibavit eos', 'glo': True, 'seq': 'Lauda, Sion', 'cre': True, 'pre': 'de Nativitate'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'festiva',
-                        'nobility': (False,),
-                    },
-                    str(corpus_christi + week(1)): {  # ! vespers
-                        'feast': "Octava Ssmi Corporis Christi",
-                        'rank': [4, 'dm'],
-                        'color': 'white',
-                        'mass': {'int': 'Cibavit eos', 'glo': True, 'seq': 'Lauda, Sion', 'cre': True, 'pre': 'de Nativitate'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': False,
-                        'nobility': (False,),
-                    }
+                    str(corpus_christi): "Sanctissimi Corporis Christi",
+                    str(corpus_christi + week(1)): "Octava Ssmi Corporis Christi",
                 }
             )
-        if x['feast'] == "Dominica infra Oct. Ssmi Cordis DNJC (Dominica III post Pentecosten)":
-            ssmi_cordis = pent_date + week(3) - indays(2)
+        if x == "Dominica infra Oct. Ssmi Cordis DNJC (Dominica III post Pentecosten)":
+            ssmi_cordis = pent_date + week(3) - days(2)
             for j, y in enumerate(ROMANS[1: 7]):
-                if ssmi_cordis + indays(j + 1) == pent_date + week(3):
+                if ssmi_cordis + days(j + 1) == pent_date + week(3):
                     pass
                 else:
                     feria_index = int(
-                        (ssmi_cordis + indays(j + 1)).strftime("%w")) - 1
+                        (ssmi_cordis + days(j + 1)).strftime("%w")) - 1
                     fer_num = FERIA[feria_index]
                     cycle.update(
                         {
-                            str(ssmi_cordis + indays(j + 1)): {  # ! vespers
-                                'feast': fer_num+" infra Oct. Ssmi Cordis DNJC",
-                                # ? is this supposed to be within a common octave?
-                                'rank': [18, 'sd'],
-                                'color': 'white',
-                                'mass': {'int': 'Respice in me', 'glo': True, 'cre': True, 'pre': 'de Ssmo Corde Iesu vel de Ssma Trinitate'},
-                                'matins': {},
-                                'lauds': {},
-                                'prime': {},
-                                'little_hours': {},
-                                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                                'compline': {},
-                                'office_type': 'dominica',
-                                'nobility': (False,),
-                            },
+                            # ? is this supposed to be within a common octave?
+                            str(ssmi_cordis + days(j + 1)): fer_num+" infra Oct. Ssmi Cordis DNJC",
                         }
                     )
             cycle.update(
                 {
-                    str(ssmi_cordis): {  # ! mass, vespers
-                        'feast': "Sacratissimi Cordis Jesu",
-                        'rank': [2, 'd I cl cum Oct privil 3 ord'],
-                        'color': 'white',
-                        'mass': {'int': 'Cogitationes', 'glo': True, 'cre': True, 'pre': 'de Ssmo Corde Iesu'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'festiva',
-                        'nobility': (1, 0, 3, 1, 1, 0),
-                    },
-                    str(ssmi_cordis + week(1)): {  # ! mass, vespers
-                        'feast': "Octava Sacratissimi Cordis Jesu",
-                        'rank': [13, 'dm'],
-                        'color': 'white',
-                        'mass': {'int': 'Cogitationes', 'glo': True, 'cre': True, 'pre': 'de Ssmo Corde Iesu'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': False,
-                        'nobility': (False,),
-                    },
+                    str(ssmi_cordis): "Sacratissimi Cordis Jesu",
+                    str(ssmi_cordis + week(1)): "Octava Sacratissimi Cordis Jesu",
                 }
             )
         cycle.update({str(pent_date+week(l+1)): x})
@@ -1210,128 +368,38 @@ def build_temporal(year: int) -> dict:
         if count <= 20:
             cycle.update(
                 {
-                    str(post_pent_count + week(p)): {  # ! vespers
-                        'feast': "Dominica "+x+" post Pentecosten",
-                        'rank': [12, 'sd'],
-                        'color': 'green',
-                        'mass': {'int': PENTECOST_MASSES[p], 'glo': True, 'cre': True, 'pre': 'de Trinitate'},
-                        'com_1': {'oration': 'A cunctis', },
-                        'com_2': {'oration': 'ad libitum', },
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'dominica',
-                        'nobility': (False,),
-                    },
+                    str(post_pent_count + week(p)): "Dominica "+x+" post Pentecosten",
                 }
             )
             for t in range(6):
                 cycle.update(
                     {
-                        str(post_pent_count + week(p) + indays(t+1)): {  # ! vespers
-                            'feast': 'De ea',
-                            'rank': [23, 's'],
-                            'color': 'green',
-                            'mass': {'int': PENTECOST_MASSES[p], 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
-                            'com_1': {'oration': 'A cunctis', },
-                            'com_2': {'oration': 'ad libitum', },
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': 'feria',
-                            'nobility': (8, 2, 6, 13, 3, 0,),
-                        },
+                        str(post_pent_count + week(p) + days(t+1)): 'De ea',
                     }
                 )
         elif count == 20 and post_pent_sundays == 23:
-            cycle.update(  # todo anticipate the 23rd sunday and celebrate the 24th
+            cycle.update(  # TODO: anticipate the 23rd sunday and celebrate the 24th
                 {
-                    str(post_pent_count + week(p)): {  # ! vespers
-                        'feast': "Dominica XXIII et ultima post Pentecosten",
-                        'rank': [12, 'sd'],
-                        'color': 'green',
-                        'mass': {'int': PENTECOST_MASSES[-1], 'glo': True, 'cre': True, 'pre': 'de Trinitate'},
-                        'com_1': {'oration': 'A cunctis', },
-                        'com_2': {'oration': 'ad libitum', },
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': False,
-                        'nobility': (False,),
-                    },
+                    str(post_pent_count + week(p)): "Dominica XXIII et ultima post Pentecosten",
                 }
             )
             for t in range(6):
                 cycle.update(
                     {
-                        str(post_pent_count + week(p) + indays(t+1)): {  # ! vespers
-                            'feast': 'De ea',
-                            'rank': [23, 's'],
-                            'color': 'green',
-                            'mass': {'int': PENTECOST_MASSES[-1], 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
-                            'com_1': {'oration': 'A cunctis', },
-                            'com_2': {'oration': 'ad libitum', },
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': 'feria',
-                            'nobility': (8, 2, 6, 13, 3, 0,),
-                        },
+                        str(post_pent_count + week(p) + days(t+1)): 'De ea',
                     }
                 )
             break
         elif count == post_pent_sundays-3:
             cycle.update(
                 {
-                    str(post_pent_count + week(p)): {  # ! vespers
-                        'feast': "Dominica " + x + " et ultima post Pentecosten",
-                        'rank': [12, 'sd'],
-                        'color': 'green',
-                        'mass': {'int': PENTECOST_MASSES[-1], 'glo': True, 'cre': True, 'pre': 'de Trinitate'},
-                        'com_1': {'oration': 'A cunctis', },
-                        'com_2': {'oration': 'ad libitum', },
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'dominica',
-                        'nobility': (False,),
-                    },
+                    str(post_pent_count + week(p)): "Dominica " + x + " et ultima post Pentecosten",
                 }
             )
             for t in range(6):
                 cycle.update(
                     {
-                        str(post_pent_count + week(p) + indays(t+1)): {  # ! vespers
-                            'feast': 'De ea',
-                            'rank': [23, 's'],
-                            'color': 'green',
-                            'mass': {'int': PENTECOST_MASSES[-1], 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
-                            'com_1': {'oration': 'A cunctis', },
-                            'com_2': {'oration': 'ad libitum', },
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': 'feria',
-                            'nobility': (8, 2, 6, 13, 3, 0,),
-                        },
+                        str(post_pent_count + week(p) + days(t+1)): 'De ea',
                     }
                 )
             break
@@ -1339,43 +407,13 @@ def build_temporal(year: int) -> dict:
             for y, x in enumerate(epiph_sunday_overflow, start=1):
                 cycle.update(
                     {
-                        str(post_pent_count + week(p+y)): {  # ! vespers
-                            'feast': 'Dominica '+ROMANS[p+y+3]+' post Pentecosten, '+x+'Epiphany',
-                            'rank': [12, 'sd'],
-                            'color': 'green',
-                            'mass': {'int': 'Dicit Dominus', 'glo': True, 'cre': True, 'pre': 'de Trinitate'},
-                            'com_1': {'oration': 'A cunctis', },
-                            'com_2': {'oration': 'ad libitum', },
-                            'matins': {},
-                            'lauds': {},
-                            'prime': {},
-                            'little_hours': {},
-                            'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                            'compline': {},
-                            'office_type': 'dominica',
-                            'nobility': (False,),
-                        },
-                    }  # ! vespers
+                        str(post_pent_count + week(p+y)): 'Dominica '+ROMANS[p+y+3]+' post Pentecosten, '+x+'Epiphany',
+                    }  
                 )
                 for t in range(6):
                     cycle.update(
                         {
-                            str(post_pent_count + week(p+y) + indays(t+1)): {  # ! vespers
-                                'feast': 'De ea',
-                                'rank': [23, 's'],
-                                'color': 'green',
-                                'mass': {'int': 'Dicit Dominus', 'note': 'de Dom præc', 'glo': True, 'cre': False, 'pre': 'Communis'},
-                                'com_1': {'oration': 'A cunctis', },
-                                'com_2': {'oration': 'ad libitum', },
-                                'matins': {},
-                                'lauds': {},
-                                'prime': {},
-                                'little_hours': {},
-                                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                                'compline': {},
-                                'office_type': 'feria',
-                                'nobility': (8, 2, 6, 13, 3, 0,),
-                            },
+                            str(post_pent_count + week(p+y) + days(t+1)): 'De ea',
                         }
                     )
         if (post_pent_count + week(p)).strftime("%B") == "September":
@@ -1386,70 +424,24 @@ def build_temporal(year: int) -> dict:
         if sept_counter == 3:
             cycle.update(
                 {
-                    str(post_pent_count + week(p) + indays(3)): {  # ! vespers
-                        'feast': "Feria IV Quatuor Temporum Septembris",
-                        'rank': [19, 's'],
-                        'color': 'violet',
-                        'mass': {'int': 'Exsultate Deo', 'glo': False, 'cre': False, 'pre': 'Communis'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (False,),
-                    },
-                    str(post_pent_count + week(p) + indays(5)): {  # ! vespers
-                        'feast': "Feria VI Quatuor Temporum Septembris",
-                        'rank': [19, 's'],
-                        'color': 'violet',
-                        'mass': {'int': 'Laetetur cor', 'glo': False, 'cre': False, 'pre': 'Communis'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (False,),
-                    },
-                    str(post_pent_count + week(p) + indays(6)): {  # ! vespers
-                        'feast': "Sabbatum Quatuor Temporum Septembris",
-                        'rank': [19, 's'],
-                        'color': 'violet',
-                        'mass': {'int': 'Venite, adoremus', 'glo': False, 'cre': False, 'pre': 'Communis'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (False,),
-                    },
+                    str(post_pent_count + week(p) + days(3)): "Feria IV Quatuor Temporum Septembris",
+                    str(post_pent_count + week(p) + days(5)): "Feria VI Quatuor Temporum Septembris",
+                    str(post_pent_count + week(p) + days(6)): "Sabbatum Quatuor Temporum Septembris",
                 }
             )
-            EMBER_DAYS.extend([post_pent_count + week(p) + indays(3),post_pent_count + week(p) + indays(5), post_pent_count + week(p) + indays(6)])
+            EMBER_DAYS.extend(
+                    [
+                        post_pent_count + week(p) + days(3),
+                        post_pent_count + week(p) + days(5), 
+                        post_pent_count + week(p) + days(6)
+                        ]
+                    )
         if (post_pent_count + week(p)).strftime("%B") == "November" and (post_pent_count + week(p-1)).strftime("%B") == "October":
             # if the current Sunday is in November and the previous Sunday is in October
             christ_king = post_pent_count + week(p) - week(1)
             cycle.update(
                 {
-                    str(christ_king): {  # ! vespers
-                        'feast': 'In Festo DNJC Regis',
-                        'rank': [2, 'd I cl'],
-                        'color': 'white',
-                        'mass': {'int': 'Dignus est', 'glo': True, 'cre': True, 'pre': 'de DNJC Rege'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'festiva',
-                        'nobility': (False,),
-                    },
+                    str(christ_king): 'In Festo DNJC Regis',
                 }
             )
         i += 1
@@ -1465,233 +457,63 @@ def build_temporal(year: int) -> dict:
         for k, y in enumerate(ROMANS[1: 6], start=1):
             cycle.update(
                 {
-                    str(lastadvent - week(i) + indays(k)): {  # ! mass, vespers
-                        'feast': 'Feria '+y+" infra Hebd"+x.strip('Dominica'),
-                        'rank': [19, 'feria'],
-                        'color': 'violet',
-                        'mass': {'int': 'Ad te levavi' if x == 'Dominica I Adventus' else ('Populus Sion' if x == "Dominica II Adventus" else ('Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli')), 'glo': False, 'cre': False, 'pre': 'Communis'},
-                        'com_1': {'oration': 'Deus qui de beate'},
-                        'com_2': {'oration': 'Ecclesiæ'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {'four_psalms': True, 'cap': 'Pacem', 'v_r': 'Qui venturus est in mundum', 'preces_feriales': True, },
-                        'little_hours': {'preces_feriales': True, },
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (9, 2, 6, 13, 3, 0),
-                    },
+                    str(lastadvent - week(i) + days(k)): 'Feria '+y+" infra Hebd"+x.strip('Dominica'),
                 }
             )
         else:
             cycle.update(
                 {
-                    str(lastadvent - week(i) + indays(6)): {  # ! mass, vespers
-                        'feast': 'Sabbatum infra Hebd'+x.strip('Dominica'),
-                        'rank': [19, 'feria'],
-                        'color': 'violet',
-                        'mass': {'int': 'Ad te levavi' if x == 'Dominica I Adventus' else ('Populus Sion' if x == "Dominica II Adventus" else ('Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli')), 'glo': False, 'cre': False, 'pre': 'Communis'},
-                        'com_1': {'oration': 'Deus qui de beate'},
-                        'com_2': {'oration': 'Ecclesiæ'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {'four_psalms': True, 'cap': 'Pacem', 'v_r': 'Qui venturus est in mundum', 'preces_feriales': True, },
-                        'little_hours': {'preces_feriales': True, },
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (9, 2, 6, 13, 3, 0),
-                    },
+                    str(lastadvent - week(i) + days(6)): 'Sabbatum infra Hebd'+x.strip('Dominica'),
                 }
             )
         if x == "Dominica III Adventus":
             cycle.update(
                 {
-                    str(lastadvent - week(i)): {  # ! vespers
-                        'feast': x,
-                        'rank': [8, 'sd II cl'],
-                        'color': 'violet',
-                        'mass': {'int': 'Populus Sion' if x == "Dominica II Adventus" else ('Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli'), 'glo': False, 'cre': True, 'pre': 'de Trinitate'},
-                        'com_1': {'oration': 'Deus qui de beate'},
-                        'com_2': {'oration': 'Ecclesiæ'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'dominica',
-                        'nobility': (False,),
-                    },
-                    str(lastadvent - week(i) + indays(3)): {  # ! vespers
-                        'feast': "Feria IV Quatuor Temporum in Adventus",
-                        'rank': [19, 's'],
-                        'color': 'violet',
-                        'mass': {'int': 'Rorate cæli', 'glo': False, 'cre': False, 'pre': 'Communis'},
-                        'com_1': {'oration': 'Deus qui de beate'},
-                        'com_2': {'oration': 'Ecclesiæ'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (9, 2, 6, 13, 3, 0),
-                    },
-                    str(lastadvent - week(i) + indays(5)): {  # ! vespers
-                        'feast': "Feria VI Quatuor Temporum in Adventus",
-                        'rank': [19, 's'],
-                        'color': 'violet',
-                        'mass': {'int': 'Prope es tu', 'glo': False, 'cre': False, 'pre': 'Communis'},
-                        'com_1': {'oration': 'Deus qui de beate'},
-                        'com_2': {'oration': 'Ecclesiæ'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (9, 2, 6, 13, 3, 0),
-                    },
-                    str(lastadvent - week(i) + indays(6)): {  # ! vespers
-                        'feast': "Sabbatum Quatuor Temporum in Adventus",
-                        'rank': [19, 's'],
-                        'color': 'violet',
-                        'mass': {'int': 'Veni, et ostende', 'glo': False, 'cre': False, 'pre': 'Communis'},
-                        'com_1': {'oration': 'Deus qui de beate'},
-                        'com_2': {'oration': 'Ecclesiæ'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'feria',
-                        'nobility': (9, 2, 6, 13, 3, 0),
-                    },
+                    str(lastadvent - week(i)): x,
+                    str(lastadvent - week(i) + days(3)): "Feria IV Quatuor Temporum in Adventus",
+                    str(lastadvent - week(i) + days(5)): "Feria VI Quatuor Temporum in Adventus",
+                    str(lastadvent - week(i) + days(6)): "Sabbatum Quatuor Temporum in Adventus",
                 }
             )
-            EMBER_DAYS.extend([lastadvent - week(i) + indays(4), lastadvent - week(i) + indays(5), lastadvent - week(i) + indays(6)])
+            EMBER_DAYS.extend(
+                    [
+                        lastadvent - week(i) + days(4),
+                        lastadvent - week(i) + days(5),
+                        lastadvent - week(i) + days(6)
+                        ]
+                    )
         elif x == "Dominica I Adventus":
             cycle.update(
                 {
-                    str(lastadvent - week(i)): {  # ! vespers
-                        'feast': x,
-                        'rank': [1, 'sd'],
-                        'color': 'violet',
-                        'mass': {'int': 'Ad te levavi', 'glo': False, 'cre': True, 'pre': 'de Trinitate'},
-                        'com_1': {'oration': 'Deus qui de beate'},
-                        'com_2': {'oration': 'Ecclesiæ'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'dominica',
-                        'nobility': (False,),
-                    },
+                    str(lastadvent - week(i)): x,
                 }
             )
         else:
             cycle.update(
                 {
-                    str(lastadvent - week(i)): {  # ! vespers
-                        'feast': x,
-                        'rank': [8, 'sd II cl'],
-                        'color': 'violet',
-                        'mass': {'int': 'Populus Sion' if x == "Dominica II Adventus" else ('Gaudete' if x == "Dominica III Adventus" else 'Rorate cæli'), 'glo': False, 'cre': True, 'pre': 'de Trinitate'},
-                        'com_1': {'oration': 'Deus qui de beate'},
-                        'com_2': {'oration': 'Ecclesiæ'},
-                        'matins': {},
-                        'lauds': {},
-                        'prime': {},
-                        'little_hours': {},
-                        'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                        'compline': {},
-                        'office_type': 'dominica',
-                        'nobility': (False,),
-                    },
+                    str(lastadvent - week(i)): x,
                 }
             )
     else:
         cycle.update(
             {
-                str(christmas-indays(1)): {  # ! vespers
-                    'feast': "Vigilia Nativitas DNJC",
-                    'rank': [3, 'd I cl Vig privil I cl'],
-                    'color': 'violet',
-                    'mass': {'int': 'Hodie scietis', 'glo': False, 'cre': False, 'pre': 'Communis'},
-                    'matins': {},
-                    'lauds': {},
-                    'prime': {},
-                    'little_hours': {},
-                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                    'compline': {},
-                    'office_type': 'feria',
-                    'nobility': (False,),
-                },
-                # TODO If the vigil is a Sunday, there is a commemoration, Creed, de Trinitate, but no Proper Last Gospel
-                str(christmas): {  # ! vespers
-                    'feast': "Nativitas DNJC",
-                    'rank': [2, 'd I cl cum Oct privil 3 ord'],
-                    'color': 'white',
-                    'mass': {
-                        'Ad Primam Missam': {'int': 'Domine dixit', 'glo': True, 'cre': True, 'pre': r'et Comm (in hac Missa tantum dicitur \textit{noctem}) de Nativitate'},
-                        'Ad Secundam Missam': {'int': 'Lux fulgebit', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
-                        'Ad Tertiam Missam': {'int': 'Puer natus', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate', 'proper_last_gospel': 'Epiph'},
-                    },
-                    'matins': {},
-                    'lauds': {'psalms': 'sunday'},
-                    'prime': {'v_r': 'Qui natus es'},
-                    'little_hours': {'psalms': 'sunday'},
-                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                    'compline': {'sunday': True,},
-                    'office_type': 'festiva',
-                    'nobility': (False,),
-                },
+                str(christmas-days(1)): "Vigilia Nativitas DNJC",
+                # TODO: If the vigil is a Sunday, there is a commemoration, Creed, de Trinitate, but no Proper Last Gospel
+                str(christmas): "Nativitas DNJC",
             }
         )
     if findsunday(christmas) == 0 or 1 or 2 or 3:
         # Dominica infra respsita on 30 if Sunday falls on 25, 26, 27 or 28
         cycle.update(
             {
-                str(christmas + indays(5)): {  # ! mass, vespers
-                    'feast': "Dominica Infra Octavam Nativitatis reposita",
-                    'rank': [12, 'sd'],
-                    'color': 'white',
-                    'mass': {'int': 'Dum medium silentium', 'glo': True, 'cre': True, 'pre': 'de Comm de Nativitate'},
-                    'matins': {},
-                    'lauds': {},
-                    'prime': {},
-                    'little_hours': {},
-                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                    'compline': {},
-                    'office_type': 'dominica',
-                    'nobility': (False,),
-                },
+                str(christmas + days(5)): "Dominica Infra Octavam Nativitatis reposita",
             }
         )
     else:
-        # Dominica infra if Sunday falls on 29, 30 or 31
+        # NOTE: Dominica infra if Sunday falls on 29, 30 or 31
         cycle.update(
             {
-                str(christmas + indays(7) - findsunday(christmas)): {  # ! vespers
-                    'feast': "Dominica Infra Octavam Nativitatis",
-                    'rank': [12, 'sd'],
-                    'color': 'white',
-                    'mass': {'int': 'Dum medium', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
-                    'matins': {},
-                    'lauds': {},
-                    'prime': {},
-                    'little_hours': {},
-                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                    'compline': {},
-                    'office_type': 'dominica',
-                    'nobility': (False,),
-                },
+                str(christmas + days(7) - findsunday(christmas)): "Dominica Infra Octavam Nativitatis",
             }
         )
     if (
@@ -1700,94 +522,36 @@ def build_temporal(year: int) -> dict:
     ):
         cycle.update(
             {
-                str(christmas + indays(5)): {  # ! mass, vespers
-                    'feast': "Feria VI infra Octavam Nativitatis",
-                    'rank': [16, 'sd'],
-                    'color': 'white',
-                    'mass': {'int': 'Puer natus est nobis', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
-                    'matins': {},
-                    'lauds': {},
-                    'prime': {},
-                    'little_hours': {},
-                    'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''}, 'office_type': 'feria',
-                    'compline': {},
-                    'nobility': (False,),
-                },
+                str(christmas + days(5)): "Feria VI infra Octavam Nativitatis",
             }
         )
     cycle.update(
         {
-            str(christmas + indays(1)): {  # ! vespers
-                'feast': "S. Stephani Protomartyris",
-                'rank': [10, 'd II cl cum Oct simplici'],
-                'color': 'red',
-                'mass': {'int': 'Sederunt', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'festiva',
-                'nobility': (False,),
-            },
-            str(christmas + indays(2)): {  # ! vespers
-                'feast': "S. Joannis Ap Ev",
-                'rank': [10, 'd II cl cum Oct simplici'],
-                'color': 'red',
-                'mass': {'int': 'In medio ecclesiæ', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'festiva',
-                'nobility': (False,),
-            },
-            str(christmas + indays(3)): {  # ! vespers
-                'feast': "Ss Innocentium Mm",
-                'rank': [10, 'd II cl cum Oct simplici'],
-                'color': 'violet',
-                'mass': {'int': 'Ex ore infantium', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'festiva',
-                'nobility': (False,),
-            },
-            str(christmas + indays(4)): {  # ! vespers
-                'feast': "S. Thomæ EM",
-                'rank': [15, 'd'],
-                'color': 'red',
-                'mass': {'int': 'Gaudeamus omnes', 'glo': True, 'cre': True, 'pre': 'et Comm de Nativitate'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'festiva',
-                'nobility': (False,),
-            },
-            str(christmas + indays(6)): {  # ! vespers
-                'feast': "S. Silvestri I PC",
-                'rank': [15, 'd'],
-                'color': 'white',
-                'mass': {'int': 'Si diligis me', 'glo': False, 'cre': True, 'pre': 'et Comm de Nativitate'},
-                'matins': {},
-                'lauds': {},
-                'prime': {},
-                'little_hours': {},
-                'vespers': {'proper': False, 'admag': ('firstVespers', 'secondVerspers'), 'propers': {}, 'oration': ''},
-                'compline': {},
-                'office_type': 'festiva',
-                'nobility': (False,),
-            },
+            str(christmas + days(1)): "S. Stephani Protomartyris",
+            str(christmas + days(2)): "S. Joannis Ap Ev",
+            str(christmas + days(3)): "Ss Innocentium Mm",
+            str(christmas + days(4)): "S. Thomæ EM",
+            str(christmas + days(6)): "S. Silvestri I PC",
         }
     )
+    # TODO: return the dict sorted
     return cycle
+
+
+# NOTE: Testing purposes:
+
+def test_temporal(year: int):
+    temp_cycle = build_temporal(year=year)
+    for item in sorted(temp_cycle):
+        format = "%Y-%m-%d %H:%M:%S"
+        date = datetime.strftime(datetime.strptime(item, format), '%a, %b %d')
+        print(date + " --> " + temp_cycle[item])
+    return None
+
+test_year = int(input('test year: '))
+
+print('-'*20)
+
+test_temporal(test_year)
+
 

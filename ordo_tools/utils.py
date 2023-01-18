@@ -5,13 +5,13 @@ from os import listdir
 
 import dateutil.easter
 
-from ordo_tools.feast import Feast
-from ordo_tools.settings import YEAR  # ? is this still in use?
-from ordo_tools.liturgical_dates import interger_to_roman, epact_chart, dominical
+from feast import Feast
+from settings import YEAR  # ? is this still in use?
+from liturgical_dates import interger_to_roman, epact_chart, dominical
 
 # * just for testing purposes
-ic(epact_chart(year=YEAR))
-ic(dominical(year=YEAR))
+# ic(epact_chart(year=YEAR))
+# ic(dominical(year=YEAR))
 
 # todo use interger_to_roman to convert the number to roman numerals
 ROMANS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
@@ -41,13 +41,22 @@ PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine',
 
 EPIPHANY_MASSES = ('', )
 
+# FERIA = [
+    # 'Feria II',
+    # 'Feria III',
+    # 'Feria IV',
+    # 'Feria V',
+    # 'Feria VI',
+    # 'Sabbatum',
+# ]
+
 FERIA = [
-    'Feria II',
-    'Feria III',
-    'Feria IV',
-    'Feria V',
-    'Feria VI',
-    'Sabbatum',
+    '_f2',
+    '_f3',
+    '_f4',
+    '_f5',
+    '_f6',
+    '_fs',
 ]
 
 
@@ -91,6 +100,8 @@ LENT_BEGINS = easter(YEAR) - timedelta(weeks=6, days=4)
 
 LENT_ENDS = easter(YEAR) - timedelta(days=1)
 
+EASTER = easter(YEAR)
+
 EASTER_SEASON_END = easter(YEAR) + timedelta(days=39)
 
 PENTECOST_SEASON_START = easter(YEAR) + timedelta(days=49)
@@ -107,7 +118,7 @@ def week(i: int) -> timedelta:
     return timedelta(weeks=i)
 
 
-def indays(numdays: int) -> timedelta:
+def days(numdays: int) -> timedelta:
     """ return a timedelta day(s), with integers as the input """
     return timedelta(days=numdays)
 
@@ -321,7 +332,7 @@ def rank_occurring_feasts(
         if lower == 22:  # take care of simple feasts
             pass
             # ! this is not necessarily true!!
-            # from ordo_tools.temporal_cycle import ROGATION_MONDAY, EMBER_DAYS
+            # from temporal_cycle import ROGATION_MONDAY, EMBER_DAYS
             # if (
             #     LENT_BEGINS <= lower.feast_date_datetime <= LENT_ENDS
             #     or FIRST_ADVENT <= lower.feast_date_datetime <= LAST_ADVENT
@@ -555,7 +566,7 @@ def our_ladys_saturday(direct: str) -> None:
 
 def commit_temporal() -> None:
     """ Commits the temporal calendar to the temporal dictionary. """
-    from ordo_tools.temporal_cycle import build_temporal
+    from temporal_cycle import build_temporal
     cycle = build_temporal(YEAR)
     gen_file = "temporal/temporal_" + str(YEAR)
     with open(gen_file + ".py", "w") as f:

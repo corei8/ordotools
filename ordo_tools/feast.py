@@ -1,5 +1,5 @@
 from datetime import datetime
-from ordo_tools.settings import YEAR
+from settings import YEAR
 
 
 class Feast:
