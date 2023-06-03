@@ -23,9 +23,7 @@ def build_temporal(year: int) -> dict:
         {
             str(circumcision): "Circumcisio DNJC et Oct. Nativitatis",
             str(circumcision + days(1)): "Octava S. Stephani Protomartyris",
-            str(circumcision + days(2)): "Octava S. Joannis Ap Ev",
-            str(circumcision + days(3)): "Octava Ss Innocentium Mm.",
-        }
+            str(circumcision + days(2)): "Octava S. Joannis Ap Ev", str(circumcision + days(3)): "Octava Ss Innocentium Mm.", }
     )
     if (
             weekday(circumcision) == "Sun"
@@ -123,7 +121,14 @@ def build_temporal(year: int) -> dict:
         o += 1  #? is enumerate possible
         epiph_counter += week(1)  #! this is probably too complicated
 
-    for c, x in enumerate(["I in Quadragesima", "II in Quadragesima", "III in Quadragesima", "IV in Quadragesima (Lætare)", "de Passione", "in Palmis", ]):
+    for c, x in enumerate([
+        "I in Quadragesima",
+        "II in Quadragesima",
+        "III in Quadragesima",
+        "IV in Quadragesima (Lætare)",
+        "de Passione",
+        "in Palmis",
+        ]):
         if x == "I in Quadragesima":
             cycle.update(
                 {
@@ -452,7 +457,7 @@ def build_temporal(year: int) -> dict:
         "Dominica III Adventus",
         "Dominica II Adventus",
         "Dominica I Adventus",
-    ]
+        ]
     for i, x in enumerate(advents):
         for k, y in enumerate(ROMANS[1: 6], start=1):
             cycle.update(
