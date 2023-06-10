@@ -1,13 +1,25 @@
 <html>
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <style>
+            :root {
+                --step--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.80rem);
+                --step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1.00rem);
+                --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+                --step-1: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
+                --step-2: clamp(1.62rem, calc(1.50rem + 0.58vw), 1.95rem);
+                --step-3: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
+                --step-4: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
+                --step-5: clamp(2.80rem, calc(2.45rem + 1.77vw), 3.82rem);
+            }
+        </style>
     </head>
     <body>
         <div class="container">
             <h1>
                 Ordo
             </h1>
-            <p>
+            <p style="calc(--step-5)">
             This site is a simple demonstration of my ordo generating program for the traditional breviary.
             </p>
             <p>
