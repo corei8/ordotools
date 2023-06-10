@@ -16,11 +16,10 @@ EMBER_DAYS = []
 
 class Temporal:
     """
-    This class will enable us to explore parts of the liturgical year,
-    rather than having to calulate the entire year. The exact implementation
-    process is still being worked out, but this Class will be much easier
-    to debug and develop rather than the previous idea, which is in 
-    temporal_cycle.py.
+    This class will enable us to explore parts of the liturgical year, rather
+    than having to calulate the entire year. The exact implementation process
+    is still being worked out, but this Class will be much easier to debug and
+    develop rather than the previous idea, which is in temporal_cycle.py.
     """
     def __init__(self, year):
         self.year = year
@@ -50,9 +49,6 @@ class Temporal:
     def gesimas(self):
         """ Septuagesima to Quinquagesima """
         for i, x in enumerate(("septuage", "sexagesi", "quinquag")):
-            # if x == "septuage":
-            #     global SEPTUAGESIMA
-            #     SEPTUAGESIMA = self.easter - week(9-i)
             y = {
                     self.easter - week(9-i): x,
                     }
@@ -67,11 +63,10 @@ class Temporal:
             epiph: "epiphani",
             epiph+days(7): "8epiphan",
                 }
-        if weekday(epiph) == "Sun":
+        if weekday(epiph) == "Sun": # BUG: never implemented?
             epiph_1 = epiph+week(1)
         else:
             epiph_1 = epiph-findsunday(epiph)+week(1)
-        # ec = 1
         # TODO: use range and get rid of the roman numerals
         for i, x in enumerate(ROMANS[0:6]):
             if weekday(epiph+days(i+1)) != "Sun":
@@ -222,4 +217,65 @@ class Temporal:
         y.update(self.start_year())
         return dict(sorted(y.items()))
 
-print(Temporal(2023).build_entire_year())
+def build_test_website(year):
+    y = Temporal(year).build_entire_year()
+    cal = []
+    for x in range(54):
+        cal.append([])
+        for d in range(7):
+            cal[x].append([])
+    for date in y.keys():
+        place = int(date.strftime('%U'))-1
+        cal[place][int(date.strftime('%w'))].append([
+            y[date],
+            date.strftime('%a the %d'),
+            date.strftime('%B')
+            ])
+    with open("../output/html/index.html", 'w') as f:
+        f.truncate(0)
+        f.write("""
+<!doctype html>
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="display-2 text-center">
+                The Ordo
+            </h1>
+            <hr>
+            <p>
+                A simple demonstration of my ordo generating program 
+                traditional breviary.
+            </p>
+            <div class="alert alert-warning" role="alert">
+                This website and the algorithms that generate the calendars 
+                are works in progress. Do not use this website as you
+                would an official ordo.
+            </div>
+        </div>
+                <div class="container center">
+                """)
+        for row in cal:
+            f.write('<div class="row w-100 m-1">')
+            for i, x in enumerate(row):
+                f.write('<div class="col fw-light text-bg-light p-1">')
+                try:
+                    f.write(str(x[0][1]))
+                    f.write('<hr>')
+                    f.write(str(x[0][0]))
+                except IndexError:
+                    f.write("")
+                f.write('</div>')
+            f.write('</div>')
+        f.write("""
+                </div>
+            </body>
+        </html>
+                """)
+
+build_test_website(2023)
