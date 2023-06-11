@@ -183,23 +183,14 @@ class Temporal:
 
     def pentecost(self):
         y = {}
-        pent_date = self.easter + week(7)
-        y.update({
-            pent_date: 'pentecost',
-            pent_date+days(1): 'fer2_pent',
-            pent_date+days(2): 'fer3_pent',
-            })
+        pent_date = self.easter + week(6)
         sundays_after_pentecost = self.key_points()[0]
-        # All the Sundays after
+        # Pentecost, Trinity Sunday, All the Sundays after
         # Ember Days
         # NOTE: just a placeholder for now... lots more to do
         for x in range(1, sundays_after_pentecost+1):
             if x > 23: # HACK: just to prevent craziness
                 break
-            elif x == 1:
-                y.update({
-                    pent_date+week(x): 'trinity'
-                    })
             else:
                 y.update({
                     pent_date+week(x): 'dp.pe_'+str(x)
@@ -258,7 +249,7 @@ def build_test_website(year):
     theday = day(year=year, month=1, day=1)
     while theday.strftime("%Y") != str(year+1):
         cal[int(theday.strftime('%U'))-1][int(theday.strftime('%w'))].extend([
-            # '',
+            '',
             theday.strftime('%B'),
             theday.strftime('%d'),
             ])
@@ -266,8 +257,8 @@ def build_test_website(year):
     for date in y.keys():
         place = int(date.strftime('%U'))-1
         cal[place][int(date.strftime('%w'))].insert(0, y[date])
-    # for x in cal:
-    #     print(x)
+    for x in cal:
+        print(x)
     with open("../output/html/index.html", 'w') as f:
         f.truncate(0)
         f.write("""
@@ -328,31 +319,14 @@ def build_test_website(year):
         for aweek in cal:
             f.write('<div class="row w-100 m-1">')
             for i, aday in enumerate(aweek):
-                if len(aday) == 2:
-                    if aday[0] != month_memory:
-                        f.write('<div class="col p-1"></div>'*int(7-i))
-                        f.write('</div><div class="row w-100 m-1">')
-                        f.write('<div class="col p1 text-center">'\
-                                +'<h1 class="display-4">'\
-                                +aday[0]+" "+str(year)+'</h1></div>'+weekdays)
-                        f.write('</div><div class="row w-100 m-1">')
-                        f.write('<div class="col p-1"></div>'*i)
-                    month_memory = aday[0]
-                    f.write('<div class="col fw-light p-1">')
-                    f.write(str(aday[1]).lstrip('0'))
-                    f.write('<hr>')
-                    f.write('</div>')
-                elif len(aday) == 0:
-                    f.write('<div class="col p-1"></div>')
+                if len(aday) < 3:
+                    f.write('<div class="col p1 text-center"></div>')
+                    print("less than 3")
                 else:
                     if aday[1] != month_memory:
-                        f.write('<div class="col p-1"></div>'*int(7-i))
-                        f.write('</div><div class="row w-100 m-1">')
-                        f.write('<div class="col p1 text-center">'\
-                                +'<h1 class="display-4">'\
+                        f.write('<div class="col p1 text-center"><h1 class="display-4">'\
                                 +aday[1]+" "+str(year)+'</h1></div>'+weekdays)
                         f.write('</div><div class="row w-100 m-1">')
-                        f.write('<div class="col p-1"></div>'*i)
                     month_memory = aday[1]
                     f.write('<div class="col fw-light p-1">')
                     f.write(str(aday[-1]).lstrip('0'))
