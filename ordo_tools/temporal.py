@@ -110,8 +110,8 @@ class Temporal:
             "quadra04", "passione", "inpalmis",
             ]):
             if x == "quadra01":
-                for day, count in enumerate(ashweek):
-                    y.update({self.easter-week(6-c)-days(4-0): day})
+                for count, theday in enumerate(ashweek):
+                    y.update({self.easter-week(6-c)-days(4-count): theday})
             y.update({self.easter-week(6-c): x})
             for j, f in enumerate(FERIA):
                 y.update({self.easter-week(6-c)+days(j+1): x+f})
@@ -186,20 +186,27 @@ class Temporal:
         pent_date = self.easter + week(7)
         y.update({
             pent_date: 'pentecost',
-            pent_date+days(1): 'fer2_pent',
-            pent_date+days(2): 'fer3_pent',
             })
+        for fer in range(2,8):
+            if fer != 7:
+                y.update({
+                    pent_date+days(fer-1): 'inpent_f'+str(fer)
+                    })
+            else:
+                y.update({
+                    pent_date+days(fer-1): 'inpent_fs'
+                    })
         sundays_after_pentecost = self.key_points()[0]
-        # All the Sundays after
-        # Ember Days
         # NOTE: just a placeholder for now... lots more to do
         for x in range(1, sundays_after_pentecost+1):
             if x > 23: # HACK: just to prevent craziness
                 break
             elif x == 1:
                 y.update({
-                    pent_date+week(x): 'trinity'
+                    pent_date+week(x): 'trinity',
+                    pent_date+week(x)+days(4): 'corpchris'
                     })
+                # TODO: add octave within Corpus Christi
             else:
                 y.update({
                     pent_date+week(x): 'dp.pe_'+str(x)
@@ -210,19 +217,34 @@ class Temporal:
         y = {}
         advents = ["domadv_"]
         for x in range(4):
-            y.update({
-                self.key_points()[-1]-week(x): advents[0]+str(4-x)
-                })
+            if x == 0 and self.key_points()[-1]-week(x):
+                y.update({
+                    self.key_points()[-1]-week(x): 'dvig_chri'
+                    })
+            else:
+                y.update({
+                    self.key_points()[-1]-week(x): advents[0]+str(4-x)
+                    })
         return y
 
     def christmas(self):
         y = {}
-        # BUG: these are not the same type:
         if day(year=self.year, month=12, day=24) == self.key_points()[-1]:
-            y.update({day(year=self.year, month=12, day=24): 'ch.ad.vigil'})
+            pass
         else:
             y.update({day(year=self.year, month=12, day=24): 'vig_chri'})
-        y.update({day(year=self.year, month=12, day=25): 'christmas'})
+        christmas_days = [
+                'christmas',
+                'ststephan',
+                'stjoannis',
+                'stsinnoce',
+                'stthomaem',
+                'stsilvest',
+                ]
+        for i, feast in enumerate(christmas_days):
+            y.update({
+                day(year=self.year, month=12, day=25+i): feast
+                })
         # TODO: sunday within the octave of the Nativity
         return y
 
@@ -266,8 +288,6 @@ def build_test_website(year):
     for date in y.keys():
         place = int(date.strftime('%U'))-1
         cal[place][int(date.strftime('%w'))].insert(0, y[date])
-    # for x in cal:
-    #     print(x)
     with open("../output/html/index.html", 'w') as f:
         f.truncate(0)
         f.write("""
@@ -285,40 +305,38 @@ def build_test_website(year):
                 for the traditional calendar.
                 </header>
                 <div class="container">
-                <h1 class="display-2 text-center">
+                <h1 class="display-1 text-center">
                 The Ordo
                 </h1>
-                <div class="containter">
                 <div class="alert alert-warning" role="alert">
                 This website and the algorithms that generate the calendars 
                 are very much <em>works in progress.</em> Do not use this website as you
                 would an official ordo.
                 </div>
                 </div>
-                </div>
                 <div class="container center">
                 """)
         month_memory = ''
         weekdays = """
-        <div class="row w-100">
-        <div class="col bg-body-secondary p-1 text-center"> Sunday </div>
+        <div class="row w-100 rounded">
+        <div class="col bg-body-secondary p-1 text-center rounded-start"> Sunday </div>
         <div class="col bg-body-secondary p-1 text-center"> Monday </div>
         <div class="col bg-body-secondary p-1 text-center"> Tuesday </div>
         <div class="col bg-body-secondary p-1 text-center"> Wednesday </div>
         <div class="col bg-body-secondary p-1 text-center"> Thursday </div>
         <div class="col bg-body-secondary p-1 text-center"> Friday </div>
-        <div class="col bg-body-secondary p-1 text-center"> Saturday </div>
+        <div class="col bg-body-secondary p-1 text-center rounded-end"> Saturday </div>
         </div>
         """
 
-        def start_row():
-            return '<div class="row w-100">'
+        def start_row(classes=''):
+            return '<div class="row w-100 '+classes+'">'
 
         def start_col(classes=''):
-            return '<div class="col p-1 '+classes+'">'
+            return '<div class="col p-1 '+classes+'" style="min-height: 10em;">'
 
         def empty_col(classes=''):
-            return '<div class="col p-1 '+classes+'"></div>'
+            return start_col(classes)+'</div>'
 
         for j, aweek in enumerate(cal):
             f.write(start_row())
@@ -329,7 +347,12 @@ def build_test_website(year):
                     shading = 'bg-light-subtle'
                 if len(aday) == 2:
                     if aday[0] != month_memory:
-                        f.write(empty_col()*int(7-i))
+                        if aday[0] == 'January':
+                            pass
+                        elif i == 0:
+                            pass
+                        else:
+                            f.write(empty_col()*int(7-i))
                         f.write('</div>'+start_row())
                         f.write('<div class="col p1 text-center">'\
                                 +'<h1 class="display-4 pt-3">'\
@@ -339,12 +362,17 @@ def build_test_website(year):
                     month_memory = aday[0]
                     f.write(start_col('fw-light '+shading))
                     f.write(str(aday[1]).lstrip('0'))
-                    f.write('</br></br>¯\_(ツ)_/¯</div>')
+                    f.write('</br></br><div class="text-small">¯\_(ツ)_/¯</div></div>')
                 elif len(aday) == 0:
                     f.write(empty_col())
                 else:
                     if aday[1] != month_memory:
-                        f.write(empty_col()*int(7-i))
+                        if aday[1] == 'January':
+                            pass
+                        elif i == 0:
+                            pass
+                        else:
+                            f.write(empty_col()*int(7-i))
                         f.write('</div>'+start_row())
                         f.write('<div class="col p1 text-center">'\
                                 +'<h1 class="display-4 pt-3">'\
@@ -355,7 +383,7 @@ def build_test_website(year):
                     f.write(start_col('fw-light '+shading))
                     f.write(str(aday[-1]).lstrip('0'))
                     f.write('</br></br>')
-                    f.write(str(aday[0]))
+                    f.write('<div class="fs-6">'+str(aday[0])+'</div>')
                     f.write('</div>')
             f.write('</div>')
         f.write("""
