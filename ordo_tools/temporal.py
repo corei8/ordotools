@@ -58,6 +58,8 @@ class Temporal:
     def epiphany(self):
         """ Epiphany and its Sundays """
         epiph = day(self.year, 1, 6)
+        # NOTE: it is better to refactor this
+        #       to use a list of events
         y = {
             epiph-days(1): "vigepiph",
             epiph: "epiphani",
@@ -68,6 +70,7 @@ class Temporal:
         else:
             epiph_1 = epiph-findsunday(epiph)+week(1)
         # TODO: use range and get rid of the roman numerals
+        #       use the standard format for better debugging
         for i, x in enumerate(ROMANS[0:6]):
             if weekday(epiph+days(i+1)) != "Sun":
                 if weekday(epiph+days(i+1)) == "Sat":
@@ -229,11 +232,9 @@ class Temporal:
 
     def christmas(self):
         y = {}
-        if day(year=self.year, month=12, day=24) == self.key_points()[-1]:
-            pass
-        else:
-            y.update({day(year=self.year, month=12, day=24): 'vig_chri'})
+        christmas = day(year=self.year, month=12, day=25)
         christmas_days = [
+                # 'vig_chris',
                 'christmas',
                 'ststephan',
                 'stjoannis',
@@ -241,11 +242,32 @@ class Temporal:
                 'stthomaem',
                 'stsilvest',
                 ]
+        # BUG: this is not working for 2023
+        if findsunday(christmas) == 0 or 1 or 2 or 3:
+            # Sunday w/in the octave occurs on 30 if the Sunday is on 25-28
+            y.update({christmas + days(5) - findsunday(christmas): 'rdom8chr'}) # reposita
+        else:
+            # Sunday falls on the 29-31
+            y.update({christmas + days(7) - findsunday(christmas): 'dom8chri'})
+            print(christmas+days(7)-findsunday(christmas))
+        if (
+                int(day(self.year, month=12, day=30).strftime('%u')) == 1
+                or int(day(self.year, month=12, day=30).strftime('%u')) == 7
+                ):
+            y.update({christmas+days(5): 'in8chr_5'})
         for i, feast in enumerate(christmas_days):
-            y.update({
-                day(year=self.year, month=12, day=25+i): feast
-                })
-        # TODO: sunday within the octave of the Nativity
+            if i == 0:
+                if christmas-days(-1) == self.key_points()[-1]:
+                    pass # prevents duplicate keys
+                else:
+                    y.update({christmas-days(1): 'vig_chri'})
+                y.update({christmas: feast})
+            else: # TODO: if one of these days coincide with the sunday...
+                y.update({
+                    christmas+days(i): feast
+                    })
+            # TODO: Sunday within the Octave of the Nativity
+            #       this is going to be a bit complicated...
         return y
 
     def build_entire_year(self) -> dict:
@@ -328,6 +350,8 @@ def build_test_website(year):
         <div class="col bg-body-secondary p-1 text-center rounded-end"> Saturday </div>
         </div>
         """
+        # TODO: use modals to display more information:
+        # https://getbootstrap.com/docs/4.0/components/modal/
 
         def start_row(classes=''):
             return '<div class="row w-100 '+classes+'">'
