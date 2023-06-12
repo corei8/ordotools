@@ -280,19 +280,18 @@ def build_test_website(year):
                 </style>
                 </head>
                 <body>
+                <header class="text-bg-secondary pt-2 pb-2 p-3">
+                A simple demonstration of an ordo-generating program 
+                for the traditional calendar.
+                </header>
                 <div class="container">
                 <h1 class="display-2 text-center">
                 The Ordo
                 </h1>
-                <hr>
-                <p>
-                A simple demonstration of my ordo generating program 
-                traditional breviary.
-                </p>
                 <div class="containter">
                 <div class="alert alert-warning" role="alert">
                 This website and the algorithms that generate the calendars 
-                are works in progress. Do not use this website as you
+                are very much <em>works in progress.</em> Do not use this website as you
                 would an official ordo.
                 </div>
                 </div>
@@ -302,66 +301,69 @@ def build_test_website(year):
         month_memory = ''
         weekdays = """
         <div class="row w-100">
-        <div class="col text-bg-light p-1 text-center">
-        Sunday
-        </div>
-        <div class="col text-bg-light p-1 text-center">
-        Monday
-        </div>
-        <div class="col text-bg-light p-1 text-center">
-        Tuesday
-        </div>
-        <div class="col text-bg-light p-1 text-center">
-        Wednesday
-        </div>
-        <div class="col text-bg-light p-1 text-center">
-        Thursday
-        </div>
-        <div class="col text-bg-light p-1 text-center">
-        Friday
-        </div>
-        <div class="col text-bg-light p-1 text-center">
-        Saturday
-        </div>
+        <div class="col bg-body-secondary p-1 text-center"> Sunday </div>
+        <div class="col bg-body-secondary p-1 text-center"> Monday </div>
+        <div class="col bg-body-secondary p-1 text-center"> Tuesday </div>
+        <div class="col bg-body-secondary p-1 text-center"> Wednesday </div>
+        <div class="col bg-body-secondary p-1 text-center"> Thursday </div>
+        <div class="col bg-body-secondary p-1 text-center"> Friday </div>
+        <div class="col bg-body-secondary p-1 text-center"> Saturday </div>
         </div>
         """
-        for aweek in cal:
-            f.write('<div class="row w-100 m-1">')
+
+        def start_row():
+            return '<div class="row w-100">'
+
+        def start_col(classes=''):
+            return '<div class="col p-1 '+classes+'">'
+
+        def empty_col(classes=''):
+            return '<div class="col p-1 '+classes+'"></div>'
+
+        for j, aweek in enumerate(cal):
+            f.write(start_row())
             for i, aday in enumerate(aweek):
+                if i%2 == j%2:
+                    shading = 'bg-white'
+                else:
+                    shading = 'bg-light-subtle'
                 if len(aday) == 2:
                     if aday[0] != month_memory:
-                        f.write('<div class="col p-1"></div>'*int(7-i))
-                        f.write('</div><div class="row w-100 m-1">')
+                        f.write(empty_col()*int(7-i))
+                        f.write('</div>'+start_row())
                         f.write('<div class="col p1 text-center">'\
-                                +'<h1 class="display-4">'\
-                                +aday[0]+" "+str(year)+'</h1></div>'+weekdays)
-                        f.write('</div><div class="row w-100 m-1">')
-                        f.write('<div class="col p-1"></div>'*i)
+                                +'<h1 class="display-4 pt-3">'\
+                                +aday[0]+" "+str(year)+'</h1></div></div>'+weekdays)
+                        f.write(start_row())
+                        f.write(empty_col()*i)
                     month_memory = aday[0]
-                    f.write('<div class="col fw-light p-1">')
+                    f.write(start_col('fw-light '+shading))
                     f.write(str(aday[1]).lstrip('0'))
-                    f.write('<hr>')
-                    f.write('</div>')
+                    f.write('</br></br>¯\_(ツ)_/¯</div>')
                 elif len(aday) == 0:
-                    f.write('<div class="col p-1"></div>')
+                    f.write(empty_col())
                 else:
                     if aday[1] != month_memory:
-                        f.write('<div class="col p-1"></div>'*int(7-i))
-                        f.write('</div><div class="row w-100 m-1">')
+                        f.write(empty_col()*int(7-i))
+                        f.write('</div>'+start_row())
                         f.write('<div class="col p1 text-center">'\
-                                +'<h1 class="display-4">'\
-                                +aday[1]+" "+str(year)+'</h1></div>'+weekdays)
-                        f.write('</div><div class="row w-100 m-1">')
-                        f.write('<div class="col p-1"></div>'*i)
+                                +'<h1 class="display-4 pt-3">'\
+                                +aday[1]+" "+str(year)+'</h1></div></div>'+weekdays)
+                        f.write(start_row())
+                        f.write(empty_col()*i)
                     month_memory = aday[1]
-                    f.write('<div class="col fw-light p-1">')
+                    f.write(start_col('fw-light '+shading))
                     f.write(str(aday[-1]).lstrip('0'))
-                    f.write('<hr>')
+                    f.write('</br></br>')
                     f.write(str(aday[0]))
                     f.write('</div>')
             f.write('</div>')
         f.write("""
                 </div>
+                <footer class="mt-5 text-light bg-dark pt-2 pb-2 p-3">
+                Contact the developer at corei8.github@gmail.com for any questions,
+                or if you wish to contribute.
+                </footer>
                 </body>
                 </html>
                 """)
