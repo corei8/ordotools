@@ -5,9 +5,9 @@ from os import listdir
 
 import dateutil.easter
 
-from feast import Feast
-from settings import YEAR  # ? is this still in use?
-from liturgical_dates import interger_to_roman, epact_chart, dominical
+from ordo_tools.feast import Feast
+from ordo_tools.settings import YEAR  # ? is this still in use?
+# from liturgical_dates import interger_to_roman, epact_chart, dominical
 
 # * just for testing purposes
 # ic(epact_chart(year=YEAR))
@@ -88,25 +88,25 @@ def easter(year: int) -> datetime:
     )
 
 
-CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
+# CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
 
-FIRST_ADVENT = CHRISTMAS - findsunday(CHRISTMAS) - timedelta(weeks=3)
+# FIRST_ADVENT = CHRISTMAS - findsunday(CHRISTMAS) - timedelta(weeks=3)
 
-LAST_ADVENT = CHRISTMAS - timedelta(days=1)
+# LAST_ADVENT = CHRISTMAS - timedelta(days=1)
 
-EASTER_SEASON_START = easter(YEAR) - timedelta(weeks=6, days=4)
+# EASTER_SEASON_START = easter(YEAR) - timedelta(weeks=6, days=4)
 
-LENT_BEGINS = easter(YEAR) - timedelta(weeks=6, days=4)
+# LENT_BEGINS = easter(YEAR) - timedelta(weeks=6, days=4)
 
-LENT_ENDS = easter(YEAR) - timedelta(days=1)
+# LENT_ENDS = easter(YEAR) - timedelta(days=1)
 
-EASTER = easter(YEAR)
+# EASTER = easter(YEAR)
 
-EASTER_SEASON_END = easter(YEAR) + timedelta(days=39)
+# EASTER_SEASON_END = easter(YEAR) + timedelta(days=39)
 
-PENTECOST_SEASON_START = easter(YEAR) + timedelta(days=49)
+# PENTECOST_SEASON_START = easter(YEAR) + timedelta(days=49)
 
-PENTECOST_SEASON_END = FIRST_ADVENT - timedelta(days=1)
+# PENTECOST_SEASON_END = FIRST_ADVENT - timedelta(days=1)
 
 
 def day(year: int, month: int, day: int) -> datetime:
