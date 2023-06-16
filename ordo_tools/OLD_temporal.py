@@ -543,7 +543,7 @@ def build_temporal(year: int) -> dict:
     return cycle
 
 
-# NOTE: Testing purposes:
+# TEST: 
 
 def test_temporal(year: int):
     temp_cycle = build_temporal(year=year)

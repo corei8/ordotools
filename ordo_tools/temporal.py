@@ -1,4 +1,3 @@
-from datetime import datetime
 from ordo_tools.utils import FERIA
 from ordo_tools.utils import ROMANS
 from ordo_tools.utils import day
@@ -108,8 +107,10 @@ class Temporal:
         return y
 
     def lent(self):
+        """ All of the sundays and ferias of Lent, up to Easter """
+        # NOTE: not quite refactored, but working
         y, ashweek = {}, ("dcinerum", "f5poscin","f6poscin", "sabbpcin")
-        for c, x in enumerate([
+        for c, x in enumerate([ # we can shorten this...
             "quadra01", "quadra02", "quadra03",
             "quadra04", "passione", "inpalmis",
             ]):
@@ -117,109 +118,111 @@ class Temporal:
                 for count, theday in enumerate(ashweek):
                     y.update({self.easter-week(6-c)-days(4-count): theday})
             y.update({self.easter-week(6-c): x})
-            for j, f in enumerate(FERIA): # this is just dumb
+            # TODO: we need the feast of the Seven Sorrows
+            for j, f in enumerate(FERIA): # this is just dumb, but it is working
+                # TODO: introduce holy week; not needed, but nice viusal
                 y.update({self.easter-week(6-c)+days(j+1): x+f})
                 pass
         return y
 
     def post_easter(self):
-        y, d = {}, ("domresur", "in8re", "sabalbis")
-        for j, x in enumerate(d):
-            if d[j] == 1:
-                for i in FERIA[1,-1]:
-                    y.update({self.easter+days(j): x+i})
+        """ Easter Week """
+        # NOTE: refactored and working
+        y, d = {}, ("domresur", "in8resur_f", "sabalbis")
+        for j, feast in enumerate(d):
+            if j == 0:
+                y.update({self.easter: feast})
+            elif j == 1:
+                for i in range(2,7):
+                    y.update({self.easter+days(j+i-2): feast+str(i)})
             else:
-                y.update({self.easter+days(j): x})
-
+                y.update({self.easter+days(6): feast})
         return y
 
     def paschaltime(self):
+        """ From Whit Sunday to Pentecost """
+        # NOTE: refactored and working
+        # TODO: work on the octaves
         y = {}
-        pasch = ("domalbis", "dp.pas_", "dom8asce")
-        for i, the_day in enumerate(pasch, start=1):
-            if the_day == "dp.pas_":
-                # TODO: use the standard numbering format for the ferias
-                for num in ROMANS[1:5]: # FIXME: better way?
-                    if num == "II":
-                        y.update({# TODO: all days within the octave
-                                  self.easter+week(i)+days(3): "solstjos",
-                                  self.easter+week(i+1)+days(3): "8solsjos",
-                                  })
-                    elif num == "V":
-                        y.update({self.easter+week(i): the_day+str(i)})
-                        pre_ascen = ("rogati_", "ascensio", "8ascensi") 
-                        for c, x in enumerate(pre_ascen):
-                            if c == 0:
-                                for r in range(1,4): # all rogations
-                                    y.update({self.easter+week(i)+days(c): x+str(r)})
-                            else:
-                                y.update({
-                                    self.easter+week(i)+\
-                                            days(4 if x=="ascensio" else 11): x,
-                                            })
-                            # TODO: add all the days within the octave of ascension
-                    else:
-                        y.update({self.easter+week(i): the_day+str(i)})
-
+        for i in range(1,7):
+            if i == 1:
+                the_day = "domalbis"
+            elif i == 6:
+                the_day = "dom8asce"
+            else:
+                the_day = "dom.pasch_"+str(i)
+                if i == 3:
+                    y.update({
+                        self.easter+week(i)+days(3): "solstjos",
+                        self.easter+week(i+1)+days(3): "8solstjos"
+                    })
+                elif i == 5:
+                    pre_ascen = ("rogati_", "ascensio", "8ascensi") 
+                    for c, x in enumerate(pre_ascen):
+                        if c == 0:
+                            for r in range(1,4):
+                                y.update({self.easter+week(i)+days(r): x+str(r)})
+                        else:
+                            y.update({
+                                      self.easter+week(i)+\
+                                      days(4 if x=="ascensio" else 11): x,
+                                      })
+            y.update({self.easter+week(i): the_day})
         return y
 
     def key_points(self):
         """
         List of some important numbers for the calendar:
             [
-                    0. Number of Sundays after Pentecost,
+                    0. Date of the last Sunday after Pentecost,
                     1. List of numerals of the displaced Epiphany Sundays,
                     2. Date of the last Sunday of Advent,
                     ]
         """
-        christmas = datetime.strptime(str(self.year) + "-12-25", "%Y-%m-%d")
+        christmas = day(year=self.year, month=12, day=25)
         lastadvent = christmas - findsunday(christmas)
-        post_pent_sundays = int((((lastadvent - week(4))-self.easter+week(6))/7).days)-1
+        # BUG: this is not working:
+        post_pent_sundays = (((lastadvent - week(4))-self.easter+week(7))/7).days
+        last_pent = lastadvent - week(4)
         # post_pent_count = self.easter+week(6) + week(4) # from the old method
-        epiph_sunday_overflow = ROMANS[
+        epiph_sunday_overflow = ROMANS[ # BUG: this is not working and is kinda dumb
                 6-find_extra_epiphany(post_pent_sundays): \
                         find_extra_epiphany(post_pent_sundays)+2
                         ]
-        return [post_pent_sundays, epiph_sunday_overflow, lastadvent]
+        return [last_pent, epiph_sunday_overflow, lastadvent]
 
     # TODO: Advent, Pentecost, and Christmas have to be co-dependant, because
     #       they have overlapping dates. The same goes for Epiphany and Lent.
 
     def pentecost(self):
+        # NOTE: refactored and working somewhat
         y = {}
         pent_date = self.easter + week(7)
-        y.update({
-            pent_date: 'pentecost',
-            })
+        y.update({pent_date: 'pentecost'})
         for fer in range(2,8):
             if fer != 7:
-                y.update({
-                    pent_date+days(fer-1): 'inpent_f'+str(fer)
-                    })
+                y.update({ pent_date+days(fer-1): 'inpent_f'+str(fer) })
             else:
-                y.update({
-                    pent_date+days(fer-1): 'inpent_fs'
-                    })
-        sundays_after_pentecost = self.key_points()[0]
-        # NOTE: just a placeholder for now... lots more to do
-        for x in range(1, sundays_after_pentecost+1):
-            if x > 23: # HACK: just to prevent craziness
-                break
-            elif x == 1:
+                y.update({ pent_date+days(fer-1): 'inpent_fs' })
+        x = 1
+        while pent_date+week(x) != self.key_points()[0]:
+            if x == 1:
                 y.update({
                     pent_date+week(x): 'trinity',
                     pent_date+week(x)+days(4): 'corpchris'
                     })
                 # TODO: add octave within Corpus Christi
             else:
-                y.update({
-                    pent_date+week(x): 'dp.pe_'+str(x)
-                    })
+                y.update({ pent_date+week(x): 'dp.pe_'+str(x) })
+            x+=1
+        y.update({ pent_date+week(x): 'dp.pe_'+str(x) })
+        # TODO: introduce the sundays after epiphany
         return y
 
     def advent(self):
-        y = {}
+        # NOTE: refactored and working
         advents = ["domadv_"]
+        y = {}
         for x in range(4):
             if x == 0 and self.key_points()[-1]-week(x):
                 y.update({
@@ -229,10 +232,16 @@ class Temporal:
                 y.update({
                     self.key_points()[-1]-week(x): advents[0]+str(4-x)
                     })
+                for fer in range (2,8):
+                    y.update({
+                        self.key_points()[-1]-week(x)+days(fer-1):
+                        "fer.adv_"+str(4-x)+"_"+(str(fer) if fer != 7 else "s")
+                    })
         return y
 
     def christmas(self):
         y = {}
+        # TODO: make christmas a class variable
         christmas = day(year=self.year, month=12, day=25)
         christmas_days = [
                 'christmas',
@@ -242,9 +251,9 @@ class Temporal:
                 'stthomaem',
                 'stsilvest',
                 ]
-        # BUG: this is not working for 2023
-        if findsunday(christmas) == 0 or 1 or 2 or 3: # Sunday w/in octave occurs on 30 if the Sunday is on 25-28
-            y.update({christmas + days(5) - findsunday(christmas): 'rdom8chr'}) # reposita
+        # Sunday w/in octave occurs on 30 if the Sunday is on 25-28
+        if findsunday(christmas) == 0 or 1 or 2 or 3:
+            y.update({christmas + days(5) - findsunday(christmas): 'rdom8chr'})#reposita
         else: # Sunday falls on the 29-31
             y.update({christmas + days(7) - findsunday(christmas): 'dom8chri'})
             print(christmas+days(7)-findsunday(christmas))
