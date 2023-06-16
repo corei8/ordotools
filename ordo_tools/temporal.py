@@ -27,6 +27,7 @@ class Temporal:
 
     def start_year(self):
         """ Circumcision up to Septuagesima, excluding Epiphany """
+        # NOTE: refactored and working
         cir = day(self.year, 1, 1)
         y = {
                 cir: "circumci",
@@ -42,40 +43,36 @@ class Temporal:
             y.update({day(self.year, 1, 2): "snomjesu"})
         else:
             y.update({cir-findsunday(cir)+week(1): "snomjesu"})
-
         return y
 
     def gesimas(self):
         """ Septuagesima to Quinquagesima """
+        # NOTE: refactored and working
+        y = {}
         for i, x in enumerate([ "septuage", "sexagesi", "quinquag" ]):
-            y = {
-                    self.easter - week(9-i): x,
-                    }
-
-            return y
+            y.update({self.easter - week(9-i): x})
+        return y
 
     def epiphany(self):
         """ Epiphany and its Sundays """
-        epiph = day(self.year, 1, 6)
-        # NOTE: it is better to refactor this
-        #       to use a list of events
+        # NOTE: refactored and working
+        epiphany = day(self.year, 1, 6)
         y = {
-                epiph-days(1): "vigepiph",
-                epiph: "epiphani",
-                epiph+days(7): "8epiphan",
+                epiphany-days(1): "vigepiph",
+                epiphany: "epiphani",
+                epiphany+days(7): "8epiphan",
                 }
-        for x in range(8):
-            # TODO: see if these are days within or special per day
-            i = x+1 # from when we used enumerate...
-            # TODO: skip the sunday after epiphany
-            if weekday(epiph+days(i+1)) != "Sun":
-                if weekday(epiph+days(i+1)) == "Sat":
-                    y.update({epiph+days(i+1): "sabin8ep"})
+        for x in range(1,7):
+            if weekday(epiphany+days(x)) != "Sun":
+                if weekday(epiphany+days(x)) == "Sat":
+                    y.update({epiphany+days(x): "in8ep_fs"})
                 else:
-                    y.update({epiph+days(i+1): "in8epi_"+str(i)})
+                    the_date = epiphany+days(x)
+                    y.update({
+                        the_date: "in8epi_f"+str(int(the_date.strftime('%w'))+1)
+                        })
             else:
                 pass
-
         return y
 
     def post_epiphany(self):
@@ -108,7 +105,6 @@ class Temporal:
                 y.update({date+days(j+1): "de.epi_"+str(i+1)+"_"+str(d)})
             i+=1
             date+=week(1)
-
         return y
 
     def lent(self):
@@ -121,10 +117,9 @@ class Temporal:
                 for count, theday in enumerate(ashweek):
                     y.update({self.easter-week(6-c)-days(4-count): theday})
             y.update({self.easter-week(6-c): x})
-            for j, f in enumerate(FERIA):
+            for j, f in enumerate(FERIA): # this is just dumb
                 y.update({self.easter-week(6-c)+days(j+1): x+f})
                 pass
-
         return y
 
     def post_easter(self):
