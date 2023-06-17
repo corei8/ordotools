@@ -1,17 +1,16 @@
 import importlib
 import re
-from datetime import date, datetime, timedelta
+
+from datetime import date
+from datetime import datetime
+from datetime import timedelta
+
 from os import listdir
 
 import dateutil.easter
 
 from ordo_tools.feast import Feast
-from ordo_tools.settings import YEAR  # ? is this still in use?
-# from liturgical_dates import interger_to_roman, epact_chart, dominical
-
-# * just for testing purposes
-# ic(epact_chart(year=YEAR))
-# ic(dominical(year=YEAR))
+from ordo_tools.settings import YEAR
 
 # todo use interger_to_roman to convert the number to roman numerals
 ROMANS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
@@ -50,7 +49,7 @@ EPIPHANY_MASSES = ('', )
     # 'Sabbatum',
 # ]
 
-FERIA = [
+FERIA = [ # this is being handled elsewhere
     '_f2',
     '_f3',
     '_f4',
@@ -74,8 +73,10 @@ FERIA = [
 
 
 def findsunday(date: datetime) -> timedelta:
-    """ return the distance of the datetime date from the
-    previous Sunday, as a days timedelta """
+    """
+    return the distance betweent the date and
+    the previous Sunday, as timedelta.days
+    """
     return timedelta(days=int(date.strftime('%w')))
 
 
@@ -88,25 +89,25 @@ def easter(year: int) -> datetime:
     )
 
 
-# CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
+CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
 
-# FIRST_ADVENT = CHRISTMAS - findsunday(CHRISTMAS) - timedelta(weeks=3)
+FIRST_ADVENT = CHRISTMAS - findsunday(CHRISTMAS) - timedelta(weeks=3)
 
-# LAST_ADVENT = CHRISTMAS - timedelta(days=1)
+LAST_ADVENT = CHRISTMAS - timedelta(days=1)
 
-# EASTER_SEASON_START = easter(YEAR) - timedelta(weeks=6, days=4)
+EASTER_SEASON_START = easter(YEAR) - timedelta(weeks=6, days=4)
 
-# LENT_BEGINS = easter(YEAR) - timedelta(weeks=6, days=4)
+LENT_BEGINS = easter(YEAR) - timedelta(weeks=6, days=4)
 
-# LENT_ENDS = easter(YEAR) - timedelta(days=1)
+LENT_ENDS = easter(YEAR) - timedelta(days=1)
 
-# EASTER = easter(YEAR)
+EASTER = easter(YEAR)
 
-# EASTER_SEASON_END = easter(YEAR) + timedelta(days=39)
+EASTER_SEASON_END = easter(YEAR) + timedelta(days=39)
 
-# PENTECOST_SEASON_START = easter(YEAR) + timedelta(days=49)
+PENTECOST_SEASON_START = easter(YEAR) + timedelta(days=49)
 
-# PENTECOST_SEASON_END = FIRST_ADVENT - timedelta(days=1)
+PENTECOST_SEASON_END = FIRST_ADVENT - timedelta(days=1)
 
 
 def day(year: int, month: int, day: int) -> datetime:
@@ -208,7 +209,7 @@ def find_module(name: str) -> tuple:
         dict_name_json = ''
     return (file_name, mdl_name, dict_name, dict_name_json)
 
-# todo maybe use a decorator to make this more readable?
+# TODO: maybe use a decorator to make this more readable?
 
 
 def commit_to_dictionary(target_file: str, dic: dict) -> None:
@@ -255,7 +256,7 @@ def explode_octaves(region_diocese: str) -> dict:
                     return_dict.update(
                         {
                             str((datetime.strptime(feast.feast_date, '%m/%d')
-                                + indays(k)).strftime('%m/%d')) + '_':
+                                + days(k)).strftime('%m/%d')) + '_':
                             feast.updated_properties
                         }
                     )
@@ -480,7 +481,8 @@ def stitch_calendars(direct: str) -> None:
         full_calendar = add_sanctoral_feasts(temporal, sanctoral).copy()
         for y in temporal.keys():
             if len(y) == 6:
-                ic(f'problem with {y}')
+                pass
+                # ic(f'problem with {y}')
             if y in sanctoral.keys():
                 continue
             else:
@@ -533,13 +535,13 @@ def our_ladys_saturday(direct: str) -> None:
     if begin_year.strftime('%A') == 'Saturday':
         saturday = begin_year
     else:
-        saturday = begin_year - indays(findsunday(begin_year) + 6)
+        saturday = begin_year - days(findsunday(begin_year) + 6)
     while saturday <= date(YEAR, 12, 31):
         if LENT_BEGINS.date() <= saturday <= LENT_ENDS.date():
-            saturday += indays(7)
+            saturday += days(7)
             continue
         elif FIRST_ADVENT.date() <= saturday <= LAST_ADVENT.date():
-            saturday += indays(7)
+            saturday += days(7)
             continue
         # todo #19 #18 also Ember Days, Vigils
         else:
@@ -559,7 +561,7 @@ def our_ladys_saturday(direct: str) -> None:
                         temporal_feast=saturday_in_temporal.feast_properties
                     )
                 )
-            saturday = saturday + indays(7)
+            saturday = saturday + days(7)
     commit_to_dictionary(target_file='calendar', dic=dic)
     return None
 
