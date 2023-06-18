@@ -68,7 +68,7 @@ def build_test_website(year):
             return '<div class="row w-100 '+classes+'">'
 
         def start_col(classes=''):
-            return '<div class="col p-1 '+classes+'" style="min-height: 10em;">'
+            return '<div class="col p-1 text-break '+classes+'" style="min-height: 10em;">'
 
         def empty_col(classes=''):
             return start_col(classes)+'</div>'
