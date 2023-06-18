@@ -37,17 +37,15 @@ class Temporal:
 
     def advent(self) -> dict:
         """ Advent Season """
-        advents = ["D_Advent_"]
         y = {}
-        for x in range(4):
-            if x == 0 and self.lastadvent-week(x):
+        for x in range(4): # build the advents backwards?
+            if x == 0 and self.christmas-days(1) == self.lastadvent:
+                # TEST: this is working
                 y |= {
-                    self.lastadvent-week(x): 'DV_Christmas'
+                    self.lastadvent: 'DV_Christmas'
                 }
             else:
-                y |= {
-                    self.lastadvent-week(x): advents[0]+str(4-x)
-                }
+                y |= { self.lastadvent-week(x): f"D_Advent_{4-x}" }
                 for fer in range (2,8):
                     y |= {
                         self.lastadvent-week(x)+days(fer-1):
@@ -97,7 +95,7 @@ class Temporal:
             }
         for i, feast in enumerate(christmas_weekdays):
             if i == 0:
-                if self.christmas-days(-1) == self.lastadvent:
+                if self.christmas-days(1) == self.lastadvent:
                     pass # prevents duplicate keys
                 else:
                     y |= {self.christmas-days(1): 'V_Christmas'}
