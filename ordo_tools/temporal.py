@@ -256,10 +256,20 @@ class Temporal:
             findsunday(self.christmas) == days(3)
                 ):
             dom_in_octave = self.christmas+days(7)-findsunday(self.christmas)
+            y.update({ # office of the sixth day fall on Dec. 30
+                      self.christmas-days(5):
+                      "8chritmas_6"
+                      })
+        elif (# Sunday falls on the first three days of the octave:
+                findsunday(self.christmas) == days(6) or
+                findsunday(self.christmas) == days(5) or
+                findsunday(self.christmas) == days(4)
+            ):
             y.update({
-                self.christmas-days(5): # is this the same as St. Sylvester?
-                "8chritmas_6"
+                self.christmas+(days(5)):
+                "dom8chris"
             })
+            pass
         else:
             y.update({
                 self.christmas+(days(7)-findsunday(self.christmas)):
