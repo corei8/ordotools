@@ -17,6 +17,15 @@ class Temporal:
     than having to calulate the entire year. The exact implementation process
     is still being worked out, but this Class will be much easier to debug and
     develop rather than the previous idea, which is in OLD_temporal.py.
+
+    For the various parts of the year that require more advanced
+    configurations, (e.g. the O-antiphons) this modular approach will allow the
+    parts of the year to be self-calculated, which will be more efficient in
+    the long run, and allow for much easier debugging. Having already trued the
+    "figure it out in one go" approach, I can tell you that this is the way to
+    go.
+
+    -- Fr. Barnes, June 17, 2023
     """
 
     def __init__(self, year):
@@ -29,11 +38,11 @@ class Temporal:
         """ Circumcision up to Septuagesima, excluding Epiphany """
         cir = day(self.year, 1, 1)
         y = {
-                cir: "circumci",
-                cir+days(1): "8stephen",
-                cir+days(2): "8joannis",
-                cir+days(3): "8innocen",
-                }
+            cir: "circumci",
+            cir+days(1): "8stephen",
+            cir+days(2): "8joannis",
+            cir+days(3): "8innocen",
+        }
         if (
                 weekday(cir) == "Sun" 
                 or weekday(cir) == "Mon"
@@ -55,10 +64,10 @@ class Temporal:
         """ Epiphany and its Sundays """
         epiphany = day(self.year, 1, 6)
         y = {
-                epiphany-days(1): "vigepiph",
-                epiphany: "epiphani",
-                epiphany+days(7): "8epiphan",
-                }
+            epiphany-days(1): "vigepiph",
+            epiphany: "epiphani",
+            epiphany+days(7): "8epiphan",
+        }
         for x in range(1,7):
             if weekday(epiphany+days(x)) != "Sun":
                 if weekday(epiphany+days(x)) == "Sat":
@@ -67,13 +76,14 @@ class Temporal:
                     the_date = epiphany+days(x)
                     y.update({
                         the_date: "in8epi_f"+str(int(the_date.strftime('%w'))+1)
-                        })
+                    })
             else:
                 pass
         return y
 
     def post_epiphany(self):
         """ All of the Sundays and ferias after Epiphany """
+        # NOTE: There are max how many Sundays after Epiphany?
         epiphany = day(self.year, 1, 6)
         if weekday(epiphany) == "Sun":
             sun_after_epiphany = epiphany+week(1)
@@ -86,11 +96,11 @@ class Temporal:
                     y.update({
                         date: "in8epiph",
                         date-days(1): "sfamijmj",
-                        })
+                    })
                 else:
                     y.update({
                         date: "sfamdomi",
-                        })
+                    })
             else:
                 y.update({date: "dom.epi_"+str(i+1)})
             for j in range(6):
@@ -107,9 +117,9 @@ class Temporal:
         """ All of the sundays and ferias of Lent, up to Easter """
         y, ashweek = {}, ("dcinerum", "f5poscin","f6poscin", "sabbpcin")
         for c, x in enumerate([ # we can shorten this...
-            "quadra01", "quadra02", "quadra03",
-            "quadra04", "passione", "inpalmis",
-            ]):
+                               "quadra01", "quadra02", "quadra03",
+                               "quadra04", "passione", "inpalmis",
+                               ]):
             if x == "quadra01":
                 for count, theday in enumerate(ashweek):
                     y.update({self.easter-week(6-c)-days(4-count): theday})
@@ -158,9 +168,9 @@ class Temporal:
                                 y.update({self.easter+week(i)+days(r): x+str(r)})
                         else:
                             y.update({
-                                      self.easter+week(i)+\
-                                      days(4 if x=="ascensio" else 11): x,
-                                      })
+                                self.easter+week(i)+\
+                                    days(4 if x=="ascensio" else 11): x,
+                            })
             y.update({self.easter+week(i): the_day})
         return y
 
@@ -179,9 +189,9 @@ class Temporal:
         last_pent = lastadvent - week(4)
         # post_pent_count = self.easter+week(6) + week(4) # from the old method
         epiph_sunday_overflow = ROMANS[ # BUG: this is not working and is kinda dumb
-                6-find_extra_epiphany(post_pent_sundays): \
-                        find_extra_epiphany(post_pent_sundays)+2
-                        ]
+        6-find_extra_epiphany(post_pent_sundays): \
+        find_extra_epiphany(post_pent_sundays)+2
+    ]
         return [last_pent, epiph_sunday_overflow, lastadvent]
 
     def pentecost(self):
@@ -199,7 +209,7 @@ class Temporal:
                 y.update({
                     pent_date+week(x): 'trinity',
                     pent_date+week(x)+days(4): 'corpchris'
-                    })
+                })
                 # TODO: add octave within Corpus Christi
             else:
                 y.update({ pent_date+week(x): 'dp.pe_'+str(x) })
@@ -214,11 +224,11 @@ class Temporal:
             if x == 0 and self.key_points()[-1]-week(x):
                 y.update({
                     self.key_points()[-1]-week(x): 'dvig_chri'
-                    })
+                })
             else:
                 y.update({
                     self.key_points()[-1]-week(x): advents[0]+str(4-x)
-                    })
+                })
                 for fer in range (2,8):
                     y.update({
                         self.key_points()[-1]-week(x)+days(fer-1):
@@ -240,14 +250,14 @@ class Temporal:
             'dom_stthomas',
             'dom_stsylvest',
         ]
-        dom_in_octave = '' # perhaps give this a value later on
+        dom_in_octave = ''
         if ( # Sunday falls on St. Thomas or St. Sylvester:
-                findsunday(self.christmas) == days(2) or
-                findsunday(self.christmas) == days(3)
+            findsunday(self.christmas) == days(2) or
+            findsunday(self.christmas) == days(3)
                 ):
             dom_in_octave = self.christmas+days(7)-findsunday(self.christmas)
             y.update({
-                self.christmas+days(5): # is this the same as St. Sylvester?
+                self.christmas-days(5): # is this the same as St. Sylvester?
                 "8chritmas_6"
             })
         else:
@@ -255,23 +265,6 @@ class Temporal:
                 self.christmas+(days(7)-findsunday(self.christmas)):
                 "dom8chris"
             })
-
-        # if findsunday(self.christmas) == 0 or 1 or 2 or 3:
-        #     y.update({
-        #         self.christmas + days(5) - findsunday(self.christmas):
-        #         'rdom8chr'
-        #     })
-        # else:
-        #     y.update({
-        #         self.christmas + days(7) - findsunday(self.christmas):
-        #         'dom8chri'
-        #     })
-        #     print(self.christmas+days(7)-findsunday(self.christmas))
-        # if (
-        #         int(day(self.year, month=12, day=30).strftime('%u')) == 1
-        #         or int(day(self.year, month=12, day=30).strftime('%u')) == 7
-        #         ):
-        #     y.update({self.christmas+days(5): 'in8chr_5'})
         for i, feast in enumerate(christmas_weekdays):
             if i == 0:
                 if self.christmas-days(-1) == self.key_points()[-1]:
@@ -286,7 +279,7 @@ class Temporal:
             else:
                 y.update({
                     self.christmas+days(i): feast
-                    })
+                })
         return y
 
     def build_entire_year(self) -> dict:
