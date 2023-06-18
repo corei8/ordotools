@@ -33,24 +33,25 @@ class Temporal:
         self.easter = easter(self.year)
         self.septuagesima = self.easter - week(9)
         self.christmas = day(year=self.year, month=12, day=25)
+        self.lastadvent = self.christmas - findsunday(self.christmas)
 
     def advent(self) -> dict:
         """ Advent Season """
-        advents = ["domadv_"]
+        advents = ["D_Advent_"]
         y = {}
         for x in range(4):
-            if x == 0 and self.key_points()[-1]-week(x):
+            if x == 0 and self.lastadvent-week(x):
                 y |= {
-                    self.key_points()[-1]-week(x): 'dvig_chri'
+                    self.lastadvent-week(x): 'DV_Christmas'
                 }
             else:
                 y |= {
-                    self.key_points()[-1]-week(x): advents[0]+str(4-x)
+                    self.lastadvent-week(x): advents[0]+str(4-x)
                 }
                 for fer in range (2,8):
                     y |= {
-                        self.key_points()[-1]-week(x)+days(fer-1):
-                        "fer.adv_"+str(4-x)+"_"+(str(fer) if fer != 7 else "s")
+                        self.lastadvent-week(x)+days(fer-1):
+                        f"Advent_{4-x}_f{fer if fer != 7 else 's'}"
                     }
         return y
 
@@ -58,12 +59,12 @@ class Temporal:
         """ Christmas and the following days to the end of the year. """
         y = {}
         christmas_weekdays = [
-            'christmas', # 25
-            'ststephan', # 26
-            'stjoannis', # 27
-            'stsinnoce', # 28
-            'stthomaem', # 29
-            'stsylvest', # 30
+            'Christmas', # 25
+            'StStephan', # 26
+            'StJohn', # 27
+            'StsInnocents', # 28
+            'StThomas', # 29
+            'StSylvester', # 30
         ]
         christmas_sundays = [
             'dom_stthomas',
@@ -77,29 +78,29 @@ class Temporal:
             dom_in_octave = self.christmas+days(7)-findsunday(self.christmas)
             y |= { # office of the sixth day fall on Dec. 30
                       self.christmas-days(5):
-                      "8chritmas_6"
+                      "8_Chritmas_f6"
                       }
-        elif (# Sunday falls on the first three days of the octave:
+        elif ( # Sunday falls on the first three days of the octave:
                 findsunday(self.christmas) == days(6) or
                 findsunday(self.christmas) == days(5) or
                 findsunday(self.christmas) == days(4)
             ):
             y |= {
                 self.christmas+(days(5)):
-                "dom8chris"
+                "D_Christmas"
             }
             pass
         else:
             y |= {
                 self.christmas+(days(7)-findsunday(self.christmas)):
-                "dom8chris"
+                "D_Christmas"
             }
         for i, feast in enumerate(christmas_weekdays):
             if i == 0:
-                if self.christmas-days(-1) == self.key_points()[-1]:
+                if self.christmas-days(-1) == self.lastadvent:
                     pass # prevents duplicate keys
                 else:
-                    y |= {self.christmas-days(1): 'vig_chri'}
+                    y |= {self.christmas-days(1): 'V_Christmas'}
                 y |= {self.christmas: feast}
             elif self.christmas+days(i) == dom_in_octave:
                 y |= {
@@ -251,26 +252,6 @@ class Temporal:
             y |= {self.easter+week(i): the_day}
         return y
 
-    def key_points(self):
-        """
-        List of some important numbers for the calendar:
-            [
-                    0. Date of the last Sunday after Pentecost,
-                    1. List of numerals of the displaced Epiphany Sundays,
-                    2. Date of the last Sunday of Advent,
-                    ]
-        """
-        lastadvent = self.christmas - findsunday(self.christmas)
-        # BUG: this is not working:
-        post_pent_sundays = (((lastadvent - week(4))-self.easter+week(7))/7).days
-        last_pent = lastadvent - week(4)
-        # post_pent_count = self.easter+week(6) + week(4) # from the old method
-        epiph_sunday_overflow = ROMANS[ # BUG: this is not working and is kinda dumb
-        6-find_extra_epiphany(post_pent_sundays): \
-        find_extra_epiphany(post_pent_sundays)+2
-    ]
-        return [last_pent, epiph_sunday_overflow, lastadvent]
-
     def pentecost(self):
         y = {}
         pent_date = self.easter + week(7)
@@ -282,10 +263,10 @@ class Temporal:
                 y |= { pent_date+days(fer-1): 'inpent_fs' }
         x = 1
         e = 0
-        lastadvent = self.key_points()[0]
-        while pent_date+week(x) != lastadvent+week(1):
+        last_pent = self.christmas - findsunday(self.christmas) - week(4)
+        while pent_date+week(x) != last_pent+week(1):
             leftovers = self.post_epiphany()[1]
-            if pent_date+week(x) == lastadvent-week(6-leftovers)+week(e):
+            if pent_date+week(x) == last_pent-week(6-leftovers)+week(e):
                 sunday = f'D_Epiph_{leftovers+e}_{x}'
                 e += 1
             else:
