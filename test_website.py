@@ -21,31 +21,21 @@ def build_test_website(year):
     for date in y.keys():
         place = int(date.strftime('%U'))-1
         cal[place][int(date.strftime('%w'))].insert(0, y[date])
-    with open("./output/html/calendar.html", 'w') as f:
+    with open("./output/ordosite/_includes/calendar.html", 'w') as f:
         f.truncate(0)
         f.write("""
-                <!doctype html>
-                <html lang="en">
-                <head>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-                integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-                <style>
-                </style>
-                </head>
-                <body>
-                <div class="container center">
-                """)
+<div class="container center">""")
         month_memory = ''
         weekdays = """
-        <div class="row w-100 rounded">
-        <div class="col bg-body-secondary p-1 text-center rounded-start"> Sunday </div>
-        <div class="col bg-body-secondary p-1 text-center"> Monday </div>
-        <div class="col bg-body-secondary p-1 text-center"> Tuesday </div>
-        <div class="col bg-body-secondary p-1 text-center"> Wednesday </div>
-        <div class="col bg-body-secondary p-1 text-center"> Thursday </div>
-        <div class="col bg-body-secondary p-1 text-center"> Friday </div>
-        <div class="col bg-body-secondary p-1 text-center rounded-end"> Saturday </div>
-        </div>
+<div class="row w-100 rounded">
+<div class="col bg-primary text-white p-1 text-center rounded-start"> Sunday </div>
+<div class="col bg-primary text-white p-1 text-center"> Monday </div>
+<div class="col bg-primary text-white p-1 text-center"> Tuesday </div>
+<div class="col bg-primary text-white p-1 text-center"> Wednesday </div>
+<div class="col bg-primary text-white p-1 text-center"> Thursday </div>
+<div class="col bg-primary text-white p-1 text-center"> Friday </div>
+<div class="col bg-primary text-white p-1 text-center rounded-end"> Saturday </div>
+</div>
         """
         # TODO: use modals to display more information:
         # https://getbootstrap.com/docs/4.0/components/modal/
@@ -63,56 +53,32 @@ def build_test_website(year):
             f.write(start_row())
             for i, aday in enumerate(aweek):
                 if i%2 == j%2:
-                    shading = 'bg-white'
+                    shading = ''
                 else:
-                    shading = 'bg-light-subtle'
+                    shading = 'bg-light'
                 if len(aday) == 2:
-                    if aday[0] != month_memory:
-                        if aday[0] == 'January':
-                            pass
-                        elif i == 0:
-                            pass
-                        else:
-                            f.write(empty_col()*int(7-i))
-                        f.write('</div>'+start_row())
-                        f.write('<div class="col p1 text-center">'\
-                                +'<h1 class="display-4 pt-3">'\
-                                +aday[0]+" "+str(year)+'</h1></div></div>'+weekdays)
-                        f.write(start_row())
-                        f.write(empty_col()*i)
-                    month_memory = aday[0]
-                    f.write(start_col('fw-light '+shading))
-                    f.write(str(aday[1]).lstrip('0'))
-                    f.write('</br></br><div class="text-small">¯\_(ツ)_/¯</div></div>')
+                    index = 0
                 elif len(aday) == 0:
                     f.write(empty_col())
+                    continue
                 else:
-                    if aday[1] != month_memory:
-                        if aday[1] == 'January':
-                            pass
-                        elif i == 0:
-                            pass
-                        else:
-                            f.write(empty_col()*int(7-i))
-                        f.write('</div>'+start_row())
-                        f.write('<div class="col p1 text-center">'\
-                                +'<h1 class="display-4 pt-3">'\
-                                +aday[1]+" "+str(year)+'</h1></div></div>'+weekdays)
-                        f.write(start_row())
-                        f.write(empty_col()*i)
-                    month_memory = aday[1]
-                    f.write(start_col('fw-light '+shading))
-                    f.write(str(aday[-1]).lstrip('0'))
-                    f.write('</br></br>')
-                    f.write('<div class="fs-6">'+str(aday[0])+'</div>')
-                    f.write('</div>')
-            f.write('</div>')
-        f.write("""
-                </div>
-                <footer class="mt-5 text-light bg-dark pt-2 pb-2 p-3">
-                Contact the developer at corei8.github@gmail.com for any questions,
-                or if you wish to contribute.
-                </footer>
-                </body>
-                </html>
-                """)
+                    index = 1
+                if aday[index] != month_memory:
+                    if aday[index] == 'January':
+                        pass
+                    elif i == 0:
+                        pass
+                    else:
+                        f.write(empty_col()*int(7-i))
+                    f.write('</div>'+start_row())
+                    f.write('<div class="col p1 text-center">'\
+                            +'<h1 class="display-4 pt-3">'\
+                            +aday[index]+" "+str(year)+'</h1></div></div>'+weekdays)
+                    f.write(start_row())
+                    f.write(empty_col()*i)
+                month_memory = aday[index]
+                f.write(start_col('fw-light '+shading))
+                f.write(f'<div class="mb-3">{str(aday[-1]).lstrip("0")}</div>')
+                f.write(f'<div class="fs-6">{" " if index != 1 else aday[0]}</div>')
+                f.write('</div>')
+            f.write('</div>\n')
