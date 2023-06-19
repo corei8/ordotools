@@ -21,7 +21,7 @@ def build_test_website(year):
     for date in y.keys():
         place = int(date.strftime('%U'))-1
         cal[place][int(date.strftime('%w'))].insert(0, y[date])
-    with open("./output/html/index.html", 'w') as f:
+    with open("./output/html/calendar.html", 'w') as f:
         f.truncate(0)
         f.write("""
                 <!doctype html>
@@ -33,20 +33,6 @@ def build_test_website(year):
                 </style>
                 </head>
                 <body>
-                <header class="text-bg-secondary pt-2 pb-2 p-3">
-                A simple demonstration of an ordo-generating program 
-                for the traditional calendar.
-                </header>
-                <div class="container">
-                <h1 class="display-1 text-center">
-                The Ordo
-                </h1>
-                <div class="alert alert-warning" role="alert">
-                This website and the algorithms that generate the calendars 
-                are very much <em>works in progress.</em> Do not use this website as you
-                would an official ordo.
-                </div>
-                </div>
                 <div class="container center">
                 """)
         month_memory = ''
