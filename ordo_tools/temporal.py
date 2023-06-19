@@ -40,10 +40,7 @@ class Temporal:
         y = {}
         for x in range(4): # build the advents backwards?
             if x == 0 and self.christmas-days(1) == self.lastadvent:
-                # TEST: this is working
-                y |= {
-                    self.lastadvent: 'DV_Christmas'
-                }
+                y |= { self.lastadvent: 'DV_Christmas' }
             else:
                 y |= { self.lastadvent-week(x): f"D_Advent_{4-x}" }
                 for fer in range (2,8):
@@ -57,16 +54,10 @@ class Temporal:
         """ Christmas and the following days to the end of the year. """
         y = {}
         christmas_weekdays = [
-            'Christmas', # 25
-            'StStephan', # 26
-            'StJohn', # 27
-            'StsInnocents', # 28
-            'StThomas', # 29
-            'StSylvester', # 30
+            'Christmas', 'StStephan', 'StJohn', 'StsInnocents', 'StThomas', 'StSylvester',
         ]
         christmas_sundays = [
-            'dom_stthomas',
-            'dom_stsylvest',
+            'D_StThomas', 'D_StSylvester',
         ]
         dom_in_octave = ''
         if ( # Sunday falls on St. Thomas or St. Sylvester:
@@ -83,16 +74,10 @@ class Temporal:
                 findsunday(self.christmas) == days(5) or
                 findsunday(self.christmas) == days(4)
             ):
-            y |= {
-                self.christmas+(days(5)):
-                "D_Christmas"
-            }
+            y |= { self.christmas+(days(5)): "D_Christmas" }
             pass
         else:
-            y |= {
-                self.christmas+(days(7)-findsunday(self.christmas)):
-                "D_Christmas"
-            }
+            y |= { self.christmas+(days(7)-findsunday(self.christmas)): "D_Christmas" }
         for i, feast in enumerate(christmas_weekdays):
             if i == 0:
                 if self.christmas-days(1) == self.lastadvent:
@@ -101,16 +86,12 @@ class Temporal:
                     y |= {self.christmas-days(1): 'V_Christmas'}
                 y |= {self.christmas: feast}
             elif self.christmas+days(i) == dom_in_octave:
-                y |= {
-                    dom_in_octave: christmas_sundays[i-4]
-                }
+                y |= { dom_in_octave: christmas_sundays[i-4] }
             else:
-                y |= {
-                    self.christmas+days(i): feast
-                }
+                y |= { self.christmas+days(i): feast }
         return y
 
-    def start_year(self):
+    def start_year(self) -> dict:
         """ Circumcision up to Septuagesima, excluding Epiphany """
         circumcision = day(self.year, 1, 1)
         y = {
@@ -129,7 +110,7 @@ class Temporal:
             y |= {circumcision-findsunday(circumcision)+week(1): "SNameJesus"}
         return y
 
-    def epiphany(self):
+    def epiphany(self) -> dict:
         """ Epiphany and its Sundays """
         epiphany = day(self.year, 1, 6)
         y = {
@@ -151,7 +132,7 @@ class Temporal:
                 pass
         return y
 
-    def post_epiphany(self):
+    def post_epiphany(self) -> list:
         """ All of the Sundays and ferias after Epiphany """
         epiphany = day(self.year, 1, 6)
         if weekday(epiphany) == "Sun":
@@ -167,9 +148,7 @@ class Temporal:
                         date-days(1): "HolyFamily",
                     }
                 else:
-                    y |= {
-                        date: "D_HolyFamily",
-                    }
+                    y |= { date: "D_HolyFamily" }
             else:
                 y |= {date: "D_Epiph_"+str(i+1)}
             for j in range(6):
@@ -182,34 +161,40 @@ class Temporal:
             date+=week(1)
         return [y,i+1] # index 1 is the Epiphany Sunday not used
 
-    def gesimas(self):
+    def gesimas(self) -> dict:
         """ Septuagesima to Quinquagesima """
         y = {}
         for i, x in enumerate(["Septuagesima", "Sexagesima", "Quinquagesima"]):
-            y |= {self.easter - week(9-i): x}
+            pre_lent_week = self.easter - week(9-i)
+            y |= {pre_lent_week: x}
+            for feria in range(6):
+                if pre_lent_week+days(feria) == self.easter-week(6)-days(5):
+                    break
+                else:
+                    y |= {pre_lent_week+days(feria+1): f"de_{x[0:4]}_f{feria+2 if feria != 5 else 's'}"}
         return y
+            
 
-    def lent(self):
+    def lent(self) -> dict:
         """ All of the sundays and ferias of Lent, up to Easter """
-        y, ashweek = {}, ("dcinerum", "f5poscin","f6poscin", "sabbpcin")
-        for c, x in enumerate([ # we can shorten this...
-                               "quadra01", "quadra02", "quadra03",
-                               "quadra04", "passione", "inpalmis",
-                               ]):
-            if x == "quadra01":
-                for count, theday in enumerate(ashweek):
-                    y |= {self.easter-week(6-c)-days(4-count): theday}
-            y |= {self.easter-week(6-c): x}
-            # TODO: we need the feast of the Seven Sorrows
-            for j, f in enumerate(FERIA): # this is just dumb, but it is working
-                # TODO: introduce holy week; not needed, but nice viusal
-                y |= {self.easter-week(6-c)+days(j+1): x+f}
-                pass
+        for i in range(7):
+            if i == 0:
+                y = {
+                    self.easter-week(7-i)+days(3+c):\
+                    f"""{"de_" if c == 0 else ""}AshWed{f"_f{c+4 if c != 3 else 's'}" if c != 0 else ""}"""\
+                    for c in range(4)
+                }
+            else:
+                for j in range(7):
+                    y |= {
+                        self.easter-week(7-i)+days(j):
+                        f"""{"D" if j == 0 else "de"}_{"Lent" if i < 5 else "Passion" if i != 6 else "Palm"}{f"_f{j if j != 6 else 's'}" if j != 0 else f"_{i}"}"""
+                    }
         return y
 
-    def post_easter(self):
+    def post_easter(self) -> dict:
         """ Easter Week """
-        y, d = {}, ("domresur", "in8resur_f", "sabalbis")
+        y, d = {}, ("Easter", "8Easter_f", "sabalbis")
         for j, feast in enumerate(d):
             if j == 0:
                 y |= {self.easter: feast}
@@ -220,7 +205,7 @@ class Temporal:
                 y |= {self.easter+days(6): feast}
         return y
 
-    def paschaltime(self):
+    def paschaltime(self) -> dict:
         """ From Whit Sunday to Pentecost """
         # TODO: work on the octaves
         y = {}
@@ -250,7 +235,7 @@ class Temporal:
             y |= {self.easter+week(i): the_day}
         return y
 
-    def pentecost(self):
+    def pentecost(self) -> dict:
         y = {}
         pent_date = self.easter + week(7)
         y |= {pent_date: 'pentecost'}
@@ -278,8 +263,7 @@ class Temporal:
             else:
                 y |= { pent_date+week(x): sunday}
             x+=1
-        # y |= { pent_date+week(x): sunday}
-        return y # TODO: introduce the sundays after epiphany
+        return y
 
     def build_entire_year(self) -> dict:
         """
