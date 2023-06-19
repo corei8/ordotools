@@ -159,7 +159,7 @@ class Temporal:
                 y |= {date+days(j+1): "de_Epiph_"+str(i+1)+"_"+str(d)}
             i+=1
             date+=week(1)
-        return [y,i+1] # index 1 is the Epiphany Sunday not used
+        return [y,i+1] # index 1 is the Epiphany Sunday not used before Septuagesima
 
     def gesimas(self) -> dict:
         """ Septuagesima to Quinquagesima """
@@ -174,9 +174,8 @@ class Temporal:
                     y |= {pre_lent_week+days(feria+1): f"de_{x[0:4]}_f{feria+2 if feria != 5 else 's'}"}
         return y
             
-
     def lent(self) -> dict:
-        """ All of the sundays and ferias of Lent, up to Easter """
+        """ All of the Sundays and ferias of Lent, up to Easter """
         for i in range(7):
             if i == 0:
                 y = {
@@ -194,13 +193,13 @@ class Temporal:
 
     def post_easter(self) -> dict:
         """ Easter Week """
-        y, d = {}, ("Easter", "8Easter_f", "sabalbis")
+        d = ["Easter", "8Easter_f", "WhitSaturday"]
         for j, feast in enumerate(d):
             if j == 0:
-                y |= {self.easter: feast}
+                y = {self.easter: feast}
             elif j == 1:
                 for i in range(2,7):
-                    y |= {self.easter+days(j+i-2): feast+str(i)}
+                    y |= {self.easter+days(j+i-2): f"{feast}{i}"}
             else:
                 y |= {self.easter+days(6): feast}
         return y
@@ -211,18 +210,18 @@ class Temporal:
         y = {}
         for i in range(1,7):
             if i == 1:
-                the_day = "domalbis"
+                the_day = "WhitSunday"
             elif i == 6:
-                the_day = "dom8asce"
+                the_day = "D_Ascension"
             else:
-                the_day = "dom.pasch_"+str(i)
+                the_day = "D_Easter_"+str(i)
                 if i == 3:
                     y |= {
-                        self.easter+week(i)+days(3): "solstjos",
-                        self.easter+week(i+1)+days(3): "8solstjos"
+                        self.easter+week(i)+days(3): "StJoseph",
+                        self.easter+week(i+1)+days(3): "8StJoseph"
                     }
                 elif i == 5:
-                    pre_ascen = ("rogati_", "ascensio", "8ascensi") 
+                    pre_ascen = ("Rogation_", "Ascension", "8Ascension") 
                     for c, x in enumerate(pre_ascen):
                         if c == 0:
                             for r in range(1,4):
@@ -230,22 +229,17 @@ class Temporal:
                         else:
                             y |= {
                                 self.easter+week(i)+\
-                                    days(4 if x=="ascensio" else 11): x,
+                                    days(4 if x=="Ascension" else 11): x,
                             }
             y |= {self.easter+week(i): the_day}
         return y
 
     def pentecost(self) -> dict:
-        y = {}
         pent_date = self.easter + week(7)
-        y |= {pent_date: 'pentecost'}
+        y = {pent_date: 'Pentecost'}
         for fer in range(2,8):
-            if fer != 7:
-                y |= { pent_date+days(fer-1): 'inpent_f'+str(fer) }
-            else:
-                y |= { pent_date+days(fer-1): 'inpent_fs' }
-        x = 1
-        e = 0
+            y |= {pent_date+days(fer-1): f"8Pent_f{fer if fer != 7 else 's'}"}
+        x,e = 1,0
         last_pent = self.christmas - findsunday(self.christmas) - week(4)
         while pent_date+week(x) != last_pent+week(1):
             leftovers = self.post_epiphany()[1]
@@ -256,13 +250,12 @@ class Temporal:
                 sunday = f'D_Pent_{x}'
             if x == 1:
                 y |= {
-                    pent_date+week(x): 'trinity',
-                    pent_date+week(x)+days(4): 'corpchris'
-                }
-                # TODO: add octave within Corpus Christi
+                    pent_date+week(x): 'Trinity',
+                    pent_date+week(x)+days(4): 'CorpusChristi'
+                } # TODO: add octave within Corpus Christi
             else:
                 y |= { pent_date+week(x): sunday}
-            x+=1
+            x += 1
         return y
 
     def build_entire_year(self) -> dict:
