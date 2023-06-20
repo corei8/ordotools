@@ -24,6 +24,17 @@ class Temporal:
     "figure it out in one go" approach, I can tell you that this is the way to
     go.
 
+    Some of the f-strings and dictionary comprehensions might be too cumbersome
+    for some tastes, but in this case they save quite a bit of time and
+    debugging because of the nature of building a calendar.
+
+    The lack of verboseness in some of the naming conventions is intentional
+    (e.g., not mentioning "Holy Saturday" explicityly, but naming it the
+    Saturday feria in "Palm Sunday" week). The job is accomplished sufficiently
+    with the current naming system, and to try to give the most appropriate
+    name to everything would result in a file that is overly long and
+    complicated.
+
     -- Fr. Barnes, June 17, 2023
     """
 
@@ -64,7 +75,7 @@ class Temporal:
             findsunday(self.christmas) == days(3)
                 ):
             dom_in_octave = self.christmas+days(7)-findsunday(self.christmas)
-            y |= { # office of the sixth day fall on Dec. 30
+            y |= { # office of the sixth day falls on Dec. 30
                       self.christmas-days(5):
                       "8_Chritmas_f6"
                       }
@@ -80,7 +91,7 @@ class Temporal:
         for i, feast in enumerate(christmas_weekdays):
             if i == 0:
                 if self.christmas-days(1) == self.lastadvent:
-                    pass # prevents duplicate keys
+                    pass # prevents duplicate keys in advent()
                 else:
                     y |= {self.christmas-days(1): 'V_Christmas'}
                 y |= {self.christmas: feast}
@@ -184,10 +195,13 @@ class Temporal:
                 }
             else:
                 for j in range(7):
-                    y |= {
-                        self.easter-week(7-i)+days(j):
-                        f"""{"D" if j == 0 else "de"}_{"Lent" if i < 5 else "Passion" if i != 6 else "Palm"}{f"_f{j if j != 6 else 's'}" if j != 0 else f"_{i}"}"""
-                    }
+                    if i == 1 and j in [3,5,6]:
+                        y |= {self.easter-week(7-i)+days(j): f"Ember_Lent_{j+1 if j != 6 else 's'}"}
+                    else:
+                        y |= {
+                            self.easter-week(7-i)+days(j):
+                            f"""{"D" if j == 0 else "de"}_{"Lent" if i < 5 else "Passion" if i != 6 else "Palm"}{f"_f{j if j != 6 else 's'}" if j != 0 else f"_{i}"}"""
+                        }
         return y
 
     def post_easter(self) -> dict:
@@ -248,14 +262,13 @@ class Temporal:
 
     def pentecost(self) -> dict:
         """
-        All of the days after Pentecost, with Corpus Christi
+        All of the days after Pentecost, including the feasts
+        and octaves of Corpus Christi and the Sacred Heart.
         """
-        # TODO: add the other temporal octaves. Sacred Heart?
         pentecost_date = self.easter + week(7)
         last_pent = self.christmas - findsunday(self.christmas) - week(4)
-        # Add Pentecost and its ferias:
         y = {pentecost_date: 'Pentecost'}
-        for fer in range(2,8): # Pentecost week ferias
+        for fer in range(2,8):
             y |= {pentecost_date+days(fer-1): f"8Pent_f{fer if fer != 7 else 's'}"}
         x,e = 1,0
         while pentecost_date+week(x) != last_pent+week(1): # i.e., Advent 1
