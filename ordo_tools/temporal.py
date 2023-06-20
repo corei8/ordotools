@@ -8,8 +8,7 @@ from ordo_tools.utils import findsunday
 from ordo_tools.utils import week
 from ordo_tools.utils import weekday
 
-# TODO:
-# - Ember Days
+# TODO: Add the Ember Days
 
 class Temporal:
     """
@@ -211,7 +210,6 @@ class Temporal:
         but this works for now. Not too easy to debug; 
         that is why there are more comments than ususal.
         """
-        # TODO: work on the octaves
         y = {}
         for i in range(1,7):
             if i == 1:
@@ -249,26 +247,39 @@ class Temporal:
         return y
 
     def pentecost(self) -> dict:
-        pent_date = self.easter + week(7)
-        y = {pent_date: 'Pentecost'}
-        for fer in range(2,8):
-            y |= {pent_date+days(fer-1): f"8Pent_f{fer if fer != 7 else 's'}"}
-        x,e = 1,0
+        """
+        All of the days after Pentecost, with Corpus Christi
+        """
+        # TODO: add the other temporal octaves. Sacred Heart?
+        pentecost_date = self.easter + week(7)
         last_pent = self.christmas - findsunday(self.christmas) - week(4)
-        while pent_date+week(x) != last_pent+week(1):
-            leftovers = self.post_epiphany()[1]
-            if pent_date+week(x) == last_pent-week(6-leftovers)+week(e):
-                sunday = f'D_Epiph_{leftovers+e}_{x}'
+        # Add Pentecost and its ferias:
+        y = {pentecost_date: 'Pentecost'}
+        for fer in range(2,8): # Pentecost week ferias
+            y |= {pentecost_date+days(fer-1): f"8Pent_f{fer if fer != 7 else 's'}"}
+        x,e = 1,0
+        while pentecost_date+week(x) != last_pent+week(1): # i.e., Advent 1
+            sunday_date, leftovers = pentecost_date+week(x), self.post_epiphany()[1]
+            if pentecost_date+week(x) == last_pent-week(6-leftovers)+week(e):
+                sunday = f'Epiph_{leftovers+e}_{x}'
                 e += 1
             else:
-                sunday = f'D_Pent_{x}'
-            if x == 1:
-                y |= {
-                    pent_date+week(x): 'Trinity',
-                    pent_date+week(x)+days(4): 'CorpusChristi'
-                } # TODO: add octave within Corpus Christi
-            else:
-                y |= { pent_date+week(x): sunday}
+                sunday = f'Pent_{x}'
+            d = 0
+            while d < 7:
+                if x == 1 and d == 0:
+                    y |= {sunday_date: "Trinity"}
+                elif x == 1 and d >= 4:
+                    y |= {sunday_date+days(d): f"{'in_8' if d > 4 else ''}CorpusChristi"}
+                elif x == 2 and 0 < d <= 4:
+                    y |= {sunday_date+days(d): f"{'in_8' if d < 4 else '8'}CorpusChristi"}
+                elif x == 2 and d >= 5:
+                    y |= {sunday_date+days(d): f"{'in_8' if d > 5 else ''}SacredHeart"}
+                elif x == 3 and 0 < d <= 5:
+                    y |= {sunday_date+days(d): f"{'in_8' if d < 5 else '8'}SacredHeart"}
+                else:
+                    y |= {sunday_date+days(d): f"""{"de" if d != 0 else "D"}_{sunday}{f"_f{d+1 if d != 6 else 's'}" if d != 0 else ""}"""}
+                d += 1
             x += 1
         return y
 
