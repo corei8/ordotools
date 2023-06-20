@@ -40,7 +40,7 @@ class Temporal:
         y = {}
         for x in range(4): # build the advents backwards?
             if x == 0 and self.christmas-days(1) == self.lastadvent:
-                y |= { self.lastadvent: 'DV_Christmas' }
+                y |= { self.lastadvent: "DV_Christmas" }
             else:
                 y |= { self.lastadvent-week(x): f"D_Advent_{4-x}" }
                 for fer in range (2,8):

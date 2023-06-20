@@ -5,7 +5,6 @@ from ordo_tools.utils import days
 def build_test_website(year):
     y = Temporal(year).build_entire_year()
     cal = []
-    # TODO: make the month and weekday headers sticky
     for x in range(53):
         cal.append([])
         for d in range(7):
@@ -21,64 +20,68 @@ def build_test_website(year):
     for date in y.keys():
         place = int(date.strftime('%U'))-1
         cal[place][int(date.strftime('%w'))].insert(0, y[date])
-    with open("./output/ordosite/_includes/calendar.html", 'w') as f:
-        f.truncate(0)
-        f.write("""
-<div class="container center">""")
-        month_memory = ''
-        weekdays = """
-<div class="row w-100 rounded">
-<div class="col bg-primary text-white p-1 text-center rounded-start"> Sunday </div>
-<div class="col bg-primary text-white p-1 text-center"> Monday </div>
-<div class="col bg-primary text-white p-1 text-center"> Tuesday </div>
-<div class="col bg-primary text-white p-1 text-center"> Wednesday </div>
-<div class="col bg-primary text-white p-1 text-center"> Thursday </div>
-<div class="col bg-primary text-white p-1 text-center"> Friday </div>
-<div class="col bg-primary text-white p-1 text-center rounded-end"> Saturday </div>
-</div>
-        """
-        # TODO: use modals to display more information:
-        # https://getbootstrap.com/docs/4.0/components/modal/
+    build_dirs = ["./output/ordosite/_includes/calendar.html","./output/html/index.html"]
+    for out, path in enumerate(build_dirs):
+        with open(path, 'w') as f:
+            f.truncate(0)
+            if out == 1:
+                f.write(""" <!DOCTYPE html> <html lang=""en-us"> <head> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta charset="utf-8"> <title>test site</title> </head> <body> """)
+            f.write(""" <div class="container center"> """)
+            month_memory = ''
+            weekdays = """
+    <div class="row w-100 rounded">
+    <div class="col bg-primary text-white p-1 text-center rounded-start"> Sunday </div>
+    <div class="col bg-primary text-white p-1 text-center"> Monday </div>
+    <div class="col bg-primary text-white p-1 text-center"> Tuesday </div>
+    <div class="col bg-primary text-white p-1 text-center"> Wednesday </div>
+    <div class="col bg-primary text-white p-1 text-center"> Thursday </div>
+    <div class="col bg-primary text-white p-1 text-center"> Friday </div>
+    <div class="col bg-primary text-white p-1 text-center rounded-end"> Saturday </div>
+    </div>
+            """
+            # TODO: use modals to display more information:
+            # https://getbootstrap.com/docs/4.0/components/modal/
 
-        def start_row(classes=''):
-            return '<div class="row w-100 '+classes+'">'
+            def start_row(classes=''):
+                return '<div class="row w-100 '+classes+'">'
 
-        def start_col(classes=''):
-            return '<div class="col p-1 text-break '+classes+'" style="min-height: 10em;">'
+            def start_col(classes=''):
+                return '<div class="col p-1 text-break '+classes+'" style="min-height: 10em;">'
 
-        def empty_col(classes=''):
-            return start_col(classes)+'</div>'
+            def empty_col(classes=''):
+                return start_col(classes)+'</div>'
 
-        for j, aweek in enumerate(cal):
-            f.write(start_row())
-            for i, aday in enumerate(aweek):
-                if i%2 == j%2:
-                    shading = ''
-                else:
-                    shading = 'bg-light'
-                if len(aday) == 2:
-                    index = 0
-                elif len(aday) == 0:
-                    f.write(empty_col())
-                    continue
-                else:
-                    index = 1
-                if aday[index] != month_memory:
-                    if aday[index] == 'January':
-                        pass
-                    elif i == 0:
-                        pass
+            for j, aweek in enumerate(cal):
+                f.write(start_row())
+                for i, aday in enumerate(aweek):
+                    if i%2 == j%2:
+                        shading = ''
                     else:
-                        f.write(empty_col()*int(7-i))
-                    f.write('</div>'+start_row())
-                    f.write('<div class="col p1 text-center">'\
-                            +'<h1 class="display-4 pt-3">'\
-                            +aday[index]+" "+str(year)+'</h1></div></div>'+weekdays)
-                    f.write(start_row())
-                    f.write(empty_col()*i)
-                month_memory = aday[index]
-                f.write(start_col('fw-light '+shading))
-                f.write(f'<div class="mb-3">{str(aday[-1]).lstrip("0")}</div>')
-                f.write(f'<div class="fs-6">{" " if index != 1 else aday[0]}</div>')
-                f.write('</div>')
-            f.write('</div>\n')
+                        shading = 'bg-light'
+                    if len(aday) == 2:
+                        index = 0
+                    elif len(aday) == 0:
+                        f.write(empty_col())
+                        continue
+                    else:
+                        index = 1
+                    if aday[index] != month_memory:
+                        if aday[index] == 'January':
+                            pass
+                        elif i == 0:
+                            pass
+                        else:
+                            f.write(empty_col()*int(7-i))
+                        f.write('</div>'+start_row())
+                        f.write(f'<div class="col p1 text-center"><h1 class="display-4 pt-3">{aday[index]} {year}</h1></div></div>{weekdays}')
+                        f.write(start_row())
+                        f.write(empty_col()*i)
+                    month_memory = aday[index]
+                    f.write(start_col('fw-light '+shading))
+                    f.write(f'<div class="mb-3">{str(aday[-1]).lstrip("0")}</div>')
+                    f.write(f'<div class="fs-6">{" " if index != 1 else aday[0]}</div></div>')
+            if out == 1:
+                f.write(""" </div> </div> </body> </html> """)
+            f.write(""" </div> """)
+            f.close()
+
