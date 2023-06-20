@@ -210,28 +210,32 @@ class Temporal:
         y = {}
         for i in range(1,7):
             if i == 1:
-                the_day = "WhitSunday"
+                the_sunday = "WhitSunday"
             elif i == 6:
-                the_day = "D_Ascension"
+                the_sunday = "D_Ascension"
             else:
-                the_day = "D_Easter_"+str(i)
-                if i == 3:
-                    y |= {
-                        self.easter+week(i)+days(3): "StJoseph",
-                        self.easter+week(i+1)+days(3): "8StJoseph"
-                    }
-                elif i == 5:
-                    pre_ascen = ("Rogation_", "Ascension", "8Ascension") 
-                    for c, x in enumerate(pre_ascen):
-                        if c == 0:
-                            for r in range(1,4):
-                                y |= {self.easter+week(i)+days(r): x+str(r)}
-                        else:
-                            y |= {
-                                self.easter+week(i)+\
-                                    days(4 if x=="Ascension" else 11): x,
-                            }
-            y |= {self.easter+week(i): the_day}
+                the_sunday = f"D_Easter_{i}"
+                # build the ferias
+                for d in range(6):
+                    if i == 3:
+                        y |= {
+                            self.easter+week(i)+days(3): "StJoseph",
+                            self.easter+week(i+1)+days(3): "8StJoseph"
+                        }
+                        break # TEST:
+                    elif i == 5:
+                        pre_ascension = ("Rogation_", "Ascension", "8Ascension") 
+                        for c, x in enumerate(pre_ascension):
+                            if c == 0:
+                                for r in range(1,4):
+                                    y |= {self.easter+week(i)+days(r): x+str(r)}
+                            else:
+                                y |= {
+                                    self.easter+week(i)+\
+                                        days(4 if x=="Ascension" else 11): x,
+                                }
+                    y |= {self.easter+week(i)+days(d+1): f"de_Easter_{i}_f{d+2 if d != 5 else 's'}"}
+            y |= {self.easter+week(i): the_sunday}
         return y
 
     def pentecost(self) -> dict:

@@ -77,9 +77,10 @@ def build_test_website(year):
                         f.write(start_row())
                         f.write(empty_col()*i)
                     month_memory = aday[index]
-                    f.write(start_col('fw-light '+shading))
-                    f.write(f'<div class="mb-3">{str(aday[-1]).lstrip("0")}</div>')
-                    f.write(f'<div class="fs-6">{" " if index != 1 else aday[0]}</div>')
+                    f.write(start_col('fw-light d-flex flex-column justify-content-between '+shading))
+                    f.write(f'<div class="w-100 p-1">{str(aday[-1]).lstrip("0")}</div>')
+                    f.write(f'''<div class="text-center w-100">{'<h1>🧐</h1>' if index != 1 else aday[0]}</div>''')
+                    f.write(f'''<div class="text-end w-100 p-1">{'<h3>&nbsp;</h3>' if i !=5 else '<h3>🐟</h3>'}</div>''')
                     f.write("</div>") # close the column
                 f.write("</div>") # close the row
             if out == 1:
