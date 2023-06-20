@@ -25,7 +25,7 @@ def build_test_website(year):
         with open(path, 'w') as f:
             f.truncate(0)
             if out == 1:
-                f.write(""" <!DOCTYPE html> <html lang=""en-us"> <head> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta charset="utf-8"> <title>test site</title> </head> <body> """)
+                f.write(""" <!DOCTYPE html> <html lang=""en-us"> <head> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta charset="utf-8"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> <title>test site</title> </head> <body> """)
             f.write(""" <div class="container center"> """)
             month_memory = ''
             weekdays = """
