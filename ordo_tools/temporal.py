@@ -205,7 +205,12 @@ class Temporal:
         return y
 
     def paschaltime(self) -> dict:
-        """ From Whit Sunday to Pentecost """
+        """
+        From Whit Sunday to Pentecost
+        There is probably a better way to implement this,
+        but this works for now. Not too easy to debug; 
+        that is why there are more comments than ususal.
+        """
         # TODO: work on the octaves
         y = {}
         for i in range(1,7):
@@ -215,26 +220,31 @@ class Temporal:
                 the_sunday = "D_Ascension"
             else:
                 the_sunday = f"D_Easter_{i}"
-                # build the ferias
-                for d in range(6):
-                    if i == 3:
+            d = 1 # easily matches monday with days(1)
+            while d != 7:
+                if i == 3 and d >= 3:
+                    if d == 3:
                         y |= {
-                            self.easter+week(i)+days(3): "StJoseph",
-                            self.easter+week(i+1)+days(3): "8StJoseph"
+                            self.easter+week(i)+days(d): "StJoseph",
+                            self.easter+week(i+1)+days(3): "8StJoseph",
                         }
-                        break # TEST:
-                    elif i == 5:
-                        pre_ascension = ("Rogation_", "Ascension", "8Ascension") 
-                        for c, x in enumerate(pre_ascension):
-                            if c == 0:
-                                for r in range(1,4):
-                                    y |= {self.easter+week(i)+days(r): x+str(r)}
-                            else:
-                                y |= {
-                                    self.easter+week(i)+\
-                                        days(4 if x=="Ascension" else 11): x,
-                                }
-                    y |= {self.easter+week(i)+days(d+1): f"de_Easter_{i}_f{d+2 if d != 5 else 's'}"}
+                    else:
+                        y |= {self.easter+week(i)+days(d): f"in_8StJoseph"}
+                elif i == 4 and d <= 3:
+                    if d == 3:
+                        pass
+                    else:
+                        y |= {self.easter+week(i)+days(d): f"in_8StJoseph"}
+                elif i == 5: # the whole week is special
+                    if d <= 3: # rogations
+                        y |= {self.easter+week(i)+days(d): f"Rogation_{d}"}
+                    elif d > 3:
+                        y |= {self.easter+week(i)+days(d): f"""{"in_8" if d != 4 else ""}Ascension"""}
+                elif i == 6 and d < 5:
+                    y |= {self.easter+week(i)+days(d): f"""{"in_8" if d != 4 else "8"}Ascension"""}
+                else:
+                    y |= {self.easter+week(i)+days(d): f"de_Easter_{i}_f{d+1 if d != 6 else 's'}"}
+                d += 1
             y |= {self.easter+week(i): the_sunday}
         return y
 
