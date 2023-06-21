@@ -1,4 +1,4 @@
-from ordo_tools.data import data
+from ordo_tools.data import TemporalData
 from ordo_tools.utils import FERIA
 from ordo_tools.utils import ROMANS
 from ordo_tools.utils import day
@@ -207,7 +207,7 @@ class Temporal:
                     else:
                         y |= {
                             self.easter-week(7-i)+days(j):
-                            f"""{"D" if j == 0 else "de"}_{"Lent" if i < 5 else "Passion" if i != 6 else "Palm"}{f"_f{j if j != 6 else 's'}" if j != 0 else f"_{i}"}"""
+                            f"""{"D" if j == 0 else "de"}_{"Lent" if i < 5 else "Passion" if i != 6 else "Palm"}{f"_f{j+1 if j != 6 else 's'}" if j != 0 else f"_{i}"}"""
                         }
         return y
 
@@ -232,11 +232,13 @@ class Temporal:
         that is why there are more comments than ususal.
         """
         y = {}
+        ascension_counter = 1
         for i in range(1,7):
             if i == 1:
                 the_sunday = "WhitSunday"
             elif i == 6:
                 the_sunday = "D_Ascension"
+                ascension_counter += 1
             else:
                 the_sunday = f"D_Easter_{i}"
             d = 1 # easily matches monday with days(1)
@@ -245,27 +247,37 @@ class Temporal:
                     if d == 3:
                         y |= {
                             self.easter+week(i)+days(d): "StJoseph",
-                            self.easter+week(i+1)+days(3): "8StJoseph",
+                            self.easter+week(i+1)+days(3): "8_StJoseph",
                         }
                     else:
-                        y |= {self.easter+week(i)+days(d): f"in_8StJoseph"}
+                        y |= {self.easter+week(i)+days(d): f"in_8_StJoseph"}
                 elif i == 4 and d <= 3:
                     if d == 3:
                         pass
                     else:
-                        y |= {self.easter+week(i)+days(d): f"in_8StJoseph"}
+                        y |= {self.easter+week(i)+days(d): f"in_8_StJoseph"}
                 elif i == 5: # the whole week is special
                     if d <= 3: # rogations
                         y |= {self.easter+week(i)+days(d): f"Rogation_{d}"}
-                    elif d > 3:
-                        y |= {self.easter+week(i)+days(d): f"""{"in_8" if d != 4 else ""}Ascension"""}
+                    elif d == 4:
+                        y |= {self.easter+week(i)+days(d): "Ascension"}
+                        ascension_counter += 1
+                    elif 4 < d < 6:
+                        y |= {self.easter+week(i)+days(d): f"""in_8_Ascension_{ascension_counter}"""}
+                        ascension_counter += 1
+                    elif d == 6:
+                        y |= {self.easter+week(i)+days(d): f"""{"S_8_" if d != 4 else ""}Ascension"""}
+                        ascension_counter += 1
                 elif i == 6 and d < 5:
-                    y |= {self.easter+week(i)+days(d): f"""{"in_8" if d != 4 else "8"}Ascension"""}
+                    y |= {self.easter+week(i)+days(d): f"""{"in_8" if d != 4 else "8"}_Ascension{f'_{ascension_counter}' if d != 4 else ""}"""}
+                    ascension_counter += 1
                 else:
                     y |= {self.easter+week(i)+days(d): f"de_Easter_{i}_f{d+1 if d != 6 else 's'}"}
                 d += 1
             y |= {self.easter+week(i): the_sunday}
         return y
+
+    # TODO: add the feast of Christ the King
 
     def pentecost(self) -> dict:
         """
@@ -304,7 +316,7 @@ class Temporal:
                 elif x == 3 and 0 < d <= 5:
                     y |= {sunday_date+days(d): f"{'in_8' if d < 5 else '8'}SacredHeart"}
                 elif september_count == 3 and d in [3,5,6]:
-                    y |= {sunday_date+days(d): f"Ember_Sept_{d if d != 6 else 's'}"}
+                    y |= {sunday_date+days(d): f"Ember_Sept_{d+1 if d != 6 else 's'}"}
                 else:
                     y |= {sunday_date+days(d): f"""{"de" if d != 0 else "D"}_{sunday}{f"_f{d+1 if d != 6 else 's'}" if d != 0 else ""}"""}
                 d += 1
@@ -331,11 +343,16 @@ class Temporal:
 
     def return_temporal(self) -> dict:
         big_data = {}
+        data = TemporalData().data
+        # TEST:
+        print(f"{int(len(data.keys())/365*100)}% complete")
         compiled=self.build_entire_year()
         for key, value in compiled.items():
-            if value in data.keys():
-                big_data |= {key: data[value]["feast"]}
-            else:
-                big_data |= {key: value}
+            big_data |= {key: {
+                "feast": data[value]["feast"] if value in data.keys() else value,
+                "color": data[value]["color"] if value in data.keys() else "blue",
+                "fasting": data[value]["fasting"] if value in data.keys() else False,
+            }
+                         }
         return big_data
 
