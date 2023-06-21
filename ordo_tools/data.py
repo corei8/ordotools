@@ -69,6 +69,20 @@ data = {
         "office_type": "festiva",
         "nobility": False
     },
+    "SNameJesus+8_Ste": { # FIX: also the octave of St. Stephen
+                         "feast": "Ssmi Nominis Jesu",
+                         "rank": [10, "d II cl"],
+                         "color": "color",
+                         "mass": {"int": "In nomine Jesu", "glo": True, "cre": True, "pre": "de Nativitate"},
+                         "matins": {},
+                         "lauds": {},
+                         "prime": {},
+                         "little_hours": {},
+                         "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                         "compline": {},
+                         "office_type": "festiva",
+                         "nobility": False
+                         },
     "Septuagesima": {
         "feast": "Dominica in Septuagesima",
         "rank": [8, "sd II cl"],
@@ -223,32 +237,21 @@ data = {
         "office_type": False,
         "nobility": False
     },
-}
-##  
-##  )
-##  else:
-##  cycle.update(
-##  {
-##  str(epiph_counter): {
-##  "feast": "Dominica "+epiph_sundays[o]+" post Epiphaniam",
-##  "rank": [12, "sd"],
-##  "color": "white",
-##  # ! check the Introit for the Sunday and the feria
-##  "mass": {"int": "Omnis terra", "glo": True, "cre": True, "pre": "de Ssma Trinitate"},
-##  "matins": {},
-##  "lauds": {},
-##  "prime": {},
-##  "little_hours": {},
-##  "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-##  "compline": {},
-##  "office_type": "dominica",
-##  "nobility": False
-##                                              }
-##                                          }
-##  )
-##  for t in range(6):
-##  cycle.update(
-##  {
+    "D_Epiph_2": { # FIX: add each of the sundays
+        "feast": "Dominic II post Epiphaniam",
+        "rank": [12, "sd"],
+        "color": "white",
+        "mass": {"int": "Omnis terra", "glo": True, "cre": True, "pre": "de Ssma Trinitate"},
+        "matins": {},
+        "lauds": {},
+        "prime": {},
+        "little_hours": {},
+        "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+        "compline": {},
+        "office_type": "dominica",
+        "nobility": False
+    },
+
 ##      str(epiph_counter + indays(t+1)): {
 ##          "feast": "De ea",
 ##          "rank": [23, "s"],
@@ -264,28 +267,26 @@ data = {
 ##          "nobility": (8, 2, 6, 13, 3, 0,),
 ##      },
 ##  }
-##      )
-##      epiphany_sundays_counter += 1
-##      o += 1  #? is enumerate possible
-##      epiph_counter += week(1)  #! this is probably too complicated
-##      for c, x in enumerate(["I in Quadragesima", "II in Quadragesima", "III in Quadragesima", "IV in Quadragesima (Lætare)", "de Passione", "in Palmis", ]):
+
 ##      if x == "I in Quadragesima":
-##      cycle.update(
-##      {
-##      str(easter(year) - week(6-c) - indays(4)): {
-##      "feast": "Dies Cinerum",
-##      "rank": [3, "s I cl"],
-##      "color": "violet",
-##      "mass": {"int": "Misereris", "glo": True, "cre": True, "pre": "de Quadragesima"},
-##      "matins": {},
-##      "lauds": {},
-##      "prime": {},
-##      "little_hours": {},
-##      "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-##      "compline": {},
-##      "office_type": "feria",
-##      "nobility": False
-##  },
+
+
+    "de_AshWed": {
+        "feast": "Dies Cinerum",
+        "rank": [3, "s I cl"],
+        "color": "violet",
+        "mass": {"int": "Misereris", "glo": True, "cre": True, "pre": "de Quadragesima"},
+        "matins": {},
+        "lauds": {},
+        "prime": {},
+        "little_hours": {},
+        "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+        "compline": {},
+        "office_type": "feria",
+        "nobility": False
+    },
+}
+
 ##  str(easter(year) - week(6-c) - indays(3)): {
 ##      "feast": "Feria V post Diem Cinerum",
 ##      "rank": [19, "s"],
