@@ -3,7 +3,7 @@ from ordo_tools.utils import day
 from ordo_tools.utils import days
 
 def build_test_website(year):
-    y = Temporal(year).build_entire_year()
+    y = Temporal(year).return_temporal()
     cal = []
     for x in range(53):
         cal.append([])
@@ -26,10 +26,10 @@ def build_test_website(year):
             f.truncate(0)
             if out == 1:
                 f.write(""" <!DOCTYPE html> <html lang=""en-us"> <head> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta charset="utf-8"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> <title>test site</title> </head> <body> """)
-            f.write(""" <div class="container center"> """)
+            f.write(""" <div class="container center p-0"> """)
             month_memory = ''
             weekdays = """
-    <div class="row w-100 rounded">
+    <div class="row w-100 m-0 rounded">
     <div class="col bg-primary text-white p-1 text-center rounded-start"> Sunday </div>
     <div class="col bg-primary text-white p-1 text-center"> Monday </div>
     <div class="col bg-primary text-white p-1 text-center"> Tuesday </div>
@@ -43,7 +43,7 @@ def build_test_website(year):
             # https://getbootstrap.com/docs/4.0/components/modal/
 
             def start_row(classes=''):
-                return '<div class="row w-100 '+classes+'">'
+                return '<div class="row w-100 m-0 '+classes+'">'
 
             def start_col(classes=''):
                 return '<div class="col p-1 text-break '+classes+'" style="min-height: 10em;">'
@@ -54,6 +54,7 @@ def build_test_website(year):
             for j, aweek in enumerate(cal):
                 f.write(start_row())
                 for i, aday in enumerate(aweek):
+                    # TODO: use a bluish background for every other cell
                     if i%2 == j%2:
                         shading = ''
                     else:

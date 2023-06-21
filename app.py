@@ -24,6 +24,9 @@ def main(year: int, diocese: str):
     # from ordo_tools.outputs import build_latex_ordo, readme_calendar
     # from ordo_tools.utils import commit_temporal, dict_clean, stitch_calendars
     from test_website import build_test_website
+    # from ordo_tools.temporal import Temporal
+
+    # Temporal(year).build_entire_year()
 
     build_test_website(year)
 

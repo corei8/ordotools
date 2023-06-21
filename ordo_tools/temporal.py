@@ -1,3 +1,4 @@
+from ordo_tools.data import data
 from ordo_tools.utils import FERIA
 from ordo_tools.utils import ROMANS
 from ordo_tools.utils import day
@@ -8,7 +9,7 @@ from ordo_tools.utils import findsunday
 from ordo_tools.utils import week
 from ordo_tools.utils import weekday
 
-# TODO: Add the Ember Days
+
 
 class Temporal:
     """
@@ -130,21 +131,23 @@ class Temporal:
         y = {
             epiphany-days(1): "V_Epiphany",
             epiphany: "Epiphany",
-            epiphany+days(7): "8_Epiph",
+            epiphany+days(7): "8_Epiphany",
         }
         for x in range(1,7):
+            # TODO: this can be reworked:
             if weekday(epiphany+days(x)) != "Sun":
                 if weekday(epiphany+days(x)) == "Sat":
                     y |= {epiphany+days(x): "8_Epiph_fs"}
                 else:
                     the_date = epiphany+days(x)
-                    # TODO: see if these are days within or proper per day
                     y |= {
                         the_date: "8_Epiph_f"+str(int(the_date.strftime('%w'))+1)
                     }
             else:
                 pass
         return y
+
+    # TODO: Perhaps merge these two?
 
     def post_epiphany(self) -> list:
         """ All of the Sundays and ferias after Epiphany """
@@ -158,7 +161,7 @@ class Temporal:
             if i == 1:
                 if date == day(self.year, 1, 13):
                     y |= {
-                        date: "in8epiph", # FIXME: what does this mean?
+                        # date: "in8epiph", # FIXME: what does this mean?
                         date-days(1): "HolyFamily",
                     }
                 else:
@@ -311,7 +314,7 @@ class Temporal:
     def build_entire_year(self) -> dict:
         """
         Returns a dictionary of the entire temporal cycle, but only the 
-        dates with keys. This is for testing only.
+        dates with keys.
         """
         y = {}
         y |= self.advent()
@@ -325,4 +328,14 @@ class Temporal:
         y |= self.post_easter()
         y |= self.pentecost()
         return dict(sorted(y.items()))
+
+    def return_temporal(self) -> dict:
+        big_data = {}
+        compiled=self.build_entire_year()
+        for key, value in compiled.items():
+            if value in data.keys():
+                big_data |= {key: data[value]["feast"]}
+            else:
+                big_data |= {key: value}
+        return big_data
 
