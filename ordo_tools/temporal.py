@@ -54,10 +54,14 @@ class Temporal:
             else:
                 y |= { self.lastadvent-week(x): f"D_Advent_{4-x}" }
                 for fer in range (2,8):
-                    y |= {
-                        self.lastadvent-week(x)+days(fer-1):
-                        f"Advent_{4-x}_f{fer if fer != 7 else 's'}"
-                    }
+                    if x == 1 and fer in [4,6,7]:
+                        y |= {self.lastadvent-week(x)+days(fer-1): f"Ember_Advent_{fer if fer != 7 else 's'}"}
+                        pass
+                    else:
+                        y |= {
+                            self.lastadvent-week(x)+days(fer-1):
+                            f"Advent_{4-x}_f{fer if fer != 7 else 's'}"
+                        }
         return y
 
     def christmas_time(self) -> dict:
@@ -269,8 +273,12 @@ class Temporal:
         last_pent = self.christmas - findsunday(self.christmas) - week(4)
         y = {pentecost_date: 'Pentecost'}
         for fer in range(2,8):
-            y |= {pentecost_date+days(fer-1): f"8Pent_f{fer if fer != 7 else 's'}"}
+            if fer in [4,6,7]:
+                y |= {pentecost_date+days(fer-1): f"Ember_Pent_{fer if fer != 7 else 's'}"}
+            else:
+                y |= {pentecost_date+days(fer-1): f"8Pent_f{fer if fer != 7 else 's'}"}
         x,e = 1,0
+        september_count = 0
         while pentecost_date+week(x) != last_pent+week(1): # i.e., Advent 1
             sunday_date, leftovers = pentecost_date+week(x), self.post_epiphany()[1]
             if pentecost_date+week(x) == last_pent-week(6-leftovers)+week(e):
@@ -278,6 +286,8 @@ class Temporal:
                 e += 1
             else:
                 sunday = f'Pent_{x}'
+            if sunday_date.strftime('%B') == "September":
+                september_count += 1
             d = 0
             while d < 7:
                 if x == 1 and d == 0:
@@ -290,6 +300,8 @@ class Temporal:
                     y |= {sunday_date+days(d): f"{'in_8' if d > 5 else ''}SacredHeart"}
                 elif x == 3 and 0 < d <= 5:
                     y |= {sunday_date+days(d): f"{'in_8' if d < 5 else '8'}SacredHeart"}
+                elif september_count == 3 and d in [3,5,6]:
+                    y |= {sunday_date+days(d): f"Ember_Sept_{d if d != 6 else 's'}"}
                 else:
                     y |= {sunday_date+days(d): f"""{"de" if d != 0 else "D"}_{sunday}{f"_f{d+1 if d != 6 else 's'}" if d != 0 else ""}"""}
                 d += 1
