@@ -19,6 +19,7 @@ ROMANS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
           'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV',
           'XXVI', 'XXVII', 'XXVIII', ]
 
+# TODO: these might not be accurate
 LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere', 'Confessio',
                'De necessitatibus', 'Intret oratio', 'Redime me', 'Tibi dixit',
                'Ne derelinquas me', 'Deus, in adjutorium', 'Ego autem',
@@ -30,6 +31,7 @@ LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere', 'Confessio',
                'Miserere mihi',)
 
 # beginning with the fourth Sunday after Pentecost
+# TODO: double check the last ones...
 PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine',
                     'Dominus fortitudo', 'Omnes gentes', 'Suscepimus',
                     'Ecce Deus', 'Cum clamarem', 'Deus in loco',

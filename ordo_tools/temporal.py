@@ -257,6 +257,7 @@ class Temporal:
                     else:
                         y |= {self.easter+week(i)+days(d): f"in_8_StJoseph"}
                 elif i == 5: # the whole week is special
+                    # TODO: clean up the Ascension days
                     if d <= 3: # rogations
                         y |= {self.easter+week(i)+days(d): f"Rogation_{d}"}
                     elif d == 4:
@@ -271,6 +272,8 @@ class Temporal:
                 elif i == 6 and d < 5:
                     y |= {self.easter+week(i)+days(d): f"""{"in_8" if d != 4 else "8"}_Ascension{f'_{ascension_counter}' if d != 4 else ""}"""}
                     ascension_counter += 1
+                elif i == 6 and d == 6:
+                    y |= {self.easter+week(i)+days(d): "V_Pentecost"}
                 else:
                     y |= {self.easter+week(i)+days(d): f"de_Easter_{i}_f{d+1 if d != 6 else 's'}"}
                 d += 1
@@ -284,6 +287,7 @@ class Temporal:
         All of the days after Pentecost, including the feasts
         and octaves of Corpus Christi and the Sacred Heart.
         """
+        # TODO: anticipate the 24th Pentecost if the 23rd is the last sunday
         pentecost_date = self.easter + week(7)
         last_pent = self.christmas - findsunday(self.christmas) - week(4)
         y = {pentecost_date: 'Pentecost'}
@@ -294,9 +298,13 @@ class Temporal:
                 y |= {pentecost_date+days(fer-1): f"8Pent_f{fer if fer != 7 else 's'}"}
         x,e = 1,0
         september_count = 0
+
+        # TODO: look at more realistic ranges:
         while pentecost_date+week(x) != last_pent+week(1): # i.e., Advent 1
             sunday_date, leftovers = pentecost_date+week(x), self.post_epiphany()[1]
-            if pentecost_date+week(x) == last_pent-week(6-leftovers)+week(e):
+            if pentecost_date+week(x) == last_pent:
+                sunday = f"UltPent_{x}"
+            elif pentecost_date+week(x)+week(1) == last_pent-week(6-leftovers)+week(e):
                 sunday = f'Epiph_{leftovers+e}_{x}'
                 e += 1
             else:
@@ -308,13 +316,13 @@ class Temporal:
                 if x == 1 and d == 0:
                     y |= {sunday_date: "Trinity"}
                 elif x == 1 and d >= 4:
-                    y |= {sunday_date+days(d): f"{'in_8' if d > 4 else ''}CorpusChristi"}
+                    y |= {sunday_date+days(d): f"{'in_8_' if d > 4 else ''}CorpusChristi"}
                 elif x == 2 and 0 < d <= 4:
-                    y |= {sunday_date+days(d): f"{'in_8' if d < 4 else '8'}CorpusChristi"}
+                    y |= {sunday_date+days(d): f"{'in_8_' if d < 4 else '8_'}CorpusChristi"}
                 elif x == 2 and d >= 5:
-                    y |= {sunday_date+days(d): f"{'in_8' if d > 5 else ''}SacredHeart"}
+                    y |= {sunday_date+days(d): f"{'in_8_' if d > 5 else ''}SacredHeart"}
                 elif x == 3 and 0 < d <= 5:
-                    y |= {sunday_date+days(d): f"{'in_8' if d < 5 else '8'}SacredHeart"}
+                    y |= {sunday_date+days(d): f"{'in_8_' if d < 5 else '8_'}SacredHeart"}
                 elif september_count == 3 and d in [3,5,6]:
                     y |= {sunday_date+days(d): f"Ember_Sept_{d+1 if d != 6 else 's'}"}
                 else:
