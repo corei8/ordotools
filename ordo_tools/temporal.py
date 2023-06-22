@@ -120,7 +120,7 @@ class Temporal:
                 or weekday(circumcision) == "Mon"
                 or weekday(circumcision) == "Tue"
                 ):
-            y |= {day(self.year, 1, 2): "SNameJesu+8_Ste"}
+            y |= {day(self.year, 1, 2): "SNameJesu_8_Ste"}
         else:
             y |= {circumcision-findsunday(circumcision)+week(1): "SNameJesus"}
         return y

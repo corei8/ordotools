@@ -69,7 +69,7 @@ class TemporalData:
             "SNameJesus": {
                 "feast": "Ssmi Nominis Jesu",
                 "rank": [10, "d II cl"],
-                "color": "color",
+                "color": "white",
                 "mass": {"int": "In nomine Jesu", "glo": True, "cre": True, "pre": "de Nativitate"},
                 "matins": {},
                 "lauds": {},
@@ -81,12 +81,13 @@ class TemporalData:
                 "nobility": False,
                 "fasting": False,
             },
-            # FIX: also the octave of St. Stephen
-            "SNameJesus+8_Ste": {
+            # FIX: test this
+            "SNameJesu_8_Ste": {
                 "feast": "Ssmi Nominis Jesu",
                 "rank": [10, "d II cl"],
-                "color": "color",
+                "color": "white",
                 "mass": {"int": "In nomine Jesu", "glo": True, "cre": True, "pre": "de Nativitate"},
+                "com": [{"feast": "S. Stephani",}],
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -94,53 +95,6 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": False,
-                "fasting": False,
-            },
-
-            # Septuagesima time
-            "Septuagesima": {
-                "feast": "Dominica in Septuagesima",
-                "rank": [8, "sd II cl"],
-                "color": "purple",
-                "mass": {"int": "Missa", "glo": False, "cre": True, "pre": "Communis"},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-                "compline": {},
-                "office_type": "dominica",
-                "nobility": False,
-                "fasting": False,
-            },
-            "Sexagesima": {
-                "feast": "Dominica in Sexagesima",
-                "rank": [8, "sd II cl"],
-                "color": "purple",
-                "mass": {"int": "Missa", "glo": False, "cre": True, "pre": "Communis"},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-                "compline": {},
-                "office_type": "dominica",
-                "nobility": False,
-                "fasting": False,
-            },
-            "Quinquagesima": {
-                "feast": "Dominica in Quinquagesima",
-                "rank": [8, "sd II cl"],
-                "color": "purple",
-                "mass": {"int": "Missa", "glo": False, "cre": True, "pre": "Communis"},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-                "compline": {},
-                "office_type": "dominica",
                 "nobility": False,
                 "fasting": False,
             },
@@ -266,39 +220,6 @@ class TemporalData:
                 "nobility": False,
                 "fasting": False,
             },
-            # FIX: add each of the sundays
-            "D_Epiph_2": {
-                "feast": "Dominic II post Epiphaniam",
-                "rank": [12, "sd"],
-                "color": "white",
-                "mass": {"int": "Omnis terra", "glo": True, "cre": True, "pre": "de Ssma Trinitate"},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-                "compline": {},
-                "office_type": "dominica",
-                "nobility": False,
-                "fasting": False,
-            },
-
-            # TODO: see if each epiphany feria within the Octave has a proper Mass
-            ##      str(epiph_counter + indays(t+1)): {
-            ##          "feast": "De ea",
-            ##          "rank": [23, "s"],
-            ##          "color": "white",
-            ##          "mass": {"int": "Omnis terra", "glo": True, "cre": False, "pre": "Communis"},
-            ##          "matins": {},
-            ##          "lauds": {},
-            ##          "prime": {},
-            ##          "little_hours": {},
-            ##          "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-            ##          "compline": {},
-            ##          "office_type": "feria",
-            ##          "nobility": (8, 2, 6, 13, 3, 0,),
-            ##      },
-            ##  }
 
             ##      if x == "I in Quadragesima":
 
@@ -1558,6 +1479,8 @@ class TemporalData:
         }
 
         self.data = self.easy_data |\
+            self.epiphany_time() |\
+            self.septuagesima_time() |\
             self.lent_sundays() |\
             self.paschaltime() |\
             self.ascension_ferias() |\
@@ -1836,7 +1759,7 @@ class TemporalData:
                 f"D_Advent_{x+1}": {
                     "feast": f"Dominica {integer_to_roman(x+1)} Adventus",
                     "rank": [1, f"{'sd' if x == 0 else 'sd II cl'}"],
-                    "color": "purple",
+                    "color": f"{'purple' if x+1 != 3 else 'pink'}",
                     "mass": {"int": f"{introit}", "glo": False, "cre": True, "pre": "de Trinitate"},
                     "com_1": {"oration": "Deus qui de beate"},
                     "com_2": {"oration": "Ecclesiæ"},
@@ -1965,3 +1888,83 @@ class TemporalData:
                 }
             }
         return solemnity_ferias
+
+    def septuagesima_time(self) -> dict:
+        septuagesima = {}
+        for x, sunday in enumerate(["Septuagesima", "Sexagesima", "Quinquagesima"]):
+            septuagesima |= {
+                sunday: {
+                    "feast": f"Dominica in {sunday}",
+                    "rank": [8, "sd II cl"],
+                    "color": "purple",
+                    "mass": {"int": "", "glo": False, "cre": True, "pre": "Communis"}, # FIX: preface
+                    "matins": {},
+                    "lauds": {},
+                    "prime": {},
+                    "little_hours": {},
+                    "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                    "compline": {},
+                    "office_type": "dominica",
+                    "nobility": False,
+                    "fasting": False,
+                }
+            }
+            for feria in range(6):
+                septuagesima |= {
+                    f"de_{sunday[:4]}_f{feria+2 if feria != 5 else 's'}": {
+                        "feast": "De ea",
+                        "rank": [8, "sd II cl"], # FIX: rank
+                        "color": "purple",
+                        "mass": {"int": "", "glo": False, "cre": True, "pre": "Communis"}, # FIX: preface
+                        "matins": {},
+                        "lauds": {},
+                        "prime": {},
+                        "little_hours": {},
+                        "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                        "compline": {},
+                        "office_type": "dominica",
+                        "nobility": False,
+                        "fasting": False,
+                    }
+                }
+        return septuagesima
+
+    def epiphany_time(self) -> dict:
+        epiphany = {}
+        for sunday in range(6):
+            epiphany |= {
+                f"D_Epiph_{sunday+1}": {
+                    "feast": f"Dominic {integer_to_roman(sunday+1)} post Epiphaniam",
+                    "rank": [12, "sd"],
+                    "color": "white",
+                    "mass": {"int": "Omnis terra", "glo": True, "cre": True, "pre": "de Ssma Trinitate"}, # FIX: introit
+                    "matins": {},
+                    "lauds": {},
+                    "prime": {},
+                    "little_hours": {},
+                    "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                    "compline": {},
+                    "office_type": "dominica",
+                    "nobility": False,
+                    "fasting": False,
+                }
+            }
+            for feria in range(6):
+                epiphany |= {
+                    f"de_Epiph_{sunday+1}_{feria+2 if feria != 5 else 's'}": {
+                        "feast": "De ea",
+                        "rank": [23, "s"],
+                        "color": "white",
+                        "mass": {"int": "Omnis terra", "glo": True, "cre": False, "pre": "Communis"},
+                        "matins": {},
+                        "lauds": {},
+                        "prime": {},
+                        "little_hours": {},
+                        "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                        "compline": {},
+                        "office_type": "feria",
+                        "nobility": (8, 2, 6, 13, 3, 0,),
+                        "fasting": False,
+                    }
+                }
+        return epiphany
