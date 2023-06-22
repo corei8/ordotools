@@ -283,7 +283,7 @@ class TemporalData:
                 "fasting": False,
             },
 
-            # TODO: see if each epiphany has a proper Mass
+            # TODO: see if each epiphany feria within the Octave has a proper Mass
             ##      str(epiph_counter + indays(t+1)): {
             ##          "feast": "De ea",
             ##          "rank": [23, "s"],
@@ -538,10 +538,6 @@ class TemporalData:
                 "fasting": True,
             },
 
-
-            ##  if x == "IV in Quadragesima (Lætare)":
-            ##  new_x = re.sub("\(Lætare\)", "", x)
-
             # Easter Week TODO: Easter Vespers:
             "Easter": {
                 "feast": "Dominica Resurrectionis",
@@ -633,7 +629,7 @@ class TemporalData:
                 "nobility": False,
                 "fasting": False,
             },
-            "8Easter_fs": {
+            "WhitSaturday": {
                 "feast": "Sabbatum in Albis",
                 "rank": [3, "sd"],
                 "color": "white",
@@ -770,6 +766,23 @@ class TemporalData:
             ##      continue
             ##      elif (ascension_day + indays(j)).strftime("%A") == "Saturday":
 
+            # TODO: see if this is right
+            "D_Ascension": {
+                "feast": "Dominica infra Oct. Ascensionis",
+                "rank": [16, "sd"], # FIX: check the rank and the Introit
+                "color": "white",
+                "mass": {"int": "Exaudi, Domine", "glo": True, "cre": False, "pre": "de Ascensione"},
+                "matins": {},
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                "compline": {},
+                "office_type": False,
+                "nobility": False,
+                "fasting": False,
+            },
+
             "S_8_Ascension": {
                 "feast": "Sabbatum infra Oct. Ascensionis",
                 "rank": [16, "sd"],
@@ -786,54 +799,22 @@ class TemporalData:
                 "fasting": False,
             },
 
-            ##                                                                                                          }
-            ##  )
-            ##  else:
-            ##  cycle.update(
+            "WhitSunday": {
+                "feast": "Dominica in Albis",
+                "rank": [1, "dm I cl"],
+                "color": "white",
+                "mass": {"int": "Quasi modo", "glo": True, "cre": True, "pre": "Paschalis"},
+                "matins": {},
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                "compline": {},
+                "office_type": "dominica",
+                "nobility": False,
+                "fasting": False,
 
-
-
-            ##                                                                                                              }
-            ##  )
-            ##  if x == "Dominica in Albis":
-            ##  cycle.update(
-            ##  {
-            ##  str(easter(year) + week(i)): {
-            ##  "feast": x,
-            ##  "rank": [1, "dm I cl"],
-            ##  "color": "white",
-            ##  "mass": {"int": "Quasi modo", "glo": True, "cre": True, "pre": "Paschalis"},
-            ##  "matins": {},
-            ##  "lauds": {},
-            ##  "prime": {},
-            ##  "little_hours": {},
-            ##  "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-            ##  "compline": {},
-            ##  "office_type": "dominica",
-            ##  "nobility": False
-            ##                                                                                                                      }
-            ##                                                                                                                  }
-            ##  )
-            ##  else:
-            ##  cycle.update(
-            ##  {
-            ##  str(easter(year) + week(i)): {
-            ##  "feast": x,
-            ##  "rank": [12, "sd"],
-            ##  "color": "white",
-            ##  "mass": {"int": "Missa", "glo": True, "cre": True, "pre": "Communis"},
-            ##  "matins": {},
-            ##  "lauds": {},
-            ##  "prime": {},
-            ##  "little_hours": {},
-            ##  "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-            ##  "compline": {},
-            ##  "office_type": "dominica",
-            ##  "nobility": False
-            ##                                                                                                                          }
-            ##                                                                                                                      }
-            ##  )
-            ##  pent_date = easter(year) + week(i+1)
+            },
 
             "V_Pentecost": {
                 "feast": "Sabbatum Vigilia Pentecostes",
@@ -851,6 +832,7 @@ class TemporalData:
                 "fasting": True,
             },
 
+            # Pentecost Week
             "Pentecost": {
                 "feast": "Dominica Pentecostes",
                 "rank": [1, "d I cl cum Oct privil I ord"],
@@ -866,12 +848,6 @@ class TemporalData:
                 "nobility": False,
                 "fasting": False,
             },
-
-            ##  )
-            ##  for j, y in enumerate(ROMANS[1: 6]):
-            ##  if y == "II" or y == "III":
-            ##  cycle.update(
-
             "8Pent_f2": {
                 "feast": "Feria II infra Oct. Pentecostes",
                 "rank": [2, "d I cl"],
@@ -917,10 +893,6 @@ class TemporalData:
                 "nobility": False,
                 "fasting": False,
             },
-
-            ##  )
-            ##  else:
-            ##  cycle.update(
 
             # TODO: see how these are listed in the missal:
             ##  {
@@ -1053,6 +1025,7 @@ class TemporalData:
             },
 
 
+            # TODO: update the ferias with the below information
             ##  {
             ##      str(corpus_christi + indays(j + 1)): {
             ##          "feast": fer_num+" infra Oct. Ssmi Corporis Christi",
@@ -1410,75 +1383,6 @@ class TemporalData:
                 "fasting": True,
             },
 
-            # Advents
-            "D_Advent_1": {
-                "feast": "Dominica I Adventus",
-                "rank": [1, "sd"],
-                "color": "purple",
-                "mass": {"int": "Ad te levavi", "glo": False, "cre": True, "pre": "de Trinitate"},
-                "com_1": {"oration": "Deus qui de beate"},
-                "com_2": {"oration": "Ecclesiæ"},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-                "compline": {},
-                "office_type": "dominica",
-                "nobility": False,
-                "fasting": False,
-            },
-            "D_Advent_2": {
-                "feast": "Dominica II Adventus",
-                "rank": [8, "sd II cl"],
-                "color": "purple",
-                "mass": {"int": "Populus Sion", "glo": False, "cre": True, "pre": "de Trinitate"},
-                "com_1": {"oration": "Deus qui de beate"},
-                "com_2": {"oration": "Ecclesiæ"},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-                "compline": {},
-                "office_type": "dominica",
-                "nobility": False,
-                "fasting": False,
-            },
-            "D_Advent_3": {
-                "feast": "Dominica III Adventus",
-                "rank": [8, "sd II cl"],
-                "color": "pink",
-                "mass": {"int": "Gaudete", "glo": False, "cre": True, "pre": "de Trinitate"},
-                "com_1": {"oration": "Deus qui de beate"},
-                "com_2": {"oration": "Ecclesiæ"},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-                "compline": {},
-                "office_type": "dominica",
-                "nobility": False,
-                "fasting": False,
-            },
-            "D_Advent_4": {
-                "feast": "Dominica IV Adventus",
-                "rank": [8, "sd II cl"],
-                "color": "purple",
-                "mass": {"int": "Rorate cæli", "glo": False, "cre": True, "pre": "de Trinitate"},
-                "com_1": {"oration": "Deus qui de beate"},
-                "com_2": {"oration": "Ecclesiæ"},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-                "compline": {},
-                "office_type": "dominica",
-                "nobility": False,
-                "fasting": False,
-            },
 
             # Christmastide
             "V_Christmas": {
@@ -1655,10 +1559,17 @@ class TemporalData:
 
         self.data = self.easy_data |\
             self.lent_sundays() |\
+            self.paschaltime() |\
             self.ascension_ferias() |\
+            self.corpus_ferias() |\
+            self.sacredheart_ferias() |\
+            self.solemnity_st_joseph() |\
             self.pentecost_sundays() |\
             self.pentecost_epiphany_sundays() |\
-            self.last_pentecost()
+            self.last_pentecost() |\
+            self.advents() |\
+            self.three_weeks_after_pentecost()
+
 
     def lent_sundays(self) -> dict:
         the_days = {}
@@ -1692,10 +1603,10 @@ class TemporalData:
                     }
                 else:
                     the_days |= {
-                        f"de_Lent_f{feria+1 if feria != 6 else 's'}": {
+                        f"de_{'Lent' if x < 4 else 'Passion'}_f{feria+1 if feria != 6 else 's'}": {
                             # "feast": f"Feria {integer_to_roman(feria+1)} infra Hebd {integer_to_roman(x+1)} in Quadragesima",
                             "feast": "De ea",
-                            "rank": [19, "sd I cl"],
+                            "rank": [19, "sd I cl"], # FIX: change the rank
                             "color": "purple",
                             "mass": {
                                 "int": "", # TODO: add all of the Lent feria Introits
@@ -1717,7 +1628,6 @@ class TemporalData:
         return the_days
 
     def ascension_ferias(self) -> dict:
-        ferias = []
         return { # NOTE: there are duplicates, but does it matter?
             f"in_8_Ascension_{date}": {
                 "feast": f"De {integer_to_roman(date)} die infra Oct. Ascensionis",
@@ -1736,69 +1646,322 @@ class TemporalData:
             } for date in range(1,8)
         }
 
-    def pentecost_sundays(self) -> dict:
-        return { # TODO: add the first 4 Sundays after Pentecost (excluding Trinity)
-            f"D_Pent_{date}": {
-                "feast": f"Dominica {integer_to_roman(date)} post Pentecosten",
-                "rank": [12, "sd"],
-                "color": "green",
-                "mass": {"int": f"{PENTECOST_MASSES[date-5] if date >= 4 else ''}", "glo": True, "cre": True, "pre": "de Trinitate"},
-                "com_1": {"oration": "A cunctis", },
-                "com_2": {"oration": "ad libitum", },
+    def corpus_ferias(self) -> dict:
+        return {
+            f"{date+1}_in_8_CorpusChristi": {
+                "feast": f"De {integer_to_roman(date+1)} die infra Oct. Ssmi Corporis Christi",
+                "rank": [2, "d I cl cum Oct privil 2 ord"], # FIX: change the ranking
+                "color": "white",
+                "mass": {"int": "Cibavit eos", "glo": True, "seq": "Lauda, Sion", "cre": True, "pre": "de Nativitate"},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
                 "compline": {},
-                "office_type": "dominica",
+                "office_type": "festiva",
                 "nobility": False,
                 "fasting": False,
-            } for date in range(4,26)
+            } for date in range(1,8)
         }
+
+    def sacredheart_ferias(self) -> dict:
+        return {
+            f"{date+1}_in_8_SacredHeart": {
+                "feast": f"De {integer_to_roman(date+1)} die infra Oct. Sacratissimi Cordis Jesu",
+                "rank": [2, "d I cl cum Oct privil 3 ord"], # FIX: change the rank
+                "color": "white",
+                "mass": {"int": "Cogitationes", "glo": True, "cre": True, "pre": "de Ssmo Corde Iesu"},
+                "matins": {},
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                "compline": {},
+                "office_type": "festiva",
+                "nobility": (1, 0, 3, 1, 1, 0),
+                "fasting": False,
+            } for date in range(1,8)
+    }
+
+
+    def pentecost_sundays(self) -> dict:
+        # TODO: add the first 4 Sundays after Pentecost (excluding Trinity)
+        pentecost_season = {}
+        for date in range(4,26):
+            pentecost_season |= {
+                f"D_Pent_{date}": {
+                    "feast": f"Dominica {integer_to_roman(date)} post Pentecosten",
+                    "rank": [12, "sd"],
+                    "color": "green",
+                    "mass": {"int": f"{PENTECOST_MASSES[date-5] if date >= 4 else ''}", "glo": True, "cre": True, "pre": "de Trinitate"},
+                    "com_1": {"oration": "A cunctis", },
+                    "com_2": {"oration": "ad libitum", },
+                    "matins": {},
+                    "lauds": {},
+                    "prime": {},
+                    "little_hours": {},
+                    "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                    "compline": {},
+                    "office_type": "dominica",
+                    "nobility": False,
+                    "fasting": False,
+                }
+            }
+            for feria in range(6):
+                pentecost_season |= {
+                    f"de_Pent_{date}_f{feria+2 if feria != 5 else 's'}": {
+                        "feast": "De ea",
+                        "rank": [12, "sd"],
+                        "color": "green", # FIX: change the rank
+                        "mass": {"int": f"{PENTECOST_MASSES[date-5] if date >= 4 else ''}", "glo": True, "cre": False, "pre": "Communi"},
+                        "com_1": {"oration": "A cunctis", },
+                        "com_2": {"oration": "ad libitum", },
+                        "matins": {},
+                        "lauds": {},
+                        "prime": {},
+                        "little_hours": {},
+                        "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                        "compline": {},
+                        "office_type": "dominica",
+                        "nobility": False,
+                        "fasting": False,
+                    }
+                }
+        return pentecost_season
 
     def pentecost_epiphany_sundays(self) -> dict:
         """
         This is really rough and might not be too efficient, but 
         it works for now.
         """
-        return {
-            f"D_Epiph_{epiph}_{pent}": {
-                "feast": f"Dominica {integer_to_roman(pent)} post Pentecosten, {integer_to_roman(epiph)} Epiphania",
-                "rank": [12, "sd"],
-                "color": "green",
-                "mass": {"int": "Dicit Dominus", "glo": True, "cre": True, "pre": "de Trinitate"},
-                "com_1": {"oration": "A cunctis", },
-                "com_2": {"oration": "ad libitum", },
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-                "compline": {},
-                "office_type": "dominica",
-                "nobility": False,
-                "fasting": False,
-            } for epiph in range(3,7) for pent in range(24,27) # enough range?
-        }
+        epiphany_pents = {}
+        for pent in range(24,27):
+            for epiph in range(3,7): # enough range?
+                epiphany_pents |= {
+                    f"D_Epiph_{epiph}_{pent}": {
+                        "feast": f"Dominica {integer_to_roman(pent)} post Pentecosten, {integer_to_roman(epiph)} Epiphania",
+                        "rank": [12, "sd"],
+                        "color": "green",
+                        "mass": {"int": "Dicit Dominus", "glo": True, "cre": True, "pre": "de Trinitate"},
+                        "com_1": {"oration": "A cunctis", },
+                        "com_2": {"oration": "ad libitum", },
+                        "matins": {},
+                        "lauds": {},
+                        "prime": {},
+                        "little_hours": {},
+                        "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                        "compline": {},
+                        "office_type": "dominica",
+                        "nobility": False,
+                        "fasting": False,
+                    }
+                }
+                for feria in range(6):
+                    epiphany_pents |= {
+                        f"de_Epiph_{epiph}_{pent}_f{feria+2 if feria != 5 else 's'}": {
+                            "feast": "De ea",
+                            "rank": [12, "sd"], # FIX: adjust the ranking
+                            "color": "green",
+                            "mass": {"int": "Dicit Dominus", "glo": True, "cre": False, "pre": "Communi"},
+                            "com_1": {"oration": "A cunctis", },
+                            "com_2": {"oration": "ad libitum", },
+                            "matins": {},
+                            "lauds": {},
+                            "prime": {},
+                            "little_hours": {},
+                            "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                            "compline": {},
+                            "office_type": "dominica",
+                            "nobility": False,
+                            "fasting": False,
+                        }
+                    }
+        return epiphany_pents
 
     def last_pentecost(self) -> dict:
-        return {
-            f"D_UltPent_{pent}": {
-                "feast": f"Dominica {integer_to_roman(pent)} et ultima post Pentecosten",
-                "rank": [12, "sd"],
-                "color": "green",
-                "mass": {"int": PENTECOST_MASSES[-1], "glo": True, "cre": True, "pre": "de Trinitate"},
-                "com_1": {"oration": "A cunctis", },
-                "com_2": {"oration": "ad libitum", },
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
-                "compline": {},
-                "office_type": "dominica",
-                "nobility": False,
-                "fasting": False,
-            } for pent in range(23,27)
-}
+        last_pents = {}
+        for pent in range(23,27):
+            last_pents |= {
+                f"D_UltPent_{pent}": {
+                    "feast": f"Dominica {integer_to_roman(pent)} et ultima post Pentecosten",
+                    "rank": [12, "sd"],
+                    "color": "green",
+                    "mass": {"int": PENTECOST_MASSES[-1], "glo": True, "cre": True, "pre": "de Trinitate"},
+                    "com_1": {"oration": "A cunctis", },
+                    "com_2": {"oration": "ad libitum", },
+                    "matins": {},
+                    "lauds": {},
+                    "prime": {},
+                    "little_hours": {},
+                    "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                    "compline": {},
+                    "office_type": "dominica",
+                    "nobility": False,
+                    "fasting": False,
+                }
+            }
+            for feria in range(6):
+                last_pents |= {
+                    f"de_UltPent_{pent}_f{feria+2 if feria != 5 else 's'}": {
+                        "feast": "De ea",
+                        "rank": [12, "sd"], # FIX: fix the rank
+                        "color": "green",
+                        "mass": {"int": PENTECOST_MASSES[-1], "glo": True, "cre": False, "pre": "Communi"},
+                        "com_1": {"oration": "A cunctis", },
+                        "com_2": {"oration": "ad libitum", },
+                        "matins": {},
+                        "lauds": {},
+                        "prime": {},
+                        "little_hours": {},
+                        "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                        "compline": {},
+                        "office_type": "dominica",
+                        "nobility": False,
+                        "fasting": False,
+                    }
+                }
+        return last_pents
+
+    def advents(self) -> dict:
+        advent_season = {}
+        advent_sundays = [
+            "Ad te levavi",
+            "Populus Sion",
+            "Gaudete",
+            "Rorate cæli",
+        ]
+        for x, introit in enumerate(advent_sundays):
+            advent_season |= {
+                f"D_Advent_{x+1}": {
+                    "feast": f"Dominica {integer_to_roman(x+1)} Adventus",
+                    "rank": [1, f"{'sd' if x == 0 else 'sd II cl'}"],
+                    "color": "purple",
+                    "mass": {"int": f"{introit}", "glo": False, "cre": True, "pre": "de Trinitate"},
+                    "com_1": {"oration": "Deus qui de beate"},
+                    "com_2": {"oration": "Ecclesiæ"},
+                    "matins": {},
+                    "lauds": {},
+                    "prime": {},
+                    "little_hours": {},
+                    "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                    "compline": {},
+                    "office_type": "dominica",
+                    "nobility": False,
+                    "fasting": False,
+                }
+            }
+            for feria in range(6):
+                advent_season |= {
+                    f"Advent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
+                        "feast": "De ea",
+                        "rank": [1, ""], # FIX: change the rank
+                        "color": "purple",
+                        "mass": {"int": f"{introit}", "glo": False, "cre": True, "pre": "de Trinitate"},
+                        "com_1": {"oration": "Deus qui de beate"},
+                        "com_2": {"oration": "Ecclesiæ"},
+                        "matins": {},
+                        "lauds": {},
+                        "prime": {},
+                        "little_hours": {},
+                        "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                        "compline": {},
+                        "office_type": "feria",
+                        "nobility": False,
+                        "fasting": False,
+                    }
+                }
+
+        return advent_season
+
+    def three_weeks_after_pentecost(self) -> dict:
+        # NOTE: this is overkill, but it works, and is probably faster than a fix
+        weeks = {}
+        introits = [
+            "Benedicta sit",
+            "Factus est",
+            "Respice in me",
+        ]
+        for x, introit in enumerate(introits):
+            for feria in range(6):
+                weeks |= {
+                    f"de_Pent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
+                        "feast": "De ea",
+                        "rank": [12, "sd"], # FIX: change the ranking
+                        "color": "green", # TODO: check if this is right of the Trinity
+                        "mass": {"int": "Factus est", "glo": True, "seq": "Lauda, Sion, Salvatorem", "cre": False, "pre": "de Trinitate"},
+                        "matins": {},
+                        "lauds": {},
+                        "prime": {},
+                        "little_hours": {},
+                        "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                        "compline": {},
+                        "office_type": "ferial",
+                        "nobility": False,
+                        "fasting": False,
+                    },
+                }
+        return weeks
+
+    def paschaltime(self) -> dict:
+        paschaltime = {}
+        for week in range(6):
+            paschaltime |= {
+                f"D_Easter_{week+1}": {
+                    "feast": f"Dominica {integer_to_roman(week+1)} post Resurrectionis",
+                    "rank": [12, "sd"],
+                    "color": "white",
+                    "mass": {"int": "Missa", "glo": True, "cre": True, "pre": "Communis"}, # FIX: easter preface?
+                    "matins": {},
+                    "lauds": {},
+                    "prime": {},
+                    "little_hours": {},
+                    "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                    "compline": {},
+                    "office_type": "dominica",
+                    "nobility": False,
+                    "fasting": False,
+                }
+            }
+            for feria in range(6):
+                pass
+                paschaltime |= {
+                    f"de_Easter_{week+1}_f{feria+2 if feria != 5 else 's'}": {
+                        "feast": "De ea",
+                        "rank": [12, "sd"], # FIX: check the ranking
+                        "color": "white",
+                        "mass": {"int": "Missa", "glo": True, "cre": False, "pre": "Communis"}, # FIX: easter preface?
+                        "matins": {},
+                        "lauds": {},
+                        "prime": {},
+                        "little_hours": {},
+                        "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                        "compline": {},
+                        "office_type": "feria",
+                        "nobility": False,
+                        "fasting": False,
+                    }
+                }
+        return paschaltime
+
+    def solemnity_st_joseph(self) -> dict:
+        solemnity_ferias = {}
+        for feria in range(6):
+            solemnity_ferias |= {
+                f"{feria+2}_in_8_StJoseph": {
+                    "feast": f"De {integer_to_roman(feria+2)} die infra Solemnitas S. Joseph",
+                    "rank": [2, "d I cl cum Oct Communi"], # FIX: check the rank
+                    "color": "white",
+                    "mass": {"int": "Justus ut palma", "glo": True, "cre": True, "pre": "de S. Joseph"},
+                    "matins": {},
+                    "lauds": {},
+                    "prime": {},
+                    "little_hours": {},
+                    "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                    "compline": {},
+                    "office_type": False,
+                    "nobility": False,
+                    "fasting": False,
+                }
+            }
+        return solemnity_ferias

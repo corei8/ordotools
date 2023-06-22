@@ -233,6 +233,7 @@ class Temporal:
         """
         y = {}
         ascension_counter = 1
+        solemnity_counter = 1
         for i in range(1,7):
             if i == 1:
                 the_sunday = "WhitSunday"
@@ -249,13 +250,16 @@ class Temporal:
                             self.easter+week(i)+days(d): "StJoseph",
                             self.easter+week(i+1)+days(3): "8_StJoseph",
                         }
+                        solemnity_counter += 1
                     else:
-                        y |= {self.easter+week(i)+days(d): f"in_8_StJoseph"}
+                        y |= {self.easter+week(i)+days(d): f"{solemnity_counter}_in_8_StJoseph"}
+                        solemnity_counter += 1
                 elif i == 4 and d <= 3:
                     if d == 3:
                         pass
                     else:
-                        y |= {self.easter+week(i)+days(d): f"in_8_StJoseph"}
+                        y |= {self.easter+week(i)+days(d): f"{solemnity_counter}_in_8_StJoseph"}
+                        solemnity_counter += 1
                 elif i == 5: # the whole week is special
                     # TODO: clean up the Ascension days
                     if d <= 3: # rogations
@@ -278,6 +282,7 @@ class Temporal:
                     y |= {self.easter+week(i)+days(d): f"de_Easter_{i}_f{d+1 if d != 6 else 's'}"}
                 d += 1
             y |= {self.easter+week(i): the_sunday}
+            solemnity_counter += 1 if solemnity_counter > 1 else 0
         return y
 
     # TODO: add the feast of Christ the King
@@ -298,6 +303,8 @@ class Temporal:
                 y |= {pentecost_date+days(fer-1): f"8Pent_f{fer if fer != 7 else 's'}"}
         x,e = 1,0
         september_count = 0
+        corpuschristi_count = 1
+        sacredheart_count = 1
 
         # TODO: look at more realistic ranges:
         while pentecost_date+week(x) != last_pent+week(1): # i.e., Advent 1
@@ -316,13 +323,17 @@ class Temporal:
                 if x == 1 and d == 0:
                     y |= {sunday_date: "Trinity"}
                 elif x == 1 and d >= 4:
-                    y |= {sunday_date+days(d): f"{'in_8_' if d > 4 else ''}CorpusChristi"}
+                    y |= {sunday_date+days(d): f"{f'{corpuschristi_count}_in_8_' if d > 4 else ''}CorpusChristi"}
+                    corpuschristi_count += 1
                 elif x == 2 and 0 < d <= 4:
-                    y |= {sunday_date+days(d): f"{'in_8_' if d < 4 else '8_'}CorpusChristi"}
+                    y |= {sunday_date+days(d): f"{f'{corpuschristi_count+1}_in_8_' if d < 4 else '8_'}CorpusChristi"}
+                    corpuschristi_count += 1
                 elif x == 2 and d >= 5:
-                    y |= {sunday_date+days(d): f"{'in_8_' if d > 5 else ''}SacredHeart"}
+                    y |= {sunday_date+days(d): f"{f'{sacredheart_count}_in_8_' if d > 5 else ''}SacredHeart"}
+                    sacredheart_count += 1
                 elif x == 3 and 0 < d <= 5:
-                    y |= {sunday_date+days(d): f"{'in_8_' if d < 5 else '8_'}SacredHeart"}
+                    y |= {sunday_date+days(d): f"{f'{sacredheart_count+1}_in_8_' if d < 5 else '8_'}SacredHeart"}
+                    sacredheart_count += 1
                 elif september_count == 3 and d in [3,5,6]:
                     y |= {sunday_date+days(d): f"Ember_Sept_{d+1 if d != 6 else 's'}"}
                 else:
@@ -353,7 +364,7 @@ class Temporal:
         big_data = {}
         data = TemporalData().data
         # TEST:
-        print(f"{int(len(data.keys())/365*100)}% complete")
+        print(f"{len(data.keys())} keys, {int(len(data.keys())/365*100)}% of annual need.")
         compiled=self.build_entire_year()
         for key, value in compiled.items():
             big_data |= {key: {
