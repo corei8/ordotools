@@ -104,7 +104,7 @@ def build_test_website(year):
                     if out == 1:
                         fish_path = "assets/images/full_fish.svg"
                     else:
-                        fish_path = "/assets/images/full_fish.svg"
+                        fish_path = "/assets/images/full_fish.jpeg"
                     color = aday[0]["color"]
                     blank_image = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
                     fish_placeholder = f'<img src="{blank_image}" height="16em" width="16em">'
