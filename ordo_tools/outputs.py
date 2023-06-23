@@ -285,7 +285,10 @@ def build_test_website(year: int, y: dict) -> None:
         cal[placement][int(date.strftime('%w'))].insert(0, y[date])
 
     # determine the file output and starter text depending on the calendar
-    build_dirs = ["./output/ordosite/_includes/calendar.html","./output/html/index.html"]
+    build_dirs = [
+        "./output/ordosite/_includes/calendar.html",
+        "./output/html/index.html"
+    ]
     for out, path in enumerate(build_dirs):
         with open(path, 'w') as f:
             f.truncate(0)
@@ -309,6 +312,9 @@ def build_test_website(year: int, y: dict) -> None:
             # TODO: use modals to display more information:
             # https://getbootstrap.com/docs/4.0/components/modal/
 
+            def close_div():
+                return '</div>'
+
             def start_row(classes=''):
                 return '<div class="row w-100 m-0 '+classes+'">'
 
@@ -316,10 +322,10 @@ def build_test_website(year: int, y: dict) -> None:
                 return '<div class="col p-1 text-break '+classes+'" style="min-height: 10em;">'
 
             def empty_col(classes=''):
-                return start_col(classes)+'</div>'
+                return start_col(classes)+close_div()
+
 
             for j, aweek in enumerate(cal):
-                f.write(start_row())
                 for i, aday in enumerate(aweek):
 
                     # alternate the cell shading
@@ -337,27 +343,28 @@ def build_test_website(year: int, y: dict) -> None:
                     else:
                         index = 1
 
-                    # test to see if we are starting a new month
-                    if aday[index] != month_memory:
-                        if aday[index] == 'January':
-                            pass
-                        elif i == 0:
-                            pass
-                        else:
+                    if aday[index] != month_memory: # if we have a new month
+                        if i != 0:
                             f.write(empty_col()*int(7-i))
-                        f.write('</div>'+start_row())
-                        f.write(f'<div class="col mt-5 text-center"><h1 class="display-4 pt-3">{aday[index]} {year}</h1></div></div>{weekdays}')
+                            f.write(close_div())
                         f.write(start_row())
+                        f.write(f'<div class="mt-5 text-center"><h1 class="display-4 pt-3">{aday[index]} {year}</h1></div>')
+                        f.write(close_div()) # closes the month row
+                        f.write(f'{weekdays}')
+                        f.write(start_row('border'))
                         f.write(empty_col()*i)
+                    else:
+                        if i == 0 and j != 0:
+                            f.write(start_row('border'))
+
                     month_memory = aday[index]
+
                     f.write(start_col('fw-light d-flex flex-column justify-content-between '+shading))
 
                     # date-bar
-                    f.write(f'<div class="w-100 p-1">{str(aday[-1]).lstrip("0")}</div>')
+                    f.write(f'<div class="w-100 p-1">{aday[-1].lstrip("0")}</div>')
 
                     # main content
-                    # if index == 1:
-                    #     print(aday[0]["feast"])
                     f.write(f'''<div class="text-center w-100">{'<h1>🧐</h1>' if index != 1 else aday[0]['feast']}</div>''')
 
                     # statusbar helpers

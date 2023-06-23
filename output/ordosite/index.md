@@ -21,9 +21,6 @@ progress being made, or perhaps be informed of progress which cannot be seen.
 
 # Goals
 
-Making this website pretty is not a high priority, but I will try to do that as
-much as I am able.
-
 ### Calendar
 
  1. As a LaTeX document, for producing publishable calendars;
@@ -64,3 +61,6 @@ useful contribution will be updating the diocese and country directories.
 Familiarity with python might be useful but is not necessary, since the
 dictionaries that hold the information and the documentation that is being
 prepared will be very easy to follow and figure out.
+
+Translators are also needed. The first language that the data is written in is
+latin. English is the next in the queue, but all languages are needed.

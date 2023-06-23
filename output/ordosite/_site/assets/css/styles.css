@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* Custom Variables */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300&display=swap");
 :root {
   --step--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.80rem);
   --step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1.00rem);
@@ -12,9 +12,17 @@
   --step-5: clamp(2.80rem, calc(2.45rem + 1.77vw), 3.82rem);
 }
 
+body {
+  background-color: rgb(255, 253, 249) !important;
+}
+
 p, li {
-  font-size: var(--step-0);
-  font-family: "Noto Serif", serif;
+  font-size: var(--step-1);
+  font-family: "Roboto", sans-serif;
+}
+
+.row + .row {
+  border-top: 0 !important;
 }
 
 /*!
