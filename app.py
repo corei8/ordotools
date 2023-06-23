@@ -20,27 +20,16 @@ def main(year: int, diocese: str):
 
     set_global_year(year)
 
-    # from ordo_tools.temporal_cycle import build_temporal
-    # from ordo_tools.outputs import build_latex_ordo, readme_calendar
-    # from ordo_tools.utils import commit_temporal, dict_clean, stitch_calendars
-    from test_website import build_test_website
-    # from ordo_tools.temporal import Temporal
+    # from ordo_tools.outputs import build_latex_ordo
+    from ordo_tools.outputs import readme_calendar
+    from ordo_tools.outputs import build_test_website
+    from ordo_tools.utils import build
 
-    # Temporal(year).build_entire_year()
+    data = build(diocese=diocese)
 
-    build_test_website(year)
-
-    # commit_temporal()
-    # # explode_octaves(region_diocese=diocese)
-    # stitch_calendars(direct=diocese)
-    # dict_clean('calendar', '.')
-    # # dict_clean('calendar', '_')  # ! does this ever come up?
-    # # commemoration_ordering('calendar')
-    # build_latex_ordo(year)
-    # readme_calendar(year)
-
-    # build_latin_calendar(year)
-
+    readme_calendar(year)
+    # build_test_website(year, Temporal(year).return_temporal())
+    build_test_website(year, data)
 
 if __name__ == '__main__':
     main(year=2023, diocese='roman')

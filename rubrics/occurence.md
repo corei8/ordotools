@@ -35,7 +35,7 @@ Only Feasts of Double Rite of the First of Second Claass are transerred, when im
 
 **476.**
 
-In transferring Feasts fo teh Firts and Second Class, their claims to Pre-eminence must be considered, namely:
+In transferring Feasts of the First and Second Class, their claims to Pre-eminence must be considered, namely:
 
 1. The higher rite,
 2. The greater solemnity, *i.e.* whether one is celebrated with the obligation of resting from servile work (with precept), or with an Octave, 

@@ -1,9 +1,7 @@
-from ordo_tools.temporal import Temporal
-from ordo_tools.utils import day
-from ordo_tools.utils import days
+from ordo_tools.helpers import day
+from ordo_tools.helpers import days
 
-def build_test_website(year):
-    y = Temporal(year).return_temporal()
+def build_test_website(year: int, y: dict) -> None:
 
     # build the calendar with blank days
     cal = []
@@ -123,4 +121,5 @@ def build_test_website(year):
                 f.write("</div></div></body></html>")
             f.write("</div>")
             f.close()
+    return None
 

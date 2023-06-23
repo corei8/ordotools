@@ -1,16 +1,11 @@
 from datetime import datetime
-from ordo_tools.settings import YEAR
 
 
 class Feast:
-    def __init__(self, feast_date: str, properties: dict):
-        self.feast_date = feast_date
-        try:
-            self.feast_date_datetime = datetime.strptime(
-                feast_date.strip('.'), '%m/%d')
-        except ValueError:
-            self.feast_date_datetime = datetime.strptime(
-                feast_date.strip('.'), '%m%d')
+    def __init__(self, feast_date: datetime, properties: dict):
+        self.date = feast_date
+            # self.feast_date_datetime = datetime.strptime(
+            #     feast_date.strip('.'), '%m/%d')
         self.feast_properties = properties
         self.name = properties['feast']
         if 'infra_octave_name' in properties.keys():
@@ -24,6 +19,7 @@ class Feast:
         else:
             for x, y in properties['mass'].items():
                 self.mass.update({x: y})
+        # TODO: all data has to have these parts:
         self.nobility = properties['nobility'] if 'nobility' in properties.keys(
         ) else ('0', '0', '0', '0', '0', '0', )
         self.office_type = properties['office_type']
@@ -47,18 +43,19 @@ class Feast:
         }
         self.compline = properties['compline'] if 'compline' in properties.keys() else {
         }
+        self.fasting = properties['fasting']
 
     @ property
     def feast_date_display(self) -> str:
         """ Displays the feast date for the ordo """
-        return datetime.strptime(self.feast_date.strip('tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%d')
+        return self.date.strftime('%d')
 
-    def date(self):
-        # ? is this used?
-        return datetime.strptime('%m%d', self.feast_date)
+    # def date(self):
+    #     # ? is this used?
+    #     return datetime.strptime('%m%d', self.feast_date)
 
     @ property
-    # todo #9 expand Preces method to provide for 1. Preces Feriales 2. Compline 3. Little Hours
+    # TODO: expand Preces method to provide for 1. Preces Feriales 2. Compline 3. Little Hours
     def preces(self) -> str:
         if self.rank_n <= 16:
             return ''
@@ -85,11 +82,13 @@ class Feast:
             'compline': {},
             'nobility': self.nobility,
             'office_type': self.office_type,
+            # TODO: fix this to have a key with a list of dictionaries
             'com_1': self.coms['com_1'],
             'com_2': self.coms['com_2'],
             'com_3': self.coms['com_3'],
             'com_4': self.coms['com_4'],
             'com_5': self.coms['com_5'],
+            'fasting': self.fasting,
         }
         return dic
 
@@ -97,7 +96,7 @@ class Feast:
     def office_type2latex(self) -> str:
         """ returns formatted office type based on office_type key """
         # todo write all office types in english
-        if self.office_type == False:
+        if self.office_type is False:
             off_type = 'Ord, '
         elif self.office_type == 'feria':
             off_type = 'Fer, '
@@ -170,8 +169,9 @@ class Feast:
             'Friday': 'Fer VI',
             'Saturday': 'Sabb',
         }
-        latin_weekday = translations[datetime.strptime(self.feast_date.strip(
-            'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%A')]
+        # latin_weekday = translations[datetime.strptime(self.feast_date.strip(
+        #     'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%A')]
+        latin_weekday = translations[self.feast_date.strftime('%A')]
         return latin_weekday
 
     def mass_commemorations(self) -> str:
@@ -206,11 +206,11 @@ class Feast:
         for y in self.mass.values():
             gloria = y['glo']
             creed = y['cre']
-            if gloria == True and creed == True:
+            if gloria is True and creed is True:
                 status.append('G, C, ')
-            elif gloria == True and creed == False:
+            elif gloria is True and creed is False:
                 status.append('G, ')
-            elif gloria == False and creed == True:
+            elif gloria is False and creed is True:
                 status.append('C, ')
             else:
                 status.append('')
@@ -283,7 +283,7 @@ class Feast:
             latexed_prime = r'\textbf{Ad Primam}: '
             for k in self.prime.keys():
                 if k == 'four_psalms':
-                    if self.prime[k] == True:
+                    if self.prime[k] is True:
                         latexed_prime += r'4 Pss, '
                     else:
                         pass
@@ -293,7 +293,7 @@ class Feast:
                     latexed_prime += r'\Vbar\ in \Rbar\ brev: ' + \
                         r'\textit{' + f'{self.prime[k]},' + '} '
                 elif k == 'preces_feriales':
-                    if self.prime[k] == True:
+                    if self.prime[k] is True:
                         latexed_prime += 'Preces feriales, '
                     else:
                         pass
@@ -319,7 +319,7 @@ class Feast:
             latexed_compline = r'\textbf{Ad Compl}: '
             for k in self.compline.keys():
                 if k == 'sunday':
-                    if self.compline[k] == True:
+                    if self.compline[k] is True:
                         # * do something fancy with the period -- no trailing commas!!
                         latexed_compline += 'Pss de Dom. '
                     else:

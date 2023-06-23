@@ -1,13 +1,10 @@
 from ordo_tools.data import TemporalData
-from ordo_tools.utils import FERIA
-from ordo_tools.utils import ROMANS
-from ordo_tools.utils import day
-from ordo_tools.utils import days
-from ordo_tools.utils import easter
-from ordo_tools.utils import find_extra_epiphany
-from ordo_tools.utils import findsunday
-from ordo_tools.utils import week
-from ordo_tools.utils import weekday
+from ordo_tools.helpers import day
+from ordo_tools.helpers import days
+from ordo_tools.helpers import easter
+from ordo_tools.helpers import findsunday
+from ordo_tools.helpers import week
+from ordo_tools.helpers import weekday
 
 
 
@@ -44,6 +41,7 @@ class Temporal:
         self.easter = easter(self.year)
         self.septuagesima = self.easter - week(9)
         self.christmas = day(year=self.year, month=12, day=25)
+        self.epiphany = day(self.year, 1, 6)
         self.lastadvent = self.christmas - findsunday(self.christmas)
 
     def advent(self) -> dict:
@@ -125,26 +123,30 @@ class Temporal:
             y |= {circumcision-findsunday(circumcision)+week(1): "SNameJesus"}
         return y
 
-    def epiphany(self) -> dict:
+    def epiphany_octave(self) -> dict:
         """ Epiphany and its Sundays """
-        epiphany = day(self.year, 1, 6)
         y = {
-            epiphany-days(1): "V_Epiphany",
-            epiphany: "Epiphany",
-            epiphany+days(7): "8_Epiphany",
+            self.epiphany-days(1): "V_Epiphany",
+            self.epiphany: "Epiphany",
+            self.epiphany+days(7): "8_Epiphany",
         }
+        octave_counter = 1
         for x in range(1,7):
-            # TODO: this can be reworked:
-            if weekday(epiphany+days(x)) != "Sun":
-                if weekday(epiphany+days(x)) == "Sat":
-                    y |= {epiphany+days(x): "8_Epiph_fs"}
+            the_date = self.epiphany+days(x)
+            if weekday(the_date) != "Sun":
+                if weekday(the_date) == "Sat":
+                    y |= {the_date: "8_Epiph_fs"}
+                    octave_counter += 1
                 else:
-                    the_date = epiphany+days(x)
                     y |= {
-                        the_date: "8_Epiph_f"+str(int(the_date.strftime('%w'))+1)
+                        the_date: f"8_Epiph_f{octave_counter+1}",
                     }
+                    octave_counter += 1
             else:
-                pass
+                y |= {
+                    the_date: "D_Epiphany",
+                }
+                octave_counter += 1
         return y
 
     # TODO: Perhaps merge these two?
@@ -158,22 +160,25 @@ class Temporal:
             sun_after_epiphany = epiphany-findsunday(epiphany)+week(1)
         date,i,y = sun_after_epiphany,0,{}
         while date != self.septuagesima and i+1 < 6:
-            if i == 1:
-                if date == day(self.year, 1, 13):
-                    y |= {
-                        # date: "in8epiph", # FIXME: what does this mean?
-                        date-days(1): "HolyFamily",
-                    }
-                else:
-                    y |= { date: "D_HolyFamily" }
+            if date <= self.epiphany+days(6): # HACK:
+                pass
             else:
-                y |= {date: "D_Epiph_"+str(i+1)}
-            for j in range(6):
-                if j == 5:
-                    d = "s"
+                if i == 1:
+                    if date == day(self.year, 1, 13):
+                        y |= {
+                            # date: "in8epiph", # FIXME: what does this mean?
+                            date-days(1): "HolyFamily",
+                        }
+                    else:
+                        y |= { date: "D_HolyFamily" }
                 else:
-                    d = j+2
-                y |= {date+days(j+1): "de_Epiph_"+str(i+1)+"_"+str(d)}
+                    y |= {date: "D_Epiph_"+str(i+1)}
+                for j in range(6):
+                    if j == 5:
+                        d = "s"
+                    else:
+                        d = j+2
+                    y |= {date+days(j+1): "de_Epiph_"+str(i+1)+"_"+str(d)}
             i+=1
             date+=week(1)
         return [y,i+1] # index 1 is the Epiphany Sunday not used before Septuagesima
@@ -351,7 +356,7 @@ class Temporal:
         y |= self.advent()
         y |= self.christmas_time()
         y |= self.start_year()
-        y |= self.epiphany()
+        y |= self.epiphany_octave()
         y |= self.post_epiphany()[0]
         y |= self.gesimas()
         y |= self.lent()
@@ -363,14 +368,24 @@ class Temporal:
     def return_temporal(self) -> dict:
         big_data = {}
         data = TemporalData().data
-        # TEST:
-        print(f"{len(data.keys())} keys, {int(len(data.keys())/365*100)}% of annual need.")
         compiled=self.build_entire_year()
+        # TODO: use a loop for this after the data is settled
         for key, value in compiled.items():
             big_data |= {key: {
                 "feast": data[value]["feast"] if value in data.keys() else value,
+                "rank": data[value]["rank"],
                 "color": data[value]["color"] if value in data.keys() else "blue",
+                "mass": data[value]["mass"],
+                "matins": data[value]["matins"],
+                "lauds": data[value]["lauds"],
+                "prime": data[value]["prime"],
+                "little_hours": data[value]["little_hours"],
+                "vespers": data[value]["vespers"],
+                "compline": data[value]["compline"],
+                "office_type": data[value]["office_type"],
+                "nobility": data[value]["nobility"],
                 "fasting": data[value]["fasting"] if value in data.keys() else False,
+
             }
                          }
         return big_data
