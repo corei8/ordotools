@@ -11,22 +11,22 @@
 
 The foregoing Privileged Offices never yield precedence to other Offices. In the Offices which follow, the Rules given in nn. 475-477 inclusive are to be observed.
 
-5. The Dedication and Titular Feases of One's Own Church -- The Principal Patron fo the Place -- The Titular Feast, and the Feast of th Holy Founder of the Order or Religious Congregation,
+5. The Dedication and Titular Feasts of one's Own Church -- The Principal Patron fo the Place -- The Titular Feast, and the Feast of th Holy Founder of the Order or Religious Congregation,
 6. Other Feasts, if there be any, which are Primary of Double Rite of the First Class for the Place, 
 7. Other Feasts, if there be any, which are Secondary of Double Rite of the First Class for the Place, 
 8. Sundays of the Second Class,
-9. The Days within the Octaves of te Second Rank, -- *As only the days within the Octaves of the Epiphany and Corpus Christi belong to this Class, it is clear that they can never occur on a Sunday of the Second Class, and therefore they are put in the ninth place in this list,*
+9. The Days within the Octaves of the Second Rank, -- *As only the days within the Octaves of the Epiphany and Corpus Christi belong to this Class, it is clear that they can never occur on a Sunday of the Second Class, and therefore they are put in the ninth place in this list,*
 10. Feasts that are of the Second Class Double Rite,
 11. Feasts of Our Lord, of Major Double Rite,
 12. Minor Sundays, and the Vigil of the Epiphany,
 13. The Octave Day of an Octave of the Third Rank, or of a Common Octave, which is of Major Double Rite -- *when the Octave Day of a Common Octave occurs on the same day as a Feast of Our Lord, of Major Double Rite, the Office of the Octave Day is said and the Feast of Our Lord is commemorated; but if a Feast of Our Lord, of Major Double Rite, occur on a Sunday, the Office of the Feast is said; and if the Octave Day of a Common Octave occur with a Feast of Our Lord, of Major Double Rite, on a Sunday, the Office of the Feast of Our Lord is said, and its right to preference over the Sunday Office revives, and a Commemoration is made of the Sunday and of the Octave Day.*
 14. Feasts of Major Double Rite, not of Our Lord,
 15. Feasts of Minor Double Rite,
-16. The Days within the Octaves of Christmas and the Ascension,
+16. The Days within the Octaves of Christmas and the Ascension, Semidoubles?
 17. The days withing Common Octaves, 
 18. The Major Ferial Days and Vigils,
-19. The Ocrave Day of a Simple Octave, *i.e,* of a Feast of the Second Class,
-20. The Saturday Office of the Blessed Virgin Maryd,
+19. The Octave Day of a Simple Octave, *i.e,* of a Feast of the Second Class,
+20. The Saturday Office of the Blessed Virgin Mary,
 21. Feasts of Simple Rite.
 
 **475.**

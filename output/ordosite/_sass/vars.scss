@@ -21,6 +21,7 @@ body {
 p,li {
   font-size: var(--step-1);
   font-family: 'Roboto', sans-serif;
+  font-feature-settings: "kern" 1, "dlig" 1, "ss01" 1, "opbd" 1;
 
 }
 

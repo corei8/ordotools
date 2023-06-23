@@ -79,5 +79,6 @@ complicated... p. 306 in Matters Liturgical
 
 Common rankings: 
 
-- Feria (9, 2, 6, 13, 3, 0),
-- 
+- Feria     (9, 2, 6, 13, 3, 0,),
+- Confessor (4, 2, 6,  8, 3, 0,),
+- Martyr    (5, 2, 6,  7, 3, 0,)

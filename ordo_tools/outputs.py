@@ -377,9 +377,11 @@ def build_test_website(year: int, y: dict) -> None:
                     fish_placeholder = f'<img src="{blank_image}" height="16em" width="16em">'
 
                     # build the "statusbar"
+                    # TODO: fix the layout for the rank
                     f.write(f'''
-                    <div class="text-end w-100 p-1 d-flex flex-row justify-content-between" height="16em">
+                    <div class="text-end w-100 p-1 d-flex flex-row justify-content-between align-items-end" height="16em">
                     { f'<img src="{blank_image}" height="16em" width="16em" style="border: solid 1px black; border-radius: 50%; background: {color}">'}
+                    { f'<div><small>{aday[0]["rank"][1]}</small></div>'}
                     { f'<img src="{fish_path}" height="16em">' if aday[0]["fasting"] == True or i == 5 else fish_placeholder }
                     </div>
                     ''')

@@ -1478,7 +1478,7 @@ class TemporalData:
                     the_days |= {
                         date: {
                             "feast": f"""Dominica {f'''infra Hebd {integer_to_roman(x+1)} in Quadragesima{' (Lætare)' if x+1 == 4 else ''}''' if x < 4 else '''Passione''' if x == 4 else '''Palmis''' }""",
-                            "rank": [19, "sd I cl"],
+                            "rank": [19, "sd I cl"], # FIX: first lent first class?
                             "color": f"{'purple' if x+1 != 4 else 'pink'}",
                             "mass": {
                                 "int": "", # TODO: add all of the Lent Sunday Introits
@@ -1502,7 +1502,7 @@ class TemporalData:
                         f"de_{'Lent' if x < 4 else 'Passion'}_f{feria+1 if feria != 6 else 's'}": {
                             # "feast": f"Feria {integer_to_roman(feria+1)} infra Hebd {integer_to_roman(x+1)} in Quadragesima",
                             "feast": "De ea",
-                            "rank": [19, "sd I cl"], # FIX: change the rank
+                            "rank": [21, "feria"], # FIX: change the rank
                             "color": "purple",
                             "mass": {
                                 "int": "", # TODO: add all of the Lent feria Introits
@@ -1546,7 +1546,7 @@ class TemporalData:
         return {
             f"{date+1}_in_8_CorpusChristi": {
                 "feast": f"De {integer_to_roman(date+1)} die infra Oct. Ssmi Corporis Christi",
-                "rank": [2, "d I cl cum Oct privil 2 ord"], # FIX: change the ranking
+                "rank": [9, "feria"],
                 "color": "white",
                 "mass": {"int": "Cibavit eos", "glo": True, "seq": "Lauda, Sion", "cre": True, "pre": "de Nativitate"},
                 "matins": {},
@@ -1565,7 +1565,7 @@ class TemporalData:
         return {
             f"{date+1}_in_8_SacredHeart": {
                 "feast": f"De {integer_to_roman(date+1)} die infra Oct. Sacratissimi Cordis Jesu",
-                "rank": [2, "d I cl cum Oct privil 3 ord"], # FIX: change the rank
+                "rank": [18, "sd"], # TODO: verify this rank
                 "color": "white",
                 "mass": {"int": "Cogitationes", "glo": True, "cre": True, "pre": "de Ssmo Corde Iesu"},
                 "matins": {},
@@ -1608,8 +1608,8 @@ class TemporalData:
                 pentecost_season |= {
                     f"de_Pent_{date}_f{feria+2 if feria != 5 else 's'}": {
                         "feast": "De ea",
-                        "rank": [12, "sd"],
-                        "color": "green", # FIX: change the rank
+                        "rank": [23, "sd"],
+                        "color": "green",
                         "mass": {"int": f"{PENTECOST_MASSES[date-5] if date >= 4 else ''}", "glo": True, "cre": False, "pre": "Communi"},
                         "com_1": {"oration": "A cunctis", },
                         "com_2": {"oration": "ad libitum", },
@@ -1657,7 +1657,7 @@ class TemporalData:
                     epiphany_pents |= {
                         f"de_Epiph_{epiph}_{pent}_f{feria+2 if feria != 5 else 's'}": {
                             "feast": "De ea",
-                            "rank": [12, "sd"], # FIX: adjust the ranking
+                            "rank": [23, "feria"],
                             "color": "green",
                             "mass": {"int": "Dicit Dominus", "glo": True, "cre": False, "pre": "Communi"},
                             "com_1": {"oration": "A cunctis", },
@@ -1729,9 +1729,9 @@ class TemporalData:
         ]
         for x, introit in enumerate(advent_sundays):
             advent_season |= {
-                f"D_Advent_{x+1}": {
+                f"D_Advent_{x+1}": { # TODO: verify that 2-4 advents are minor sundays
                     "feast": f"Dominica {integer_to_roman(x+1)} Adventus",
-                    "rank": [1, f"{'sd' if x == 0 else 'sd II cl'}"],
+                    "rank": [1 if x == 0 else 12, f"{'sd' if x == 0 else 'sd II cl'}"],
                     "color": f"{'purple' if x+1 != 3 else 'pink'}",
                     "mass": {"int": f"{introit}", "glo": False, "cre": True, "pre": "de Trinitate"},
                     "com_1": {"oration": "Deus qui de beate"},
@@ -1751,7 +1751,7 @@ class TemporalData:
                 advent_season |= {
                     f"Advent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
                         "feast": "De ea",
-                        "rank": [1, ""], # FIX: change the rank
+                        "rank": [23, "feria"], # FIX: change the rank
                         "color": "purple",
                         "mass": {"int": f"{introit}", "glo": False, "cre": True, "pre": "de Trinitate"},
                         "com_1": {"oration": "Deus qui de beate"},
@@ -1767,7 +1767,6 @@ class TemporalData:
                         "fasting": False,
                     }
                 }
-
         return advent_season
 
     def three_weeks_after_pentecost(self) -> dict:
@@ -1824,7 +1823,7 @@ class TemporalData:
                 paschaltime |= {
                     f"de_Easter_{week+1}_f{feria+2 if feria != 5 else 's'}": {
                         "feast": "De ea",
-                        "rank": [12, "sd"], # FIX: check the ranking
+                        "rank": [23, "feria"], # FIX: check the ranking
                         "color": "white",
                         "mass": {"int": "Missa", "glo": True, "cre": False, "pre": "Communis"}, # FIX: easter preface?
                         "matins": {},
@@ -1886,7 +1885,7 @@ class TemporalData:
                 septuagesima |= {
                     f"de_{sunday[:4]}_f{feria+2 if feria != 5 else 's'}": {
                         "feast": "De ea",
-                        "rank": [8, "sd II cl"], # FIX: rank
+                        "rank": [21, "feria"],
                         "color": "purple",
                         "mass": {"int": "", "glo": False, "cre": True, "pre": "Communis"}, # FIX: preface
                         "matins": {},
@@ -1907,7 +1906,7 @@ class TemporalData:
         for sunday in range(6):
             epiphany |= {
                 f"D_Epiph_{sunday+1}": {
-                    "feast": f"Dominic {integer_to_roman(sunday+1)} post Epiphaniam",
+                    "feast": f"Dominica {integer_to_roman(sunday+1)} post Epiphaniam",
                     "rank": [12, "sd"],
                     "color": "white",
                     "mass": {"int": "Omnis terra", "glo": True, "cre": True, "pre": "de Ssma Trinitate"}, # FIX: introit

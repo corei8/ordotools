@@ -12,10 +12,12 @@ class Sanctoral:
     def __init__(self, year):
         self.year = year
         self.data = {
+
+            # January
             day(year=self.year, month=1, day=14): {
                 'feast': 'S Hilarii Episcopi ECD',
                 'rank': [15, 'd'],
-                'nobility': (False,),
+                'nobility': (4, 2, 6, 8, 3, 0,),
                 'com_2': {
                     'feast': 'S Felicis SM',
                     'mass': {'int': 'Lætabitur', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -57,7 +59,7 @@ class Sanctoral:
             day(year=self.year, month=1, day=16): {
                 'feast': 'S Marcelli PM',
                 'rank': [16, 'sd'],
-                'nobility': (False,),
+                'nobility': (5, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Si diligis', 'glo': True, 'cre': False, 'pre': 'de Apostolis'},
@@ -103,8 +105,8 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=19): {
                 'feast': 'Ss Marii, Marthæ, Audifacis et Abachum Mm',
-                'rank': [23, 's'],
-                'nobility': (False,),
+                'rank': [22, 's'],
+                'nobility': (5, 2, 6, 7, 3, 0,),
                 'com_2': {'feast': 'S Canuti RM', 'mass': {'int': 'In virtute', 'glo': True, 'cre': False, 'pre': 'Communis'}},
                 'office_type': False,
                 'color': 'red',
@@ -121,7 +123,7 @@ class Sanctoral:
             day(year=self.year, month=1, day=20): {
                 'feast': 'Ss Fabiani P et Sebastiani Mm',
                 'rank': [15, 'd'],
-                'nobility': (False,),
+                'nobility': (5, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Intret in conspectu', 'glo': True, 'cre': False, 'pre': 'de Apostolis'},
@@ -136,7 +138,7 @@ class Sanctoral:
             day(year=self.year, month=1, day=21): {
                 'feast': 'S Agnetis VM',
                 'rank': [15, 'd'],
-                'nobility': (False,),
+                'nobility': (5, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -151,7 +153,7 @@ class Sanctoral:
             day(year=self.year, month=1, day=22): {
                 'feast': 'Ss Vincentii & Anastasii Mm',
                 'rank': [16, 'sd'],
-                'nobility': (False,),
+                'nobility': (5, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Intret', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -213,7 +215,7 @@ class Sanctoral:
             day(year=self.year, month=1, day=26): {
                 'feast': 'S Polycarpi EM',
                 'rank': [15, 'd'],
-                'nobility': (False,),
+                'nobility': (5, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'white',
                 'mass': {'int': 'Sacerdotes Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -274,7 +276,7 @@ class Sanctoral:
             day(year=self.year, month=1, day=30): {
                 'feast': 'S Martinæ VM',
                 'rank': [16, 'sd'],
-                'nobility': (False,),
+                'nobility': (5, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Loquebar', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -301,10 +303,12 @@ class Sanctoral:
                 'compline': {},
                 'fasting': False,
             },
+
+            # February
             day(year=self.year, month=2, day=1): {
                 'feast': 'S Ignatii EM',
                 'rank': [15, 'd'],
-                'nobility': (False,),
+                'nobility': (5, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Mihi autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -333,8 +337,8 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=3): {
                 'feast': 'S Blasii EM',
-                'rank': [23, 's'],
-                'nobility': (False,),
+                'rank': [22, 's'],
+                'nobility': (8, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Sacerdotes Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -364,7 +368,7 @@ class Sanctoral:
             day(year=self.year, month=2, day=5): {
                 'feast': 'S Agathæ VM',
                 'rank': [15, 'd'],
-                'nobility': (False,),
+                'nobility': (4, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Gaudeamus', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -485,8 +489,8 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=14): {
                 'feast': 'S Valentini PM',
-                'rank': [23, 's'],
-                'nobility': (False,),
+                'rank': [22, 's'],
+                'nobility': (8, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'In virtute', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -500,8 +504,8 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=15): {
                 'feast': 'Ss Faustini & Jovitæ Mm',
-                'rank': [23, 's'],
-                'nobility': (False,),
+                'rank': [22, 's'],
+                'nobility': (8, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Salus autem', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -513,11 +517,10 @@ class Sanctoral:
                 'compline': {},
                 'fasting': False,
             },
-            # todo add ferials in for the 16, 17, 25, 27, 28, and March 1
             day(year=self.year, month=2, day=18): {
                 'feast': 'S Simeonis EM',
-                'rank': [23, 's'],
-                'nobility': (False,),
+                'rank': [22, 's'],
+                'nobility': (8, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Statuit', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -595,7 +598,7 @@ class Sanctoral:
                 'leapdate': day(year=self.year, month=2, day=28),
                 'feast': 'S Gabrielis a Virgine Perdolente C',
                 'rank': [15, 'd'],
-                'nobility': (False,),
+                'nobility': (4, 2, 6, 8, 3, 0,),
                 'office_type': False,
                 'color': 'white',
                 'mass': {'int': 'Oculus Dei', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -607,6 +610,8 @@ class Sanctoral:
                 'compline': {},
                 'fasting': False,
             },
+
+            # March
             day(year=self.year, month=3, day=4): {
                 'feast': 'S Casimiri C',
                 'rank': [16, 'sd'],
@@ -626,7 +631,7 @@ class Sanctoral:
             day(year=self.year, month=3, day=6): {
                 'feast': 'Ss Perpetuae et Felicitatiis Mm',
                 'rank': [15, 'd'],
-                'nobility': (False,),
+                'nobility': (4, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Me expectaverunt', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -639,7 +644,7 @@ class Sanctoral:
                 'fasting': False,
             },
             day(year=self.year, month=3, day=7): {
-                'feast': 'S Thomae de Aquino CD',
+                'feast': 'S Thomæ de Aquino CD',
                 'rank': [15, 'd'],
                 'nobility': (4, 2, 6, 8, 3, 0,),
                 'office_type': False,
@@ -686,7 +691,7 @@ class Sanctoral:
             day(year=self.year, month=3, day=10): {
                 'feast': 'Ss Quadragintarum Mm',
                 'rank': [16, 'sd'],
-                'nobility': (False,),
+                'nobility': (5, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'red',
                 'mass': {'int': 'Clamaverunt iusti', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -833,6 +838,8 @@ class Sanctoral:
                 'compline': {},
                 'fasting': False,
             },
+
+            # April
             day(year=self.year, month=4, day=2): {
                 'feast': 'S Francisci de Paula C',
                 'rank': [15, 'd'],
@@ -896,7 +903,7 @@ class Sanctoral:
             day(year=self.year, month=4, day=13): {
                 'feast': 'S Hermenegildi M',
                 'rank': [16, 'sd'],
-                'nobility': (False,),
+                'nobility': (5, 2, 6, 7, 3, 0,),
                 'office_type': False,
                 'color': 'white',
                 'mass': {'int': ['In virtute', 'Protexisti'], 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -1090,6 +1097,8 @@ class Sanctoral:
                 'compline': {},
                 'fasting': False,
             },
+
+            # May
             day(year=self.year, month=5, day=1): {
                 'feast': 'Ss Philippi et Iacobi App',
                 'rank': [10, 'd II cl'],
@@ -1274,7 +1283,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=14): {
                 'feast': 'S Bonifatii M',
-                'rank': [16, 's'],
+                'rank': [22, 's'],
                 'nobility': (False,),
                 'office_type': False,
                 'color': 'red',
@@ -1487,6 +1496,8 @@ class Sanctoral:
                 'compline': {},
                 'fasting': False,
             },
+
+            # June
             day(year=self.year, month=6, day=1): {
                 'feast': 'S Angelæ Mericiæ V',
                 'rank': [15, 'd'],
@@ -1859,6 +1870,8 @@ class Sanctoral:
                 'compline': {},
                 'fasting': False,
             },
+
+            # July
             day(year=self.year, month=7, day=1): {
                 'feast': 'In Festo Pretiosissimi Sanguinis DNJC',
                 'rank': [2, 'd I cl'],
@@ -2292,6 +2305,8 @@ class Sanctoral:
                 'compline': {},
                 'fasting': False,
             },
+
+            # August
             day(year=self.year, month=8, day=1): {
                 'feast': 'S Petri Ap ad Vincula',
                 'rank': [14, 'dm'],
@@ -2773,6 +2788,8 @@ class Sanctoral:
                 'compline': {},
                 'fasting': False,
             },
+
+            # September
             day(year=self.year, month=9, day=1): {
                 'feast': 'S Ægidii Abb',
                 'rank': [22, 's'],
@@ -3154,6 +3171,8 @@ class Sanctoral:
                 'compline': {},
                 'fasting': False,
             },
+
+            # October
             day(year=self.year, month=10, day=1): {
                 'feast': 'S Remigii EC',
                 'rank': [22, 's'],
@@ -3548,6 +3567,8 @@ class Sanctoral:
                 'compline': {},
                 'fasting': False,
             },
+
+            # November
             day(year=self.year, month=11, day=1): {
                 'feast': 'In Festo Omnium Sanctorum',
                 'infra_octave_name': 'Octava Omnium Sanctorum',
@@ -3926,6 +3947,8 @@ class Sanctoral:
                 'fasting': False,
             },
             # todo add 12/1 feria
+
+            # December
             day(year=self.year, month=12, day=2): {
                 'feast': 'S Bibianæ VM',
                 'rank': [16, 'sd'],
@@ -3959,7 +3982,7 @@ class Sanctoral:
             day(year=self.year, month=12, day=4): {
                 'feast': 'S Petri Chrysologi ECD',
                 'rank': [15, 'd'],
-                'nobility': (False,),
+                'nobility': (4, 2, 6, 8, 3, 0,),
                 'com_2': {'feast': 'S Barbarae VM', 'mass': {'int': 'Loquebar', 'glo': True, 'cre': False, 'pre': 'Communis'}},
                 'office_type': False,
                 'color': 'white',
@@ -3975,7 +3998,7 @@ class Sanctoral:
             day(year=self.year, month=12, day=5): {
                 'feast': 'S Sabbae Abb',
                 'rank': [22, 's'],
-                'nobility': (False,),
+                'nobility': (4, 2, 6, 8, 3, 0,),
                 'office_type': False,
                 'color': 'white',
                 'mass': {'int': 'Os justi', 'glo': True, 'cre': False, 'pre': 'Communis'},
@@ -4034,6 +4057,7 @@ class Sanctoral:
             day(year=self.year, month=12, day=8): {
                 'feast': 'In Conceptione Immaculata BMV',
                 'rank': [2, 'd I cl cum Oct communi'],
+                'nobility': (False,),
                 'octave': 4,
                 'office_type': False,
                 'color': 'white',
