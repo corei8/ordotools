@@ -4,11 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>{{ page.title }} - {{ site.title }}</title>
+    <style> h1 { color: whitesmoke; } </style>
     <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}">
     {% seo %}
   </head>
-  <body>
-    {% include navbar.html %}
+  <body class="bg-secondary">
+    {% include calendar_nav.html %}
     <div class="container-md">
       {{ content }}
     </div>
