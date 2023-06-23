@@ -7,7 +7,7 @@ title: "Ordo Media"
     <b>Ordo</b><small>.media</small>
 </h1>
 
-You will find on this website the documentation and some demonstration of an
+You will find on this website the documentation (coming soon) and some demonstration of an
 ordo- and calendar-generating application. The algorithms are very difficult to
 develop for a single year, and even much trouble arises when attemping to write
 an application that has to work year after year. Some parts of this website
@@ -16,7 +16,7 @@ incomplete. This is not intentional, in the strict sense of the term, but it is
 the result of the careful and tedious calculations that have to be performed in
 order to produce the liturgical calendar. You can view the progress of the
 calendar [here](/calendar.html). Its accurracy improves slowly, so the
-developer will try to maintain a changelog below so that the viewer can see the
+developer will try to maintain a [changelog](/changelog.html) so that the viewer can see the
 progress being made, or perhaps be informed of progress which cannot be seen.
 
 # Goals
@@ -51,41 +51,16 @@ Any application which produces an ordo has several requirements:
    the autor to re-write his program three times before settling on its current
    structure), but is the most necessary requirement.
 
-# Where is the code?
+# Questions and Answers
+
+#### Where is the code?
 
 In a private repository on GitHub. It will be made public soon.
 
-# Changelog
+#### How can I help?
 
-- Jun 22, 2023 : Finish the temporal cycle of the ligurgical calendar.
-
-
-<!-- <div class="container"> -->
-<!-- <div class="alert alert-warning" role="alert"> -->
-<!--     This website and the algorithms that generate the calendars --> 
-<!--     are very much <em>works in progress.</em> Do not use this website as you -->
-<!--     would an official ordo. -->
-<!-- </div> -->
-<!-- </div> -->
-<!-- <div class="container"> -->
-<!--     <div class="d-flex justify-content-start gap-3 row-gap-3"> -->
-<!--         <div class="card col mw-25"> -->
-<!--             <img class="card-img-top" src="/assets/images/calendar.jpg" alt="Card image cap"> -->
-<!--             <div class="card-body"> -->
-<!--                 <h5 class="card-title">Calendar</h5> -->
-<!--                 <p class="card-text">Note that the calendar is just getting started and feast-codes are used in many places right now.</p> -->
-<!--                 <a href="calendar.html" class="btn btn-primary">View Calendar</a> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--         <div class="card col mw-25"> -->
-<!--             <img class="card-img-top" src="/assets/images/rubrics.jpg" alt="Card image cap"> -->
-<!--             <div class="card-body"> -->
-<!--                 <h5 class="card-title">Rubrics</h5> -->
-<!--                 <p class="card-text"> -->
-<!--                     A collection of the rubrics of the Roman Missal and breviary. -->
-<!--                 </p> -->
-<!--                 <a href="rubrics/rubrics.html" class="btn btn-primary">View Rubrics</a> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--     </div> -->
-<!-- </div> -->
+When the repository is made public all contributions will be welcome. The most
+useful contribution will be updating the diocese and country directories.
+Familiarity with python might be useful but is not necessary, since the
+dictionaries that hold the information and the documentation that is being
+prepared will be very easy to follow and figure out.

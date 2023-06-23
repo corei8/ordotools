@@ -193,7 +193,10 @@ class Temporal:
                 if pre_lent_week+days(feria) == self.easter-week(6)-days(5):
                     break
                 else:
-                    y |= {pre_lent_week+days(feria+1): f"de_{x[0:4]}_f{feria+2 if feria != 5 else 's'}"}
+                    y |= {
+                        pre_lent_week+days(feria+1):
+                        f"de_{x[0:4]}_f{feria+2 if feria != 5 else 's'}"
+                    }
         return y
             
     def lent(self) -> dict:
@@ -202,7 +205,9 @@ class Temporal:
             if i == 0:
                 y = {
                     self.easter-week(7-i)+days(3+c):\
-                    f"""{"de_" if c == 0 else ""}AshWed{f"_f{c+4 if c != 3 else 's'}" if c != 0 else ""}"""\
+                    f"""{
+                    "de_" if c == 0 else ""
+                    }AshWed{f"_f{c+4 if c != 3 else 's'}" if c != 0 else ""}"""\
                     for c in range(4)
                 }
             else:
