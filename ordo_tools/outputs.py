@@ -297,8 +297,19 @@ def build_test_website(year: int, y: dict) -> None:
         with open(path, 'w') as f:
             f.truncate(0)
             if out == 1:
-                f.write(""" <!DOCTYPE html> <html lang=""en-us"> <head> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta charset="utf-8"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> <style>body {background: aliceblue;}</style> <title>test site</title> </head> <body> """)
-            f.write('<div class="container center p-0">')
+                f.write("""
+                <!DOCTYPE html>
+                <html lang=""en-us">
+                <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta charset="utf-8">
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+                <style>body {background: aliceblue;}</style>
+                <title>test site</title>
+                </head>
+                <body>
+                """)
+            f.write('<div class="container center p-0">') # TODO: see if we can get rid of this
 
             # useful variables
             month_memory = ''
@@ -313,9 +324,6 @@ def build_test_website(year: int, y: dict) -> None:
     <div class="col bg-primary text-white p-1 text-center rounded-end"> Saturday </div>
     </div>
             """
-
-            # TODO: use modals to display more information:
-            # https://getbootstrap.com/docs/4.0/components/modal/
 
             def close_div():
                 return '</div>'
@@ -357,7 +365,6 @@ def build_test_website(year: int, y: dict) -> None:
                     pass
 
                 for i, aday in enumerate(aweek):
-                    # print(aday)
 
                     # alternate the cell shading
                     if i%2 == j%2:
@@ -375,15 +382,12 @@ def build_test_website(year: int, y: dict) -> None:
                         index = 1
 
                     if aday[index] != month_memory: # if we have a new month
-                        print(f"j == {j} and i != {i}")
                         if j == 1 and i != 0:
                             pass
                         elif j == 1 and i == 0:
-                            # build_month(month=aday[index], cols=i, file=f)
                             pass
                         else:
                             if i != 0:
-                                print("Executing this")
                                 f.write(empty_col()*int(7-i))
                                 f.write(close_div())
                         build_month(month=aday[index], cols=i, file=f)

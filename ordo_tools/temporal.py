@@ -54,7 +54,10 @@ class Temporal:
                 y |= { self.lastadvent-week(x): f"D_Advent_{4-x}" }
                 for fer in range (2,8):
                     if x == 1 and fer in [4,6,7]:
-                        y |= {self.lastadvent-week(x)+days(fer-1): f"Ember_Advent_{fer if fer != 7 else 's'}"}
+                        y |= {
+                            self.lastadvent-week(x)+days(fer-1):
+                            f"Ember_Advent_{fer if fer != 7 else 's'}"
+                        }
                         pass
                     else:
                         y |= {
@@ -73,15 +76,12 @@ class Temporal:
         ]
         def d(a) : return self.christmas+days(a)
         for x, feast in enumerate(christmas_weekdays):
-            if d(x).strftime("%w") == 0 and x != 0:
+            if d(x).strftime("%a") == "Sun" and x != 0:
                 if x in [4,5]:
                     feast = f"D_{feast}" # FIX: do this for 1,2,3?
                 elif x > 5:
                     feast = "D_Christmas"
-                else:
-                    pass
-            else:
-                y |= {d(x): feast}
+            y |= {d(x): feast}
         return y
 
     def start_year(self) -> dict:
