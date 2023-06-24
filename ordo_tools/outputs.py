@@ -269,7 +269,7 @@ def build_test_website(year: int, y: dict) -> None:
 
     # build the calendar with blank days
     cal = []
-    for x in range(53):
+    for x in range(54):
         cal.append([])
         for d in range(7):
             cal[x].append([])
@@ -298,7 +298,7 @@ def build_test_website(year: int, y: dict) -> None:
             f.truncate(0)
             if out == 1:
                 f.write(""" <!DOCTYPE html> <html lang=""en-us"> <head> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta charset="utf-8"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> <style>body {background: aliceblue;}</style> <title>test site</title> </head> <body> """)
-            f.write(""" <div class="container center p-0"> """)
+            f.write('<div class="container center p-0">')
 
             # useful variables
             month_memory = ''
@@ -330,6 +330,20 @@ def build_test_website(year: int, y: dict) -> None:
             def empty_col(classes=''):
                 return start_col(classes)+close_div()
 
+            def build_month(month, cols, file, year=year) -> None:
+                file.write(start_row()) # starts the month row
+                file.write(f'''
+                <div class="mt-5 text-center">
+                    <h1 class="display-4 pt-3">
+                        {month} {year}
+                    </h1>
+                </div>
+                ''')
+                file.write(close_div()) # closes the month row
+                file.write(f'{weekdays}')
+                file.write(start_row('border'))
+                file.write(empty_col()*cols)
+                return None
 
             for j, aweek in enumerate(cal):
 
@@ -361,25 +375,25 @@ def build_test_website(year: int, y: dict) -> None:
                         index = 1
 
                     if aday[index] != month_memory: # if we have a new month
-                        if j == 0 and i != 0:
+                        print(f"j == {j} and i != {i}")
+                        if j == 1 and i != 0:
+                            pass
+                        elif j == 1 and i == 0:
+                            # build_month(month=aday[index], cols=i, file=f)
                             pass
                         else:
                             if i != 0:
+                                print("Executing this")
                                 f.write(empty_col()*int(7-i))
                                 f.write(close_div())
-                        f.write(start_row())
-                        f.write(f'<div class="mt-5 text-center"><h1 class="display-4 pt-3">{aday[index]} {year}</h1></div>')
-                        f.write(close_div()) # closes the month row
-                        f.write(f'{weekdays}')
-                        f.write(start_row('border'))
-                        f.write(empty_col()*i)
+                        build_month(month=aday[index], cols=i, file=f)
                     else:
                         if i == 0 and j != 0:
                             f.write(start_row('border'))
 
                     month_memory = aday[index]
 
-                    f.write(start_col('fw-light d-flex flex-column justify-content-between '+shading))
+                    f.write(start_col(f'fw-light d-flex flex-column justify-content-between {shading}'.lstrip()))
 
                     # date-bar
                     f.write(f'<div class="w-100 p-1">{aday[-1].lstrip("0")}</div>')
@@ -417,7 +431,15 @@ def build_test_website(year: int, y: dict) -> None:
                 f.write("</div>") # close the row
             if out == 1:
                 f.write("</div></div></body></html>")
-            f.write("</div>")
+            # f.write("</div>")
             f.close()
+
+        with open(path) as f:
+            lines = list(f)
+        with open(path, 'w') as out:
+            for line in lines:
+                out.write(line.lstrip())
+            f.close()
+
     return None
 
