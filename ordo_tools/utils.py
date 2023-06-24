@@ -312,14 +312,11 @@ def transfer_feasts(dic: dict) -> dict:
 def stitch_calendars(diocese='roman') -> None:
     """ Stitches the temporal and sanctoral calendars together. """
 
-    # temp_dict_information = find_module('temporal')
-    # temp_dictionary = importlib.import_module(temp_dict_information[1])
-    # temporal = temp_dictionary.__dict__[temp_dict_information[2]]
     temporal = Temporal(YEAR).return_temporal()
 
     if leap_year(YEAR):
-        pass  # work on this later
-        # update the calendar with the leap year feasts
+        # TODO: add the leapyear changes
+        pass
     else:
         # sanctoral = dict_clean_mini(diocese, '.')
         # TEST:

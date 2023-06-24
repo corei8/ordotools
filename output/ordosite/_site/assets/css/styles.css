@@ -31,6 +31,22 @@ p, li {
   background: #DEE2E6;
 }
 
+section {
+  height: 100vh;
+}
+
+.scroller {
+  height: 89vh;
+  overflow-y: scroll;
+  -webkit-scroll-snap-type: y mandatory;
+      -ms-scroll-snap-type: y mandatory;
+          scroll-snap-type: y mandatory;
+}
+
+.scroller section {
+  scroll-snap-align: start;
+}
+
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

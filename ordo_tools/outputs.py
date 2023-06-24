@@ -314,14 +314,14 @@ def build_test_website(year: int, y: dict) -> None:
             # useful variables
             month_memory = ''
             weekdays = """
-    <div class="row w-100 m-0 rounded">
-    <div class="col bg-primary text-white p-1 text-center rounded-start"> Sunday </div>
+    <div class="row w-100 m-0 rounded-top bg-primary">
+    <div class="col bg-primary text-white p-1 text-center rounded"> Sunday </div>
     <div class="col bg-primary text-white p-1 text-center"> Monday </div>
     <div class="col bg-primary text-white p-1 text-center"> Tuesday </div>
     <div class="col bg-primary text-white p-1 text-center"> Wednesday </div>
     <div class="col bg-primary text-white p-1 text-center"> Thursday </div>
     <div class="col bg-primary text-white p-1 text-center"> Friday </div>
-    <div class="col bg-primary text-white p-1 text-center rounded-end"> Saturday </div>
+    <div class="col bg-primary text-white p-1 text-center rounded"> Saturday </div>
     </div>
             """
 
@@ -339,10 +339,11 @@ def build_test_website(year: int, y: dict) -> None:
                 return start_col(classes)+close_div()
 
             def build_month(month, cols, file, year=year) -> None:
+                file.write('<section>')
                 file.write(start_row()) # starts the month row
                 file.write(f'''
-                <div class="mt-5 text-center">
-                    <h1 class="display-4 pt-3">
+                <div class="mt-4 text-start">
+                    <h1 class="display-6 pt-3">
                         {month} {year}
                     </h1>
                 </div>
@@ -390,6 +391,7 @@ def build_test_website(year: int, y: dict) -> None:
                             if i != 0:
                                 f.write(empty_col()*int(7-i))
                                 f.write(close_div())
+                                f.write('</section>')
                         build_month(month=aday[index], cols=i, file=f)
                     else:
                         if i == 0 and j != 0:
@@ -397,13 +399,19 @@ def build_test_website(year: int, y: dict) -> None:
 
                     month_memory = aday[index]
 
-                    f.write(start_col(f'fw-light d-flex flex-column justify-content-between {shading}'.lstrip()))
+                    f.write(start_col(
+                        f'fw-light d-flex flex-column justify-content-between {shading}'
+                    ))
 
                     # date-bar
                     f.write(f'<div class="w-100 p-1">{aday[-1].lstrip("0")}</div>')
 
-                    # main content
-                    f.write(f'''<div class="text-center w-100">{'<h1>🧐</h1>' if index != 1 else aday[0]['feast']}</div>''')
+                    # feast
+                    f.write(f'''
+                    <div class="text-center w-100">
+                    {'<h1>🧐</h1>' if index != 1 else aday[0]['feast']}
+                    </div>
+                    ''')
 
                     # statusbar helpers
                     if out == 1:
@@ -411,18 +419,25 @@ def build_test_website(year: int, y: dict) -> None:
                     else:
                         fish_path = "/assets/images/full_fish.png"
                     color = aday[0]["color"]
-                    blank_image = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                    fish_placeholder = f'<img src="{blank_image}" height="16em" width="16em">'
+                    blank_image = "data:image/gif;base64,R0lGODlhAQABAIAAAP///\
+                    wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    fish_placeholder = f'<img src="\
+                    {blank_image}\
+                    " height="16em" width="16em">'
 
                     # build the "statusbar"
                     f.write(f'''
                     <div class="w-100 p-0 d-flex flex-column justify-content-between align-items-center">
+                    
                     { f'<div><small>{aday[0]["rank"][1]}</small></div>'}
-                    <div class="text-end w-100 p-1 d-flex flex-row justify-content-between align-items-end" height="16em">
+                    <div class="text-end w-100 p-1 d-flex flex-row
+                    justify-content-between align-items-end" height="16em">
+                    
                     { f'<img src="{blank_image}" height="16em" width="16em" style="border: solid 1px black; border-radius: 50%; background: {color}">'}
-                    { f'<img src="{fish_path}" height="16em">' if aday[0]["fasting"] == True or i == 5 else fish_placeholder }
-                    </div>
-                    </div>
+                    
+                    {f'<img src="{fish_path}" height="16em">' if aday[0]["fasting"] is True or i == 5 else fish_placeholder}
+
+                    </div></div>
                     ''')
 
                     f.write("</div>") # close the column
@@ -433,10 +448,12 @@ def build_test_website(year: int, y: dict) -> None:
                         break
 
                 f.write("</div>") # close the row
+
             if out == 1:
-                f.write("</div></div></body></html>")
+                f.write("</section></div></div></body></html>")
             # f.write("</div>")
-            f.close()
+
+            f.close() # FIX: might not be necessary
 
         with open(path) as f:
             lines = list(f)

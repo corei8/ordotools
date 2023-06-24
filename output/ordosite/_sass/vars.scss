@@ -32,3 +32,17 @@ p,li {
 .empty_dates {
   background: #DEE2E6;
 }
+
+section {
+  height: 100vh;
+}
+
+.scroller {
+  height: 89vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.scroller section {
+    scroll-snap-align: start;
+}
