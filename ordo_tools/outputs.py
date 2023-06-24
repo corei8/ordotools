@@ -386,7 +386,6 @@ def build_test_website(year: int, y: dict) -> None:
 
                     # main content
                     f.write(f'''<div class="text-center w-100">{'<h1>🧐</h1>' if index != 1 else aday[0]['feast']}</div>''')
-                    # print(aday[0]['feast'])
 
                     # statusbar helpers
                     if out == 1:
@@ -398,12 +397,13 @@ def build_test_website(year: int, y: dict) -> None:
                     fish_placeholder = f'<img src="{blank_image}" height="16em" width="16em">'
 
                     # build the "statusbar"
-                    # TODO: fix the layout for the rank
                     f.write(f'''
+                    <div class="w-100 p-0 d-flex flex-column justify-content-between align-items-center">
+                    { f'<div><small>{aday[0]["rank"][1]}</small></div>'}
                     <div class="text-end w-100 p-1 d-flex flex-row justify-content-between align-items-end" height="16em">
                     { f'<img src="{blank_image}" height="16em" width="16em" style="border: solid 1px black; border-radius: 50%; background: {color}">'}
-                    { f'<div><small>{aday[0]["rank"][1]}</small></div>'}
                     { f'<img src="{fish_path}" height="16em">' if aday[0]["fasting"] == True or i == 5 else fish_placeholder }
+                    </div>
                     </div>
                     ''')
 
