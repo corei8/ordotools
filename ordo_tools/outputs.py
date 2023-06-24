@@ -291,6 +291,7 @@ def build_test_website(year: int, y: dict) -> None:
         "./output/ordosite/_includes/calendar.html", # for the Jekyll site
         "./output/html/index.html"                   # for quick reference
     ]
+    last_week  = False
 
     for out, path in enumerate(build_dirs):
         with open(path, 'w') as f:
@@ -320,19 +321,26 @@ def build_test_website(year: int, y: dict) -> None:
                 return '</div>'
 
             def start_row(classes=''):
-                return '<div class="row w-100 m-0 '+classes+'">'
+                return f'<div class="row w-100 m-0 {classes}">'
 
             def start_col(classes=''):
-                return '<div class="col p-1 text-break '+classes+'" style="min-height: 10em;">'
+                return f'<div class="col p-1 text-break {classes}"\
+                style="min-height: 10em;">'
 
             def empty_col(classes=''):
                 return start_col(classes)+close_div()
 
-            last_week  = False
 
             for j, aweek in enumerate(cal):
-                if j == len(cal):
+
+                
+                # See if it is the last week of the year
+                if last_week is True:
+                    break
+                elif j+1 == len(cal):
                     last_week = True
+                else:
+                    pass
 
                 for i, aday in enumerate(aweek):
                     # print(aday)
@@ -352,16 +360,6 @@ def build_test_website(year: int, y: dict) -> None:
                     else:
                         index = 1
 
-
-                    # if index == 0:
-                    #     # print(f"Passing | index = {index}")
-                    #     pass
-                    #     # f.write(start_row())
-                    #     # f.write(empty_col())
-                    #     # # print(f"INDEX --> {index}") # TEST:
-                    #     # continue
-                    # else:
-                    #     # print(f"Entering | index = {index}")
                     if aday[index] != month_memory: # if we have a new month
                         if j == 0 and i != 0:
                             pass
@@ -388,13 +386,13 @@ def build_test_website(year: int, y: dict) -> None:
 
                     # main content
                     f.write(f'''<div class="text-center w-100">{'<h1>🧐</h1>' if index != 1 else aday[0]['feast']}</div>''')
-                    print(aday[0]['feast'])
+                    # print(aday[0]['feast'])
 
                     # statusbar helpers
                     if out == 1:
-                        fish_path = "assets/images/full_fish.svg"
+                        fish_path = "assets/images/full_fish.png"
                     else:
-                        fish_path = "/assets/images/full_fish.jpeg"
+                        fish_path = "/assets/images/full_fish.png"
                     color = aday[0]["color"]
                     blank_image = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
                     fish_placeholder = f'<img src="{blank_image}" height="16em" width="16em">'
@@ -411,10 +409,9 @@ def build_test_website(year: int, y: dict) -> None:
 
                     f.write("</div>") # close the column
 
-
                     # add blank days if it is the last day
                     if last_week is True and aday[-1] == str(31):
-                        f.write(empty_col()*int(7-i))
+                        f.write(empty_col()*int(6-i))
                         break
 
                 f.write("</div>") # close the row
