@@ -71,7 +71,7 @@ class Temporal:
             "StsInnocents", "StThomas", "StSylvester",
             "8_Chritmas_f6",
         ]
-        def d(a) : self.christmas+days(a)
+        def d(a) : return self.christmas+days(a)
         for x, feast in enumerate(christmas_weekdays):
             if d(x).strftime("%w") == 0 and x != 0:
                 if x in [4,5]:
