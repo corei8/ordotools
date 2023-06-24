@@ -349,7 +349,7 @@ def build_test_website(year: int, y: dict) -> None:
                 ''')
                 file.write(close_div()) # closes the month row
                 file.write(f'{weekdays}')
-                file.write(start_row('border'))
+                file.write(start_row('border empty_dates'))
                 file.write(empty_col()*cols)
                 return None
 
@@ -393,7 +393,7 @@ def build_test_website(year: int, y: dict) -> None:
                         build_month(month=aday[index], cols=i, file=f)
                     else:
                         if i == 0 and j != 0:
-                            f.write(start_row('border'))
+                            f.write(start_row('border empty_dates'))
 
                     month_memory = aday[index]
 

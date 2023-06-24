@@ -69,13 +69,11 @@ class Temporal:
     def christmas_time(self) -> dict:
         """ Christmas and the following days to the end of the year. """
         y = {}
-        christmas_weekdays = [
-            "Christmas", "StStephan", "StJohn",
-            "StsInnocents", "StThomas", "StSylvester",
-            "8_Chritmas_f6",
-        ]
         def d(a) : return self.christmas+days(a)
-        for x, feast in enumerate(christmas_weekdays):
+        for x, feast in enumerate([
+            "Christmas", "StStephan", "StJohn", "StsInnocents",
+            "StThomas", "StSylvester", "8_Chritmas_f6",
+        ]):
             if d(x).strftime("%a") == "Sun" and x != 0:
                 if x in [4,5]:
                     feast = f"D_{feast}" # FIX: do this for 1,2,3?
