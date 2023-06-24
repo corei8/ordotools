@@ -19,6 +19,8 @@ calendar [here](/calendar.html). Its accurracy improves slowly, so the
 developer will try to maintain a [changelog](/changelog.html) so that the viewer can see the
 progress being made, or perhaps be informed of progress which cannot be seen.
 
+Also see the [rubrics](/rubrics/rubrics).
+
 # Goals
 
 ### Calendar

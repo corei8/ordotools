@@ -67,41 +67,21 @@ class Temporal:
         """ Christmas and the following days to the end of the year. """
         y = {}
         christmas_weekdays = [
-            'Christmas', 'StStephan', 'StJohn', 'StsInnocents', 'StThomas', 'StSylvester',
+            "Christmas", "StStephan", "StJohn",
+            "StsInnocents", "StThomas", "StSylvester",
+            "8_Chritmas_f6",
         ]
-        christmas_sundays = [
-            'D_StThomas', 'D_StSylvester',
-        ]
-        dom_in_octave = ''
-        if ( # Sunday falls on St. Thomas or St. Sylvester:
-            findsunday(self.christmas) == days(2) or
-            findsunday(self.christmas) == days(3)
-                ):
-            dom_in_octave = self.christmas+days(7)-findsunday(self.christmas)
-            y |= { # office of the sixth day falls on Dec. 30
-                      self.christmas-days(5):
-                      "8_Chritmas_f6"
-                      }
-        elif ( # Sunday falls on the first three days of the octave:
-                findsunday(self.christmas) == days(6) or
-                findsunday(self.christmas) == days(5) or
-                findsunday(self.christmas) == days(4)
-            ):
-            y |= { self.christmas+(days(5)): "D_Christmas" }
-            pass
-        else:
-            y |= { self.christmas+(days(7)-findsunday(self.christmas)): "D_Christmas" }
-        for i, feast in enumerate(christmas_weekdays):
-            if i == 0:
-                if self.christmas-days(1) == self.lastadvent:
-                    pass # prevents duplicate keys in advent()
+        def d(a) : self.christmas+days(a)
+        for x, feast in enumerate(christmas_weekdays):
+            if d(x).strftime("%w") == 0 and x != 0:
+                if x in [4,5]:
+                    feast = f"D_{feast}" # FIX: do this for 1,2,3?
+                elif x > 5:
+                    feast = "D_Christmas"
                 else:
-                    y |= {self.christmas-days(1): 'V_Christmas'}
-                y |= {self.christmas: feast}
-            elif self.christmas+days(i) == dom_in_octave:
-                y |= { dom_in_octave: christmas_sundays[i-4] }
+                    pass
             else:
-                y |= { self.christmas+days(i): feast }
+                y |= {d(x): feast}
         return y
 
     def start_year(self) -> dict:

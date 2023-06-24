@@ -1447,6 +1447,38 @@ class TemporalData:
                 "nobility": (False,),
                 "fasting": False,
             },
+
+            # TEST:
+            "D_StThomas": {
+                "feast": "S. Thomæ EM",
+                "rank": [15, "d"],
+                "color": "red",
+                "mass": {"int": "Gaudeamus omnes", "glo": True, "cre": True, "pre": "et Comm de Nativitate"},
+                "matins": {},
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                "compline": {},
+                "office_type": "festiva",
+                "nobility": (False,),
+                "fasting": False,
+            },
+            "D_StSylvester": {
+                "feast": "S. Silvestri I PC",
+                "rank": [15, "d"],
+                "color": "white",
+                "mass": {"int": "Si diligis me", "glo": False, "cre": True, "pre": "et Comm de Nativitate"},
+                "matins": {},
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": {"firstVespers": "", "secondVespers": ""}, "propers": {}, "oration": ""},
+                "compline": {},
+                "office_type": "festiva",
+                "nobility": (False,),
+                "fasting": False,
+            },
             # TODO: add the Sundays if the fall on St. Thomas or St. Sylvester
         }
 
@@ -1632,7 +1664,7 @@ class TemporalData:
         it works for now.
         """
         epiphany_pents = {}
-        for pent in range(24,27):
+        for pent in range(22,27):
             for epiph in range(3,7): # enough range?
                 epiphany_pents |= {
                     f"D_Epiph_{epiph}_{pent}": {
@@ -1677,7 +1709,7 @@ class TemporalData:
 
     def last_pentecost(self) -> dict:
         last_pents = {}
-        for pent in range(23,27):
+        for pent in range(23,28):
             last_pents |= {
                 f"D_UltPent_{pent}": {
                     "feast": f"Dominica {integer_to_roman(pent)} et ultima post Pentecosten",

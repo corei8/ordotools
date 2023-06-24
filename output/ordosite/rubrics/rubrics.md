@@ -1,11 +1,19 @@
 ---
 layout: default
-title: "Ordo Media"
+title: "Rubrics"
 ---
 
-# This is a work in progress.
+# Rubrics for Building a Liturgical Calendar
 
-## Temporal Cycle
+## Christmas Time
 
-1. The feast of the Circumcision falls on January 1st.
-2. The feast of the Epiphany falls on January 8th.
+**1.** Should the Sunday within the Octave fall on the Feast of St. Thomas of
+Canterbury or of St. Sylvester, the Office of the Sunday is recited, with a
+commemoration of the respective Feast occurring. The Office of the Sixth Day
+of the Octave is said on December 30.
+
+**2.** If a Sunday fall on the Feast of St. Stpehen, St. John, or the Holy 
+Innocents, the Office of the Sunday is said on December 30 as its proper 
+day.
+
+

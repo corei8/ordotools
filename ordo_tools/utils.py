@@ -337,6 +337,7 @@ def stitch_calendars(diocese='roman') -> None:
                 full_calendar.update({y: temporal[y]})
 
     if len(transfer_dict) > 0:
+        pass
         full_calendar = transfer_feasts(full_calendar)
     else:
         pass
