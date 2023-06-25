@@ -1,7 +1,10 @@
 ---
 layout: default
+category: rubrics
 title: "Rubrics"
 ---
+
+[Table of Feasts](/table_of_feasts)
 
 # Rubrics for Building a Liturgical Calendar
 

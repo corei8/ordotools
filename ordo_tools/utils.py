@@ -104,7 +104,7 @@ def commit_to_dictionary(target_file: str, dic: dict) -> None:
 
 
 def explode_octaves(region_diocese: str) -> dict:
-    # todo reimplement this to have a seperate dictionary for these
+    # TODO: reimplement this to have a seperate dictionary for these
     """ Takes the Octaves in the Sanctoral cycle and explodes them into
     their days within the octave."""
     mdl = importlib.import_module(
@@ -140,10 +140,6 @@ def add_commemoration(feast: Feast, commemoration: Feast) -> dict:
     """
     feast.com.insert(0, commemoration.feast_properties)
     return feast.updated_properties
-
-
-# NOTE: maybe use recursion to solve problems with transfers?
-
 
 def rank_by_nobility(feast_1: Feast, feast_2: Feast) -> dict:
     """ Takes two feasts and returns the one with the higher rank."""

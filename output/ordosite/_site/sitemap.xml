@@ -10,6 +10,9 @@
 <loc>http://localhost:4000/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/rubrics/rubrics.html</loc>
+<loc>http://localhost:4000/rubrics.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/table_of_feasts.html</loc>
 </url>
 </urlset>
