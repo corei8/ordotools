@@ -23,6 +23,10 @@ p, li {
           font-feature-settings: "kern" 1, "dlig" 1, "ss01" 1, "opbd" 1;
 }
 
+.smaller-text {
+  font-size: var(--step--1);
+}
+
 .row + .row {
   border-top: 0 !important;
 }
@@ -36,11 +40,12 @@ section {
 }
 
 .scroller {
-  height: 89vh;
+  height: 100vh;
   overflow-y: scroll;
   -webkit-scroll-snap-type: y mandatory;
       -ms-scroll-snap-type: y mandatory;
           scroll-snap-type: y mandatory;
+  scroll-snap-stop: always !important;
 }
 
 .scroller section {

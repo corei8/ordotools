@@ -25,6 +25,10 @@ p,li {
 
 }
 
+.smaller-text {
+  font-size: var(--step--1);
+}
+
 .row + .row {
   border-top: 0!important;
 }
@@ -39,9 +43,10 @@ section {
 
 // TODO: disable scroll bar
 .scroller {
-  height: 89vh;
+  height: 100vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
+  scroll-snap-stop: always !important;
 }
 
 .scroller section {

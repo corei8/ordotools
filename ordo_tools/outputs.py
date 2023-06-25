@@ -341,11 +341,12 @@ def build_test_website(year: int, y: dict) -> None:
             def build_month(month, cols, file, year=year) -> None:
                 file.write('<section>')
                 file.write(start_row()) # starts the month row
+                    # <h1 class="display-6 pt-3">
                 file.write(f'''
-                <div class="mt-4 text-start">
-                    <h1 class="display-6 pt-3">
+                <div class="mt-3 text-start">
+                    <h3 class="pt-1">
                         {month} {year}
-                    </h1>
+                    </h3>
                 </div>
                 ''')
                 file.write(close_div()) # closes the month row
@@ -388,7 +389,9 @@ def build_test_website(year: int, y: dict) -> None:
                         elif j == 1 and i == 0:
                             pass
                         else:
-                            if i != 0:
+                            if i == 0:
+                                f.write('</section>')
+                            else:
                                 f.write(empty_col()*int(7-i))
                                 f.write(close_div())
                                 f.write('</section>')
@@ -408,7 +411,7 @@ def build_test_website(year: int, y: dict) -> None:
 
                     # feast
                     f.write(f'''
-                    <div class="text-center w-100">
+                    <div class="text-center smaller-text w-100">
                     {'<h1>🧐</h1>' if index != 1 else aday[0]['feast']}
                     </div>
                     ''')

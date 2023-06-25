@@ -73,10 +73,10 @@ class Temporal:
         for x, feast in enumerate([
             "Christmas", "StStephan", "StJohn", "StsInnocents",
             "StThomas", "StSylvester", "8_Chritmas_f6",
-        ]):
+        ]): # TODO: add special keys for 1-3 if they fall on a Sunday
             if d(x).strftime("%a") == "Sun" and x != 0:
                 if x in [4,5]:
-                    feast = f"D_{feast}" # FIX: do this for 1,2,3?
+                    feast = f"D_{feast}"
                 elif x > 5:
                     feast = "D_Christmas"
             y |= {d(x): feast}
