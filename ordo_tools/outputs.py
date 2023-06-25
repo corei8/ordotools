@@ -407,6 +407,7 @@ def build_test_website(year: int, y: dict) -> None:
                     f.write(f'<div class="w-100 p-1">{aday[-1].lstrip("0")}</div>')
 
                     # feast
+                    print(f" adding -> {aday[0]['feast']}")
                     f.write(f'''
                     <div class="text-center smaller-text w-100">
                     {'<h1>🧐</h1>' if index != 1 else aday[0]['feast']}

@@ -3,6 +3,7 @@ from datetime import datetime
 
 class Feast:
     def __init__(self, feast_date: datetime, properties: dict):
+        print(f" comparing -> {properties['feast']}") # TEST:
         self.date = feast_date
             # self.feast_date_datetime = datetime.strptime(
             #     feast_date.strip('.'), '%m/%d')
@@ -23,26 +24,14 @@ class Feast:
         self.nobility = properties['nobility'] if 'nobility' in properties.keys(
         ) else ('0', '0', '0', '0', '0', '0', )
         self.office_type = properties['office_type']
-        self.coms = {
-            'com_1': properties['com_1'] if 'com_1' in properties.keys() else '',
-            'com_2': properties['com_2'] if 'com_2' in properties.keys() else '',
-            'com_3': properties['com_3'] if 'com_3' in properties.keys() else '',
-            'com_4': properties['com_4'] if 'com_4' in properties.keys() else '',
-            'com_5': properties['com_5'] if 'com_5' in properties.keys() else '',
-        }
+        self.com = properties['com'] if 'com' in properties.keys() else []
         # parts of the office:
-        self.matins = properties['matins'] if 'matins' in properties.keys() else {
-        }
-        self.lauds = properties['lauds'] if 'lauds' in properties.keys() else {
-        }
-        self.prime = properties['prime'] if 'prime' in properties.keys() else {
-        }
-        self.little_hours = properties['little_hours'] if 'little_hours' in properties.keys() else {
-        }
-        self.vespers = properties['vespers'] if 'vespers' in properties.keys() else {
-        }
-        self.compline = properties['compline'] if 'compline' in properties.keys() else {
-        }
+        self.matins = properties['matins'] if 'matins' in properties.keys() else {}
+        self.lauds = properties['lauds'] if 'lauds' in properties.keys() else {}
+        self.prime = properties['prime'] if 'prime' in properties.keys() else {}
+        self.little_hours = properties['little_hours'] if 'little_hours' in properties.keys() else {}
+        self.vespers = properties['vespers'] if 'vespers' in properties.keys() else {}
+        self.compline = properties['compline'] if 'compline' in properties.keys() else {}
         self.fasting = properties['fasting']
 
     @ property
@@ -82,12 +71,7 @@ class Feast:
             'compline': {},
             'nobility': self.nobility,
             'office_type': self.office_type,
-            # TODO: fix this to have a key with a list of dictionaries
-            'com_1': self.coms['com_1'],
-            'com_2': self.coms['com_2'],
-            'com_3': self.coms['com_3'],
-            'com_4': self.coms['com_4'],
-            'com_5': self.coms['com_5'],
+            'com': self.com,
             'fasting': self.fasting,
         }
         return dic

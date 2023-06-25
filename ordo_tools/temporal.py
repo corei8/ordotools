@@ -298,6 +298,7 @@ class Temporal:
         while pentecost_date+week(x) != last_pent+week(1): # i.e., Advent 1
             sunday_date, leftovers = pentecost_date+week(x), self.post_epiphany()[1]
             if pentecost_date+week(x) == last_pent:
+                # TODO: if the final sunday is the 23rd, then the 24th has to be anticipated
                 sunday = f"UltPent_{x}"
             elif pentecost_date+week(x)+week(1) == last_pent-week(6-leftovers)+week(e):
                 sunday = f'Epiph_{leftovers+e}_{x}'

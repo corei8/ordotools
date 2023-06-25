@@ -134,16 +134,15 @@ def explode_octaves(region_diocese: str) -> dict:
 
 
 def add_commemoration(feast: Feast, commemoration: Feast) -> dict:
-    """ Adds one feast as the commemoration of another feast """
-    for x in feast.coms.keys():
-        if feast.coms[x] == '':
-            feast.coms[x] = commemoration.feast_properties
-            break
-        else:
-            pass
+    """
+    Adds one feast as the commemoration of another feast.
+    Accepts feast properties.
+    """
+    feast.com.insert(0, commemoration.feast_properties)
     return feast.updated_properties
 
-# * maybe use recursion to solve problems with transfers?
+
+# NOTE: maybe use recursion to solve problems with transfers?
 
 
 def rank_by_nobility(feast_1: Feast, feast_2: Feast) -> dict:
@@ -166,24 +165,24 @@ transfer_dict = {}
 
 
 def rank_occurring_feasts(
-        date: str,
-        sanctoral_feast: dict,
-        temporal_feast: dict
-) -> dict:
-    """ This function ranks the feasts occurring on a given date."""
+    date: str,
+    sanctoral_feast: dict,
+    temporal_feast: dict
+    ) -> dict:
+    """
+    Ranks concurring feasts.
+    """
     ranked_feasts = {}
+    transfers = {}
     sanct = Feast(date, sanctoral_feast)
     tempo = Feast(date, temporal_feast)
-    if sanct.rank_n == tempo.rank_n:
+    # TODO: refactor
+    if sanct.rank_n == tempo.rank_n: # FIX: this is not working
         transfer_date = date+timedelta(days=1)
-        ranked_feasts.update(
-            {
-                date: rank_by_nobility(
-                    sanct, tempo)['higher'].feast_properties,
-                transfer_date: rank_by_nobility(
-                    sanct, tempo)['lower'].feast_properties,
-            }
-        )
+        ranked_feasts |= {
+            date: rank_by_nobility(sanct, tempo)['higher'].feast_properties,
+            transfer_date: rank_by_nobility(sanct, tempo)['lower'].feast_properties,
+        }
     else:
         candidates = {
             sanct.rank_n: sanct,
@@ -191,30 +190,27 @@ def rank_occurring_feasts(
         }
         higher = candidates[sorted(candidates)[0]]
         lower = candidates[sorted(candidates)[1]]
-        if lower == 22:  # take care of simple feasts
+        if lower == 22:         # take care of simple feasts
             pass
         if higher.rank_n <= 4:  # feasts that exclude commemorations
             if lower.rank_n <= 10:
                 ranked_feasts.update({date: higher.feast_properties})
-                transfer_dict.update({date: lower.feast_properties})
+                transfers |= {date: lower.feast_properties}
             else:
                 ranked_feasts.update({date: higher.feast_properties})
-        elif 14 <= lower.rank_n <= 16:  # impeded dm, d and sd
-            # see p. 309 Matters Liturgical
-            if higher.rank_n == 12 or 19:
-                ranked_feasts.update(
-                    {date: add_commemoration(
-                        feast=higher, commemoration=lower)}
-                )
+        elif 14 <= lower.rank_n <= 16:    # impeded dm, d and sd
+            if higher.rank_n == 12 or 19: # see p. 309 Matters Liturgical
+                ranked_feasts |= {
+                    date: add_commemoration(feast=higher, commemoration=lower)
+                }
             else:
-                ranked_feasts.update(
-                    {date: add_commemoration(
-                        feast=higher, commemoration=lower)}
-                )
+                ranked_feasts |= {
+                    date: add_commemoration(feast=higher, commemoration=lower)
+                }
         else:
-            ranked_feasts.update(
-                {date: add_commemoration(feast=higher, commemoration=lower)}
-            )
+            ranked_feasts |= {
+                date: add_commemoration(feast=higher, commemoration=lower)
+            }
     return ranked_feasts
 
 
@@ -222,19 +218,20 @@ def add_sanctoral_feasts(temporal_dict: dict, sanctoral_dict: dict) -> dict:
     """
     Adds the sanctoral feasts to the temporal feast dictionary.
     """
+    # TODO: see if copying is necessary:
     sanctoral = sanctoral_dict.copy()
     temporal = temporal_dict.copy()
     full_calendar = {}
-    for x in sanctoral.keys():
-        if x in temporal.keys():
+    for the_date in sanctoral.keys():
+        if the_date in temporal.keys():
             ranked_feast = rank_occurring_feasts(
-                date=x,
-                sanctoral_feast=sanctoral[x],
-                temporal_feast=temporal[x]
+                date=the_date,
+                sanctoral_feast=sanctoral[the_date],
+                temporal_feast=temporal[the_date]
             )
-            full_calendar.update(ranked_feast)
+            full_calendar |= ranked_feast
         else:
-            full_calendar.update({x: sanctoral[x]})
+            full_calendar |= {date: sanctoral[the_date]}
     return full_calendar
 
 
@@ -314,20 +311,14 @@ def stitch_calendars(diocese='roman') -> None:
 
     temporal = Temporal(YEAR).return_temporal()
 
-    # if leap_year(YEAR):
-    #     # TODO: add the leapyear changes
-    #     pass
-    # else:
-    #     # sanctoral = dict_clean_mini(diocese, '.')
-        # TEST:
-    if diocese == 'roman':
+    if diocese == 'roman': # TODO: add another diocese
         sanctoral = Sanctoral(YEAR).data if leap_year(YEAR) is False else Sanctoral(YEAR).leapyear()
     else:
         pass # this will be a headache
     full_calendar = add_sanctoral_feasts(temporal, sanctoral).copy()
+
+    # TODO: see what is happening here...
     for y in temporal.keys():
-        # if len(y) == 6:
-        #     pass
         if y in sanctoral.keys():
             continue
         else:
