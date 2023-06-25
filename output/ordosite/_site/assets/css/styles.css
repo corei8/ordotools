@@ -42,10 +42,15 @@ section {
 .scroller {
   height: 100vh;
   overflow-y: scroll;
-  -webkit-scroll-snap-type: y mandatory;
-      -ms-scroll-snap-type: y mandatory;
-          scroll-snap-type: y mandatory;
+  -webkit-scroll-snap-type: y mandatory !important;
+      -ms-scroll-snap-type: y mandatory !important;
+          scroll-snap-type: y mandatory !important;
   scroll-snap-stop: always !important;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }
 
 .scroller section {
