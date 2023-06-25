@@ -3,7 +3,6 @@ from datetime import datetime
 
 class Feast:
     def __init__(self, feast_date: datetime, properties: dict):
-        print(f" comparing -> {properties['feast']}") # TEST:
         self.date = feast_date
             # self.feast_date_datetime = datetime.strptime(
             #     feast_date.strip('.'), '%m/%d')
@@ -155,7 +154,7 @@ class Feast:
         }
         # latin_weekday = translations[datetime.strptime(self.feast_date.strip(
         #     'tranlsated ._')+'/'+str(YEAR), '%m/%d/%Y').strftime('%A')]
-        latin_weekday = translations[self.feast_date.strftime('%A')]
+        latin_weekday = translations[self.date.strftime('%A')]
         return latin_weekday
 
     def mass_commemorations(self) -> str:

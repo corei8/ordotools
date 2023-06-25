@@ -117,18 +117,12 @@ def build_latex_ordo(year):
     return None
 
 
-def readme_calendar(year):
-    try:
-        mdl = importlib.import_module(
-            'calen.calendar_' + str(year)).calen
-    except AttributeError:
-        pass
-    else:
-        mdldates = sorted(mdl)
-        with open('README.md', 'a') as f:
-            f.truncate(0)
-            f.write(
-                r"""
+def readme_calendar(year, mdl: dict):
+    mdldates = sorted(mdl)
+    with open('README.md', 'a') as f:
+        f.truncate(0)
+        f.write(
+            r"""
 # Ordo
 
 Traditional Catholic Ordo for the United States, Australia, Canada and Nantes.
@@ -173,17 +167,17 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 - [ ] Canadian Calendar
 - [ ] Solemnities
                     """)
-            f.write('\n\n')
-            f.write('## Calendar for ' + str(year))
-            f.write('\n\n')
-            f.write('| Day | Date | Feast |')
+        f.write('\n\n')
+        f.write(f'## Calendar for {str(year)}')
+        f.write('\n\n')
+        f.write('| Day | Date | Feast |')
+        f.write('\n')
+        f.write('|---|---|---|')
+        f.write('\n')
+        for x in mdldates:
+            feast = Feast(x, mdl[x])
+            f.write(f'| {feast.translate_weekday} | {feast.date} | {feast.name} |')
             f.write('\n')
-            f.write('|---|---|---|')
-            f.write('\n')
-            for x in mdldates:
-                feast = Feast(x, mdl[x])
-                f.write('| ' + feast.translate_weekday + ' | ' + feast.feast_date + ' | ' + feast.name + ' |')
-                f.write('\n')
     return None
 
 
@@ -407,7 +401,6 @@ def build_test_website(year: int, y: dict) -> None:
                     f.write(f'<div class="w-100 p-1">{aday[-1].lstrip("0")}</div>')
 
                     # feast
-                    print(f" adding -> {aday[0]['feast']}")
                     f.write(f'''
                     <div class="text-center smaller-text w-100">
                     {'<h1>🧐</h1>' if index != 1 else aday[0]['feast']}

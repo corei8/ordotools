@@ -23,13 +23,13 @@ def main(year: int, diocese: str):
     # from ordo_tools.outputs import build_latex_ordo
     from ordo_tools.outputs import readme_calendar
     from ordo_tools.outputs import build_test_website
-    from ordo_tools.utils import build
+    from ordo_tools.utils import LiturgicalCalendar
 
-    data = build(diocese=diocese)
+    data = LiturgicalCalendar(year = year, diocese=diocese).build()
 
-    readme_calendar(year)
+    readme_calendar(year, data)
     # build_test_website(year, Temporal(year).return_temporal())
     build_test_website(year, data)
 
 if __name__ == '__main__':
-    main(year=2024, diocese='roman')
+    main(year=2023, diocese='roman')
