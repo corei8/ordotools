@@ -1,6 +1,3 @@
-from ordo_tools.helpers import day
-from ordo_tools.helpers import days
-
 import subprocess
 from datetime import datetime
 import os
@@ -389,8 +386,8 @@ def build_test_website(year: int, y: dict) -> None:
                         elif j == 1 and i == 0:
                             pass
                         else:
-                            if i == 0:
-                                f.write('</section>')
+                            if j == 0:
+                                f.write('<section>')
                             else:
                                 f.write(empty_col()*int(7-i))
                                 f.write(close_div())

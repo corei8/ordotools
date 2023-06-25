@@ -314,24 +314,24 @@ def stitch_calendars(diocese='roman') -> None:
 
     temporal = Temporal(YEAR).return_temporal()
 
-    if leap_year(YEAR):
-        # TODO: add the leapyear changes
-        pass
-    else:
-        # sanctoral = dict_clean_mini(diocese, '.')
+    # if leap_year(YEAR):
+    #     # TODO: add the leapyear changes
+    #     pass
+    # else:
+    #     # sanctoral = dict_clean_mini(diocese, '.')
         # TEST:
-        if diocese == 'roman':
-            sanctoral = Sanctoral(YEAR).data
+    if diocese == 'roman':
+        sanctoral = Sanctoral(YEAR).data if leap_year(YEAR) is False else Sanctoral(YEAR).leapyear()
+    else:
+        pass # this will be a headache
+    full_calendar = add_sanctoral_feasts(temporal, sanctoral).copy()
+    for y in temporal.keys():
+        # if len(y) == 6:
+        #     pass
+        if y in sanctoral.keys():
+            continue
         else:
-            pass # this will be a headache
-        full_calendar = add_sanctoral_feasts(temporal, sanctoral).copy()
-        for y in temporal.keys():
-            # if len(y) == 6:
-            #     pass
-            if y in sanctoral.keys():
-                continue
-            else:
-                full_calendar.update({y: temporal[y]})
+            full_calendar.update({y: temporal[y]})
 
     if len(transfer_dict) > 0:
         pass

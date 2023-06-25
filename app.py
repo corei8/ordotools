@@ -32,4 +32,4 @@ def main(year: int, diocese: str):
     build_test_website(year, data)
 
 if __name__ == '__main__':
-    main(year=2023, diocese='roman')
+    main(year=2024, diocese='roman')

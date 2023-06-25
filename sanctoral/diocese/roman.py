@@ -562,24 +562,7 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
-            # "2/23.": {
-            #     "leapdate": day(year=self.year, month=2, day=24),
-            #     "feast": "In Vigilia S Matthiæ",
-            #     "rank": [20, "v"],
-            #     "nobility": (False,),
-            #     "office_type": False,
-            #     "color": "white",
-            #     "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"},
-            #     "matins": {},
-            #     "lauds": {},
-            #     "prime": {},
-            #     "little_hours": {},
-            #     "vespers": {"proper": False, "admag": ("firstVespers", "secondVerspers"), "propers": {}, "oration": ""},
-            #     "compline": {},
-            #     "fasting": False,
-            # },
             day(year=self.year, month=2, day=24): {
-                "leapdate": day(year=self.year, month=2, day=25),
                 "feast": "S Matthiæ Ap",
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
@@ -595,7 +578,6 @@ class Sanctoral:
                 "fasting": False,
             },
             day(year=self.year, month=2, day=27): {
-                "leapdate": day(year=self.year, month=2, day=28),
                 "feast": "S Gabrielis a Virgine Perdolente C",
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
@@ -4165,3 +4147,57 @@ class Sanctoral:
                 "fasting": False,
             },
         }
+
+        self.data_leapyear = {
+             day(year=self.year, month=2, day=24): {
+                 "feast": "In Vigilia S Matthiæ",
+                 "rank": [20, "v"],
+                 "nobility": (False,),
+                 "office_type": False,
+                 "color": "white",
+                 "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"},
+                 "matins": {},
+                 "lauds": {},
+                 "prime": {},
+                 "little_hours": {},
+                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVerspers"), "propers": {}, "oration": ""},
+                 "compline": {},
+                 "fasting": False,
+             },
+            day(year=self.year, month=2, day=25): {
+                "feast": "S Matthiæ Ap",
+                "rank": [10, "d II cl"],
+                "nobility": (False,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "matins": {},
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVerspers"), "propers": {}, "oration": ""},
+                "compline": {},
+                "fasting": False,
+            },
+            day(year=self.year, month=2, day=28): {
+                "feast": "S Gabrielis a Virgine Perdolente C",
+                "rank": [15, "d"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Oculus Dei", "glo": True, "cre": False, "pre": "Communis"},
+                "matins": {},
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVerspers"), "propers": {}, "oration": ""},
+                "compline": {},
+                "fasting": False,
+            },
+        }
+
+    def leapyear(self) -> dict:
+        for feast, data in self.data_leapyear.items():
+            self.data |= {feast:data}
+        return self.data
+
