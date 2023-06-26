@@ -34,7 +34,9 @@ class LiturgicalCalendar:
             f.write("\tdef __init__(self):\n")
             f.write('\t\tself.data = {\n')
             for i, line in enumerate(sorted(cal)):
-                date = f"""\t\t\tday(year={self.year}, month={line.strftime('%m').lstrip('0')}, day={line.strftime('%d').lstrip('0')})"""
+                date = f"""\t\t\tday(year={self.year},\
+                month={line.strftime('%m').lstrip('0')},\
+                day={line.strftime('%d').lstrip('0')})"""
                 if i != 0:
                     f.write(f"{date}: {cal[line]},\n")
                 else:
@@ -95,7 +97,6 @@ class LiturgicalCalendar:
         Takes two feasts and returns the one with the higher rank.
         """
         alpha, bravo = feast_1.nobility, feast_2.nobility
-        print(f"[INFO] running a nobility check for {feast_1.feast} and {feast_2.feast}.")
         for x in range(6):
             if alpha[x] < bravo[x]:
                 return {'higher': feast_1, 'lower': feast_2}
@@ -118,11 +119,10 @@ class LiturgicalCalendar:
         tempo = Feast(date, temporal_feast)
         # TODO: refactor
         if sanct.rank_n == tempo.rank_n:
-            # transfer_date = date+timedelta(days=1)
             ranked_feasts |= {
-                date: self.rank_by_nobility(sanct, tempo)['higher'].feast_properties,
+                date:
+                self.rank_by_nobility(sanct, tempo)['higher'].feast_properties,
             }
-            # transfer_date: rank_by_nobility(sanct, tempo)['lower'].feast_properties,
         else:
             candidates = {
                 sanct.rank_n: sanct,
@@ -141,15 +141,24 @@ class LiturgicalCalendar:
             elif 14 <= lower.rank_n <= 16:     # impeded dm, d and sd
                 if higher.rank_n == 12 or 19:  # see p. 309 Matters Liturgical
                     ranked_feasts |= {
-                        date: self.add_commemoration(feast=higher, commemoration=lower)
+                        date: self.add_commemoration(
+                            feast=higher,
+                            commemoration=lower
+                        )
                     }
                 else:
                     ranked_feasts |= {
-                        date: self.add_commemoration(feast=higher, commemoration=lower)
+                        date: self.add_commemoration(
+                            feast=higher,
+                            commemoration=lower
+                        )
                     }
             else:
                 ranked_feasts |= {
-                    date: self.add_commemoration(feast=higher, commemoration=lower)
+                    date: self.add_commemoration(
+                        feast=higher,
+                        commemoration=lower
+                    )
                 }
         return ranked_feasts
 
@@ -187,7 +196,8 @@ class LiturgicalCalendar:
         temporal = Temporal(self.year).return_temporal()
         saints = Sanctoral(self.year)
         if self.diocese == 'roman':
-            sanctoral = saints.data if leap_year(self.year) is False else saints.leapyear()
+            sanctoral = saints.data \
+                if leap_year(self.year) is False else saints.leapyear()
         else:
             pass  # TODO: add dioceses
         full_calendar = self.add_sanctoral_feasts(temporal, sanctoral).copy()

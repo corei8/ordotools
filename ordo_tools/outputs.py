@@ -176,7 +176,9 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
         f.write('\n')
         for x in mdldates:
             feast = Feast(x, mdl[x])
-            f.write(f'| {feast.translate_weekday} | {feast.date} | {feast.name} |')
+            f.write(
+                f'| {feast.translate_weekday} | {feast.date} | {feast.name} |'
+            )
             f.write('\n')
     return None
 
@@ -279,8 +281,8 @@ def build_test_website(year: int, y: dict) -> None:
 
     # determine the file output and starter text depending on the calendar
     build_dirs = [
-        "./output/ordosite/_includes/calendar.html", # for the Jekyll site
-        "./output/html/index.html"                   # for quick reference
+        "./output/ordosite/_includes/calendar.html",  # for the Jekyll site
+        "./output/html/index.html"                    # for quick reference
     ]
     last_week  = False
 
@@ -300,7 +302,7 @@ def build_test_website(year: int, y: dict) -> None:
                 </head>
                 <body>
                 """)
-            f.write('<div class="container center p-0">') # TODO: see if we can get rid of this
+            f.write('<div class="container center p-0">')  # TODO: see if we can get rid of this
 
             # useful variables
             month_memory = ''
@@ -331,8 +333,7 @@ def build_test_website(year: int, y: dict) -> None:
 
             def build_month(month, cols, file, year=year) -> None:
                 file.write('<section>')
-                file.write(start_row()) # starts the month row
-                    # <h1 class="display-6 pt-3">
+                file.write(start_row())  # starts the month row
                 file.write(f'''
                 <div class="mt-3 text-start">
                     <h3 class="pt-1">
@@ -340,7 +341,7 @@ def build_test_website(year: int, y: dict) -> None:
                     </h3>
                 </div>
                 ''')
-                file.write(close_div()) # closes the month row
+                file.write(close_div())  # closes the month row
                 file.write(f'{weekdays}')
                 file.write(start_row('border empty_dates'))
                 file.write(empty_col()*cols)
@@ -348,7 +349,6 @@ def build_test_website(year: int, y: dict) -> None:
 
             for j, aweek in enumerate(cal):
 
-                
                 # See if it is the last week of the year
                 if last_week is True:
                     break
@@ -360,21 +360,21 @@ def build_test_website(year: int, y: dict) -> None:
                 for i, aday in enumerate(aweek):
 
                     # alternate the cell shading
-                    if i%2 == j%2:
+                    if i % 2 == j % 2:
                         shading = 'bg-body'
                     else:
                         shading = 'bg-light'
 
                     # see if the day is a calendar day
                     if len(aday) == 2:
-                        index = 0 # the day is not a calendar day
+                        index = 0  # the day is not a calendar day
                     elif len(aday) == 0:
-                        # f.write(empty_col())
                         continue
                     else:
                         index = 1
 
-                    if aday[index] != month_memory: # if we have a new month
+                    # How to treat the beginning of a month
+                    if aday[index] != month_memory:  # if we have a new month
                         if j == 1 and i != 0:
                             pass
                         elif j == 1 and i == 0:
@@ -394,11 +394,13 @@ def build_test_website(year: int, y: dict) -> None:
                     month_memory = aday[index]
 
                     f.write(start_col(
-                        f'fw-light d-flex flex-column justify-content-between {shading}'
+                        f'fw-light d-flex flex-column\
+                        justify-content-between {shading}'
                     ))
 
                     # date-bar
-                    f.write(f'<div class="w-100 p-1">{aday[-1].lstrip("0")}</div>')
+                    f.write(f'<div class="w-100 p-1">\
+                    {aday[-1].lstrip("0")}</div>')
 
                     # feast
                     f.write(f'''
@@ -422,32 +424,31 @@ def build_test_website(year: int, y: dict) -> None:
                     # build the "statusbar"
                     f.write(f'''
                     <div class="w-100 p-0 d-flex flex-column justify-content-between align-items-center">
-                    
+
                     { f'<div><small>{aday[0]["rank"][1]}</small></div>'}
                     <div class="text-end w-100 p-1 d-flex flex-row
                     justify-content-between align-items-end" height="16em">
-                    
+
                     { f'<img src="{blank_image}" height="16em" width="16em" style="border: solid 1px black; border-radius: 50%; background: {color}">'}
-                    
+
                     {f'<img src="{fish_path}" height="16em">' if aday[0]["fasting"] is True or i == 5 else fish_placeholder}
 
                     </div></div>
                     ''')
 
-                    f.write("</div>") # close the column
+                    f.write("</div>")  # close the column
 
                     # add blank days if it is the last day
                     if last_week is True and aday[-1] == str(31):
                         f.write(empty_col()*int(6-i))
                         break
 
-                f.write("</div>") # close the row
+                f.write("</div>")  # close the row
 
             if out == 1:
                 f.write("</section></div></div></body></html>")
-            # f.write("</div>")
 
-            f.close() # FIX: might not be necessary
+            f.close()  # FIX: might not be necessary
 
         with open(path) as f:
             lines = list(f)
@@ -457,4 +458,3 @@ def build_test_website(year: int, y: dict) -> None:
             f.close()
 
     return None
-

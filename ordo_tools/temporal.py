@@ -5,9 +5,7 @@ from ordo_tools.helpers import easter
 from ordo_tools.helpers import findsunday
 from ordo_tools.helpers import week
 from ordo_tools.helpers import weekday
-from ordo_tools.helpers import which_sunday
 from ordo_tools.helpers import last_sunday
-
 
 
 class Temporal:
@@ -49,13 +47,13 @@ class Temporal:
     def advent(self) -> dict:
         """ Advent Season """
         y = {}
-        for x in range(4): # build the advents backwards?
+        for x in range(4):  # build the advents backwards?
             if x == 0 and self.christmas-days(1) == self.lastadvent:
-                y |= { self.lastadvent: "DV_Christmas" }
+                y |= {self.lastadvent: "DV_Christmas"}
             else:
-                y |= { self.lastadvent-week(x): f"D_Advent_{4-x}" }
-                for fer in range (2,8):
-                    if x == 1 and fer in [4,6,7]:
+                y |= {self.lastadvent-week(x): f"D_Advent_{4-x}"}
+                for fer in range(2, 8):
+                    if x == 1 and fer in [4, 6, 7]:
                         y |= {
                             self.lastadvent-week(x)+days(fer-1):
                             f"Ember_Advent_{fer if fer != 7 else 's'}"
@@ -71,13 +69,13 @@ class Temporal:
     def christmas_time(self) -> dict:
         """ Christmas and the following days to the end of the year. """
         y = {}
-        def d(a) : return self.christmas+days(a)
+        def d(a): return self.christmas+days(a)
         for x, feast in enumerate([
             "Christmas", "StStephan", "StJohn", "StsInnocents",
             "StThomas", "StSylvester", "8_Chritmas_f6",
-        ]): # TODO: add special keys for 1-3 if they fall on a Sunday
+        ]):  # TODO: add special keys for 1-3 if they fall on a Sunday
             if d(x).strftime("%a") == "Sun" and x != 0:
-                if x in [4,5]:
+                if x in [4, 5]:
                     feast = f"D_{feast}"
                 elif x > 5:
                     feast = "D_Christmas"
@@ -279,7 +277,6 @@ class Temporal:
         All of the days after Pentecost, including the feasts
         and octaves of Corpus Christi and the Sacred Heart.
         """
-        # TODO: anticipate the 24th Pentecost if the 23rd is the last sunday
         pentecost_date = self.easter + week(7)
         last_pent = self.christmas - findsunday(self.christmas) - week(4)
         y = {pentecost_date: 'Pentecost'}
@@ -298,18 +295,18 @@ class Temporal:
         september_count = 0
         corpuschristi_count = 1
         sacredheart_count = 1
-
-        # TODO: look at more realistic ranges:
         while pentecost_date+week(x) != last_pent+week(1):  # i.e., Advent 1
             sunday_date = pentecost_date+week(x)
             leftovers = self.post_epiphany()[1]
             chK = ""
-            if last_sunday(pentecost_date+week(x)) == 0 and (pentecost_date+week(x)).strftime("%B") == "October":
+            if (
+                    last_sunday(pentecost_date+week(x)) is True and
+                    (pentecost_date+week(x)).strftime("%B") == "October"
+                    ):
                 chK = "ChristKing"
                 sunday = f'Pent_{x}'
             elif pentecost_date+week(x) == last_pent:
-                # TODO: if the final sunday is the 23rd, then the 24th has to be anticipated
-                sunday = f"UltPent_{x}"
+                sunday = f"UltPent_{x}"  # TODO: if the final 23rd, 24th anti.
             elif pentecost_date+week(x)+week(1) == last_pent-week(6-leftovers)+week(e):
                 sunday = f'Epiph_{leftovers+e}_{x}'
                 e += 1
@@ -322,31 +319,49 @@ class Temporal:
                 if x == 1 and d == 0:
                     y |= {sunday_date: "Trinity"}
                 elif x == 1 and d >= 4:
-                    y |= {sunday_date+days(d): f"{f'{corpuschristi_count}_in_8_' if d > 4 else ''}CorpusChristi"}
+                    y |= {
+                        sunday_date+days(d):
+                        f"{f'{corpuschristi_count}_in_8_' if d > 4 else ''}CorpusChristi"
+                    }
                     corpuschristi_count += 1
                 elif x == 2 and 0 < d <= 4:
-                    y |= {sunday_date+days(d): f"{f'{corpuschristi_count+1}_in_8_' if d < 4 else '8_'}CorpusChristi"}
+                    y |= {
+                        sunday_date+days(d):
+                        f"{f'{corpuschristi_count+1}_in_8_' if d < 4 else '8_'}CorpusChristi"
+                    }
                     corpuschristi_count += 1
                 elif x == 2 and d >= 5:
-                    y |= {sunday_date+days(d): f"{f'{sacredheart_count}_in_8_' if d > 5 else ''}SacredHeart"}
+                    y |= {
+                        sunday_date+days(d):
+                        f"{f'{sacredheart_count}_in_8_' if d > 5 else ''}SacredHeart"
+                    }
                     sacredheart_count += 1
                 elif x == 3 and 0 < d <= 5:
-                    y |= {sunday_date+days(d): f"{f'{sacredheart_count+1}_in_8_' if d < 5 else '8_'}SacredHeart"}
+                    y |= {
+                        sunday_date+days(d):
+                        f"{f'{sacredheart_count+1}_in_8_' if d < 5 else '8_'}SacredHeart"
+                    }
                     sacredheart_count += 1
-                elif september_count == 3 and d in [3,5,6]:
-                    y |= {sunday_date+days(d): f"Ember_Sept_{d+1 if d != 6 else 's'}"}
+                elif september_count == 3 and d in [3, 5, 6]:
+                    y |= {
+                        sunday_date+days(d):
+                        f"Ember_Sept_{d+1 if d != 6 else 's'}"
+                    }
                 elif chK != "" and d == 0:
                     y |= {sunday_date+days(d): "ChristKing"}
                     chK = ""
                 else:
-                    y |= {sunday_date+days(d): f"""{"de" if d != 0 else "D"}_{sunday}{f"_f{d+1 if d != 6 else 's'}" if d != 0 else ""}"""}
+                    y |= {
+                        sunday_date+days(d):
+                        f"""{"de" if d != 0 else "D"}_{sunday}{f"_f{d+1 if d != 6 else 's'}" if d != 0 else ""}"""
+                    }
                 d += 1
             x += 1
         return y
 
     def build_entire_year(self) -> dict:
         """
-        Returns a dictionary of the entire temporal cycle, but only the 
+        Returns a dictionary of the entire temporal cycle, but only the
         dates with keys.
         """
         y = {}
@@ -365,7 +380,7 @@ class Temporal:
     def return_temporal(self) -> dict:
         big_data = {}
         data = TemporalData().data
-        compiled=self.build_entire_year()
+        compiled = self.build_entire_year()
         # TODO: use a loop for this after the data is settled
         for key, value in compiled.items():
             big_data |= {key: {
@@ -386,4 +401,3 @@ class Temporal:
             }
                          }
         return big_data
-

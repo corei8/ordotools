@@ -120,20 +120,17 @@ def which_sunday(date: datetime) -> int:
     Determine the numeric order of a Sunday within a month.
     """
     sevens = [s for s in range(0, 31, 7)]
-    # print(sevens)
     index = int(date.strftime("%d"))
-    print(f"[INFO] index = {index}")
     x = 0
     while index-x not in sevens:
         x += 1
     return sevens.index(index-x)+1
 
 
-def last_sunday(date: datetime) -> int:
-    print(which_sunday(date))
+def last_sunday(date: datetime) -> bool:
     if which_sunday(date) < 4:
-        return None
+        return False
     elif which_sunday(date) == 4 and int(date.strftime("%d")) < 25:
-        return None
+        return False
     else:
-        return 0
+        return True
