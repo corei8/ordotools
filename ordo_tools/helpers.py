@@ -78,7 +78,6 @@ def find_extra_epiphany(pents: int) -> int:
         return pents - 24
 
 
-# todo see if there is a more efficient way of taking care of this.
 def leap_year(year: int) -> bool:
     """ return true if year is a leap year """
     if (year % 4) == 0:
@@ -114,3 +113,27 @@ def translate_month(month: str) -> str:
         return months_in_latin[month]
     else:
         return month
+
+
+def which_sunday(date: datetime) -> int:
+    """
+    Determine the numeric order of a Sunday within a month.
+    """
+    sevens = [s for s in range(0, 31, 7)]
+    # print(sevens)
+    index = int(date.strftime("%d"))
+    print(f"[INFO] index = {index}")
+    x = 0
+    while index-x not in sevens:
+        x += 1
+    return sevens.index(index-x)+1
+
+
+def last_sunday(date: datetime) -> int:
+    print(which_sunday(date))
+    if which_sunday(date) < 4:
+        return None
+    elif which_sunday(date) == 4 and int(date.strftime("%d")) < 25:
+        return None
+    else:
+        return 0

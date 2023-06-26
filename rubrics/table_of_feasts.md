@@ -1,16 +1,35 @@
 # DUAE TABELLAE EX RUBRICIS GENERALIBUS BREVIARII JUXTA CONSTITUTIONEM 'DIVINO AFFLATU' REFORMATIS EXCERPTIS
 
-In quarum prima statim videri poteri, de quo celebrandum erit Officium, si plura eodem die Festa vel Officia sive perpetuo sive accidentaliter oecurrant; in altera vero, quomodo Officium precedes concurrat in Vesperis cum Officio sequentis diei.
+In quarum prima statim videri poteri, de quo celebrandum erit Officium, si
+plura eodem die Festa vel Officia sive perpetuo sive accidentaliter oecurrant;
+in altera vero, quomodo Officium precedes concurrat in Vesperis cum Officio
+sequentis diei.
 
 In alterutra Tabella hoc ordine reperietur, quod quaeritur:
 
-Primum inveniatur numerus positus in quadrangulo illo, in quo Officia, de quibus est controversia, sibi invicem occurrunt; deinde legatur regula juxta dictum numerum descripta, et ex ea dare videbitar quid sit agendum.
+Primum inveniatur numerus positus in quadrangulo illo, in quo Officia, de
+quibus est controversia, sibi invicem occurrunt; deinde legatur regula juxta
+dictum numerum descripta, et ex ea dare videbitar quid sit agendum.
 
-Exempli gratia: Quadrangulum, in quo sibi invicem occurrunt, in prima Tabella, Duplex 7 classis et Dominica I classis, erit quod invenitur ultimo loco in eadem linea in qua inscribitur Duplex I classis, in quo signatus est numerus 6; quia, si ad ipsum quadrangulum tam Duplex I classis quam Dominica I classis ex eorum locis recto tramite pergerent, in eo sibi invicem occurrerent. Regula autem juxta dictum numeram 6 apposita sic habet: 6 Officium de secundo, Translatio de primo. Id est Officium fiat de Dominica I classis et Duplex I classis transferatur juxta Rubricas; quia, cum in his regulis dicitur de primo, seu praecedenti, intelligitur de Festo vel Officio in superiori parte Tabellae apposito, ut Duplex praedictum; cum de secundo, vel sequent!, de Officio in inferiori parte sub numeris apposito, ut Dominica praedicta.
+Exempli gratia: Quadrangulum, in quo sibi invicem occurrunt, in prima Tabella,
+Duplex 7 classis et Dominica I classis, erit quod invenitur ultimo loco in
+eadem linea in qua inscribitur Duplex I classis, in quo signatus est numerus 6;
+quia, si ad ipsum quadrangulum tam Duplex I classis quam Dominica I classis ex
+eorum locis recto tramite pergerent, in eo sibi invicem occurrerent. Regula
+autem juxta dictum numeram 6 apposita sic habet: 6 Officium de secundo,
+Translatio de primo. Id est Officium fiat de Dominica I classis et Duplex I
+classis transferatur juxta Rubricas; quia, cum in his regulis dicitur de primo,
+seu praecedenti, intelligitur de Festo vel Officio in superiori parte Tabellae
+apposito, ut Duplex praedictum; cum de secundo, vel sequent!, de Officio in
+inferiori parte sub numeris apposito, ut Dominica praedicta.
 
-In aliquibus autem quadrangulis positus est 0, quia nullus occursus aut concursus esse potest inter Officia simul ad idem quadrangulum occurrentia.
+In aliquibus autem quadrangulis positus est 0, quia nullus occursus aut
+concursus esse potest inter Officia simul ad idem quadrangulum occurrentia.
 
-Scire tamen oportet quae sint Dominicas et Feria; majores, quae Vigilia privilegiata, et quae Duplicia I et II classis et majora, tam primaria quam secundaria; sicut et quae Officia, ad effectual tit. II n. 1 superiorum Rubricarum, cum Feriatione vel cum Octava celebrentur.
+Scire tamen oportet quae sint Dominicas et Feria; majores, quae Vigilia
+privilegiata, et quae Duplicia I et II classis et majora, tam primaria quam
+secundaria; sicut et quae Officia, ad effectual tit. II n. 1 superiorum
+Rubricarum, cum Feriatione vel cum Octava celebrentur.
 
 ## DOMINICA MAJORES 
 
@@ -232,7 +251,9 @@ Festum feriatis aequiparatum: Festum sacratissimi Cordis Jesu
 
 ## FESTA QUAE CUM OCTAVA CELEBRANTUR	
 
-Alia gaudent Octava privilegiata, de qua semper fit aut Officium, aut saltem commemoratio; alia Octava communi, de qua etiam Commemoratio quandoque omitti potest, juxta Rubricas; alia Octava simplici, de qua fit tantum in die Octava.
+Alia gaudent Octava privilegiata, de qua semper fit aut Officium, aut saltem
+commemoratio; alia Octava communi, de qua etiam Commemoratio quandoque omitti
+potest, juxta Rubricas; alia Octava simplici, de qua fit tantum in die Octava.
 
 ## OCTAVE PRIVILEGIATA de quibus semper fit aut Officium aut Commemoratio dividuntur in tres ordines:
 

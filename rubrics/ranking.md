@@ -35,7 +35,7 @@
 3. dm
 4. d
 5. sd
-8. s
+8. s (v)
 9. feria
 
 ## 1 - 2 - Solemnity

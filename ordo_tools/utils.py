@@ -12,13 +12,13 @@ import importlib
 
 from ordo_tools.parts import ROMANS
 
+
 class LiturgicalCalendar:
 
     def __init__(self, year, diocese, country=''):
         self.year = year
         self.diocese = diocese
         self.transfers = {}
-
 
     def update_calendar(self, data: dict) -> dict:
         """
@@ -72,8 +72,9 @@ class LiturgicalCalendar:
                         feast.rank_n = 18
                         return_dict.update(
                             {
-                                str((datetime.strptime(feast.feast_date, '%m/%d')
-                                    + days(k)).strftime('%m/%d')) + '_':
+                                str((datetime.strptime(
+                                    feast.feast_date, '%m/%d'
+                                ) + days(k)).strftime('%m/%d')) + '_':
                                 feast.updated_properties
                             }
                         )
@@ -93,19 +94,20 @@ class LiturgicalCalendar:
         """
         Takes two feasts and returns the one with the higher rank.
         """
-        ranks_1 = feast_1.nobility
-        ranks_2 = feast_2.nobility
-        for x in range(len(ranks_1)):
-            if ranks_1[x] < ranks_2[x]:
+        alpha, bravo = feast_1.nobility, feast_2.nobility
+        print(f"[INFO] running a nobility check for {feast_1.feast} and {feast_2.feast}.")
+        for x in range(6):
+            if alpha[x] < bravo[x]:
                 return {'higher': feast_1, 'lower': feast_2}
-            elif ranks_1[x] > ranks_2[x]:
+            elif alpha[x] > bravo[x]:
                 return {'higher': feast_2, 'lower': feast_1}
             else:
                 pass
         return {'higher': feast_1, 'lower': feast_2}
 
-
-    def rank(self, date: str, sanctoral_feast: dict, temporal_feast: dict) -> dict:
+    def rank(
+        self, date: str, sanctoral_feast: dict, temporal_feast: dict
+    ) -> dict:
         """
         Ranks feasts that occur on the same date. Send feasts that can be
         transferred to the transfer dictionary.
@@ -119,8 +121,8 @@ class LiturgicalCalendar:
             # transfer_date = date+timedelta(days=1)
             ranked_feasts |= {
                 date: self.rank_by_nobility(sanct, tempo)['higher'].feast_properties,
-            #transfer_date: rank_by_nobility(sanct, tempo)['lower'].feast_properties,
             }
+            # transfer_date: rank_by_nobility(sanct, tempo)['lower'].feast_properties,
         else:
             candidates = {
                 sanct.rank_n: sanct,
@@ -136,8 +138,8 @@ class LiturgicalCalendar:
                     transfers |= {date: lower.feast_properties}
                 else:
                     ranked_feasts.update({date: higher.feast_properties})
-            elif 14 <= lower.rank_n <= 16:    # impeded dm, d and sd
-                if higher.rank_n == 12 or 19: # see p. 309 Matters Liturgical
+            elif 14 <= lower.rank_n <= 16:     # impeded dm, d and sd
+                if higher.rank_n == 12 or 19:  # see p. 309 Matters Liturgical
                     ranked_feasts |= {
                         date: self.add_commemoration(feast=higher, commemoration=lower)
                     }
@@ -187,8 +189,7 @@ class LiturgicalCalendar:
         if self.diocese == 'roman':
             sanctoral = saints.data if leap_year(self.year) is False else saints.leapyear()
         else:
-            pass # TODO: add dioceses
+            pass  # TODO: add dioceses
         full_calendar = self.add_sanctoral_feasts(temporal, sanctoral).copy()
         self.commit_to_dictionary(target_file='calendar', dic=full_calendar)
         return full_calendar
-

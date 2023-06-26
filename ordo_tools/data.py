@@ -109,7 +109,7 @@ class TemporalData:
             "V_Epiphany": {
                 "feast": "Vigilia Epiphaniæ",
                 "rank": [12, "sd Vig privil 2 cl"],
-                "color": "white",
+                "color": "purple",
                 "mass": {"int": "Dum medium silentium", "glo": True, "cre": True, "pre": "de Nativitate"},
                 "com": [],
                 "matins": {},
@@ -290,28 +290,10 @@ class TemporalData:
                 "fasting": False,
             },
 
-            # Seven Sorrows
-            "de_Passion_f6": {
-                "feast": "Septem Dolorum BMV",
-                "rank": [14, "dm"],
-                "color": "purple",
-                "mass": {"int": "Stabant", "glo": False, "seq": "Stabat Mater", "cre": True, "pre": "de B. Maria Virg."},
-                "com": [],
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
-                "compline": {},
-                "office_type": False,
-                "nobility": (False,),
-                "fasting": True,
-            },
-
             # Ember days in Lent
             "Ember_Lent_4": {
-                "feast": "Feria IV Quatuor Temporum Quadragesimæ",
-                "rank": [3, "s"],
+                "feast": "Feria IV Quattuor Temporum Quadragesimæ",
+                "rank": [23, "s"],
                 "color": "purple",
                 "mass": {"int": "Reminiscere", "glo": False, "cre": False, "pre": "de Quadragesima"},
                 "com": [],
@@ -326,8 +308,8 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Lent_6": {
-                "feast": "Feria VI Quatuor Temporum Quadragesimæ",
-                "rank": [3, "s"],
+                "feast": "Feria VI Quattuor Temporum Quadragesimæ",
+                "rank": [23, "s"],
                 "color": "purple",
                 "mass": {"int": "De necessitatibus", "glo": False, "cre": False, "pre": "de Quadragesima"},
                 "com": [],
@@ -342,10 +324,27 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Lent_s": {
-                "feast": "Sabbatum Quatuor Temporum Quadragesimæ",
-                "rank": [3, "s"],
+                "feast": "Sabbatum Quattuor Temporum Quadragesimæ",
+                "rank": [23, "s"],
                 "color": "purple",
                 "mass": {"int": "Intret", "glo": False, "cre": False, "pre": "de Quadragesima"},
+                "com": [],
+                "matins": {},
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
+                "compline": {},
+                "office_type": False,
+                "nobility": (False,),
+                "fasting": True,
+            },
+
+            "SevenSorrows": {
+                "feast": "Septem Dolorum BMV",
+                "rank": [14, "dm"],
+                "color": "purple",
+                "mass": {"int": "Stabant", "glo": False, "seq": "Stabat Mater", "cre": True, "pre": "de B. Maria Virg."},
                 "com": [],
                 "matins": {},
                 "lauds": {},
@@ -691,6 +690,23 @@ class TemporalData:
                 "fasting": False,
             },
 
+            "p_Ascension_f6": {  # TODO: this day has special rules
+                "feast": "Oct. Ascensionis DNJC",
+                "rank": [13, "dm"],
+                "color": "white",
+                "mass": {"int": "Viri Galilæi", "glo": True, "cre": True, "pre": "et Comm de Ascensione"},
+                "com": [],
+                "matins": {},
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
+                "compline": {},
+                "office_type": False,
+                "nobility": (False,),
+                "fasting": False,
+            },
+
             ##  }
             ##      )
             ##      ascension_day = easter(year) + week(i) + indays(5)
@@ -720,7 +736,7 @@ class TemporalData:
 
             "S_8_Ascension": {
                 "feast": "Sabbatum infra Oct. Ascensionis",
-                "rank": [16, "sd"],
+                "rank": [17, "sd"],
                 "color": "white",
                 "mass": {"int": "Exaudi, Domine", "glo": True, "cre": False, "pre": "de Ascensione"},
                 "com": [],
@@ -876,7 +892,7 @@ class TemporalData:
 
             # Ember Days after Pentecost
             "Ember_Pent_4": {
-                "feast": "Feria IV Quatuor Temporum infra Oct. Pentecostes",
+                "feast": "Feria IV Quattuor Temporum infra Oct. Pentecostes",
                 "rank": [19, "sd"],
                 "color": "red",
                 "mass": {"int": "Deus, dum egredereris", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -892,7 +908,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Pent_6": {
-                "feast": "Feria VI Quatuor Temporum infra Oct. Pentecostes",
+                "feast": "Feria VI Quattuor Temporum infra Oct. Pentecostes",
                 "rank": [19, "sd"],
                 "color": "red",
                 "mass": {"int": "Repleatur os meum", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -908,7 +924,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Pent_s": {
-                "feast": "Sabbatum Quatuor Temporum infra Oct. Pentecostes",
+                "feast": "Sabbatum Quattuor Temporum infra Oct. Pentecostes",
                 "rank": [19, "sd"],
                 "color": "red",
                 "mass": {"int": "Caritas Dei", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -944,7 +960,7 @@ class TemporalData:
             "D_Pent_2": {
                 "feast": "Dominica infra Oct. Ssmi Corporis Christi", #Christi (Dominica II post Pentecosten)",
                 "rank": [12, "sd"],
-                "color": "white",
+                "color": "green",
                 "mass": {"int": "Factus est", "glo": True, "seq": "Lauda, Sion, Salvatorem", "cre": True, "pre": "de Nativitate, vel de Ssma Trinitate"},
                 "com": [],
                 "matins": {},
@@ -958,9 +974,9 @@ class TemporalData:
                 "fasting": False,
             },
             "D_Pent_3": {
-                "feast": "Dominica infra Oct. Ssmi Cordis DNJC (Dominica III post Pentecosten)",
+                "feast": "Dominica infra Oct. Ssmi Cordis DNJC",  # (Dominica III post Pentecosten)",
                 "rank": [12, "sd"],
-                "color": "white",
+                "color": "green",
                 "mass": {"int": "Respice in me", "glo": True, "cre": True, "pre": "de sacratissimo Code Jesu"},
                 "com": [],
                 "matins": {},
@@ -1031,18 +1047,6 @@ class TemporalData:
                 "fasting": False,
             },
 
-            ##                                                                                                                                                  }
-            ##  )
-            ##  if x["feast"] == "Dominica infra Oct. Ssmi Cordis DNJC (Dominica III post Pentecosten)":
-            ##  ssmi_cordis = pent_date + week(3) - indays(2)
-            ##  for j, y in enumerate(ROMANS[1: 7]):
-            ##  if ssmi_cordis + indays(j + 1) == pent_date + week(3):
-            ##  pass
-            ##  else:
-            ##  feria_index = int(
-            ##  (ssmi_cordis + indays(j + 1)).strftime("%w")) - 1
-            ##  fer_num = FERIA[feria_index]
-            ##  cycle.update(
             ##  {
             ##      str(ssmi_cordis + indays(j + 1)): {
             ##          "feast": fer_num+" infra Oct. Ssmi Cordis DNJC",
@@ -1050,7 +1054,7 @@ class TemporalData:
             ##          "rank": [18, "sd"],
             ##          "color": "white",
             ##          "mass": {"int": "Respice in me", "glo": True, "cre": True, "pre": "de Ssmo Corde Iesu vel de Ssma Trinitate"},
-            "com": [],
+            #"com": [],
             ##          "matins": {},
             ##          "lauds": {},
             ##          "prime": {},
@@ -1219,7 +1223,7 @@ class TemporalData:
 
             # Ember Days in September
             "Ember_Sept_4": {
-                "feast": "Feria IV Quatuor Temporum Septembris",
+                "feast": "Feria IV Quattuor Temporum Septembris",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Exsultate Deo", "glo": False, "cre": False, "pre": "Communis"},
@@ -1235,7 +1239,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Sept_6": {
-                "feast": "Feria VI Quatuor Temporum Septembris",
+                "feast": "Feria VI Quattuor Temporum Septembris",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Laetetur cor", "glo": False, "cre": False, "pre": "Communis"},
@@ -1251,7 +1255,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Sept_s": {
-                "feast": "Sabbatum Quatuor Temporum Septembris",
+                "feast": "Sabbatum Quattuor Temporum Septembris",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Venite, adoremus", "glo": False, "cre": False, "pre": "Communis"},
@@ -1287,8 +1291,8 @@ class TemporalData:
 
             # Ember Days of Advent
             "Ember_Advent_4": {
-                "feast": "Feria IV Quatuor Temporum in Adventus",
-                "rank": [19, "s"],
+                "feast": "Feria IV Quattuor Temporum in Adventus",
+                "rank": [23, "feria"], # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Rorate cæli", "glo": False, "cre": False, "pre": "Communis"},
                 "com": [{"oration": "Deus qui de beate"}, {"oration": "Ecclesiæ"}],
@@ -1303,8 +1307,8 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Advent_6": {
-                "feast": "Feria VI Quatuor Temporum in Adventus",
-                "rank": [19, "s"],
+                "feast": "Feria VI Quattuor Temporum in Adventus",
+                "rank": [23, "feria"], # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Prope es tu", "glo": False, "cre": False, "pre": "Communis"},
                 "com": [{"oration": "Deus qui de beate"}, {"oration": "Ecclesiæ"}],
@@ -1319,8 +1323,8 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Advent_s": {
-                "feast": "Sabbatum Quatuor Temporum in Adventus",
-                "rank": [19, "s"],
+                "feast": "Sabbatum Quattuor Temporum in Adventus",
+                "rank": [23, "feria"],  # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Veni, et ostende", "glo": False, "cre": False, "pre": "Communis"},
                 "com": [{"oration": "Deus qui de beate"}, {"oration": "Ecclesiæ"}],
@@ -1455,7 +1459,7 @@ class TemporalData:
             "StJohn": {
                 "feast": "S Joannis Ap Ev",
                 "rank": [10, "d II cl cum Oct simplici"],
-                "color": "red",
+                "color": "white",
                 "mass": {"int": "In medio ecclesiæ", "glo": True, "cre": True, "pre": "et Comm de Nativitate"},
                 "com": [],
                 "matins": {},
@@ -1471,7 +1475,7 @@ class TemporalData:
             "StsInnocents": {
                 "feast": "Ss Innocentium Mm",
                 "rank": [10, "d II cl cum Oct simplici"],
-                "color": "purple",
+                "color": "red",
                 "mass": {"int": "Ex ore infantium", "glo": True, "cre": True, "pre": "et Comm de Nativitate"},
                 "com": [],
                 "matins": {},
@@ -1581,10 +1585,10 @@ class TemporalData:
                     the_days |= {
                         date: {
                             "feast": f"""Dominica {f'''infra Hebd {integer_to_roman(x+1)} in Quadragesima{' (Lætare)' if x+1 == 4 else ''}''' if x < 4 else '''Passione''' if x == 4 else '''Palmis''' }""",
-                            "rank": [19, "sd I cl"], # FIX: first lent first class?
+                            "rank": [8, "sd I cl"],  # FIX: check this
                             "color": f"{'purple' if x+1 != 4 else 'pink'}",
                             "mass": {
-                                "int": "", # TODO: add all of the Lent Sunday Introits
+                                "int": "",  # TODO: add all of the Introits
                                 "glo": False,
                                 "cre": False,
                                 "pre": "de Quadragesima" if x < 6 else "de Cruce",
@@ -1831,7 +1835,7 @@ class TemporalData:
             advent_season |= {
                 f"D_Advent_{x+1}": { # TODO: verify that 2-4 advents are minor sundays
                                     "feast": f"Dominica {integer_to_roman(x+1)} Adventus",
-                                    "rank": [1 if x == 0 else 12, f"{'sd' if x == 0 else 'sd II cl'}"],
+                                    "rank": [1 if x == 0 else 12, f"{'sd I cl' if x == 0 else 'sd II cl'}"],
                                     "color": f"{'purple' if x+1 != 3 else 'pink'}",
                                     "mass": {"int": f"{introit}", "glo": False, "cre": True, "pre": "de Trinitate"},
                                     "com": [{"oration": "Deus qui de beate"},{"oration": "Ecclesiæ"}],
@@ -1988,7 +1992,7 @@ class TemporalData:
                 septuagesima |= {
                     f"de_{sunday[:4]}_f{feria+2 if feria != 5 else 's'}": {
                         "feast": "De ea",
-                        "rank": [21, "feria"],
+                        "rank": [23, "feria"],
                         "color": "purple",
                         "mass": {"int": "", "glo": False, "cre": True, "pre": "Communis"},
                         "com": [], # FIX: preface
@@ -2012,9 +2016,9 @@ class TemporalData:
                 f"D_Epiph_{sunday+1}": {
                     "feast": f"Dominica {integer_to_roman(sunday+1)} post Epiphaniam",
                     "rank": [12, "sd"],
-                    "color": "white",
+                    "color": "green",
                     "mass": {"int": "Omnis terra", "glo": True, "cre": True, "pre": "de Ssma Trinitate"},
-                    "com": [], # FIX: introit
+                    "com": [],  # FIX: introit
                     "matins": {},
                     "lauds": {},
                     "prime": {},
