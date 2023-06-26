@@ -4,8 +4,6 @@ from datetime import datetime
 class Feast:
     def __init__(self, feast_date: datetime, properties: dict):
         self.date = feast_date
-            # self.feast_date_datetime = datetime.strptime(
-            #     feast_date.strip('.'), '%m/%d')
         self.feast_properties = properties
         self.name = properties['feast']
         if 'infra_octave_name' in properties.keys():
@@ -19,18 +17,23 @@ class Feast:
         else:
             for x, y in properties['mass'].items():
                 self.mass.update({x: y})
-        # TODO: all data has to have these parts:
-        self.nobility = properties['nobility'] if 'nobility' in properties.keys(
-        ) else ('0', '0', '0', '0', '0', '0', )
+        self.nobility = properties['nobility'] \
+            if 'nobility' in properties.keys() else (0, 0, 0, 0, 0, 0,)
         self.office_type = properties['office_type']
-        self.com = properties['com'] if 'com' in properties.keys() else []
-        # parts of the office:
-        self.matins = properties['matins'] if 'matins' in properties.keys() else {}
-        self.lauds = properties['lauds'] if 'lauds' in properties.keys() else {}
-        self.prime = properties['prime'] if 'prime' in properties.keys() else {}
-        self.little_hours = properties['little_hours'] if 'little_hours' in properties.keys() else {}
-        self.vespers = properties['vespers'] if 'vespers' in properties.keys() else {}
-        self.compline = properties['compline'] if 'compline' in properties.keys() else {}
+        self.com = properties['com'] \
+            if 'com' in properties.keys() else []
+        self.matins = properties['matins'] \
+            if 'matins' in properties.keys() else {}
+        self.lauds = properties['lauds'] \
+            if 'lauds' in properties.keys() else {}
+        self.prime = properties['prime'] \
+            if 'prime' in properties.keys() else {}
+        self.little_hours = properties['little_hours'] \
+            if 'little_hours' in properties.keys() else {}
+        self.vespers = properties['vespers'] \
+            if 'vespers' in properties.keys() else {}
+        self.compline = properties['compline'] \
+            if 'compline' in properties.keys() else {}
         self.fasting = properties['fasting']
 
     @ property
@@ -43,7 +46,10 @@ class Feast:
     #     return datetime.strptime('%m%d', self.feast_date)
 
     @ property
-    # TODO: expand Preces method to provide for 1. Preces Feriales 2. Compline 3. Little Hours
+    # TODO: expand Preces method to provide for
+    #    1. Preces Feriales
+    #    2. Compline
+    #    3. Little Hours
     def preces(self) -> str:
         if self.rank_n <= 16:
             return ''
@@ -109,14 +115,14 @@ class Feast:
 
     def introit(self) -> list:
         """ Finds the Introit text for the feast """
-        # todo add a methed to determine if it is a three Mass Introit or not.
+        # TODO: add a methed to determine if it is a three Mass Introit or not.
         introit_list = []
         if len(self.mass.items()) == 1:
             if 'Ad Missam' in self.mass.keys():
                 if type(self.mass['Ad Missam']['int']) == str:
                     introit_list.append(self.mass['Ad Missam']['int'])
                 else:
-                    # todo add a method to determine whether it is still pascahltime or not
+                    # TODO: determine whether it is still pascahltime or not
                     # ! just for testing purposes
                     introit_list.append(self.mass['Ad Missam']['int'][0])
             else:
@@ -133,7 +139,7 @@ class Feast:
             'white': 'albus',
             'green': 'viridis',
             'red': 'ruber',
-            'violet': 'violaceus',
+            'purple': 'violaceus',
             'black': 'niger',
             'color': 'void',
         }
@@ -166,6 +172,7 @@ class Feast:
                 if 'feast' in self.coms[x].keys():
                     results += str(i) + r' or ' + self.coms[x]['feast'] + r', '
                     i += 1
+                # TODO: use 'feast' data as well
                 elif 'oration' in self.coms[x].keys():
                     if self.coms[x]['oration'] == 'ad libitum':
                         results += str(i) + r' or ' + \
@@ -198,13 +205,13 @@ class Feast:
             else:
                 status.append('')
         i = 0
-        #! refine this to work only for its proper Mass:
+        # FIX: refine this to work only for its proper Mass:
         if 'proper_last_gospel' in y.keys():
             pprlast = 'ult Evgl ' + y['proper_last_gospel'] + ', '
         else:
             pprlast = ''
         for x, y in self.mass.items():
-            # todo use the second in the string if it is Paschaltime.
+            # TODO: use the second in the string if it is Paschaltime.
             latexed_mass += '\\textbf{'+x+'}: \\textit{' + \
                 self.introit()[i] + ',} ' + \
                 status[i]+'Pre '+y['pre'] + ', ' + \
@@ -216,10 +223,9 @@ class Feast:
     def display_matins_as_latex(self) -> str:
         """ return Matins as LaTeX code """
         if len(self.matins) == 0:
-            return ''
+            return ""
         else:
-            latexed_matins = r'\textbf{Ad Mat}: '
-            return ''
+            return r"\textbf{Ad Mat}: "
 
     @ property
     def display_lauds_as_latex(self) -> str:
@@ -246,7 +252,7 @@ class Feast:
             latexed_little_hours = r'\textbf{Ad Horas}: '
             for k in self.little_hours.keys():
                 if k == 'preces_feriales':
-                    if self.prime[k] == True:
+                    if self.prime[k] is True:
                         latexed_little_hours += 'Preces feriales, '
                     else:
                         pass
@@ -288,23 +294,21 @@ class Feast:
     def display_vespers_as_latex(self) -> str:
         """ return vespers as LaTeX code """
         if len(self.vespers) == 0:
-            return ''
+            return ""
         else:
-            latexed_vespers = r'\textbf{In Vesp}: '
-            return ''
+            return r"\textbf{In Vesp}: "
 
     @ property
     def display_compline_as_latex(self) -> str:
         """ return compline as LaTeX code """
         if len(self.compline) == 0:
-            return ''
+            return ""
         else:
-            latexed_compline = r'\textbf{Ad Compl}: '
+            latexed_compline = r"\textbf{Ad Compl}: "
             for k in self.compline.keys():
-                if k == 'sunday':
+                if k == "sunday":
                     if self.compline[k] is True:
-                        # * do something fancy with the period -- no trailing commas!!
-                        latexed_compline += 'Pss de Dom. '
+                        latexed_compline += "Pss de Dom. "
                     else:
                         pass
                 else:

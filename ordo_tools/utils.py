@@ -11,6 +11,10 @@ from sanctoral.diocese.roman import Sanctoral
 import importlib
 
 from ordo_tools.parts import ROMANS
+from ordo_tools.helpers import LENT_BEGINS
+from ordo_tools.helpers import LENT_ENDS
+from ordo_tools.helpers import FIRST_ADVENT
+from ordo_tools.helpers import LAST_ADVENT
 
 
 class LiturgicalCalendar:
@@ -191,6 +195,50 @@ class LiturgicalCalendar:
                 pass
         return dic
 
+    def our_ladys_saturday(self, calendar: dict) -> None:
+        """ Adds all the Saturday Offices of the Blessed Virgin
+         to the temporal calendar """
+        # TODO: add mass number according to season
+        year = calendar.copy()
+        office = {
+            'feast': 'De Sancta Maria in Sabbato',
+            'rank': [21, 's'],
+            'color': 'white',
+            'mass': {
+                'int': 'Salve sancta parens',
+                'glo': True,
+                'cre': False,
+                'pre': 'de B Maria Virg (et te in Veneratione)'
+            },
+            'com': [{'oration': 'Deus qui corda'}, {'oration': 'Ecclesiæ'}],
+            'matins': {},
+            'lauds': {},
+            'prime': {'responsory': 'Qui natus est', 'preces': True},
+            'little_hours': {},
+            'vespers': {
+                'proper': False,
+                'admag': ('firstVespers', 'secondVerspers'),
+                'propers': {},
+                'oration': ''
+            },
+            'compline': {},
+            'office_type': 'ut in pr loco',
+            'nobility': (8, 2, 6, 13, 3, 0,),
+            'fasting': False,
+        }
+        for feast in year.keys():
+            if feast.strftime("%w") == str(6):
+                if LENT_BEGINS.date() <= feast.date() <= LENT_ENDS.date():
+                    continue
+                elif FIRST_ADVENT.date() <= feast.date() <= LAST_ADVENT.date():
+                    continue
+                else:
+                    if year[feast]["rank"][0] > 16:  # not a double
+                        year[feast] = office  # TODO: add commemorations
+                    else:
+                        continue
+        return year
+
     def build(self) -> None:
         """ Stitches the temporal and sanctoral calendars together. """
         temporal = Temporal(self.year).return_temporal()
@@ -201,5 +249,6 @@ class LiturgicalCalendar:
         else:
             pass  # TODO: add dioceses
         full_calendar = self.add_sanctoral_feasts(temporal, sanctoral).copy()
+        full_calendar |= self.our_ladys_saturday(full_calendar)
         self.commit_to_dictionary(target_file='calendar', dic=full_calendar)
         return full_calendar

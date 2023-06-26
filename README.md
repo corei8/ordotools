@@ -96,7 +96,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer IV | 2023-02-15 00:00:00 | Ss Faustini & Jovitæ Mm |
 | Fer V | 2023-02-16 00:00:00 | De ea |
 | Fer VI | 2023-02-17 00:00:00 | De ea |
-| Sabb | 2023-02-18 00:00:00 | S Simeonis EM |
+| Sabb | 2023-02-18 00:00:00 | De Sancta Maria in Sabbato |
 | Dom | 2023-02-19 00:00:00 | Dominica in Quinquagesima |
 | Fer II | 2023-02-20 00:00:00 | De ea |
 | Fer III | 2023-02-21 00:00:00 | De ea |
@@ -201,7 +201,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer IV | 2023-05-31 00:00:00 | B Mariae Virginis Reginae |
 | Fer V | 2023-06-01 00:00:00 | Feria V infra Oct. Pentecostes |
 | Fer VI | 2023-06-02 00:00:00 | Ss Marcellini, Petri atq Erasmi E Mm |
-| Sabb | 2023-06-03 00:00:00 | Sabbatum Quattuor Temporum infra Oct. Pentecostes |
+| Sabb | 2023-06-03 00:00:00 | De Sancta Maria in Sabbato |
 | Dom | 2023-06-04 00:00:00 | Festum Sanctissimæ Trinitatis |
 | Fer II | 2023-06-05 00:00:00 | S Bonifatii EM |
 | Fer III | 2023-06-06 00:00:00 | S Norberti EC |
@@ -215,7 +215,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer IV | 2023-06-14 00:00:00 | De VII die infra Oct. Ssmi Corporis Christi |
 | Fer V | 2023-06-15 00:00:00 | Octava Ssmi Corporis Christi |
 | Fer VI | 2023-06-16 00:00:00 | Sacratissimi Cordis Jesu |
-| Sabb | 2023-06-17 00:00:00 | De II die infra Oct. Sacratissimi Cordis Jesu |
+| Sabb | 2023-06-17 00:00:00 | De Sancta Maria in Sabbato |
 | Dom | 2023-06-18 00:00:00 | Dominica infra Oct. Ssmi Cordis DNJC |
 | Fer II | 2023-06-19 00:00:00 | S Julianæ de Falconeriis V |
 | Fer III | 2023-06-20 00:00:00 | De V die infra Oct. Sacratissimi Cordis Jesu |
@@ -299,7 +299,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer IV | 2023-09-06 00:00:00 | De ea |
 | Fer V | 2023-09-07 00:00:00 | De ea |
 | Fer VI | 2023-09-08 00:00:00 | In Nativitate BMV |
-| Sabb | 2023-09-09 00:00:00 | S Gorgonii M |
+| Sabb | 2023-09-09 00:00:00 | De Sancta Maria in Sabbato |
 | Dom | 2023-09-10 00:00:00 | Dominica XV post Pentecosten |
 | Fer II | 2023-09-11 00:00:00 | Ss Proti et Hycinthi Mm |
 | Fer III | 2023-09-12 00:00:00 | Ssmi Nominis BMV |
@@ -341,7 +341,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer IV | 2023-10-18 00:00:00 | S Lucæ Ev |
 | Fer V | 2023-10-19 00:00:00 | S Petri de Alcantara C |
 | Fer VI | 2023-10-20 00:00:00 | S Joannis Cantii C |
-| Sabb | 2023-10-21 00:00:00 | S Hilarionis Abb |
+| Sabb | 2023-10-21 00:00:00 | De Sancta Maria in Sabbato |
 | Dom | 2023-10-22 00:00:00 | Dominica XXI post Pentecosten |
 | Fer II | 2023-10-23 00:00:00 | De ea |
 | Fer III | 2023-10-24 00:00:00 | S Raphaelis Arch |
