@@ -59,7 +59,6 @@ class LiturgicalCalendar:
         return dic
 
     def explode_octaves(self, region_diocese: str) -> dict:
-        # TODO: reimplement this to have a seperate dictionary for these
         """ Takes the Octaves in the Sanctoral cycle and explodes them into
         their days within the octave."""
         mdl = importlib.import_module(
@@ -69,8 +68,7 @@ class LiturgicalCalendar:
             feast = Feast(x, mdl[x])
             if 'Oct' in feast.rank_v:
                 if feast.nobility[2] == 4:  # common octave
-                    # todo update this to handle every octave type
-                    # * this is an ok use of ROMANS
+                    # TODO: update this to handle every octave type
                     for k, y in enumerate(ROMANS[3:6], start=1):
                         feast.name = 'De ' + y + ' die infra '
                         + feast.infra_octave_name
@@ -201,30 +199,30 @@ class LiturgicalCalendar:
         # TODO: add mass number according to season
         year = calendar.copy()
         office = {
-            'feast': 'De Sancta Maria in Sabbato',
-            'rank': [21, 's'],
-            'color': 'white',
-            'mass': {
-                'int': 'Salve sancta parens',
-                'glo': True,
-                'cre': False,
-                'pre': 'de B Maria Virg (et te in Veneratione)'
+            "feast": "De Sancta Maria in Sabbato",
+            "rank": [21, "s"],
+            "color": "white",
+            "mass": {
+                "int": "Salve sancta parens",
+                "glo": True,
+                "cre": False,
+                "pre": "de B Maria Virg (et te in Veneratione)"
             },
-            'com': [{'oration': 'Deus qui corda'}, {'oration': 'Ecclesiæ'}],
-            'matins': {},
-            'lauds': {},
-            'prime': {'responsory': 'Qui natus est', 'preces': True},
-            'little_hours': {},
-            'vespers': {
-                'proper': False,
-                'admag': ('firstVespers', 'secondVerspers'),
-                'propers': {},
-                'oration': ''
+            "com": [{"oration": "Deus qui corda"}, {"oration": "Ecclesiæ"}],
+            "matins": {},
+            "lauds": {},
+            "prime": {"responsory": "Qui natus est", "preces": True},
+            "little_hours": {},
+            "vespers": {
+                "proper": False,
+                "admag": ("firstVespers", "secondVespers"),
+                "propers": {},
+                "oration": ""
             },
-            'compline': {},
-            'office_type': 'ut in pr loco',
-            'nobility': (8, 2, 6, 13, 3, 0,),
-            'fasting': False,
+            "compline": {},
+            "office_type": "ut in pr loco",
+            "nobility": (8, 2, 6, 13, 3, 0,),
+            "fasting": False,
         }
         for feast in year.keys():
             if feast.strftime("%w") == str(6):
@@ -250,5 +248,5 @@ class LiturgicalCalendar:
             pass  # TODO: add dioceses
         full_calendar = self.add_sanctoral_feasts(temporal, sanctoral).copy()
         full_calendar |= self.our_ladys_saturday(full_calendar)
-        self.commit_to_dictionary(target_file='calendar', dic=full_calendar)
+        # self.commit_to_dictionary(target_file='calendar', dic=full_calendar)
         return full_calendar

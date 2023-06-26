@@ -103,7 +103,7 @@ class Feast:
     def com_in_title(self) -> str:
         """ returns formatted commemorations in title """
         results = ''
-        for x in self.coms.values():
+        for x in self.com:
             if type(x) == dict:
                 if 'feast' in x.keys():
                     results += r'\textit{['+x['feast'] + r']} \\ '
@@ -136,12 +136,13 @@ class Feast:
     def translate_color(self) -> str:
         """ translate the color from english to latin """
         translations = {
-            'white': 'albus',
-            'green': 'viridis',
-            'red': 'ruber',
-            'purple': 'violaceus',
-            'black': 'niger',
-            'color': 'void',
+            "white": "albus",
+            "green": "viridis",
+            "red": "ruber",
+            "purple": "violaceus",
+            "black": "niger",
+            "pink": "rosa",
+            "color": "void",
         }
         latin_color = translations[self.color]
         return latin_color
@@ -167,19 +168,19 @@ class Feast:
         """ returns formatted and ordered mass commemorations in title """
         results = ''
         i = 2
-        for x in self.coms.keys():
-            if type(self.coms[x]) == dict:
-                if 'feast' in self.coms[x].keys():
-                    results += str(i) + r' or ' + self.coms[x]['feast'] + r', '
+        for x in self.com:
+            if type(x) == dict:
+                if 'feast' in x.keys():
+                    results += str(i) + r' or ' + x['feast'] + r', '
                     i += 1
                 # TODO: use 'feast' data as well
-                elif 'oration' in self.coms[x].keys():
-                    if self.coms[x]['oration'] == 'ad libitum':
+                elif 'oration' in x.keys():
+                    if x['oration'] == 'ad libitum':
                         results += str(i) + r' or ' + \
-                            self.coms[x]['oration'] + r', '
+                            x['oration'] + r', '
                     else:
                         results += str(i) + \
-                            r' or \textit{' + self.coms[x]['oration'] + r',} '
+                            r' or \textit{' + x['oration'] + r',} '
                     i += 1
                 else:
                     pass

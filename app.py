@@ -9,7 +9,6 @@
 #########################################################
 
 
-
 def main(year: int, diocese: str):
 
     def set_global_year(year: int) -> None:
@@ -25,11 +24,15 @@ def main(year: int, diocese: str):
     from ordo_tools.outputs import build_test_website
     from ordo_tools.utils import LiturgicalCalendar
 
-    data = LiturgicalCalendar(year = year, diocese=diocese).build()
+    data = LiturgicalCalendar(year=year, diocese=diocese).build()
 
     readme_calendar(year, data)
-    # build_test_website(year, Temporal(year).return_temporal())
+
     build_test_website(year, data)
+
+    # This sorta works right now...
+    # build_latex_ordo(year, data)
+
 
 if __name__ == '__main__':
     main(year=2023, diocese='roman')
