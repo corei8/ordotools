@@ -1,7 +1,6 @@
 from ordo_tools.helpers import day
 
 
-
 class Sanctoral:
     """
     The Roman Sanctoral Cycle, which is called at every compilation.

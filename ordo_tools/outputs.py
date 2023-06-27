@@ -284,38 +284,42 @@ def build_test_website(year: int, y: dict) -> None:
         "./output/ordosite/_includes/calendar.html",  # for the Jekyll site
         "./output/html/index.html"                    # for quick reference
     ]
-    last_week  = False
+    last_week = False
 
     for out, path in enumerate(build_dirs):
         with open(path, 'w') as f:
             f.truncate(0)
+
+            # NOTE: might not be necessary anymore
             if out == 1:
                 f.write("""
-                <!DOCTYPE html>
-                <html lang=""en-us">
-                <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <meta charset="utf-8">
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-                <style>body {background: aliceblue;}</style>
-                <title>test site</title>
-                </head>
-                <body>
+<!DOCTYPE html>
+<html lang=""en-us">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/\
+bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2\
+FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<style>body {background: aliceblue;}</style>
+<title>test site</title>
+</head>
+<body>
                 """)
-            f.write('<div class="container center p-0">')  # TODO: see if we can get rid of this
+            f.write('<div class="container center p-0">')
 
             # useful variables
             month_memory = ''
             weekdays = """
-    <div class="row w-100 m-0 rounded-top bg-primary">
-    <div class="col bg-primary text-white p-1 text-center rounded"> Sunday </div>
-    <div class="col bg-primary text-white p-1 text-center"> Monday </div>
-    <div class="col bg-primary text-white p-1 text-center"> Tuesday </div>
-    <div class="col bg-primary text-white p-1 text-center"> Wednesday </div>
-    <div class="col bg-primary text-white p-1 text-center"> Thursday </div>
-    <div class="col bg-primary text-white p-1 text-center"> Friday </div>
-    <div class="col bg-primary text-white p-1 text-center rounded"> Saturday </div>
-    </div>
+<div class="row w-100 m-0 rounded-top bg-primary">
+<div class="col bg-primary text-white p-1 text-center rounded"> Sunday </div>
+<div class="col bg-primary text-white p-1 text-center"> Monday </div>
+<div class="col bg-primary text-white p-1 text-center"> Tuesday </div>
+<div class="col bg-primary text-white p-1 text-center"> Wednesday </div>
+<div class="col bg-primary text-white p-1 text-center"> Thursday </div>
+<div class="col bg-primary text-white p-1 text-center"> Friday </div>
+<div class="col bg-primary text-white p-1 text-center rounded"> Saturday </div>
+</div>
             """
 
             def close_div():
@@ -325,8 +329,7 @@ def build_test_website(year: int, y: dict) -> None:
                 return f'<div class="row w-100 m-0 {classes}">'
 
             def start_col(classes=''):
-                return f'<div class="col p-1 text-break {classes}"\
-                style="min-height: 10em;">'
+                return f'<div class="col col-h p-1 text-break {classes}">'
 
             def empty_col(classes=''):
                 return start_col(classes)+close_div()

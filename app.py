@@ -8,8 +8,12 @@
 #                                                       #
 #########################################################
 
+from time import perf_counter
+
 
 def main(year: int, diocese: str):
+
+    start = perf_counter()
 
     def set_global_year(year: int) -> None:
         """ Writes the global year to a file """
@@ -29,6 +33,10 @@ def main(year: int, diocese: str):
     readme_calendar(year, data)
 
     build_test_website(year, data)
+
+    end = perf_counter()
+
+    print(f"[INFO] build time: {str(end-start)[:4]} s.")
 
     # This sorta works right now...
     # build_latex_ordo(year, data)

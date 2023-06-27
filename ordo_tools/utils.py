@@ -65,8 +65,6 @@ class LiturgicalCalendar:
         octave = {}
         for x in range(7):
             intro = f"De {integer_to_roman(x+2)} die"
-            # try:
-            # handle the grammar here
             if x != 6:
                 feast.name = f"{intro} infra {feast.infra_octave_name}"
             else:
@@ -76,10 +74,11 @@ class LiturgicalCalendar:
             octave |= {feast.date+days(x+1): feast.updated_properties}
         return octave
 
-    def apply_octave(self) -> None:
-        return None
-
     def find_octave(self, year: dict) -> dict:
+        """
+        Finds the octaves of the sanctoral cycle and adds
+        them to the year.
+        """
         y = year.copy()
         temporals = []
         for feast in self.temporal.values():
@@ -92,7 +91,6 @@ class LiturgicalCalendar:
                 print(candidate.name)
                 octave = self.explode_octaves(candidate)
                 y |= self.add_feasts(master=y, addition=octave)
-        # return dict(sorted(y.items()))
         return y
 
     def add_commemoration(self, feast: Feast, commemoration: Feast) -> dict:
