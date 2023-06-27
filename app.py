@@ -25,14 +25,17 @@ def main(year: int, diocese: str):
 
     # from ordo_tools.outputs import build_latex_ordo
     from ordo_tools.outputs import readme_calendar
-    from ordo_tools.outputs import build_test_website
+    # from ordo_tools.outputs import build_test_website
     from ordo_tools.utils import LiturgicalCalendar
+    from builders.website import WebCal
 
     data = LiturgicalCalendar(year=year, diocese=diocese).build()
 
     readme_calendar(year, data)
 
-    build_test_website(year, data)
+    # build_test_website(year, data)
+
+    WebCal(year=year, data=data).build()
 
     end = perf_counter()
 

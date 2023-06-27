@@ -90,7 +90,6 @@ class LiturgicalCalendar:
             if candidate.name in temporals:
                 continue
             elif candidate.octave is True:
-                print(candidate.name)
                 octave = self.explode_octaves(candidate)
                 y |= self.add_feasts(master=y, addition=octave)
         return y
