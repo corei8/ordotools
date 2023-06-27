@@ -1,16 +1,12 @@
-from datetime import datetime
-
-from ordo_tools.helpers import days
 from ordo_tools.helpers import advance_a_day
 from ordo_tools.helpers import leap_year
+from ordo_tools.helpers import ladys_office
 
 from ordo_tools.feast import Feast
 from ordo_tools.temporal import Temporal
 from sanctoral.diocese.roman import Sanctoral
 
-import importlib
 
-from ordo_tools.parts import ROMANS
 from ordo_tools.helpers import LENT_BEGINS
 from ordo_tools.helpers import LENT_ENDS
 from ordo_tools.helpers import FIRST_ADVENT
@@ -39,13 +35,13 @@ class LiturgicalCalendar:
             f.write('\t\tself.data = {\n')
             for i, line in enumerate(sorted(cal)):
                 date = f"""\t\t\tday(year={self.year},\
-                month={line.strftime('%m').lstrip('0')},\
-                day={line.strftime('%d').lstrip('0')})"""
+                            month={line.strftime('%m').lstrip('0')},\
+                            day={line.strftime('%d').lstrip('0')})"""
                 if i != 0:
                     f.write(f"{date}: {cal[line]},\n")
                 else:
                     f.write(f"{date}: {cal[line]},\n")
-            f.write('\t\t}\n\n')
+                    f.write('\t\t}\n\n')
             f.write('\t\tdef data(self) -> dict:\n')
             f.write('\t\t\treturn self.data')
         return None
@@ -58,33 +54,13 @@ class LiturgicalCalendar:
         self.update_calendar(data=dic)
         return dic
 
-    def explode_octaves(self, region_diocese: str) -> dict:
-        """ Takes the Octaves in the Sanctoral cycle and explodes them into
-        their days within the octave."""
-        mdl = importlib.import_module(
-            'sanctoral.diocese.' + region_diocese).sanctoral
-        return_dict = {}
-        for x in sorted(mdl):
-            feast = Feast(x, mdl[x])
-            if 'Oct' in feast.rank_v:
-                if feast.nobility[2] == 4:  # common octave
-                    # TODO: update this to handle every octave type
-                    for k, y in enumerate(ROMANS[3:6], start=1):
-                        feast.name = 'De ' + y + ' die infra '
-                        + feast.infra_octave_name
-                        feast.rank_v = 'feria'
-                        feast.rank_n = 18
-                        return_dict.update(
-                            {
-                                str((datetime.strptime(
-                                    feast.feast_date, '%m/%d'
-                                ) + days(k)).strftime('%m/%d')) + '_':
-                                feast.updated_properties
-                            }
-                        )
-            else:
-                return_dict.update({feast.feast_date: feast.feast_properties})
-        return return_dict
+    def explode_octaves(self, feast: Feast) -> dict:
+        """
+        Generates "explodes" the octave for a feast.
+        """
+        octave = {}
+        # days within common octaves are ranked 18
+        return octave
 
     def add_commemoration(self, feast: Feast, commemoration: Feast) -> dict:
         """
@@ -194,36 +170,13 @@ class LiturgicalCalendar:
         return dic
 
     def our_ladys_saturday(self, calendar: dict) -> None:
-        """ Adds all the Saturday Offices of the Blessed Virgin
-         to the temporal calendar """
+        """
+        Adds all the Saturday Offices of the Blessed Virgin
+        to the temporal calendar.
+        """
         # TODO: add mass number according to season
         year = calendar.copy()
-        office = {
-            "feast": "De Sancta Maria in Sabbato",
-            "rank": [21, "s"],
-            "color": "white",
-            "mass": {
-                "int": "Salve sancta parens",
-                "glo": True,
-                "cre": False,
-                "pre": "de B Maria Virg (et te in Veneratione)"
-            },
-            "com": [{"oration": "Deus qui corda"}, {"oration": "Ecclesiæ"}],
-            "matins": {},
-            "lauds": {},
-            "prime": {"responsory": "Qui natus est", "preces": True},
-            "little_hours": {},
-            "vespers": {
-                "proper": False,
-                "admag": ("firstVespers", "secondVespers"),
-                "propers": {},
-                "oration": ""
-            },
-            "compline": {},
-            "office_type": "ut in pr loco",
-            "nobility": (8, 2, 6, 13, 3, 0,),
-            "fasting": False,
-        }
+        office = ladys_office
         for feast in year.keys():
             if feast.strftime("%w") == str(6):
                 if LENT_BEGINS.date() <= feast.date() <= LENT_ENDS.date():
@@ -245,8 +198,7 @@ class LiturgicalCalendar:
             sanctoral = saints.data \
                 if leap_year(self.year) is False else saints.leapyear()
         else:
-            pass  # TODO: add dioceses
+            pass  # TODO: add dioceses on top of the saints
         full_calendar = self.add_sanctoral_feasts(temporal, sanctoral).copy()
         full_calendar |= self.our_ladys_saturday(full_calendar)
-        # self.commit_to_dictionary(target_file='calendar', dic=full_calendar)
         return full_calendar

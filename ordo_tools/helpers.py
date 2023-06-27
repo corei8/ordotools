@@ -45,6 +45,33 @@ PENTECOST_SEASON_START = easter(YEAR) + timedelta(days=49)
 
 PENTECOST_SEASON_END = FIRST_ADVENT - timedelta(days=1)
 
+ladys_office = {
+    "feast": "De Sancta Maria in Sabbato",
+    "rank": [21, "s"],
+    "color": "white",
+    "mass": {
+        "int": "Salve sancta parens",
+        "glo": True,
+        "cre": False,
+        "pre": "de B Maria Virg (et te in Veneratione)"
+    },
+    "com": [{"oration": "Deus qui corda"}, {"oration": "Ecclesiæ"}],
+    "matins": {},
+    "lauds": {},
+    "prime": {"responsory": "Qui natus est", "preces": True},
+    "little_hours": {},
+    "vespers": {
+        "proper": False,
+        "admag": ("firstVespers", "secondVespers"),
+        "propers": {},
+        "oration": ""
+    },
+    "compline": {},
+    "office_type": "ut in pr loco",
+    "nobility": (8, 2, 6, 13, 3, 0,),
+    "fasting": False,
+}
+
 
 def day(year: int, month: int, day: int) -> datetime:
     return datetime(year=year, month=month, day=day)

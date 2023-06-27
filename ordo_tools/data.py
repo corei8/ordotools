@@ -293,7 +293,7 @@ class TemporalData:
             # Ember days in Lent
             "Ember_Lent_4": {
                 "feast": "Feria IV Quattuor Temporum Quadragesimæ",
-                "rank": [23, "s"],
+                "rank": 19, "s"],
                 "color": "purple",
                 "mass": {"int": "Reminiscere", "glo": False, "cre": False, "pre": "de Quadragesima"},
                 "com": [],
@@ -309,7 +309,7 @@ class TemporalData:
             },
             "Ember_Lent_6": {
                 "feast": "Feria VI Quattuor Temporum Quadragesimæ",
-                "rank": [23, "s"],
+                "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "De necessitatibus", "glo": False, "cre": False, "pre": "de Quadragesima"},
                 "com": [],
@@ -325,7 +325,7 @@ class TemporalData:
             },
             "Ember_Lent_s": {
                 "feast": "Sabbatum Quattuor Temporum Quadragesimæ",
-                "rank": [23, "s"],
+                "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Intret", "glo": False, "cre": False, "pre": "de Quadragesima"},
                 "com": [],
@@ -1292,7 +1292,7 @@ class TemporalData:
             # Ember Days of Advent
             "Ember_Advent_4": {
                 "feast": "Feria IV Quattuor Temporum in Adventus",
-                "rank": [23, "feria"], # TODO: check the rank for this
+                "rank": [19, "feria"], # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Rorate cæli", "glo": False, "cre": False, "pre": "Communis"},
                 "com": [{"oration": "Deus qui de beate"}, {"oration": "Ecclesiæ"}],
@@ -1308,7 +1308,7 @@ class TemporalData:
             },
             "Ember_Advent_6": {
                 "feast": "Feria VI Quattuor Temporum in Adventus",
-                "rank": [23, "feria"], # TODO: check the rank for this
+                "rank": [19, "feria"], # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Prope es tu", "glo": False, "cre": False, "pre": "Communis"},
                 "com": [{"oration": "Deus qui de beate"}, {"oration": "Ecclesiæ"}],
@@ -1324,7 +1324,7 @@ class TemporalData:
             },
             "Ember_Advent_s": {
                 "feast": "Sabbatum Quattuor Temporum in Adventus",
-                "rank": [23, "feria"],  # TODO: check the rank for this
+                "rank": [19, "feria"],  # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Veni, et ostende", "glo": False, "cre": False, "pre": "Communis"},
                 "com": [{"oration": "Deus qui de beate"}, {"oration": "Ecclesiæ"}],

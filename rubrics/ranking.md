@@ -19,7 +19,7 @@
 15. D,
 16. SD,
 17. The Days within the Octaves of Christmas and the Ascension,
-18. The days within Common Octaves, 
+18. The days within Common Octaves,
 19. The Major Ferial Days and Vigils,
 20. The Octave Day of a Simple Octave, *i.e,* of a Feast of the Second Class,
 21. The Saturday Office of the Blessed Virgin Mary,
