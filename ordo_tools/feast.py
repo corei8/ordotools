@@ -10,6 +10,7 @@ class Feast:
             self.infra_octave_name = properties['infra_octave_name']
         self.rank_v = properties['rank'][-1]  # verbose rank
         self.rank_n = properties['rank'][0]   # numeric rank
+        self.octave = True if 'Oct' in self.rank_v else False
         self.color = properties['color']
         self.mass = {}
         if 'int' in properties['mass'].keys():

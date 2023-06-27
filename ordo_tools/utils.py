@@ -1,16 +1,19 @@
-from ordo_tools.helpers import advance_a_day
-from ordo_tools.helpers import leap_year
-from ordo_tools.helpers import ladys_office
-
 from ordo_tools.feast import Feast
-from ordo_tools.temporal import Temporal
-from sanctoral.diocese.roman import Sanctoral
 
-
-from ordo_tools.helpers import LENT_BEGINS
-from ordo_tools.helpers import LENT_ENDS
 from ordo_tools.helpers import FIRST_ADVENT
 from ordo_tools.helpers import LAST_ADVENT
+from ordo_tools.helpers import LENT_BEGINS
+from ordo_tools.helpers import LENT_ENDS
+from ordo_tools.helpers import advance_a_day
+from ordo_tools.helpers import days
+from ordo_tools.helpers import ladys_office
+from ordo_tools.helpers import leap_year
+
+from ordo_tools.liturgical_dates import integer_to_roman
+
+from ordo_tools.temporal import Temporal
+
+from sanctoral.diocese.roman import Sanctoral
 
 
 class LiturgicalCalendar:
@@ -19,6 +22,7 @@ class LiturgicalCalendar:
         self.year = year
         self.diocese = diocese
         self.transfers = {}
+        self.temporal = Temporal(self.year).return_temporal()
 
     def update_calendar(self, data: dict) -> dict:
         """
@@ -59,8 +63,37 @@ class LiturgicalCalendar:
         Generates "explodes" the octave for a feast.
         """
         octave = {}
-        # days within common octaves are ranked 18
+        for x in range(7):
+            intro = f"De {integer_to_roman(x+2)} die"
+            # try:
+            # handle the grammar here
+            if x != 6:
+                feast.name = f"{intro} infra {feast.infra_octave_name}"
+            else:
+                feast.name = feast.infra_octave_name
+            feast.rank_v = "feria"
+            feast.rank_n = 18 if x < 6 else 13  # common octave
+            octave |= {feast.date+days(x+1): feast.updated_properties}
         return octave
+
+    def apply_octave(self) -> None:
+        return None
+
+    def find_octave(self, year: dict) -> dict:
+        y = year.copy()
+        temporals = []
+        for feast in self.temporal.values():
+            temporals.append(feast["feast"])
+        for date, feast in y.items():
+            candidate = Feast(feast_date=date, properties=feast)
+            if candidate.name in temporals:
+                continue
+            elif candidate.octave is True:
+                print(candidate.name)
+                octave = self.explode_octaves(candidate)
+                y |= self.add_feasts(master=y, addition=octave)
+        # return dict(sorted(y.items()))
+        return y
 
     def add_commemoration(self, feast: Feast, commemoration: Feast) -> dict:
         """
@@ -75,6 +108,7 @@ class LiturgicalCalendar:
         Takes two feasts and returns the one with the higher rank.
         """
         alpha, bravo = feast_1.nobility, feast_2.nobility
+        print(f"[INFO] Comparing {feast_1.name} to {feast_2.name}...")
         for x in range(6):
             if alpha[x] < bravo[x]:
                 return {'higher': feast_1, 'lower': feast_2}
@@ -140,22 +174,22 @@ class LiturgicalCalendar:
                 }
         return ranked_feasts
 
-    def add_sanctoral_feasts(self, temporal: dict, sanctoral: dict) -> dict:
+    def add_feasts(self, master: dict, addition: dict) -> dict:
         """
-        Adds the sanctoral feasts to the temporal feast dictionary;
+        Adds additional feasts to the master feast dictionary;
         Sends the feasts that confilict to the ranking function.
         """
-        calendar = temporal.copy()
-        for the_date in sanctoral.keys():
+        calendar = master.copy()
+        for the_date in addition.keys():
             if the_date in calendar.keys():
                 ranked_feast = self.rank(
                     date=the_date,
-                    sanctoral_feast=sanctoral[the_date],
+                    sanctoral_feast=addition[the_date],
                     temporal_feast=calendar[the_date]
                 )
                 calendar |= ranked_feast
             else:
-                calendar |= {the_date: sanctoral[the_date]}
+                calendar |= {the_date: addition[the_date]}
         return calendar
 
     def transfer_feasts(self, dic: dict) -> dict:
@@ -192,13 +226,13 @@ class LiturgicalCalendar:
 
     def build(self) -> None:
         """ Stitches the temporal and sanctoral calendars together. """
-        temporal = Temporal(self.year).return_temporal()
         saints = Sanctoral(self.year)
         if self.diocese == 'roman':
             sanctoral = saints.data \
                 if leap_year(self.year) is False else saints.leapyear()
         else:
             pass  # TODO: add dioceses on top of the saints
-        full_calendar = self.add_sanctoral_feasts(temporal, sanctoral).copy()
+        full_calendar = self.add_feasts(self.temporal, sanctoral).copy()
         full_calendar |= self.our_ladys_saturday(full_calendar)
+        full_calendar |= self.find_octave(year=full_calendar)
         return full_calendar

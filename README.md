@@ -225,16 +225,16 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Sabb | 2023-06-24 00:00:00 | In Nativitate S Joannis Baptistæ |
 | Dom | 2023-06-25 00:00:00 | Dominica IV post Pentecosten |
 | Fer II | 2023-06-26 00:00:00 | S Joannis et Pauli Mm |
-| Fer III | 2023-06-27 00:00:00 | De ea |
+| Fer III | 2023-06-27 00:00:00 | De IV die infra Oct S Joannis Baptistæ |
 | Fer IV | 2023-06-28 00:00:00 | Irinæi EM |
 | Fer V | 2023-06-29 00:00:00 | Ss Petri et Pauli App |
 | Fer VI | 2023-06-30 00:00:00 | In Commemoratione S Pauli Apostoli |
 | Sabb | 2023-07-01 00:00:00 | In Festo Pretiosissimi Sanguinis DNJC |
 | Dom | 2023-07-02 00:00:00 | In Visitatione BMV |
 | Fer II | 2023-07-03 00:00:00 | S Leonis II PC |
-| Fer III | 2023-07-04 00:00:00 | De ea |
+| Fer III | 2023-07-04 00:00:00 | De VI die infra Oct Ss Petri et Pauli App |
 | Fer IV | 2023-07-05 00:00:00 | S Antonii Mariæ Zaccaria C |
-| Fer V | 2023-07-06 00:00:00 | De ea |
+| Fer V | 2023-07-06 00:00:00 | Oct Ss Petri et Pauli App |
 | Fer VI | 2023-07-07 00:00:00 | Ss Cyrilli et Methodii EeCc |
 | Sabb | 2023-07-08 00:00:00 | S Elisabeth R Vid |
 | Dom | 2023-07-09 00:00:00 | Dominica VI post Pentecosten |
@@ -277,7 +277,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer III | 2023-08-15 00:00:00 | In Assumptione BMV |
 | Fer IV | 2023-08-16 00:00:00 | S Joachim C, Patris BMV, |
 | Fer V | 2023-08-17 00:00:00 | S Hyacinthi C |
-| Fer VI | 2023-08-18 00:00:00 | S Agapiti M |
+| Fer VI | 2023-08-18 00:00:00 | De IV die infra Oct Assumptionis BMV |
 | Sabb | 2023-08-19 00:00:00 | S Joannis Eudes C |
 | Dom | 2023-08-20 00:00:00 | Dominica XII post Pentecosten |
 | Fer II | 2023-08-21 00:00:00 | S Joannæ Franciscæ Fremiot de Chantal V |
@@ -354,12 +354,12 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer III | 2023-10-31 00:00:00 | In Vigilia Omnium Sanctorum |
 | Fer IV | 2023-11-01 00:00:00 | In Festo Omnium Sanctorum |
 | Fer V | 2023-11-02 00:00:00 | In Commemoratione Omnium Fidelium Defunctorum |
-| Fer VI | 2023-11-03 00:00:00 | De ea |
+| Fer VI | 2023-11-03 00:00:00 | De III die infra Oct Omnium Sanctorum |
 | Sabb | 2023-11-04 00:00:00 | S Caroli EC |
 | Dom | 2023-11-05 00:00:00 | Dominica XXIII post Pentecosten |
-| Fer II | 2023-11-06 00:00:00 | De ea |
-| Fer III | 2023-11-07 00:00:00 | De ea |
-| Fer IV | 2023-11-08 00:00:00 | In Octava Omnium Sanctorum |
+| Fer II | 2023-11-06 00:00:00 | De VI die infra Oct Omnium Sanctorum |
+| Fer III | 2023-11-07 00:00:00 | De VII die infra Oct Omnium Sanctorum |
+| Fer IV | 2023-11-08 00:00:00 | Oct Omnium Sanctorum |
 | Fer V | 2023-11-09 00:00:00 | In Dedicatione Archibasilicæ Ssmi Salvatoris |
 | Fer VI | 2023-11-10 00:00:00 | S Andreæ Avellini C |
 | Sabb | 2023-11-11 00:00:00 | S Martini EC |
@@ -390,13 +390,13 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer IV | 2023-12-06 00:00:00 | S Nicolai EC |
 | Fer V | 2023-12-07 00:00:00 | S Ambrosii ECD |
 | Fer VI | 2023-12-08 00:00:00 | In Conceptione Immaculata BMV |
-| Sabb | 2023-12-09 00:00:00 | De ea |
+| Sabb | 2023-12-09 00:00:00 | De II die infra Oct Concept Immac BMV |
 | Dom | 2023-12-10 00:00:00 | Dominica II Adventus |
 | Fer II | 2023-12-11 00:00:00 | S Damasi I PC |
-| Fer III | 2023-12-12 00:00:00 | De ea |
+| Fer III | 2023-12-12 00:00:00 | De V die infra Oct Concept Immac BMV |
 | Fer IV | 2023-12-13 00:00:00 | S Luciæ VM |
-| Fer V | 2023-12-14 00:00:00 | De ea |
-| Fer VI | 2023-12-15 00:00:00 | De ea |
+| Fer V | 2023-12-14 00:00:00 | De VII die infra Oct Concept Immac BMV |
+| Fer VI | 2023-12-15 00:00:00 | Oct Concept Immac BMV |
 | Sabb | 2023-12-16 00:00:00 | S Eusebii EM |
 | Dom | 2023-12-17 00:00:00 | Dominica III Adventus |
 | Fer II | 2023-12-18 00:00:00 | De ea |
