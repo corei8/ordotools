@@ -11,29 +11,19 @@ country = {
         'feast': 'S. Patritii E.C. Patroni Hiberniae',
         # according to the accompanying charts -- only 4 digits for now, plus nominal rank
         'rank': [0, 4, 1, 1, 'DICL'],
-        # commemoration
-        'comm2': {
-            'Feast': {
-                'mass': {
-                    'int': 'Introit',
-                    'glo': True, 'cre': True,
-                    'pre': 'Communis'
-                }
-            }
-        },
-        'comm3': '',  # blank if no commemoration
-        'office_proper': False,  # else, false
-            #'Omnia de Communi Conf. Pont. praeter sequentia.
-            #Oratio ut in Brevario.
-            #In I Nocturno Lectiones Fidelis sermo, de eodem Communi I loco.
-            #In II et III Nocturno Lectiones ut in Breviario.
-            #IX Lectio de Homilia Feriae, et fit ejus Com. ad Laudes.
-            #In II Vesperis Com. sequentis et Feriae.'
-        # for a proper Comm: 'et Comm de *preface*'
+              "com": []
+              'office_proper': False,  # else, false
+              # 'Omnia de Communi Conf. Pont. praeter sequentia.
+              # Oratio ut in Brevario.
+              # In I Nocturno Lectiones Fidelis sermo, de eodem Communi I loco.
+              # In II et III Nocturno Lectiones ut in Breviario.
+              # IX Lectio de Homilia Feriae, et fit ejus Com. ad Laudes.
+              # In II Vesperis Com. sequentis et Feriae.'
+              # for a proper Comm: 'et Comm de *preface*'
         'mass': {
             'int': 'Statuit',
             'glo': True,
-            'cre': False, #exception where St. Patrick Principal Patron of Diocese, Titular of Cathedral, or where Indult granted
+            'cre': False,  # exception where St. Patrick Principal Patron of Diocese, Titular of Cathedral, or where Indult granted
             'pre': 'Communis'
         },
         # in Vespers 'propers' is for exceptions to a common office (e.g. St Teresa's hymn)

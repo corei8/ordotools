@@ -17,7 +17,7 @@ class Sanctoral:
                 "feast": "S Hilarii Episcopi ECD",
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{ "feast": "S Felicis SM", "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"}, "matins": {}, "lauds": {}, "prime": {}, "little_hours": {}, "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "oration": ""}, "compline": {}, "fasting": False, }],
+                "com": [{"feast": "S Felicis SM", "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"}, "matins": {}, "lauds": {}, "prime": {}, "little_hours": {}, "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "oration": ""}, "compline": {}, "fasting": False,}],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},

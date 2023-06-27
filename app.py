@@ -18,7 +18,7 @@ def main(year: int, diocese: str):
     def set_global_year(year: int) -> None:
         """ Writes the global year to a file """
         with open("ordo_tools/settings.py", "w") as f:
-            f.write('YEAR = ' + str(year))
+            f.write("YEAR = " + str(year))
         return None
 
     set_global_year(year)
@@ -42,5 +42,5 @@ def main(year: int, diocese: str):
     # build_latex_ordo(year, data)
 
 
-if __name__ == '__main__':
-    main(year=2023, diocese='roman')
+if __name__ == "__main__":
+    main(year=2023, diocese="melbournensis")

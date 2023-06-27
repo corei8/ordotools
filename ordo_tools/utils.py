@@ -1,3 +1,5 @@
+from importlib import import_module
+
 from ordo_tools.feast import Feast
 
 from ordo_tools.helpers import FIRST_ADVENT
@@ -232,7 +234,10 @@ class LiturgicalCalendar:
             sanctoral = saints.data \
                 if leap_year(self.year) is False else saints.leapyear()
         else:
-            pass  # TODO: add dioceses on top of the saints
+            diocese = import_module(
+                f"sanctoral.diocese.{self.diocese}",
+            )
+            sanctoral = diocese.Diocese(self.year).calendar()
         full_calendar = self.add_feasts(self.temporal, sanctoral).copy()
         full_calendar |= self.our_ladys_saturday(full_calendar)
         full_calendar |= self.find_octave(year=full_calendar)
