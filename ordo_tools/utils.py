@@ -191,7 +191,10 @@ class LiturgicalCalendar:
         return calendar
 
     def transfer_feasts(self, dic: dict) -> dict:
-        """ Solves the transfer feast problem. """
+        """
+        Adds a feast that has to be transfered to a queue that
+        is checked against every subsequent day.
+        """
         for x in self.transfers.keys():
             trans_feast = Feast(x, self.transfers[x])
             target_date = advance_a_day(trans_feast.date)

@@ -4,7 +4,8 @@ category: rubrics
 title: "Rubrics"
 ---
 
-[Table of Feasts](/table_of_feasts)
+1. [Table of Feasts](/table_of_feasts) (latin, unformatted)
+2. [Ranking System](/ranking)
 
 # Rubrics for Building a Liturgical Calendar
 

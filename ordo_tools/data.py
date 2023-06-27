@@ -358,6 +358,7 @@ class TemporalData:
             },
 
             # Holy Week Ferias:
+            # TODO: check the verbose rank
             "de_Palm_f2": {
                 "feast": "Feria II Majoris Hebd",
                 "rank": [3, "s"],
@@ -803,9 +804,10 @@ class TemporalData:
                 "nobility": (False,),
                 "fasting": False,
             },
+            # TODO: see if the first two ferias are 2 or 3
             "8Pent_f2": {
                 "feast": "Feria II infra Oct. Pentecostes",
-                "rank": [2, "d I cl"],
+                "rank": [3, "d I cl"],
                 "color": "red",
                 "mass": {"int": "Cibavit eos", "glo": True, "cre": True, "seq": "Veni, Sancte Spiritus", "pre": "et Comm et Hanc Igitur de Pentecoste"},
                 "com": [],
@@ -821,7 +823,7 @@ class TemporalData:
             },
             "8Pent_f3": {
                 "feast": "Feria III infra Oct. Pentecostes",
-                "rank": [2, "d I cl"],
+                "rank": [3, "d I cl"],
                 "color": "red",
                 "mass": {"int": "Cibavit eos", "glo": True, "cre": True, "seq": "Veni, Sancte Spiritus", "pre": "et Comm et Hanc Igitur de Pentecoste"},
                 "com": [],

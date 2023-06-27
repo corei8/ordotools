@@ -2,6 +2,7 @@
 layout: rubric_layout
 category: rubrics
 title: "Table of Feasts"
+back: /rubrics
 ---
 
 <!-- # DUAE TABELLAE EX RUBRICIS GENERALIBUS BREVIARII JUXTA CONSTITUTIONEM 'DIVINO AFFLATU' REFORMATIS EXCERPTIS -->
