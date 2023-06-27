@@ -293,7 +293,7 @@ class TemporalData:
             # Ember days in Lent
             "Ember_Lent_4": {
                 "feast": "Feria IV Quattuor Temporum Quadragesimæ",
-                "rank": 19, "s"],
+                "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Reminiscere", "glo": False, "cre": False, "pre": "de Quadragesima"},
                 "com": [],
@@ -624,7 +624,7 @@ class TemporalData:
             },
             "Rogation_2": {
                 "feast": "Feria III in Rogationibus",
-                "rank": [19, "feria"],
+                "rank": [23, "feria"],
                 "color": "purple",
                 "mass": {"int": "Exaudivit", "glo": False, "cre": True, "pre": "Paschalis"},
                 "com": [],
@@ -640,7 +640,7 @@ class TemporalData:
             },
             "Rogation_3": {
                 "feast": "Feria IV in Rogationibus in Vigilia Ascensionis ",
-                "rank": [19, "feria"],
+                "rank": [23, "feria"],
                 "color": "purple",
                 "mass": {"int": "Exaudivit", "glo": False, "cre": True, "pre": "Paschalis"},
                 "com": [],

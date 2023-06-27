@@ -401,7 +401,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Dom | 2023-12-17 00:00:00 | Dominica III Adventus |
 | Fer II | 2023-12-18 00:00:00 | De ea |
 | Fer III | 2023-12-19 00:00:00 | De ea |
-| Fer IV | 2023-12-20 00:00:00 | In Vigilia S Thomæ Ap |
+| Fer IV | 2023-12-20 00:00:00 | Feria IV Quattuor Temporum in Adventus |
 | Fer V | 2023-12-21 00:00:00 | S Thomæ Ap |
 | Fer VI | 2023-12-22 00:00:00 | Feria VI Quattuor Temporum in Adventus |
 | Sabb | 2023-12-23 00:00:00 | Sabbatum Quattuor Temporum in Adventus |
