@@ -65,20 +65,20 @@ class Feast:
     def updated_properties(self) -> dict:
         """ Updates all values of the feast's dictionary """
         dic = {
-            'feast': self.name,
-            'rank': [self.rank_n, self.rank_v],
-            'color': self.color,
-            'mass': self.mass,
-            'matins': {},
-            'lauds': {},
-            'prime': {},
-            'little_hours': {},
-            'vespers': self.vespers,
-            'compline': {},
-            'nobility': self.nobility,
-            'office_type': self.office_type,
-            'com': self.com,
-            'fasting': self.fasting,
+            "feast": self.name,
+            "rank": [self.rank_n, self.rank_v],
+            "color": self.color,
+            "mass": self.mass,
+            "matins": {},
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": self.vespers,
+            "compline": {},
+            "nobility": self.nobility,
+            "office_type": self.office_type,
+            "com": self.com,
+            "fasting": self.fasting,
         }
         return dic
 

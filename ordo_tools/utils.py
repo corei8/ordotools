@@ -99,6 +99,10 @@ class LiturgicalCalendar:
         Adds one feast as the commemoration of another feast.
         Accepts feast properties.
         """
+        # FIXME: why is this not working!!!???
+        if commemoration.fasting is True:
+            feast.fasting = True
+            # feast = Feast(feast.date, feast.updated_properties)
         feast.com.insert(0, commemoration.feast_properties)
         return feast.updated_properties
 
@@ -141,7 +145,7 @@ class LiturgicalCalendar:
             }
             higher = candidates[sorted(candidates)[0]]
             lower = candidates[sorted(candidates)[1]]
-            if lower == 22:         # take care of simple feasts
+            if lower.rank_n == 22:         # take care of simple feasts
                 pass
             if higher.rank_n <= 4:  # feasts that exclude commemorations
                 if lower.rank_n <= 10:
@@ -150,14 +154,14 @@ class LiturgicalCalendar:
                 else:
                     ranked_feasts.update({date: higher.feast_properties})
             elif 14 <= lower.rank_n <= 16:     # impeded dm, d and sd
-                if higher.rank_n == 12 or 19:  # see p. 309 Matters Liturgical
+                if higher.rank_n == 12 or higher.rank_n == 19:
                     ranked_feasts |= {
                         date: self.add_commemoration(
                             feast=higher,
                             commemoration=lower
                         )
                     }
-                else:
+                else:  # FIX: why are these the same
                     ranked_feasts |= {
                         date: self.add_commemoration(
                             feast=higher,

@@ -46,4 +46,4 @@ def main(year: int, diocese: str):
 
 
 if __name__ == "__main__":
-    main(year=2023, diocese="melbournensis")
+    main(year=2023, diocese="roman")

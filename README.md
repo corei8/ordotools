@@ -123,7 +123,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer III | 2023-03-14 00:00:00 | De ea |
 | Fer IV | 2023-03-15 00:00:00 | De ea |
 | Fer V | 2023-03-16 00:00:00 | De ea |
-| Fer VI | 2023-03-17 00:00:00 | S. Patritii E.C. Patroni Hiberniae |
+| Fer VI | 2023-03-17 00:00:00 | S Patricii EC |
 | Sabb | 2023-03-18 00:00:00 | S Cyrilli Hierosolymitani ECD |
 | Dom | 2023-03-19 00:00:00 | S Josephi Sponsi BMV C |
 | Fer II | 2023-03-20 00:00:00 | De ea |

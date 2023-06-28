@@ -72,7 +72,7 @@ class WebCal:
         cal = self.make_calendar()
         last_week = False
 
-        with open("./output/html/index.html", "w") as f:
+        with open("./output/ordosite/_includes/calendar.html", "w") as f:
             f.truncate(0)
 
             f.write('<div class="container center p-0">')
@@ -137,7 +137,7 @@ class WebCal:
 
                     # feast
                     f.write(f'''
-                    <div class="text-center smaller-text w-100">
+                    <div class="text-center w-100 smaller-text">
                     {'<h1>🧐</h1>' if index != 1 else aday[0]['feast']}
                     </div>
                     ''')
@@ -153,17 +153,16 @@ class WebCal:
 
                     # build the "statusbar"
                     f.write(f'''
-                    <div class="w-100 p-0 d-flex flex-column justify-content-between align-items-center">
+<div class="w-100 p-0 d-flex flex-column justify-content-between align-items-center">
+{f'<div class="smaller-text">{aday[0]["rank"][1]}</div>'}
+<div class="text-end w-100 p-1 d-flex flex-row
+justify-content-between align-items-end" height="16em">
 
-                    { f'<div><small>{aday[0]["rank"][1]}</small></div>'}
-                    <div class="text-end w-100 p-1 d-flex flex-row
-                    justify-content-between align-items-end" height="16em">
+{ f'<img src="{blank_image}" height="12em" width="12em" style="border: solid 1px black; border-radius: 50%; background: {color}">'}
 
-                    { f'<img src="{blank_image}" height="16em" width="16em" style="border: solid 1px black; border-radius: 50%; background: {color}">'}
+{f'<img src="{fish_path}" height="12em">' if aday[0]["fasting"] is True or i == 5 else fish_placeholder}
 
-                    {f'<img src="{fish_path}" height="16em">' if aday[0]["fasting"] is True or i == 5 else fish_placeholder}
-
-                    </div></div>
+</div></div>
                     ''')
 
                     f.write("</div>")  # close the column
