@@ -125,7 +125,7 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer V | 2023-03-16 00:00:00 | De ea |
 | Fer VI | 2023-03-17 00:00:00 | S Patricii EC |
 | Sabb | 2023-03-18 00:00:00 | S Cyrilli Hierosolymitani ECD |
-| Dom | 2023-03-19 00:00:00 | S Josephi Sponsi BMV C |
+| Dom | 2023-03-19 00:00:00 | Dominica infra Hebd IV in Quadragesima (Lætare) |
 | Fer II | 2023-03-20 00:00:00 | De ea |
 | Fer III | 2023-03-21 00:00:00 | S Benedicti Abb |
 | Fer IV | 2023-03-22 00:00:00 | De ea |

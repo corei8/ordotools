@@ -132,8 +132,12 @@ class WebCal:
                     ))
 
                     # date-bar
-                    f.write(f'<div class="w-100 p-1">\
-                    {aday[-1].lstrip("0")}</div>')
+                    # TODO: add the phase of the moon
+                    f.write(f'<div class="w-100 p-1 smaller-text">\
+                            <strong class="text-muted">\
+                    {aday[-1].lstrip("0")}\
+                    </strong>\
+                    </div>')
 
                     # feast
                     f.write(f'''

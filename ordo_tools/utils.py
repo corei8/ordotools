@@ -99,10 +99,8 @@ class LiturgicalCalendar:
         Adds one feast as the commemoration of another feast.
         Accepts feast properties.
         """
-        # FIXME: why is this not working!!!???
         if commemoration.fasting is True:
             feast.fasting = True
-            # feast = Feast(feast.date, feast.updated_properties)
         feast.com.insert(0, commemoration.feast_properties)
         return feast.updated_properties
 
@@ -145,15 +143,21 @@ class LiturgicalCalendar:
             }
             higher = candidates[sorted(candidates)[0]]
             lower = candidates[sorted(candidates)[1]]
-            if lower.rank_n == 22:         # take care of simple feasts
+            if lower.rank_n == 22:  # take care of simple feasts
                 pass
             if higher.rank_n <= 4:  # feasts that exclude commemorations
                 if lower.rank_n <= 10:
+                    # will this ever be used?
+                    if lower.fasting is True:
+                        print(f"[INFO] fasting; the rank is {higher.rank_n}.")
+                        higher.fasting = True
                     ranked_feasts.update({date: higher.feast_properties})
                     transfers |= {date: lower.feast_properties}
                 else:
+                    if lower.fasting is True:
+                        higher.fasting = True
                     ranked_feasts.update({date: higher.feast_properties})
-            elif 14 <= lower.rank_n <= 16:     # impeded dm, d and sd
+            elif 14 <= lower.rank_n <= 16:  # impeded dm, d and sd
                 if higher.rank_n == 12 or higher.rank_n == 19:
                     ranked_feasts |= {
                         date: self.add_commemoration(
@@ -177,6 +181,22 @@ class LiturgicalCalendar:
                 }
         return ranked_feasts
 
+    def transfer_feast(self, feast: Feast) -> None:
+        """
+        Checks a feasts in the transfer dictionary.
+        """
+        # find out which feasts trigger a transfer.
+        # see what constitutes a good day for the transferred feast.
+        for t, data in self.transfers:
+            transferred = Feast(t, data)
+            target = advance_a_day(transferred.date)
+            self.rank(
+                date=target,
+                sanctoral_feast=transferred,
+                temporal_feast=feast
+            )
+        return None
+
     def add_feasts(self, master: dict, addition: dict) -> dict:
         """
         Adds additional feasts to the master feast dictionary;
@@ -193,21 +213,9 @@ class LiturgicalCalendar:
                 calendar |= ranked_feast
             else:
                 calendar |= {the_date: addition[the_date]}
+            for x in self.transfers:
+                calendar |= self.transfer_feast(calendar[the_date])
         return calendar
-
-    def transfer_feasts(self, dic: dict) -> dict:
-        """
-        Adds a feast that has to be transfered to a queue that
-        is checked against every subsequent day.
-        """
-        for x in self.transfers.keys():
-            trans_feast = Feast(x, self.transfers[x])
-            target_date = advance_a_day(trans_feast.date)
-            if target_date not in dic.keys():
-                dic.update(target_date, trans_feast.feast_properties)
-            else:
-                pass
-        return dic
 
     def our_ladys_saturday(self, calendar: dict) -> None:
         """

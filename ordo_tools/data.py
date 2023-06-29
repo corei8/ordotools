@@ -1575,19 +1575,23 @@ class TemporalData:
             self.advents() |\
             self.three_weeks_after_pentecost()
 
-
     def lent_sundays(self) -> dict:
         the_days = {}
         normal_lents = [f"D_Lent_{l+1}" for l in range(4)]
         later_lents = ["D_Passion_5", "D_Palm_6"]
         lents = [*normal_lents, *later_lents]
+        rank = 8
         for x, date in enumerate(lents):
+            if x in [0, 1, 3]:
+                rank = 1
+            else:
+                rank = 8
             for feria in range(7):
                 if feria == 0:
                     the_days |= {
                         date: {
                             "feast": f"""Dominica {f'''infra Hebd {integer_to_roman(x+1)} in Quadragesima{' (Lætare)' if x+1 == 4 else ''}''' if x < 4 else '''Passione''' if x == 4 else '''Palmis''' }""",
-                            "rank": [8, "sd I cl"],  # FIX: check this
+                            "rank": [rank, "sd I cl"],  # FIX: check this
                             "color": f"{'purple' if x+1 != 4 else 'pink'}",
                             "mass": {
                                 "int": "",  # TODO: add all of the Introits
