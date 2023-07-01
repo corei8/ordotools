@@ -1615,7 +1615,7 @@ class TemporalData:
                         f"de_{'Lent' if x < 4 else 'Passion'}_f{feria+1 if feria != 6 else 's'}": {
                             # "feast": f"Feria {integer_to_roman(feria+1)} infra Hebd {integer_to_roman(x+1)} in Quadragesima",
                             "feast": "De ea",
-                            "rank": [21, "feria"], # FIX: change the rank
+                            "rank": [19, "feria"],
                             "color": "purple",
                             "mass": {
                                 "int": "", # TODO: add all of the Lent feria Introits

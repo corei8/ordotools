@@ -6,7 +6,6 @@ from ordo_tools.helpers import FIRST_ADVENT
 from ordo_tools.helpers import LAST_ADVENT
 from ordo_tools.helpers import LENT_BEGINS
 from ordo_tools.helpers import LENT_ENDS
-from ordo_tools.helpers import advance_a_day
 from ordo_tools.helpers import days
 from ordo_tools.helpers import ladys_office
 from ordo_tools.helpers import leap_year
@@ -23,42 +22,19 @@ class LiturgicalCalendar:
     def __init__(self, year, diocese, country=''):
         self.year = year
         self.diocese = diocese
-        self.transfers = {}
+        self.transfers = None
         self.temporal = Temporal(self.year).return_temporal()
 
-    def update_calendar(self, data: dict) -> dict:
+    def fasting(self, feast: Feast) -> Feast:
         """
-        Updates the calendar file
+        Return the feast with updated fasting rules.
+        The commemoration will always have the fasting rules,
+        even on a second pass e.g., for a transferred feast.
         """
-        cal = {}
-        for x, y in data.items():
-            cal.update({x: y})
-        with open('calen/calendar_' + str(self.year) + '.py', 'a') as f:
-            f.truncate(0)
-            f.write('from ordo_tools.helpers import day\n\n')
-            f.write("class LiturgicalCalendar:\n\n")
-            f.write("\tdef __init__(self):\n")
-            f.write('\t\tself.data = {\n')
-            for i, line in enumerate(sorted(cal)):
-                date = f"""\t\t\tday(year={self.year},\
-                            month={line.strftime('%m').lstrip('0')},\
-                            day={line.strftime('%d').lstrip('0')})"""
-                if i != 0:
-                    f.write(f"{date}: {cal[line]},\n")
-                else:
-                    f.write(f"{date}: {cal[line]},\n")
-                    f.write('\t\t}\n\n')
-            f.write('\t\tdef data(self) -> dict:\n')
-            f.write('\t\t\treturn self.data')
-        return None
-
-    def commit_to_dictionary(self, target_file: str, dic: dict) -> None:
-        """
-        Takes a dictionary and writes it to a file.
-        """
-
-        self.update_calendar(data=dic)
-        return dic
+        # TODO: check the higher date against the holydays of obligation
+        if feast.com[0]["fasting"] is True:
+            feast.fasting = True
+        return feast
 
     def explode_octaves(self, feast: Feast) -> dict:
         """
@@ -94,22 +70,18 @@ class LiturgicalCalendar:
                 y |= self.add_feasts(master=y, addition=octave)
         return y
 
-    def add_commemoration(self, feast: Feast, commemoration: Feast) -> dict:
+    def commemoration(self, feast: Feast, com: Feast) -> dict:
         """
         Adds one feast as the commemoration of another feast.
-        Accepts feast properties.
         """
-        if commemoration.fasting is True:
-            feast.fasting = True
-        feast.com.insert(0, commemoration.feast_properties)
-        return feast.updated_properties
+        feast.com.insert(0, com.feast_properties)
+        return self.fasting(feast).updated_properties
 
     def rank_by_nobility(self, feast_1: Feast, feast_2: Feast) -> dict:
         """
         Takes two feasts and returns the one with the higher rank.
         """
         alpha, bravo = feast_1.nobility, feast_2.nobility
-        print(f"[INFO] Comparing {feast_1.name} to {feast_2.name}...")
         for x in range(6):
             if alpha[x] < bravo[x]:
                 return {'higher': feast_1, 'lower': feast_2}
@@ -119,83 +91,100 @@ class LiturgicalCalendar:
                 pass
         return {'higher': feast_1, 'lower': feast_2}
 
-    def rank(
-        self, date: str, sanctoral_feast: dict, temporal_feast: dict
-    ) -> dict:
+    def rank(self, dynamic: Feast, static: Feast) -> dict:
+        # TODO: this should return a Feast object.
         """
         Ranks feasts that occur on the same date. Send feasts that can be
-        transferred to the transfer dictionary.
+        transferred to the transfer dictionary. "Dynamic" is from the
+        sanctoral cycle, and "static" is from the temporal cycle.
         """
-        ranked_feasts = {}
-        transfers = {}
-        sanct = Feast(date, sanctoral_feast)
-        tempo = Feast(date, temporal_feast)
-        # TODO: refactor
-        if sanct.rank_n == tempo.rank_n:
-            ranked_feasts |= {
+        date = static.date
+        print(f'[INFO] ranking "{dynamic.feast}" against "{static.feast}".')
+
+        # if the feasts are the same rank:
+        if dynamic.rank_n == static.rank_n:
+            print('      ...same rank')
+            return {
                 date:
-                self.rank_by_nobility(sanct, tempo)['higher'].feast_properties,
+                self.rank_by_nobility(
+                    dynamic,
+                    static
+                )['higher'].feast_properties,
             }
         else:
             candidates = {
-                sanct.rank_n: sanct,
-                tempo.rank_n: tempo,
+                dynamic.rank_n: dynamic,
+                static.rank_n: static,
             }
             higher = candidates[sorted(candidates)[0]]
             lower = candidates[sorted(candidates)[1]]
-            if lower.rank_n == 22:  # take care of simple feasts
+
+            # FIXME: not sure what is going on here...
+            if lower.rank_n == 22:
                 pass
-            if higher.rank_n <= 4:  # feasts that exclude commemorations
-                if lower.rank_n <= 10:
-                    # will this ever be used?
-                    if lower.fasting is True:
-                        print(f"[INFO] fasting; the rank is {higher.rank_n}.")
-                        higher.fasting = True
-                    ranked_feasts.update({date: higher.feast_properties})
-                    transfers |= {date: lower.feast_properties}
-                else:
-                    if lower.fasting is True:
-                        higher.fasting = True
-                    ranked_feasts.update({date: higher.feast_properties})
-            elif 14 <= lower.rank_n <= 16:  # impeded dm, d and sd
-                if higher.rank_n == 12 or higher.rank_n == 19:
-                    ranked_feasts |= {
-                        date: self.add_commemoration(
-                            feast=higher,
-                            commemoration=lower
-                        )
-                    }
-                else:  # FIX: why are these the same
-                    ranked_feasts |= {
-                        date: self.add_commemoration(
-                            feast=higher,
-                            commemoration=lower
-                        )
-                    }
-            else:
-                ranked_feasts |= {
-                    date: self.add_commemoration(
+
+                # FIX: just a hack for now
+            if lower.rank_n == 19:  # lent
+                return {
+                    date: self.commemoration(
                         feast=higher,
-                        commemoration=lower
+                        com=lower
                     )
                 }
-        return ranked_feasts
+            # TODO: this has to be a separate function:
+
+            # feasts that do not take a commemoration
+            if higher.rank_n <= 4:
+                print('      ...higher does not take a commemoration')
+                # lower feast is transferred
+                if lower.rank_n <= 10:
+                    if lower.fasting is True:
+                        higher.fasting = True
+                        return {date: higher.feast_properties}
+                    if lower != self.transfers:
+                        self.transfers = lower
+                else:
+                    # lower feast is ignored
+                    if lower.fasting is True:
+                        higher.fasting = True
+                    return {date: higher.feast_properties}
+                # HACK: allows transfers to occur on ferias, etc.
+
+            # impeded DM, D and SD
+            elif 14 <= lower.rank_n <= 16:
+                print('      ...impeded DM, D or SD')
+                # if higher.rank_n == 12:
+                #     return {
+                #         date: self.commemoration(
+                #             feast=higher,
+                #             com=lower
+                #         )
+                #     }
+                # else:  # FIX: why are these the same
+                return {
+                    date: self.commemoration(
+                        feast=higher,
+                        com=lower
+                    )
+                }
+            else:
+                print(f'      ..."{higher.feast}" commemorates "{lower.feast}"')
+                return {
+                    date: self.commemoration(
+                        feast=higher,
+                        com=lower
+                    )
+                }
+        # return ranked_feasts
 
     def transfer_feast(self, feast: Feast) -> None:
         """
-        Checks a feasts in the transfer dictionary.
+        Checks for feasts in the transfer dictionary.
         """
-        # find out which feasts trigger a transfer.
-        # see what constitutes a good day for the transferred feast.
-        for t, data in self.transfers:
-            transferred = Feast(t, data)
-            target = advance_a_day(transferred.date)
-            self.rank(
-                date=target,
-                sanctoral_feast=transferred,
-                temporal_feast=feast
-            )
-        return None
+        if self.transfers:
+            for t in self.transfers:
+                # t.date = advance_a_day(t.date)
+                return self.rank(dynamic=t, static=feast)
 
     def add_feasts(self, master: dict, addition: dict) -> dict:
         """
@@ -205,16 +194,24 @@ class LiturgicalCalendar:
         calendar = master.copy()
         for the_date in addition.keys():
             if the_date in calendar.keys():
-                ranked_feast = self.rank(
-                    date=the_date,
-                    sanctoral_feast=addition[the_date],
-                    temporal_feast=calendar[the_date]
+                feast = self.rank(
+                    dynamic=Feast(the_date, addition[the_date],),
+                    static=Feast(the_date, calendar[the_date])
                 )
-                calendar |= ranked_feast
             else:
-                calendar |= {the_date: addition[the_date]}
-            for x in self.transfers:
-                calendar |= self.transfer_feast(calendar[the_date])
+                feast = {the_date: addition[the_date]}
+            if self.transfers and self.transfers.date == the_date-days(1):
+                # TODO: rank the overlapping transfers
+                result = self.transfer_feast(
+                    Feast(the_date, addition[the_date])
+                )
+                if result == feast:
+                    feast = feast
+                else:
+                    # WARN: this assumes that there is no transfer overlap
+                    self.transfers = None
+                    feast = result
+            calendar |= feast
         return calendar
 
     def our_ladys_saturday(self, calendar: dict) -> None:
@@ -253,3 +250,38 @@ class LiturgicalCalendar:
         full_calendar |= self.our_ladys_saturday(full_calendar)
         full_calendar |= self.find_octave(year=full_calendar)
         return full_calendar
+
+    # def update_calendar(self, data: dict) -> dict:
+    #     """
+    #     Updates the calendar file
+    #     """
+    #     cal = {}
+    #     # FIX: this is deprecated now.
+    #     for x, y in data.items():
+    #         cal.update({x: y})
+    #     with open('calen/calendar_' + str(self.year) + '.py', 'a') as f:
+    #         f.truncate(0)
+    #         f.write('from ordo_tools.helpers import day\n\n')
+    #         f.write("class LiturgicalCalendar:\n\n")
+    #         f.write("\tdef __init__(self):\n")
+    #         f.write('\t\tself.data = {\n')
+    #         for i, line in enumerate(sorted(cal)):
+    #             date = f"""\t\t\tday(year={self.year},\
+    #                         month={line.strftime('%m').lstrip('0')},\
+    #                         day={line.strftime('%d').lstrip('0')})"""
+    #             if i != 0:
+    #                 f.write(f"{date}: {cal[line]},\n")
+    #             else:
+    #                 f.write(f"{date}: {cal[line]},\n")
+    #                 f.write('\t\t}\n\n')
+    #         f.write('\t\tdef data(self) -> dict:\n')
+    #         f.write('\t\t\treturn self.data')
+    #     return None
+
+    # def commit_to_dictionary(self, target_file: str, dic: dict) -> None:
+    #     """
+    #     Takes a dictionary and writes it to a file.
+    #     """
+    #     # FIXME: this is deprecated now.
+    #     self.update_calendar(data=dic)
+    #     return dic
