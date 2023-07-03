@@ -861,7 +861,7 @@ class TemporalData:
             ##          "rank": [3, "d I cl"],
             ##          "color": "red",
             ##          "mass": {"int": "Accepite jucunditatem", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
-            "com": [],
+            ##          "com": [],
             ##          "matins": {},
             ##          "lauds": {},
             ##          "prime": {},
@@ -880,7 +880,7 @@ class TemporalData:
             ##          "rank": [3, "sd"],
             ##          "color": "red",
             ##          "mass": {"int": "Missa", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "Communis"},
-            "com": [],
+            ##          "com": [],
             ##          "matins": {},
             ##          "lauds": {},
             ##          "prime": {},
@@ -895,7 +895,7 @@ class TemporalData:
             # Ember Days after Pentecost
             "Ember_Pent_4": {
                 "feast": "Feria IV Quattuor Temporum infra Oct. Pentecostes",
-                "rank": [19, "sd"],
+                "rank": [3, "sd"],
                 "color": "red",
                 "mass": {"int": "Deus, dum egredereris", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
                 "com": [],
@@ -911,7 +911,7 @@ class TemporalData:
             },
             "Ember_Pent_6": {
                 "feast": "Feria VI Quattuor Temporum infra Oct. Pentecostes",
-                "rank": [19, "sd"],
+                "rank": [3, "sd"],
                 "color": "red",
                 "mass": {"int": "Repleatur os meum", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
                 "com": [],
@@ -927,7 +927,7 @@ class TemporalData:
             },
             "Ember_Pent_s": {
                 "feast": "Sabbatum Quattuor Temporum infra Oct. Pentecostes",
-                "rank": [19, "sd"],
+                "rank": [3, "sd"],
                 "color": "red",
                 "mass": {"int": "Caritas Dei", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
                 "com": [],

@@ -1453,7 +1453,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=31): {
                 "feast": "B Mariae Virginis Reginae",
-                "rank": [15, "d II cl"],
+                "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "com": [{"feast": "S Petronillae V", "mass": {"int": "Vultum tuum", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,

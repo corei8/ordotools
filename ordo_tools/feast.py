@@ -8,6 +8,8 @@ class Feast:
         self.name = properties['feast']
         if 'infra_octave_name' in properties.keys():
             self.infra_octave_name = properties['infra_octave_name']
+        else:
+            self.infra_octave_name = self.name
         self.rank_v = properties['rank'][-1]  # verbose rank
         self.rank_n = properties['rank'][0]   # numeric rank
         self.octave = True if 'Oct' in self.rank_v else False
@@ -64,7 +66,7 @@ class Feast:
     @ property
     def updated_properties(self) -> dict:
         """ Updates all values of the feast's dictionary """
-        if self.com:
+        if self.com and "fasting" in self.com[0]:
             if self.com[0]["fasting"]:
                 fasting = self.com[0]["fasting"]
             else:
