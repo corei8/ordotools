@@ -64,6 +64,13 @@ class Feast:
     @ property
     def updated_properties(self) -> dict:
         """ Updates all values of the feast's dictionary """
+        if self.com:
+            if self.com[0]["fasting"]:
+                fasting = self.com[0]["fasting"]
+            else:
+                fasting = self.fasting
+        else:
+            fasting = self.fasting
         dic = {
             "feast": self.name,
             "rank": [self.rank_n, self.rank_v],
@@ -78,7 +85,7 @@ class Feast:
             "nobility": self.nobility,
             "office_type": self.office_type,
             "com": self.com,
-            "fasting": self.fasting,
+            "fasting": fasting,
         }
         return dic
 

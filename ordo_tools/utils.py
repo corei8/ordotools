@@ -19,22 +19,23 @@ from sanctoral.diocese.roman import Sanctoral
 
 class LiturgicalCalendar:
 
-    def __init__(self, year, diocese, country=''):
+    def __init__(self, year, diocese, country=""):
         self.year = year
         self.diocese = diocese
         self.transfers = None
         self.temporal = Temporal(self.year).return_temporal()
 
-    def fasting(self, feast: Feast) -> Feast:
-        """
-        Return the feast with updated fasting rules.
-        The commemoration will always have the fasting rules,
-        even on a second pass e.g., for a transferred feast.
-        """
-        # TODO: check the higher date against the holydays of obligation
-        if feast.com[0]["fasting"] is True:
-            feast.fasting = True
-        return feast
+    # def fasting(self, feast: Feast) -> Feast:
+    #     # NOTE: this is deprecated now
+    #     """
+    #     Return the feast with updated fasting rules.
+    #     The commemoration will always have the fasting rules,
+    #     even on a second pass e.g., for a transferred feast.
+    #     """
+    #     # TODO: check the higher date against the holydays of obligation
+    #     if feast.com[0]["fasting"] is True:
+    #         feast.fasting = True
+    #     return feast
 
     def explode_octaves(self, feast: Feast) -> dict:
         """
@@ -75,7 +76,8 @@ class LiturgicalCalendar:
         Adds one feast as the commemoration of another feast.
         """
         feast.com.insert(0, com.feast_properties)
-        return self.fasting(feast).updated_properties
+        # return self.fasting(feast).updated_properties
+        return feast.updated_properties
 
     def rank_by_nobility(self, feast_1: Feast, feast_2: Feast) -> dict:
         """
@@ -118,12 +120,8 @@ class LiturgicalCalendar:
             }
             higher = candidates[sorted(candidates)[0]]
             lower = candidates[sorted(candidates)[1]]
-
-            # FIXME: not sure what is going on here...
             if lower.rank_n == 22:
                 pass
-
-                # FIX: just a hack for now
             if lower.rank_n == 19:  # lent
                 return {
                     date: self.commemoration(
@@ -211,7 +209,10 @@ class LiturgicalCalendar:
                     # WARN: this assumes that there is no transfer overlap
                     self.transfers = None
                     feast = result
-            calendar |= feast
+            try:
+                calendar |= feast
+            except TypeError:
+                pass
         return calendar
 
     def our_ladys_saturday(self, calendar: dict) -> None:

@@ -14,6 +14,7 @@ GEM
     execjs (2.8.1)
     ffi (1.15.5)
     forwardable-extended (2.6.0)
+    google-protobuf (3.23.3-arm64-darwin)
     google-protobuf (3.23.3-x86_64-darwin)
     http_parser.rb (0.8.0)
     i18n (1.14.1)
@@ -62,6 +63,8 @@ GEM
     rexml (3.2.5)
     rouge (4.1.2)
     safe_yaml (1.0.5)
+    sass-embedded (1.63.4-arm64-darwin)
+      google-protobuf (~> 3.23)
     sass-embedded (1.63.4-x86_64-darwin)
       google-protobuf (~> 3.23)
     terminal-table (3.0.2)
@@ -70,9 +73,11 @@ GEM
     webrick (1.8.1)
 
 PLATFORMS
+  arm64-darwin-22
   x86_64-darwin-22
 
 DEPENDENCIES
+  eventmachine (~> 1.2.7)
   jekyll
   jekyll-autoprefixer (= 1.0.1)
   jekyll-seo-tag

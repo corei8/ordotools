@@ -61,39 +61,39 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer IV | 2023-01-11 00:00:00 | De VI die infra Oct. Epiphaniæ |
 | Fer V | 2023-01-12 00:00:00 | De VII die infra Oct. Epiphaniæ |
 | Fer VI | 2023-01-13 00:00:00 | Octava Epiphaniæ |
-| Sabb | 2023-01-14 00:00:00 | De Sancta Maria in Sabbato |
+| Sabb | 2023-01-14 00:00:00 | S Hilarii Episcopi ECD |
 | Dom | 2023-01-15 00:00:00 | Dominica II post Epiphaniam |
-| Fer II | 2023-01-16 00:00:00 | De ea |
-| Fer III | 2023-01-17 00:00:00 | De ea |
-| Fer IV | 2023-01-18 00:00:00 | De ea |
-| Fer V | 2023-01-19 00:00:00 | De ea |
-| Fer VI | 2023-01-20 00:00:00 | De ea |
-| Sabb | 2023-01-21 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-01-16 00:00:00 | S Marcelli PM |
+| Fer III | 2023-01-17 00:00:00 | S Antonii Abb |
+| Fer IV | 2023-01-18 00:00:00 | Cathedræ S Petri Ap Romæ |
+| Fer V | 2023-01-19 00:00:00 | Ss Marii, Marthæ, Audifacis et Abachum Mm |
+| Fer VI | 2023-01-20 00:00:00 | Ss Fabiani P et Sebastiani Mm |
+| Sabb | 2023-01-21 00:00:00 | S Agnetis VM |
 | Dom | 2023-01-22 00:00:00 | Dominica III post Epiphaniam |
-| Fer II | 2023-01-23 00:00:00 | De ea |
-| Fer III | 2023-01-24 00:00:00 | De ea |
-| Fer IV | 2023-01-25 00:00:00 | De ea |
-| Fer V | 2023-01-26 00:00:00 | De ea |
-| Fer VI | 2023-01-27 00:00:00 | De ea |
-| Sabb | 2023-01-28 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-01-23 00:00:00 | S Raymundi de Peñafort C |
+| Fer III | 2023-01-24 00:00:00 | S Timothei EM |
+| Fer IV | 2023-01-25 00:00:00 | Conversio S Pauli Ap |
+| Fer V | 2023-01-26 00:00:00 | S Polycarpi EM |
+| Fer VI | 2023-01-27 00:00:00 | S Joannis Chrysostomi ECD |
+| Sabb | 2023-01-28 00:00:00 | S Petri Nolasci C |
 | Dom | 2023-01-29 00:00:00 | Dominica IV post Epiphaniam |
-| Fer II | 2023-01-30 00:00:00 | De ea |
-| Fer III | 2023-01-31 00:00:00 | De ea |
-| Fer IV | 2023-02-01 00:00:00 | De ea |
-| Fer V | 2023-02-02 00:00:00 | De ea |
-| Fer VI | 2023-02-03 00:00:00 | De ea |
-| Sabb | 2023-02-04 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-01-30 00:00:00 | S Martinæ VM |
+| Fer III | 2023-01-31 00:00:00 | S Joannis Bosco C |
+| Fer IV | 2023-02-01 00:00:00 | S Ignatii EM |
+| Fer V | 2023-02-02 00:00:00 | In Purificatione BMV |
+| Fer VI | 2023-02-03 00:00:00 | S Blasii EM |
+| Sabb | 2023-02-04 00:00:00 | S Andreæ Corsini EC |
 | Dom | 2023-02-05 00:00:00 | Dominica in Septuagesima |
-| Fer II | 2023-02-06 00:00:00 | De ea |
-| Fer III | 2023-02-07 00:00:00 | De ea |
-| Fer IV | 2023-02-08 00:00:00 | De ea |
-| Fer V | 2023-02-09 00:00:00 | De ea |
-| Fer VI | 2023-02-10 00:00:00 | De ea |
-| Sabb | 2023-02-11 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-02-06 00:00:00 | S Titi EC |
+| Fer III | 2023-02-07 00:00:00 | S Romualdi Abb |
+| Fer IV | 2023-02-08 00:00:00 | S Joannis de Matha C |
+| Fer V | 2023-02-09 00:00:00 | S Cyrilli Alexandrini ECD |
+| Fer VI | 2023-02-10 00:00:00 | S Scholasticæ V |
+| Sabb | 2023-02-11 00:00:00 | In Apparitione BMV Immaculatæ |
 | Dom | 2023-02-12 00:00:00 | Dominica in Sexagesima |
 | Fer II | 2023-02-13 00:00:00 | De ea |
-| Fer III | 2023-02-14 00:00:00 | De ea |
-| Fer IV | 2023-02-15 00:00:00 | De ea |
+| Fer III | 2023-02-14 00:00:00 | S Valentini PM |
+| Fer IV | 2023-02-15 00:00:00 | Ss Faustini & Jovitæ Mm |
 | Fer V | 2023-02-16 00:00:00 | De ea |
 | Fer VI | 2023-02-17 00:00:00 | De ea |
 | Sabb | 2023-02-18 00:00:00 | De Sancta Maria in Sabbato |
@@ -101,40 +101,40 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer II | 2023-02-20 00:00:00 | De ea |
 | Fer III | 2023-02-21 00:00:00 | De ea |
 | Fer IV | 2023-02-22 00:00:00 | Dies Cinerum |
-| Fer V | 2023-02-23 00:00:00 | Feria V post Diem Cinerum |
-| Fer VI | 2023-02-24 00:00:00 | Feria VI post Diem Cinerum |
+| Fer V | 2023-02-23 00:00:00 | S Petri Damiani ECD |
+| Fer VI | 2023-02-24 00:00:00 | S Matthiæ Ap |
 | Sabb | 2023-02-25 00:00:00 | Sabbatum post Diem Cinerum |
 | Dom | 2023-02-26 00:00:00 | Dominica infra Hebd I in Quadragesima |
-| Fer II | 2023-02-27 00:00:00 | De ea |
+| Fer II | 2023-02-27 00:00:00 | S Gabrielis a Virgine Perdolente C |
 | Fer III | 2023-02-28 00:00:00 | De ea |
 | Fer IV | 2023-03-01 00:00:00 | Feria IV Quattuor Temporum Quadragesimæ |
 | Fer V | 2023-03-02 00:00:00 | De ea |
 | Fer VI | 2023-03-03 00:00:00 | Feria VI Quattuor Temporum Quadragesimæ |
-| Sabb | 2023-03-04 00:00:00 | Sabbatum Quattuor Temporum Quadragesimæ |
+| Sabb | 2023-03-04 00:00:00 | S Casimiri C |
 | Dom | 2023-03-05 00:00:00 | Dominica infra Hebd II in Quadragesima |
-| Fer II | 2023-03-06 00:00:00 | De ea |
-| Fer III | 2023-03-07 00:00:00 | De ea |
-| Fer IV | 2023-03-08 00:00:00 | De ea |
-| Fer V | 2023-03-09 00:00:00 | De ea |
-| Fer VI | 2023-03-10 00:00:00 | De ea |
+| Fer II | 2023-03-06 00:00:00 | Ss Perpetuae et Felicitatiis Mm |
+| Fer III | 2023-03-07 00:00:00 | S Thomæ de Aquino CD |
+| Fer IV | 2023-03-08 00:00:00 | S Joannis a Deo C |
+| Fer V | 2023-03-09 00:00:00 | S Franciscae Romanae V |
+| Fer VI | 2023-03-10 00:00:00 | Ss Quadragintarum Mm |
 | Sabb | 2023-03-11 00:00:00 | De ea |
 | Dom | 2023-03-12 00:00:00 | Dominica infra Hebd III in Quadragesima |
 | Fer II | 2023-03-13 00:00:00 | De ea |
 | Fer III | 2023-03-14 00:00:00 | De ea |
 | Fer IV | 2023-03-15 00:00:00 | De ea |
 | Fer V | 2023-03-16 00:00:00 | De ea |
-| Fer VI | 2023-03-17 00:00:00 | De ea |
-| Sabb | 2023-03-18 00:00:00 | De ea |
+| Fer VI | 2023-03-17 00:00:00 | S Patricii EC |
+| Sabb | 2023-03-18 00:00:00 | S Cyrilli Hierosolymitani ECD |
 | Dom | 2023-03-19 00:00:00 | Dominica infra Hebd IV in Quadragesima (Lætare) |
 | Fer II | 2023-03-20 00:00:00 | De ea |
-| Fer III | 2023-03-21 00:00:00 | De ea |
+| Fer III | 2023-03-21 00:00:00 | S Benedicti Abb |
 | Fer IV | 2023-03-22 00:00:00 | De ea |
 | Fer V | 2023-03-23 00:00:00 | De ea |
-| Fer VI | 2023-03-24 00:00:00 | De ea |
-| Sabb | 2023-03-25 00:00:00 | De ea |
+| Fer VI | 2023-03-24 00:00:00 | S Gabrielis Arch |
+| Sabb | 2023-03-25 00:00:00 | In Annuntiatione BMV |
 | Dom | 2023-03-26 00:00:00 | Dominica Passione |
-| Fer II | 2023-03-27 00:00:00 | De ea |
-| Fer III | 2023-03-28 00:00:00 | De ea |
+| Fer II | 2023-03-27 00:00:00 | S Joannis Damasceni CD |
+| Fer III | 2023-03-28 00:00:00 | S Joannis a Capistrano C |
 | Fer IV | 2023-03-29 00:00:00 | De ea |
 | Fer V | 2023-03-30 00:00:00 | De ea |
 | Fer VI | 2023-03-31 00:00:00 | Septem Dolorum BMV |
@@ -154,57 +154,57 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer VI | 2023-04-14 00:00:00 | Feria VI infra Oct. Paschæ |
 | Sabb | 2023-04-15 00:00:00 | Sabbatum in Albis |
 | Dom | 2023-04-16 00:00:00 | Dominica in Albis |
-| Fer II | 2023-04-17 00:00:00 | De ea |
+| Fer II | 2023-04-17 00:00:00 | S Aniceti PM |
 | Fer III | 2023-04-18 00:00:00 | De ea |
 | Fer IV | 2023-04-19 00:00:00 | De ea |
 | Fer V | 2023-04-20 00:00:00 | De ea |
-| Fer VI | 2023-04-21 00:00:00 | De ea |
-| Sabb | 2023-04-22 00:00:00 | De Sancta Maria in Sabbato |
+| Fer VI | 2023-04-21 00:00:00 | S Anselmi ECD |
+| Sabb | 2023-04-22 00:00:00 | Ss Soteris et Caii PpMm |
 | Dom | 2023-04-23 00:00:00 | Dominica II post Resurrectionis |
-| Fer II | 2023-04-24 00:00:00 | De ea |
-| Fer III | 2023-04-25 00:00:00 | De ea |
+| Fer II | 2023-04-24 00:00:00 | S Fidelis a Sigmaringa M |
+| Fer III | 2023-04-25 00:00:00 | S Marci Ev |
 | Fer IV | 2023-04-26 00:00:00 | Solemnitas S Joseph, Sponsi BMV |
-| Fer V | 2023-04-27 00:00:00 | De II die infra Solemnitas S Joseph |
-| Fer VI | 2023-04-28 00:00:00 | De III die infra Solemnitas S Joseph |
-| Sabb | 2023-04-29 00:00:00 | De Sancta Maria in Sabbato |
+| Fer V | 2023-04-27 00:00:00 | S Petri Canisii CD |
+| Fer VI | 2023-04-28 00:00:00 | S Pauli a Cruce C |
+| Sabb | 2023-04-29 00:00:00 | S Petri M |
 | Dom | 2023-04-30 00:00:00 | Dominica III post Resurrectionis |
-| Fer II | 2023-05-01 00:00:00 | De VI die infra Solemnitas S Joseph |
-| Fer III | 2023-05-02 00:00:00 | De VII die infra Solemnitas S Joseph |
-| Fer IV | 2023-05-03 00:00:00 | Octava Solemnitatis S Joseph |
-| Fer V | 2023-05-04 00:00:00 | De ea |
-| Fer VI | 2023-05-05 00:00:00 | De ea |
-| Sabb | 2023-05-06 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-05-01 00:00:00 | Ss Philippi et Iacobi App |
+| Fer III | 2023-05-02 00:00:00 | S Athanasii ECD |
+| Fer IV | 2023-05-03 00:00:00 | In Inventione S Crucis |
+| Fer V | 2023-05-04 00:00:00 | S Monicae V |
+| Fer VI | 2023-05-05 00:00:00 | S Pii V PC |
+| Sabb | 2023-05-06 00:00:00 | S Joannis ApEv ante Portam Latinam |
 | Dom | 2023-05-07 00:00:00 | Dominica IV post Resurrectionis |
-| Fer II | 2023-05-08 00:00:00 | De ea |
-| Fer III | 2023-05-09 00:00:00 | De ea |
-| Fer IV | 2023-05-10 00:00:00 | De ea |
+| Fer II | 2023-05-08 00:00:00 | In Apparitione S Michaelis Arch |
+| Fer III | 2023-05-09 00:00:00 | S Gregorii Nanzanzeni ECD |
+| Fer IV | 2023-05-10 00:00:00 | S Antonini EC |
 | Fer V | 2023-05-11 00:00:00 | De ea |
-| Fer VI | 2023-05-12 00:00:00 | De ea |
-| Sabb | 2023-05-13 00:00:00 | De Sancta Maria in Sabbato |
+| Fer VI | 2023-05-12 00:00:00 | Ss Nerei, Achillei at Domitillae V atq Pancratii Mm |
+| Sabb | 2023-05-13 00:00:00 | S Roberti Bellarmino ECD |
 | Dom | 2023-05-14 00:00:00 | Dominica V post Resurrectionis |
-| Fer II | 2023-05-15 00:00:00 | Feria II in Rogationibus |
-| Fer III | 2023-05-16 00:00:00 | Feria III in Rogationibus |
-| Fer IV | 2023-05-17 00:00:00 | Feria IV in Rogationibus in Vigilia Ascensionis  |
+| Fer II | 2023-05-15 00:00:00 | S Joannis Baptistae de la Salle C |
+| Fer III | 2023-05-16 00:00:00 | S Ubaldi EC |
+| Fer IV | 2023-05-17 00:00:00 | S Paschalis Baylon C |
 | Fer V | 2023-05-18 00:00:00 | Ascensio DNJC |
-| Fer VI | 2023-05-19 00:00:00 | De II die infra Oct. Ascensionis |
-| Sabb | 2023-05-20 00:00:00 | De Sancta Maria in Sabbato |
+| Fer VI | 2023-05-19 00:00:00 | S Petri Caelestini PC |
+| Sabb | 2023-05-20 00:00:00 | S Bernardini Senensis C |
 | Dom | 2023-05-21 00:00:00 | Dominica infra Oct. Ascensionis |
 | Fer II | 2023-05-22 00:00:00 | De V die infra Oct. Ascensionis |
 | Fer III | 2023-05-23 00:00:00 | De VI die infra Oct. Ascensionis |
 | Fer IV | 2023-05-24 00:00:00 | De VII die infra Oct. Ascensionis |
 | Fer V | 2023-05-25 00:00:00 | Oct. Ascensionis DNJC |
-| Fer VI | 2023-05-26 00:00:00 | De ea |
+| Fer VI | 2023-05-26 00:00:00 | S Philippi Nerii C |
 | Sabb | 2023-05-27 00:00:00 | Sabbatum Vigilia Pentecostes |
 | Dom | 2023-05-28 00:00:00 | Dominica Pentecostes |
 | Fer II | 2023-05-29 00:00:00 | Feria II infra Oct. Pentecostes |
 | Fer III | 2023-05-30 00:00:00 | Feria III infra Oct. Pentecostes |
-| Fer IV | 2023-05-31 00:00:00 | Feria IV Quattuor Temporum infra Oct. Pentecostes |
+| Fer IV | 2023-05-31 00:00:00 | B Mariae Virginis Reginae |
 | Fer V | 2023-06-01 00:00:00 | Feria V infra Oct. Pentecostes |
-| Fer VI | 2023-06-02 00:00:00 | Feria VI Quattuor Temporum infra Oct. Pentecostes |
+| Fer VI | 2023-06-02 00:00:00 | Ss Marcellini, Petri atq Erasmi E Mm |
 | Sabb | 2023-06-03 00:00:00 | De Sancta Maria in Sabbato |
 | Dom | 2023-06-04 00:00:00 | Festum Sanctissimæ Trinitatis |
-| Fer II | 2023-06-05 00:00:00 | De ea |
-| Fer III | 2023-06-06 00:00:00 | De ea |
+| Fer II | 2023-06-05 00:00:00 | S Bonifatii EM |
+| Fer III | 2023-06-06 00:00:00 | S Norberti EC |
 | Fer IV | 2023-06-07 00:00:00 | De ea |
 | Fer V | 2023-06-08 00:00:00 | Sanctissimi Corporis Christi |
 | Fer VI | 2023-06-09 00:00:00 | De II die infra Oct. Ssmi Corporis Christi |
@@ -217,187 +217,187 @@ Easter is the first feast (every 'event' is treated as a feast) to be determined
 | Fer VI | 2023-06-16 00:00:00 | Sacratissimi Cordis Jesu |
 | Sabb | 2023-06-17 00:00:00 | De Sancta Maria in Sabbato |
 | Dom | 2023-06-18 00:00:00 | Dominica infra Oct. Ssmi Cordis DNJC |
-| Fer II | 2023-06-19 00:00:00 | De IV die infra Oct. Sacratissimi Cordis Jesu |
+| Fer II | 2023-06-19 00:00:00 | S Julianæ de Falconeriis V |
 | Fer III | 2023-06-20 00:00:00 | De V die infra Oct. Sacratissimi Cordis Jesu |
-| Fer IV | 2023-06-21 00:00:00 | De VI die infra Oct. Sacratissimi Cordis Jesu |
-| Fer V | 2023-06-22 00:00:00 | De VII die infra Oct. Sacratissimi Cordis Jesu |
+| Fer IV | 2023-06-21 00:00:00 | S Aloisii Gonzagæ C |
+| Fer V | 2023-06-22 00:00:00 | S Paulini EC |
 | Fer VI | 2023-06-23 00:00:00 | Octava Sacratissimi Cordis Jesu |
-| Sabb | 2023-06-24 00:00:00 | De Sancta Maria in Sabbato |
+| Sabb | 2023-06-24 00:00:00 | In Nativitate S Joannis Baptistæ |
 | Dom | 2023-06-25 00:00:00 | Dominica IV post Pentecosten |
-| Fer II | 2023-06-26 00:00:00 | De ea |
-| Fer III | 2023-06-27 00:00:00 | De ea |
-| Fer IV | 2023-06-28 00:00:00 | De ea |
-| Fer V | 2023-06-29 00:00:00 | De ea |
-| Fer VI | 2023-06-30 00:00:00 | De ea |
-| Sabb | 2023-07-01 00:00:00 | De Sancta Maria in Sabbato |
-| Dom | 2023-07-02 00:00:00 | Dominica V post Pentecosten |
-| Fer II | 2023-07-03 00:00:00 | De ea |
-| Fer III | 2023-07-04 00:00:00 | De ea |
-| Fer IV | 2023-07-05 00:00:00 | De ea |
-| Fer V | 2023-07-06 00:00:00 | De ea |
-| Fer VI | 2023-07-07 00:00:00 | De ea |
-| Sabb | 2023-07-08 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-06-26 00:00:00 | S Joannis et Pauli Mm |
+| Fer III | 2023-06-27 00:00:00 | De IV die infra Oct S Joannis Baptistæ |
+| Fer IV | 2023-06-28 00:00:00 | Irinæi EM |
+| Fer V | 2023-06-29 00:00:00 | Ss Petri et Pauli App |
+| Fer VI | 2023-06-30 00:00:00 | In Commemoratione S Pauli Apostoli |
+| Sabb | 2023-07-01 00:00:00 | In Festo Pretiosissimi Sanguinis DNJC |
+| Dom | 2023-07-02 00:00:00 | In Visitatione BMV |
+| Fer II | 2023-07-03 00:00:00 | S Leonis II PC |
+| Fer III | 2023-07-04 00:00:00 | De VI die infra Oct Ss Petri et Pauli App |
+| Fer IV | 2023-07-05 00:00:00 | S Antonii Mariæ Zaccaria C |
+| Fer V | 2023-07-06 00:00:00 | Oct Ss Petri et Pauli App |
+| Fer VI | 2023-07-07 00:00:00 | Ss Cyrilli et Methodii EeCc |
+| Sabb | 2023-07-08 00:00:00 | S Elisabeth R Vid |
 | Dom | 2023-07-09 00:00:00 | Dominica VI post Pentecosten |
-| Fer II | 2023-07-10 00:00:00 | De ea |
-| Fer III | 2023-07-11 00:00:00 | De ea |
-| Fer IV | 2023-07-12 00:00:00 | De ea |
-| Fer V | 2023-07-13 00:00:00 | De ea |
-| Fer VI | 2023-07-14 00:00:00 | De ea |
-| Sabb | 2023-07-15 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-07-10 00:00:00 | Ss Septem Fratrum Mm ac Rufinæ et Secundæ VvMm |
+| Fer III | 2023-07-11 00:00:00 | S Pii I PM |
+| Fer IV | 2023-07-12 00:00:00 | S Joannis Gualberti Abb |
+| Fer V | 2023-07-13 00:00:00 | S Anacleti PM |
+| Fer VI | 2023-07-14 00:00:00 | S Bonaventuræ ECD |
+| Sabb | 2023-07-15 00:00:00 | S Henrici Imp C |
 | Dom | 2023-07-16 00:00:00 | Dominica VII post Pentecosten |
-| Fer II | 2023-07-17 00:00:00 | De ea |
-| Fer III | 2023-07-18 00:00:00 | De ea |
-| Fer IV | 2023-07-19 00:00:00 | De ea |
-| Fer V | 2023-07-20 00:00:00 | De ea |
-| Fer VI | 2023-07-21 00:00:00 | De ea |
-| Sabb | 2023-07-22 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-07-17 00:00:00 | S Alexii C |
+| Fer III | 2023-07-18 00:00:00 | S Camilli de Lellis C |
+| Fer IV | 2023-07-19 00:00:00 | S Vincentii a Paulo C |
+| Fer V | 2023-07-20 00:00:00 | S Hieronymi Æmiliani C |
+| Fer VI | 2023-07-21 00:00:00 | S Praxedis V |
+| Sabb | 2023-07-22 00:00:00 | S Mariæ Magdalenæ Pænitentis |
 | Dom | 2023-07-23 00:00:00 | Dominica VIII post Pentecosten |
-| Fer II | 2023-07-24 00:00:00 | De ea |
-| Fer III | 2023-07-25 00:00:00 | De ea |
-| Fer IV | 2023-07-26 00:00:00 | De ea |
-| Fer V | 2023-07-27 00:00:00 | De ea |
-| Fer VI | 2023-07-28 00:00:00 | De ea |
-| Sabb | 2023-07-29 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-07-24 00:00:00 | In Vigilia S Jacobi Ap |
+| Fer III | 2023-07-25 00:00:00 | S Jacobi Ap |
+| Fer IV | 2023-07-26 00:00:00 | S Annæ Matris BMV |
+| Fer V | 2023-07-27 00:00:00 | S Pantaleonis M |
+| Fer VI | 2023-07-28 00:00:00 | Ss Nazarii et Celsi Mm, Victoris I PM, ac Innocentii I PC |
+| Sabb | 2023-07-29 00:00:00 | S Marthæ V |
 | Dom | 2023-07-30 00:00:00 | Dominica IX post Pentecosten |
-| Fer II | 2023-07-31 00:00:00 | De ea |
-| Fer III | 2023-08-01 00:00:00 | De ea |
-| Fer IV | 2023-08-02 00:00:00 | De ea |
-| Fer V | 2023-08-03 00:00:00 | De ea |
-| Fer VI | 2023-08-04 00:00:00 | De ea |
-| Sabb | 2023-08-05 00:00:00 | De Sancta Maria in Sabbato |
-| Dom | 2023-08-06 00:00:00 | Dominica X post Pentecosten |
-| Fer II | 2023-08-07 00:00:00 | De ea |
-| Fer III | 2023-08-08 00:00:00 | De ea |
-| Fer IV | 2023-08-09 00:00:00 | De ea |
-| Fer V | 2023-08-10 00:00:00 | De ea |
-| Fer VI | 2023-08-11 00:00:00 | De ea |
-| Sabb | 2023-08-12 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-07-31 00:00:00 | S Ignatii C |
+| Fer III | 2023-08-01 00:00:00 | S Petri Ap ad Vincula |
+| Fer IV | 2023-08-02 00:00:00 | S Alphonsi Mariæ de Ligorio ECD |
+| Fer V | 2023-08-03 00:00:00 | In Inventione S Stephani Protomartyris |
+| Fer VI | 2023-08-04 00:00:00 | S Dominici v |
+| Sabb | 2023-08-05 00:00:00 | In Dedicatione S Mariæ ad Nives |
+| Dom | 2023-08-06 00:00:00 | In Transfiguratione DNJC |
+| Fer II | 2023-08-07 00:00:00 | S Cajetani C |
+| Fer III | 2023-08-08 00:00:00 | Ss Cyriaci, Largi atq Smaragdi Mm |
+| Fer IV | 2023-08-09 00:00:00 | S Joannis Mariæ Vianney C |
+| Fer V | 2023-08-10 00:00:00 | S Laurentii M |
+| Fer VI | 2023-08-11 00:00:00 | Ss Tiburtii et Susannæ V, Mm |
+| Sabb | 2023-08-12 00:00:00 | S Claræ V |
 | Dom | 2023-08-13 00:00:00 | Dominica XI post Pentecosten |
-| Fer II | 2023-08-14 00:00:00 | De ea |
-| Fer III | 2023-08-15 00:00:00 | De ea |
-| Fer IV | 2023-08-16 00:00:00 | De ea |
-| Fer V | 2023-08-17 00:00:00 | De ea |
-| Fer VI | 2023-08-18 00:00:00 | De ea |
-| Sabb | 2023-08-19 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-08-14 00:00:00 | In Vigilia Assumptionis BMV |
+| Fer III | 2023-08-15 00:00:00 | In Assumptione BMV |
+| Fer IV | 2023-08-16 00:00:00 | S Joachim C, Patris BMV, |
+| Fer V | 2023-08-17 00:00:00 | S Hyacinthi C |
+| Fer VI | 2023-08-18 00:00:00 | De IV die infra Oct Assumptionis BMV |
+| Sabb | 2023-08-19 00:00:00 | S Joannis Eudes C |
 | Dom | 2023-08-20 00:00:00 | Dominica XII post Pentecosten |
-| Fer II | 2023-08-21 00:00:00 | De ea |
-| Fer III | 2023-08-22 00:00:00 | De ea |
-| Fer IV | 2023-08-23 00:00:00 | De ea |
-| Fer V | 2023-08-24 00:00:00 | De ea |
-| Fer VI | 2023-08-25 00:00:00 | De ea |
-| Sabb | 2023-08-26 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-08-21 00:00:00 | S Joannæ Franciscæ Fremiot de Chantal V |
+| Fer III | 2023-08-22 00:00:00 | In Festo Immaculati Cordis BMV |
+| Fer IV | 2023-08-23 00:00:00 | S Philippi Benitii C |
+| Fer V | 2023-08-24 00:00:00 | S Bartholomæi Ap |
+| Fer VI | 2023-08-25 00:00:00 | S Ludovici RC |
+| Sabb | 2023-08-26 00:00:00 | S Zephrini PM |
 | Dom | 2023-08-27 00:00:00 | Dominica XIII post Pentecosten |
-| Fer II | 2023-08-28 00:00:00 | De ea |
-| Fer III | 2023-08-29 00:00:00 | De ea |
-| Fer IV | 2023-08-30 00:00:00 | De ea |
-| Fer V | 2023-08-31 00:00:00 | De ea |
-| Fer VI | 2023-09-01 00:00:00 | De ea |
-| Sabb | 2023-09-02 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-08-28 00:00:00 | S Augustini ECD |
+| Fer III | 2023-08-29 00:00:00 | In Decollatione S Joannis Baptistæ |
+| Fer IV | 2023-08-30 00:00:00 | S Rosæ a S Maria Limanae V |
+| Fer V | 2023-08-31 00:00:00 | S Raymundi Nonnati C |
+| Fer VI | 2023-09-01 00:00:00 | S Ægidii Abb |
+| Sabb | 2023-09-02 00:00:00 | S Stephani R C |
 | Dom | 2023-09-03 00:00:00 | Dominica XIV post Pentecosten |
 | Fer II | 2023-09-04 00:00:00 | De ea |
-| Fer III | 2023-09-05 00:00:00 | De ea |
+| Fer III | 2023-09-05 00:00:00 | S Laurentii Justiniani EC |
 | Fer IV | 2023-09-06 00:00:00 | De ea |
 | Fer V | 2023-09-07 00:00:00 | De ea |
-| Fer VI | 2023-09-08 00:00:00 | De ea |
+| Fer VI | 2023-09-08 00:00:00 | In Nativitate BMV |
 | Sabb | 2023-09-09 00:00:00 | De Sancta Maria in Sabbato |
 | Dom | 2023-09-10 00:00:00 | Dominica XV post Pentecosten |
-| Fer II | 2023-09-11 00:00:00 | De ea |
-| Fer III | 2023-09-12 00:00:00 | De ea |
+| Fer II | 2023-09-11 00:00:00 | Ss Proti et Hycinthi Mm |
+| Fer III | 2023-09-12 00:00:00 | Ssmi Nominis BMV |
 | Fer IV | 2023-09-13 00:00:00 | De ea |
-| Fer V | 2023-09-14 00:00:00 | De ea |
-| Fer VI | 2023-09-15 00:00:00 | De ea |
-| Sabb | 2023-09-16 00:00:00 | De Sancta Maria in Sabbato |
+| Fer V | 2023-09-14 00:00:00 | In Exaltatione S Crucis |
+| Fer VI | 2023-09-15 00:00:00 | Septem Dolorum BMV |
+| Sabb | 2023-09-16 00:00:00 | Ss Cornelii P et Cypriani E Mm |
 | Dom | 2023-09-17 00:00:00 | Dominica XVI post Pentecosten |
-| Fer II | 2023-09-18 00:00:00 | De ea |
-| Fer III | 2023-09-19 00:00:00 | De ea |
-| Fer IV | 2023-09-20 00:00:00 | Feria IV Quattuor Temporum Septembris |
-| Fer V | 2023-09-21 00:00:00 | De ea |
-| Fer VI | 2023-09-22 00:00:00 | Feria VI Quattuor Temporum Septembris |
-| Sabb | 2023-09-23 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-09-18 00:00:00 | S Josephi a Cupertino C |
+| Fer III | 2023-09-19 00:00:00 | Ss Januarii E et Sociorum Mm |
+| Fer IV | 2023-09-20 00:00:00 | Ss Eustachii et Sociorum Mm |
+| Fer V | 2023-09-21 00:00:00 | S Matthæi ApEv |
+| Fer VI | 2023-09-22 00:00:00 | S Thomæ de Villanova EC |
+| Sabb | 2023-09-23 00:00:00 | S Lini PM |
 | Dom | 2023-09-24 00:00:00 | Dominica XVII post Pentecosten |
 | Fer II | 2023-09-25 00:00:00 | De ea |
-| Fer III | 2023-09-26 00:00:00 | De ea |
-| Fer IV | 2023-09-27 00:00:00 | De ea |
-| Fer V | 2023-09-28 00:00:00 | De ea |
-| Fer VI | 2023-09-29 00:00:00 | De ea |
-| Sabb | 2023-09-30 00:00:00 | De Sancta Maria in Sabbato |
+| Fer III | 2023-09-26 00:00:00 | Ss Cypriani et Justinæ Mm |
+| Fer IV | 2023-09-27 00:00:00 | Ss Cosmæ et Damiani Mm |
+| Fer V | 2023-09-28 00:00:00 | S Wenceslai Ducis M |
+| Fer VI | 2023-09-29 00:00:00 | In Dedicatione S Michaelis Arch |
+| Sabb | 2023-09-30 00:00:00 | S Hieronymi SCD |
 | Dom | 2023-10-01 00:00:00 | Dominica XVIII post Pentecosten |
-| Fer II | 2023-10-02 00:00:00 | De ea |
-| Fer III | 2023-10-03 00:00:00 | De ea |
-| Fer IV | 2023-10-04 00:00:00 | De ea |
-| Fer V | 2023-10-05 00:00:00 | De ea |
-| Fer VI | 2023-10-06 00:00:00 | De ea |
-| Sabb | 2023-10-07 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-10-02 00:00:00 | Ss Angelorum Custodum |
+| Fer III | 2023-10-03 00:00:00 | S Teresiæ a Jesu Infante V |
+| Fer IV | 2023-10-04 00:00:00 | S Francisci C |
+| Fer V | 2023-10-05 00:00:00 | Ss Placidi et Sociorum Mm |
+| Fer VI | 2023-10-06 00:00:00 | S Brunonis C |
+| Sabb | 2023-10-07 00:00:00 | Sacratissimi Rosarii BMV |
 | Dom | 2023-10-08 00:00:00 | Dominica XIX post Pentecosten |
-| Fer II | 2023-10-09 00:00:00 | De ea |
-| Fer III | 2023-10-10 00:00:00 | De ea |
-| Fer IV | 2023-10-11 00:00:00 | De ea |
+| Fer II | 2023-10-09 00:00:00 | S Joannis Leonardi C |
+| Fer III | 2023-10-10 00:00:00 | S Francisci Borgiæ C |
+| Fer IV | 2023-10-11 00:00:00 | In Maternitate BMV |
 | Fer V | 2023-10-12 00:00:00 | De ea |
-| Fer VI | 2023-10-13 00:00:00 | De ea |
-| Sabb | 2023-10-14 00:00:00 | De Sancta Maria in Sabbato |
+| Fer VI | 2023-10-13 00:00:00 | S Eduardi R C |
+| Sabb | 2023-10-14 00:00:00 | S Callisti I PM |
 | Dom | 2023-10-15 00:00:00 | Dominica XX post Pentecosten |
-| Fer II | 2023-10-16 00:00:00 | De ea |
-| Fer III | 2023-10-17 00:00:00 | De ea |
-| Fer IV | 2023-10-18 00:00:00 | De ea |
-| Fer V | 2023-10-19 00:00:00 | De ea |
-| Fer VI | 2023-10-20 00:00:00 | De ea |
+| Fer II | 2023-10-16 00:00:00 | S Hedwigis V |
+| Fer III | 2023-10-17 00:00:00 | S Margaritæ Mariæ Alacoque V |
+| Fer IV | 2023-10-18 00:00:00 | S Lucæ Ev |
+| Fer V | 2023-10-19 00:00:00 | S Petri de Alcantara C |
+| Fer VI | 2023-10-20 00:00:00 | S Joannis Cantii C |
 | Sabb | 2023-10-21 00:00:00 | De Sancta Maria in Sabbato |
 | Dom | 2023-10-22 00:00:00 | Dominica XXI post Pentecosten |
 | Fer II | 2023-10-23 00:00:00 | De ea |
-| Fer III | 2023-10-24 00:00:00 | De ea |
-| Fer IV | 2023-10-25 00:00:00 | De ea |
-| Fer V | 2023-10-26 00:00:00 | De ea |
-| Fer VI | 2023-10-27 00:00:00 | De ea |
-| Sabb | 2023-10-28 00:00:00 | De Sancta Maria in Sabbato |
+| Fer III | 2023-10-24 00:00:00 | S Raphaelis Arch |
+| Fer IV | 2023-10-25 00:00:00 | Ss Chrysanthi et Dariæ Mm |
+| Fer V | 2023-10-26 00:00:00 | S Evaristi PM |
+| Fer VI | 2023-10-27 00:00:00 | In Vigilia Ss Simonis et Judæ App |
+| Sabb | 2023-10-28 00:00:00 | Ss Simonis et Judæ App |
 | Dom | 2023-10-29 00:00:00 | In Festo DNJC Regis |
 | Fer II | 2023-10-30 00:00:00 | De ea |
-| Fer III | 2023-10-31 00:00:00 | De ea |
-| Fer IV | 2023-11-01 00:00:00 | De ea |
-| Fer V | 2023-11-02 00:00:00 | De ea |
-| Fer VI | 2023-11-03 00:00:00 | De ea |
-| Sabb | 2023-11-04 00:00:00 | De Sancta Maria in Sabbato |
+| Fer III | 2023-10-31 00:00:00 | In Vigilia Omnium Sanctorum |
+| Fer IV | 2023-11-01 00:00:00 | In Festo Omnium Sanctorum |
+| Fer V | 2023-11-02 00:00:00 | In Commemoratione Omnium Fidelium Defunctorum |
+| Fer VI | 2023-11-03 00:00:00 | De III die infra Oct Omnium Sanctorum |
+| Sabb | 2023-11-04 00:00:00 | S Caroli EC |
 | Dom | 2023-11-05 00:00:00 | Dominica XXIII post Pentecosten |
-| Fer II | 2023-11-06 00:00:00 | De ea |
-| Fer III | 2023-11-07 00:00:00 | De ea |
-| Fer IV | 2023-11-08 00:00:00 | De ea |
-| Fer V | 2023-11-09 00:00:00 | De ea |
-| Fer VI | 2023-11-10 00:00:00 | De ea |
-| Sabb | 2023-11-11 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-11-06 00:00:00 | De VI die infra Oct Omnium Sanctorum |
+| Fer III | 2023-11-07 00:00:00 | De VII die infra Oct Omnium Sanctorum |
+| Fer IV | 2023-11-08 00:00:00 | Oct Omnium Sanctorum |
+| Fer V | 2023-11-09 00:00:00 | In Dedicatione Archibasilicæ Ssmi Salvatoris |
+| Fer VI | 2023-11-10 00:00:00 | S Andreæ Avellini C |
+| Sabb | 2023-11-11 00:00:00 | S Martini EC |
 | Dom | 2023-11-12 00:00:00 | Dominica XXIV post Pentecosten, V Epiphania |
-| Fer II | 2023-11-13 00:00:00 | De ea |
-| Fer III | 2023-11-14 00:00:00 | De ea |
-| Fer IV | 2023-11-15 00:00:00 | De ea |
-| Fer V | 2023-11-16 00:00:00 | De ea |
-| Fer VI | 2023-11-17 00:00:00 | De ea |
-| Sabb | 2023-11-18 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-11-13 00:00:00 | S Didaci C |
+| Fer III | 2023-11-14 00:00:00 | S Josaphat EM |
+| Fer IV | 2023-11-15 00:00:00 | S Alberti Magni ECD |
+| Fer V | 2023-11-16 00:00:00 | S Gertrudis V |
+| Fer VI | 2023-11-17 00:00:00 | S Gregorii Thaumaturgi EC |
+| Sabb | 2023-11-18 00:00:00 | In Dedicatione Basilicarum Ss Petri et Pauli App |
 | Dom | 2023-11-19 00:00:00 | Dominica XXV post Pentecosten, VI Epiphania |
-| Fer II | 2023-11-20 00:00:00 | De ea |
-| Fer III | 2023-11-21 00:00:00 | De ea |
-| Fer IV | 2023-11-22 00:00:00 | De ea |
-| Fer V | 2023-11-23 00:00:00 | De ea |
-| Fer VI | 2023-11-24 00:00:00 | De ea |
-| Sabb | 2023-11-25 00:00:00 | De Sancta Maria in Sabbato |
+| Fer II | 2023-11-20 00:00:00 | S Felicis de Valois C |
+| Fer III | 2023-11-21 00:00:00 | In Præsentatione BMV |
+| Fer IV | 2023-11-22 00:00:00 | S Cæciliæ VM |
+| Fer V | 2023-11-23 00:00:00 | S Clementis I PM |
+| Fer VI | 2023-11-24 00:00:00 | S Joannis a Cruce CD |
+| Sabb | 2023-11-25 00:00:00 | S Catharinæ VM |
 | Dom | 2023-11-26 00:00:00 | Dominica XXVI et ultima post Pentecosten |
 | Fer II | 2023-11-27 00:00:00 | De ea |
 | Fer III | 2023-11-28 00:00:00 | De ea |
 | Fer IV | 2023-11-29 00:00:00 | De ea |
-| Fer V | 2023-11-30 00:00:00 | De ea |
+| Fer V | 2023-11-30 00:00:00 | S Andreæ Ap |
 | Fer VI | 2023-12-01 00:00:00 | De ea |
 | Sabb | 2023-12-02 00:00:00 | De ea |
 | Dom | 2023-12-03 00:00:00 | Dominica I Adventus |
-| Fer II | 2023-12-04 00:00:00 | De ea |
-| Fer III | 2023-12-05 00:00:00 | De ea |
-| Fer IV | 2023-12-06 00:00:00 | De ea |
-| Fer V | 2023-12-07 00:00:00 | De ea |
-| Fer VI | 2023-12-08 00:00:00 | De ea |
-| Sabb | 2023-12-09 00:00:00 | De ea |
+| Fer II | 2023-12-04 00:00:00 | S Petri Chrysologi ECD |
+| Fer III | 2023-12-05 00:00:00 | S Sabbae Abb |
+| Fer IV | 2023-12-06 00:00:00 | S Nicolai EC |
+| Fer V | 2023-12-07 00:00:00 | S Ambrosii ECD |
+| Fer VI | 2023-12-08 00:00:00 | In Conceptione Immaculata BMV |
+| Sabb | 2023-12-09 00:00:00 | De II die infra Oct Concept Immac BMV |
 | Dom | 2023-12-10 00:00:00 | Dominica II Adventus |
-| Fer II | 2023-12-11 00:00:00 | De ea |
-| Fer III | 2023-12-12 00:00:00 | De ea |
-| Fer IV | 2023-12-13 00:00:00 | De ea |
-| Fer V | 2023-12-14 00:00:00 | De ea |
-| Fer VI | 2023-12-15 00:00:00 | De ea |
-| Sabb | 2023-12-16 00:00:00 | De ea |
+| Fer II | 2023-12-11 00:00:00 | S Damasi I PC |
+| Fer III | 2023-12-12 00:00:00 | De V die infra Oct Concept Immac BMV |
+| Fer IV | 2023-12-13 00:00:00 | S Luciæ VM |
+| Fer V | 2023-12-14 00:00:00 | De VII die infra Oct Concept Immac BMV |
+| Fer VI | 2023-12-15 00:00:00 | Oct Concept Immac BMV |
+| Sabb | 2023-12-16 00:00:00 | S Eusebii EM |
 | Dom | 2023-12-17 00:00:00 | Dominica III Adventus |
 | Fer II | 2023-12-18 00:00:00 | De ea |
 | Fer III | 2023-12-19 00:00:00 | De ea |
