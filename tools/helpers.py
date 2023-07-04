@@ -1,7 +1,7 @@
 from datetime import datetime
 from datetime import timedelta
 
-from ordo_tools.settings import YEAR
+from tools.settings import YEAR
 
 import dateutil.easter
 

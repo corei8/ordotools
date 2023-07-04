@@ -1,5 +1,5 @@
-from ordo_tools.liturgical_dates import integer_to_roman
-from ordo_tools.parts import PENTECOST_MASSES
+from tools.liturgical_dates import integer_to_roman
+from tools.parts import PENTECOST_MASSES
 
 
 class TemporalData:

@@ -1,18 +1,18 @@
 from importlib import import_module
 
-from ordo_tools.feast import Feast
+from tools.feast import Feast
 
-from ordo_tools.helpers import FIRST_ADVENT
-from ordo_tools.helpers import LAST_ADVENT
-from ordo_tools.helpers import LENT_BEGINS
-from ordo_tools.helpers import LENT_ENDS
-from ordo_tools.helpers import days
-from ordo_tools.helpers import ladys_office
-from ordo_tools.helpers import leap_year
+from tools.helpers import FIRST_ADVENT
+from tools.helpers import LAST_ADVENT
+from tools.helpers import LENT_BEGINS
+from tools.helpers import LENT_ENDS
+from tools.helpers import days
+from tools.helpers import ladys_office
+from tools.helpers import leap_year
 
-from ordo_tools.liturgical_dates import integer_to_roman
+from tools.liturgical_dates import integer_to_roman
 
-from ordo_tools.temporal import Temporal
+from tools.temporal import Temporal
 
 from sanctoral.diocese.roman import Sanctoral
 
@@ -24,18 +24,6 @@ class LiturgicalCalendar:
         self.diocese = diocese
         self.transfers = None
         self.temporal = Temporal(self.year).return_temporal()
-
-    # def fasting(self, feast: Feast) -> Feast:
-    #     # NOTE: this is deprecated now
-    #     """
-    #     Return the feast with updated fasting rules.
-    #     The commemoration will always have the fasting rules,
-    #     even on a second pass e.g., for a transferred feast.
-    #     """
-    #     # TODO: check the higher date against the holydays of obligation
-    #     if feast.com[0]["fasting"] is True:
-    #         feast.fasting = True
-    #     return feast
 
     def explode_octaves(self, feast: Feast) -> dict:
         """
@@ -72,47 +60,33 @@ class LiturgicalCalendar:
         return y
 
     def commemoration(self, feast: Feast, com: Feast) -> Feast:
-        """
-        Adds one feast as the commemoration of another feast.
-        """
         feast.com.insert(0, com.feast_properties)
-        # return self.fasting(feast).updated_properties
         return feast
 
     def rank_by_nobility(self, feast_1: Feast, feast_2: Feast) -> dict:
-        """
-        Takes two feasts and returns the one with the higher rank.
-        """
-        alpha, bravo = feast_1.nobility, feast_2.nobility
         for x in range(6):
-            if alpha[x] < bravo[x]:
+            if feast_1.nobility[x] < feast_2.nobility[x]:
                 return {'higher': feast_1, 'lower': feast_2}
-            elif alpha[x] > bravo[x]:
+            elif feast_1.nobility[x] > feast_2.nobility[x]:
                 return {'higher': feast_2, 'lower': feast_1}
             else:
                 pass
         return {'higher': feast_1, 'lower': feast_2}
 
     def rank(self, dynamic: Feast, static: Feast) -> Feast:
-        # TODO: this should return a Feast object.
         """
         Ranks feasts that occur on the same date. Send feasts that can be
         transferred to the transfer dictionary. "Dynamic" is from the
         sanctoral cycle, and "static" is from the temporal cycle.
         """
-        date = static.date
-        print(f'[INFO] ranking "{dynamic.feast}" against "{static.feast}".')
-
         # if the feasts are the same rank:
         if dynamic.rank_n == static.rank_n:
-            print('\tsame rank')
-            return {
-                date:
-                self.rank_by_nobility(
+            # it is possible that the lower can be the
+            # commemoration of the higher...
+            return self.rank_by_nobility(
                     dynamic,
                     static
                 )['higher'],
-            }
         else:
             candidates = {
                 dynamic.rank_n: dynamic,
@@ -123,25 +97,20 @@ class LiturgicalCalendar:
             if lower.rank_n == 22:
                 pass
             if lower.rank_n == 19:  # lent
-                return {
-                    date: self.commemoration(
+                return self.commemoration(
                         feast=higher,
                         com=lower
                     )
-                }
-            # TODO: this has to be a separate function:
 
             # feasts that do not take a commemoration
             if higher.rank_n <= 4:
-                print('\thigher does not take a commemoration')
                 # lower feast is transferred
                 if lower.rank_n <= 10:
                     if lower.fasting is True:
                         higher.fasting = True
-                        return higher
                     if lower != self.transfers:
-                        print(f'\tadding {lower.feast} to transfers list')
                         self.transfers = lower
+                    return higher
                 else:
                     # lower feast is ignored
                     if lower.fasting is True:
@@ -151,29 +120,15 @@ class LiturgicalCalendar:
 
             # impeded DM, D and SD
             elif 14 <= lower.rank_n <= 16:
-                print('\timpeded DM, D or SD')
-                # if higher.rank_n == 12:
-                #     return {
-                #         date: self.commemoration(
-                #             feast=higher,
-                #             com=lower
-                #         )
-                #     }
-                # else:  # FIX: why are these the same
-                return {
-                    date: self.commemoration(
+                return self.commemoration(
                         feast=higher,
                         com=lower
                     )
-                }
             else:
-                print(f'\t"{higher.feast}" commemorates "{lower.feast}"')
-                return {
-                    date: self.commemoration(
+                return self.commemoration(
                         feast=higher,
                         com=lower
                     )
-                }
         # return ranked_feasts
 
     def transfer_feast(self, feast: Feast) -> None:
@@ -185,34 +140,27 @@ class LiturgicalCalendar:
     def add_feasts(self, master: dict, addition: dict) -> dict:
         """
         Adds additional feasts to the master feast dictionary;
-        Sends the feasts that confilict to the ranking function.
+        Sends the feasts that confilict to the ranking algorithm.
         """
         calendar = master.copy()
         for date, data in calendar.items():
-
             if date in addition:
                 feast = self.rank(
                     dynamic=Feast(date, addition[date]),
                     static=Feast(date, data)
                 )
-                print(f' date in addition: type()={type(feast)}')
             else:
                 feast = Feast(date, data)
-
-            if self.transfers and self.transfers.date != date:
-                print("\tranking transferred feast")
+            if self.transfers is not None:
                 result = self.transfer_feast(
-                    Feast(date, feast)
+                    Feast(date, feast.updated_properties)
                 )
-                if result == feast:
-                    feast = feast
+                if result.feast == feast.feast:
+                    pass
                 else:
-                    # WARN: this assumes that there is no transfer overlap
                     self.transfers = None
                     feast = result
-
-            # TODO: rank the overlapping transfers
-            try:
+            try: # this might not be needed anymore
                 calendar |= {date: feast.updated_properties}
             except TypeError:
                 pass
@@ -220,10 +168,9 @@ class LiturgicalCalendar:
 
     def our_ladys_saturday(self, calendar: dict) -> None:
         """
-        Adds all the Saturday Offices of the Blessed Virgin
-        to the temporal calendar.
+        Adds Office of the BVM to the compiled calendar.
         """
-        # TODO: add mass number according to season
+        # TODO: add Mass number according to season
         year = calendar.copy()
         office = ladys_office
         for feast in year.keys():
@@ -240,11 +187,10 @@ class LiturgicalCalendar:
         return year
 
     def build(self) -> None:
-        """ Stitches the temporal and sanctoral calendars together. """
         saints = Sanctoral(self.year)
         if self.diocese == 'roman':
-            sanctoral = saints.data \
-                if leap_year(self.year) is False else saints.leapyear()
+            sanctoral = saints.data if leap_year(self.year) is False \
+                else saints.leapyear()
         else:
             diocese = import_module(
                 f"sanctoral.diocese.{self.diocese}",
@@ -254,36 +200,3 @@ class LiturgicalCalendar:
         full_calendar |= self.our_ladys_saturday(full_calendar)
         full_calendar |= self.find_octave(year=full_calendar)
         return full_calendar
-
-    # def update_calendar(self, data: dict) -> dict:
-    #     """
-    #     Updates the calendar file
-    #     """
-    #     cal = {}
-    #     for x, y in data.items():
-    #         cal.update({x: y})
-    #     with open('calen/calendar_' + str(self.year) + '.py', 'a') as f:
-    #         f.truncate(0)
-    #         f.write('from ordo_tools.helpers import day\n\n')
-    #         f.write("class LiturgicalCalendar:\n\n")
-    #         f.write("\tdef __init__(self):\n")
-    #         f.write('\t\tself.data = {\n')
-    #         for i, line in enumerate(sorted(cal)):
-    #             date = f"""\t\t\tday(year={self.year},\
-    #                         month={line.strftime('%m').lstrip('0')},\
-    #                         day={line.strftime('%d').lstrip('0')})"""
-    #             if i != 0:
-    #                 f.write(f"{date}: {cal[line]},\n")
-    #             else:
-    #                 f.write(f"{date}: {cal[line]},\n")
-    #                 f.write('\t\t}\n\n')
-    #         f.write('\t\tdef data(self) -> dict:\n')
-    #         f.write('\t\t\treturn self.data')
-    #     return None
-
-    # def commit_to_dictionary(self, target_file: str, dic: dict) -> None:
-    #     """
-    #     Takes a dictionary and writes it to a file.
-    #     """
-    #     self.update_calendar(data=dic)
-    #     return dic
