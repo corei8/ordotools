@@ -44,6 +44,11 @@ class Feast:
         """ Displays the feast date for the ordo """
         return self.date.strftime('%d')
 
+    @ property
+    def readme_date(self) -> str:
+        """ Displays the feast date for the ordo """
+        return self.date.strftime('%b %d')
+
     # def date(self):
     #     # ? is this used?
     #     return datetime.strptime('%m%d', self.feast_date)
