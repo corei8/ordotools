@@ -1,5 +1,7 @@
 .vscode
 
+output/latex/*.pdf
+output/latex_calendar/*.pdf
 # Created by https://www.toptal.com/developers/gitignore/api/macos,python,latex
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,python,latex
 
