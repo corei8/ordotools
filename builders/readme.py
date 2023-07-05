@@ -24,7 +24,7 @@ Traditional Catholic Ordo and Calendar.
 
 Python 3.x.x 64-bit
 
-### Dependencies:
+*Dependencies:*
 
 [dateutil](https://dateutil.readthedocs.io/en/stable/)
 ```bash
