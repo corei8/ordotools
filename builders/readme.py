@@ -16,6 +16,10 @@ class Readme:
 
 Traditional Catholic Ordo and Calendar.
 
+![code size](https://img.shields.io/github/repo-size/corei8/Ordo?style=flat-square)
+![language](https://img.shields.io/github/languages/top/corei8/Ordo?style=flat-square)
+![frequency](https://img.shields.io/github/commit-activity/m/corei8/Ordo?style=flat-square)
+
 ## Python Specifications
 
 Python 3.x.x 64-bit
