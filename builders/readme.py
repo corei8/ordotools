@@ -16,6 +16,8 @@ class Readme:
 
 Traditional Catholic Ordo and Calendar.
 
+![Visitor Count](https://profile-counter.glitch.me/corei8/count.svg)
+
 ## Python Specifications
 
 Python 3.x.x 64-bit
