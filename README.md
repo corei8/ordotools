@@ -3,6 +3,8 @@
 
 Traditional Catholic Ordo and Calendar.
 
+![Visitor Count](https://profile-counter.glitch.me/corei8/count.svg)
+
 ## Python Specifications
 
 Python 3.x.x 64-bit
@@ -37,17 +39,19 @@ temporal calendar with January 1st.
 - [x] Temporal Calendar
 - [x] Combined Temporal and Sanctoral Calendar
 - [x] Method for adding other countries and dioceses
-- [ ] Fasting rules
-- [ ] Phases of the Moon
-- [ ] Martyrology letter
+- [x] Colors of Mass and Office
+- [x] Fasting rules
 - [ ] Commemorations
 - [ ] Masses
+- [ ] Votives, Requiems, etc.
+- [ ] Phases of the Moon
+- [ ] Martyrology letter
 - [ ] Vespers
-- [x] Colors of Mass and Office
 - [ ] Lessons for Laudes
 - [ ] Our Lady's Saturday
 - [ ] Prime
 - [ ] Little Hours
+- [ ] Alternative Masses
 - [ ] Solemnities
                         
 
