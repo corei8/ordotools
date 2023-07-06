@@ -42,17 +42,17 @@ class PrintCalendar:
         
 
                 f.write("\r")
-                f.write(r'''
-\begin{center}
-    \textsc{\LARGE '''+the_month+r'''}\\ % Month
-\end{center}
-                    ''')
+                # f.write(r"\vfill")
+                f.write(r"\themonth{"+the_month+"}")
 
                 f.write("\r")
                 f.write(r"\latinweekdays")
                 f.write("\r")
 
                 week = ""
+                f.write(r"\setlength{\tabcolsep}{0.25em}")
+                f.write(r"\def\arraystretch{0.45}%")
+                f.write("\r")
                 f.write(r"\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|X|}")
                 f.write("\r")
                 f.write(r"\hline")
@@ -77,6 +77,11 @@ class PrintCalendar:
                     else:
                         color = x.color
 
+                    if x.fasting is True:
+                        fasting = "full_fish"
+                    else:
+                        fasting = "blank"
+
                     # background = "white"
                     # if day_of_week == 0 or day_of_week == 7:
                     #     background = "lightgray"
@@ -84,8 +89,9 @@ class PrintCalendar:
                     week += r"""
                         \theday{"""+str(c+1)+\
                         r"""}{"""+latex_replacement(x.name)+\
-                        r"""}{"""+color+\
                         r"""}{"""+x.rank_v.split("cum")[0]+\
+                        r"""}{"""+color+\
+                        r"""}{"""+fasting+\
                         r"""}""" + ender
                         # r"""}{"""+background+\
 

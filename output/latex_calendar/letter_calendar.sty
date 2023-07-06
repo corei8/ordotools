@@ -3,7 +3,7 @@
 \def\CalendarVersion{1.0}
 \def\CalendarVersionDate{2023/07/05}
 
-\ProvidesClass{calendar_letter}[\CalendarVersionDate
+\ProvidesClass{letter_calendar}[\CalendarVersionDate
            LaTeX2e class file `calendar' v\CalendarVersion]
 
 \typeout{'letter_calendar' style \CalendarVersion \CalendarVersionDate.}
@@ -14,65 +14,58 @@
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{makecell}
 \RequirePackage{ragged2e}
+\RequirePackage{caption}
+\RequirePackage{graphicx}
+
+% \RequirePackage{lua-visual-debug}
 
 \newcommand{\officecolor}[1]{
   \fboxsep=.5em \fboxrule=.03em
   \fcolorbox{black}{#1}{\null}
 }
 
-\newenvironment{monthcanvas}[0]{
+\newenvironment{monthcanvas}{
     \begin{tabularx}{\textwidth}{|X|X|X|X|X|X|X|}
 }{
     \end{tabularx}
   }
 
-\newcommand\theday[4]{
+\newcommand\themonth[1]{
+  \begin{center}
+      \textsc{\LARGE #1}\\
+  \end{center}
+  \pagebreak
+}
+
+\newcommand\theday[5]{
   \makecell{
     % \mbox{\vspace{1.25in}%
     % \colorbox{#5}{
-    \begin{minipage}[b][1in][s]{\TX@col@width}
-      {#1} \\
+    % \begin{minipage}[b][1.125in][s]{\TX@col@width}
+    \begin{minipage}[b][0.143\textheight][s]{\TX@col@width}
+      {\scriptsize\bfseries #1} \\
       \vfill
       {\scriptsize\RaggedRight #2} \\
+      {\scriptsize\textcolor{red}{#3}} \\
       \vfill
-      {\scriptsize \officecolor{#3} \hfill #4}
+      {\scriptsize \officecolor{#4} \hfill $\vcenter{\hbox{\includegraphics[width=3em]{#5.png}}}$}
     \end{minipage}
     % }
     % }
   }
 }
 
-\newcommand\latinweekdays{
-    \begin{tabularx}{\textwidth}{ X X X X X X X }
-      \begin{minipage}[b]{\TX@col@width}
-        {\scshape\scriptsize\Centering Dominica}
-      \end{minipage} &
-      \begin{minipage}[b]{\TX@col@width}
-        {\scshape\scriptsize\Centering Feria II}
-      \end{minipage} &
-      \begin{minipage}[b]{\TX@col@width}
-        {\scshape\scriptsize\Centering Feria III}
-      \end{minipage} &
-      \begin{minipage}[b]{\TX@col@width}
-        {\scshape\scriptsize\Centering Feria IV}
-      \end{minipage} &
-      \begin{minipage}[b]{\TX@col@width}
-        {\scshape\scriptsize\Centering Feria v}
-      \end{minipage} &
-      \begin{minipage}[b]{\TX@col@width}
-        {\scshape\scriptsize\Centering Feria VI}
-      \end{minipage} &
-      \begin{minipage}[b]{\TX@col@width}
-        {\scshape\scriptsize\Centering Sabbatum}
-      \end{minipage} \\
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 
-      % {\center Dominica} &
-      % {\center Feria II} &
-      % {\center Feria III} &
-      % {\center Feria IV} &
-      % {\center Feria V} &
-      % {\center Feria VI} &
-      % {\center Sabbatum} \\
+\newcommand\latinweekdays{
+  \begin{tabularx}{\textwidth}{@{}YYYYYYY@{}}
+        {\scshape\scriptsize Dominica} &
+        {\scshape\scriptsize Feria II} &
+        {\scshape\scriptsize Feria III} &
+        {\scshape\scriptsize Feria IV} &
+        {\scshape\scriptsize Feria v} &
+        {\scshape\scriptsize Feria VI} &
+        {\scshape\scriptsize Sabbatum} \\
     \end{tabularx}
   }
 
