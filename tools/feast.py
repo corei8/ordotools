@@ -76,6 +76,8 @@ class Feast:
                 fasting = self.com[0]["fasting"]
             else:
                 fasting = self.fasting
+        elif int(self.date.strftime("%m")) == 5:
+            fasting = True
         else:
             fasting = self.fasting
         dic = {

@@ -16,6 +16,9 @@
 \RequirePackage{ragged2e}
 \RequirePackage{caption}
 \RequirePackage{graphicx}
+\RequirePackage{setspace}
+
+\graphicspath{ {./dore/} }
 
 % \RequirePackage{lua-visual-debug}
 
@@ -30,12 +33,19 @@
     \end{tabularx}
   }
 
-\newcommand\themonth[1]{
+\newcommand\themonth[2]{
   \begin{center}
-      \textsc{\LARGE #1}\\
+      \textsc{\Huge #1}\\
   \end{center}
+  \vfill
+  \begin{figure}[h]
+    \centering
+    \includegraphics[height=.75\textheight,width=\textwidth]{example-image-a}\\
+  \end{figure}
   \pagebreak
 }
+
+% \renewcommand\baselinestretch{1.0}
 
 \newcommand\theday[5]{
   \makecell{
@@ -45,7 +55,9 @@
     \begin{minipage}[b][0.143\textheight][s]{\TX@col@width}
       {\scriptsize\bfseries #1} \\
       \vfill
-      {\scriptsize\RaggedRight #2} \\
+      \begin{spacing}{0.75}
+        {\scriptsize\RaggedRight #2} \\
+      \end{spacing}
       {\scriptsize\textcolor{red}{#3}} \\
       \vfill
       {\scriptsize \officecolor{#4} \hfill $\vcenter{\hbox{\includegraphics[width=3em]{#5.png}}}$}

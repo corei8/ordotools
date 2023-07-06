@@ -27,7 +27,6 @@ class PrintCalendar:
 \documentclass[10pt]{article}
 \usepackage{letter_calendar}
 \usepackage[landscape, letterpaper, margin=.25in]{geometry}
-% \usepackage{palatino}
 \begin{document}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
@@ -43,7 +42,7 @@ class PrintCalendar:
 
                 f.write("\r")
                 # f.write(r"\vfill")
-                f.write(r"\themonth{"+the_month+"}")
+                f.write(r"\themonth{"+the_month+"}{"+str(i+1)+"}")
 
                 f.write("\r")
                 f.write(r"\latinweekdays")
@@ -78,6 +77,8 @@ class PrintCalendar:
                         color = x.color
 
                     if x.fasting is True:
+                        fasting = "full_fish"
+                    elif day_of_week == 5:
                         fasting = "full_fish"
                     else:
                         fasting = "blank"
