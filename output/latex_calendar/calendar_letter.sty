@@ -1,38 +1,47 @@
-% modified by Gregory Barnes to work with letterpaper calendars and to print in latin
 \NeedsTeXFormat{LaTeX2e}
 
-\def\CalendarVersion{3.2}
+\def\CalendarVersion{3.3}
 \def\CalendarVersionDate{2018/09/19}
 
-\ProvidesClass{calendar}[\CalendarVersionDate
+\ProvidesClass{calendar_letter}[\CalendarVersionDate
            LaTeX2e class file `calendar' v\CalendarVersion]
 
-\typeout{'calendar' style \CalendarVersion \CalendarVersionDate.}
+\typeout{'calendar_letter' style \CalendarVersion \CalendarVersionDate.}
 \typeout{Created by Evan Sultanik}
 \typeout{****** Bugs/comments/suggestions/technicalities to Evan Sultanik -- evan@sultanik.com ******}
+\typeout{Modified for letterpaper by Fr. G.R.Barnes}
 
 \RequirePackage{tabularx}
+\RequirePackage[dvipsnames]{xcolor}
+
+\newcommand{\officecolor}[1]{
+  \fboxsep=.5em \fboxrule=.03em
+  \fcolorbox{black}{#1}{\null}
+  % {\color{#1}\rule{1em}{1em}}
+}
 
 \def\@CALtrue{1}
 \newcount\@currentdaynum
 \newcounter{calendardate}
 \newcount\StartingDayNumber
 
+
 \def\dayheader#1#2{
   \vspace{2pt} % Whitespace above the heading
   \begin{minipage}[t]{0.87\hsize}
     \raggedright
-    \normalsize % Reset back to normal font size in case this is used within the \activities as a second day heading
+    \small % Small font size
     \textit{#1}
   \end{minipage}
   \begin{minipage}[t]{0.1\hsize}
     \raggedleft
-    \textit{#2}
+    \scriptsize
+    #2
+    % \textit{#2}
   \end{minipage}%
-  \vspace{1pt}% Whitespace below the heading
 }
 \def\activities#1{
-  \parbox{\hsize}{\vspace*{5pt}\raggedright\scriptsize #1}\smallskip
+  \parbox{\hsize}{\vspace*{10pt}\raggedright\scriptsize #1}\smallskip
 }
 
 \let\@colbreak=&
@@ -68,15 +77,16 @@
   \ifnum\@currentdaynum>7\@arraycr\hline\else&\fi
   }
 \def\finishCalendar{
+  \ifnum\@currentdaynum=7 \\\hline\else
   \ifnum\@currentdaynum=6 &\\\hline\else
   \ifnum\@currentdaynum=5 &&\\\hline\else
   \ifnum\@currentdaynum=4 &&&\\\hline\else
   \ifnum\@currentdaynum=3 &&&&\\\hline\else
   \ifnum\@currentdaynum=2 &&&&&\\\hline\else
   \ifnum\@currentdaynum=1 &&&&&&\\\hline
-  \fi\fi\fi\fi\fi\fi
+  \fi\fi\fi\fi\fi\fi\fi
 }
-\def\eventskip{\\\vspace{4pt}}
+\def\eventskip{\\\vspace{2em}}
   \def\BlankDay{
   \if\@calendarmode\@CALtrue\else\PackageWarning{calendar}{The '\calendarday' macro is expected to be used in the 'calendar' environment!}\fi
   \ifnum\@currentdaynum>7\global\@currentdaynum=1\fi
@@ -105,3 +115,7 @@
     \endtabularx
   \endgroup
 }
+
+\pagestyle{empty} % Disable default headers and footers
+
+\setlength{\parindent}{0pt} % Stop paragraph indentation

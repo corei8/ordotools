@@ -292,7 +292,7 @@ class TemporalData:
 
             # Ember days in Lent
             "Ember_Lent_4": {
-                "feast": "Feria IV Quattuor Temporum Quadragesimæ",
+                "feast": "Feria IV Quatuor Temporum Quadragesimæ",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Reminiscere", "glo": False, "cre": False, "pre": "de Quadragesima"},
@@ -308,7 +308,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Lent_6": {
-                "feast": "Feria VI Quattuor Temporum Quadragesimæ",
+                "feast": "Feria VI Quatuor Temporum Quadragesimæ",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "De necessitatibus", "glo": False, "cre": False, "pre": "de Quadragesima"},
@@ -324,7 +324,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Lent_s": {
-                "feast": "Sabbatum Quattuor Temporum Quadragesimæ",
+                "feast": "Sabbatum Quatuor Temporum Quadragesimæ",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Intret", "glo": False, "cre": False, "pre": "de Quadragesima"},
@@ -894,7 +894,7 @@ class TemporalData:
 
             # Ember Days after Pentecost
             "Ember_Pent_4": {
-                "feast": "Feria IV Quattuor Temporum infra Oct. Pentecostes",
+                "feast": "Feria IV Quatuor Temporum infra Oct. Pentecostes",
                 "rank": [3, "sd"],
                 "color": "red",
                 "mass": {"int": "Deus, dum egredereris", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -910,7 +910,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Pent_6": {
-                "feast": "Feria VI Quattuor Temporum infra Oct. Pentecostes",
+                "feast": "Feria VI Quatuor Temporum infra Oct. Pentecostes",
                 "rank": [3, "sd"],
                 "color": "red",
                 "mass": {"int": "Repleatur os meum", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -926,7 +926,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Pent_s": {
-                "feast": "Sabbatum Quattuor Temporum infra Oct. Pentecostes",
+                "feast": "Sabbatum Quatuor Temporum infra Oct. Pentecostes",
                 "rank": [3, "sd"],
                 "color": "red",
                 "mass": {"int": "Caritas Dei", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -1225,7 +1225,7 @@ class TemporalData:
 
             # Ember Days in September
             "Ember_Sept_4": {
-                "feast": "Feria IV Quattuor Temporum Septembris",
+                "feast": "Feria IV Quatuor Temporum Septembris",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Exsultate Deo", "glo": False, "cre": False, "pre": "Communis"},
@@ -1241,7 +1241,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Sept_6": {
-                "feast": "Feria VI Quattuor Temporum Septembris",
+                "feast": "Feria VI Quatuor Temporum Septembris",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Laetetur cor", "glo": False, "cre": False, "pre": "Communis"},
@@ -1257,7 +1257,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Sept_s": {
-                "feast": "Sabbatum Quattuor Temporum Septembris",
+                "feast": "Sabbatum Quatuor Temporum Septembris",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Venite, adoremus", "glo": False, "cre": False, "pre": "Communis"},
@@ -1293,7 +1293,7 @@ class TemporalData:
 
             # Ember Days of Advent
             "Ember_Advent_4": {
-                "feast": "Feria IV Quattuor Temporum in Adventus",
+                "feast": "Feria IV Quatuor Temporum in Adventus",
                 "rank": [19, "feria"], # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Rorate cæli", "glo": False, "cre": False, "pre": "Communis"},
@@ -1309,7 +1309,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Advent_6": {
-                "feast": "Feria VI Quattuor Temporum in Adventus",
+                "feast": "Feria VI Quatuor Temporum in Adventus",
                 "rank": [19, "feria"], # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Prope es tu", "glo": False, "cre": False, "pre": "Communis"},
@@ -1325,7 +1325,7 @@ class TemporalData:
                 "fasting": True,
             },
             "Ember_Advent_s": {
-                "feast": "Sabbatum Quattuor Temporum in Adventus",
+                "feast": "Sabbatum Quatuor Temporum in Adventus",
                 "rank": [19, "feria"],  # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Veni, et ostende", "glo": False, "cre": False, "pre": "Communis"},

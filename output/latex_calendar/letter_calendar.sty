@@ -1,0 +1,89 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\def\CalendarVersion{1.0}
+\def\CalendarVersionDate{2023/07/05}
+
+\ProvidesClass{calendar_letter}[\CalendarVersionDate
+           LaTeX2e class file `calendar' v\CalendarVersion]
+
+\typeout{'letter_calendar' style \CalendarVersion \CalendarVersionDate.}
+\typeout{Created by Fr. G.R.Barnes}
+\typeout{corei8.github@gmail.com}
+
+\RequirePackage{tabularx}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{makecell}
+\RequirePackage{ragged2e}
+
+\newcommand{\officecolor}[1]{
+  \fboxsep=.5em \fboxrule=.03em
+  \fcolorbox{black}{#1}{\null}
+}
+
+\newenvironment{monthcanvas}[0]{
+    \begin{tabularx}{\textwidth}{|X|X|X|X|X|X|X|}
+}{
+    \end{tabularx}
+  }
+
+\newcommand\theday[4]{
+  \makecell{
+    % \mbox{\vspace{1.25in}%
+    % \colorbox{#5}{
+    \begin{minipage}[b][1in][s]{\TX@col@width}
+      {#1} \\
+      \vfill
+      {\scriptsize\RaggedRight #2} \\
+      \vfill
+      {\scriptsize \officecolor{#3} \hfill #4}
+    \end{minipage}
+    % }
+    % }
+  }
+}
+
+\newcommand\latinweekdays{
+    \begin{tabularx}{\textwidth}{ X X X X X X X }
+      \begin{minipage}[b]{\TX@col@width}
+        {\scshape\scriptsize\Centering Dominica}
+      \end{minipage} &
+      \begin{minipage}[b]{\TX@col@width}
+        {\scshape\scriptsize\Centering Feria II}
+      \end{minipage} &
+      \begin{minipage}[b]{\TX@col@width}
+        {\scshape\scriptsize\Centering Feria III}
+      \end{minipage} &
+      \begin{minipage}[b]{\TX@col@width}
+        {\scshape\scriptsize\Centering Feria IV}
+      \end{minipage} &
+      \begin{minipage}[b]{\TX@col@width}
+        {\scshape\scriptsize\Centering Feria v}
+      \end{minipage} &
+      \begin{minipage}[b]{\TX@col@width}
+        {\scshape\scriptsize\Centering Feria VI}
+      \end{minipage} &
+      \begin{minipage}[b]{\TX@col@width}
+        {\scshape\scriptsize\Centering Sabbatum}
+      \end{minipage} \\
+
+      % {\center Dominica} &
+      % {\center Feria II} &
+      % {\center Feria III} &
+      % {\center Feria IV} &
+      % {\center Feria V} &
+      % {\center Feria VI} &
+      % {\center Sabbatum} \\
+    \end{tabularx}
+  }
+
+\newcommand\englishweekdays{
+    \begin{tabularx}[\linewidth]{ X X X X X X X }
+      Sunday &
+      Monday &
+      Tuesday &
+      Wednesday &
+      Thursday &
+      Friday &
+      Saturday \\
+    \end{tabularx}
+  }

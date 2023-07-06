@@ -11,7 +11,7 @@ Traditional Catholic Ordo and Calendar.
 
 Python 3.x.x 64-bit
 
-### Dependencies:
+*Dependencies:*
 
 [dateutil](https://dateutil.readthedocs.io/en/stable/)
 ```bash
@@ -120,9 +120,9 @@ temporal calendar with January 1st.
 | Dom | Feb 26 | Dominica infra Hebd I in Quadragesima |
 | Fer II | Feb 27 | S Gabrielis a Virgine Perdolente C |
 | Fer III | Feb 28 | De ea |
-| Fer IV | Mar 01 | Feria IV Quattuor Temporum Quadragesimæ |
+| Fer IV | Mar 01 | Feria IV Quatuor Temporum Quadragesimæ |
 | Fer V | Mar 02 | De ea |
-| Fer VI | Mar 03 | Feria VI Quattuor Temporum Quadragesimæ |
+| Fer VI | Mar 03 | Feria VI Quatuor Temporum Quadragesimæ |
 | Sabb | Mar 04 | S Casimiri C |
 | Dom | Mar 05 | Dominica infra Hebd II in Quadragesima |
 | Fer II | Mar 06 | Ss Perpetuae et Felicitatiis Mm |
@@ -211,10 +211,10 @@ temporal calendar with January 1st.
 | Dom | May 28 | Dominica Pentecostes |
 | Fer II | May 29 | Feria II infra Oct. Pentecostes |
 | Fer III | May 30 | Feria III infra Oct. Pentecostes |
-| Fer IV | May 31 | Feria IV Quattuor Temporum infra Oct. Pentecostes |
+| Fer IV | May 31 | Feria IV Quatuor Temporum infra Oct. Pentecostes |
 | Fer V | Jun 01 | Feria V infra Oct. Pentecostes |
-| Fer VI | Jun 02 | Feria VI Quattuor Temporum infra Oct. Pentecostes |
-| Sabb | Jun 03 | Sabbatum Quattuor Temporum infra Oct. Pentecostes |
+| Fer VI | Jun 02 | Feria VI Quatuor Temporum infra Oct. Pentecostes |
+| Sabb | Jun 03 | Sabbatum Quatuor Temporum infra Oct. Pentecostes |
 | Dom | Jun 04 | Festum Sanctissimæ Trinitatis |
 | Fer II | Jun 05 | B Mariae Virginis Reginae |
 | Fer III | Jun 06 | S Norberti EC |
@@ -414,10 +414,10 @@ temporal calendar with January 1st.
 | Dom | Dec 17 | Dominica III Adventus |
 | Fer II | Dec 18 | De ea |
 | Fer III | Dec 19 | De ea |
-| Fer IV | Dec 20 | Feria IV Quattuor Temporum in Adventus |
+| Fer IV | Dec 20 | Feria IV Quatuor Temporum in Adventus |
 | Fer V | Dec 21 | S Thomæ Ap |
-| Fer VI | Dec 22 | Feria VI Quattuor Temporum in Adventus |
-| Sabb | Dec 23 | Sabbatum Quattuor Temporum in Adventus |
+| Fer VI | Dec 22 | Feria VI Quatuor Temporum in Adventus |
+| Sabb | Dec 23 | Sabbatum Quatuor Temporum in Adventus |
 | Dom | Dec 24 | Vigilia Nativitas DNJC |
 | Fer II | Dec 25 | Nativitas DNJC |
 | Fer III | Dec 26 | S Stephani Protomartyris |

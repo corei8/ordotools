@@ -27,6 +27,7 @@ def main(year: int, diocese: str):
     from tools.algorithm import LiturgicalCalendar
     from builders.website import WebCal
     from builders.readme import Readme
+    from builders.calendar import PrintCalendar
 
     data = LiturgicalCalendar(year=year, diocese=diocese).build()
 
@@ -34,6 +35,7 @@ def main(year: int, diocese: str):
 
     WebCal(year=year, data=data).build()
     Readme(year=year, data=data).build
+    PrintCalendar(year=year, data=data).build
 
     end = perf_counter()
 
