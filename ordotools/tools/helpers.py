@@ -8,6 +8,7 @@ import re
 
 class LiturgicalYearMarks:
     def __init__(self, year):
+        self.year = year
         self.christmas = datetime.strptime(str(self.year) + "-12-25", "%Y-%m-%d")
         self.first_advent = self.christmas - findsunday(self.christmas) - timedelta(weeks=3)
         self.last_advent = self.christmas - timedelta(days=1)

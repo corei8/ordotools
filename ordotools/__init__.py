@@ -1,2 +1,2 @@
-from .tools.algorithm import LiturgicalCalendar
+from tools.algorithm import LiturgicalCalendar
 
