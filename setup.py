@@ -7,7 +7,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="ordotools",
-    version="0.0.4",
+    version="0.0.5",
     description="A set of tools for producing a traditional Catholic Ordo, given a year and diocese",
     package_dir={"": "ordotools"},
     packages=find_packages(where="ordotools"),
