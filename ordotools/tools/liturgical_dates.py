@@ -1,8 +1,6 @@
 from datetime import datetime
 from math import floor
 
-# from icecream import ic
-
 
 def integer_to_roman(num=int) -> int:
     romans = {
@@ -92,7 +90,7 @@ def epact(year=int) -> str:
         i += epact_adjust(year)
         year -= 100
     epact_list = epact_build(i)
-    e = interger_to_roman(epact_list[golden_number(year)-1])
+    e = integer_to_roman(epact_list[golden_number(year)-1])
     if e == 'XXXI':
         e = '*'
     return e
