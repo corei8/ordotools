@@ -20,11 +20,17 @@ Traditional Catholic Ordo and Calendar.
 ![language](https://img.shields.io/github/languages/top/corei8/Ordo?style=flat-square)
 ![frequency](https://img.shields.io/github/commit-activity/m/corei8/Ordo?style=flat-square)
 
+## Install
+
+```
+pip install ordotools
+```
+
 ## Python Specifications
 
 Python 3.x.x 64-bit
 
-*Dependencies:*
+*Dependencies (for development only):*
 
 [dateutil](https://dateutil.readthedocs.io/en/stable/)
 ```bash
