@@ -1,11 +1,24 @@
 from datetime import datetime
 from datetime import timedelta
 
-from tools.settings import YEAR
-
 import dateutil.easter
 
 import re
+
+
+class LiturgicalYearMarks:
+    def __init__(self, year):
+        self.christmas = datetime.strptime(str(self.year) + "-12-25", "%Y-%m-%d")
+        self.first_advent = self.christmas - findsunday(self.christmas) - timedelta(weeks=3)
+        self.last_advent = self.christmas - timedelta(days=1)
+        self.easter_season_start = easter(self.year) - timedelta(weeks=6, days=4)
+        self.lent_begins = easter(self.year) - timedelta(weeks=6, days=4)
+        self.lent_ends = easter(self.year) - timedelta(days=1)
+        self.easter = easter(self.year)
+        self.easter_season_end = easter(self.year) + timedelta(days=39)
+        self.pentecost_season_start = easter(self.year) + timedelta(days=49)
+        self.pentecost_season_end = self.first_advent - timedelta(days=1)
+
 
 
 def findsunday(date: datetime) -> timedelta:
@@ -24,26 +37,6 @@ def easter(year: int) -> datetime:
         day=int(dateutil.easter.easter(year).strftime('%d'))
     )
 
-
-CHRISTMAS = datetime.strptime(str(YEAR) + "-12-25", "%Y-%m-%d")
-
-FIRST_ADVENT = CHRISTMAS - findsunday(CHRISTMAS) - timedelta(weeks=3)
-
-LAST_ADVENT = CHRISTMAS - timedelta(days=1)
-
-EASTER_SEASON_START = easter(YEAR) - timedelta(weeks=6, days=4)
-
-LENT_BEGINS = easter(YEAR) - timedelta(weeks=6, days=4)
-
-LENT_ENDS = easter(YEAR) - timedelta(days=1)
-
-EASTER = easter(YEAR)
-
-EASTER_SEASON_END = easter(YEAR) + timedelta(days=39)
-
-PENTECOST_SEASON_START = easter(YEAR) + timedelta(days=49)
-
-PENTECOST_SEASON_END = FIRST_ADVENT - timedelta(days=1)
 
 ladys_office = {
     "feast": "De Sancta Maria in Sabbato",

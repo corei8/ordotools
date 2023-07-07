@@ -8,7 +8,7 @@ Traditional Catholic Ordo and Calendar.
 
 ## Installation
 
-```
+```bash
 pip install ordotools
 ```
 

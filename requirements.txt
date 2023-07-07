@@ -1,0 +1,6 @@
+build==0.10.0
+-e git+ssh://git@github.com/corei8/ordotools.git@5f505ed7a6d70178b80a835b24013927302ddb9c#egg=ordotools
+packaging==23.1
+pyproject_hooks==1.0.0
+python-dateutil==2.8.2
+six==1.16.0

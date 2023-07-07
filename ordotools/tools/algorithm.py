@@ -2,10 +2,7 @@ from importlib import import_module
 
 from tools.feast import Feast
 
-from tools.helpers import FIRST_ADVENT
-from tools.helpers import LAST_ADVENT
-from tools.helpers import LENT_BEGINS
-from tools.helpers import LENT_ENDS
+from tools.helpers import LiturgicalYearMarks
 from tools.helpers import days
 from tools.helpers import ladys_office
 from tools.helpers import leap_year
@@ -24,6 +21,10 @@ class LiturgicalCalendar:
         self.diocese = diocese
         self.transfers = None
         self.temporal = Temporal(self.year).return_temporal()
+        self.FIRST_ADVENT = LiturgicalYearMarks(self.year).first_advent
+        self.LAST_ADVENT = LiturgicalYearMarks(self.year).last_advent
+        self.LENT_BEGINS = LiturgicalYearMarks(self.year).lent_begins
+        self.LENT_ENDS = LiturgicalYearMarks(self.year).lent_ends
 
     def explode_octaves(self, feast: Feast) -> dict:
         """
@@ -175,9 +176,9 @@ class LiturgicalCalendar:
         office = ladys_office
         for feast in year.keys():
             if feast.strftime("%w") == str(6):
-                if LENT_BEGINS.date() <= feast.date() <= LENT_ENDS.date():
+                if self.LENT_BEGINS.date() <= feast.date() <= self.LENT_ENDS.date():
                     continue
-                elif FIRST_ADVENT.date() <= feast.date() <= LAST_ADVENT.date():
+                elif self.FIRST_ADVENT.date() <= feast.date() <= self.LAST_ADVENT.date():
                     continue
                 else:
                     if year[feast]["rank"][0] > 16:  # not a double
