@@ -1,17 +1,17 @@
 from importlib import import_module
 
-from tools.feast import Feast
+from ordotools.tools.feast import Feast
 
-from tools.helpers import LiturgicalYearMarks
-from tools.helpers import days
-from tools.helpers import ladys_office
-from tools.helpers import leap_year
+from ordotools.tools.helpers import LiturgicalYearMarks
+from ordotools.tools.helpers import days
+from ordotools.tools.helpers import ladys_office
+from ordotools.tools.helpers import leap_year
 
-from tools.liturgical_dates import integer_to_roman
+from ordotools.tools.liturgical_dates import integer_to_roman
 
-from tools.temporal import Temporal
+from ordotools.tools.temporal import Temporal
 
-from sanctoral.diocese.roman import Sanctoral
+from ordotools.sanctoral.diocese.roman import Sanctoral
 
 
 class LiturgicalCalendar:

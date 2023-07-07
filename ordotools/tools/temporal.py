@@ -1,11 +1,11 @@
-from tools.data import TemporalData
-from tools.helpers import day
-from tools.helpers import days
-from tools.helpers import easter
-from tools.helpers import findsunday
-from tools.helpers import week
-from tools.helpers import weekday
-from tools.helpers import last_sunday
+from ordotools.tools.data import TemporalData
+from ordotools.tools.helpers import day
+from ordotools.tools.helpers import days
+from ordotools.tools.helpers import easter
+from ordotools.tools.helpers import findsunday
+from ordotools.tools.helpers import week
+from ordotools.tools.helpers import weekday
+from ordotools.tools.helpers import last_sunday
 
 
 class Temporal:
