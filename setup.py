@@ -6,11 +6,11 @@ with open("README.md", "r") as f:
     long_description = f.read()
 
 setup(
-    name="ordo",
-    version="0.0.1",
+    name="ordotools",
+    version="0.0.3",
     description="A set of tools for producing a traditional Catholic Ordo, given a year and diocese",
-    package_dir={"": "ordo"},
-    packages=find_packages(where="ordo"),
+    package_dir={"": "ordotools"},
+    packages=find_packages(where="ordotools"),
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/corei8/Ordo",
