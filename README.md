@@ -2,7 +2,7 @@
 
 > Traditional Catholic Ordo and Calendar
 
-### 🏠 [Homepage](https://ordo.media/calendar)
+### 🏠 [Homepage](https://ordo.media/)
 
 ## Install
 
