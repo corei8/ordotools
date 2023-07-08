@@ -767,7 +767,7 @@ class Sanctoral:
             day(year=self.year, month=3, day=25): {
                 "feast": "In Annuntiatione BMV",
                 "rank": [2, "d I cl"],
-                "nobility": (False,),
+                "nobility": (1, 2, 6, 2, 1, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Vultum tuum", "glo": True, "cre": True, "pre": "De B Maria Virg"},
@@ -1225,7 +1225,7 @@ class Sanctoral:
             day(year=self.year, month=5, day=12): {
                 "feast": "Ss Nerei, Achillei at Domitillae V atq Pancratii Mm",
                 "rank": [16, "sd"],
-                "nobility": (False,),
+                "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Ecce, oculi Domini", "glo": True, "cre": False, "pre": "Communis"},

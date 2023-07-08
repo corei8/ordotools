@@ -372,7 +372,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (9, 2, 6, 13, 1, 0,),
                 "fasting": True,
             },
             "de_Palm_f3": {
@@ -388,7 +388,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (9, 2, 6, 13, 1, 0,),
                 "fasting": True,
             },
             "de_Palm_f4": {
@@ -731,7 +731,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (5, 1, 6, 13, 3, 0,),
                 "fasting": False,
             },
 

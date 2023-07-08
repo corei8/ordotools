@@ -13,6 +13,12 @@ from ordotools.tools.temporal import Temporal
 
 from ordotools.sanctoral.diocese.roman import Sanctoral
 
+import logging
+from logging import debug
+from logging import info
+
+logging.basicConfig(level=logging.DEBUG)
+
 
 class LiturgicalCalendar:
 
@@ -80,6 +86,7 @@ class LiturgicalCalendar:
         transferred to the transfer dictionary. "Dynamic" is from the
         sanctoral cycle, and "static" is from the temporal cycle.
         """
+        info(f'ranking "{dynamic.feast}" against "{static.feast}"')
         # if the feasts are the same rank:
         if dynamic.rank_n == static.rank_n:
             # it is possible that the lower can be the
@@ -87,7 +94,7 @@ class LiturgicalCalendar:
             return self.rank_by_nobility(
                     dynamic,
                     static
-                )['higher'],
+                )['higher']
         else:
             candidates = {
                 dynamic.rank_n: dynamic,
@@ -106,6 +113,9 @@ class LiturgicalCalendar:
             # feasts that do not take a commemoration
             if higher.rank_n <= 4:
                 # lower feast is transferred
+                if lower.rank_n == 3:  # holy week ferias, etc.
+                    self.transfers == higher
+                    return lower
                 if lower.rank_n <= 10:
                     if lower.fasting is True:
                         higher.fasting = True
@@ -117,7 +127,6 @@ class LiturgicalCalendar:
                     if lower.fasting is True:
                         higher.fasting = True
                     return higher
-                # HACK: allows transfers to occur on ferias, etc.
 
             # impeded DM, D and SD
             elif 14 <= lower.rank_n <= 16:
@@ -136,6 +145,7 @@ class LiturgicalCalendar:
         """
         Checks for feasts in the transfer dictionary.
         """
+        info(f"{self.transfers.feast} is being transferred.")
         return self.rank(dynamic=self.transfers, static=feast)
 
     def add_feasts(self, master: dict, addition: dict) -> dict:
