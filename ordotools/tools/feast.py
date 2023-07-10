@@ -82,7 +82,7 @@ class Feast:
                 self._fasting = self.com[0]["fasting"]
             else:
                 self._fasting = self.feast_properties["fasting"]
-        elif int(self.date.strftime("%m")) == 5:
+        elif int(self.date.strftime("%w")) == 5:
             self._fasting = True
         else:
             self._fasting = self.feast_properties["fasting"]
