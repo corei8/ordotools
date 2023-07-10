@@ -64,6 +64,7 @@ class LiturgicalCalendar:
                 continue
             elif candidate.octave is True:
                 octave = self.explode_octaves(candidate)
+                debug(f"type of octave = {type(octave)}")
                 y |= self.add_feasts(master=y, addition=octave)
         return y
 
@@ -157,11 +158,17 @@ class LiturgicalCalendar:
         calendar = master.copy()
         for date, data in calendar.items():
             if date in addition:
+                if type(data) is Feast:
+                    data = data.updated_properties
                 feast = self.rank(
                     dynamic=Feast(date, addition[date]),
                     static=Feast(date, data)
                 )
             else:
+                # this is breaking when we are adding the octaves
+                # because we already have a dicttionary
+                if type(data) is Feast:
+                    data = data.updated_properties
                 feast = Feast(date, data)
             if self.transfers is not None:
                 result = self.transfer_feast(
