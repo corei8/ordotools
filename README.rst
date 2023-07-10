@@ -12,6 +12,13 @@ Install
 
 ``pip install ordotools``
 
+Contributing
+------------
+
+See the Wiki_.
+
+.. [Wiki] https://github.com/corei8/ordotools/wiki
+
 Support
 -------
 
