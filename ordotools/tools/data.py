@@ -1000,7 +1000,7 @@ class TemporalData:
             ##          "rank": [9, "sd"],
             ##          "color": "white",
             ##          "mass": {"int": "Factus est", "glo": True, "seq": "Lauda, Sion, Salvatorem", "cre": True, "pre": "de Nativitate"},
-            "com": [],
+            # "com": [],
             ##          "matins": {},
             ##          "lauds": {},
             ##          "prime": {},
