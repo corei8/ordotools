@@ -13,7 +13,7 @@ class Temporal:
     This class will enable us to explore parts of the liturgical year, rather
     than having to calulate the entire year. The exact implementation process
     is still being worked out, but this Class will be much easier to debug and
-    develop rather than the previous idea, which is in OLD_temporal.py.
+    develop rather than the previous idea.
 
     For the various parts of the year that require more advanced
     configurations, (e.g. the O-antiphons) this modular approach will allow the
@@ -27,7 +27,7 @@ class Temporal:
     debugging because of the nature of building a calendar.
 
     The lack of verboseness in some of the naming conventions is intentional
-    (e.g., not mentioning "Holy Saturday" explicityly, but naming it the
+    (e.g., not mentioning "Holy Saturday" explicitly, but naming it the
     Saturday feria in "Palm Sunday" week). The job is accomplished sufficiently
     with the current naming system, and to try to give the most appropriate
     name to everything would result in a file that is overly long and
@@ -47,7 +47,7 @@ class Temporal:
     def advent(self) -> dict:
         """ Advent Season """
         y = {}
-        for x in range(4):  # build the advents backwards?
+        for x in range(4):
             if x == 0 and self.christmas-days(1) == self.lastadvent:
                 y |= {self.lastadvent: "DV_Christmas"}
             else:
