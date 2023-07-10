@@ -17,9 +17,12 @@ Contributing
 
 See the Wiki_.
 
-.. [Wiki] https://github.com/corei8/ordotools/wiki
 
 Support
 -------
 
 Give a ⭐️ if this project helped you!
+
+------------
+
+.. [Wiki] https://github.com/corei8/ordotools/wiki
