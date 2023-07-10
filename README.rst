@@ -1,17 +1,18 @@
 Welcome to ordotools
 ====================
 
-::
-    Traditional Catholic Ordo and Calendar
+What?
+    A Traditional Catholic Ordo and Calendar, written in Python.
 
-Visit out test website at https://ordo.media.
+Where?
+    Visit out test website at https://ordo.media.
 
 Install
 -------
 
 ``pip install ordotools``
 
-Show your support
------------------
+Support
+-------
 
 Give a ⭐️ if this project helped you!
