@@ -172,7 +172,8 @@ class LiturgicalCalendar:
                     self.transfers = None
                     feast = result
             try: # this might not be needed anymore
-                calendar |= {date: feast.updated_properties}
+                # calendar |= {date: feast.updated_properties}
+                calendar |= {date: feast}
             except TypeError:
                 pass
         return calendar
@@ -192,7 +193,7 @@ class LiturgicalCalendar:
                     continue
                 else:
                     if year[feast]["rank"][0] > 16:  # not a double
-                        year[feast] = office  # TODO: add commemorations
+                        year[feast] = Feast(feast, office)  # TODO: add commemorations
                     else:
                         continue
         return year
