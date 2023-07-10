@@ -15,14 +15,11 @@ Install
 Contributing
 ------------
 
-See the Wiki_.
+See the `Wiki <https://github.com/corei8/ordotools/wiki>`_ for Project scope,
+documentation, etc.
 
 
 Support
 -------
 
 Give a ⭐️ if this project helped you!
-
-------------
-
-.. [Wiki] https://github.com/corei8/ordotools/wiki
