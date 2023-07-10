@@ -1,11 +1,3 @@
-# todo use interger_to_roman to convert the number to roman numerals
-ROMANS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
-          'VIII', 'IX', 'X', 'XI', 'XII', 'XIII',
-          'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX',
-          'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV',
-          'XXVI', 'XXVII', 'XXVIII', ]
-
-# TODO: these might not be accurate
 LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere', 'Confessio',
                'De necessitatibus', 'Intret oratio', 'Redime me', 'Tibi dixit',
                'Ne derelinquas me', 'Deus, in adjutorium', 'Ego autem',
@@ -16,14 +8,33 @@ LENT_MASSES = ('Sicut oculi', 'Domine refugium', 'Reminíscere', 'Confessio',
                'Liberator meus', 'Omnia, quæ fecisti', 'Miserere mihi',
                'Miserere mihi',)
 
-# beginning with the fourth Sunday after Pentecost
-# TODO: double check the last ones...
-PENTECOST_MASSES = ('Dominus illuminatio', 'Exaudi, Domine',
-                    'Dominus fortitudo', 'Omnes gentes', 'Suscepimus',
-                    'Ecce Deus', 'Cum clamarem', 'Deus in loco',
-                    'Deus in adjutorium', 'Respice Domine', 'Protector noster',
-                    'Inclina Domine', 'Miserere mihi', 'Justus es', 'Da pacem',
-                    'Salus populi', 'Omnia', 'In voluntate tua',
-                    'Si iniquitates', 'Dicit Dominus', 'Dicit Dominus',)
+# begins with the 4th Sunday after Pentecost
+PENTECOST_MASSES = (
+                    'Dóminus illuminátio', #  4
+                    'Exaudi, Domine',      #  5
+                    'Dominus fortitudo',   #  6
+                    'Omnes gentes',        #  7
+                    'Suscepimus',          #  8
+                    'Ecce Deus',           #  9
+                    'Cum clamarem',        # 10
+                    'Deus in loco',        # 11
+                    'Deus in adjutorium',  # 12
+                    'Respice Domine',      # 13
+                    'Protector noster',    # 14
+                    'Inclina Domine',      # 15
+                    'Miserere mihi',       # 16
+                    'Justus es',           # 17
+                    'Da pacem',            # 18
+                    'Salus populi',        # 19
+                    'Omnia',               # 20
+                    'In voluntate tua',    # 21
+                    'Si iniquitates',      # 22
+                    'Dicit Dominus',       # 23
+                    'Dicit Dominus',       # ..
+                    'Dicit Dominus',       # ..
+                    'Dicit Dominus',       # ..
+                    'Dicit Dominus',       # ..
+                    'Dicit Dominus',       # 24
+)
 
 EPIPHANY_MASSES = ('', )

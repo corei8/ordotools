@@ -10,6 +10,8 @@ Where?
 Install
 -------
 
+Be aware that this package is still in alpha, and there are known bugs.
+
 ``pip install ordotools``
 
 Contributing
