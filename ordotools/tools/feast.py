@@ -37,7 +37,7 @@ class Feast:
             if 'vespers' in properties.keys() else {}
         self.compline = properties['compline'] \
             if 'compline' in properties.keys() else {}
-        self.fasting = properties['fasting']
+        self._fasting = properties["fasting"]
 
     @ property
     def feast_date_display(self) -> str:
@@ -68,18 +68,29 @@ class Feast:
     def feast(self) -> str:
         return self.feast_properties['feast']
 
+    @property
+    def fasting(self):
+        """
+        Return fast (or abstinence) days as a boolean.
+        """
+        return self._fasting
+
+    @fasting.setter
+    def fasting(self, value):
+        if self.com and "fasting" in self.com[0]:
+            if self.com[0]["fasting"]:
+                self._fasting = self.com[0]["fasting"]
+            else:
+                self._fasting = self.feast_properties["fasting"]
+        elif int(self.date.strftime("%m")) == 5:
+            self._fasting = True
+        else:
+            self._fasting = self.feast_properties["fasting"]
+        return self._fasting
+
     @ property
     def updated_properties(self) -> dict:
         """ Updates all values of the feast's dictionary """
-        if self.com and "fasting" in self.com[0]:
-            if self.com[0]["fasting"]:
-                fasting = self.com[0]["fasting"]
-            else:
-                fasting = self.fasting
-        elif int(self.date.strftime("%m")) == 5:
-            fasting = True
-        else:
-            fasting = self.fasting
         dic = {
             "feast": self.name,
             "rank": [self.rank_n, self.rank_v],
@@ -94,7 +105,7 @@ class Feast:
             "nobility": self.nobility,
             "office_type": self.office_type,
             "com": self.com,
-            "fasting": fasting,
+            "fasting": self.fasting,
         }
         return dic
 
