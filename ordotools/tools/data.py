@@ -1700,7 +1700,7 @@ class TemporalData:
     def pentecost_sundays(self) -> dict:
         # TODO: add the first 4 Sundays after Pentecost (excluding Trinity)
         pentecost_season = {}
-        for date in range(4,29):
+        for date in range(4, 29):
             pentecost_season |= {
                 f"D_Pent_{date}": {
                     "feast": f"Dominica {integer_to_roman(date)} post Pentecosten",
@@ -1789,7 +1789,7 @@ class TemporalData:
 
     def last_pentecost(self) -> dict:
         last_pents = {}
-        for pent in range(23,28):
+        for pent in range(23, 29):
             last_pents |= {
                 f"D_UltPent_{pent}": {
                     "feast": f"Dominica {integer_to_roman(pent)} et ultima post Pentecosten",
