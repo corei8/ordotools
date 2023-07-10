@@ -56,9 +56,10 @@ class LiturgicalCalendar:
         y = year.copy()
         temporals = []
         for feast in self.temporal.values():
+            # WARN: this might break, but does it ever come up?
             temporals.append(feast["feast"])
-        for date, feast in y.items():
-            candidate = Feast(feast_date=date, properties=feast)
+        for candidate in y.values():
+            # candidate = Feast(feast_date=date, properties=feast)
             if candidate.name in temporals:
                 continue
             elif candidate.octave is True:
