@@ -192,7 +192,7 @@ class LiturgicalCalendar:
                 elif self.FIRST_ADVENT.date() <= feast.date() <= self.LAST_ADVENT.date():
                     continue
                 else:
-                    if year[feast].rank[0] > 16:  # not a double
+                    if year[feast].rank_n > 16:  # not a double
                         year[feast] = Feast(feast, office)  # TODO: add commemorations
                     else:
                         continue
