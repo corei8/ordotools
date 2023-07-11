@@ -4129,6 +4129,22 @@ class Sanctoral:
         }
 
         self.data_leapyear = {
+            day(year=self.year, month=2, day=23): {
+                "feast": "S Petri Damiani ECD",
+                "rank": [15, "d"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com": [{"feast": "Vigilia S Matthiæ Ap"}],
+                "matins": {},
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+                "fasting": False,
+            },
             day(year=self.year, month=2, day=24): {
                 "feast": "In Vigilia S Matthiæ",
                 "rank": [20, "v"],
@@ -4159,6 +4175,9 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+            day(year=self.year, month=2, day=27): {
+                "feast": False,
+            },
             day(year=self.year, month=2, day=28): {
                 "feast": "S Gabrielis a Virgine Perdolente C",
                 "rank": [15, "d"],
@@ -4178,5 +4197,10 @@ class Sanctoral:
 
     def leapyear(self) -> dict:
         for feast, data in self.data_leapyear.items():
-            self.data |= {feast: data}
+            # del self.data[day(year=self.year, month=2, day=27)]
+            if feast in self.data:
+                if data["feast"] is False:
+                    del self.data[feast]
+            else:
+                self.data |= {feast: data}
         return self.data

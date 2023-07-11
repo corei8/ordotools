@@ -39,17 +39,17 @@ class Feast:
             if 'compline' in properties.keys() else {}
         self._fasting = properties["fasting"]
 
-    @ property
+    @property
     def feast_date_display(self) -> str:
         """ Displays the feast date for the ordo """
         return self.date.strftime('%d')
 
-    @ property
+    @property
     def readme_date(self) -> str:
         """ Displays the feast date for the ordo """
         return self.date.strftime('%b %d')
 
-    @ property
+    @property
     # TODO: expand Preces method to provide for
     #    1. Preces Feriales
     #    2. Compline
@@ -60,7 +60,7 @@ class Feast:
         else:
             return 'Preces'
 
-    @ property
+    @property
     def feast(self) -> str:
         return self.feast_properties["feast"]
 
@@ -83,7 +83,7 @@ class Feast:
     def fasting(self, value):
         return self._fasting
 
-    @ property
+    @property
     def updated_properties(self) -> dict:
         """ Updates all values of the feast's dictionary """
         dic = {
@@ -104,7 +104,7 @@ class Feast:
         }
         return dic
 
-    @ property
+    @property
     def office_type2latex(self) -> str:
         """ returns formatted office type based on office_type key """
         # todo write all office types in english
@@ -122,7 +122,7 @@ class Feast:
             return 'ERROR!'
         return 'Off ' + off_type
 
-    @ property
+    @property
     def com_in_title(self) -> str:
         """ returns formatted commemorations in title """
         results = ''
@@ -155,7 +155,7 @@ class Feast:
                 introit_list.append(self.mass[y]['int'])
         return introit_list
 
-    @ property
+    @property
     def translate_color(self) -> str:
         """ translate the color from english to latin """
         translations = {
@@ -170,7 +170,7 @@ class Feast:
         latin_color = translations[self.color]
         return latin_color
 
-    @ property
+    @property
     def translate_weekday(self) -> str:
         """ translate the weekday from english to latin """
         translations = {
@@ -243,7 +243,7 @@ class Feast:
             i += 1
         return latexed_mass
 
-    @ property
+    @property
     def display_matins_as_latex(self) -> str:
         """ return Matins as LaTeX code """
         if len(self.matins) == 0:
@@ -251,7 +251,7 @@ class Feast:
         else:
             return r"\textbf{Ad Mat}: "
 
-    @ property
+    @property
     def display_lauds_as_latex(self) -> str:
         """ return Laudes as LaTeX code """
         if len(self.lauds) == 0:
@@ -267,7 +267,7 @@ class Feast:
                         pass
             return latexed_lauds
 
-    @ property
+    @property
     def display_little_hours_as_latex(self) -> str:
         """ return the little hours as LaTeX code """
         if len(self.little_hours) == 0:
@@ -287,7 +287,7 @@ class Feast:
                     pass
             return latexed_little_hours
 
-    @ property
+    @property
     def display_prime_as_latex(self) -> str:
         """ return Prime as LaTeX code """
         if len(self.prime) == 0:
@@ -314,7 +314,7 @@ class Feast:
                     pass
             return latexed_prime
 
-    @ property
+    @property
     def display_vespers_as_latex(self) -> str:
         """ return vespers as LaTeX code """
         if len(self.vespers) == 0:
@@ -322,7 +322,7 @@ class Feast:
         else:
             return r"\textbf{In Vesp}: "
 
-    @ property
+    @property
     def display_compline_as_latex(self) -> str:
         """ return compline as LaTeX code """
         if len(self.compline) == 0:

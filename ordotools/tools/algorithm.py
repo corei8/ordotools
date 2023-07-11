@@ -141,7 +141,6 @@ class LiturgicalCalendar:
                         feast=higher,
                         com=lower
                     )
-        # return ranked_feasts
 
     def transfer_feast(self, feast: Feast) -> None:
         """
