@@ -4,5 +4,5 @@ data = LiturgicalCalendar(2024, "roman").build()
 
 for feast in data:
     print(
-        f"{feast.date.strftime('%a, %b %d')} : {feast.name}\tFasting = {feast.fasting}"
+        f"{feast.date.strftime('%a, %b %d')} : {feast.name}"
     )
