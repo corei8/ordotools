@@ -49,10 +49,6 @@ class Feast:
         """ Displays the feast date for the ordo """
         return self.date.strftime('%b %d')
 
-    # def date(self):
-    #     # ? is this used?
-    #     return datetime.strptime('%m%d', self.feast_date)
-
     @ property
     # TODO: expand Preces method to provide for
     #    1. Preces Feriales
@@ -66,26 +62,25 @@ class Feast:
 
     @ property
     def feast(self) -> str:
-        return self.feast_properties['feast']
+        return self.feast_properties["feast"]
 
     @property
     def fasting(self):
         """
-        Return fast (or abstinence) days as a boolean.
-        """
-        return self._fasting
-
-    @fasting.setter
-    def fasting(self, value):
-        if self.com and "fasting" in self.com[0]:
+         return fast (or abstinence) days as a boolean.
+         """
+        if int(self.date.strftime("%w")) == 5:
+            self._fasting = True
+        elif self.com and "fasting" in self.com[0]:
             if self.com[0]["fasting"]:
                 self._fasting = self.com[0]["fasting"]
-            else:
-                self._fasting = self.feast_properties["fasting"]
-        elif int(self.date.strftime("%w")) == 5:
-            self._fasting = True
         else:
             self._fasting = self.feast_properties["fasting"]
+        return self._fasting
+
+    # TODO: see how we can use a setter to have a "dynmaic" fasting status
+    @fasting.setter
+    def fasting(self, value):
         return self._fasting
 
     @ property

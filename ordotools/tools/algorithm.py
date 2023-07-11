@@ -219,4 +219,4 @@ class LiturgicalCalendar:
         full_calendar = self.add_feasts(self.temporal, sanctoral).copy()
         full_calendar |= self.our_ladys_saturday(full_calendar)
         full_calendar |= self.find_octave(year=full_calendar)
-        return full_calendar
+        return list(full_calendar.values())
