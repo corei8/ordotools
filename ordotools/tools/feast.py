@@ -5,49 +5,49 @@ class Feast:
     def __init__(self, feast_date: datetime, properties: dict):
         self.date = feast_date
         self.feast_properties = properties
-        self.name = properties['feast']
-        if 'infra_octave_name' in properties.keys():
-            self.infra_octave_name = properties['infra_octave_name']
+        self.name = properties["feast"]
+        if "infra_octave_name" in properties:
+            self.infra_octave_name = properties["infra_octave_name"]
         else:
-            self.infra_octave_name = self.name
-        self.rank_v = properties['rank'][-1]  # verbose rank
-        self.rank_n = properties['rank'][0]   # numeric rank
-        self.octave = True if 'Oct' in self.rank_v else False
-        self.color = properties['color']
+            self.infra_octave_name = ""
+        self.rank_v = properties["rank"][-1]  # verbose rank
+        self.rank_n = properties["rank"][0]   # numeric rank
+        self.octave = True if "Oct" in self.rank_v else False
+        self.color = properties["color"]
         self.mass = {}
-        if 'int' in properties['mass'].keys():
-            self.mass = {'Ad Missam': properties['mass']}
+        if "int" in properties["mass"].keys():
+            self.mass = {"Ad Missam": properties["mass"]}
         else:
-            for x, y in properties['mass'].items():
+            for x, y in properties["mass"].items():
                 self.mass.update({x: y})
-        self.nobility = properties['nobility'] \
-            if 'nobility' in properties.keys() else (0, 0, 0, 0, 0, 0,)
-        self.office_type = properties['office_type']
-        self.com = properties['com'] \
-            if 'com' in properties.keys() else []
-        self.matins = properties['matins'] \
-            if 'matins' in properties.keys() else {}
-        self.lauds = properties['lauds'] \
-            if 'lauds' in properties.keys() else {}
-        self.prime = properties['prime'] \
-            if 'prime' in properties.keys() else {}
-        self.little_hours = properties['little_hours'] \
-            if 'little_hours' in properties.keys() else {}
-        self.vespers = properties['vespers'] \
-            if 'vespers' in properties.keys() else {}
-        self.compline = properties['compline'] \
-            if 'compline' in properties.keys() else {}
+        self.nobility = properties["nobility"] \
+            if "nobility" in properties.keys() else (0, 0, 0, 0, 0, 0,)
+        self.office_type = properties["office_type"]
+        self.com = properties["com"] \
+            if "com" in properties.keys() else []
+        self.matins = properties["matins"] \
+            if "matins" in properties.keys() else {}
+        self.lauds = properties["lauds"] \
+            if "lauds" in properties.keys() else {}
+        self.prime = properties["prime"] \
+            if "prime" in properties.keys() else {}
+        self.little_hours = properties["little_hours"] \
+            if "little_hours" in properties.keys() else {}
+        self.vespers = properties["vespers"] \
+            if "vespers" in properties.keys() else {}
+        self.compline = properties["compline"] \
+            if "compline" in properties.keys() else {}
         self._fasting = properties["fasting"]
 
     @property
     def feast_date_display(self) -> str:
         """ Displays the feast date for the ordo """
-        return self.date.strftime('%d')
+        return self.date.strftime("%d")
 
     @property
     def readme_date(self) -> str:
         """ Displays the feast date for the ordo """
-        return self.date.strftime('%b %d')
+        return self.date.strftime("%b %d")
 
     @property
     # TODO: expand Preces method to provide for
@@ -56,9 +56,9 @@ class Feast:
     #    3. Little Hours
     def preces(self) -> str:
         if self.rank_n <= 16:
-            return ''
+            return ""
         else:
-            return 'Preces'
+            return "Preces"
 
     @property
     def feast(self) -> str:
@@ -69,8 +69,14 @@ class Feast:
         """
          return fast (or abstinence) days as a boolean.
          """
+        # if the day is Friday, fasting
         if int(self.date.strftime("%w")) == 5:
             self._fasting = True
+        # if the day is Sunday, no fasting
+        elif int(self.date.strftime("%w")) == 0:
+            self._fasting = False
+            return self._fasting
+        # if there is a fasting commemoration (e.g., ferias in Lent)
         elif self.com and "fasting" in self.com[0]:
             if self.com[0]["fasting"]:
                 self._fasting = self.com[0]["fasting"]
@@ -89,6 +95,7 @@ class Feast:
         dic = {
             "feast": self.name,
             "rank": [self.rank_n, self.rank_v],
+            "infra_octave_name": self.infra_octave_name,
             "color": self.color,
             "mass": self.mass,
             "matins": {},

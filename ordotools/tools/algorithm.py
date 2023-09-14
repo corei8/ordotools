@@ -1,3 +1,5 @@
+# from copy import deepcopy
+
 from importlib import import_module
 
 from ordotools.tools.feast import Feast
@@ -15,7 +17,7 @@ from ordotools.sanctoral.diocese.roman import Sanctoral
 
 import logging
 from logging import debug
-from logging import info
+# from logging import info
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -34,37 +36,42 @@ class LiturgicalCalendar:
 
     def explode_octaves(self, feast: Feast) -> dict:
         """
-        Generates "explodes" the octave for a feast.
+        Generates, or "explodes", the octave for a feast.
         """
         octave = {}
+        debug(f"{feast.__dict__}\n\n")
         for x in range(7):
             intro = f"De {integer_to_roman(x+2)} die"
             if x != 6:
                 feast.name = f"{intro} infra {feast.infra_octave_name}"
             else:
                 feast.name = feast.infra_octave_name
+            # prevents Fridays from assigning fasting for the entire octave
+            feast.fasting = False
             feast.rank_v = "feria"
             feast.rank_n = 18 if x < 6 else 13  # common octave
             octave |= {feast.date+days(x+1): feast.updated_properties}
+        for y in octave:
+            debug(y.strftime("%a %b %d"))
         return octave
 
     def find_octave(self, year: dict) -> dict:
         """
-        Finds the octaves of the sanctoral cycle and adds
-        them to the year.
+        Finds the octaves of the sanctoral cycle and adds them to the year.
         """
         y = year.copy()
+        # y = deepcopy(year)
         temporals = []
         for feast in self.temporal.values():
-            # WARN: this might break, but does it ever come up?
+            # we need to to a name match because other
+            # feast data could be changed.
             temporals.append(feast["feast"])
         for candidate in y.values():
-            # candidate = Feast(feast_date=date, properties=feast)
             if candidate.name in temporals:
                 continue
             elif candidate.octave is True:
+                # debug(candidate.name)
                 octave = self.explode_octaves(candidate)
-                debug(f"type of octave = {type(octave)}")
                 y |= self.add_feasts(master=y, addition=octave)
         return y
 
@@ -85,10 +92,9 @@ class LiturgicalCalendar:
     def rank(self, dynamic: Feast, static: Feast) -> Feast:
         """
         Ranks feasts that occur on the same date. Send feasts that can be
-        transferred to the transfer dictionary. "Dynamic" is from the
-        sanctoral cycle, and "static" is from the temporal cycle.
+        transferred to the transfer dictionary. "Dynamic" is from the sanctoral
+        cycle, and "static" is from the temporal cycle.
         """
-        info(f'ranking "{dynamic.feast}" against "{static.feast}"')
         # if the feasts are the same rank:
         if dynamic.rank_n == static.rank_n:
             # it is possible that the lower can be the
@@ -146,7 +152,6 @@ class LiturgicalCalendar:
         """
         Checks for feasts in the transfer dictionary.
         """
-        info(f"{self.transfers.feast} is being transferred.")
         return self.rank(dynamic=self.transfers, static=feast)
 
     def add_feasts(self, master: dict, addition: dict) -> dict:
