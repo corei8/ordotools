@@ -1,11 +1,11 @@
-# from copy import deepcopy
+from copy import deepcopy
 
 from importlib import import_module
 
 from ordotools.tools.feast import Feast
 
 from ordotools.tools.helpers import LiturgicalYearMarks
-from ordotools.tools.helpers import days
+from ordotools.tools.helpers import days, week
 from ordotools.tools.helpers import ladys_office
 from ordotools.tools.helpers import leap_year
 
@@ -34,25 +34,26 @@ class LiturgicalCalendar:
         self.LENT_BEGINS = LiturgicalYearMarks(self.year).lent_begins
         self.LENT_ENDS = LiturgicalYearMarks(self.year).lent_ends
 
-    def explode_octaves(self, feast: Feast) -> dict:
+    def expand_octaves(self, feast: Feast) -> dict:
         """
-        Generates, or "explodes", the octave for a feast.
+        Generates (or expands) the octave for a feast.
         """
         octave = {}
-        debug(f"{feast.__dict__}\n\n")
-        for x in range(7):
-            intro = f"De {integer_to_roman(x+2)} die"
-            if x != 6:
-                feast.name = f"{intro} infra {feast.infra_octave_name}"
-            else:
+        day = 1
+        while day < 9:
+            intro = f"De {integer_to_roman(day)} die"
+            # TODO: get rid of the first 'if'
+            if day == 1:
+                pass
+            if day == 8:
                 feast.name = feast.infra_octave_name
-            # prevents Fridays from assigning fasting for the entire octave
+            else:
+                feast.name = f"{intro} infra {feast.infra_octave_name}"
             feast.fasting = False
             feast.rank_v = "feria"
-            feast.rank_n = 18 if x < 6 else 13  # common octave
-            octave |= {feast.date+days(x+1): feast.updated_properties}
-        for y in octave:
-            debug(y.strftime("%a %b %d"))
+            feast.rank_n = 18 if day < 6 else 13 # for common octaves
+            octave |= {feast.date+days(day-1): feast.updated_properties}
+            day += 1
         return octave
 
     def find_octave(self, year: dict) -> dict:
@@ -60,18 +61,17 @@ class LiturgicalCalendar:
         Finds the octaves of the sanctoral cycle and adds them to the year.
         """
         y = year.copy()
-        # y = deepcopy(year)
+        # there might be a faster way of doing this
         temporals = []
         for feast in self.temporal.values():
-            # we need to to a name match because other
-            # feast data could be changed.
             temporals.append(feast["feast"])
         for candidate in y.values():
             if candidate.name in temporals:
+                # all of the octaves of the temporal cycle are already expanded
                 continue
             elif candidate.octave is True:
-                # debug(candidate.name)
-                octave = self.explode_octaves(candidate)
+                octave = self.expand_octaves(deepcopy(candidate))
+                debug(octave)
                 y |= self.add_feasts(master=y, addition=octave)
         return y
 
@@ -169,8 +169,6 @@ class LiturgicalCalendar:
                     static=Feast(date, data)
                 )
             else:
-                # this is breaking when we are adding the octaves
-                # because we already have a dicttionary
                 if type(data) is Feast:
                     data = data.updated_properties
                 feast = Feast(date, data)
