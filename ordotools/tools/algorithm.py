@@ -5,7 +5,7 @@ from importlib import import_module
 from ordotools.tools.feast import Feast
 
 from ordotools.tools.helpers import LiturgicalYearMarks
-from ordotools.tools.helpers import days, week
+from ordotools.tools.helpers import days
 from ordotools.tools.helpers import ladys_office
 from ordotools.tools.helpers import leap_year
 
@@ -42,8 +42,7 @@ class LiturgicalCalendar:
         day = 1
         while day < 9:
             intro = f"De {integer_to_roman(day)} die"
-            # TODO: get rid of the first 'if'
-            if day == 1:
+            if day == 1: # TODO: get rid of the first 'if'
                 pass
             if day == 8:
                 feast.name = feast.infra_octave_name
@@ -71,7 +70,6 @@ class LiturgicalCalendar:
                 continue
             elif candidate.octave is True:
                 octave = self.expand_octaves(deepcopy(candidate))
-                debug(octave)
                 y |= self.add_feasts(master=y, addition=octave)
         return y
 
@@ -181,8 +179,7 @@ class LiturgicalCalendar:
                 else:
                     self.transfers = None
                     feast = result
-            try: # this might not be needed anymore
-                # calendar |= {date: feast.updated_properties}
+            try:
                 calendar |= {date: feast}
             except TypeError:
                 pass
