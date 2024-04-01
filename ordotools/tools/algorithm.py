@@ -16,8 +16,6 @@ from ordotools.tools.temporal import Temporal
 from ordotools.sanctoral.diocese.roman import Sanctoral
 
 import logging
-from logging import debug
-# from logging import info
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -39,7 +37,7 @@ class LiturgicalCalendar:
         Generates (or expands) the octave for a feast.
         """
         octave = {}
-        day = 1
+        day = 1 # we can make this one a 2
         while day < 9:
             intro = f"De {integer_to_roman(day)} die"
             if day == 1: # TODO: get rid of the first 'if'
@@ -48,6 +46,7 @@ class LiturgicalCalendar:
                 feast.name = feast.infra_octave_name
             else:
                 feast.name = f"{intro} infra {feast.infra_octave_name}"
+            # FIX: we have an issue here if the feast falls on a Friday
             feast.fasting = False
             feast.rank_v = "feria"
             feast.rank_n = 18 if day < 6 else 13 # for common octaves
@@ -63,7 +62,7 @@ class LiturgicalCalendar:
         # there might be a faster way of doing this
         temporals = []
         for feast in self.temporal.values():
-            temporals.append(feast["feast"])
+            temporals.append(feast["code"])
         for candidate in y.values():
             if candidate.name in temporals:
                 # all of the octaves of the temporal cycle are already expanded
@@ -78,6 +77,11 @@ class LiturgicalCalendar:
         return feast
 
     def rank_by_nobility(self, feast_1: Feast, feast_2: Feast) -> dict:
+        """
+        Those feasts that are of the same rank need to be ranked according to
+        the nobility of the feast (e.g., a feast of Our Lord is of a higher
+        nobility than a feast of Our Lady).
+        """
         for x in range(6):
             if feast_1.nobility[x] < feast_2.nobility[x]:
                 return {'higher': feast_1, 'lower': feast_2}
@@ -97,28 +101,17 @@ class LiturgicalCalendar:
         if dynamic.rank_n == static.rank_n:
             # it is possible that the lower can be the
             # commemoration of the higher...
-            return self.rank_by_nobility(
-                    dynamic,
-                    static
-                )['higher']
+            return self.rank_by_nobility(dynamic,static)['higher']
         else:
-            candidates = {
-                dynamic.rank_n: dynamic,
-                static.rank_n: static,
-            }
+            candidates = {dynamic.rank_n: dynamic,static.rank_n: static,}
             higher = candidates[sorted(candidates)[0]]
             lower = candidates[sorted(candidates)[1]]
             if lower.rank_n == 22:
                 pass
             if lower.rank_n == 19:  # lent
-                return self.commemoration(
-                        feast=higher,
-                        com=lower
-                    )
-
+                return self.commemoration(feast=higher, com=lower)
             # feasts that do not take a commemoration
-            if higher.rank_n <= 4:
-                # lower feast is transferred
+            if higher.rank_n <= 4:  # lower feast is transferred
                 if lower.rank_n == 3:  # holy week ferias, etc.
                     self.transfers == higher
                     return lower
@@ -128,23 +121,14 @@ class LiturgicalCalendar:
                     if lower != self.transfers:
                         self.transfers = lower
                     return higher
-                else:
-                    # lower feast is ignored
+                else:  # lower feast is ignored
                     if lower.fasting is True:
                         higher.fasting = True
                     return higher
-
-            # impeded DM, D and SD
-            elif 14 <= lower.rank_n <= 16:
-                return self.commemoration(
-                        feast=higher,
-                        com=lower
-                    )
+            elif 14 <= lower.rank_n <= 16:  # impeded DM, D and SD
+                return self.commemoration(feast=higher, com=lower)
             else:
-                return self.commemoration(
-                        feast=higher,
-                        com=lower
-                    )
+                return self.commemoration(feast=higher, com=lower)
 
     def transfer_feast(self, feast: Feast) -> None:
         """
@@ -187,7 +171,7 @@ class LiturgicalCalendar:
 
     def our_ladys_saturday(self, calendar: dict) -> None:
         """
-        Adds Office of the BVM to the compiled calendar.
+        Adds Office of the Blessed Virgin Mary on Saturdays.
         """
         # TODO: add Mass number according to season
         year = calendar.copy()
@@ -215,7 +199,11 @@ class LiturgicalCalendar:
                 f"sanctoral.diocese.{self.diocese}",
             )
             sanctoral = diocese.Diocese(self.year).calendar()
+
+        # MODULES:
+        # Any one of these can be disabled without error. Theoretically.
         full_calendar = self.add_feasts(self.temporal, sanctoral).copy()
         full_calendar |= self.our_ladys_saturday(full_calendar)
         full_calendar |= self.find_octave(year=full_calendar)
+
         return list(full_calendar.values())

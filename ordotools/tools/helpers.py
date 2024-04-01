@@ -40,7 +40,7 @@ def easter(year: int) -> datetime:
 
 
 ladys_office = {
-    "feast": "De Sancta Maria in Sabbato",
+    "code": "lady_saturday",
     "rank": [21, "s"],
     "color": "white",
     "mass": {

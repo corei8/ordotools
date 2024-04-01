@@ -1,11 +1,17 @@
 from datetime import datetime
+from ordotools.tools.translations import Translations
 
 
 class Feast:
     def __init__(self, feast_date: datetime, properties: dict):
         self.date = feast_date
-        self.feast_properties = properties
-        self.name = properties["feast"]
+
+        trans     = Translations()
+        self.name = trans.translations()[properties["code"]]["la"] # TODO: this is temporary
+        self.code = properties["code"]                             # TODO: this is temporary
+
+        self.feast_properties = properties | {"feast": self.name}
+
         if "infra_octave_name" in properties:
             self.infra_octave_name = properties["infra_octave_name"]
         else:
@@ -13,31 +19,29 @@ class Feast:
         self.rank_v = properties["rank"][-1]  # verbose rank
         self.rank_n = properties["rank"][0]   # numeric rank
         self.octave = True if "Oct" in self.rank_v else False
-        self.color = properties["color"]
-        self.mass = {}
+        self.color  = properties["color"]
+        self.mass   = {}
+
         if "int" in properties["mass"].keys():
             self.mass = {"Ad Missam": properties["mass"]}
         else:
             for x, y in properties["mass"].items():
                 self.mass.update({x: y})
-        self.nobility = properties["nobility"] \
-            if "nobility" in properties.keys() else (0, 0, 0, 0, 0, 0,)
+
+        self.nobility    = properties["nobility"] if "nobility" in properties.keys() else (0, 0, 0, 0, 0, 0,)
         self.office_type = properties["office_type"]
-        self.com = properties["com"] \
-            if "com" in properties.keys() else []
-        self.matins = properties["matins"] \
-            if "matins" in properties.keys() else {}
-        self.lauds = properties["lauds"] \
-            if "lauds" in properties.keys() else {}
-        self.prime = properties["prime"] \
-            if "prime" in properties.keys() else {}
-        self.little_hours = properties["little_hours"] \
-            if "little_hours" in properties.keys() else {}
-        self.vespers = properties["vespers"] \
-            if "vespers" in properties.keys() else {}
-        self.compline = properties["compline"] \
-            if "compline" in properties.keys() else {}
-        self._fasting = properties["fasting"]
+
+        self.com          = properties["com"] if "com" in properties.keys() else []
+        print(self.com)
+        self.matins       = properties["matins"]
+        self.lauds        = properties["lauds"]
+        self.prime        = properties["prime"]
+        self.little_hours = properties["little_hours"]
+        self.vespers      = properties["vespers"]
+        self.compline     = properties["compline"]
+        self._fasting     = properties["fasting"]
+
+        # TODO: we need to have abstinence
 
     @property
     def feast_date_display(self) -> str:
@@ -63,6 +67,7 @@ class Feast:
     def feast(self) -> str:
         return self.feast_properties["feast"]
 
+    # FIXME: this is all bad... fasting cannot be handled at the same time as abstinence
     @property
     def fasting(self):
         """
@@ -92,6 +97,7 @@ class Feast:
     def updated_properties(self) -> dict:
         """ Updates all values of the feast's dictionary """
         dic = {
+            "code": self.code,
             "feast": self.name,
             "rank": [self.rank_n, self.rank_v],
             "infra_octave_name": self.infra_octave_name,
@@ -109,6 +115,11 @@ class Feast:
             "fasting": self.fasting,
         }
         return dic
+
+
+    #######################
+    # SPECIAL LaTeX STUFF # 
+    #######################
 
     @property
     def office_type2latex(self) -> str:
@@ -133,7 +144,7 @@ class Feast:
         """ returns formatted commemorations in title """
         results = ''
         for x in self.com:
-            if type(x) == dict:
+            if isinstance(x) == dict:
                 if 'feast' in x.keys():
                     results += r'\textit{['+x['feast'] + r']} \\ '
                 else:
@@ -198,7 +209,7 @@ class Feast:
         results = ''
         i = 2
         for x in self.com:
-            if type(x) == dict:
+            if isinstance(x) == dict:
                 if 'feast' in x.keys():
                     results += str(i) + r' or ' + x['feast'] + r', '
                     i += 1

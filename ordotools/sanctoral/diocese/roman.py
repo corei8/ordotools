@@ -1,6 +1,9 @@
 from ordotools.tools.helpers import day
 
 
+# NOTE: We are getting rid of the "feast" name eventually
+
+
 class Sanctoral:
     """
     The Roman Sanctoral Cycle, which is called at every compilation.
@@ -15,9 +18,21 @@ class Sanctoral:
             # January
             day(year=self.year, month=1, day=14): {
                 "feast": "S Hilarii Episcopi ECD",
+                "code": 100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Felicis SM", "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"}, "matins": {}, "lauds": {}, "prime": {}, "little_hours": {}, "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "oration": ""}, "compline": {}, "fasting": False,}],
+                "com": [{
+                    "feast": "S Felicis SM",
+                    "code": 27400,
+                    "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"},
+                    "matins": {},
+                    "lauds": {},
+                    "prime": {},
+                    "little_hours": {},
+                    "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "oration": ""},
+                    "compline": {},
+                    "fasting": False,
+                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
@@ -31,9 +46,14 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=15): {
                 "feast": "S Pauli Primi Eremitæ C",
+                "code": 200,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Mauri Abb", "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"}}],
+                "com": [{
+                    "feast": "S Mauri Abb",
+                    "code": 27500,
+                    "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"}
+                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justus ut palma", "glo": True, "cre": False, "pre": "Communis"},
@@ -47,6 +67,7 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=16): {
                 "feast": "S Marcelli PM",
+                "code": 300,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -62,6 +83,7 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=17): {
                 "feast": "S Antonii Abb",
+                "code": 400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -77,9 +99,18 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=18): {
                 "feast": "Cathedræ S Petri Ap Romæ",
+                "code": 500,
                 "rank": [14, "dm"],
                 "nobility": (False,),
-                "com": [{"feast": "S Pauli Apostoli", "mass": False}, {"feast": "S Priscæ VM", "mass": {"int": "Me expectaverunt", "glo": True, "cre": True, "pre": "Communis"}}],
+                "com": [{
+                    "feast": "S Pauli Apostoli",
+                    "code": 27600,
+                    "mass": False
+                }, {
+                        "feast": "S Priscæ VM",
+                    "code": 27700,
+                        "mass": {"int": "Me expectaverunt", "glo": True, "cre": True, "pre": "Communis"}
+                        }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit ei", "glo": True, "cre": True, "pre": "de Apostolis"},
@@ -93,9 +124,14 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=19): {
                 "feast": "Ss Marii, Marthæ, Audifacis et Abachum Mm",
+                "code": 600,
                 "rank": [22, "s"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
-                "com": [{"feast": "S Canuti RM", "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}}],
+                "com": [{
+                    "feast": "S Canuti RM",
+                    "code": 27800,
+                    "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}
+                }],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Justi epulentur", "glo": True, "cre": False, "pre": "Communis"},
@@ -106,10 +142,10 @@ class Sanctoral:
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
                 "fasting": False,
-                # "mag": "",
             },
             day(year=self.year, month=1, day=20): {
                 "feast": "Ss Fabiani P et Sebastiani Mm",
+                "code": 700,
                 "rank": [15, "d"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -125,6 +161,7 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=21): {
                 "feast": "S Agnetis VM",
+                "code": 800,
                 "rank": [15, "d"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -140,6 +177,7 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=22): {
                 "feast": "Ss Vincentii & Anastasii Mm",
+                "code": 900,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -155,9 +193,14 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=23): {
                 "feast": "S Raymundi de Peñafort C",
+                "code": 1000,
                 "rank": [16, "sd, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Emerentianæ VM", "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}}],
+                "com": [{
+                    "feast": "S Emerentianæ VM",
+                    "code": 27900,
+                    "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}
+                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
@@ -171,6 +214,7 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=24): {
                 "feast": "S Timothei EM",
+                "code": 1100,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -186,10 +230,15 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=25): {
                 "feast": "Conversio S Pauli Ap",
+                "code": 1200,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
-                "com": [{"feast": "S Petri Apostoli", "mass": False}],
+                "com": [{
+                    "feast": "S Petri Apostoli",
+                    "code": 28000,
+                     "mass": False
+                }],
                 "color": "white",
                 "mass": {"int": "Scio, cui credidi", "glo": True, "cre": True, "pre": "de Apostolis"},
                 "matins": {},
@@ -202,6 +251,7 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=26): {
                 "feast": "S Polycarpi EM",
+                "code": 1300,
                 "rank": [15, "d"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -217,6 +267,7 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=27): {
                 "feast": "S Joannis Chrysostomi ECD",
+                "code": 1400,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -232,9 +283,14 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=28): {
                 "feast": "S Petri Nolasci C",
+                "code": 1500,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Agnetis VM secundo", "mass": {"int": "Vultum tuum", "glo": True, "cre": False, "pre": "Communis"}}],
+                "com": [{
+                    "feast": "S Agnetis VM secundo",
+                    "code": 28100,
+                    "mass": {"int": "Vultum tuum", "glo": True, "cre": False, "pre": "Communis"}
+                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
@@ -248,6 +304,7 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=29): {
                 "feast": "S Francisci Salesii ECD",
+                "code": 1600,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -263,6 +320,7 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=30): {
                 "feast": "S Martinæ VM",
+                "code": 1700,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -278,6 +336,7 @@ class Sanctoral:
             },
             day(year=self.year, month=1, day=31): {
                 "feast": "S Joannis Bosco C",
+                "code": 1800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -295,6 +354,7 @@ class Sanctoral:
             # February
             day(year=self.year, month=2, day=1): {
                 "feast": "S Ignatii EM",
+                "code": 1900,
                 "rank": [15, "d"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -310,6 +370,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=2): {
                 "feast": "In Purificatione BMV",
+                "code": 2000,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -325,6 +386,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=3): {
                 "feast": "S Blasii EM",
+                "code": 2100,
                 "rank": [22, "s"],
                 "nobility": (8, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -340,6 +402,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=4): {
                 "feast": "S Andreæ Corsini EC",
+                "code": 2200,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -355,6 +418,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=5): {
                 "feast": "S Agathæ VM",
+                "code": 2300,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -370,9 +434,14 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=6): {
                 "feast": "S Titi EC",
+                "code": 2400,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Dorotheæ VM", "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}}],
+                "com": [{
+                    "feast": "S Dorotheæ VM",
+                "code": 28200,
+                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
+                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
@@ -386,6 +455,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=7): {
                 "feast": "S Romualdi Abb",
+                "code": 2500,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -401,6 +471,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=8): {
                 "feast": "S Joannis de Matha C",
+                "code": 2600,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -416,9 +487,14 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=9): {
                 "feast": "S Cyrilli Alexandrini ECD",
+                "code": 2700,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Apollonia VM", "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}}],
+                "com": [{
+                    "feast": "S Apollonia VM",
+                "code": 28300,
+                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
+                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
@@ -432,6 +508,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=10): {
                 "feast": "S Scholasticæ V",
+                "code": 2800,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -447,6 +524,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=11): {
                 "feast": "In Apparitione BMV Immaculatæ",
+                "code": 2900,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -462,6 +540,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=12): {
                 "feast": "Ss Septem Fundatores Ordinis Servorum BMV C",
+                "code": 3000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -477,6 +556,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=14): {
                 "feast": "S Valentini PM",
+                "code": 3100,
                 "rank": [22, "s"],
                 "nobility": (8, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -492,6 +572,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=15): {
                 "feast": "Ss Faustini & Jovitæ Mm",
+                "code": 3200,
                 "rank": [22, "s"],
                 "nobility": (8, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -507,6 +588,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=18): {
                 "feast": "S Simeonis EM",
+                "code": 3300,
                 "rank": [22, "s"],
                 "nobility": (8, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -522,6 +604,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=22): {
                 "feast": "In Cathedra S Petri Ap",
+                "code": 3400,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -537,12 +620,16 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=23): {
                 "feast": "S Petri Damiani ECD",
+                "code": 3500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-                "com": [{"feast": "Vigilia S Matthiæ Ap"}],
+                "com": [{
+                    "feast": "Vigilia S Matthiæ Ap",
+                    "code": 27300,
+                }],
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -553,6 +640,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=24): {
                 "feast": "S Matthiæ Ap",
+                "code": 3600,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -568,6 +656,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=27): {
                 "feast": "S Gabrielis a Virgine Perdolente C",
+                "code": 3700,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -585,9 +674,14 @@ class Sanctoral:
             # March
             day(year=self.year, month=3, day=4): {
                 "feast": "S Casimiri C",
+                "code": 3800,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Lucii I PM", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},],
+                "com": [{
+                    "feast": "S Lucii I PM",
+                "code": 28400,
+                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
+                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os iusti", "glo": True, "cre": False, "pre": "Communis"},
@@ -601,6 +695,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=6): {
                 "feast": "Ss Perpetuae et Felicitatiis Mm",
+                "code": 3900,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -616,6 +711,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=7): {
                 "feast": "S Thomæ de Aquino CD",
+                "code": 4000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -631,6 +727,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=8): {
                 "feast": "S Joannis a Deo C",
+                "code": 4100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -646,6 +743,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=9): {
                 "feast": "S Franciscae Romanae V",
+                "code": 4200,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -661,6 +759,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=10): {
                 "feast": "Ss Quadragintarum Mm",
+                "code": 4300,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -676,6 +775,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=12): {
                 "feast": "S Gregorii I PCD",
+                "code": 4400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -691,6 +791,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=17): {
                 "feast": "S Patricii EC",
+                "code": 4500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -706,6 +807,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=18): {
                 "feast": "S Cyrilli Hierosolymitani ECD",
+                "code": 4600,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -721,6 +823,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=19): {
                 "feast": "S Josephi Sponsi BMV C",
+                "code": 4700,
                 "rank": [2, "d I cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -736,6 +839,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=21): {
                 "feast": "S Benedicti Abb",
+                "code": 4800,
                 "rank": [14, "dm"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -751,6 +855,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=24): {
                 "feast": "S Gabrielis Arch",
+                "code": 4900,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -766,6 +871,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=25): {
                 "feast": "In Annuntiatione BMV",
+                "code": 5000,
                 "rank": [2, "d I cl"],
                 "nobility": (1, 2, 6, 2, 1, 0,),
                 "office_type": False,
@@ -781,6 +887,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=27): {
                 "feast": "S Joannis Damasceni CD",
+                "code": 5100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -796,6 +903,7 @@ class Sanctoral:
             },
             day(year=self.year, month=3, day=28): {
                 "feast": "S Joannis a Capistrano C",
+                "code": 5200,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -813,6 +921,7 @@ class Sanctoral:
             # April
             day(year=self.year, month=4, day=2): {
                 "feast": "S Francisci de Paula C",
+                "code": 5300,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -828,6 +937,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=4): {
                 "feast": "S Isidori ECD",
+                "code": 5400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -843,6 +953,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=5): {
                 "feast": "S Vincentii Ferrerii C",
+                "code": 5500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -858,6 +969,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=11): {
                 "feast": "S Leonis PCD",
+                "code": 5600,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -873,6 +985,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=13): {
                 "feast": "S Hermenegildi M",
+                "code": 5700,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -888,9 +1001,14 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=14): {
                 "feast": "S Justini M",
+                "code": 5800,
                 "rank": [15, "d"],
                 "nobility": (False,),
-                "com": [{"feast": "Ss Tiburtii, Valeriani et Maximi Mm", "mass": {"int": ["Sapientiam", "Sancti tui"], "glo": True, "cre": False, "pre": "Communis"}},],
+                "com": [{
+                    "feast": "Ss Tiburtii, Valeriani et Maximi Mm",
+                "code": 28500,
+                    "mass": {"int": ["Sapientiam", "Sancti tui"], "glo": True, "cre": False, "pre": "Communis"}
+                }],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Narraverunt mihi", "glo": True, "cre": False, "pre": "Communis"},
@@ -904,6 +1022,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=17): {
                 "feast": "S Aniceti PM",
+                "code": 5900,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -919,6 +1038,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=21): {
                 "feast": "S Anselmi ECD",
+                "code": 6000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -934,6 +1054,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=22): {
                 "feast": "Ss Soteris et Caii PpMm",
+                "code": 6100,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -949,6 +1070,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=23): {
                 "feast": "S Georgii M",
+                "code": 6200,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -964,6 +1086,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=24): {
                 "feast": "S Fidelis a Sigmaringa M",
+                "code": 6300,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -979,6 +1102,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=25): {
                 "feast": "S Marci Ev",
+                "code": 6400,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -994,6 +1118,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=26): {
                 "feast": "Ss Cleti et Marcellini PpMm",
+                "code": 6500,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1009,6 +1134,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=27): {
                 "feast": "S Petri Canisii CD",
+                "code": 6600,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1024,9 +1150,14 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=28): {
                 "feast": "S Pauli a Cruce C",
+                "code": 6700,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Vitali M", "mass": {"int": ["Protexisti", "In virtute"], "glo": True, "cre": False, "pre": "Communis"}},],
+                "com": [{
+                    "feast": "S Vitali M",
+                "code": 28600,
+                    "mass": {"int": ["Protexisti", "In virtute"], "glo": True, "cre": False, "pre": "Communis"}
+                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Christo confixus sum", "glo": True, "cre": False, "pre": "Communis"},
@@ -1040,6 +1171,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=29): {
                 "feast": "S Petri M",
+                "code": 6800,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1055,6 +1187,7 @@ class Sanctoral:
             },
             day(year=self.year, month=4, day=30): {
                 "feast": "S Catharinae Senensis V",
+                "code": 6900,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1072,6 +1205,7 @@ class Sanctoral:
             # May
             day(year=self.year, month=5, day=1): {
                 "feast": "Ss Philippi et Iacobi App",
+                "code": 7000,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1087,6 +1221,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=2): {
                 "feast": "S Athanasii ECD",
+                "code": 7100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1102,9 +1237,14 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=3): {
                 "feast": "In Inventione S Crucis",
+                "code": 7200,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
-                "com": [{"feast": "Ss Alexandro I Pp, Eventii et Theoduli Mm ac Juvenale Ep C", "mass": {"int": "Sancti tui", "glo": True, "cre": False, "pre": "de Apostolis"}},],
+                "com": [{
+                    "feast": "Ss Alexandro I Pp, Eventii et Theoduli Mm ac Juvenale Ep C",
+                "code": 28700,
+                    "mass": {"int": "Sancti tui", "glo": True, "cre": False, "pre": "de Apostolis"}
+                }],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Nos autem gloriari", "glo": True, "cre": True, "pre": "De Cruce"},
@@ -1118,6 +1258,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=4): {
                 "feast": "S Monicae V",
+                "code": 7300,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1133,6 +1274,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=5): {
                 "feast": "S Pii V PC",
+                "code": 7400,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1148,6 +1290,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=6): {
                 "feast": "S Joannis ApEv ante Portam Latinam",
+                "code": 7500,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1163,6 +1306,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=7): {
                 "feast": "S Stanislai EM",
+                "code": 7600,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1178,6 +1322,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=8): {
                 "feast": "In Apparitione S Michaelis Arch",
+                "code": 7700,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1193,6 +1338,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=9): {
                 "feast": "S Gregorii Nanzanzeni ECD",
+                "code": 7800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1208,9 +1354,14 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=10): {
                 "feast": "S Antonini EC",
+                "code": 7900,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Ss Gordiani et Epimachi Mm", "mass": {"int": "Sancti tui", "glo": True, "cre": False, "pre": "Communis"}},],
+                "com": [{
+                    "feast": "Ss Gordiani et Epimachi Mm",
+                "code": 28800,
+                    "mass": {"int": "Sancti tui", "glo": True, "cre": False, "pre": "Communis"}
+                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
@@ -1224,6 +1375,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=12): {
                 "feast": "Ss Nerei, Achillei at Domitillae V atq Pancratii Mm",
+                "code": 8000,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
@@ -1239,6 +1391,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=13): {
                 "feast": "S Roberti Bellarmino ECD",
+                "code": 8100,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1254,6 +1407,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=14): {
                 "feast": "S Bonifatii M",
+                "code": 8200,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1269,6 +1423,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=15): {
                 "feast": "S Joannis Baptistae de la Salle C",
+                "code": 8300,
                 "rank": [15, "d, mtv"],  # TODO: check this mtv
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1284,6 +1439,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=16): {
                 "feast": "S Ubaldi EC",
+                "code": 8400,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1299,6 +1455,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=17): {
                 "feast": "S Paschalis Baylon C",
+                "code": 8500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1314,6 +1471,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=18): {
                 "feast": "S Venantii M",
+                "code": 8600,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1329,9 +1487,14 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=19): {
                 "feast": "S Petri Caelestini PC",
+                "code": 8700,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Pudentianae V", "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"}},],
+                "com": [{
+                    "feast": "S Pudentianae V",
+                    "code": 28900,
+                    "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"}
+                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
@@ -1345,6 +1508,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=20): {
                 "feast": "S Bernardini Senensis C",
+                "code": 8800,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1360,9 +1524,13 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=25): {
                 "feast": "S Gregorii VII PC",
+                "code": 8900,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Urbani I PM", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},],
+                "com": [{
+                    "feast": "S Urbani I PM",
+                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
+                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
@@ -1376,6 +1544,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=26): {
                 "feast": "S Philippi Nerii C",
+                "code": 9000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "S Eleutherii PM", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},],
@@ -1392,6 +1561,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=27): {
                 "feast": "S Bedæ Venerabilis CD",
+                "code": 9100,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "S Joannis I PM", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},],
@@ -1408,6 +1578,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=28): {
                 "feast": "S Augustini EC",
+                "code": 9200,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1423,6 +1594,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=29): {
                 "feast": "S Mariæ Magdalenæ de Pazzis V",
+                "code": 9300,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1438,6 +1610,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=30): {
                 "feast": "S Felix I PM",
+                "code": 9400,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1453,6 +1626,7 @@ class Sanctoral:
             },
             day(year=self.year, month=5, day=31): {
                 "feast": "B Mariae Virginis Reginae",
+                "code": 9500,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "com": [{"feast": "S Petronillae V", "mass": {"int": "Vultum tuum", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -1471,6 +1645,7 @@ class Sanctoral:
             # June
             day(year=self.year, month=6, day=1): {
                 "feast": "S Angelæ Mericiæ V",
+                "code": 9600,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1486,6 +1661,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=2): {
                 "feast": "Ss Marcellini, Petri atq Erasmi E Mm",
+                "code": 9700,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1501,6 +1677,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=4): {
                 "feast": "S Francisci Caracciolo C",
+                "code": 9800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1516,6 +1693,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=5): {
                 "feast": "S Bonifatii EM",
+                "code": 9900,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1531,6 +1709,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=6): {
                 "feast": "S Norberti EC",
+                "code": 10000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1546,6 +1725,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=9): {
                 "feast": "Ss Primi et Feliciani Mm",
+                "code": 10100,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1561,6 +1741,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=10): {
                 "feast": "S Margaritæ R V",
+                "code": 10200,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1576,6 +1757,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=11): {
                 "feast": "S Barnabæ Ap",
+                "code": 10300,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1591,6 +1773,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=12): {
                 "feast": "S Joannis a S Facundo C",
+                "code": 10400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "Ss Basilidi, Cyrini, Nabori atq Nazarii Mm", "mass": {"int": ["Intret in conspectu", "Sancti tui"], "glo": True, "cre": False, "pre": "Communis"}},],
@@ -1607,6 +1790,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=13): {
                 "feast": "S Antonii de Padua CD",
+                "code": 10500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1622,6 +1806,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=14): {
                 "feast": "S Basilii Magni ECD",
+                "code": 10600,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1637,6 +1822,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=15): {
                 "feast": "Ss Viti, Modesti atq Crescentiæ Mm",
+                "code": 10700,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1652,6 +1838,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=18): {
                 "feast": "S Ephræm Syri Diaconi CD",
+                "code": 10800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "Ss Marci et Marcelliani Mm", "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -1668,6 +1855,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=19): {
                 "feast": "S Julianæ de Falconeriis V",
+                "code": 10900,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "com": [{"feast": "Ss Gervasii et Protasii Mm", "mass": {"int": "Loquetur Dominus", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -1684,6 +1872,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=20): {
                 "feast": "S Silverii PM",
+                "code": 11000,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1699,6 +1888,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=21): {
                 "feast": "S Aloisii Gonzagæ C",
+                "code": 11100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1714,6 +1904,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=22): {
                 "feast": "S Paulini EC",
+                "code": 11200,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1729,6 +1920,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=23): {
                 "feast": "In Vigilia Nativitatis S Joannis Baptistæ",
+                "code": 11300,
                 "rank": [19, "v"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1744,6 +1936,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=24): {
                 "feast": "In Nativitate S Joannis Baptistæ",
+                "code": 11400,
                 "infra_octave_name": "Oct S Joannis Baptistæ",
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 0, 4, 4, 1, 0,),
@@ -1760,6 +1953,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=25): {
                 "feast": "S Gulielmi Abb",
+                "code": 11500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1775,6 +1969,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=26): {
                 "feast": "S Joannis et Pauli Mm",
+                "code": 11600,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1788,9 +1983,10 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
-            # todo Add "6/27 De IV die infra OCtava Nativitatis S Joannis Baptistae feria
+            # todo Add "123/27 De IV die infra OCtava Nativitatis S Joannis Baptistae feria
             day(year=self.year, month=6, day=28): {
-                "feast": "Irinæi EM",
+                "feast": "S Irinæi EM",
+                "code": 11800,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "com": [{"feast": "In Vigilia Ss Petri et Pauli App", "mass": {"int": "Dicit Dominus", "glo": False, "cre": False, "pre": "Communis"}},],
@@ -1807,6 +2003,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=29): {
                 "feast": "Ss Petri et Pauli App",
+                "code": 11900,
                 "infra_octave_name": "Oct Ss Petri et Pauli App", 
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 2, 4, 5, 1, 0,),
@@ -1823,6 +2020,7 @@ class Sanctoral:
             },
             day(year=self.year, month=6, day=30): {
                 "feast": "In Commemoratione S Pauli Apostoli",
+                "code": 12000,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "com": [{"feast": "S Petri Ap", "mass": {"int": "", "glo": True, "cre": True, "pre": "de Apostolis"}},{"feast": "In Octava S Joannis Baptistae"}],
@@ -1841,6 +2039,7 @@ class Sanctoral:
             # July
             day(year=self.year, month=7, day=1): {
                 "feast": "In Festo Pretiosissimi Sanguinis DNJC",
+                "code": 12100,
                 "rank": [2, "d I cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1857,6 +2056,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=2): {
                 "feast": "In Visitatione BMV",
+                "code": 12200,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "com": [{"feast": "Ss Processi et Martiniani Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -1873,6 +2073,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=3): {
                 "feast": "S Leonis II PC",
+                "code": 12300,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1887,9 +2088,10 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
-            # todo add "7/4 De VI die infra Octava Ss Petri et Pauli App feria
+            # todo add "131/4 De VI die infra Octava Ss Petri et Pauli App feria
             day(year=self.year, month=7, day=5): {
                 "feast": "S Antonii Mariæ Zaccaria C",
+                "code": 12500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1904,9 +2106,10 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
-            # todo add "7/6 Octava Ss Petri et Pauli App dm
+            # todo add "133/6 Octava Ss Petri et Pauli App dm
             day(year=self.year, month=7, day=7): {
                 "feast": "Ss Cyrilli et Methodii EeCc",
+                "code": 12700,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1922,6 +2125,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=8): {
                 "feast": "S Elisabeth R Vid",
+                "code": 12800,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1937,6 +2141,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=10): {
                 "feast": "Ss Septem Fratrum Mm ac Rufinæ et Secundæ VvMm",
+                "code": 12900,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1952,6 +2157,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=11): {
                 "feast": "S Pii I PM",
+                "code": 13000,
                 "rank": [22, "s"],
                 "nobility": (8, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -1967,6 +2173,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=12): {
                 "feast": "S Joannis Gualberti Abb",
+                "code": 13100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "Ss Naboris et Felicis Mm", "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -1983,6 +2190,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=13): {
                 "feast": "S Anacleti PM",
+                "code": 13200,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -1998,6 +2206,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=14): {
                 "feast": "S Bonaventuræ ECD",
+                "code": 13300,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2013,6 +2222,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=15): {
                 "feast": "S Henrici Imp C",
+                "code": 13400,
                 "rank": [16, "sd, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2028,6 +2238,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=16): {
                 "feast": "In Commemoratione BMV de Monte Carmelo",
+                "code": 13500,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2043,6 +2254,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=17): {
                 "feast": "S Alexii C",
+                "code": 13600,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2058,6 +2270,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=18): {
                 "feast": "S Camilli de Lellis C",
+                "code": 13700,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "Ss Symphorosae et Septem Filiis ejus Mm", "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2074,6 +2287,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=19): {
                 "feast": "S Vincentii a Paulo C",
+                "code": 13800,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2089,6 +2303,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=20): {
                 "feast": "S Hieronymi Æmiliani C",
+                "code": 13900,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "S Margaritae VM", "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2105,6 +2320,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=21): {
                 "feast": "S Praxedis V",
+                "code": 14000,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2120,6 +2336,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=22): {
                 "feast": "S Mariæ Magdalenæ Pænitentis",
+                "code": 14100,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2135,6 +2352,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=23): {
                 "feast": "S Apollinaris EM",
+                "code": 14200,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "com": [{"feast": "S Liborii EC", "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2151,6 +2369,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=24): {
                 "feast": "In Vigilia S Jacobi Ap",
+                "code": 14300,
                 "rank": [19, "v"],
                 "nobility": (False,),
                 "com": [{"feast": "S Christinae VM", "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2167,6 +2386,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=25): {
                 "feast": "S Jacobi Ap",
+                "code": 14400,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "com": [{"feast": "S Christophori M", "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2183,6 +2403,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=26): {
                 "feast": "S Annæ Matris BMV",
+                "code": 14500,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2198,6 +2419,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=27): {
                 "feast": "S Pantaleonis M",
+                "code": 14600,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2213,6 +2435,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=28): {
                 "feast": "Ss Nazarii et Celsi Mm, Victoris I PM, ac Innocentii I PC",
+                "code": 14700,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2228,6 +2451,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=29): {
                 "feast": "S Marthæ V",
+                "code": 14800,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "com": [{"feast": "Ss Felicis II P, Simplicis, Faustinis atq Beatricae Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2244,6 +2468,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=30): {
                 "feast": "Ss Abdon et Sennen Mm",
+                "code": 14900,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2259,6 +2484,7 @@ class Sanctoral:
             },
             day(year=self.year, month=7, day=31): {
                 "feast": "S Ignatii C",
+                "code": 15000,
                 "rank": [14, "dm"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2276,6 +2502,7 @@ class Sanctoral:
             # August
             day(year=self.year, month=8, day=1): {
                 "feast": "S Petri Ap ad Vincula",
+                "code": 15100,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "com": [{"feast": "S Pauli Ap", "mass": {"int": "", "glo": True, "cre": True, "pre": "de Apostolis"}},{"feast": "Ss Machabæis Mm", "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}}],
@@ -2292,6 +2519,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=2): {
                 "feast": "S Alphonsi Mariæ de Ligorio ECD",
+                "code": 15200,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "S Stephani PM", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},],
@@ -2308,6 +2536,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=3): {
                 "feast": "In Inventione S Stephani Protomartyris",
+                "code": 15300,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2322,7 +2551,8 @@ class Sanctoral:
                 "fasting": False,
             },
             day(year=self.year, month=8, day=4): {
-                "feast": "S Dominici v",
+                "feast": "S Dominici C",
+                "code": 15400,
                 "rank": [14, "dm, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2338,6 +2568,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=5): {
                 "feast": "In Dedicatione S Mariæ ad Nives",
+                "code": 15500,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2353,6 +2584,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=6): {
                 "feast": "In Transfiguratione DNJC",
+                "code": 15600,
                 "rank": [11, "d II cl"],
                 "nobility": (False,),
                 "com": [{"feast": "Ss Xysti P, Felicissimi atq Agapiti Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "de Apostolis"}},],
@@ -2369,6 +2601,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=7): {
                 "feast": "S Cajetani C",
+                "code": 15700,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "S Donati EM", "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2385,6 +2618,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=8): {
                 "feast": "Ss Cyriaci, Largi atq Smaragdi Mm",
+                "code": 15800,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2400,6 +2634,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=9): {
                 "feast": "S Joannis Mariæ Vianney C",
+                "code": 15900,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "Vigilia S Laurentii M", "mass": {"int": "Dispersit", "glo": False, "cre": False, "pre": "Communis"}},{"feast": "S Romani M", "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"}}],
@@ -2416,6 +2651,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=10): {
                 "feast": "S Laurentii M",
+                "code": 16000,
                 "rank": [10, "d II cl"],
                 "office_type": False,
                 "color": "red",
@@ -2430,6 +2666,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=11): {
                 "feast": "Ss Tiburtii et Susannæ V, Mm",
+                "code": 16100,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2445,6 +2682,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=12): {
                 "feast": "S Claræ V",
+                "code": 16200,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2460,6 +2698,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=13): {
                 "feast": "Ss Hippolyti et Cassiani Mm",
+                "code": 16300,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2475,6 +2714,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=14): {
                 "feast": "In Vigilia Assumptionis BMV",
+                "code": 16400,
                 "rank": [19, "v"],
                 "nobility": (False,),
                 "com": [{"feast": "S Eusebii C", "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"}},{"feast": "Spiritus Sancti", "mass": {"int": "de Spiritu Sancto"}}],
@@ -2491,6 +2731,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=15): {
                 "feast": "In Assumptione BMV",
+                "code": 16500,
                 "infra_octave_name": "Oct Assumptionis BMV",
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 1, 4, 2, 1, 0),
@@ -2507,6 +2748,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=16): {
                 "feast": "S Joachim C, Patris BMV,",
+                "code": 16600,
                 "rank": [10, "d II cl, mtv"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2522,6 +2764,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=17): {
                 "feast": "S Hyacinthi C",
+                "code": 16700,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "Octava S Laurentii M", "mass": {"int": "Probasti", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2538,6 +2781,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=18): {
                 "feast": "S Agapiti M",
+                "code": 16800,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2553,6 +2797,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=19): {
                 "feast": "S Joannis Eudes C",
+                "code": 16900,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2568,6 +2813,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=20): {
                 "feast": "S Bernardi AbbD",
+                "code": 17000,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2583,6 +2829,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=21): {
                 "feast": "S Joannæ Franciscæ Fremiot de Chantal V",
+                "code": 17100,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2598,6 +2845,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=22): {
                 "feast": "In Festo Immaculati Cordis BMV",
+                "code": 17200,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "com": [{"feast": "Ss Timothei, Hippolyti atq Symphoriani Mm", "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2614,6 +2862,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=23): {
                 "feast": "S Philippi Benitii C",
+                "code": 17300,
                 "rank": [19, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2630,6 +2879,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=24): {
                 "feast": "S Bartholomæi Ap",
+                "code": 17400,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2645,6 +2895,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=25): {
                 "feast": "S Ludovici RC",
+                "code": 17500,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2660,6 +2911,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=26): {
                 "feast": "S Zephrini PM",
+                "code": 17600,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2675,6 +2927,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=27): {
                 "feast": "S Josephi Calasanctii C",
+                "code": 17700,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2690,6 +2943,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=28): {
                 "feast": "S Augustini ECD",
+                "code": 17800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "S Hermetis M", "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2706,6 +2960,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=29): {
                 "feast": "In Decollatione S Joannis Baptistæ",
+                "code": 17900,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "com": [{"feast": "S Sabinae M", "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2722,6 +2977,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=30): {
                 "feast": "S Rosæ a S Maria Limanae V",
+                "code": 18000,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "com": [{"feast": "Ss Felicis et Adaucti Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2738,6 +2994,7 @@ class Sanctoral:
             },
             day(year=self.year, month=8, day=31): {
                 "feast": "S Raymundi Nonnati C",
+                "code": 18100,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2755,6 +3012,7 @@ class Sanctoral:
             # September
             day(year=self.year, month=9, day=1): {
                 "feast": "S Ægidii Abb",
+                "code": 18200,
                 "rank": [22, "s"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2771,6 +3029,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=2): {
                 "feast": "S Stephani R C",
+                "code": 18300,
                 "rank": [16, "sd, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2786,6 +3045,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=3): {
                 "feast": "S Pii X PC",
+                "code": 18400,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2801,6 +3061,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=5): {
                 "feast": "S Laurentii Justiniani EC",
+                "code": 18500,
                 "rank": [16, "sd, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2816,6 +3077,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=8): {
                 "feast": "In Nativitate BMV",
+                "code": 18600,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "com": [{"feast": "S Hadriani M", "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2832,6 +3094,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=9): {
                 "feast": "S Gorgonii M",
+                "code": 18700,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2847,6 +3110,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=10): {
                 "feast": "S Nicolai de Tolentino C",
+                "code": 18800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2862,6 +3126,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=11): {
                 "feast": "Ss Proti et Hycinthi Mm",
+                "code": 18900,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2877,6 +3142,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=12): {
                 "feast": "Ssmi Nominis BMV",
+                "code": 19000,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2892,6 +3158,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=14): {
                 "feast": "In Exaltatione S Crucis",
+                "code": 19100,
                 "rank": [14, "dm"],
                 "office_type": False,
                 "color": "red",
@@ -2906,6 +3173,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=15): {
                 "feast": "Septem Dolorum BMV",
+                "code": 19200,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "com": [{"feast": "S Nicomedis M", "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2922,6 +3190,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=16): {
                 "feast": "Ss Cornelii P et Cypriani E Mm",
+                "code": 19300,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "com": [{"feast": "Ss Euphemiae V, Luciae atq Geminiani Mm", "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2938,6 +3207,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=17): {
                 "feast": "In Impressione Ss Stigmatum S Francisci C",
+                "code": 19400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2953,6 +3223,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=18): {
                 "feast": "S Josephi a Cupertino C",
+                "code": 19500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -2968,6 +3239,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=19): {
                 "feast": "Ss Januarii E et Sociorum Mm",
+                "code": 19600,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -2983,6 +3255,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=20): {
                 "feast": "Ss Eustachii et Sociorum Mm",
+                "code": 19700,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "com": [{"feast": "In Vigilia S Matthæi ApEv", "mass": {"int": "Ego autem", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -2999,6 +3272,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=21): {
                 "feast": "S Matthæi ApEv",
+                "code": 19800,
                 "rank": [21, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3014,6 +3288,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=22): {
                 "feast": "S Thomæ de Villanova EC",
+                "code": 19900,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "Ss Mauritii et Sociorum Mm", "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3030,6 +3305,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=23): {
                 "feast": "S Lini PM",
+                "code": 20000,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "com": [{"feast": "S Theclae VM", "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3046,6 +3322,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=24): {
                 "feast": "BMV de Merdece",
+                "code": 20100,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3061,6 +3338,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=26): {
                 "feast": "Ss Cypriani et Justinæ Mm",
+                "code": 20200,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3076,6 +3354,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=27): {
                 "feast": "Ss Cosmæ et Damiani Mm",
+                "code": 20300,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3091,6 +3370,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=28): {
                 "feast": "S Wenceslai Ducis M",
+                "code": 20400,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3106,6 +3386,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=29): {
                 "feast": "In Dedicatione S Michaelis Arch",
+                "code": 20500,
                 "rank": [2, "d I cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3121,6 +3402,7 @@ class Sanctoral:
             },
             day(year=self.year, month=9, day=30): {
                 "feast": "S Hieronymi SCD",
+                "code": 20600,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3138,6 +3420,7 @@ class Sanctoral:
             # October
             day(year=self.year, month=10, day=1): {
                 "feast": "S Remigii EC",
+                "code": 20700,
                 "rank": [22, "s"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3153,6 +3436,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=2): {
                 "feast": "Ss Angelorum Custodum",
+                "code": 20800,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3168,6 +3452,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=3): {
                 "feast": "S Teresiæ a Jesu Infante V",
+                "code": 20900,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3183,6 +3468,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=4): {
                 "feast": "S Francisci C",
+                "code": 21000,
                 "rank": [14, "dm"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3198,6 +3484,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=5): {
                 "feast": "Ss Placidi et Sociorum Mm",
+                "code": 21100,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3213,6 +3500,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=6): {
                 "feast": "S Brunonis C",
+                "code": 21200,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3228,6 +3516,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=7): {
                 "feast": "Sacratissimi Rosarii BMV",
+                "code": 21300,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "com": [{"feast": "S Marci PC", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},{"feast": "Ss Sergii, Bacchi, Marcelli atq Apuleji MM", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}}],
@@ -3244,6 +3533,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=8): {
                 "feast": "S Birgittæ V",
+                "code": 21400,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3259,6 +3549,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=9): {
                 "feast": "S Joannis Leonardi C",
+                "code": 21500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "Ss Dionysii E, Rustici atq Eleutherii Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3275,6 +3566,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=10): {
                 "feast": "S Francisci Borgiæ C",
+                "code": 21600,
                 "rank": [16, "sd, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3290,6 +3582,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=11): {
                 "feast": "In Maternitate BMV",
+                "code": 21700,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3305,6 +3598,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=13): {
                 "feast": "S Eduardi R C",
+                "code": 21800,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3320,6 +3614,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=14): {
                 "feast": "S Callisti I PM",
+                "code": 21900,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3335,6 +3630,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=15): {
                 "feast": "S Teresiæ V",
+                "code": 22000,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3350,6 +3646,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=16): {
                 "feast": "S Hedwigis V",
+                "code": 22100,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3365,6 +3662,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=17): {
                 "feast": "S Margaritæ Mariæ Alacoque V",
+                "code": 22200,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3380,6 +3678,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=18): {
                 "feast": "S Lucæ Ev",
+                "code": 22300,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3395,6 +3694,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=19): {
                 "feast": "S Petri de Alcantara C",
+                "code": 22400,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3410,6 +3710,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=20): {
                 "feast": "S Joannis Cantii C",
+                "code": 22500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3425,6 +3726,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=21): {
                 "feast": "S Hilarionis Abb",
+                "code": 22600,
                 "rank": [22, "s"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "Ss Ursulae et Sociarum VM", "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3441,6 +3743,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=24): {
                 "feast": "S Raphaelis Arch",
+                "code": 22700,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3456,6 +3759,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=25): {
                 "feast": "Ss Chrysanthi et Dariæ Mm",
+                "code": 22800,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3471,6 +3775,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=26): {
                 "feast": "S Evaristi PM",
+                "code": 22900,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3486,6 +3791,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=27): {
                 "feast": "In Vigilia Ss Simonis et Judæ App",
+                "code": 23000,
                 "rank": [19, "v"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3501,6 +3807,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=28): {
                 "feast": "Ss Simonis et Judæ App",
+                "code": 23100,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3516,6 +3823,7 @@ class Sanctoral:
             },
             day(year=self.year, month=10, day=31): {
                 "feast": "In Vigilia Omnium Sanctorum",
+                "code": 23200,
                 "rank": [19, "v"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3533,6 +3841,7 @@ class Sanctoral:
             # November
             day(year=self.year, month=11, day=1): {
                 "feast": "In Festo Omnium Sanctorum",
+                "code": 23300,
                 "infra_octave_name": "Oct Omnium Sanctorum",
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 1, 4, 3, 1, 0,),
@@ -3549,6 +3858,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=2): {
                 "feast": "In Commemoratione Omnium Fidelium Defunctorum",
+                "code": 23400,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "color": "black",
@@ -3568,6 +3878,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=4): {
                 "feast": "S Caroli EC",
+                "code": 23500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "Octavae Omnium Sanctorum", "mass": {"int": "", "glo": True, "cre": True, "pre": "Communis"}},{"feast": "Ss Vitalis et Agricolae Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}}],
@@ -3582,7 +3893,7 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
-            # todo add "11/5-7 Infra Octava Omnium Sanctorum feria
+            # todo add "2371/5-7 Infra Octava Omnium Sanctorum feria
             # day(year=self.year, month=11, day=8): {
             #     "feast": "In Octava Omnium Sanctorum",
             #     "rank": [16, "sd"],
@@ -3601,6 +3912,7 @@ class Sanctoral:
             # },
             day(year=self.year, month=11, day=9): {
                 "feast": "In Dedicatione Archibasilicæ Ssmi Salvatoris",
+                "code": 23700,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "com": [{"feast": "S Theodori M", "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3617,6 +3929,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=10): {
                 "feast": "S Andreæ Avellini C",
+                "code": 23800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "Ss Tryphonis, Respicii atq Nymphae V Mm", "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3633,6 +3946,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=11): {
                 "feast": "S Martini EC",
+                "code": 23900,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "S Mennae M", "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3649,6 +3963,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=12): {
                 "feast": "S Martini I PM",
+                "code": 24000,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3664,6 +3979,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=13): {
                 "feast": "S Didaci C",
+                "code": 24100,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3679,6 +3995,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=14): {
                 "feast": "S Josaphat EM",
+                "code": 24200,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3694,6 +4011,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=15): {
                 "feast": "S Alberti Magni ECD",
+                "code": 24300,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3709,6 +4027,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=16): {
                 "feast": "S Gertrudis V",
+                "code": 24400,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3724,6 +4043,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=17): {
                 "feast": "S Gregorii Thaumaturgi EC",
+                "code": 24500,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3739,6 +4059,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=18): {
                 "feast": "In Dedicatione Basilicarum Ss Petri et Pauli App",
+                "code": 24600,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3754,6 +4075,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=19): {
                 "feast": "S Elisabeth V",
+                "code": 24700,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "com": [{"feast": "S Pontiani PM", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},],
@@ -3770,6 +4092,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=20): {
                 "feast": "S Felicis de Valois C",
+                "code": 24800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3785,6 +4108,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=21): {
                 "feast": "In Præsentatione BMV",
+                "code": 24900,
                 "rank": [14, "dm"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3800,6 +4124,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=22): {
                 "feast": "S Cæciliæ VM",
+                "code": 25000,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3815,6 +4140,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=23): {
                 "feast": "S Clementis I PM",
+                "code": 25100,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "com": [{"feast": "S Felicitatis M", "mass": {"int": "Me exspectaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3831,6 +4157,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=24): {
                 "feast": "S Joannis a Cruce CD",
+                "code": 25200,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "S Chrysogoni M", "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3847,6 +4174,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=25): {
                 "feast": "S Catharinæ VM",
+                "code": 25300,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3862,6 +4190,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=26): {
                 "feast": "S Sylvestri Abb",
+                "code": 25400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "S Petri Alexandrini EM", "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3878,6 +4207,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=29): {
                 "feast": "In Vigilia S Andreæ Ap",
+                "code": 25500,
                 "rank": [22, "v"],
                 "nobility": (False,),
                 "com": [{"feast": "S Saturnini M", "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3894,6 +4224,7 @@ class Sanctoral:
             },
             day(year=self.year, month=11, day=30): {
                 "feast": "S Andreæ Ap",
+                "code": 25600,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3907,11 +4238,12 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
-            # todo add 12/1 feria
+            # todo add 1259/1 feria
 
             # December
             day(year=self.year, month=12, day=2): {
                 "feast": "S Bibianæ VM",
+                "code": 25800,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -3927,6 +4259,7 @@ class Sanctoral:
             },
             day(year=self.year, month=12, day=3): {
                 "feast": "S Francisci Xaverii C",
+                "code": 25900,
                 "rank": [14, "dm, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3942,6 +4275,7 @@ class Sanctoral:
             },
             day(year=self.year, month=12, day=4): {
                 "feast": "S Petri Chrysologi ECD",
+                "code": 26000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "S Barbarae VM", "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}},],
@@ -3958,6 +4292,7 @@ class Sanctoral:
             },
             day(year=self.year, month=12, day=5): {
                 "feast": "S Sabbae Abb",
+                "code": 26100,
                 "rank": [22, "s"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -3973,6 +4308,7 @@ class Sanctoral:
             },
             day(year=self.year, month=12, day=6): {
                 "feast": "S Nicolai EC",
+                "code": 26200,
                 "rank": [15, "d"], # FIX: vigil of IC?
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "com": [{"feast": "In Vigilia Conceptionis Immaculatæ BMV",
@@ -4002,6 +4338,7 @@ class Sanctoral:
             },
             day(year=self.year, month=12, day=7): {
                 "feast": "S Ambrosii ECD",
+                "code": 26300,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -4017,6 +4354,7 @@ class Sanctoral:
             },
             day(year=self.year, month=12, day=8): {
                 "feast": "In Conceptione Immaculata BMV",
+                "code": 26400,
                 "infra_octave_name": "Oct Concept Immac BMV",
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (False,),
@@ -4032,9 +4370,10 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
-            # todo add "12/9 De II die infra Octava Concept. Immac. BMV feria
+            # todo add "2662/9 De II die infra Octava Concept. Immac. BMV feria
             day(year=self.year, month=12, day=10): {
                 "feast": "S Melchidi PM",
+                "code": 26600,
                 "rank": [22, "s"],
                 "nobility": (False,),
                 "office_type": False,
@@ -4050,6 +4389,7 @@ class Sanctoral:
             },
             day(year=self.year, month=12, day=11): {
                 "feast": "S Damasi I PC",
+                "code": 26700,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
@@ -4063,9 +4403,10 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
-            # todo add "12/12 De II die infra Octava Concept. Immac. BMV feria
+            # todo add "2692/12 De II die infra Octava Concept. Immac. BMV feria
             day(year=self.year, month=12, day=13): {
                 "feast": "S Luciæ VM",
+                "code": 26900,
                 "rank": [15, "d"],
                 "nobility": (False,),
                 "office_type": False,
@@ -4083,6 +4424,7 @@ class Sanctoral:
             # TODO: add "12/15 Octava Concept. Immac. BMV dm
             day(year=self.year, month=12, day=16): {
                 "feast": "S Eusebii EM",
+                "code": 27000,
                 "rank": [16, "sd"],
                 "nobility": (False,),
                 "office_type": False,
@@ -4098,6 +4440,7 @@ class Sanctoral:
             },
             day(year=self.year, month=12, day=20): {
                 "feast": "In Vigilia S Thomæ Ap",
+                "code": 27100,
                 "rank": [22, "v"], # TODO: check the ranking of a vigil
                 "nobility": (8, 2, 6, 5, 3, 0,),
                 "office_type": False,
@@ -4113,6 +4456,7 @@ class Sanctoral:
             },
             day(year=self.year, month=12, day=21): {
                 "feast": "S Thomæ Ap",
+                "code": 27200,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -4131,12 +4475,13 @@ class Sanctoral:
         self.data_leapyear = {
             day(year=self.year, month=2, day=23): {
                 "feast": "S Petri Damiani ECD",
+                "code": 3500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-                "com": [{"feast": "Vigilia S Matthiæ Ap"}],
+                # "com": [{"feast": "Vigilia S Matthiæ Ap"}],
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4147,6 +4492,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=24): {
                 "feast": "In Vigilia S Matthiæ",
+                "code": 27300,
                 "rank": [20, "v"],
                 "nobility": (False,),
                 "office_type": False,
@@ -4162,6 +4508,7 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=25): {
                 "feast": "S Matthiæ Ap",
+                "code": 3600,
                 "rank": [10, "d II cl"],
                 "nobility": (False,),
                 "office_type": False,
@@ -4177,9 +4524,11 @@ class Sanctoral:
             },
             day(year=self.year, month=2, day=27): {
                 "feast": False,
+                "code": 27600,
             },
             day(year=self.year, month=2, day=28): {
                 "feast": "S Gabrielis a Virgine Perdolente C",
+                "code": 3700,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,

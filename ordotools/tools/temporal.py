@@ -3,9 +3,9 @@ from ordotools.tools.helpers import day
 from ordotools.tools.helpers import days
 from ordotools.tools.helpers import easter
 from ordotools.tools.helpers import findsunday
+from ordotools.tools.helpers import last_sunday
 from ordotools.tools.helpers import week
 from ordotools.tools.helpers import weekday
-from ordotools.tools.helpers import last_sunday
 
 
 class Temporal:
@@ -24,7 +24,7 @@ class Temporal:
 
     Some of the f-strings and dictionary comprehensions might be too cumbersome
     for some tastes, but in this case they save quite a bit of time and
-    debugging because of the nature of building a calendar.
+    debugging because of the complications of building a liturgical calendar.
 
     The lack of verboseness in some of the naming conventions is intentional
     (e.g., not mentioning "Holy Saturday" explicitly, but naming it the
@@ -384,7 +384,7 @@ class Temporal:
         # TODO: use a loop for this after the data is settled
         for key, value in compiled.items():
             big_data |= {key: {
-                "feast": data[value]["feast"] if value in data.keys() else value,
+                "code": data[value]["code"] if value in data.keys() else value,
                 "rank": data[value]["rank"],
                 "color": data[value]["color"] if value in data.keys() else "blue",
                 "mass": data[value]["mass"],
