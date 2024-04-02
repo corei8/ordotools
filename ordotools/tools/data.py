@@ -19,7 +19,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8_Stephen": {
@@ -35,7 +35,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8_John": {
@@ -51,7 +51,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8_Innocents": {
@@ -67,7 +67,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "SNameJesus": {
@@ -83,7 +83,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             # FIX: test this
@@ -102,7 +102,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -120,7 +120,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "Epiphany": {
@@ -136,7 +136,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8_Epiphany": {
@@ -168,7 +168,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -186,7 +186,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "D_HolyFamily": {
@@ -202,7 +202,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -222,7 +222,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
             "AshWed_f5": {
@@ -238,7 +238,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
             "AshWed_f6": {
@@ -254,7 +254,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
             "AshWed_fs": {
@@ -270,7 +270,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
 
@@ -287,7 +287,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "dominica",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -305,7 +305,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
             "Ember_Lent_6": {
@@ -321,7 +321,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
             "Ember_Lent_s": {
@@ -337,7 +337,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
 
@@ -354,7 +354,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
 
@@ -405,7 +405,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
 
@@ -423,7 +423,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
             "de_Palm_f6": {
@@ -439,7 +439,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
             "de_Palm_fs": {
@@ -455,7 +455,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
 
@@ -473,7 +473,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8Easter_f2": {
@@ -489,7 +489,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8Easter_f3": {
@@ -505,7 +505,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8Easter_f4": {
@@ -521,7 +521,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8Easter_f5": {
@@ -537,7 +537,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8Easter_f6": {
@@ -553,7 +553,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "WhitSaturday": {
@@ -569,7 +569,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -603,7 +603,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -672,7 +672,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8_Ascension": {
@@ -705,7 +705,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -749,7 +749,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -766,7 +766,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "dominica",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
 
             },
@@ -784,7 +784,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
 
@@ -802,7 +802,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             # TODO: see if the first two ferias are 2 or 3
@@ -819,7 +819,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8Pent_f3": {
@@ -835,7 +835,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8Pent_f5": {
@@ -851,7 +851,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -868,7 +868,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
             "Ember_Pent_6": {
@@ -884,7 +884,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
             "Ember_Pent_s": {
@@ -900,7 +900,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
 
@@ -918,7 +918,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "D_Pent_2": {
@@ -934,7 +934,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "dominica",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "D_Pent_3": {
@@ -950,7 +950,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "dominica",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -967,7 +967,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -984,7 +984,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -1018,7 +1018,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": False,
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -1035,7 +1035,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
 
@@ -1052,7 +1052,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
             "Ember_Sept_s": {
@@ -1068,7 +1068,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
 
@@ -1086,7 +1086,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -1155,7 +1155,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": True,
             },
             "DV_Christmas": {
@@ -1171,7 +1171,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "feria",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "Christmas": {
@@ -1206,7 +1206,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "dominica",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "D_Christmas": {
@@ -1222,7 +1222,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "dominica",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "8_Chritmas_f6": {
@@ -1237,7 +1237,7 @@ class TemporalData:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""}, "office_type": "feria",
                 "compline": {},
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "StStephan": {
@@ -1253,7 +1253,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "StJohn": {
@@ -1269,7 +1269,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "StsInnocents": {
@@ -1285,7 +1285,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "StThomas": {
@@ -1301,7 +1301,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "StSylvester": {
@@ -1317,7 +1317,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
 
@@ -1335,7 +1335,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             "D_StSylvester": {
@@ -1351,7 +1351,7 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                 "compline": {},
                 "office_type": "festiva",
-                "nobility": (False,),
+                "nobility": (0, 0, 0, 0, 0, 0,),
                 "fasting": False,
             },
             # TODO: add the Sundays if the fall on St. Thomas or St. Sylvester
@@ -1404,7 +1404,7 @@ class TemporalData:
                             "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                             "compline": {},
                             "office_type": False,
-                            "nobility": (False,),
+                            "nobility": (0, 0, 0, 0, 0, 0,),
                             "fasting": False,
                         }
                     }
@@ -1513,7 +1513,7 @@ class TemporalData:
                     "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                     "compline": {},
                     "office_type": "dominica",
-                    "nobility": (False,),
+                    "nobility": (0, 0, 0, 0, 0, 0,),
                     "fasting": False,
                 }
             }
@@ -1560,7 +1560,7 @@ class TemporalData:
                         "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                         "compline": {},
                         "office_type": "dominica",
-                        "nobility": (False,),
+                        "nobility": (0, 0, 0, 0, 0, 0,),
                         "fasting": False,
                     }
                 }
@@ -1602,7 +1602,7 @@ class TemporalData:
                     "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                     "compline": {},
                     "office_type": "dominica",
-                    "nobility": (False,),
+                    "nobility": (0, 0, 0, 0, 0, 0,),
                     "fasting": False,
                 }
             }
@@ -1650,7 +1650,7 @@ class TemporalData:
                                     "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                                     "compline": {},
                                     "office_type": "dominica",
-                                    "nobility": (False,),
+                                    "nobility": (0, 0, 0, 0, 0, 0,),
                                     "fasting": False,
                                     }
             }
@@ -1722,7 +1722,7 @@ class TemporalData:
                     "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                     "compline": {},
                     "office_type": "dominica",
-                    "nobility": (False,),
+                    "nobility": (0, 0, 0, 0, 0, 0,),
                     "fasting": False,
                 }
             }
@@ -1788,7 +1788,7 @@ class TemporalData:
                     "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                     "compline": {},
                     "office_type": "dominica",
-                    "nobility": (False,),
+                    "nobility": (0, 0, 0, 0, 0, 0,),
                     "fasting": False,
                 }
             }
@@ -1830,7 +1830,7 @@ class TemporalData:
                     "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""},
                     "compline": {},
                     "office_type": "dominica",
-                    "nobility": (False,),
+                    "nobility": (0, 0, 0, 0, 0, 0,),
                     "fasting": False,
                 }
             }

@@ -22,9 +22,10 @@ logging.basicConfig(level=logging.DEBUG)
 
 class LiturgicalCalendar:
 
-    def __init__(self, year, diocese, country=""):
+    def __init__(self, year, diocese, language, country=""):
         self.year = year
         self.diocese = diocese
+        self.language = language
         self.transfers = None
         self.temporal = Temporal(self.year).return_temporal()
         self.FIRST_ADVENT = LiturgicalYearMarks(self.year).first_advent
@@ -73,6 +74,8 @@ class LiturgicalCalendar:
         return y
 
     def commemoration(self, feast: Feast, com: Feast) -> Feast:
+        if "com" in com.feast_properties.keys():
+            com.feast_properties.pop("com")
         feast.com.insert(0, com.feast_properties)
         return feast
 
@@ -189,6 +192,15 @@ class LiturgicalCalendar:
                         continue
         return year
 
+    def add_translation(self, calendar: dict, language: str) -> dict:
+        year = {}
+        for date, feast in calendar.items():
+            # we have to do the same things with the commemorations
+            updated_feast = Feast(date, year, language)
+            year | updated_feast.updated_properties
+        return year
+
+
     def build(self) -> None:
         saints = Sanctoral(self.year)
         if self.diocese == 'roman':
@@ -205,5 +217,5 @@ class LiturgicalCalendar:
         full_calendar = self.add_feasts(self.temporal, sanctoral).copy()
         full_calendar |= self.our_ladys_saturday(full_calendar)
         full_calendar |= self.find_octave(year=full_calendar)
-
-        return list(full_calendar.values())
+        # full_calendar.values()
+        return list(self.add_translation(full_calendar, self.language).items())

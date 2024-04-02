@@ -1,7 +1,12 @@
 from ordotools import LiturgicalCalendar
+# import time
 
-data = LiturgicalCalendar(2024, "roman").build()
 
+# start_time = time.time()
+
+data = LiturgicalCalendar(2024, "roman", "la").build()
+
+# execution = time.time() - start_time
 for feast in data:
     if feast.date.strftime("%a") == "Sun":
         print("\r")
@@ -9,3 +14,5 @@ for feast in data:
         # f"{feast.date.strftime('%a, %b %d')} : Fasting={feast.fasting}\t{feast.name}"
         f"{feast.date.strftime('%a, %b %d')} \t{feast.name}"
     )
+    
+# print(f"\nExecution: {execution}")

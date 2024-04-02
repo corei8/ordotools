@@ -3,12 +3,15 @@ from ordotools.tools.translations import Translations
 
 
 class Feast:
-    def __init__(self, feast_date: datetime, properties: dict):
+    def __init__(self, feast_date: datetime, properties: dict, lang=None):
         self.date = feast_date
 
         trans     = Translations()
-        self.name = trans.translations()[properties["code"]]["la"] # TODO: this is temporary
-        self.code = properties["code"]                             # TODO: this is temporary
+        self.code = properties["code"]
+        if lang is None:
+            self.name = ""
+        else:
+            self.name = trans.translations()[self.code][lang] # TODO: this is temporary
 
         self.feast_properties = properties | {"feast": self.name}
 
@@ -32,7 +35,6 @@ class Feast:
         self.office_type = properties["office_type"]
 
         self.com          = properties["com"] if "com" in properties.keys() else []
-        print(self.com)
         self.matins       = properties["matins"]
         self.lauds        = properties["lauds"]
         self.prime        = properties["prime"]
