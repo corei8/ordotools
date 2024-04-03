@@ -38,20 +38,22 @@ class LiturgicalCalendar:
         Generates (or expands) the octave for a feast.
         """
         octave = {}
-        day = 1 # we can make this one a 2
+        day = 2
         while day < 9:
-            intro = f"De {integer_to_roman(day)} die"
-            if day == 1: # TODO: get rid of the first 'if'
-                pass
+            new_feast = Feast(feast.date+days(day-1), feast.updated_properties)
+            # WARN: this is a hack for now!!
             if day == 8:
-                feast.name = feast.infra_octave_name
+                new_feast.day_in_octave = day
+                # new_feast.name = feast.infra_octave_name
             else:
-                feast.name = f"{intro} infra {feast.infra_octave_name}"
+                # intro = f"De {integer_to_roman(day)} die"
+                # new_feast.name = f"{intro} infra {feast.infra_octave_name}"
+                new_feast.day_in_octave = day
             # FIX: we have an issue here if the feast falls on a Friday
-            feast.fasting = False
-            feast.rank_v = "feria"
-            feast.rank_n = 18 if day < 6 else 13 # for common octaves
-            octave |= {feast.date+days(day-1): feast.updated_properties}
+            new_feast.fasting = False
+            new_feast.rank_v = "feria"
+            new_feast.rank_n = 18 if day < 6 else 13 # for common octaves
+            octave |= {new_feast.date: new_feast.updated_properties}
             day += 1
         return octave
 
@@ -59,19 +61,15 @@ class LiturgicalCalendar:
         """
         Finds the octaves of the sanctoral cycle and adds them to the year.
         """
-        y = year.copy()
-        # there might be a faster way of doing this
-        temporals = []
-        for feast in self.temporal.values():
-            temporals.append(feast["code"])
-        for candidate in y.values():
-            if candidate.name in temporals:
-                # all of the octaves of the temporal cycle are already expanded
+        calendar = year.copy()
+        temporals = [feast["code"] for feast in self.temporal.values()]
+        for candidate in calendar.values():
+            if candidate.code in temporals:
                 continue
             elif candidate.octave is True:
                 octave = self.expand_octaves(deepcopy(candidate))
-                y |= self.add_feasts(master=y, addition=octave)
-        return y
+                calendar |= self.add_feasts(master=calendar, addition=octave)
+        return calendar
 
     def commemoration(self, feast: Feast, com: Feast) -> Feast:
         if "com" in com.feast_properties.keys():
@@ -161,7 +159,7 @@ class LiturgicalCalendar:
                 result = self.transfer_feast(
                     Feast(date, feast.updated_properties)
                 )
-                if result.feast == feast.feast:
+                if result.code == feast.code:
                     pass
                 else:
                     self.transfers = None
@@ -192,20 +190,19 @@ class LiturgicalCalendar:
                         continue
         return year
 
-    def add_translation(self, calendar: dict, language: str) -> dict:
-        year = {}
-        for date, feast in calendar.items():
-            # we have to do the same things with the commemorations
-            updated_feast = Feast(date, year, language)
-            year | updated_feast.updated_properties
+    def add_translation(self, compiled_cal: dict) -> dict:
+        year = []
+        for date, feast in compiled_cal.items():
+            feast.lang = self.language
+            year.append(feast)
         return year
 
-
     def build(self) -> None:
+        print("Starting the Calendar...")
+        print("Gathering Sanctoral Cycle...")
         saints = Sanctoral(self.year)
         if self.diocese == 'roman':
-            sanctoral = saints.data if leap_year(self.year) is False \
-                else saints.leapyear()
+            sanctoral = saints.data if leap_year(self.year) is False else saints.leapyear()
         else:
             diocese = import_module(
                 f"sanctoral.diocese.{self.diocese}",
@@ -214,8 +211,12 @@ class LiturgicalCalendar:
 
         # MODULES:
         # Any one of these can be disabled without error. Theoretically.
+        print("Adding Feasts...")
         full_calendar = self.add_feasts(self.temporal, sanctoral).copy()
+        print("Checking for Our Lady's Saturday...")
         full_calendar |= self.our_ladys_saturday(full_calendar)
+        print("Looking for Octaves...")
         full_calendar |= self.find_octave(year=full_calendar)
         # full_calendar.values()
-        return list(self.add_translation(full_calendar, self.language).items())
+        print("Adding Translations...")
+        return self.add_translation(full_calendar)

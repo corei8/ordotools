@@ -11,8 +11,6 @@ for feast in data:
     if feast.date.strftime("%a") == "Sun":
         print("\r")
     print(
-        # f"{feast.date.strftime('%a, %b %d')} : Fasting={feast.fasting}\t{feast.name}"
         f"{feast.date.strftime('%a, %b %d')} \t{feast.name}"
     )
-    
 # print(f"\nExecution: {execution}")
