@@ -1,29 +1,39 @@
 from datetime import datetime
-from math import floor
 
-
-def integer_to_roman(num=int) -> int:
-    romans = {
-        1: "I", 5: "V", 10: "X", 50: "L", 100: "C",
-        500: "D", 1000: "M", 5000: "G", 10000: "H",
-    }
-    div, result = 1, ''
-    while num >= div:
-        div *= 10
-    div /= 10
-    while num:
-        last_num = int(num / div)
-        if last_num <= 3:
-            result += (romans[div]*last_num)
-        elif last_num == 4:
-            result += (romans[div]+romans[div*5])
-        elif 5 <= last_num <= 8:
-            result += (romans[div*5]+(romans[div]*(last_num-5)))
-        elif last_num == 9:
-            result += (romans[div]+romans[div*10])
-        num = floor(num % div)
-        div /= 10
-    return result
+def integer_to_roman(num: int) -> str:
+    return (
+        "_",
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI",
+        "VII",
+        "VIII",
+        "IX",
+        "X",
+        "XI",
+        "XII",
+        "XIII",
+        "XIV",
+        "XV",
+        "XVI",
+        "XVII",
+        "XVIII",
+        "XIX",
+        "XX",
+        "XXI",
+        "XXII",
+        "XXIII",
+        "XXIV",
+        "XXV",
+        "XXVI",
+        "XXVII",
+        "XXVIII",
+        "XXIX",
+        "XXX",
+    )[num]
 
 
 def dominical(year=int) -> str:

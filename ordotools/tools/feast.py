@@ -3,6 +3,7 @@ from ordotools.tools.translations import Translations
 
 
 class Feast:
+
     def __init__(self, feast_date: datetime, properties: dict, lang=None):
         self.date = feast_date
         # print(self.date)
