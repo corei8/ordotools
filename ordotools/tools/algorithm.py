@@ -34,33 +34,23 @@ class LiturgicalCalendar:
         self.LENT_ENDS = LiturgicalYearMarks(self.year).lent_ends
 
     def expand_octaves(self, feast: Feast) -> dict:
-        """
-        Generates (or expands) the octave for a feast.
-        """
         octave = {}
         day = 2
         while day < 9:
             new_feast = Feast(feast.date+days(day-1), feast.updated_properties)
-            # WARN: this is a hack for now!!
             if day == 8:
                 new_feast.day_in_octave = day
-                # new_feast.name = feast.infra_octave_name
             else:
-                # intro = f"De {integer_to_roman(day)} die"
-                # new_feast.name = f"{intro} infra {feast.infra_octave_name}"
                 new_feast.day_in_octave = day
             # FIX: we have an issue here if the feast falls on a Friday
             new_feast.fasting = False
             new_feast.rank_v = "feria"
-            new_feast.rank_n = 18 if day < 6 else 13 # for common octaves
+            new_feast.rank_n = 18 if day < 6 else 13
             octave |= {new_feast.date: new_feast.updated_properties}
             day += 1
         return octave
 
     def find_octave(self, year: dict) -> dict:
-        """
-        Finds the octaves of the sanctoral cycle and adds them to the year.
-        """
         calendar = year.copy()
         temporals = [feast["code"] for feast in self.temporal.values()]
         for candidate in calendar.values():
@@ -78,11 +68,6 @@ class LiturgicalCalendar:
         return feast
 
     def rank_by_nobility(self, feast_1: Feast, feast_2: Feast) -> dict:
-        """
-        Those feasts that are of the same rank need to be ranked according to
-        the nobility of the feast (e.g., a feast of Our Lord is of a higher
-        nobility than a feast of Our Lady).
-        """
         for x in range(6):
             if feast_1.nobility[x] < feast_2.nobility[x]:
                 return {'higher': feast_1, 'lower': feast_2}
@@ -123,16 +108,9 @@ class LiturgicalCalendar:
                 return self.commemoration(feast=higher, com=lower)
 
     def transfer_feast(self, feast: Feast) -> None:
-        """
-        Checks for feasts in the transfer dictionary.
-        """
         return self.rank(dynamic=self.transfers, static=feast)
 
     def add_feasts(self, master: dict, addition: dict) -> dict:
-        """
-        Adds additional feasts to the master feast dictionary;
-        Sends the feasts that confilict to the ranking algorithm.
-        """
         calendar = master.copy()
         for date, data in calendar.items():
             if date in addition:

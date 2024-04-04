@@ -20,11 +20,8 @@ class Diocese:
 
         self.data = {
             day(year=self.year, month=3, day=17): {
-                # This feast has a Common Octave if it is transferred outside
-                # of Lent, which happens if Easter is between March 22 and
-                # March 24.
                 "feast": "S. Patritii E.C. Patroni Hiberniae",
-                "rank": [5, "d I cl"],  # check the ranking
+                "rank": [5, "d I cl cum Oct communis"],  # check the ranking
                 "nobility": (False,),
                 "com": [],
                 "office_type": False,
@@ -49,7 +46,6 @@ class Diocese:
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
-                # common antiphons
                 "vespers": {
                     "proper": False,
                     "admag": ("Sacerdos et Pontifex", "Amavit eum Dominus"),

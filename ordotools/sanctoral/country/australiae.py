@@ -2,9 +2,6 @@ from ordotools.tools.helpers import day
 
 
 class Country:
-    """
-    Proper days of a country, which are called by the diocese.
-    """
 
     def __init__(self, year):
         self.name = "Australiae"
@@ -16,7 +13,6 @@ class Country:
                 # March 24.
                 "feast": "S. Patritii E.C. Patroni Hiberniae",
                 "rank": [5, "d I cl"],  # check the ranking
-                # "rank": [0, 4, 1, 1, "DICL"],
                 "nobility": (False,),
                 "com": [],
                 "office_type": False,
@@ -24,8 +20,6 @@ class Country:
                 "mass": {
                     "int": "Statuit",
                     "glo": True,
-                    # exception where St. Patrick Principal Patron of
-                    # Diocese, Titular of Cathedral, or where Indult granted
                     "cre": False,
                     "pre": "Communis"
                 },
