@@ -519,7 +519,7 @@ class Translations:
 
             10000: {
                 "la": "S Norberti EC",
-                "en": "",
+                "en": "St. Norbert, BpC",
             },
 
             10100: {
@@ -594,7 +594,7 @@ class Translations:
 
             11401: {
                 "la": "Oct S Joannis Baptistæ",
-                "en": "Octave of St. John the Baptist",
+                "en": "of St. John the Baptist",
             },
 
             11500: {
@@ -619,7 +619,7 @@ class Translations:
 
             11901: {
                 "la": "Oct Ss Petri et Pauli App",
-                "en": "Octave of Sts. Peter and Paul, App.",
+                "en": "of Sts. Peter and Paul, App.",
             },
 
             12000: {
@@ -844,7 +844,7 @@ class Translations:
 
             16501: {
                 "la": "Oct Assumptionis BMV",
-                "en": "Octave of the Assumption of the BVM",
+                "en": "of the Assumption of the BVM",
             },
 
             16600: {
@@ -1463,317 +1463,400 @@ class Translations:
 
             "lady_saturday": {
                 "la": "De Sancta Maria in Sabbato",
+                "en": "Our Lady's Saturday",
             },
 
             "Circumcision": {
-                "la": "Circumcisio DNJC et Oct. Nativitatis" ,
+                "la": "Circumcisio DNJC et Oct. Nativitatis",
+                "en": "Circumcision",
             },
 
             "8_Stephen": {
                 "la": "Octava S Stephani Protomartyris",
+                "en": "Octave day of St. Stephen, Protomartyr",
             },
 
             "8_John": {
                 "la": "Octava S Joannis Ap Ev",
+                "en": "Octave day of St. John, ApEv",
             },
 
             "8_Innocents": {
                 "la": "Octava Ss Innocentium Mm.",
+                "en": "Octave day of the Holy Innocents, Mm",
             },
 
             "SNameJesus": {
                 "la": "Ssmi Nominis Jesu",
+                "en": "Feast of the Holy Name",
             },
 
             "SNameJesu_8_Ste": {
                 "la": "Ssmi Nominis Jesu",
+                "en": "",
             },
 
             "V_Epiphany": {
                 "la": "Vigilia Epiphaniæ",
+                "en": "Vigil of the Epiphany",
             },
 
             "Epiphany": {
                 "la": "Epiphania DNJC",
+                "en": "The Epiphany",
             },
 
             "8_Epiphany": {
                 "la": "Octava Epiphaniæ",
+                "en": "Octave day of the Epiphany",
             },
 
             "D_Epiphany": {
                 "la": "In Octava Epiphaniæ",
+                "en": "Sunday within the Octave of the Epiphany",
             },
 
             "HolyFamily": {
                 "la": "S Familiæ Jesu, Mariæ, Joseph",
+                "en": "Feast of the Holy Family",
             },
             "D_HolyFamily": {
                 "la": "S Familiæ Jesu, Mariæ, Joseph; Dominica I infra Oct. Epiphaniæ",
+                "en": "",
             },
             "de_AshWed": {
                 "la": "Dies Cinerum",
+                "en": "Ash Wednesday",
             },
             "AshWed_f5": {
                 "la": "Feria V post Diem Cinerum",
+                "en": "Thursday after Ash Wednesday",
             },
             "AshWed_f6": {
                 "la": "Feria VI post Diem Cinerum",
+                "en": "Friday after Ash Wednesday",
             },
             "AshWed_fs": {
                 "la": "Sabbatum post Diem Cinerum",
+                "en": "Saturday after Ash Wednesday",
             },
             "D_Lent_1": {
                 "la": "Dominica I in Quadragesima",
+                "en": "First Sunday of Lent",
             },
             "Ember_Lent_4": {
                 "la": "Feria IV Quatuor Temporum Quadragesimæ",
+                "en": "Ember Wednesday in Lent",
             },
             "Ember_Lent_6": {
                 "la": "Feria VI Quatuor Temporum Quadragesimæ",
+                "en": "Ember Friday in Lent",
             },
             "Ember_Lent_s": {
                 "la": "Sabbatum Quatuor Temporum Quadragesimæ",
+                "en": "Ember Saturday in Lent",
             },
 
             "SevenSorrows": {
                 "la": "Septem Dolorum BMV",
+                "en": "Feast of the Seven Sorrows of the BVM",
             },
 
             "de_Palm_f2": {
                 "la": "Feria II Majoris Hebd",
+                "en": "Monday in Holy Week",
             },
 
             "de_Palm_f3": {
                 "la": "Feria III Majoris Hebd",
+                "en": "Tuesday in Holy Week",
             },
 
             "de_Palm_f4": {
                 "la": "Feria IV Majoris Hebd",
+                "en": "Spy Wednesday",
             },
 
             "de_Palm_f5": {
                 "la": "Feria V in Cœna Domini",
+                "en": "Maundy Thursday",
             },
 
             "de_Palm_f6": {
                 "la": "Feria VI in Parasceve",
+                "en": "Good Friday",
             },
 
             "de_Palm_fs": {
                 "la": "Sabbatum Sanctum",
+                "en": "Holy Saturday",
             },
 
             "Easter": {
                 "la": "Dominica Resurrectionis",
+                "en": "",
             },
 
             "8Easter_f2": {
                 "la": "Feria II infra Oct. Paschæ",
+                "en": "",
             },
 
             "8Easter_f3": {
                 "la": "Feria III infra Oct. Paschæ",
+                "en": "",
             },
 
             "8Easter_f4": {
                 "la": "Feria IV infra Oct. Paschæ",
+                "en": "",
             },
 
             "8Easter_f5": {
                 "la": "Feria V infra Oct. Paschæ",
+                "en": "",
             },
 
             "8Easter_f6": {
                 "la": "Feria VI infra Oct. Paschæ",
+                "en": "",
             },
 
             "WhitSaturday": {
                 "la": "Sabbatum in Albis",
+                "en": "",
             },
 
+            # C. et Ecclesiæ Universalis Patroni",
             "StJoseph": {
-                "la": "Solemnitas S Joseph, Sponsi BMV", #, C. et Ecclesiæ Universalis Patroni",
+                "la": "Solemnitas S Joseph, Sponsi BMV",
+                "en": "Solemnity of St. Joseph, Spouse of the BVM",
             },
 
             "8_StJoseph": {
                 "la": "Octava Solemnitatis S Joseph",
+                "en": "",
             },
 
             "Rogation_1": {
                 "la": "Feria II in Rogationibus",
+                "en": "",
             },
 
             "Rogation_2": {
                 "la": "Feria III in Rogationibus",
+                "en": "",
             },
 
             "Rogation_3": {
                 "la": "Feria IV in Rogationibus in Vigilia Ascensionis ",
+                "en": "",
             },
 
             "Ascension": {
                 "la": "Ascensio DNJC",
+                "en": "",
             },
 
             "8_Ascension": {
                 "la": "Oct. Ascensionis DNJC",
+                "en": "",
             },
 
-            "p_Ascension_f6": { # TODO: this day has special rules
+            # TODO: this day has special rules
+            "p_Ascension_f6": {
                 "la": "Oct. Ascensionis DNJC",
+                "en": "",
             },
 
             "D_Ascension": {
                 "la": "Dominica infra Oct. Ascensionis",
+                "en": "",
             },
 
             "S_8_Ascension": {
                 "la": "Sabbatum infra Oct. Ascensionis",
+                "en": "",
             },
 
             "WhitSunday": {
                 "la": "Dominica in Albis",
+                "en": "",
             },
 
             "V_Pentecost": {
                 "la": "Sabbatum Vigilia Pentecostes",
+                "en": "",
             },
 
             "Pentecost": {
                 "la": "Dominica Pentecostes",
+                "en": "",
             },
 
             "8Pent_f2": {
                 "la": "Feria II infra Oct. Pentecostes",
+                "en": "",
             },
 
             "8Pent_f3": {
                 "la": "Feria III infra Oct. Pentecostes",
+                "en": "",
             },
 
             "8Pent_f5": {
                 "la": "Feria V infra Oct. Pentecostes",
+                "en": "",
             },
 
             "Ember_Pent_4": {
                 "la": "Feria IV Quatuor Temporum infra Oct. Pentecostes",
+                "en": "",
             },
 
             "Ember_Pent_6": {
                 "la": "Feria VI Quatuor Temporum infra Oct. Pentecostes",
+                "en": "",
             },
 
             "Ember_Pent_s": {
                 "la": "Sabbatum Quatuor Temporum infra Oct. Pentecostes",
+                "en": "",
             },
 
             "Trinity": {
                 "la": "Festum Sanctissimæ Trinitatis",
+                "en": "",
             },
 
             "D_Pent_2": {
                 "la": "Dominica infra Oct. Ssmi Corporis Christi", #Christi (Dominica II post Pentecosten)",
+                "en": "",
             },
 
             "D_Pent_3": {
                 "la": "Dominica infra Oct. Ssmi Cordis DNJC",  # (Dominica III post Pentecosten)",
+                "en": "",
             },
 
             "CorpusChristi": {
                 "la": "Sanctissimi Corporis Christi",
+                "en": "",
             },
 
             "8_CorpusChristi": {
                 "la": "Octava Ssmi Corporis Christi",
+                "en": "",
             },
 
             "SacredHeart": {
                 "la": "Sacratissimi Cordis Jesu",
+                "en": "",
             },
 
             "8_SacredHeart": {
                 "la": "Octava Sacratissimi Cordis Jesu",
+                "en": "",
             },
 
             "Ember_Sept_4": {
                 "la": "Feria IV Quatuor Temporum Septembris",
+                "en": "",
             },
 
             "Ember_Sept_6": {
                 "la": "Feria VI Quatuor Temporum Septembris",
+                "en": "",
             },
 
             "Ember_Sept_s": {
                 "la": "Sabbatum Quatuor Temporum Septembris",
+                "en": "",
             },
 
             "ChristKing": {
                 "la": "In Festo DNJC Regis",
+                "en": "",
             },
 
             "Ember_Advent_4": {
                 "la": "Feria IV Quatuor Temporum in Adventus",
+                "en": "",
             },
 
             "Ember_Advent_6": {
                 "la": "Feria VI Quatuor Temporum in Adventus",
+                "en": "",
             },
 
             "Ember_Advent_s": {
                 "la": "Sabbatum Quatuor Temporum in Adventus",
+                "en": "",
             },
 
             "V_Christmas": {
                 "la": "Vigilia Nativitas DNJC",
+                "en": "",
             },
 
             "DV_Christmas": {
                 "la": "Vigilia Nativitas DNJC",
+                "en": "",
             },
 
             "Christmas": {
                 "la": "Nativitas DNJC",
+                "en": "",
             },
 
             "D_Christmas_r": {
                 "la": "Dominica Infra Octavam Nativitatis reposita",
+                "en": "",
             },
 
             "D_Christmas": {
                 "la": "Dominica Infra Octavam Nativitatis",
+                "en": "",
             },
 
             "8_Chritmas_f6": {
                 "la": "Feria VI infra Octavam Nativitatis",
+                "en": "Firday within the Octave of the Nativity",
             },
 
             "StStephan": {
                 "la": "S Stephani Protomartyris",
+                "en": "",
             },
 
             "StJohn": {
                 "la": "S Joannis Ap Ev",
+                "en": "",
             },
 
             "StsInnocents": {
                 "la": "Ss Innocentium Mm",
+                "en": "",
             },
 
             "StThomas": {
                 "la": "S Thomæ EM",
+                "en": "",
             },
 
             "StSylvester": {
                 "la": "S Silvestri I PC",
+                "en": "",
             },
 
             "D_StThomas": {
                 "la": "S Thomæ EM",
+                "en": "",
             },
 
             "D_StSylvester": {
                 "la": "S Silvestri I PC",
+                "en": "",
             },
 
         }
@@ -1805,6 +1888,7 @@ class Translations:
                     the_days |= {
                         date: {
                             "la": f"""Dominica {f'''infra Hebd {integer_to_roman(x+1)} in Quadragesima{' (Lætare)' if x+1 == 4 else ''}''' if x < 4 else '''Passione''' if x == 4 else '''Palmis''' }""",
+                            "en": "",
                         }
                     }
                 else:
@@ -1812,6 +1896,7 @@ class Translations:
                         f"de_{'Lent' if x < 4 else 'Passion'}_f{feria+1 if feria != 6 else 's'}": {
                             # "feast": f"Feria {integer_to_roman(feria+1)} infra Hebd {integer_to_roman(x+1)} in Quadragesima",
                             "la": "De ea",
+                            "en": "",
                         }
                     }
         return the_days
@@ -1820,6 +1905,7 @@ class Translations:
         return { # NOTE: there are duplicates, but does it matter?
             f"in_8_Ascension_{date}": {
                 "la": f"De {integer_to_roman(date)} die infra Oct. Ascensionis",
+                "en": "",
             } for date in range(1,8)
         }
 
@@ -1827,6 +1913,7 @@ class Translations:
         return {
             f"{date+1}_in_8_CorpusChristi": {
                 "la": f"De {integer_to_roman(date+1)} die infra Oct. Ssmi Corporis Christi",
+                "en": "",
             } for date in range(1,8)
         }
 
@@ -1834,9 +1921,9 @@ class Translations:
         return {
             f"{date+1}_in_8_SacredHeart": {
                 "la": f"De {integer_to_roman(date+1)} die infra Oct. Sacratissimi Cordis Jesu",
+                "en": "",
             } for date in range(1,8)
         }
-
 
     def pentecost_sundays(self) -> dict:
         # TODO: add the first 4 Sundays after Pentecost (excluding Trinity)
@@ -1845,12 +1932,14 @@ class Translations:
             pentecost_season |= {
                 f"D_Pent_{date}": {
                     "la": f"Dominica {integer_to_roman(date)} post Pentecosten",
+                    "en": "",
                 }
             }
             for feria in range(6):
                 pentecost_season |= {
                     f"de_Pent_{date}_f{feria+2 if feria != 5 else 's'}": {
                         "la": "De ea",
+                        "en": "",
                     }
                 }
         return pentecost_season
@@ -1861,17 +1950,19 @@ class Translations:
         it works for now.
         """
         epiphany_pents = {}
-        for pent in range(22,29):
-            for epiph in range(3,7):
+        for pent in range(22, 29):
+            for epiph in range(3, 7):
                 epiphany_pents |= {
                     f"D_Epiph_{epiph}_{pent}": {
                         "la": f"Dominica {integer_to_roman(pent)} post Pentecosten, {integer_to_roman(epiph)} Epiphania",
+                        "en": "",
                     }
                 }
                 for feria in range(6):
                     epiphany_pents |= {
                         f"de_Epiph_{epiph}_{pent}_f{feria+2 if feria != 5 else 's'}": {
                             "la": "De ea",
+                            "en": "",
                         }
                     }
         return epiphany_pents
@@ -1882,12 +1973,14 @@ class Translations:
             last_pents |= {
                 f"D_UltPent_{pent}": {
                     "la": f"Dominica {integer_to_roman(pent)} et ultima post Pentecosten",
+                    "en": "",
                 }
             }
             for feria in range(6):
                 last_pents |= {
                     f"de_UltPent_{pent}_f{feria+2 if feria != 5 else 's'}": {
                         "la": "De ea",
+                        "en": "",
                     }
                 }
         return last_pents
@@ -1902,14 +1995,17 @@ class Translations:
         ]
         for x, introit in enumerate(advent_sundays):
             advent_season |= {
-                f"D_Advent_{x+1}": { # TODO: verify that 2-4 advents are minor sundays
-                                    "la": f"Dominica {integer_to_roman(x+1)} Adventus",
+                # TODO: verify that 2-4 advents are minor sundays
+                f"D_Advent_{x+1}": {
+                    "la": f"Dominica {integer_to_roman(x+1)} Adventus",
+                    "en": "",
                                     }
             }
             for feria in range(6):
                 advent_season |= {
                     f"Advent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
                         "la": "De ea",
+                        "en": "",
                     }
                 }
         return advent_season
@@ -1927,6 +2023,7 @@ class Translations:
                 weeks |= {
                     f"de_Pent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
                         "la": "De ea",
+                        "en": "",
                     },
                 }
         return weeks
@@ -1937,6 +2034,7 @@ class Translations:
             paschaltime |= {
                 f"D_Easter_{week+1}": {
                     "la": f"Dominica {integer_to_roman(week+1)} post Resurrectionis",
+                    "en": "",
                 }
             }
             for feria in range(6):
@@ -1944,6 +2042,7 @@ class Translations:
                 paschaltime |= {
                     f"de_Easter_{week+1}_f{feria+2 if feria != 5 else 's'}": {
                         "la": "De ea",
+                        "en": "",
                     }
                 }
         return paschaltime
@@ -1954,6 +2053,7 @@ class Translations:
             solemnity_ferias |= {
                 f"{feria+2}_in_8_StJoseph": {
                     "la": f"De {integer_to_roman(feria+2)} die infra Solemnitas S Joseph",
+                    "en": "",
                 }
             }
         return solemnity_ferias
@@ -1964,12 +2064,14 @@ class Translations:
             septuagesima |= {
                 sunday: {
                     "la": f"Dominica in {sunday}",
+                    "en": "",
                 }
             }
             for feria in range(6):
                 septuagesima |= {
                     f"de_{sunday[:4]}_f{feria+2 if feria != 5 else 's'}": {
                         "la": "De ea",
+                        "en": "",
                     }
                 }
         return septuagesima
@@ -1980,12 +2082,14 @@ class Translations:
             epiphany |= {
                 f"D_Epiph_{sunday+1}": {
                     "la": f"Dominica {integer_to_roman(sunday+1)} post Epiphaniam",
+                    "en": "",
                 }
             }
             for feria in range(6):
                 epiphany |= {
                     f"de_Epiph_{sunday+1}_{feria+2 if feria != 5 else 's'}": {
                         "la": "De ea",
+                        "en": "",
                     }
                 }
         return epiphany
@@ -1994,12 +2098,14 @@ class Translations:
         octave = {
             "8_Epiph_fs": {
                 "la": "Sabbato infra Oct. Epiphaniæ",
+                "en": "",
             },
         }
         for feria in range(6):
             octave |= {
                 f"8_Epiph_f{feria+2}": {
                     "la": f"De {integer_to_roman(feria+2)} die infra Oct. Epiphaniæ",
+                    "en": "",
                 }
             }
         return octave
