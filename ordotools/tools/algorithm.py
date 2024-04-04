@@ -9,8 +9,6 @@ from ordotools.tools.helpers import days
 from ordotools.tools.helpers import ladys_office
 from ordotools.tools.helpers import leap_year
 
-from ordotools.tools.liturgical_dates import integer_to_roman
-
 from ordotools.tools.temporal import Temporal
 
 from ordotools.sanctoral.diocese.roman import Sanctoral
@@ -26,6 +24,8 @@ class LiturgicalCalendar:
         self.year = year
         self.diocese = diocese
         self.language = language
+
+        # TODO: theoretically we could have more than one...
         self.transfers = None
         self.temporal = Temporal(self.year).return_temporal()
         self.FIRST_ADVENT = LiturgicalYearMarks(self.year).first_advent
@@ -102,9 +102,9 @@ class LiturgicalCalendar:
         if dynamic.rank_n == static.rank_n:
             # it is possible that the lower can be the
             # commemoration of the higher...
-            return self.rank_by_nobility(dynamic,static)['higher']
+            return self.rank_by_nobility(dynamic, static)['higher']
         else:
-            candidates = {dynamic.rank_n: dynamic,static.rank_n: static,}
+            candidates = {dynamic.rank_n: dynamic, static.rank_n: static,}
             higher = candidates[sorted(candidates)[0]]
             lower = candidates[sorted(candidates)[1]]
             if lower.rank_n == 22:
@@ -156,6 +156,7 @@ class LiturgicalCalendar:
                     data = data.updated_properties
                 feast = Feast(date, data)
             if self.transfers is not None:
+                print(f"we are transferring {self.transfers.code}")
                 result = self.transfer_feast(
                     Feast(date, feast.updated_properties)
                 )

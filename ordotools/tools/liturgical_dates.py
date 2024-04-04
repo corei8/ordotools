@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 def integer_to_roman(num: int) -> str:
     return (
         "_",
@@ -33,6 +34,9 @@ def integer_to_roman(num: int) -> str:
         "XXVIII",
         "XXIX",
         "XXX",
+        "XXXI",
+        "XXXII",
+        "XXXIII",
     )[num]
 
 
@@ -145,4 +149,3 @@ def epact_chart(year=int) -> int:
         [25, 6, 17, 28, 9, 20, 1, 12, 23, 4, 15, 26, 7, 18, 29, 10, 21, 2, 13, ],
     ]
     return matrix[epct][gn-1]
-

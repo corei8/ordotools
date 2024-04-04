@@ -64,11 +64,11 @@ class Feast:
     @lang.setter
     def lang(self, val):
         # put this in the global scope?
-        trans = Translations()
+        translations = Translations()
         self._lang = val
-        self._name = trans.translations()[self.code][val]
+        self._name = translations.translations()[self.code][val]
         if self.day_in_octave != 0:
-            self._name = str(self.day_in_octave) + " " + self._name
+            self._name = translations.octave(self._lang, self.day_in_octave, self.code)
 
     # @property
     # def feast_date_display(self) -> str:

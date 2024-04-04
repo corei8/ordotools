@@ -1,16 +1,20 @@
 from ordotools.tools.liturgical_dates import integer_to_roman
 # When adding translations, use the ISO 639-1 codes
 # that can be found in this article:
-# 
+#
 # https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 #
 # We will have latin here and in the feast database,
 # but eventually we will port everything over.
 #
 # Feasts are given two digits of padding at the end
-# so that we can take care of duplicate feasts with 
+# so that we can take care of duplicate feasts with
 # different variations.
-# 
+#
+# All of the feats are 100 digits apart. Of these 100
+# digits, we will use the odds for the octaves of the
+# preceeding feast. This should be plenty.
+
 
 class Translations:
 
@@ -585,7 +589,12 @@ class Translations:
 
             11400: {
                 "la": "In Nativitate S Joannis Baptistæ",
-                "en": "",
+                "en": "Nativity of St. John the Baptist",
+            },
+
+            11401: {
+                "la": "Oct S Joannis Baptistæ",
+                "en": "Octave of St. John the Baptist",
             },
 
             11500: {
@@ -605,7 +614,12 @@ class Translations:
 
             11900: {
                 "la": "Ss Petri et Pauli App",
-                "en": "",
+                "en": "Sts. Peter and Paul, App.",
+            },
+
+            11901: {
+                "la": "Oct Ss Petri et Pauli App",
+                "en": "Octave of Sts. Peter and Paul, App.",
             },
 
             12000: {
@@ -825,7 +839,12 @@ class Translations:
 
             16500: {
                 "la": "In Assumptione BMV",
-                "en": "",
+                "en": "Assumption of the BVM",
+            },
+
+            16501: {
+                "la": "Oct Assumptionis BMV",
+                "en": "Octave of the Assumption of the BVM",
             },
 
             16600: {
@@ -1165,7 +1184,12 @@ class Translations:
 
             23300: {
                 "la": "In Festo Omnium Sanctorum",
-                "en": "",
+                "en": "Feast of All Saints",
+            },
+
+            23301: {
+                "la": "Oct Omnium Sanctorum",
+                "en": "of All Saints",
             },
 
             23400: {
@@ -1310,7 +1334,12 @@ class Translations:
 
             26400: {
                 "la": "In Conceptione Immaculata BMV",
-                "en": "",
+                "en": "Feast of the Immaculate Conception",
+            },
+
+            26401: {
+                "la": "Oct Concept Immac BMV",
+                "en": "of the Immaculate Conception",
             },
 
             26600: {
@@ -1977,3 +2006,30 @@ class Translations:
 
     def translations(self) -> dict:
         return self.data
+
+    def octave(self, lang: str, num: int, ref: int) -> str:
+        """ Rather than doing this too dynamically, we
+        have all of the days separated, to avoid as many grammar
+        issues as possible """
+        octave_days = {
+            "la": [
+                "De II die infra",
+                "De III die infra",
+                "De IV die infra",
+                "De V die infra",
+                "De VI die infra",
+                "De VII die infra",
+                "",
+            ],
+            "en": [
+                "2nd day within the Octave",
+                "3rd day within the Octave",
+                "4th day within the Octave",
+                "5th day within the Octave",
+                "6th day within the Octave",
+                "7th day within the Octave",
+                "Octave day",
+            ],
+        }
+
+        return octave_days[lang][num-2] + " " + self.translations()[ref+1][lang]

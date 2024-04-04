@@ -1937,7 +1937,6 @@ class Sanctoral:
             day(year=self.year, month=6, day=24): {
                 "feast": "In Nativitate S Joannis Baptistæ",
                 "code": 11400,
-                "infra_octave_name": "Oct S Joannis Baptistæ",
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 0, 4, 4, 1, 0,),
                 "office_type": False,
@@ -2004,7 +2003,6 @@ class Sanctoral:
             day(year=self.year, month=6, day=29): {
                 "feast": "Ss Petri et Pauli App",
                 "code": 11900,
-                "infra_octave_name": "Oct Ss Petri et Pauli App", 
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 2, 4, 5, 1, 0,),
                 "office_type": False,
@@ -2732,7 +2730,6 @@ class Sanctoral:
             day(year=self.year, month=8, day=15): {
                 "feast": "In Assumptione BMV",
                 "code": 16500,
-                "infra_octave_name": "Oct Assumptionis BMV",
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 1, 4, 2, 1, 0),
                 "office_type": False,
@@ -2767,7 +2764,12 @@ class Sanctoral:
                 "code": 16700,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Octava S Laurentii M", "mass": {"int": "Probasti", "glo": True, "cre": False, "pre": "Communis"}},],
+                "com": [
+                    {
+                        "feast": "Octava S Laurentii M",
+                        "mass": {"int": "Probasti", "glo": True, "cre": False, "pre": "Communis"}
+                    },
+                ],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": True, "pre": "de B Maria Virg"},
@@ -3842,7 +3844,6 @@ class Sanctoral:
             day(year=self.year, month=11, day=1): {
                 "feast": "In Festo Omnium Sanctorum",
                 "code": 23300,
-                "infra_octave_name": "Oct Omnium Sanctorum",
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 1, 4, 3, 1, 0,),
                 "office_type": False,
@@ -4355,7 +4356,6 @@ class Sanctoral:
             day(year=self.year, month=12, day=8): {
                 "feast": "In Conceptione Immaculata BMV",
                 "code": 26400,
-                "infra_octave_name": "Oct Concept Immac BMV",
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "octave": 4,
