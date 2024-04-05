@@ -21,7 +21,6 @@ class LiturgicalYearMarks:
         self.pentecost_season_end = self.first_advent - timedelta(days=1)
 
 
-
 def findsunday(date: datetime) -> timedelta:
     """
     return the distance betweent the date and
@@ -49,7 +48,9 @@ ladys_office = {
         "cre": False,
         "pre": "de B Maria Virg (et te in Veneratione)"
     },
-    "com": [{"oration": "Deus qui corda"}, {"oration": "Ecclesiæ"}],
+    "com_1": {"oration": "Deus qui corda"},
+    "com_2": {"oration": "Ecclesiæ"},
+    "com_3": {},
     "matins": {},
     "lauds": {},
     "prime": {"responsory": "Qui natus est", "preces": True},

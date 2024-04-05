@@ -62,9 +62,10 @@ class LiturgicalCalendar:
         return calendar
 
     def commemoration(self, feast: Feast, com: Feast) -> Feast:
-        if "com" in com.feast_properties.keys():
-            com.feast_properties.pop("com")
-        feast.com.insert(0, com.feast_properties)
+        feast.com_1 = com.feast_properties
+        # if "com" in com.feast_properties.keys():
+        #     com.feast_properties.pop("com")
+        # feast.com.insert(0, com.feast_properties)
         return feast
 
     def rank_by_nobility(self, feast_1: Feast, feast_2: Feast) -> dict:
@@ -107,7 +108,7 @@ class LiturgicalCalendar:
             else:
                 return self.commemoration(feast=higher, com=lower)
 
-    def transfer_feast(self, feast: Feast) -> None:
+    def transfer_feast(self, feast: Feast) -> Feast:
         return self.rank(dynamic=self.transfers, static=feast)
 
     def add_feasts(self, master: dict, addition: dict) -> dict:
@@ -140,7 +141,7 @@ class LiturgicalCalendar:
                 pass
         return calendar
 
-    def our_ladys_saturday(self, calendar: dict) -> None:
+    def our_ladys_saturday(self, calendar: dict) -> dict:
         """
         Adds Office of the Blessed Virgin Mary on Saturdays.
         """
@@ -159,14 +160,14 @@ class LiturgicalCalendar:
                         continue
         return year
 
-    def add_translation(self, compiled_cal: dict) -> dict:
+    def add_translation(self, compiled_cal: dict) -> list:
         year = []
-        for date, feast in compiled_cal.items():
+        for feast in compiled_cal.values():
             feast.lang = self.language
             year.append(feast)
         return year
 
-    def build(self) -> None:
+    def build(self) -> list:
         print("Starting the Calendar...")
         print("Gathering Sanctoral Cycle...")
         saints = Sanctoral(self.year)

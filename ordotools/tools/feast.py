@@ -6,16 +6,11 @@ class Feast:
 
     def __init__(self, feast_date: datetime, properties: dict, lang=None):
         self.date = feast_date
-        # print(self.date)
         self.code = properties["code"]
-        # print(self.code)
 
         self._name = ""
-        # if lang is None:
-        #     self.name = ""
-        # else:
-        #     self.name = trans.translations()[self.code][lang]
 
+        # TODO: try to deprecate this
         self.feast_properties = properties  # | {"feast": self.name}
 
         if "infra_octave_name" in properties:
@@ -41,8 +36,6 @@ class Feast:
 
         self.nobility = properties["nobility"] if "nobility" in properties.keys() else (0, 0, 0, 0, 0, 0,)
         self.office_type = properties["office_type"]
-
-        self.com = properties["com"] if "com" in properties.keys() else []
         self.matins = properties["matins"]
         self.lauds = properties["lauds"]
         self.prime = properties["prime"]
@@ -52,6 +45,46 @@ class Feast:
         self._fasting = properties["fasting"]
 
         self._lang = lang
+
+        # ---------------------------------------------------------------- #
+
+        # there can be no more than three commemorations
+
+        self._com_1 = properties["com_1"]
+        self._com_2 = properties["com_2"]
+        self._com_3 = properties["com_3"]
+
+        # this may be too cumbersome...
+        # self.com = properties["com"] if "com" in properties.keys() else []
+
+        # ---------------------------------------------------------------- #
+
+    @property
+    def com_1(self):
+        return self._com_1
+
+    @com_1.setter
+    def com_1(self, com: dict):
+        self._com_3 = self._com_2
+        self._com_2 = self._com_1
+        self._com_1 = com
+
+    @property
+    def com_2(self):
+        return self._com_2
+
+    @com_1.setter
+    def com_1(self, com: dict):
+        self._com_3 = self._com_2
+        self._com_2 = com
+
+    @property
+    def com_3(self):
+        return self._com_3
+
+    @com_1.setter
+    def com_1(self, com: dict):
+        self._com_3 = com
 
     @property
     def name(self):
@@ -100,19 +133,19 @@ class Feast:
         """
          return fast (or abstinence) days as a boolean.
          """
-        # if the day is Friday, fasting
-        if int(self.date.strftime("%w")) == 5:
-            self._fasting = True
-        # if the day is Sunday, no fasting
-        elif int(self.date.strftime("%w")) == 0:
-            self._fasting = False
-            return self._fasting
-        # if there is a fasting commemoration (e.g., ferias in Lent)
-        elif self.com and "fasting" in self.com[0]:
-            if self.com[0]["fasting"]:
-                self._fasting = self.com[0]["fasting"]
-        else:
-            self._fasting = self.feast_properties["fasting"]
+        # # if the day is Friday, fasting
+        # if int(self.date.strftime("%w")) == 5:
+        #     self._fasting = True
+        # # if the day is Sunday, no fasting
+        # elif int(self.date.strftime("%w")) == 0:
+        #     self._fasting = False
+        #     return self._fasting
+        # # if there is a fasting commemoration (e.g., ferias in Lent)
+        # elif self.com and "fasting" in self.com[0]:
+        #     if self.com[0]["fasting"]:
+        #         self._fasting = self.com[0]["fasting"]
+        # else:
+        #     self._fasting = self.feast_properties["fasting"]
         return self._fasting
 
     # TODO: see how we can use a setter to have a "dynmaic" fasting status
@@ -131,6 +164,9 @@ class Feast:
             "day_in_octave": self.day_in_octave,
             "color": self.color,
             "mass": self.mass,
+            "com_1": self.com_1,
+            "com_2": self.com_2,
+            "com_3": self.com_3,
             "matins": {},
             "lauds": {},
             "prime": {},
@@ -139,7 +175,6 @@ class Feast:
             "compline": {},
             "nobility": self.nobility,
             "office_type": self.office_type,
-            "com": self.com,
             "fasting": self.fasting,
         }
         return dic

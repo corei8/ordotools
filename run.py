@@ -7,7 +7,7 @@ for feast in data:
     if feast.date.strftime("%a") == "Sun":
         print("\r")
     print(
-        f"{feast.date.strftime('%a, %b %d')} \t{feast.name}"
+        f"{feast.date.strftime('%b %d')}\t{feast.name: <49} {feast.rank_v: <28} {feast.com_1}"
     )
 
 # for x in data: print(x)

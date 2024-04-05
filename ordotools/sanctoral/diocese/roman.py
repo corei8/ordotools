@@ -8,7 +8,7 @@ class Sanctoral:
     """
     The Roman Sanctoral Cycle, which is called at every compilation.
     | self.sanctoral is the only return, containing a dictionary of
-      the feasts.
+    | the feasts.
     """
 
     def __init__(self, year):
@@ -17,12 +17,14 @@ class Sanctoral:
 
             # January
             day(year=self.year, month=1, day=14): {
-                "feast": "S Hilarii Episcopi ECD",
+                # S Hilarii Episcopi ECD
                 "code": 100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{
-                    "feast": "S Felicis SM",
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
                     "code": 27400,
                     "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"},
                     "matins": {},
@@ -32,10 +34,9 @@ class Sanctoral:
                     "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "oration": ""},
                     "compline": {},
                     "fasting": False,
-                }],
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -44,19 +45,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=15): {
-                "feast": "S Pauli Primi Eremitæ C",
+                # S Pauli Primi Eremitæ C
                 "code": 200,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{
-                    "feast": "S Mauri Abb",
-                    "code": 27500,
-                    "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"}
-                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justus ut palma", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    "code": 27500,
+                    "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -65,14 +68,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=16): {
-                "feast": "S Marcelli PM",
+                # S Marcelli PM
                 "code": 300,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -81,14 +88,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=17): {
-                "feast": "S Antonii Abb",
+                # S Antonii Abb
                 "code": 400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -97,23 +108,24 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=18): {
-                "feast": "Cathedræ S Petri Ap Romæ",
+                # Cathedræ S Petri Ap Romæ
                 "code": 500,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{
-                    "feast": "S Pauli Apostoli",
-                    "code": 27600,
-                    "mass": False
-                }, {
-                        "feast": "S Priscæ VM",
-                    "code": 27700,
-                        "mass": {"int": "Me expectaverunt", "glo": True, "cre": True, "pre": "Communis"}
-                        }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit ei", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {
+                    "code": 27600,
+                    "mass": False
+                },
+                "com_2": {
+                    "code": 27700,
+                    "mass": {"int": "Me expectaverunt", "glo": True, "cre": True, "pre": "Communis"}
+                },
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -122,19 +134,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=19): {
-                "feast": "Ss Marii, Marthæ, Audifacis et Abachum Mm",
+                # Ss Marii, Marthæ, Audifacis et Abachum Mm
                 "code": 600,
                 "rank": [22, "s"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
-                "com": [{
-                    "feast": "S Canuti RM",
-                    "code": 27800,
-                    "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}
-                }],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Justi epulentur", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    "code": 27800,
+                    "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -143,14 +157,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=20): {
-                "feast": "Ss Fabiani P et Sebastiani Mm",
+                # Ss Fabiani P et Sebastiani Mm
                 "code": 700,
                 "rank": [15, "d"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Intret in conspectu", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -159,14 +177,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=21): {
-                "feast": "S Agnetis VM",
+                # S Agnetis VM
                 "code": 800,
                 "rank": [15, "d"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -175,14 +197,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=22): {
-                "feast": "Ss Vincentii & Anastasii Mm",
+                # Ss Vincentii & Anastasii Mm
                 "code": 900,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -191,19 +217,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=23): {
-                "feast": "S Raymundi de Peñafort C",
+                # S Raymundi de Peñafort C
                 "code": 1000,
                 "rank": [16, "sd, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{
-                    "feast": "S Emerentianæ VM",
-                    "code": 27900,
-                    "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}
-                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    "code": 27900,
+                    "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -212,14 +240,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=24): {
-                "feast": "S Timothei EM",
+                # S Timothei EM
                 "code": 1100,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -228,19 +260,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=25): {
-                "feast": "Conversio S Pauli Ap",
+                # Conversio S Pauli Ap
                 "code": 1200,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
-                "com": [{
-                    "feast": "S Petri Apostoli",
-                    "code": 28000,
-                     "mass": False
-                }],
                 "color": "white",
                 "mass": {"int": "Scio, cui credidi", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {
+                    "code": 28000,
+                    "mass": False
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -249,14 +283,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=26): {
-                "feast": "S Polycarpi EM",
+                # S Polycarpi EM
                 "code": 1300,
                 "rank": [15, "d"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -265,14 +303,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=27): {
-                "feast": "S Joannis Chrysostomi ECD",
+                # S Joannis Chrysostomi ECD
                 "code": 1400,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -281,19 +323,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=28): {
-                "feast": "S Petri Nolasci C",
+                # S Petri Nolasci C
                 "code": 1500,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{
-                    "feast": "S Agnetis VM secundo",
-                    "code": 28100,
-                    "mass": {"int": "Vultum tuum", "glo": True, "cre": False, "pre": "Communis"}
-                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    "code": 28100,
+                    "mass": {"int": "Vultum tuum", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -302,14 +346,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=29): {
-                "feast": "S Francisci Salesii ECD",
+                # S Francisci Salesii ECD
                 "code": 1600,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -318,14 +366,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=30): {
-                "feast": "S Martinæ VM",
+                # S Martinæ VM
                 "code": 1700,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -334,14 +386,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=1, day=31): {
-                "feast": "S Joannis Bosco C",
+                # S Joannis Bosco C
                 "code": 1800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dedit illi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -353,13 +409,16 @@ class Sanctoral:
 
             # February
             day(year=self.year, month=2, day=1): {
-                "feast": "S Ignatii EM",
+                # S Ignatii EM
                 "code": 1900,
                 "rank": [15, "d"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -368,14 +427,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=2): {
-                "feast": "In Purificatione BMV",
+                # In Purificatione BMV
                 "code": 2000,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Suscepisimus", "glo": True, "cre": True, "pre": "de Nativitate"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -384,14 +447,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=3): {
-                "feast": "S Blasii EM",
+                # S Blasii EM
                 "code": 2100,
                 "rank": [22, "s"],
                 "nobility": (8, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -400,14 +467,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=4): {
-                "feast": "S Andreæ Corsini EC",
+                # S Andreæ Corsini EC
                 "code": 2200,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -416,14 +487,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=5): {
-                "feast": "S Agathæ VM",
+                # S Agathæ VM
                 "code": 2300,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Gaudeamus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -432,19 +507,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=6): {
-                "feast": "S Titi EC",
+                # S Titi EC
                 "code": 2400,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{
-                    "feast": "S Dorotheæ VM",
-                "code": 28200,
-                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
-                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    "code": 28200,
+                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -453,14 +530,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=7): {
-                "feast": "S Romualdi Abb",
+                # S Romualdi Abb
                 "code": 2500,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -469,14 +550,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=8): {
-                "feast": "S Joannis de Matha C",
+                # S Joannis de Matha C
                 "code": 2600,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -485,19 +570,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=9): {
-                "feast": "S Cyrilli Alexandrini ECD",
+                # S Cyrilli Alexandrini ECD
                 "code": 2700,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{
-                    "feast": "S Apollonia VM",
-                "code": 28300,
-                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
-                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    "code": 28300,
+                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -506,14 +593,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=10): {
-                "feast": "S Scholasticæ V",
+                # S Scholasticæ V
                 "code": 2800,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -522,14 +613,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=11): {
-                "feast": "In Apparitione BMV Immaculatæ",
+                # In Apparitione BMV Immaculatæ
                 "code": 2900,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Vidi civitatem", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -538,14 +633,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=12): {
-                "feast": "Ss Septem Fundatores Ordinis Servorum BMV C",
+                # Ss Septem Fundatores Ordinis Servorum BMV C
                 "code": 3000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justi decantaverunt", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -554,14 +653,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=14): {
-                "feast": "S Valentini PM",
+                # S Valentini PM
                 "code": 3100,
                 "rank": [22, "s"],
                 "nobility": (8, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -570,14 +673,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=15): {
-                "feast": "Ss Faustini & Jovitæ Mm",
+                # Ss Faustini & Jovitæ Mm
                 "code": 3200,
                 "rank": [22, "s"],
                 "nobility": (8, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -586,14 +693,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=18): {
-                "feast": "S Simeonis EM",
+                # S Simeonis EM
                 "code": 3300,
                 "rank": [22, "s"],
                 "nobility": (8, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -602,14 +713,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=22): {
-                "feast": "In Cathedra S Petri Ap",
+                # In Cathedra S Petri Ap
                 "code": 3400,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit ei Dominus", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -618,18 +733,20 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=23): {
-                "feast": "S Petri Damiani ECD",
+                # S Petri Damiani ECD
                 "code": 3500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-                "com": [{
-                    "feast": "Vigilia S Matthiæ Ap",
+                "com_1": {
                     "code": 27300,
-                }],
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -638,14 +755,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=24): {
-                "feast": "S Matthiæ Ap",
+                # S Matthiæ Ap
                 "code": 3600,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -654,14 +775,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=27): {
-                "feast": "S Gabrielis a Virgine Perdolente C",
+                # S Gabrielis a Virgine Perdolente C
                 "code": 3700,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Oculus Dei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -673,18 +798,19 @@ class Sanctoral:
 
             # March
             day(year=self.year, month=3, day=4): {
-                "feast": "S Casimiri C",
+                # S Casimiri C
                 "code": 3800,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{
-                    "feast": "S Lucii I PM",
-                "code": 28400,
-                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
-                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os iusti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    "code": 28400,
+                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -693,14 +819,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=6): {
-                "feast": "Ss Perpetuae et Felicitatiis Mm",
+                # Ss Perpetuae et Felicitatiis Mm
                 "code": 3900,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -709,14 +839,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=7): {
-                "feast": "S Thomæ de Aquino CD",
+                # S Thomæ de Aquino CD
                 "code": 4000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio ecclesiae", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -725,14 +859,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=8): {
-                "feast": "S Joannis a Deo C",
+                # S Joannis a Deo C
                 "code": 4100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os iusti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -741,14 +879,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=9): {
-                "feast": "S Franciscae Romanae V",
+                # S Franciscae Romanae V
                 "code": 4200,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Cognovi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -757,14 +899,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=10): {
-                "feast": "Ss Quadragintarum Mm",
+                # Ss Quadragintarum Mm
                 "code": 4300,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Clamaverunt iusti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -773,14 +919,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=12): {
-                "feast": "S Gregorii I PCD",
+                # S Gregorii I PCD
                 "code": 4400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -789,14 +939,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=17): {
-                "feast": "S Patricii EC",
+                # S Patricii EC
                 "code": 4500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -805,14 +959,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=18): {
-                "feast": "S Cyrilli Hierosolymitani ECD",
+                # S Cyrilli Hierosolymitani ECD
                 "code": 4600,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio ecclesiae", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -821,14 +979,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=19): {
-                "feast": "S Josephi Sponsi BMV C",
+                # S Josephi Sponsi BMV C
                 "code": 4700,
                 "rank": [2, "d I cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justus ut palma", "glo": True, "cre": True, "pre": "De Sancto Ioseph"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -837,14 +999,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=21): {
-                "feast": "S Benedicti Abb",
+                # S Benedicti Abb
                 "code": 4800,
                 "rank": [14, "dm"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os iusti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -853,14 +1019,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=24): {
-                "feast": "S Gabrielis Arch",
+                # S Gabrielis Arch
                 "code": 4900,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Benedicite Dominum", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -869,14 +1039,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=25): {
-                "feast": "In Annuntiatione BMV",
+                # In Annuntiatione BMV
                 "code": 5000,
                 "rank": [2, "d I cl"],
                 "nobility": (1, 2, 6, 2, 1, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Vultum tuum", "glo": True, "cre": True, "pre": "De B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -885,14 +1059,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=27): {
-                "feast": "S Joannis Damasceni CD",
+                # S Joannis Damasceni CD
                 "code": 5100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Tenuisti manum", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -901,14 +1079,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=3, day=28): {
-                "feast": "S Joannis a Capistrano C",
+                # S Joannis a Capistrano C
                 "code": 5200,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Ego autem", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -920,13 +1102,16 @@ class Sanctoral:
 
             # April
             day(year=self.year, month=4, day=2): {
-                "feast": "S Francisci de Paula C",
+                # S Francisci de Paula C
                 "code": 5300,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justus ut palma", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -935,14 +1120,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=4): {
-                "feast": "S Isidori ECD",
+                # S Isidori ECD
                 "code": 5400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio ecclesiae", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -951,14 +1140,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=5): {
-                "feast": "S Vincentii Ferrerii C",
+                # S Vincentii Ferrerii C
                 "code": 5500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os iusti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -967,14 +1160,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=11): {
-                "feast": "S Leonis PCD",
+                # S Leonis PCD
                 "code": 5600,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -983,14 +1180,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=13): {
-                "feast": "S Hermenegildi M",
+                # S Hermenegildi M
                 "code": 5700,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": ["In virtute", "Protexisti"], "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -999,19 +1200,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=14): {
-                "feast": "S Justini M",
+                # S Justini M
                 "code": 5800,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{
-                    "feast": "Ss Tiburtii, Valeriani et Maximi Mm",
-                "code": 28500,
-                    "mass": {"int": ["Sapientiam", "Sancti tui"], "glo": True, "cre": False, "pre": "Communis"}
-                }],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Narraverunt mihi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    "code": 28500,
+                    "mass": {"int": ["Sapientiam", "Sancti tui"], "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1020,14 +1223,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=17): {
-                "feast": "S Aniceti PM",
+                # S Aniceti PM
                 "code": 5900,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1036,14 +1243,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=21): {
-                "feast": "S Anselmi ECD",
+                # S Anselmi ECD
                 "code": 6000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio ecclesiae", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1052,14 +1263,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=22): {
-                "feast": "Ss Soteris et Caii PpMm",
+                # Ss Soteris et Caii PpMm
                 "code": 6100,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1068,14 +1283,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=23): {
-                "feast": "S Georgii M",
+                # S Georgii M
                 "code": 6200,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Protexisti me", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1084,14 +1303,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=24): {
-                "feast": "S Fidelis a Sigmaringa M",
+                # S Fidelis a Sigmaringa M
                 "code": 6300,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Protexisti me", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1100,14 +1323,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=25): {
-                "feast": "S Marci Ev",
+                # S Marci Ev
                 "code": 6400,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Protexisti me", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1116,14 +1343,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=26): {
-                "feast": "Ss Cleti et Marcellini PpMm",
+                # Ss Cleti et Marcellini PpMm
                 "code": 6500,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1132,14 +1363,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=27): {
-                "feast": "S Petri Canisii CD",
+                # S Petri Canisii CD
                 "code": 6600,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio ecclesiae", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1148,19 +1383,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=28): {
-                "feast": "S Pauli a Cruce C",
+                # S Pauli a Cruce C
                 "code": 6700,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{
-                    "feast": "S Vitali M",
-                "code": 28600,
-                    "mass": {"int": ["Protexisti", "In virtute"], "glo": True, "cre": False, "pre": "Communis"}
-                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Christo confixus sum", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    "code": 28600,
+                    "mass": {"int": ["Protexisti", "In virtute"], "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1169,14 +1406,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=29): {
-                "feast": "S Petri M",
+                # S Petri M
                 "code": 6800,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Protexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1185,14 +1426,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=4, day=30): {
-                "feast": "S Catharinae Senensis V",
+                # S Catharinae Senensis V
                 "code": 6900,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1204,13 +1449,16 @@ class Sanctoral:
 
             # May
             day(year=self.year, month=5, day=1): {
-                "feast": "Ss Philippi et Iacobi App",
+                # Ss Philippi et Iacobi App
                 "code": 7000,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Clamaverunt ad te", "glo": True, "cre": True, "pre": "De Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1219,14 +1467,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=2): {
-                "feast": "S Athanasii ECD",
+                # S Athanasii ECD
                 "code": 7100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio ecclesiae", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1235,19 +1487,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=3): {
-                "feast": "In Inventione S Crucis",
+                # In Inventione S Crucis
                 "code": 7200,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{
-                    "feast": "Ss Alexandro I Pp, Eventii et Theoduli Mm ac Juvenale Ep C",
-                "code": 28700,
-                    "mass": {"int": "Sancti tui", "glo": True, "cre": False, "pre": "de Apostolis"}
-                }],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Nos autem gloriari", "glo": True, "cre": True, "pre": "De Cruce"},
+                "com_1": {
+                    "code": 28700,
+                    "mass": {"int": "Sancti tui", "glo": True, "cre": False, "pre": "de Apostolis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1256,14 +1510,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=4): {
-                "feast": "S Monicae V",
+                # S Monicae V
                 "code": 7300,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Cognovi, Domine", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1272,14 +1530,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=5): {
-                "feast": "S Pii V PC",
+                # S Pii V PC
                 "code": 7400,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1288,14 +1550,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=6): {
-                "feast": "S Joannis ApEv ante Portam Latinam",
+                # S Joannis ApEv ante Portam Latinam
                 "code": 7500,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Protexisti me", "glo": True, "cre": True, "pre": "De Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1304,14 +1570,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=7): {
-                "feast": "S Stanislai EM",
+                # S Stanislai EM
                 "code": 7600,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Protexisti me", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1320,14 +1590,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=8): {
-                "feast": "In Apparitione S Michaelis Arch",
+                # In Apparitione S Michaelis Arch
                 "code": 7700,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Benedicite Dominum", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1336,14 +1610,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=9): {
-                "feast": "S Gregorii Nanzanzeni ECD",
+                # S Gregorii Nanzanzeni ECD
                 "code": 7800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In media", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1352,19 +1630,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=10): {
-                "feast": "S Antonini EC",
+                # S Antonini EC
                 "code": 7900,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{
-                    "feast": "Ss Gordiani et Epimachi Mm",
-                "code": 28800,
-                    "mass": {"int": "Sancti tui", "glo": True, "cre": False, "pre": "Communis"}
-                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    "code": 28800,
+                    "mass": {"int": "Sancti tui", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1373,14 +1653,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=12): {
-                "feast": "Ss Nerei, Achillei at Domitillae V atq Pancratii Mm",
+                # Ss Nerei, Achillei at Domitillae V atq Pancratii Mm
                 "code": 8000,
                 "rank": [16, "sd"],
                 "nobility": (5, 2, 6, 7, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Ecce, oculi Domini", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1389,14 +1673,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=13): {
-                "feast": "S Roberti Bellarmino ECD",
+                # S Roberti Bellarmino ECD
                 "code": 8100,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1405,14 +1693,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=14): {
-                "feast": "S Bonifatii M",
+                # S Bonifatii M
                 "code": 8200,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Protexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1421,14 +1713,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=15): {
-                "feast": "S Joannis Baptistae de la Salle C",
+                # S Joannis Baptistae de la Salle C
                 "code": 8300,
                 "rank": [15, "d, mtv"],  # TODO: check this mtv
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os iusti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1437,14 +1733,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=16): {
-                "feast": "S Ubaldi EC",
+                # S Ubaldi EC
                 "code": 8400,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1453,14 +1753,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=17): {
-                "feast": "S Paschalis Baylon C",
+                # S Paschalis Baylon C
                 "code": 8500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1469,14 +1773,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=18): {
-                "feast": "S Venantii M",
+                # S Venantii M
                 "code": 8600,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": ["Protexisti", "In virtute"], "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1485,19 +1793,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=19): {
-                "feast": "S Petri Caelestini PC",
+                # S Petri Caelestini PC
                 "code": 8700,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{
-                    "feast": "S Pudentianae V",
-                    "code": 28900,
-                    "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"}
-                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {
+                    "code": 28900,
+                    "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1506,14 +1816,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=20): {
-                "feast": "S Bernardini Senensis C",
+                # S Bernardini Senensis C
                 "code": 8800,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1522,18 +1836,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=25): {
-                "feast": "S Gregorii VII PC",
+                # S Gregorii VII PC
                 "code": 8900,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{
-                    "feast": "S Urbani I PM",
-                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
-                }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {
+                    "code": 29000,
+                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1542,15 +1859,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=26): {
-                "feast": "S Philippi Nerii C",
+                # S Philippi Nerii C
                 "code": 9000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Eleutherii PM", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Caritas Dei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    "code": 29100,
+                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1559,15 +1882,21 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=27): {
-                "feast": "S Bedæ Venerabilis CD",
+                # S Bedæ Venerabilis CD
                 "code": 9100,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Joannis I PM", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    "code": 29200,
+                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1576,14 +1905,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=28): {
-                "feast": "S Augustini EC",
+                # S Augustini EC
                 "code": 9200,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Sacerdotes", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1592,14 +1925,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=29): {
-                "feast": "S Mariæ Magdalenæ de Pazzis V",
+                # S Mariæ Magdalenæ de Pazzis V
                 "code": 9300,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1608,14 +1945,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=30): {
-                "feast": "S Felix I PM",
+                # S Felix I PM
                 "code": 9400,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1624,15 +1965,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=5, day=31): {
-                "feast": "B Mariae Virginis Reginae",
+                # B Mariae Virginis Reginae
                 "code": 9500,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Petronillae V", "mass": {"int": "Vultum tuum", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Gaudeamus", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {
+                    # S Petronillae V
+                    "code": 29300,
+                    "mass": {"int": "Vultum tuum", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1644,13 +1992,16 @@ class Sanctoral:
 
             # June
             day(year=self.year, month=6, day=1): {
-                "feast": "S Angelæ Mericiæ V",
+                # S Angelæ Mericiæ V
                 "code": 9600,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1659,14 +2010,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=2): {
-                "feast": "Ss Marcellini, Petri atq Erasmi E Mm",
+                # Ss Marcellini, Petri atq Erasmi E Mm
                 "code": 9700,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1675,14 +2030,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=4): {
-                "feast": "S Francisci Caracciolo C",
+                # S Francisci Caracciolo C
                 "code": 9800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Factum est", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1691,14 +2050,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=5): {
-                "feast": "S Bonifatii EM",
+                # S Bonifatii EM
                 "code": 9900,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Exsultabo", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1707,14 +2070,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=6): {
-                "feast": "S Norberti EC",
+                # S Norberti EC
                 "code": 10000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1723,14 +2090,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=9): {
-                "feast": "Ss Primi et Feliciani Mm",
+                # Ss Primi et Feliciani Mm
                 "code": 10100,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": ["Sapientiam", "Sancti tui"], "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1739,14 +2110,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=10): {
-                "feast": "S Margaritæ R V",
+                # S Margaritæ R V
                 "code": 10200,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Cognovi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1755,14 +2130,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=11): {
-                "feast": "S Barnabæ Ap",
+                # S Barnabæ Ap
                 "code": 10300,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostlis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1771,15 +2150,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=12): {
-                "feast": "S Joannis a S Facundo C",
+                # S Joannis a S Facundo C
                 "code": 10400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Ss Basilidi, Cyrini, Nabori atq Nazarii Mm", "mass": {"int": ["Intret in conspectu", "Sancti tui"], "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Basilidi, Cyrini, Nabori atq Nazarii Mm
+                    "code": 29400,
+                    "mass": {"int": ["Intret in conspectu", "Sancti tui"], "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1788,14 +2174,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=13): {
-                "feast": "S Antonii de Padua CD",
+                # S Antonii de Padua CD
                 "code": 10500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1804,14 +2194,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=14): {
-                "feast": "S Basilii Magni ECD",
+                # S Basilii Magni ECD
                 "code": 10600,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1820,14 +2214,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=15): {
-                "feast": "Ss Viti, Modesti atq Crescentiæ Mm",
+                # Ss Viti, Modesti atq Crescentiæ Mm
                 "code": 10700,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Multæ tribulationes", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1836,15 +2234,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=18): {
-                "feast": "S Ephræm Syri Diaconi CD",
+                # S Ephræm Syri Diaconi CD
                 "code": 10800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Ss Marci et Marcelliani Mm", "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    # Ss Marci et Marcelliani Mm
+                    "code": 29500,
+                    "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1853,15 +2258,20 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=19): {
-                "feast": "S Julianæ de Falconeriis V",
+                # S Julianæ de Falconeriis V
                 "code": 10900,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "Ss Gervasii et Protasii Mm", "mass": {"int": "Loquetur Dominus", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Gervasii et Protasii Mm", "mass": {"int": "Loquetur Dominus "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1870,14 +2280,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=20): {
-                "feast": "S Silverii PM",
+                # S Silverii PM
                 "code": 11000,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1886,14 +2300,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=21): {
-                "feast": "S Aloisii Gonzagæ C",
+                # S Aloisii Gonzagæ C
                 "code": 11100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Minuisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1902,14 +2320,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=22): {
-                "feast": "S Paulini EC",
+                # S Paulini EC
                 "code": 11200,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Sacerdotes tui", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1918,14 +2340,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=23): {
-                "feast": "In Vigilia Nativitatis S Joannis Baptistæ",
+                # In Vigilia Nativitatis S Joannis Baptistæ
                 "code": 11300,
                 "rank": [19, "v"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Ne timeas", "glo": False, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1934,14 +2360,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=24): {
-                "feast": "In Nativitate S Joannis Baptistæ",
+                # In Nativitate S Joannis Baptistæ
                 "code": 11400,
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 0, 4, 4, 1, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "De ventre", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1950,14 +2380,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=25): {
-                "feast": "S Gulielmi Abb",
+                # S Gulielmi Abb
                 "code": 11500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1966,14 +2400,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=26): {
-                "feast": "S Joannis et Pauli Mm",
+                # S Joannis et Pauli Mm
                 "code": 11600,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Multæ tribulationes", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -1982,16 +2420,23 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             # todo Add "123/27 De IV die infra OCtava Nativitatis S Joannis Baptistae feria
             day(year=self.year, month=6, day=28): {
-                "feast": "S Irinæi EM",
+                # S Irinæi EM
                 "code": 11800,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "In Vigilia Ss Petri et Pauli App", "mass": {"int": "Dicit Dominus", "glo": False, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Lex veritatis", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # In Vigilia Ss Petri et Pauli App
+                    "code": 29600,
+                    "mass": {"int": "Dicit Dominus", "glo": False, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2000,14 +2445,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=29): {
-                "feast": "Ss Petri et Pauli App",
+                # Ss Petri et Pauli App
                 "code": 11900,
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 2, 4, 5, 1, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Nunc scio", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2016,15 +2465,24 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=6, day=30): {
-                "feast": "In Commemoratione S Pauli Apostoli",
+                # In Commemoratione S Pauli Apostoli
                 "code": 12000,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Petri Ap", "mass": {"int": "", "glo": True, "cre": True, "pre": "de Apostolis"}},{"feast": "In Octava S Joannis Baptistae"}],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Scio, cui credidi", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {
+                    # S Petri Ap
+                    "code": 29700,
+                    "mass": {"int": "", "glo": True, "cre": True, "pre": "de Apostolis"}
+                },
+                "com_2": {
+                    # "feast": "In Octava S Joannis Baptistae"
+                },
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2036,14 +2494,16 @@ class Sanctoral:
 
             # July
             day(year=self.year, month=7, day=1): {
-                "feast": "In Festo Pretiosissimi Sanguinis DNJC",
+                # In Festo Pretiosissimi Sanguinis DNJC
                 "code": 12100,
                 "rank": [2, "d I cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
-                "com": [],
                 "color": "red",
                 "mass": {"int": "Redemisti nos", "glo": True, "cre": True, "pre": "de Cruce"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2052,15 +2512,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=2): {
-                "feast": "In Visitatione BMV",
+                # In Visitatione BMV
                 "code": 12200,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "Ss Processi et Martiniani Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Salve, sancta Parens", "glo": True, "cre": True, "pre": "de BMV"},
+                "com_1": {
+                    # Ss Processi et Martiniani Mm
+                    "code": 29800,
+                    "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2069,15 +2536,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=3): {
-                "feast": "S Leonis II PC",
+                # S Leonis II PC
                 "code": 12300,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
-                "com": [],
                 "color": "white",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2088,14 +2558,16 @@ class Sanctoral:
             },
             # todo add "131/4 De VI die infra Octava Ss Petri et Pauli App feria
             day(year=self.year, month=7, day=5): {
-                "feast": "S Antonii Mariæ Zaccaria C",
+                # S Antonii Mariæ Zaccaria C
                 "code": 12500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
-                "com": [],
                 "color": "white",
                 "mass": {"int": "Sermo meus", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2106,13 +2578,16 @@ class Sanctoral:
             },
             # todo add "133/6 Octava Ss Petri et Pauli App dm
             day(year=self.year, month=7, day=7): {
-                "feast": "Ss Cyrilli et Methodii EeCc",
+                # Ss Cyrilli et Methodii EeCc
                 "code": 12700,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Sacerdotes tui", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2121,14 +2596,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=8): {
-                "feast": "S Elisabeth R Vid",
+                # S Elisabeth R Vid
                 "code": 12800,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Cognovi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2137,14 +2616,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=10): {
-                "feast": "Ss Septem Fratrum Mm ac Rufinæ et Secundæ VvMm",
+                # Ss Septem Fratrum Mm ac Rufinæ et Secundæ VvMm
                 "code": 12900,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Laudate, pueri", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2153,14 +2636,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=11): {
-                "feast": "S Pii I PM",
+                # S Pii I PM
                 "code": 13000,
                 "rank": [22, "s"],
                 "nobility": (8, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2169,15 +2656,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=12): {
-                "feast": "S Joannis Gualberti Abb",
+                # S Joannis Gualberti Abb
                 "code": 13100,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Ss Naboris et Felicis Mm", "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Naboris et Felicis Mm
+                    "code": 29900,
+                    "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2186,14 +2680,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=13): {
-                "feast": "S Anacleti PM",
+                # S Anacleti PM
                 "code": 13200,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2202,14 +2700,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=14): {
-                "feast": "S Bonaventuræ ECD",
+                # S Bonaventuræ ECD
                 "code": 13300,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2218,14 +2720,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=15): {
-                "feast": "S Henrici Imp C",
+                # S Henrici Imp C
                 "code": 13400,
                 "rank": [16, "sd, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2234,14 +2740,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=16): {
-                "feast": "In Commemoratione BMV de Monte Carmelo",
+                # In Commemoratione BMV de Monte Carmelo
                 "code": 13500,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Gaudeamus", "glo": True, "cre": True, "pre": " de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2250,14 +2760,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=17): {
-                "feast": "S Alexii C",
+                # S Alexii C
                 "code": 13600,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2266,15 +2780,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=18): {
-                "feast": "S Camilli de Lellis C",
+                # S Camilli de Lellis C
                 "code": 13700,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Ss Symphorosae et Septem Filiis ejus Mm", "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Majorem hac", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Symphorosae et Septem Filiis ejus Mm
+                    "code": 30000,
+                    "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2283,14 +2804,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=19): {
-                "feast": "S Vincentii a Paulo C",
+                # S Vincentii a Paulo C
                 "code": 13800,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justus ut palma", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2299,15 +2824,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=20): {
-                "feast": "S Hieronymi Æmiliani C",
+                # S Hieronymi Æmiliani C
                 "code": 13900,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Margaritae VM", "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Effusum est", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Margaritae VM
+                    "code": 30100,
+                    "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"},
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2316,14 +2848,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=21): {
-                "feast": "S Praxedis V",
+                # S Praxedis V
                 "code": 14000,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2332,14 +2868,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=22): {
-                "feast": "S Mariæ Magdalenæ Pænitentis",
+                # S Mariæ Magdalenæ Pænitentis
                 "code": 14100,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Me expectaverunt", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2348,15 +2888,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=23): {
-                "feast": "S Apollinaris EM",
+                # S Apollinaris EM
                 "code": 14200,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Liborii EC", "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Liborii EC
+                    "code": 30200,
+                    "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2365,15 +2912,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=24): {
-                "feast": "In Vigilia S Jacobi Ap",
+                # In Vigilia S Jacobi Ap
                 "code": 14300,
                 "rank": [19, "v"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Christinae VM", "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "purple",
                 "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Christinae VM
+                    "code": 30300,
+                    "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2382,15 +2936,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=25): {
-                "feast": "S Jacobi Ap",
+                # S Jacobi Ap
                 "code": 14400,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Christophori M", "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {
+                    # S Christophori M
+                    "code": 30400,
+                    "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2399,14 +2960,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=26): {
-                "feast": "S Annæ Matris BMV",
+                # S Annæ Matris BMV
                 "code": 14500,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Gaudeamus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2415,14 +2980,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=27): {
-                "feast": "S Pantaleonis M",
+                # S Pantaleonis M
                 "code": 14600,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2431,14 +3000,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=28): {
-                "feast": "Ss Nazarii et Celsi Mm, Victoris I PM, ac Innocentii I PC",
+                # Ss Nazarii et Celsi Mm, Victoris I PM, ac Innocentii I PC
                 "code": 14700,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Intret in conspectu", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2447,15 +3020,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=29): {
-                "feast": "S Marthæ V",
+                # S Marthæ V
                 "code": 14800,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "Ss Felicis II P, Simplicis, Faustinis atq Beatricae Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Felicis II P, Simplicis, Faustinis atq Beatricae Mm
+                    "code": 30500,
+                    "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2464,14 +3044,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=30): {
-                "feast": "Ss Abdon et Sennen Mm",
+                # Ss Abdon et Sennen Mm
                 "code": 14900,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Intret in conspectu", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2480,14 +3064,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=7, day=31): {
-                "feast": "S Ignatii C",
+                # S Ignatii C
                 "code": 15000,
                 "rank": [14, "dm"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In nomine Jesu", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2499,14 +3087,24 @@ class Sanctoral:
 
             # August
             day(year=self.year, month=8, day=1): {
-                "feast": "S Petri Ap ad Vincula",
+                # S Petri Ap ad Vincula
                 "code": 15100,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Pauli Ap", "mass": {"int": "", "glo": True, "cre": True, "pre": "de Apostolis"}},{"feast": "Ss Machabæis Mm", "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}}],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Nunc scio vere", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {
+                    # S Pauli Ap
+                    "code": 30600,
+                    "mass": {"int": "", "glo": True, "cre": True, "pre": "de Apostolis"}
+                },
+                "com_2": {
+                    # Ss Machabæis Mm
+                    "code": 34700,
+                    "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2515,15 +3113,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=2): {
-                "feast": "S Alphonsi Mariæ de Ligorio ECD",
+                # S Alphonsi Mariæ de Ligorio ECD
                 "code": 15200,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Stephani PM", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Spiritus Domini", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    # S Stephani PM
+                    "code": 30700,
+                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2532,14 +3137,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=3): {
-                "feast": "In Inventione S Stephani Protomartyris",
+                # In Inventione S Stephani Protomartyris
                 "code": 15300,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Sederunt", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2548,14 +3157,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=4): {
-                "feast": "S Dominici C",
+                # S Dominici C
                 "code": 15400,
                 "rank": [14, "dm, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2564,14 +3177,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=5): {
-                "feast": "In Dedicatione S Mariæ ad Nives",
+                # In Dedicatione S Mariæ ad Nives
                 "code": 15500,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Salve, sancta parens", "glo": True, "cre": True, "pre": "De B Mariae Virginis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2580,15 +3197,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=6): {
-                "feast": "In Transfiguratione DNJC",
+                # In Transfiguratione DNJC
                 "code": 15600,
                 "rank": [11, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "Ss Xysti P, Felicissimi atq Agapiti Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "de Apostolis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Illuxerunt", "glo": True, "cre": True, "pre": "de Nativitate"},
+                "com_1": {
+                    # Ss Xysti P, Felicissimi atq Agapiti Mm
+                    "code": 30800,
+                    "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "de Apostolis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2597,15 +3221,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=7): {
-                "feast": "S Cajetani C",
+                # S Cajetani C
                 "code": 15700,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Donati EM", "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Donati EM
+                    "code": 30900,
+                    "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2614,14 +3245,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=8): {
-                "feast": "Ss Cyriaci, Largi atq Smaragdi Mm",
+                # Ss Cyriaci, Largi atq Smaragdi Mm
                 "code": 15800,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Timete Dominum", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2630,15 +3265,26 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=9): {
-                "feast": "S Joannis Mariæ Vianney C",
+                # S Joannis Mariæ Vianney C
                 "code": 15900,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Vigilia S Laurentii M", "mass": {"int": "Dispersit", "glo": False, "cre": False, "pre": "Communis"}},{"feast": "S Romani M", "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"}}],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Vigilia S Laurentii M
+                    "code": 31000,
+                    "mass": {"int": "Dispersit", "glo": False, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {
+                    # S Romani M
+                    "code": 34800,
+                    "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2647,13 +3293,17 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=10): {
-                "feast": "S Laurentii M",
+                # S Laurentii M
                 "code": 16000,
                 "rank": [10, "d II cl"],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Confessio", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2662,14 +3312,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=11): {
-                "feast": "Ss Tiburtii et Susannæ V, Mm",
+                # Ss Tiburtii et Susannæ V, Mm
                 "code": 16100,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2678,14 +3332,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=12): {
-                "feast": "S Claræ V",
+                # S Claræ V
                 "code": 16200,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2694,14 +3352,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=13): {
-                "feast": "Ss Hippolyti et Cassiani Mm",
+                # Ss Hippolyti et Cassiani Mm
                 "code": 16300,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2710,15 +3372,24 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=14): {
-                "feast": "In Vigilia Assumptionis BMV",
+                # In Vigilia Assumptionis BMV
                 "code": 16400,
                 "rank": [19, "v"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Eusebii C", "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"}},{"feast": "Spiritus Sancti", "mass": {"int": "de Spiritu Sancto"}}],
                 "office_type": False,
                 "color": "purple",
                 "mass": {"int": "Vultum tuum", "glo": False, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Eusebii C
+                    "code": 31100,
+                    "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {
+                    "oration": "Spiritus Sancti",
+                          },
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2727,14 +3398,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=15): {
-                "feast": "In Assumptione BMV",
+                # In Assumptione BMV
                 "code": 16500,
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 1, 4, 2, 1, 0),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Signum magnum", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2743,14 +3418,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=16): {
-                "feast": "S Joachim C, Patris BMV,",
+                # S Joachim C, Patris BMV,
                 "code": 16600,
                 "rank": [10, "d II cl, mtv"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dispersit", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2759,20 +3438,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=17): {
-                "feast": "S Hyacinthi C",
+                # S Hyacinthi C
                 "code": 16700,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [
-                    {
-                        "feast": "Octava S Laurentii M",
-                        "mass": {"int": "Probasti", "glo": True, "cre": False, "pre": "Communis"}
-                    },
-                ],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {
+                    # Octava S Laurentii M
+                    "code": 31200,
+                    "mass": {"int": "Probasti", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2781,14 +3462,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=18): {
-                "feast": "S Agapiti M",
+                # S Agapiti M
                 "code": 16800,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Lætabitur", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2797,14 +3482,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=19): {
-                "feast": "S Joannis Eudes C",
+                # S Joannis Eudes C
                 "code": 16900,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2813,14 +3502,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=20): {
-                "feast": "S Bernardi AbbD",
+                # S Bernardi AbbD
                 "code": 17000,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2829,14 +3522,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=21): {
-                "feast": "S Joannæ Franciscæ Fremiot de Chantal V",
+                # S Joannæ Franciscæ Fremiot de Chantal V
                 "code": 17100,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Cognovi", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2845,15 +3542,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=22): {
-                "feast": "In Festo Immaculati Cordis BMV",
+                # In Festo Immaculati Cordis BMV
                 "code": 17200,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "Ss Timothei, Hippolyti atq Symphoriani Mm", "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Adeamus", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {
+                    # Ss Timothei, Hippolyti atq Symphoriani Mm
+                    "code": 31300,
+                    "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2862,15 +3566,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=23): {
-                "feast": "S Philippi Benitii C",
+                # S Philippi Benitii C
                 "code": 17300,
                 "rank": [19, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
-                "com": [{"feast": "In Vigilia S Bartholomæi Ap", "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"}},],
                 "color": "white",
                 "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # In Vigilia S Bartholomæi Ap
+                    "code": 31400,
+                    "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2879,14 +3590,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=24): {
-                "feast": "S Bartholomæi Ap",
+                # S Bartholomæi Ap
                 "code": 17400,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2895,14 +3610,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=25): {
-                "feast": "S Ludovici RC",
+                # S Ludovici RC
                 "code": 17500,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2911,14 +3630,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=26): {
-                "feast": "S Zephrini PM",
+                # S Zephrini PM
                 "code": 17600,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2927,14 +3650,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=27): {
-                "feast": "S Josephi Calasanctii C",
+                # S Josephi Calasanctii C
                 "code": 17700,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Venite, filii", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2943,15 +3670,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=28): {
-                "feast": "S Augustini ECD",
+                # S Augustini ECD
                 "code": 17800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Hermetis M", "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    # S Hermetis M
+                    "code": 31500,
+                    "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2960,15 +3694,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=29): {
-                "feast": "In Decollatione S Joannis Baptistæ",
+                # In Decollatione S Joannis Baptistæ
                 "code": 17900,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Sabinae M", "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Sabinae M
+                    "code": 31600,
+                    "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2977,15 +3718,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=30): {
-                "feast": "S Rosæ a S Maria Limanae V",
+                # S Rosæ a S Maria Limanae V
                 "code": 18000,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "Ss Felicis et Adaucti Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Felicis et Adaucti Mm
+                    "code": 31700,
+                    "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -2994,14 +3742,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=8, day=31): {
-                "feast": "S Raymundi Nonnati C",
+                # S Raymundi Nonnati C
                 "code": 18100,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3013,14 +3765,20 @@ class Sanctoral:
 
             # September
             day(year=self.year, month=9, day=1): {
-                "feast": "S Ægidii Abb",
+                # S Ægidii Abb
                 "code": 18200,
                 "rank": [22, "s"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
-                "com": [{"feast": "Ss Duodecim Fratribus", "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Duodecim Fratribus
+                    "code": 31800,
+                    "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3029,14 +3787,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=2): {
-                "feast": "S Stephani R C",
+                # S Stephani R C
                 "code": 18300,
                 "rank": [16, "sd, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3045,14 +3807,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=3): {
-                "feast": "S Pii X PC",
+                # S Pii X PC
                 "code": 18400,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Extuli", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3061,14 +3827,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=5): {
-                "feast": "S Laurentii Justiniani EC",
+                # S Laurentii Justiniani EC
                 "code": 18500,
                 "rank": [16, "sd, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3077,15 +3847,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=8): {
-                "feast": "In Nativitate BMV",
+                # In Nativitate BMV
                 "code": 18600,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Hadriani M", "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Salve, sancta Parens", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {
+                    # S Hadriani M
+                    "code": 31900,
+                    "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3094,14 +3871,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=9): {
-                "feast": "S Gorgonii M",
+                # S Gorgonii M
                 "code": 18700,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3110,14 +3891,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=10): {
-                "feast": "S Nicolai de Tolentino C",
+                # S Nicolai de Tolentino C
                 "code": 18800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3126,14 +3911,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=11): {
-                "feast": "Ss Proti et Hycinthi Mm",
+                # Ss Proti et Hycinthi Mm
                 "code": 18900,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3142,14 +3931,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=12): {
-                "feast": "Ssmi Nominis BMV",
+                # Ssmi Nominis BMV
                 "code": 19000,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Vultum tuum", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3158,13 +3951,17 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=14): {
-                "feast": "In Exaltatione S Crucis",
+                # In Exaltatione S Crucis
                 "code": 19100,
                 "rank": [14, "dm"],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Nos autem", "glo": True, "cre": True, "pre": "de Cruce"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3173,15 +3970,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=15): {
-                "feast": "Septem Dolorum BMV",
+                # Septem Dolorum BMV
                 "code": 19200,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Nicomedis M", "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Stabant", "glo": True, "seq": "Stabat Mater", "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {
+                    # S Nicomedis M
+                    "code": 32000,
+                    "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3190,15 +3994,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=16): {
-                "feast": "Ss Cornelii P et Cypriani E Mm",
+                # Ss Cornelii P et Cypriani E Mm
                 "code": 19300,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "Ss Euphemiae V, Luciae atq Geminiani Mm", "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {
+                    # Ss Euphemiae V, Luciae atq Geminiani Mm
+                    "code": 32100,
+                    "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3207,14 +4018,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=17): {
-                "feast": "In Impressione Ss Stigmatum S Francisci C",
+                # In Impressione Ss Stigmatum S Francisci C
                 "code": 19400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3223,14 +4038,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=18): {
-                "feast": "S Josephi a Cupertino C",
+                # S Josephi a Cupertino C
                 "code": 19500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dilectio", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3239,14 +4058,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=19): {
-                "feast": "Ss Januarii E et Sociorum Mm",
+                # Ss Januarii E et Sociorum Mm
                 "code": 19600,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3255,15 +4078,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=20): {
-                "feast": "Ss Eustachii et Sociorum Mm",
+                # Ss Eustachii et Sociorum Mm
                 "code": 19700,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "In Vigilia S Matthæi ApEv", "mass": {"int": "Ego autem", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # In Vigilia S Matthæi ApEv
+                    "code": 32200,
+                    "mass": {"int": "Ego autem", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3272,14 +4102,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=21): {
-                "feast": "S Matthæi ApEv",
+                # S Matthæi ApEv
                 "code": 19800,
                 "rank": [21, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Os justi", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3288,15 +4122,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=22): {
-                "feast": "S Thomæ de Villanova EC",
+                # S Thomæ de Villanova EC
                 "code": 19900,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Ss Mauritii et Sociorum Mm", "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Mauritii et Sociorum Mm
+                    "code": 32300,
+                    "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3305,15 +4146,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=23): {
-                "feast": "S Lini PM",
+                # S Lini PM
                 "code": 20000,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Theclae VM", "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Theclae VM
+                    "code": 32400,
+                    "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3322,14 +4170,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=24): {
-                "feast": "BMV de Merdece",
+                # BMV de Merdece
                 "code": 20100,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Salve", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3338,14 +4190,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=26): {
-                "feast": "Ss Cypriani et Justinæ Mm",
+                # Ss Cypriani et Justinæ Mm
                 "code": 20200,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3354,14 +4210,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=27): {
-                "feast": "Ss Cosmæ et Damiani Mm",
+                # Ss Cosmæ et Damiani Mm
                 "code": 20300,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3370,14 +4230,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=28): {
-                "feast": "S Wenceslai Ducis M",
+                # S Wenceslai Ducis M
                 "code": 20400,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3386,14 +4250,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=29): {
-                "feast": "In Dedicatione S Michaelis Arch",
+                # In Dedicatione S Michaelis Arch
                 "code": 20500,
                 "rank": [2, "d I cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Benedicite", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3402,14 +4270,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=9, day=30): {
-                "feast": "S Hieronymi SCD",
+                # S Hieronymi SCD
                 "code": 20600,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3421,13 +4293,16 @@ class Sanctoral:
 
             # October
             day(year=self.year, month=10, day=1): {
-                "feast": "S Remigii EC",
+                # S Remigii EC
                 "code": 20700,
                 "rank": [22, "s"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3436,14 +4311,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=2): {
-                "feast": "Ss Angelorum Custodum",
+                # Ss Angelorum Custodum
                 "code": 20800,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Benedicite", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3452,14 +4331,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=3): {
-                "feast": "S Teresiæ a Jesu Infante V",
+                # S Teresiæ a Jesu Infante V
                 "code": 20900,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Veni de Libano", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3468,14 +4351,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=4): {
-                "feast": "S Francisci C",
+                # S Francisci C
                 "code": 21000,
                 "rank": [14, "dm"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3484,14 +4371,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=5): {
-                "feast": "Ss Placidi et Sociorum Mm",
+                # Ss Placidi et Sociorum Mm
                 "code": 21100,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3500,14 +4391,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=6): {
-                "feast": "S Brunonis C",
+                # S Brunonis C
                 "code": 21200,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3516,15 +4411,26 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=7): {
-                "feast": "Sacratissimi Rosarii BMV",
+                # Sacratissimi Rosarii BMV
                 "code": 21300,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Marci PC", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},{"feast": "Ss Sergii, Bacchi, Marcelli atq Apuleji MM", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}}],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Gaudeamus", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {
+                    # S Marci PC
+                    "code": 32500,
+                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
+                          },
+                "com_2": {
+                    # Ss Sergii, Bacchi, Marcelli atq Apuleji MM
+                    "code": 34900,
+                    "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3533,14 +4439,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=8): {
-                "feast": "S Birgittæ V",
+                # S Birgittæ V
                 "code": 21400,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Cognovi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3549,15 +4459,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=9): {
-                "feast": "S Joannis Leonardi C",
+                # S Joannis Leonardi C
                 "code": 21500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Ss Dionysii E, Rustici atq Eleutherii Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In sermonibus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Dionysii E, Rustici atq Eleutherii Mm
+                    "code": 32600,
+                    "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3566,14 +4483,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=10): {
-                "feast": "S Francisci Borgiæ C",
+                # S Francisci Borgiæ C
                 "code": 21600,
                 "rank": [16, "sd, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3582,14 +4503,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=11): {
-                "feast": "In Maternitate BMV",
+                # In Maternitate BMV
                 "code": 21700,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Ecce Virgo", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3598,14 +4523,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=13): {
-                "feast": "S Eduardi R C",
+                # S Eduardi R C
                 "code": 21800,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3614,14 +4543,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=14): {
-                "feast": "S Callisti I PM",
+                # S Callisti I PM
                 "code": 21900,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3630,14 +4563,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=15): {
-                "feast": "S Teresiæ V",
+                # S Teresiæ V
                 "code": 22000,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3646,14 +4583,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=16): {
-                "feast": "S Hedwigis V",
+                # S Hedwigis V
                 "code": 22100,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Cognovi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3662,14 +4603,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=17): {
-                "feast": "S Margaritæ Mariæ Alacoque V",
+                # S Margaritæ Mariæ Alacoque V
                 "code": 22200,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Sub umbra", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3678,14 +4623,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=18): {
-                "feast": "S Lucæ Ev",
+                # S Lucæ Ev
                 "code": 22300,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3694,14 +4643,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=19): {
-                "feast": "S Petri de Alcantara C",
+                # S Petri de Alcantara C
                 "code": 22400,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justus ut palma", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3710,14 +4663,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=20): {
-                "feast": "S Joannis Cantii C",
+                # S Joannis Cantii C
                 "code": 22500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Miseratio hominis", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3726,15 +4683,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=21): {
-                "feast": "S Hilarionis Abb",
+                # S Hilarionis Abb
                 "code": 22600,
                 "rank": [22, "s"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Ss Ursulae et Sociarum VM", "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Ursulae et Sociarum VM
+                    "code": 32700,
+                    "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3743,14 +4707,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=24): {
-                "feast": "S Raphaelis Arch",
+                # S Raphaelis Arch
                 "code": 22700,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Benedicite", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3759,14 +4727,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=25): {
-                "feast": "Ss Chrysanthi et Dariæ Mm",
+                # Ss Chrysanthi et Dariæ Mm
                 "code": 22800,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3775,14 +4747,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=26): {
-                "feast": "S Evaristi PM",
+                # S Evaristi PM
                 "code": 22900,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3791,14 +4767,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=27): {
-                "feast": "In Vigilia Ss Simonis et Judæ App",
+                # In Vigilia Ss Simonis et Judæ App
                 "code": 23000,
                 "rank": [19, "v"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "purple",
                 "mass": {"int": "Intret", "glo": False, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3807,14 +4787,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": True,
             },
+
             day(year=self.year, month=10, day=28): {
-                "feast": "Ss Simonis et Judæ App",
+                # Ss Simonis et Judæ App
                 "code": 23100,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3823,14 +4807,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=10, day=31): {
-                "feast": "In Vigilia Omnium Sanctorum",
+                # In Vigilia Omnium Sanctorum
                 "code": 23200,
                 "rank": [19, "v"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "purple",
                 "mass": {"int": "Judicant", "glo": False, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3842,13 +4830,16 @@ class Sanctoral:
 
             # November
             day(year=self.year, month=11, day=1): {
-                "feast": "In Festo Omnium Sanctorum",
+                # In Festo Omnium Sanctorum
                 "code": 23300,
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (1, 1, 4, 3, 1, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Gaudeamus", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3857,8 +4848,9 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=2): {
-                "feast": "In Commemoratione Omnium Fidelium Defunctorum",
+                # In Commemoratione Omnium Fidelium Defunctorum
                 "code": 23400,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
@@ -3868,6 +4860,9 @@ class Sanctoral:
                     "Ad Secundam Missam": {"int": "Requiem", "glo": False, "seq": "Dies Iræ", "cre": False, "pre": "Defunctorum"},
                     "Ad Tertiam Missam": {"int": "Requiem", "glo": False, "seq": "Dies Iræ", "cre": False, "pre": "Defunctorum"},
                 },
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "office_type": False,
                 "matins": {},
                 "lauds": {},
@@ -3877,15 +4872,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=4): {
-                "feast": "S Caroli EC",
+                # S Caroli EC
                 "code": 23500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Octavae Omnium Sanctorum", "mass": {"int": "", "glo": True, "cre": True, "pre": "Communis"}},{"feast": "Ss Vitalis et Agricolae Mm", "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}}],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit ei", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    # Octavae Omnium Sanctorum
+                    "code": 32800,
+                    "mass": {"int": "", "glo": True, "cre": True, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3896,11 +4898,11 @@ class Sanctoral:
             },
             # todo add "2371/5-7 Infra Octava Omnium Sanctorum feria
             # day(year=self.year, month=11, day=8): {
-            #     "feast": "In Octava Omnium Sanctorum",
+            #     # In Octava Omnium Sanctorum
             #     "rank": [16, "sd"],
             #     "nobility": (0, 0, 0, 0, 0, 0,),
             #     "office_type": False,
-            #     "com": [{"feast": "Ss Quatuor Coronatis Mm", "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "Communis"}},],
+            #     "com": [{# Ss Quatuor Coronatis Mm", "mass": {"int": "Intret "glo": True, "cre": False, "pre": "Communis"}},],
             #     "color": "white",
             #     "mass": {"int": "Gaudeamus", "glo": True, "cre": True, "pre": "Communis"},
             #     "matins": {},
@@ -3911,15 +4913,22 @@ class Sanctoral:
             #     "compline": {},
             #     "fasting": False,
             # },
+
             day(year=self.year, month=11, day=9): {
-                "feast": "In Dedicatione Archibasilicæ Ssmi Salvatoris",
+                # In Dedicatione Archibasilicæ Ssmi Salvatoris
                 "code": 23700,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Theodori M", "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Terribilis", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    # S Theodori M
+                    "code": 32900,
+                    "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3928,15 +4937,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=10): {
-                "feast": "S Andreæ Avellini C",
+                # S Andreæ Avellini C
                 "code": 23800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "Ss Tryphonis, Respicii atq Nymphae V Mm", "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Tryphonis, Respicii atq Nymphae V Mm
+                    "code": 33000,
+                    "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3945,15 +4961,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=11): {
-                "feast": "S Martini EC",
+                # S Martini EC
                 "code": 23900,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Mennae M", "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Mennae M
+                    "code": 33100,
+                    "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3962,14 +4985,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=12): {
-                "feast": "S Martini I PM",
+                # S Martini I PM
                 "code": 24000,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3978,14 +5005,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=13): {
-                "feast": "S Didaci C",
+                # S Didaci C
                 "code": 24100,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -3994,14 +5025,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=14): {
-                "feast": "S Josaphat EM",
+                # S Josaphat EM
                 "code": 24200,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Gaudeamus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4010,14 +5045,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=15): {
-                "feast": "S Alberti Magni ECD",
+                # S Alberti Magni ECD
                 "code": 24300,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4026,14 +5065,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=16): {
-                "feast": "S Gertrudis V",
+                # S Gertrudis V
                 "code": 24400,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4042,14 +5085,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=17): {
-                "feast": "S Gregorii Thaumaturgi EC",
+                # S Gregorii Thaumaturgi EC
                 "code": 24500,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4058,14 +5105,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=18): {
-                "feast": "In Dedicatione Basilicarum Ss Petri et Pauli App",
+                # In Dedicatione Basilicarum Ss Petri et Pauli App
                 "code": 24600,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Terribilis", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4074,15 +5125,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=19): {
-                "feast": "S Elisabeth V",
+                # S Elisabeth V
                 "code": 24700,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Pontiani PM", "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Cognovi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Pontiani PM
+                    "code": 33200,
+                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4091,14 +5149,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=20): {
-                "feast": "S Felicis de Valois C",
+                # S Felicis de Valois C
                 "code": 24800,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4107,14 +5169,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=21): {
-                "feast": "In Præsentatione BMV",
+                # In Præsentatione BMV
                 "code": 24900,
                 "rank": [14, "dm"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Salve", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4123,14 +5189,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=22): {
-                "feast": "S Cæciliæ VM",
+                # S Cæciliæ VM
                 "code": 25000,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4139,15 +5209,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=23): {
-                "feast": "S Clementis I PM",
+                # S Clementis I PM
                 "code": 25100,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Felicitatis M", "mass": {"int": "Me exspectaverunt", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Dicit Dóminus", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {
+                    # S Felicitatis M
+                    "code": 33300,
+                    "mass": {"int": "Me exspectaverunt", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4156,15 +5233,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=24): {
-                "feast": "S Joannis a Cruce CD",
+                # S Joannis a Cruce CD
                 "code": 25200,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Chrysogoni M", "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    # S Chrysogoni M
+                    "code": 33400,
+                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4173,14 +5257,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=25): {
-                "feast": "S Catharinæ VM",
+                # S Catharinæ VM
                 "code": 25300,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4189,15 +5277,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=26): {
-                "feast": "S Sylvestri Abb",
+                # S Sylvestri Abb
                 "code": 25400,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Petri Alexandrini EM", "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Petri Alexandrini EM
+                    "code": 33500,
+                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4206,15 +5301,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=11, day=29): {
-                "feast": "In Vigilia S Andreæ Ap",
+                # In Vigilia S Andreæ Ap
                 "code": 25500,
                 "rank": [22, "v"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "com": [{"feast": "S Saturnini M", "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "purple",
                 "mass": {"int": "Dominus secus", "glo": False, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Saturnini M
+                    "code": 33600,
+                    "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4223,14 +5325,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": True,
             },
+
             day(year=self.year, month=11, day=30): {
-                "feast": "S Andreæ Ap",
+                # S Andreæ Ap
                 "code": 25600,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4243,13 +5349,16 @@ class Sanctoral:
 
             # December
             day(year=self.year, month=12, day=2): {
-                "feast": "S Bibianæ VM",
+                # S Bibianæ VM
                 "code": 25800,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4258,14 +5367,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=12, day=3): {
-                "feast": "S Francisci Xaverii C",
+                # S Francisci Xaverii C
                 "code": 25900,
                 "rank": [14, "dm, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4274,15 +5387,22 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=12, day=4): {
-                "feast": "S Petri Chrysologi ECD",
+                # S Petri Chrysologi ECD
                 "code": 26000,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "S Barbarae VM", "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}},],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    # S Barbarae VM
+                    "code": 33700,
+                    "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}
+                          },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4291,14 +5411,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=12, day=5): {
-                "feast": "S Sabbae Abb",
+                # S Sabbae Abb
                 "code": 26100,
                 "rank": [22, "s"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4307,28 +5431,32 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=12, day=6): {
-                "feast": "S Nicolai EC",
+                # S Nicolai EC
                 "code": 26200,
-                "rank": [15, "d"], # FIX: vigil of IC?
+                "rank": [15, "d"],  # FIX: vigil of IC?
                 "nobility": (4, 2, 6, 8, 3, 0,),
-                "com": [{"feast": "In Vigilia Conceptionis Immaculatæ BMV",
-                         "rank": [19, "v"],
-                         "nobility": (0, 0, 0, 0, 0, 0,),
-                         "office_type": False,
-                         "color": "purple",
-                         "mass": {"int": "Venite, audite", "glo": False, "cre": False, "pre": "Communis"},
-                         "matins": {},
-                         "lauds": {},
-                         "prime": {},
-                         "little_hours": {},
-                         "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                         "compline": {},
-                         "fasting": False,
-                         }],
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # In Vigilia Conceptionis Immaculatæ BMV
+                    "code": 33800,
+                    "rank": [19, "v"],
+                    "nobility": (0, 0, 0, 0, 0, 0,),
+                    "office_type": False,
+                    "color": "purple",
+                    "mass": {"int": "Venite, audite", "glo": False, "cre": False, "pre": "Communis"},
+                    "matins": {},
+                    "lauds": {},
+                    "prime": {},
+                    "little_hours": {},
+                    "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                    "compline": {}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4337,14 +5465,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=12, day=7): {
-                "feast": "S Ambrosii ECD",
+                # S Ambrosii ECD
                 "code": 26300,
                 "rank": [15, "d, mtv"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4353,8 +5485,9 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=12, day=8): {
-                "feast": "In Conceptione Immaculata BMV",
+                # In Conceptione Immaculata BMV
                 "code": 26400,
                 "rank": [2, "d I cl cum Oct communi"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
@@ -4362,6 +5495,9 @@ class Sanctoral:
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Gaudens gaudebo", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4372,13 +5508,16 @@ class Sanctoral:
             },
             # todo add "2662/9 De II die infra Octava Concept. Immac. BMV feria
             day(year=self.year, month=12, day=10): {
-                "feast": "S Melchidi PM",
+                # S Melchidi PM
                 "code": 26600,
                 "rank": [22, "s"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4387,14 +5526,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=12, day=11): {
-                "feast": "S Damasi I PC",
+                # S Damasi I PC
                 "code": 26700,
                 "rank": [16, "sd"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4405,13 +5548,16 @@ class Sanctoral:
             },
             # todo add "2692/12 De II die infra Octava Concept. Immac. BMV feria
             day(year=self.year, month=12, day=13): {
-                "feast": "S Luciæ VM",
+                # S Luciæ VM
                 "code": 26900,
                 "rank": [15, "d"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Dilexisti", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4423,13 +5569,16 @@ class Sanctoral:
             # TODO: add "12/14 De VII die infra Octava Concept. Immac. BMV feria
             # TODO: add "12/15 Octava Concept. Immac. BMV dm
             day(year=self.year, month=12, day=16): {
-                "feast": "S Eusebii EM",
+                # S Eusebii EM
                 "code": 27000,
                 "rank": [16, "sd"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4438,14 +5587,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=12, day=20): {
-                "feast": "In Vigilia S Thomæ Ap",
+                # In Vigilia S Thomæ Ap
                 "code": 27100,
                 "rank": [22, "v"], # TODO: check the ranking of a vigil
                 "nobility": (8, 2, 6, 5, 3, 0,),
                 "office_type": False,
                 "color": "purple",
                 "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4454,14 +5607,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=12, day=21): {
-                "feast": "S Thomæ Ap",
+                # S Thomæ Ap
                 "code": 27200,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4474,14 +5631,16 @@ class Sanctoral:
 
         self.data_leapyear = {
             day(year=self.year, month=2, day=23): {
-                "feast": "S Petri Damiani ECD",
+                # S Petri Damiani ECD
                 "code": 3500,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-                # "com": [{"feast": "Vigilia S Matthiæ Ap"}],
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4490,14 +5649,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=24): {
-                "feast": "In Vigilia S Matthiæ",
+                # In Vigilia S Matthiæ
                 "code": 27300,
                 "rank": [20, "v"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4506,14 +5669,18 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=25): {
-                "feast": "S Matthiæ Ap",
+                # S Matthiæ Ap
                 "code": 3600,
                 "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",
                 "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4522,18 +5689,23 @@ class Sanctoral:
                 "compline": {},
                 "fasting": False,
             },
+
             day(year=self.year, month=2, day=27): {
-                "feast": False,
-                "code": 27600,
+                "code": False,
+                # "code": 27600,
             },
+
             day(year=self.year, month=2, day=28): {
-                "feast": "S Gabrielis a Virgine Perdolente C",
+                # S Gabrielis a Virgine Perdolente C
                 "code": 3700,
                 "rank": [15, "d"],
                 "nobility": (4, 2, 6, 8, 3, 0,),
                 "office_type": False,
                 "color": "white",
                 "mass": {"int": "Oculus Dei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
                 "matins": {},
                 "lauds": {},
                 "prime": {},
@@ -4548,7 +5720,7 @@ class Sanctoral:
         for feast, data in self.data_leapyear.items():
             # del self.data[day(year=self.year, month=2, day=27)]
             if feast in self.data:
-                if data["feast"] is False:
+                if data["code"] is False:
                     del self.data[feast]
             else:
                 self.data |= {feast: data}

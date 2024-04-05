@@ -40,6 +40,10 @@ def integer_to_roman(num: int) -> str:
     )[num]
 
 
+def nth(num: int) -> str:
+    return f"{str(num)}{['st', 'nd', 'rd'][num-1] if num < 4 and 0 < num else 'th'}"
+
+
 def dominical(year=int) -> str:
     letter, y, c = '', int(str(year)[2:]), int(str(year)[:2])
     index = (y+(y/4)+5*(c % 4)-1) % 7

@@ -1,4 +1,5 @@
 from ordotools.tools.liturgical_dates import integer_to_roman
+from ordotools.tools.liturgical_dates import nth
 # When adding translations, use the ISO 639-1 codes
 # that can be found in this article:
 #
@@ -1457,8 +1458,274 @@ class Translations:
                 "en": "",
             },
 
+            29000: {
+                "la": "S Urbani I PM",
+                "en": "St. Urban I, PM",
+            },
+
+            29100: {
+                "la": "S Eleutherii PM",
+                "en": "",
+            },
+
+            29200: {
+                "la": "S Joannis I PM",
+                "en": "St. John I, PM",
+            },
+
+            29300: {
+                "la": "S Petronillæ V",
+                "en": "",
+            },
+
+            29400: {
+                "la": "Ss Basilidi, Cyrini, Nabori atq Nazarii Mm",
+                "en": "",
+            },
+
+            29500: {
+                "la": "Ss Marci et Marcelliani Mm",
+                "en": "",
+            },
+
+            29600: {
+                "la": "In Vigilia Ss Petri et Pauli App",
+                "en": "",
+            },
+
+            29700: {
+                "la": "S Petri Ap",
+                "en": "St. Peter Ap",
+            },
+
+            29800: {
+                "la": "Ss Processi et Martiniani Mm",
+                "en": "",
+            },
+
+            29900: {
+                "la": "Ss Noboris et Felicis Mm",
+                "en": "",
+            },
+
+            30000: {
+                "la": "Ss Symphorosæ et Septem Filiis ejus Mm",
+                "en": "",
+            },
+
+            30100: {
+                "la": "S Margaritæ VM",
+                "en": "",
+            },
+
+            30200: {
+                "la": "S Liborii EC",
+                "en": "",
+            },
+
+            30300: {
+                "la": "S Christinæ VM",
+                "en": "St. Christina VM",
+            },
+
+            30400: {
+                "la": "S Christophori M",
+                "en": "St. Christopher M",
+            },
+
+            30500: {
+                "la": "Ss Felicis II P, Simplicis, Faustinis atq Beatricae Mm",
+                "en": "",
+            },
+
+            30600: {
+                "la": "S Pauli Ap",
+                "en": "",
+            },
+
+            30700: {
+                "la": "S Stephani PM",
+                "en": "",
+            },
+
+            30800: {
+                "la": "Ss Xysti P, Felicissimi atq Agapiti Mm",
+                "en": "",
+            },
+
+            30900: {
+                "la": "S Donati EM",
+                "en": "",
+            },
+
+            31000: {
+                "la": "Vigilia S Laurentii M",
+                "en": "",
+            },
+
+            31100: {
+                "la": "S Eusebii C",
+                "en": "",
+            },
+
+            31200: {
+                "la": "Octava S Laurentii M",
+                "en": "",
+            },
+
+            31300: {
+                "la": "Ss Timothei, Hippolyti atq Symphoriani Mm",
+                "en": "",
+            },
+
+            31400: {
+                "la": "In Vigilia S Bartholomæi Ap",
+                "en": "",
+            },
+
+            31500: {
+                "la": "S Hermetis M",
+                "en": "",
+            },
+
+            31600: {
+                "la": "S Sabinae M",
+                "en": "",
+            },
+
+            31700: {
+                "la": "Ss Felicis et Adaucti Mm",
+                "en": "",
+            },
+
+            31800: {
+                "la": "Ss Duodecim Fratribus",
+                "en": "",
+            },
+
+            31900: {
+                "la": "S Hadriani M",
+                "en": "",
+            },
+
+            32000: {
+                "la": "S Nicomedis M",
+                "en": "",
+            },
+
+            32100: {
+                "la": "Ss Euphemiae V, Luciae atq Geminiani Mm",
+                "en": "",
+            },
+
+            32200: {
+                "la": "In Vigilia S Matthæi ApEv",
+                "en": "",
+            },
+
+            32300: {
+                "la": "Ss Mauritii et Sociorum Mm",
+                "en": "",
+            },
+
+            32400: {
+                "la": "S Theclae VM",
+                "en": "",
+            },
+
+            32500: {
+                "la": "S Marci PC",
+                "en": "",
+            },
+
+            32600: {
+                "la": "Ss Dionysii E, Rustici atq Eleutherii Mm",
+                "en": "",
+            },
+
+            32700: {
+                "la": "Ss Ursulae et Sociarum VM",
+                "en": "",
+            },
+
+            32800: {
+                "la": "Octavae Omnium Sanctorum",
+                "en": "",
+            },
+
+            32900: {
+                "la": "S Theodori M",
+                "en": "",
+            },
+
+            33000: {
+                "la": "Ss Tryphonis, Respicii atq Nymphae V Mm",
+                "en": "",
+            },
+
+            33100: {
+                "la": "S Mennae M",
+                "en": "",
+            },
+
+            33200: {
+                "la": "S Pontiani PM",
+                "en": "",
+            },
+
+            33300: {
+                "la": "S Felicitatis M",
+                "en": "",
+            },
+
+            33400: {
+                "la": "S Chrysogoni M",
+                "en": "",
+            },
+
+            33500: {
+                "la": "S Petri Alexandrini EM",
+                "en": "",
+            },
+
+            33600: {
+                "la": "S Saturnini M",
+                "en": "",
+            },
+
+            33700: {
+                "la": "S Barbarae VM",
+                "en": "",
+            },
+
+            33800: {
+                "la": "In Vigilia Conceptionis Immaculatæ BMV",
+                "en": "",
+            },
+
+
+            34500: {
+                "la": "Ss Naboris et Felicis Mm",
+                "en": "",
+            },
+
+            34700: {
+                "la": "Ss Machabæis Mm",
+                "en": "",
+            },
+
+            34800: {
+                "la": "S Romani M",
+                "en": "",
+            },
+
+            34900: {
+                "la": "Ss Sergii, Bacchi, Marcelli atq Apuleji Mm",
+                "en": "",
+            },
+
             ##########################
-            # TEMPORAL "FEAST" NAMES #
+            #    TEMPORAL "FEASTS"   #
             ##########################
 
             "lady_saturday": {
@@ -1861,6 +2128,8 @@ class Translations:
 
         }
 
+        # TODO: to avoid excess computation, all of these have to take
+        #       language as a parameter. Perhaps add a subclass?
         self.data = self.easy_data |\
             self.epiphany_time() |\
             self.epiphany_octave() |\
@@ -1894,15 +2163,14 @@ class Translations:
                 else:
                     the_days |= {
                         f"de_{'Lent' if x < 4 else 'Passion'}_f{feria+1 if feria != 6 else 's'}": {
-                            # "feast": f"Feria {integer_to_roman(feria+1)} infra Hebd {integer_to_roman(x+1)} in Quadragesima",
                             "la": "De ea",
-                            "en": "",
+                            "en": "Feria",
                         }
                     }
         return the_days
 
     def ascension_ferias(self) -> dict:
-        return { # NOTE: there are duplicates, but does it matter?
+        return {  # NOTE: there are duplicates, but does it matter?
             f"in_8_Ascension_{date}": {
                 "la": f"De {integer_to_roman(date)} die infra Oct. Ascensionis",
                 "en": "",
@@ -1955,14 +2223,14 @@ class Translations:
                 epiphany_pents |= {
                     f"D_Epiph_{epiph}_{pent}": {
                         "la": f"Dominica {integer_to_roman(pent)} post Pentecosten, {integer_to_roman(epiph)} Epiphania",
-                        "en": "",
+                        "en": f"{integer_to_roman(pent)} Sunday after Pentecost, {integer_to_roman(epiph)} after Epiphany",
                     }
                 }
                 for feria in range(6):
                     epiphany_pents |= {
                         f"de_Epiph_{epiph}_{pent}_f{feria+2 if feria != 5 else 's'}": {
                             "la": "De ea",
-                            "en": "",
+                            "en": "Feria",
                         }
                     }
         return epiphany_pents
@@ -2089,7 +2357,7 @@ class Translations:
                 epiphany |= {
                     f"de_Epiph_{sunday+1}_{feria+2 if feria != 5 else 's'}": {
                         "la": "De ea",
-                        "en": "",
+                        "en": "Feria",
                     }
                 }
         return epiphany
@@ -2097,15 +2365,16 @@ class Translations:
     def epiphany_octave(self) -> dict:
         octave = {
             "8_Epiph_fs": {
-                "la": "Sabbato infra Oct. Epiphaniæ",
-                "en": "",
+                "la": "Sabbato infra Oct Epiphaniæ",
+                "en": "Saturday within the Octave of the Epiphany",
             },
         }
         for feria in range(6):
+            num = feria + 2
             octave |= {
                 f"8_Epiph_f{feria+2}": {
-                    "la": f"De {integer_to_roman(feria+2)} die infra Oct. Epiphaniæ",
-                    "en": "",
+                    "la": f"De {integer_to_roman(num)} die infra Oct. Epiphaniæ",
+                    "en": f"{nth(num)} day within the Octave of the Epiphany",
                 }
             }
         return octave
