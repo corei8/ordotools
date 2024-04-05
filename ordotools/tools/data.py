@@ -1706,12 +1706,12 @@ class TemporalData:
 
     def pentecost_epiphany_sundays(self) -> dict:
         """
-        This is really rough and might not be too efficient, but 
+        This is really rough and might not be too efficient, but
         it works for now.
         """
         epiphany_pents = {}
-        for pent in range(22,29):
-            for epiph in range(3,7):
+        for pent in range(22, 29):
+            for epiph in range(3, 7):
                 epiphany_pents |= {
                     f"D_Epiph_{epiph}_{pent}": {
                         "code": f"D_Epiph_{epiph}_{pent}",

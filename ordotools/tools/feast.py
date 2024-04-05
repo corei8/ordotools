@@ -4,11 +4,17 @@ from ordotools.tools.translations import Translations
 
 class Feast:
 
-    def __init__(self, feast_date: datetime, properties: dict, lang=None):
+    def __init__(self, feast_date: datetime, properties: dict, lang="la"):
         self.date = feast_date
         self.code = properties["code"]
 
-        self._name = ""
+        # self._name = ""
+        self.day_in_octave = properties["day_in_octave"] if "day_in_octave" in properties.keys() else 0
+
+        translations = Translations()
+        self.name = translations.translations()[self.code][lang]
+        if self.day_in_octave != 0:
+            self._name = translations.octave(lang, self.day_in_octave, self.code)
 
         # TODO: try to deprecate this
         self.feast_properties = properties  # | {"feast": self.name}
@@ -20,7 +26,6 @@ class Feast:
 
         # TODO: have a method that will adjust the title
         #       according to the octave name
-        self.day_in_octave = properties["day_in_octave"] if "day_in_octave" in properties.keys() else 0
 
         self.rank_v = properties["rank"][-1]  # verbose rank
         self.rank_n = properties["rank"][0]   # numeric rank
@@ -44,7 +49,7 @@ class Feast:
         self.compline = properties["compline"]
         self._fasting = properties["fasting"]
 
-        self._lang = lang
+        self.lang = lang
 
         # ---------------------------------------------------------------- #
 
@@ -86,22 +91,18 @@ class Feast:
     def com_1(self, com: dict):
         self._com_3 = com
 
-    @property
-    def name(self):
-        return self._name
+    # @property
+    # def name(self):
+    #     return self._name
 
-    @property
-    def lang(self):
-        return self._lang
-
-    @lang.setter
-    def lang(self, val):
-        # put this in the global scope?
-        translations = Translations()
-        self._lang = val
-        self._name = translations.translations()[self.code][val]
-        if self.day_in_octave != 0:
-            self._name = translations.octave(self._lang, self.day_in_octave, self.code)
+    # @lang.setter
+    # def lang(self, val):
+    #     # put this in the global scope?
+    #     translations = Translations()
+    #     self._lang = val
+    #     self._name = translations.translations()[self.code][val]
+    #     if self.day_in_octave != 0:
+    #         self._name = translations.octave(self._lang, self.day_in_octave, self.code)
 
     # @property
     # def feast_date_display(self) -> str:

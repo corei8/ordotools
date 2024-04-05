@@ -37,7 +37,7 @@ class LiturgicalCalendar:
         octave = {}
         day = 2
         while day < 9:
-            new_feast = Feast(feast.date+days(day-1), feast.updated_properties)
+            new_feast = Feast(feast.date+days(day-1), feast.updated_properties, lang=self.language)
             if day == 8:
                 new_feast.day_in_octave = day
             else:
@@ -113,22 +113,23 @@ class LiturgicalCalendar:
 
     def add_feasts(self, master: dict, addition: dict) -> dict:
         calendar = master.copy()
+        # there is something wrong here... We should have all "feast" objects...
         for date, data in calendar.items():
             if date in addition:
                 if type(data) is Feast:
                     data = data.updated_properties
                 feast = self.rank(
-                    dynamic=Feast(date, addition[date]),
-                    static=Feast(date, data)
+                    dynamic=Feast(date, addition[date], lang=self.language),
+                    static=Feast(date, data, lang=self.language)
                 )
             else:
                 if type(data) is Feast:
                     data = data.updated_properties
-                feast = Feast(date, data)
+                feast = Feast(date, data, lang=self.language)
             if self.transfers is not None:
                 print(f"we are transferring {self.transfers.code}")
                 result = self.transfer_feast(
-                    Feast(date, feast.updated_properties)
+                    Feast(date, feast.updated_properties, lang=self.language)
                 )
                 if result.code == feast.code:
                     pass
@@ -155,7 +156,7 @@ class LiturgicalCalendar:
                     continue
                 else:
                     if year[feast].rank_n > 16:
-                        year[feast] = Feast(feast, office)
+                        year[feast] = Feast(feast, office, lang=self.language)
                     else:
                         continue
         return year
@@ -185,5 +186,5 @@ class LiturgicalCalendar:
         full_calendar |= self.our_ladys_saturday(full_calendar)
         print("Looking for Octaves...")
         full_calendar |= self.find_octave(year=full_calendar)
-        print("Adding Translations...")
-        return self.add_translation(full_calendar)
+        return [value for value in full_calendar.values()]
+        # return self.add_translation(full_calendar)
