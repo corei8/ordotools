@@ -13,6 +13,7 @@ class Feast:
 
         translations = Translations()
         self.name = translations.translations()[self.code][lang]
+        # print(self.code)
         if self.day_in_octave != 0:
             self._name = translations.octave(lang, self.day_in_octave, self.code)
 
@@ -27,8 +28,10 @@ class Feast:
         # TODO: have a method that will adjust the title
         #       according to the octave name
 
-        self.rank_v = properties["rank"][-1]  # verbose rank
-        self.rank_n = properties["rank"][0]   # numeric rank
+        # Commemorations do not take a rank:
+        self.rank_v = properties["rank"][-1]
+        self.rank_n = properties["rank"][0]
+
         self.octave = True if "Oct" in self.rank_v else False
         self.color = properties["color"]
         self.mass = {}
@@ -51,18 +54,30 @@ class Feast:
 
         self.lang = lang
 
-        # ---------------------------------------------------------------- #
 
-        # there can be no more than three commemorations
+# COMMEMORATIONS -------------------------------------------------------------- #
 
-        self._com_1 = properties["com_1"]
-        self._com_2 = properties["com_2"]
-        self._com_3 = properties["com_3"]
+        self._com_1 = self.format_commemoration(properties["com_1"])
+        self._com_2 = self.format_commemoration(properties["com_2"])
+        self._com_3 = self.format_commemoration(properties["com_3"])
 
-        # this may be too cumbersome...
-        # self.com = properties["com"] if "com" in properties.keys() else []
-
-        # ---------------------------------------------------------------- #
+    # TODO: eventually, add the language here.
+    def format_commemoration(self, commemoration: dict) -> dict:
+        if len(commemoration) == 0:
+            return {
+                "name": None,
+            }
+        elif "code" in commemoration.keys():
+            return {
+                "name": commemoration["code"],
+                "data": commemoration  # Feast(self.date, commemoration)
+            }
+        elif "oration" in commemoration.keys():
+            return {
+                "name": commemoration["oration"],
+            }
+        else:
+            return commemoration
 
     @property
     def com_1(self):
@@ -70,9 +85,9 @@ class Feast:
 
     @com_1.setter
     def com_1(self, com: dict):
-        self._com_3 = self._com_2
-        self._com_2 = self._com_1
-        self._com_1 = com
+        self._com_3 = self.format_commemoration(self._com_2)
+        self._com_2 = self.format_commemoration(self._com_1)
+        self._com_1 = self.format_commemoration(com)
 
     @property
     def com_2(self):
@@ -80,8 +95,8 @@ class Feast:
 
     @com_1.setter
     def com_1(self, com: dict):
-        self._com_3 = self._com_2
-        self._com_2 = com
+        self._com_3 = self.format_commemoration(self._com_2)
+        self._com_2 = self.format_commemoration(com)
 
     @property
     def com_3(self):
@@ -89,7 +104,15 @@ class Feast:
 
     @com_1.setter
     def com_1(self, com: dict):
-        self._com_3 = com
+        self._com_3 = self.format_commemoration(com)
+
+    # def reset_commemorations(self):
+    #     self._com_3 = {}
+    #     self._com_2 = {}
+    #     self._com_1 = {}
+
+
+# ----------------------------------------------------------------------------- #
 
     # @property
     # def name(self):
@@ -157,7 +180,7 @@ class Feast:
     @property
     def updated_properties(self) -> dict:
         """ Updates all values of the feast's dictionary """
-        dic = {
+        properties = {
             "code": self.code,
             # "feast": self.name,
             "rank": [self.rank_n, self.rank_v],
@@ -165,9 +188,9 @@ class Feast:
             "day_in_octave": self.day_in_octave,
             "color": self.color,
             "mass": self.mass,
-            "com_1": self.com_1,
-            "com_2": self.com_2,
-            "com_3": self.com_3,
+            "com_1": self.com_1 if self.com_1 is not None else {},
+            "com_2": self.com_2 if self.com_2 is not None else {},
+            "com_3": self.com_3 if self.com_3 is not None else {},
             "matins": {},
             "lauds": {},
             "prime": {},
@@ -178,7 +201,7 @@ class Feast:
             "office_type": self.office_type,
             "fasting": self.fasting,
         }
-        return dic
+        return properties
 
     #######################
     # SPECIAL LaTeX STUFF #

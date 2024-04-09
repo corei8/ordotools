@@ -27,6 +27,7 @@ class LiturgicalCalendar:
 
         # TODO: theoretically we could have more than one...
         self.transfers = None
+
         self.temporal = Temporal(self.year).return_temporal()
         self.FIRST_ADVENT = LiturgicalYearMarks(self.year).first_advent
         self.LAST_ADVENT = LiturgicalYearMarks(self.year).last_advent
@@ -37,7 +38,10 @@ class LiturgicalCalendar:
         octave = {}
         day = 2
         while day < 9:
-            new_feast = Feast(feast.date+days(day-1), feast.updated_properties, lang=self.language)
+            # NOTE: since we already have the feast object,
+            #       we can just make a function to set the date.
+            #       We also have to empty the commemorations.
+            new_feast = Feast(feast.date+days(day-1), feast.updated_properties)  #, lang=self.language)
             if day == 8:
                 new_feast.day_in_octave = day
             else:
@@ -46,6 +50,7 @@ class LiturgicalCalendar:
             new_feast.fasting = False
             new_feast.rank_v = "feria"
             new_feast.rank_n = 18 if day < 6 else 13
+            # new_feast.reset_commemorations()
             octave |= {new_feast.date: new_feast.updated_properties}
             day += 1
         return octave
@@ -62,10 +67,8 @@ class LiturgicalCalendar:
         return calendar
 
     def commemoration(self, feast: Feast, com: Feast) -> Feast:
+        # FIX: I don't think we need to return anything here.
         feast.com_1 = com.feast_properties
-        # if "com" in com.feast_properties.keys():
-        #     com.feast_properties.pop("com")
-        # feast.com.insert(0, com.feast_properties)
         return feast
 
     def rank_by_nobility(self, feast_1: Feast, feast_2: Feast) -> dict:
@@ -127,7 +130,6 @@ class LiturgicalCalendar:
                     data = data.updated_properties
                 feast = Feast(date, data, lang=self.language)
             if self.transfers is not None:
-                print(f"we are transferring {self.transfers.code}")
                 result = self.transfer_feast(
                     Feast(date, feast.updated_properties, lang=self.language)
                 )
