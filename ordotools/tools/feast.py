@@ -57,11 +57,13 @@ class Feast:
 
 # COMMEMORATIONS -------------------------------------------------------------- #
 
+    # TODO: for every feast that is less than a double, add the seasonal commemorations here.
+    #       For the commemoration for the pope, add it as well, supress it later
+
         self._com_1 = self.format_commemoration(properties["com_1"])
         self._com_2 = self.format_commemoration(properties["com_2"])
         self._com_3 = self.format_commemoration(properties["com_3"])
 
-    # TODO: eventually, add the language here.
     def format_commemoration(self, commemoration: dict) -> dict:
         if len(commemoration) == 0:
             return {
@@ -106,10 +108,12 @@ class Feast:
     def com_1(self, com: dict):
         self._com_3 = self.format_commemoration(com)
 
-    # def reset_commemorations(self):
-    #     self._com_3 = {}
-    #     self._com_2 = {}
-    #     self._com_1 = {}
+    # TODO: add the ferial commemorations here
+
+    def reset_commemorations(self):
+        self._com_3 = {}
+        self._com_2 = {}
+        self._com_1 = {}
 
 
 # ----------------------------------------------------------------------------- #

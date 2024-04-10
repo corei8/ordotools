@@ -50,7 +50,7 @@ class LiturgicalCalendar:
             new_feast.fasting = False
             new_feast.rank_v = "feria"
             new_feast.rank_n = 18 if day < 6 else 13
-            # new_feast.reset_commemorations()
+            new_feast.reset_commemorations()
             octave |= {new_feast.date: new_feast.updated_properties}
             day += 1
         return octave
@@ -114,9 +114,16 @@ class LiturgicalCalendar:
     def transfer_feast(self, feast: Feast) -> Feast:
         return self.rank(dynamic=self.transfers, static=feast)
 
+    # NOTE: add a function that makes sure that everything is rendering as a feast object
+
+
+
+    def build_feasts(self, candidates: dict) -> dict:
+        feasts = ()
+        return feasts
+
     def add_feasts(self, master: dict, addition: dict) -> dict:
         calendar = master.copy()
-        # there is something wrong here... We should have all "feast" objects...
         for date, data in calendar.items():
             if date in addition:
                 if type(data) is Feast:
@@ -189,4 +196,7 @@ class LiturgicalCalendar:
         print("Looking for Octaves...")
         full_calendar |= self.find_octave(year=full_calendar)
         return [value for value in full_calendar.values()]
+        print("printing...\n")
+        # OPTIM: add all the tranlsations here, rather than in the Feast module
+
         # return self.add_translation(full_calendar)

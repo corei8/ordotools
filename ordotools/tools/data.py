@@ -1481,7 +1481,6 @@ class TemporalData:
                 "fasting": False,
             },
 
-            # TEST:
             "D_StThomas": {
                 "code": "D_StThomas",
                 "rank": [15, "d"],
