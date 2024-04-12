@@ -45,7 +45,6 @@ class LiturgicalCalendar:
                 feast.date+days(day-1),
                 {
                     "code": feast.code,
-                    # "feast": feast.name,
                     "rank": [feast.rank_n, feast.rank_v],
                     "infra_octave_name": feast.infra_octave_name,
                     "day_in_octave": feast.day_in_octave,
@@ -65,6 +64,7 @@ class LiturgicalCalendar:
                     "fasting": feast.fasting,
                 }
             )
+            # TODO: all this can be handled above
             if day == 8:
                 new_feast.day_in_octave = day
             else:
@@ -128,7 +128,7 @@ class LiturgicalCalendar:
             candidates = {dynamic.rank_n: dynamic, static.rank_n: static}
             higher = candidates[sorted(candidates)[0]]
             lower = candidates[sorted(candidates)[1]]
-            if lower.rank_n == 22:
+            if lower.rank_n >= 22:
                 pass
             if lower.rank_n == 19:
                 return self.commemorate(feast=higher, com=lower)

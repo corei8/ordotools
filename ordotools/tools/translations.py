@@ -49,7 +49,7 @@ class Translations:
             },
 
             600: {
-                "la": "",
+                "la": "Ss Marii, Marthæ, Audifacis & Abachum Mm",
                 "en": "",
             },
 
@@ -64,7 +64,7 @@ class Translations:
             },
 
             900: {
-                "la": "",
+                "la": "Ss Vincentii & Anastasii Mm",
                 "en": "",
             },
 
