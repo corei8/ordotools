@@ -1,19 +1,19 @@
 from datetime import datetime
+from ordotools.tools.helpers import days
 from ordotools.tools.translations import Translations
 
 
 class Feast:
 
     def __init__(self, feast_date: datetime, properties: dict, lang="la"):
+
         self.date = feast_date
         self.code = properties["code"]
 
-        # self._name = ""
         self.day_in_octave = properties["day_in_octave"] if "day_in_octave" in properties.keys() else 0
 
         translations = Translations()
         self.name = translations.translations()[self.code][lang]
-        # print(self.code)
         if self.day_in_octave != 0:
             self._name = translations.octave(lang, self.day_in_octave, self.code)
 
@@ -29,6 +29,7 @@ class Feast:
         #       according to the octave name
 
         # Commemorations do not take a rank:
+    # TODO: add the ferial commemorations here
         self.rank_v = properties["rank"][-1]
         self.rank_n = properties["rank"][0]
 
@@ -59,6 +60,8 @@ class Feast:
 
     # TODO: for every feast that is less than a double, add the seasonal commemorations here.
     #       For the commemoration for the pope, add it as well, supress it later
+
+    # TODO: add the ferial commemorations here
 
         self._com_1 = self.format_commemoration(properties["com_1"])
         self._com_2 = self.format_commemoration(properties["com_2"])
@@ -108,15 +111,22 @@ class Feast:
     def com_1(self, com: dict):
         self._com_3 = self.format_commemoration(com)
 
-    # TODO: add the ferial commemorations here
-
     def reset_commemorations(self):
         self._com_3 = {}
         self._com_2 = {}
         self._com_1 = {}
 
-
 # ----------------------------------------------------------------------------- #
+
+    # NOTE: this might not be necessary
+    #
+    # @property
+    # def date(self):
+    #     return self._date
+    #
+    # @date.setter
+    # def date(self, d: int):
+    #     self._date += days(d)
 
     # @property
     # def name(self):
@@ -181,31 +191,31 @@ class Feast:
     def fasting(self, value):
         return self._fasting
 
-    @property
-    def updated_properties(self) -> dict:
-        """ Updates all values of the feast's dictionary """
-        properties = {
-            "code": self.code,
-            # "feast": self.name,
-            "rank": [self.rank_n, self.rank_v],
-            "infra_octave_name": self.infra_octave_name,
-            "day_in_octave": self.day_in_octave,
-            "color": self.color,
-            "mass": self.mass,
-            "com_1": self.com_1 if self.com_1 is not None else {},
-            "com_2": self.com_2 if self.com_2 is not None else {},
-            "com_3": self.com_3 if self.com_3 is not None else {},
-            "matins": {},
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": self.vespers,
-            "compline": {},
-            "nobility": self.nobility,
-            "office_type": self.office_type,
-            "fasting": self.fasting,
-        }
-        return properties
+    # @property
+    # def updated_properties(self) -> dict:
+    #     """ Updates all values of the feast's dictionary """
+    #     properties = {
+    #         "code": self.code,
+    #         # "feast": self.name,
+    #         "rank": [self.rank_n, self.rank_v],
+    #         "infra_octave_name": self.infra_octave_name,
+    #         "day_in_octave": self.day_in_octave,
+    #         "color": self.color,
+    #         "mass": self.mass,
+    #         "com_1": self.com_1 if self.com_1 is not None else {},
+    #         "com_2": self.com_2 if self.com_2 is not None else {},
+    #         "com_3": self.com_3 if self.com_3 is not None else {},
+    #         "matins": {},
+    #         "lauds": {},
+    #         "prime": {},
+    #         "little_hours": {},
+    #         "vespers": self.vespers,
+    #         "compline": {},
+    #         "nobility": self.nobility,
+    #         "office_type": self.office_type,
+    #         "fasting": self.fasting,
+    #     }
+    #     return properties
 
     #######################
     # SPECIAL LaTeX STUFF #

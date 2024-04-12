@@ -35,40 +35,80 @@ class LiturgicalCalendar:
         self.LENT_ENDS = LiturgicalYearMarks(self.year).lent_ends
 
     def expand_octaves(self, feast: Feast) -> dict:
-        octave = {}
+        octave = ()
         day = 2
         while day < 9:
             # NOTE: since we already have the feast object,
             #       we can just make a function to set the date.
             #       We also have to empty the commemorations.
-            new_feast = Feast(feast.date+days(day-1), feast.updated_properties)  #, lang=self.language)
+            new_feast = Feast(
+                feast.date+days(day-1),
+                {
+                    "code": feast.code,
+                    # "feast": feast.name,
+                    "rank": [feast.rank_n, feast.rank_v],
+                    "infra_octave_name": feast.infra_octave_name,
+                    "day_in_octave": feast.day_in_octave,
+                    "color": feast.color,
+                    "mass": feast.mass,
+                    "com_1": feast.com_1 if feast.com_1 is not None else {},
+                    "com_2": feast.com_2 if feast.com_2 is not None else {},
+                    "com_3": feast.com_3 if feast.com_3 is not None else {},
+                    "matins": {},
+                    "lauds": {},
+                    "prime": {},
+                    "little_hours": {},
+                    "vespers": feast.vespers,
+                    "compline": {},
+                    "nobility": feast.nobility,
+                    "office_type": feast.office_type,
+                    "fasting": feast.fasting,
+                }
+            )
             if day == 8:
                 new_feast.day_in_octave = day
             else:
                 new_feast.day_in_octave = day
-            # FIX: we have an issue here if the feast falls on a Friday
             new_feast.fasting = False
             new_feast.rank_v = "feria"
             new_feast.rank_n = 18 if day < 6 else 13
             new_feast.reset_commemorations()
-            octave |= {new_feast.date: new_feast.updated_properties}
+            octave += (new_feast,)
             day += 1
         return octave
 
-    def find_octave(self, year: dict) -> dict:
-        calendar = year.copy()
+    def find_octave(self, year: tuple) -> tuple:
         temporals = [feast["code"] for feast in self.temporal.values()]
-        for candidate in calendar.values():
+        for candidate in year:
             if candidate.code in temporals:
                 continue
             elif candidate.octave is True:
                 octave = self.expand_octaves(deepcopy(candidate))
-                calendar |= self.add_feasts(master=calendar, addition=octave)
-        return calendar
+                year = self.add_feasts(master=year, addition=octave)
+        return year
 
-    def commemoration(self, feast: Feast, com: Feast) -> Feast:
-        # FIX: I don't think we need to return anything here.
+    def commemorate(self, feast: Feast, com: Feast) -> Feast:
         feast.com_1 = com.feast_properties
+        feast.com_1 = {
+            "code": feast.code,
+            "rank": [feast.rank_n, feast.rank_v],
+            "infra_octave_name": feast.infra_octave_name,
+            "day_in_octave": feast.day_in_octave,
+            "color": feast.color,
+            "mass": feast.mass,
+            "com_1": feast.com_1 if feast.com_1 is not None else {},
+            "com_2": feast.com_2 if feast.com_2 is not None else {},
+            "com_3": feast.com_3 if feast.com_3 is not None else {},
+            "matins": {},
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": feast.vespers,
+            "compline": {},
+            "nobility": feast.nobility,
+            "office_type": feast.office_type,
+            "fasting": feast.fasting,
+        }
         return feast
 
     def rank_by_nobility(self, feast_1: Feast, feast_2: Feast) -> dict:
@@ -91,7 +131,7 @@ class LiturgicalCalendar:
             if lower.rank_n == 22:
                 pass
             if lower.rank_n == 19:
-                return self.commemoration(feast=higher, com=lower)
+                return self.commemorate(feast=higher, com=lower)
             if higher.rank_n <= 4:
                 if lower.rank_n == 3:
                     self.transfers = higher
@@ -107,68 +147,81 @@ class LiturgicalCalendar:
                         higher.fasting = True
                     return higher
             elif 14 <= lower.rank_n <= 16:
-                return self.commemoration(feast=higher, com=lower)
+                return self.commemorate(feast=higher, com=lower)
             else:
-                return self.commemoration(feast=higher, com=lower)
+                return self.commemorate(feast=higher, com=lower)
 
     def transfer_feast(self, feast: Feast) -> Feast:
         return self.rank(dynamic=self.transfers, static=feast)
 
-    # NOTE: add a function that makes sure that everything is rendering as a feast object
-
-
-
+    # NOTE: before refactoring, compilation in 0.940s
+    #       after refactoring... 0.258s
     def build_feasts(self, candidates: dict) -> dict:
         feasts = ()
+        for date, data in candidates.items():
+            feast = Feast(date, data, lang=self.language)
+            feasts += (feast,)
         return feasts
 
-    def add_feasts(self, master: dict, addition: dict) -> dict:
-        calendar = master.copy()
-        for date, data in calendar.items():
-            if date in addition:
-                if type(data) is Feast:
-                    data = data.updated_properties
+    def initialize(self, to_initialize: list):
+        inititalized = {
+            "temporal": (),
+            "sanctoral": (),
+        }
+        for i, dictionary in enumerate(to_initialize):
+            if i == 0:
+                inititalized["temporal"] += self.build_feasts(dictionary)
+            else:
+                inititalized["sanctoral"] += self.build_feasts(dictionary)
+        return inititalized
+
+    def add_feasts(self, master: tuple, addition: tuple) -> dict:
+        calendar = ()
+        master_expanded = {}
+        for feast in master:
+            master_expanded.update({feast.date: feast})
+        addition_expanded = {}
+        for feast in addition:
+            addition_expanded.update({feast.date: feast})
+        for date in master_expanded.keys():
+            if date in addition_expanded.keys():
                 feast = self.rank(
-                    dynamic=Feast(date, addition[date], lang=self.language),
-                    static=Feast(date, data, lang=self.language)
+                    dynamic=addition_expanded[date],
+                    static=master_expanded[date]
                 )
             else:
-                if type(data) is Feast:
-                    data = data.updated_properties
-                feast = Feast(date, data, lang=self.language)
+                feast = master_expanded[date]
             if self.transfers is not None:
                 result = self.transfer_feast(
-                    Feast(date, feast.updated_properties, lang=self.language)
+                    feast
                 )
                 if result.code == feast.code:
                     pass
                 else:
                     self.transfers = None
                     feast = result
-            try:
-                calendar |= {date: feast}
-            except TypeError:
-                pass
+            calendar += (feast,)
         return calendar
 
-    def our_ladys_saturday(self, calendar: dict) -> dict:
+    def our_ladys_saturday(self, calendar: tuple) -> dict:
         """
         Adds Office of the Blessed Virgin Mary on Saturdays.
         """
-        year = calendar.copy()
-        office = ladys_office
-        for feast in year.keys():
-            if feast.strftime("%w") == str(6):
-                if self.LENT_BEGINS.date() <= feast.date() <= self.LENT_ENDS.date():
+        year = list(calendar)
+        office = ladys_office  # TODO: add this according to the season
+        for pos, feast in enumerate(year):
+            if feast.date.strftime("%w") == str(6):
+                if self.LENT_BEGINS <= feast.date <= self.LENT_ENDS:
                     continue
-                elif self.FIRST_ADVENT.date() <= feast.date() <= self.LAST_ADVENT.date():
+                elif self.FIRST_ADVENT <= feast.date <= self.LAST_ADVENT:
                     continue
                 else:
-                    if year[feast].rank_n > 16:
-                        year[feast] = Feast(feast, office, lang=self.language)
+                    if feast.rank_n > 16:
+                        # FIX: there should be a commemoration here for the replaced feast?
+                        year[pos] = Feast(feast.date, office, lang=self.language)
                     else:
                         continue
-        return year
+        return tuple(year)
 
     def add_translation(self, compiled_cal: dict) -> list:
         year = []
@@ -189,14 +242,15 @@ class LiturgicalCalendar:
             )
             sanctoral = diocese.Diocese(self.year).calendar()
 
+        initialized = self.initialize([self.temporal, sanctoral])
         print("Adding Feasts...")
-        full_calendar = self.add_feasts(self.temporal, sanctoral).copy()
-        print("Checking for Our Lady's Saturday...")
-        full_calendar |= self.our_ladys_saturday(full_calendar)
-        print("Looking for Octaves...")
-        full_calendar |= self.find_octave(year=full_calendar)
-        return [value for value in full_calendar.values()]
-        print("printing...\n")
-        # OPTIM: add all the tranlsations here, rather than in the Feast module
+        full_calendar = self.add_feasts(initialized["temporal"], initialized["sanctoral"])
 
-        # return self.add_translation(full_calendar)
+        print("Checking for Our Lady's Saturday...")
+        full_calendar = self.our_ladys_saturday(full_calendar)
+
+        print("Looking for Octaves...")
+        full_calendar = self.find_octave(year=full_calendar)
+
+        return full_calendar
+        print("printing...\n")

@@ -2213,19 +2213,18 @@ class Translations:
         return pentecost_season
 
     def pentecost_epiphany_sundays(self) -> dict:
-        """
-        This is really rough and might not be too efficient, but 
-        it works for now.
-        """
+        # WARN: This is really rough and might not be too efficient, but 
+        # it works for now.
         epiphany_pents = {}
         for pent in range(22, 29):
             for epiph in range(3, 7):
                 epiphany_pents |= {
                     f"D_Epiph_{epiph}_{pent}": {
                         "la": f"Dominica {integer_to_roman(pent)} post Pentecosten, {integer_to_roman(epiph)} Epiphania",
-                        "en": f"{integer_to_roman(pent)} Sunday after Pentecost, {integer_to_roman(epiph)} after Epiphany",
+                        "en": f"{nth(pent)} Sunday after Pentecost, {nth(epiph)} after Epiphany",
                     }
                 }
+        # OPTIM: maybe we can grab this only when we need it.
                 for feria in range(6):
                     epiphany_pents |= {
                         f"de_Epiph_{epiph}_{pent}_f{feria+2 if feria != 5 else 's'}": {
