@@ -192,6 +192,7 @@ class LiturgicalCalendar:
             else:
                 feast = master_expanded[date]
             if self.transfers is not None:
+                print(self.transfers)
                 result = self.transfer_feast(
                     feast
                 )
@@ -199,6 +200,8 @@ class LiturgicalCalendar:
                     pass
                 else:
                     self.transfers = None
+                    result.date = feast.date
+                    print(result.date)
                     feast = result
             calendar += (feast,)
         return calendar
@@ -231,8 +234,6 @@ class LiturgicalCalendar:
         return year
 
     def build(self) -> list:
-        print("Starting the Calendar...")
-        print("Gathering Sanctoral Cycle...")
         saints = Sanctoral(self.year)
         if self.diocese == 'roman':
             sanctoral = saints.data if leap_year(self.year) is False else saints.leapyear()
@@ -241,16 +242,10 @@ class LiturgicalCalendar:
                 f"sanctoral.diocese.{self.diocese}",
             )
             sanctoral = diocese.Diocese(self.year).calendar()
-
         initialized = self.initialize([self.temporal, sanctoral])
-        print("Adding Feasts...")
         full_calendar = self.add_feasts(initialized["temporal"], initialized["sanctoral"])
-
-        print("Checking for Our Lady's Saturday...")
         full_calendar = self.our_ladys_saturday(full_calendar)
-
-        print("Looking for Octaves...")
         full_calendar = self.find_octave(year=full_calendar)
 
         return full_calendar
-        print("printing...\n")
+        

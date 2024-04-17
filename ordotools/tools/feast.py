@@ -13,12 +13,11 @@ class Feast:
         self.day_in_octave = properties["day_in_octave"] if "day_in_octave" in properties.keys() else 0
 
         translations = Translations()
-        self.name = translations.translations()[self.code][lang]
+        self._name = translations.translations()[self.code][lang]
         if self.day_in_octave != 0:
-            self._name = translations.octave(lang, self.day_in_octave, self.code)
+            self.name(translations.octave(lang, self.day_in_octave, self.code))
 
-        # TODO: try to deprecate this
-        self.feast_properties = properties  # | {"feast": self.name}
+        self.feast_properties = properties
 
         if "infra_octave_name" in properties:
             self.infra_octave_name = properties["infra_octave_name"]
@@ -29,7 +28,7 @@ class Feast:
         #       according to the octave name
 
         # Commemorations do not take a rank:
-    # TODO: add the ferial commemorations here
+        # TODO: add the ferial commemorations here
         self.rank_v = properties["rank"][-1]
         self.rank_n = properties["rank"][0]
 
@@ -54,7 +53,6 @@ class Feast:
         self._fasting = properties["fasting"]
 
         self.lang = lang
-
 
 # COMMEMORATIONS -------------------------------------------------------------- #
 
@@ -117,6 +115,14 @@ class Feast:
         self._com_1 = {}
 
 # ----------------------------------------------------------------------------- #
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, new: str):
+        self._name = new
 
     # NOTE: this might not be necessary
     #
