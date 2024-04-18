@@ -15,6 +15,8 @@ class Sanctoral:
         self.year = year
         self.data = {
 
+            # what is the best way to determine if the third lessons are proper?
+
             # January
             day(year=self.year, month=1, day=14): {
                 # S Hilarii Episcopi ECD
@@ -27,7 +29,9 @@ class Sanctoral:
                 "com_1": {
                     "code": 27400,
                     "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"},
-                    "matins": {},
+                    "matins": {
+                        "lessons": 9,
+                    },
                     "lauds": {},
                     "prime": {},
                     "little_hours": {},
@@ -37,7 +41,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -60,7 +66,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -80,7 +88,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -100,7 +110,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -126,7 +138,9 @@ class Sanctoral:
                     "mass": {"int": "Me expectaverunt", "glo": True, "cre": True, "pre": "Communis"}
                 },
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -149,7 +163,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -169,7 +185,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -189,7 +207,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -209,7 +229,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -232,7 +254,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -252,7 +276,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -275,7 +301,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -295,7 +323,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -315,7 +345,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -338,7 +370,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -358,7 +392,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -378,7 +414,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -398,7 +436,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -419,7 +459,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -439,7 +481,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -459,7 +503,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -479,7 +525,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -499,7 +547,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -522,7 +572,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -542,7 +594,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -562,7 +616,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -585,7 +641,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -605,7 +663,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -625,7 +685,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -645,7 +707,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -665,7 +729,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -685,7 +751,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -705,7 +773,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -725,7 +795,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -747,7 +819,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -767,7 +841,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -787,7 +863,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -811,7 +889,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -831,7 +911,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -851,7 +933,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -871,7 +955,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -891,7 +977,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -911,7 +999,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -931,7 +1021,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -951,7 +1043,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -971,7 +1065,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -991,7 +1087,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1011,7 +1109,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1031,7 +1131,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1051,7 +1153,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1071,7 +1175,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1091,7 +1197,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1112,7 +1220,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1132,7 +1242,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1152,7 +1264,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1172,7 +1286,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1192,7 +1308,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1215,7 +1333,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1235,7 +1355,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1255,7 +1377,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1275,7 +1399,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1295,7 +1421,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1315,7 +1443,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1335,7 +1465,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1355,7 +1487,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1375,7 +1509,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1398,7 +1534,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1418,7 +1556,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1438,7 +1578,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1459,7 +1601,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1479,7 +1623,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1502,7 +1648,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1522,7 +1670,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1542,7 +1692,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1562,7 +1714,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1582,7 +1736,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1602,7 +1758,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1622,7 +1780,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1645,7 +1805,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1665,7 +1827,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1685,7 +1849,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1705,7 +1871,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1725,7 +1893,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1745,7 +1915,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1765,7 +1937,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1785,7 +1959,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1808,7 +1984,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1828,7 +2006,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1851,7 +2031,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1874,7 +2056,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1894,10 +2078,12 @@ class Sanctoral:
                 "com_1": {
                     "code": 29200,
                     "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1917,7 +2103,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1937,7 +2125,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1957,7 +2147,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -1978,10 +2170,12 @@ class Sanctoral:
                     # S Petronillae V
                     "code": 29300,
                     "mass": {"int": "Vultum tuum", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2002,7 +2196,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2022,7 +2218,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2042,7 +2240,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2062,7 +2262,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2082,7 +2284,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2102,7 +2306,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2122,7 +2328,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2142,7 +2350,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2166,7 +2376,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2186,7 +2398,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2206,7 +2420,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2226,7 +2442,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 0,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2247,10 +2465,12 @@ class Sanctoral:
                     # Ss Marci et Marcelliani Mm
                     "code": 29500,
                     "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 0,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2269,10 +2489,12 @@ class Sanctoral:
                 "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
                 "com_1": {
                     # Ss Gervasii et Protasii Mm", "mass": {"int": "Loquetur Dominus "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 0,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2292,7 +2514,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2312,7 +2536,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2332,7 +2558,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2352,7 +2580,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2372,7 +2602,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2392,7 +2624,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2412,7 +2646,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2434,10 +2670,12 @@ class Sanctoral:
                     # In Vigilia Ss Petri et Pauli App
                     "code": 29600,
                     "mass": {"int": "Dicit Dominus", "glo": False, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2457,7 +2695,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2483,7 +2723,9 @@ class Sanctoral:
                     # "feast": "In Octava S Joannis Baptistae"
                 },
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2504,7 +2746,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2525,10 +2769,12 @@ class Sanctoral:
                     # Ss Processi et Martiniani Mm
                     "code": 29800,
                     "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2548,7 +2794,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2568,7 +2816,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2588,7 +2838,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2608,7 +2860,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2628,7 +2882,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2648,7 +2904,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2672,7 +2930,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2692,7 +2952,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2712,7 +2974,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2732,7 +2996,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2752,7 +3018,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2772,7 +3040,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2793,10 +3063,12 @@ class Sanctoral:
                     # Ss Symphorosae et Septem Filiis ejus Mm
                     "code": 30000,
                     "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2816,7 +3088,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2837,10 +3111,12 @@ class Sanctoral:
                     # S Margaritae VM
                     "code": 30100,
                     "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"},
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2860,7 +3136,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2880,7 +3158,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2901,10 +3181,12 @@ class Sanctoral:
                     # S Liborii EC
                     "code": 30200,
                     "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2925,10 +3207,12 @@ class Sanctoral:
                     # S Christinae VM
                     "code": 30300,
                     "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2949,10 +3233,12 @@ class Sanctoral:
                     # S Christophori M
                     "code": 30400,
                     "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2972,7 +3258,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -2992,7 +3280,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3012,7 +3302,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3033,10 +3325,12 @@ class Sanctoral:
                     # Ss Felicis II P, Simplicis, Faustinis atq Beatricae Mm
                     "code": 30500,
                     "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3056,7 +3350,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3076,7 +3372,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3105,7 +3403,9 @@ class Sanctoral:
                     "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}
                 },
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3126,10 +3426,12 @@ class Sanctoral:
                     # S Stephani PM
                     "code": 30700,
                     "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3149,7 +3451,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3169,7 +3473,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3189,7 +3495,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3213,7 +3521,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3234,10 +3544,12 @@ class Sanctoral:
                     # S Donati EM
                     "code": 30900,
                     "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3257,7 +3569,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3278,14 +3592,16 @@ class Sanctoral:
                     # Vigilia S Laurentii M
                     "code": 31000,
                     "mass": {"int": "Dispersit", "glo": False, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {
                     # S Romani M
                     "code": 34800,
                     "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3304,7 +3620,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3324,7 +3642,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3344,7 +3664,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3364,7 +3686,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3385,12 +3709,14 @@ class Sanctoral:
                     # S Eusebii C
                     "code": 31100,
                     "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {
                     "oration": "Spiritus Sancti",
-                          },
+                },
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3410,7 +3736,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3430,7 +3758,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3454,7 +3784,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3474,7 +3806,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3494,7 +3828,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3514,7 +3850,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3534,7 +3872,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3555,10 +3895,12 @@ class Sanctoral:
                     # Ss Timothei, Hippolyti atq Symphoriani Mm
                     "code": 31300,
                     "mass": {"int": "Salus autem", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3579,10 +3921,12 @@ class Sanctoral:
                     # In Vigilia S Bartholomæi Ap
                     "code": 31400,
                     "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3602,7 +3946,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3622,7 +3968,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3642,7 +3990,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3662,7 +4012,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3683,10 +4035,12 @@ class Sanctoral:
                     # S Hermetis M
                     "code": 31500,
                     "mass": {"int": "Lætabitur", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3707,10 +4061,12 @@ class Sanctoral:
                     # S Sabinae M
                     "code": 31600,
                     "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3731,10 +4087,12 @@ class Sanctoral:
                     # Ss Felicis et Adaucti Mm
                     "code": 31700,
                     "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3754,7 +4112,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3776,10 +4136,12 @@ class Sanctoral:
                     # Ss Duodecim Fratribus
                     "code": 31800,
                     "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3799,7 +4161,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3819,7 +4183,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3839,7 +4205,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3860,10 +4228,12 @@ class Sanctoral:
                     # S Hadriani M
                     "code": 31900,
                     "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3883,7 +4253,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3903,7 +4275,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3923,7 +4297,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3943,7 +4319,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3962,7 +4340,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -3983,10 +4363,12 @@ class Sanctoral:
                     # S Nicomedis M
                     "code": 32000,
                     "mass": {"int": "In virtute", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4007,10 +4389,12 @@ class Sanctoral:
                     # Ss Euphemiae V, Luciae atq Geminiani Mm
                     "code": 32100,
                     "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4030,7 +4414,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4050,7 +4436,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4070,7 +4458,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4091,10 +4481,12 @@ class Sanctoral:
                     # In Vigilia S Matthæi ApEv
                     "code": 32200,
                     "mass": {"int": "Ego autem", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4114,7 +4506,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4135,10 +4529,12 @@ class Sanctoral:
                     # Ss Mauritii et Sociorum Mm
                     "code": 32300,
                     "mass": {"int": "Intret", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4162,7 +4558,9 @@ class Sanctoral:
                 },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4182,7 +4580,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4202,7 +4602,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4222,7 +4624,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4242,7 +4646,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4262,7 +4668,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4282,7 +4690,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4303,7 +4713,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4323,7 +4735,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4343,7 +4757,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4363,7 +4779,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4383,7 +4801,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4403,7 +4823,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4424,14 +4846,16 @@ class Sanctoral:
                     # S Marci PC
                     "code": 32500,
                     "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
-                          },
+                },
                 "com_2": {
                     # Ss Sergii, Bacchi, Marcelli atq Apuleji MM
                     "code": 34900,
                     "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4451,7 +4875,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4472,10 +4898,12 @@ class Sanctoral:
                     # Ss Dionysii E, Rustici atq Eleutherii Mm
                     "code": 32600,
                     "mass": {"int": "Sapientiam", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4495,7 +4923,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4515,7 +4945,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4535,7 +4967,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4555,7 +4989,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4575,7 +5011,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4595,7 +5033,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4615,7 +5055,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4635,7 +5077,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4655,7 +5099,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4675,7 +5121,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4696,10 +5144,12 @@ class Sanctoral:
                     # Ss Ursulae et Sociarum VM
                     "code": 32700,
                     "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4719,7 +5169,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4739,7 +5191,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4759,7 +5213,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 3,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4779,7 +5235,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4799,7 +5257,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4819,7 +5279,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4840,7 +5302,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4864,7 +5328,9 @@ class Sanctoral:
                 "com_2": {},
                 "com_3": {},
                 "office_type": False,
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4885,10 +5351,12 @@ class Sanctoral:
                     # Octavae Omnium Sanctorum
                     "code": 32800,
                     "mass": {"int": "", "glo": True, "cre": True, "pre": "Communis"}
-                          },
+                },
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -4905,729 +5373,799 @@ class Sanctoral:
             #     "com": [{# Ss Quatuor Coronatis Mm", "mass": {"int": "Intret "glo": True, "cre": False, "pre": "Communis"}},],
             #     "color": "white",
             #     "mass": {"int": "Gaudeamus", "glo": True, "cre": True, "pre": "Communis"},
-            #     "matins": {},
-            #     "lauds": {},
-            #     "prime": {},
-            #     "little_hours": {},
-            #     "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            #     "compline": {},
-            #     "fasting": False,
-            # },
+            #     "matins": {
+        #     "lessons": 9,
+        # },
+        #     "lauds": {},
+        #     "prime": {},
+        #     "little_hours": {},
+        #     "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+        #     "compline": {},
+        #     "fasting": False,
+        # },
 
-            day(year=self.year, month=11, day=9): {
-                # In Dedicatione Archibasilicæ Ssmi Salvatoris
-                "code": 23700,
-                "rank": [10, "d II cl"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Terribilis", "glo": True, "cre": True, "pre": "Communis"},
-                "com_1": {
-                    # S Theodori M
-                    "code": 32900,
-                    "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
-                          },
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=9): {
+            # In Dedicatione Archibasilicæ Ssmi Salvatoris
+            "code": 23700,
+            "rank": [10, "d II cl"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Terribilis", "glo": True, "cre": True, "pre": "Communis"},
+            "com_1": {
+                # S Theodori M
+                "code": 32900,
+                "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
             },
-
-            day(year=self.year, month=11, day=10): {
-                # S Andreæ Avellini C
-                "code": 23800,
-                "rank": [15, "d"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {
-                    # Ss Tryphonis, Respicii atq Nymphae V Mm
-                    "code": 33000,
-                    "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}
-                          },
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=11): {
-                # S Martini EC
-                "code": 23900,
-                "rank": [15, "d"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {
-                    # S Mennae M
-                    "code": 33100,
-                    "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
-                          },
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=10): {
+            # S Andreæ Avellini C
+            "code": 23800,
+            "rank": [15, "d"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {
+                # Ss Tryphonis, Respicii atq Nymphae V Mm
+                "code": 33000,
+                "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}
             },
-
-            day(year=self.year, month=11, day=12): {
-                # S Martini I PM
-                "code": 24000,
-                "rank": [16, "sd"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "red",
-                "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=13): {
-                # S Didaci C
-                "code": 24100,
-                "rank": [16, "sd"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=11): {
+            # S Martini EC
+            "code": 23900,
+            "rank": [15, "d"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {
+                # S Mennae M
+                "code": 33100,
+                "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
             },
-
-            day(year=self.year, month=11, day=14): {
-                # S Josaphat EM
-                "code": 24200,
-                "rank": [15, "d"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "red",
-                "mass": {"int": "Gaudeamus", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=15): {
-                # S Alberti Magni ECD
-                "code": 24300,
-                "rank": [15, "d"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=12): {
+            # S Martini I PM
+            "code": 24000,
+            "rank": [16, "sd"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "red",
+            "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=16): {
-                # S Gertrudis V
-                "code": 24400,
-                "rank": [15, "d"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=13): {
+            # S Didaci C
+            "code": 24100,
+            "rank": [16, "sd"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=17): {
-                # S Gregorii Thaumaturgi EC
-                "code": 24500,
-                "rank": [16, "sd"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=14): {
+            # S Josaphat EM
+            "code": 24200,
+            "rank": [15, "d"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "red",
+            "mass": {"int": "Gaudeamus", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=18): {
-                # In Dedicatione Basilicarum Ss Petri et Pauli App
-                "code": 24600,
-                "rank": [14, "dm"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Terribilis", "glo": True, "cre": True, "pre": "de Apostolis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=15): {
+            # S Alberti Magni ECD
+            "code": 24300,
+            "rank": [15, "d"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=19): {
-                # S Elisabeth V
-                "code": 24700,
-                "rank": [15, "d"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Cognovi", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {
-                    # S Pontiani PM
-                    "code": 33200,
-                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
-                          },
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=16): {
+            # S Gertrudis V
+            "code": 24400,
+            "rank": [15, "d"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=20): {
-                # S Felicis de Valois C
-                "code": 24800,
-                "rank": [15, "d"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=17): {
+            # S Gregorii Thaumaturgi EC
+            "code": 24500,
+            "rank": [16, "sd"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=21): {
-                # In Præsentatione BMV
-                "code": 24900,
-                "rank": [14, "dm"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Salve", "glo": True, "cre": True, "pre": "de B Maria Virg"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=18): {
+            # In Dedicatione Basilicarum Ss Petri et Pauli App
+            "code": 24600,
+            "rank": [14, "dm"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Terribilis", "glo": True, "cre": True, "pre": "de Apostolis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=22): {
-                # S Cæciliæ VM
-                "code": 25000,
-                "rank": [15, "d"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "red",
-                "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=19): {
+            # S Elisabeth V
+            "code": 24700,
+            "rank": [15, "d"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Cognovi", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {
+                # S Pontiani PM
+                "code": 33200,
+                "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
             },
-
-            day(year=self.year, month=11, day=23): {
-                # S Clementis I PM
-                "code": 25100,
-                "rank": [15, "d"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "red",
-                "mass": {"int": "Dicit Dóminus", "glo": True, "cre": False, "pre": "de Apostolis"},
-                "com_1": {
-                    # S Felicitatis M
-                    "code": 33300,
-                    "mass": {"int": "Me exspectaverunt", "glo": True, "cre": False, "pre": "Communis"}
-                          },
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=24): {
-                # S Joannis a Cruce CD
-                "code": 25200,
-                "rank": [15, "d, mtv"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-                "com_1": {
-                    # S Chrysogoni M
-                    "code": 33400,
-                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
-                          },
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=20): {
+            # S Felicis de Valois C
+            "code": 24800,
+            "rank": [15, "d"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=25): {
-                # S Catharinæ VM
-                "code": 25300,
-                "rank": [15, "d"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "red",
-                "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=21): {
+            # In Præsentatione BMV
+            "code": 24900,
+            "rank": [14, "dm"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Salve", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=26): {
-                # S Sylvestri Abb
-                "code": 25400,
-                "rank": [15, "d"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {
-                    # S Petri Alexandrini EM
-                    "code": 33500,
-                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
-                          },
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=11, day=22): {
+            # S Cæciliæ VM
+            "code": 25000,
+            "rank": [15, "d"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "red",
+            "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=11, day=29): {
-                # In Vigilia S Andreæ Ap
-                "code": 25500,
-                "rank": [22, "v"],
+        day(year=self.year, month=11, day=23): {
+            # S Clementis I PM
+            "code": 25100,
+            "rank": [15, "d"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "red",
+            "mass": {"int": "Dicit Dóminus", "glo": True, "cre": False, "pre": "de Apostolis"},
+            "com_1": {
+                # S Felicitatis M
+                "code": 33300,
+                "mass": {"int": "Me exspectaverunt", "glo": True, "cre": False, "pre": "Communis"}
+            },
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
+            },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+
+        day(year=self.year, month=11, day=24): {
+            # S Joannis a Cruce CD
+            "code": 25200,
+            "rank": [15, "d, mtv"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+            "com_1": {
+                # S Chrysogoni M
+                "code": 33400,
+                "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
+            },
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
+            },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+
+        day(year=self.year, month=11, day=25): {
+            # S Catharinæ VM
+            "code": 25300,
+            "rank": [15, "d"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "red",
+            "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
+            },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+
+        day(year=self.year, month=11, day=26): {
+            # S Sylvestri Abb
+            "code": 25400,
+            "rank": [15, "d"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {
+                # S Petri Alexandrini EM
+                "code": 33500,
+                "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
+            },
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
+            },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+
+        day(year=self.year, month=11, day=29): {
+            # In Vigilia S Andreæ Ap
+            "code": 25500,
+            "rank": [22, "v"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "purple",
+            "mass": {"int": "Dominus secus", "glo": False, "cre": False, "pre": "Communis"},
+            "com_1": {
+                # S Saturnini M
+                "code": 33600,
+                "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
+            },
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
+            },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": True,
+        },
+
+        day(year=self.year, month=11, day=30): {
+            # S Andreæ Ap
+            "code": 25600,
+            "rank": [10, "d II cl"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "red",
+            "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
+            },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+        # todo add 1259/1 feria
+
+        # December
+        day(year=self.year, month=12, day=2): {
+            # S Bibianæ VM
+            "code": 25800,
+            "rank": [16, "sd"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "red",
+            "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
+            },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+
+        day(year=self.year, month=12, day=3): {
+            # S Francisci Xaverii C
+            "code": 25900,
+            "rank": [14, "dm, mtv"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
+            },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+
+        day(year=self.year, month=12, day=4): {
+            # S Petri Chrysologi ECD
+            "code": 26000,
+            "rank": [15, "d"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+            "com_1": {
+                # S Barbarae VM
+                "code": 33700,
+                "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}
+            },
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
+            },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+
+        day(year=self.year, month=12, day=5): {
+            # S Sabbae Abb
+            "code": 26100,
+            "rank": [22, "s"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 3,
+            },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+
+        day(year=self.year, month=12, day=6): {
+            # S Nicolai EC
+            "code": 26200,
+            "rank": [15, "d"],  # FIX: vigil of IC?
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {
+                # In Vigilia Conceptionis Immaculatæ BMV
+                "code": 33800,
+                "rank": [19, "v"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "purple",
-                "mass": {"int": "Dominus secus", "glo": False, "cre": False, "pre": "Communis"},
-                "com_1": {
-                    # S Saturnini M
-                    "code": 33600,
-                    "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
-                          },
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": True,
-            },
-
-            day(year=self.year, month=11, day=30): {
-                # S Andreæ Ap
-                "code": 25600,
-                "rank": [10, "d II cl"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "red",
-                "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
-            },
-            # todo add 1259/1 feria
-
-            # December
-            day(year=self.year, month=12, day=2): {
-                # S Bibianæ VM
-                "code": 25800,
-                "rank": [16, "sd"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "red",
-                "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
-            },
-
-            day(year=self.year, month=12, day=3): {
-                # S Francisci Xaverii C
-                "code": 25900,
-                "rank": [14, "dm, mtv"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
-            },
-
-            day(year=self.year, month=12, day=4): {
-                # S Petri Chrysologi ECD
-                "code": 26000,
-                "rank": [15, "d"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-                "com_1": {
-                    # S Barbarae VM
-                    "code": 33700,
-                    "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}
-                          },
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
-            },
-
-            day(year=self.year, month=12, day=5): {
-                # S Sabbae Abb
-                "code": 26100,
-                "rank": [22, "s"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
-            },
-
-            day(year=self.year, month=12, day=6): {
-                # S Nicolai EC
-                "code": 26200,
-                "rank": [15, "d"],  # FIX: vigil of IC?
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {
-                    # In Vigilia Conceptionis Immaculatæ BMV
-                    "code": 33800,
-                    "rank": [19, "v"],
-                    "nobility": (0, 0, 0, 0, 0, 0,),
-                    "office_type": False,
-                    "color": "purple",
-                    "mass": {"int": "Venite, audite", "glo": False, "cre": False, "pre": "Communis"},
-                    "matins": {},
-                    "lauds": {},
-                    "prime": {},
-                    "little_hours": {},
-                    "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                    "compline": {}
+                "mass": {"int": "Venite, audite", "glo": False, "cre": False, "pre": "Communis"},
+                "matins": {
+                    "lessons": 9,
                 },
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+                "compline": {}
             },
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
+            },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=12, day=7): {
-                # S Ambrosii ECD
-                "code": 26300,
-                "rank": [15, "d, mtv"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=12, day=7): {
+            # S Ambrosii ECD
+            "code": 26300,
+            "rank": [15, "d, mtv"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=12, day=8): {
-                # In Conceptione Immaculata BMV
-                "code": 26400,
-                "rank": [2, "d I cl cum Oct communi"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "octave": 4,
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Gaudens gaudebo", "glo": True, "cre": True, "pre": "de B Maria Virg"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=12, day=8): {
+            # In Conceptione Immaculata BMV
+            "code": 26400,
+            "rank": [2, "d I cl cum Oct communi"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "octave": 4,
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Gaudens gaudebo", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
-            # todo add "2662/9 De II die infra Octava Concept. Immac. BMV feria
-            day(year=self.year, month=12, day=10): {
-                # S Melchidi PM
-                "code": 26600,
-                "rank": [22, "s"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "red",
-                "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de B Maria Virg"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+        # todo add "2662/9 De II die infra Octava Concept. Immac. BMV feria
+        day(year=self.year, month=12, day=10): {
+            # S Melchidi PM
+            "code": 26600,
+            "rank": [22, "s"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "red",
+            "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 3,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=12, day=11): {
-                # S Damasi I PC
-                "code": 26700,
-                "rank": [16, "sd"],
-                "nobility": (4, 2, 6, 8, 3, 0,),
-                "office_type": False,
-                "color": "white",
-                "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de B Maria Virg"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=12, day=11): {
+            # S Damasi I PC
+            "code": 26700,
+            "rank": [16, "sd"],
+            "nobility": (4, 2, 6, 8, 3, 0,),
+            "office_type": False,
+            "color": "white",
+            "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
-            # todo add "2692/12 De II die infra Octava Concept. Immac. BMV feria
-            day(year=self.year, month=12, day=13): {
-                # S Luciæ VM
-                "code": 26900,
-                "rank": [15, "d"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "red",
-                "mass": {"int": "Dilexisti", "glo": True, "cre": True, "pre": "de B Maria Virg"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+        # todo add "2692/12 De II die infra Octava Concept. Immac. BMV feria
+        day(year=self.year, month=12, day=13): {
+            # S Luciæ VM
+            "code": 26900,
+            "rank": [15, "d"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "red",
+            "mass": {"int": "Dilexisti", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
-            # TODO: add "12/14 De VII die infra Octava Concept. Immac. BMV feria
-            # TODO: add "12/15 Octava Concept. Immac. BMV dm
-            day(year=self.year, month=12, day=16): {
-                # S Eusebii EM
-                "code": 27000,
-                "rank": [16, "sd"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "red",
-                "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+        # TODO: add "12/14 De VII die infra Octava Concept. Immac. BMV feria
+        # TODO: add "12/15 Octava Concept. Immac. BMV dm
+        day(year=self.year, month=12, day=16): {
+            # S Eusebii EM
+            "code": 27000,
+            "rank": [16, "sd"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "red",
+            "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=12, day=20): {
-                # In Vigilia S Thomæ Ap
-                "code": 27100,
-                "rank": [22, "v"], # TODO: check the ranking of a vigil
-                "nobility": (8, 2, 6, 5, 3, 0,),
-                "office_type": False,
-                "color": "purple",
-                "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=12, day=20): {
+            # In Vigilia S Thomæ Ap
+            "code": 27100,
+            "rank": [22, "v"], # TODO: check the ranking of a vigil
+            "nobility": (8, 2, 6, 5, 3, 0,),
+            "office_type": False,
+            "color": "purple",
+            "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
 
-            day(year=self.year, month=12, day=21): {
-                # S Thomæ Ap
-                "code": 27200,
-                "rank": [10, "d II cl"],
-                "nobility": (0, 0, 0, 0, 0, 0,),
-                "office_type": False,
-                "color": "red",
-                "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
-                "com_1": {},
-                "com_2": {},
-                "com_3": {},
-                "matins": {},
-                "lauds": {},
-                "prime": {},
-                "little_hours": {},
-                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {},
-                "fasting": False,
+        day(year=self.year, month=12, day=21): {
+            # S Thomæ Ap
+            "code": 27200,
+            "rank": [10, "d II cl"],
+            "nobility": (0, 0, 0, 0, 0, 0,),
+            "office_type": False,
+            "color": "red",
+            "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+            "com_1": {},
+            "com_2": {},
+            "com_3": {},
+            "matins": {
+                "lessons": 9,
             },
-        }
+            "lauds": {},
+            "prime": {},
+            "little_hours": {},
+            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            "compline": {},
+            "fasting": False,
+        },
+    }
 
         self.data_leapyear = {
             day(year=self.year, month=2, day=23): {
@@ -5641,7 +6179,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -5661,7 +6201,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -5681,7 +6223,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},
@@ -5706,7 +6250,9 @@ class Sanctoral:
                 "com_1": {},
                 "com_2": {},
                 "com_3": {},
-                "matins": {},
+                "matins": {
+                    "lessons": 9,
+                },
                 "lauds": {},
                 "prime": {},
                 "little_hours": {},

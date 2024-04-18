@@ -44,7 +44,7 @@ class LiturgicalCalendar:
             new_feast = Feast(
                 feast.date+days(day-1),
                 {
-                    "code": feast.code,
+                    "code": feast.code+1,
                     "rank": [feast.rank_n, feast.rank_v],
                     "infra_octave_name": feast.infra_octave_name,
                     "day_in_octave": feast.day_in_octave,
@@ -137,6 +137,7 @@ class LiturgicalCalendar:
                     self.transfers = higher
                     return lower
                 if lower.rank_n <= 10:
+                    # The Queenship of Our Lady is not transferring...
                     if lower.fasting is True:
                         higher.fasting = True
                     if lower != self.transfers:
@@ -201,7 +202,6 @@ class LiturgicalCalendar:
                 else:
                     self.transfers = None
                     result.date = feast.date
-                    print(result.date)
                     feast = result
             calendar += (feast,)
         return calendar
@@ -209,6 +209,14 @@ class LiturgicalCalendar:
     def our_ladys_saturday(self, calendar: tuple) -> dict:
         """
         Adds Office of the Blessed Virgin Mary on Saturdays.
+
+        In omnibus Sabbatis per annum extra Adventum et Quadragesimam, ac nisi
+        Quatuor tempora aut Vigilia; occurrant, vel nisi fieri debeat de Feria propter
+        Officium alicujus Dominica; aliquando infra Hebdomadam ponendum , ut in Rubrica
+        de Dominicis dictum est; et nisi fiat Officium novem Lectionum, vel de Octava
+        Pascha; et Pentecostes, semper fit Officium de sancta Maria, eo modo, quo fit de
+        Festo Simplici, quemadmodum circa finem Breviarii disponitur. De Festo autem
+        Simplici, in Sabbato occurrente, fit tantum commemoratio.
         """
         year = list(calendar)
         office = ladys_office  # TODO: add this according to the season
@@ -219,7 +227,7 @@ class LiturgicalCalendar:
                 elif self.FIRST_ADVENT <= feast.date <= self.LAST_ADVENT:
                     continue
                 else:
-                    if feast.rank_n > 16:
+                    if feast.rank_n > 20:
                         # FIX: there should be a commemoration here for the replaced feast?
                         year[pos] = Feast(feast.date, office, lang=self.language)
                     else:
