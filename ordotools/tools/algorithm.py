@@ -122,6 +122,7 @@ class LiturgicalCalendar:
         return {'higher': feast_1, 'lower': feast_2}
 
     def rank(self, dynamic: Feast, static: Feast) -> Feast:
+        print(f"self.transfers = {self.transfers}")
         if dynamic.rank_n == static.rank_n:
             return self.rank_by_nobility(dynamic, static)['higher']
         else:
@@ -138,14 +139,22 @@ class LiturgicalCalendar:
                     return lower
                 if lower.rank_n <= 10:
                     # The Queenship of Our Lady is not transferring...
-                    if lower.fasting is True:
-                        higher.fasting = True
-                    if lower != self.transfers:
-                        self.transfers = lower
+
+                    # just forget this for now:
+                    # if lower.fasting is True:
+                    #     higher.fasting = True
+
+                    # if lower != self.transfers:
+                    self.transfers = lower
                     return higher
                 else:
-                    if lower.fasting is True:
-                        higher.fasting = True
+                    # if lower.fasting is True:
+                    #     higher.fasting = True
+                    return higher
+            # this should fix BMV Reginae...
+            elif higher.rank_n <= 9:
+                if lower.rank_n <= 10:
+                    self.transfers = lower
                     return higher
             elif 14 <= lower.rank_n <= 16:
                 return self.commemorate(feast=higher, com=lower)
@@ -193,7 +202,6 @@ class LiturgicalCalendar:
             else:
                 feast = master_expanded[date]
             if self.transfers is not None:
-                print(self.transfers)
                 result = self.transfer_feast(
                     feast
                 )

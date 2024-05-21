@@ -1,9 +1,6 @@
 from ordotools.tools.helpers import day
 
 
-# NOTE: We are getting rid of the "feast" name eventually
-
-
 class Sanctoral:
     """
     The Roman Sanctoral Cycle, which is called at every compilation.
@@ -16,6 +13,8 @@ class Sanctoral:
         self.data = {
 
             # what is the best way to determine if the third lessons are proper?
+
+            # TODO: We need to have a method for events on any day. Greater Litanies, for example.
 
             # January
             day(year=self.year, month=1, day=14): {
