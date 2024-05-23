@@ -1,6 +1,6 @@
 build==0.10.0
 iniconfig==2.0.0
--e git+ssh://git@github.com/corei8/ordotools.git@b6e2bc4916169aa1d5cd53503ec422495c985815#egg=ordotools
+-e git+ssh://git@github.com/corei8/ordotools.git@b7c25f2062c7ffb276b9d438cf3e6b2bbd62ec0e#egg=ordotools
 packaging==23.1
 pluggy==1.2.0
 pyproject_hooks==1.0.0

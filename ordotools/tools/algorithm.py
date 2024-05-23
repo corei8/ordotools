@@ -122,7 +122,8 @@ class LiturgicalCalendar:
         return {'higher': feast_1, 'lower': feast_2}
 
     def rank(self, dynamic: Feast, static: Feast) -> Feast:
-        print(f"self.transfers = {self.transfers}")
+        # FIXME: this issue is here. We probably have a combination that is not accounted for
+        #        dynamic = 15, static = 9
         if dynamic.rank_n == static.rank_n:
             return self.rank_by_nobility(dynamic, static)['higher']
         else:
@@ -138,7 +139,7 @@ class LiturgicalCalendar:
                     self.transfers = higher
                     return lower
                 if lower.rank_n <= 10:
-                    # The Queenship of Our Lady is not transferring...
+                    # FIX: The Queenship of Our Lady is not transferring...
 
                     # just forget this for now:
                     # if lower.fasting is True:
@@ -156,6 +157,8 @@ class LiturgicalCalendar:
                 if lower.rank_n <= 10:
                     self.transfers = lower
                     return higher
+                else:
+                    return self.commemorate(feast=higher, com=lower)
             elif 14 <= lower.rank_n <= 16:
                 return self.commemorate(feast=higher, com=lower)
             else:
@@ -202,6 +205,7 @@ class LiturgicalCalendar:
             else:
                 feast = master_expanded[date]
             if self.transfers is not None:
+                # FIXME: this is where the problem starts
                 result = self.transfer_feast(
                     feast
                 )
