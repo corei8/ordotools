@@ -1034,7 +1034,7 @@ class TemporalData:
             },
             "D_Pent_2": {
                 "code": "D_Pent_2", #Christi (Dominica II post Pentecosten)",
-                "rank": [12, "sd"],
+                "rank": [9, "sd"],
                 "color": "green",
                 "mass": {"int": "Factus est", "glo": True, "seq": "Lauda, Sion, Salvatorem", "cre": True, "pre": "de Nativitate, vel de Ssma Trinitate"},
                 "com_1": {},
@@ -1629,7 +1629,7 @@ class TemporalData:
         return {
             f"{date+1}_in_8_CorpusChristi": {
                 "code": f"{date+1}_in_8_CorpusChristi",
-                "rank": [9, "feria"],
+                "rank": [9, "sd"],
                 "color": "white",
                 "mass": {"int": "Cibavit eos", "glo": True, "seq": "Lauda, Sion", "cre": True, "pre": "de Nativitate"},
                 "com_1": {},
@@ -1880,7 +1880,7 @@ class TemporalData:
                     f"de_Pent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
                         "code": f"de_Pent_{x+1}_f{feria+2 if feria != 5 else 's'}",
                         "rank": [23, "feria"], # FIX: change the ranking
-                        "color": "green", # TODO: check if this is right of the Trinity
+                        "color": "green", # TODO: check if this is right for Trinity
                         "mass": {"int": introit, "glo": True, "seq": "Lauda, Sion, Salvatorem", "cre": False, "pre": "de Trinitate"},
                         "com_1": {},
                         "com_2": {},

@@ -1,11 +1,19 @@
 from datetime import datetime
 # from ordotools.tools.helpers import days
 from ordotools.tools.translations import Translations
+import functools
 
 
 class Feast:
 
     def __init__(self, feast_date: datetime, properties: dict, lang="la"):
+
+
+        @functools.cache
+        def translate(self, code):
+            translations = Translations()
+            translated = translations.translations()[code][self.lang]
+            return translated
 
         self.date = feast_date
         self.code = properties["code"]
@@ -61,9 +69,12 @@ class Feast:
 
     # TODO: add the ferial commemorations here
 
+    # TODO: add the translations for the commemorations
+
         self._com_1 = self.format_commemoration(properties["com_1"])
         self._com_2 = self.format_commemoration(properties["com_2"])
         self._com_3 = self.format_commemoration(properties["com_3"])
+
 
     def format_commemoration(self, commemoration: dict) -> dict:
         if len(commemoration) == 0:
@@ -110,9 +121,9 @@ class Feast:
         self._com_3 = self.format_commemoration(com)
 
     def reset_commemorations(self):
-        self._com_3 = {}
-        self._com_2 = {}
-        self._com_1 = {}
+        self._com_3 = {"name": None}
+        self._com_2 = {"name": None}
+        self._com_1 = {"name": None}
 
 # ----------------------------------------------------------------------------- #
 

@@ -15,6 +15,7 @@ from ordotools.sanctoral.diocese.roman import Sanctoral
 
 import logging
 
+
 logging.basicConfig(level=logging.DEBUG)
 
 
@@ -25,7 +26,7 @@ class LiturgicalCalendar:
         self.diocese = diocese
         self.language = language
 
-        # TODO: theoretically we could have more than one...
+        # TODO: theoretically we could have more than one... ?
         self.transfers = None
 
         self.temporal = Temporal(self.year).return_temporal()
@@ -122,14 +123,14 @@ class LiturgicalCalendar:
         return {'higher': feast_1, 'lower': feast_2}
 
     def rank(self, dynamic: Feast, static: Feast) -> Feast:
-        # FIXME: this issue is here. We probably have a combination that is not accounted for
-        #        dynamic = 15, static = 9
         if dynamic.rank_n == static.rank_n:
             return self.rank_by_nobility(dynamic, static)['higher']
         else:
             candidates = {dynamic.rank_n: dynamic, static.rank_n: static}
             higher = candidates[sorted(candidates)[0]]
             lower = candidates[sorted(candidates)[1]]
+            # print(f"HIGHER =\t{higher.name}, {higher.rank_n}")
+            # print(f"LOWER  =\t{lower.name}, {lower.rank_n}\n")
             if lower.rank_n >= 22:
                 pass
             if lower.rank_n == 19:
@@ -139,25 +140,15 @@ class LiturgicalCalendar:
                     self.transfers = higher
                     return lower
                 if lower.rank_n <= 10:
-                    # FIX: The Queenship of Our Lady is not transferring...
-
-                    # just forget this for now:
-                    # if lower.fasting is True:
-                    #     higher.fasting = True
-
-                    # if lower != self.transfers:
                     self.transfers = lower
                     return higher
                 else:
-                    # if lower.fasting is True:
-                    #     higher.fasting = True
                     return higher
-            # this should fix BMV Reginae...
             elif higher.rank_n <= 9:
                 if lower.rank_n <= 10:
                     self.transfers = lower
                     return higher
-                else:
+                else:  # HACK: This is just to get the Queenship transfer to work
                     return self.commemorate(feast=higher, com=lower)
             elif 14 <= lower.rank_n <= 16:
                 return self.commemorate(feast=higher, com=lower)
@@ -268,4 +259,3 @@ class LiturgicalCalendar:
         full_calendar = self.find_octave(year=full_calendar)
 
         return full_calendar
-        
