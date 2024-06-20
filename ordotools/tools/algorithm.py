@@ -9,14 +9,15 @@ from ordotools.tools.helpers import days
 from ordotools.tools.helpers import ladys_office
 from ordotools.tools.helpers import leap_year
 
+from ordotools.tools.translations import Translations
 from ordotools.tools.temporal import Temporal
 
 from ordotools.sanctoral.diocese.roman import Sanctoral
 
-import logging
+# import logging
 
 
-logging.basicConfig(level=logging.DEBUG)
+# logging.basicConfig(level=logging.DEBUG)
 
 
 class LiturgicalCalendar:
@@ -25,15 +26,9 @@ class LiturgicalCalendar:
         self.year = year
         self.diocese = diocese
         self.language = language
-
-        # TODO: theoretically we could have more than one... ?
+        # WARN: theoretically we could have more than one transfer
         self.transfers = None
-
         self.temporal = Temporal(self.year).return_temporal()
-        self.FIRST_ADVENT = LiturgicalYearMarks(self.year).first_advent
-        self.LAST_ADVENT = LiturgicalYearMarks(self.year).last_advent
-        self.LENT_BEGINS = LiturgicalYearMarks(self.year).lent_begins
-        self.LENT_ENDS = LiturgicalYearMarks(self.year).lent_ends
 
     def expand_octaves(self, feast: Feast) -> dict:
         octave = ()
@@ -187,6 +182,13 @@ class LiturgicalCalendar:
         addition_expanded = {}
         for feast in addition:
             addition_expanded.update({feast.date: feast})
+        # we might be able to speed things up here using set()
+
+        # def intersections(set_1, set_2):
+        #     the_set_1 = set(set_1)
+        #     the_set_2 = set(set_2)
+        #     return the_set_1.intersection(the_set_2)
+
         for date in master_expanded.keys():
             if date in addition_expanded.keys():
                 feast = self.rank(
@@ -225,9 +227,13 @@ class LiturgicalCalendar:
         office = ladys_office  # TODO: add this according to the season
         for pos, feast in enumerate(year):
             if feast.date.strftime("%w") == str(6):
-                if self.LENT_BEGINS <= feast.date <= self.LENT_ENDS:
+                first_advent = LiturgicalYearMarks(self.year).first_advent
+                last_advent = LiturgicalYearMarks(self.year).last_advent
+                lent_begins = LiturgicalYearMarks(self.year).lent_begins
+                lent_ends = LiturgicalYearMarks(self.year).lent_ends
+                if lent_begins <= feast.date <= lent_ends:
                     continue
-                elif self.FIRST_ADVENT <= feast.date <= self.LAST_ADVENT:
+                elif first_advent <= feast.date <= last_advent:
                     continue
                 else:
                     if feast.rank_n > 20:
@@ -237,10 +243,14 @@ class LiturgicalCalendar:
                         continue
         return tuple(year)
 
-    def add_translation(self, compiled_cal: dict) -> list:
+    def add_translation(self, compiled_calendar: Feast) -> list:
         year = []
-        for feast in compiled_cal.values():
-            feast.lang = self.language
+        translations = Translations()
+        for feast in compiled_calendar:
+            feast.name = translations.translations()[feast.code][self.language]
+            print(feast.name)
+            if isinstance(feast.com_1["name"], int):
+                feast.com_1 = translations.translations()[feast.com_1["name"]][self.language]
             year.append(feast)
         return year
 
@@ -257,5 +267,6 @@ class LiturgicalCalendar:
         full_calendar = self.add_feasts(initialized["temporal"], initialized["sanctoral"])
         full_calendar = self.our_ladys_saturday(full_calendar)
         full_calendar = self.find_octave(year=full_calendar)
+        full_calendar = self.add_translation(full_calendar)
 
         return full_calendar

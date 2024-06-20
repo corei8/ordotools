@@ -127,8 +127,6 @@ class Temporal:
                 octave_counter += 1
         return y
 
-    # TODO: Perhaps merge these two?
-
     def post_epiphany(self) -> list:
         """ All of the Sundays and ferias after Epiphany """
         sunday_after_epiphany = self.epiphany-findsunday(self.epiphany)+week(1)

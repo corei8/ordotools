@@ -1,6 +1,7 @@
 from ordotools.tools.liturgical_dates import integer_to_roman
 from ordotools.tools.liturgical_dates import nth
 import functools
+
 # When adding translations, use the ISO 639-1 codes
 # that can be found in this article:
 #
@@ -20,7 +21,6 @@ import functools
 
 class Translations:
 
-    # @functools.cache
     def __init__(self):
 
         self.easy_data = {
@@ -257,7 +257,7 @@ class Translations:
 
             4700: {
                 "la": "S Josephi Sponsi BMV C",
-                "en": "",
+                "en": "St. Joseph, Spouse of the BVM, C",
             },
 
             4800: {
@@ -267,12 +267,12 @@ class Translations:
 
             4900: {
                 "la": "S Gabrielis Arch",
-                "en": "",
+                "en": "St. Gabriel, Archangel",
             },
 
             5000: {
                 "la": "In Annuntiatione BMV",
-                "en": "",
+                "en": "Annuntiation of the BVM",
             },
 
             5100: {
@@ -2195,6 +2195,7 @@ class Translations:
             } for date in range(1,8)
         }
 
+    # @functools.lru_cache()
     def pentecost_sundays(self) -> dict:
         # TODO: add the first 4 Sundays after Pentecost (excluding Trinity)
         pentecost_season = {}
@@ -2214,6 +2215,7 @@ class Translations:
                 }
         return pentecost_season
 
+    # @functools.lru_cache()
     def pentecost_epiphany_sundays(self) -> dict:
         # WARN: This is really rough and might not be too efficient, but
         # it works for now.
@@ -2380,8 +2382,6 @@ class Translations:
             }
         return octave
 
-    # NOTE: this actually makes things slower... ?
-    # @functools.cache
     def translations(self) -> dict:
         return self.data
 

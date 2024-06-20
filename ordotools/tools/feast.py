@@ -1,7 +1,4 @@
 from datetime import datetime
-# from ordotools.tools.helpers import days
-from ordotools.tools.translations import Translations
-import functools
 
 
 class Feast:
@@ -9,21 +6,12 @@ class Feast:
     def __init__(self, feast_date: datetime, properties: dict, lang="la"):
 
 
-        @functools.cache
-        def translate(self, code):
-            translations = Translations()
-            translated = translations.translations()[code][self.lang]
-            return translated
-
         self.date = feast_date
         self.code = properties["code"]
-
         self.day_in_octave = properties["day_in_octave"] if "day_in_octave" in properties.keys() else 0
-
-        translations = Translations()
-        self._name = translations.translations()[self.code][lang]
-        if self.day_in_octave != 0:
-            self.name(translations.octave(lang, self.day_in_octave, self.code))
+        self._name = ""
+        # if self.day_in_octave != 0:
+        #     self.name(translations.octave(lang, self.day_in_octave, self.code))
 
         self.feast_properties = properties
 
@@ -77,21 +65,24 @@ class Feast:
 
 
     def format_commemoration(self, commemoration: dict) -> dict:
-        if len(commemoration) == 0:
-            return {
-                "name": None,
-            }
-        elif "code" in commemoration.keys():
-            return {
-                "name": commemoration["code"],
-                "data": commemoration  # Feast(self.date, commemoration)
-            }
-        elif "oration" in commemoration.keys():
-            return {
-                "name": commemoration["oration"],
-            }
-        else:
+        if isinstance(commemoration, str):
             return commemoration
+        else:
+            if len(commemoration) == 0:
+                return {
+                    "name": None,
+                }
+            elif "code" in commemoration.keys():
+                return {
+                    "name": commemoration["code"],
+                    "data": commemoration  # Feast(self.date, commemoration)
+                }
+            elif "oration" in commemoration.keys():
+                return {
+                    "name": commemoration["oration"],
+                }
+            else:
+                return commemoration
 
     @property
     def com_1(self):
