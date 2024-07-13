@@ -2725,7 +2725,6 @@ class Translations:
             } for date in range(1,8)
         }
 
-# @functools.lru_cache()
     def pentecost_sundays(self) -> dict:
         # TODO: add the first 4 Sundays after Pentecost (excluding Trinity)
         pentecost_season = {}

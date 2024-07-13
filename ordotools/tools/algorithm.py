@@ -121,8 +121,9 @@ class LiturgicalCalendar:
             candidates = {dynamic.rank_n: dynamic, static.rank_n: static}
             higher = candidates[sorted(candidates)[0]]
             lower = candidates[sorted(candidates)[1]]
-            if lower.rank_n >= 22:
-                pass
+            # NOTE: why is this even here?
+            # if lower.rank_n >= 22:
+            #     pass
             if lower.rank_n == 19:
                 return self.commemorate(feast=higher, com=lower)
             if higher.rank_n <= 4:
@@ -144,7 +145,6 @@ class LiturgicalCalendar:
                 return self.commemorate(feast=higher, com=lower)
             else:
                 return self.commemorate(feast=higher, com=lower)
-
 
     def transfer_feast(self, feast: Feast) -> Feast:
         return self.rank(dynamic=self.transfers, static=feast)
@@ -168,6 +168,7 @@ class LiturgicalCalendar:
                 inititalized["sanctoral"] += self.build_feasts(dictionary)
         return inititalized
 
+    # FIX: this thakes a lot of time still
     def initialize_commemorations(self, feast: Feast) -> Feast:
 
         def add_default_commemorations(first, second, feast: Feast) -> Feast:

@@ -5,8 +5,12 @@ import dateutil.easter
 
 import re
 
+import functools
 
+
+@functools.lru_cache()
 class LiturgicalYearMarks:
+
     def __init__(self, year):
         self.year = year
         self.christmas = datetime.strptime(str(self.year) + "-12-25", "%Y-%m-%d")
@@ -29,6 +33,7 @@ def findsunday(date: datetime) -> timedelta:
     return timedelta(days=int(date.strftime('%w')))
 
 
+@functools.lru_cache()
 def easter(year: int) -> datetime:
     """ return the date of easter for this year """
     return datetime(
