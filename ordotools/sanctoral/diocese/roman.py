@@ -31,12 +31,6 @@ class Sanctoral:
                     "matins": {
                         "lessons": 9,
                     },
-                    "lauds": {},
-                    "prime": {},
-                    "little_hours": {},
-                    "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "oration": ""},
-                    "compline": {},
-                    "fasting": False,
                 },
                 "com_2": {},
                 "com_3": {},
@@ -6075,7 +6069,7 @@ class Sanctoral:
             "compline": {},
             "fasting": False,
         },
-        # todo add "2692/12 De II die infra Octava Concept. Immac. BMV feria
+
         day(year=self.year, month=12, day=13): {
             # S Luciæ VM
             "code": 26900,
@@ -6097,8 +6091,7 @@ class Sanctoral:
             "compline": {},
             "fasting": False,
         },
-        # TODO: add "12/14 De VII die infra Octava Concept. Immac. BMV feria
-        # TODO: add "12/15 Octava Concept. Immac. BMV dm
+
         day(year=self.year, month=12, day=16): {
             # S Eusebii EM
             "code": 27000,

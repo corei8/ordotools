@@ -15,6 +15,7 @@ class Feast:
 
         self.feast_properties = properties
 
+        # TODO: add the "infra_octave_name" to all octaves
         if "infra_octave_name" in properties:
             self.infra_octave_name = properties["infra_octave_name"]
         else:
@@ -24,7 +25,6 @@ class Feast:
         #       according to the octave name
 
         # Commemorations do not take a rank:
-        # TODO: add the ferial commemorations here
         self.rank_v = properties["rank"][-1]
         self.rank_n = properties["rank"][0]
 
@@ -52,37 +52,10 @@ class Feast:
 
 # COMMEMORATIONS -------------------------------------------------------------- #
 
-    # TODO: for every feast that is less than a double, add the seasonal commemorations here.
-    #       For the commemoration for the pope, add it as well, supress it later
+        self._com_1 = properties["com_1"]
+        self._com_2 = properties["com_2"]
+        self._com_3 = properties["com_3"]
 
-    # TODO: add the ferial commemorations here
-
-    # TODO: add the translations for the commemorations
-
-        self._com_1 = self.format_commemoration(properties["com_1"])
-        self._com_2 = self.format_commemoration(properties["com_2"])
-        self._com_3 = self.format_commemoration(properties["com_3"])
-
-
-    def format_commemoration(self, commemoration: dict) -> dict:
-        if isinstance(commemoration, str):
-            return commemoration
-        else:
-            if len(commemoration) == 0:
-                return {
-                    "name": None,
-                }
-            elif "code" in commemoration.keys():
-                return {
-                    "name": commemoration["code"],
-                    "data": commemoration  # Feast(self.date, commemoration)
-                }
-            elif "oration" in commemoration.keys():
-                return {
-                    "name": commemoration["oration"],
-                }
-            else:
-                return commemoration
 
     @property
     def com_1(self):
@@ -90,31 +63,34 @@ class Feast:
 
     @com_1.setter
     def com_1(self, com: dict):
-        self._com_3 = self.format_commemoration(self._com_2)
-        self._com_2 = self.format_commemoration(self._com_1)
-        self._com_1 = self.format_commemoration(com)
+        self._com_3 = self._com_2
+        self._com_2 = self._com_1
+        self._com_1 = com
+
 
     @property
     def com_2(self):
         return self._com_2
 
-    @com_1.setter
-    def com_1(self, com: dict):
-        self._com_3 = self.format_commemoration(self._com_2)
-        self._com_2 = self.format_commemoration(com)
+    @com_2.setter
+    def com_2(self, com: dict):
+        self._com_3 = self._com_2
+        self._com_2 = com
+
 
     @property
     def com_3(self):
         return self._com_3
 
-    @com_1.setter
-    def com_1(self, com: dict):
-        self._com_3 = self.format_commemoration(com)
+    @com_3.setter
+    def com_3(self, com: dict):
+        self._com_3 = com
+
 
     def reset_commemorations(self):
-        self._com_3 = {"name": None}
-        self._com_2 = {"name": None}
-        self._com_1 = {"name": None}
+        self._com_3 = {"code": None, "name": None, "data": None}
+        self._com_2 = {"code": None, "name": None, "data": None}
+        self._com_1 = {"code": None, "name": None, "data": None}
 
 # ----------------------------------------------------------------------------- #
 

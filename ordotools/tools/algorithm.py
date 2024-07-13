@@ -14,11 +14,9 @@ from ordotools.tools.temporal import Temporal
 
 from ordotools.sanctoral.diocese.roman import Sanctoral
 
-# import logging
-
-
-# logging.basicConfig(level=logging.DEBUG)
-
+#### TODO LIST ####
+# TODO: Figure out the best method for working with anticipations
+# TODO: Test the calendar for accuracy against the current ordo
 
 class LiturgicalCalendar:
 
@@ -30,7 +28,7 @@ class LiturgicalCalendar:
         self.transfers = None
         self.temporal = Temporal(self.year).return_temporal()
 
-    def expand_octaves(self, feast: Feast) -> dict:
+    def expand_octaves(self, feast: Feast) -> tuple:
         octave = ()
         day = 2
         while day < 9:
@@ -60,7 +58,6 @@ class LiturgicalCalendar:
                     "fasting": feast.fasting,
                 }
             )
-            # TODO: all this can be handled above
             if day == 8:
                 new_feast.day_in_octave = day
             else:
@@ -84,26 +81,26 @@ class LiturgicalCalendar:
         return year
 
     def commemorate(self, feast: Feast, com: Feast) -> Feast:
-        feast.com_1 = com.feast_properties
         feast.com_1 = {
-            "code": feast.code,
-            "rank": [feast.rank_n, feast.rank_v],
-            "infra_octave_name": feast.infra_octave_name,
-            "day_in_octave": feast.day_in_octave,
-            "color": feast.color,
-            "mass": feast.mass,
-            "com_1": feast.com_1 if feast.com_1 is not None else {},
-            "com_2": feast.com_2 if feast.com_2 is not None else {},
-            "com_3": feast.com_3 if feast.com_3 is not None else {},
+            "code": com.code,
+            "rank": [com.rank_n, com.rank_v],
+            "infra_octave_name": com.infra_octave_name,
+            "day_in_octave": com.day_in_octave,
+            "color": com.color,
+            "mass": com.mass,
+            # NOTE: we might not need the commemorations here?
+            # "com_1": com.com_1 if com.com_1 is not None else {},
+            # "com_2": com.com_2 if com.com_2 is not None else {},
+            # "com_3": com.com_3 if com.com_3 is not None else {},
             "matins": {},
             "lauds": {},
             "prime": {},
             "little_hours": {},
-            "vespers": feast.vespers,
-            "compline": {},
-            "nobility": feast.nobility,
-            "office_type": feast.office_type,
-            "fasting": feast.fasting,
+            "vespers": com.vespers,
+            # "compline": {},
+            "nobility": com.nobility,
+            "office_type": com.office_type,
+            "fasting": com.fasting,
         }
         return feast
 
@@ -124,8 +121,6 @@ class LiturgicalCalendar:
             candidates = {dynamic.rank_n: dynamic, static.rank_n: static}
             higher = candidates[sorted(candidates)[0]]
             lower = candidates[sorted(candidates)[1]]
-            # print(f"HIGHER =\t{higher.name}, {higher.rank_n}")
-            # print(f"LOWER  =\t{lower.name}, {lower.rank_n}\n")
             if lower.rank_n >= 22:
                 pass
             if lower.rank_n == 19:
@@ -143,19 +138,18 @@ class LiturgicalCalendar:
                 if lower.rank_n <= 10:
                     self.transfers = lower
                     return higher
-                else:  # HACK: This is just to get the Queenship transfer to work
+                else:
                     return self.commemorate(feast=higher, com=lower)
             elif 14 <= lower.rank_n <= 16:
                 return self.commemorate(feast=higher, com=lower)
             else:
                 return self.commemorate(feast=higher, com=lower)
 
+
     def transfer_feast(self, feast: Feast) -> Feast:
         return self.rank(dynamic=self.transfers, static=feast)
 
-    # NOTE: before refactoring, compilation in 0.940s
-    #       after refactoring... 0.258s
-    def build_feasts(self, candidates: dict) -> dict:
+    def build_feasts(self, candidates: dict) -> tuple:
         feasts = ()
         for date, data in candidates.items():
             feast = Feast(date, data, lang=self.language)
@@ -174,21 +168,42 @@ class LiturgicalCalendar:
                 inititalized["sanctoral"] += self.build_feasts(dictionary)
         return inititalized
 
-    def add_feasts(self, master: tuple, addition: tuple) -> dict:
+    def initialize_commemorations(self, feast: Feast) -> Feast:
+
+        def add_default_commemorations(first, second, feast: Feast) -> Feast:
+            if "code" in feast.com_1.keys():
+                feast.com_2["code"] = first
+            else:
+                feast.com_1["code"] = first
+                if second is not None:
+                    feast.com_2["code"] = second
+            return feast
+
+        this_year = LiturgicalYearMarks(self.year)
+        first_advent = this_year.first_advent
+        last_advent = this_year.last_advent
+        lent_begins = this_year.lent_begins
+        lent_ends = this_year.lent_ends
+        if feast.rank_n < 16:  # NOTE: this is not true for Sundays
+            pass
+        elif first_advent < feast.date < last_advent:
+            feast = add_default_commemorations(99914, None, feast)
+        elif lent_begins < feast.date < lent_ends:
+            feast = add_default_commemorations(99914, None, feast)
+        else:
+            feast = add_default_commemorations(99908, 99913, feast)
+        return feast
+
+
+    def add_feasts(self, master: tuple, addition: tuple) -> tuple:
         calendar = ()
         master_expanded = {}
+        # TODO: add a function here that adds the commemorations to the feasts as they are built.
         for feast in master:
-            master_expanded.update({feast.date: feast})
+            master_expanded.update({feast.date: self.initialize_commemorations(feast)})
         addition_expanded = {}
         for feast in addition:
-            addition_expanded.update({feast.date: feast})
-        # we might be able to speed things up here using set()
-
-        # def intersections(set_1, set_2):
-        #     the_set_1 = set(set_1)
-        #     the_set_2 = set(set_2)
-        #     return the_set_1.intersection(the_set_2)
-
+            addition_expanded.update({feast.date: self.initialize_commemorations(feast)})
         for date in master_expanded.keys():
             if date in addition_expanded.keys():
                 feast = self.rank(
@@ -198,7 +213,6 @@ class LiturgicalCalendar:
             else:
                 feast = master_expanded[date]
             if self.transfers is not None:
-                # FIXME: this is where the problem starts
                 result = self.transfer_feast(
                     feast
                 )
@@ -211,7 +225,7 @@ class LiturgicalCalendar:
             calendar += (feast,)
         return calendar
 
-    def our_ladys_saturday(self, calendar: tuple) -> dict:
+    def our_ladys_saturday(self, calendar: tuple) -> tuple:
         """
         Adds Office of the Blessed Virgin Mary on Saturdays.
 
@@ -243,14 +257,23 @@ class LiturgicalCalendar:
                         continue
         return tuple(year)
 
-    def add_translation(self, compiled_calendar: Feast) -> list:
+    def add_translation(self, compiled_calendar: tuple) -> list:
         year = []
         translations = Translations()
         for feast in compiled_calendar:
             feast.name = translations.translations()[feast.code][self.language]
-            print(feast.name)
-            if isinstance(feast.com_1["name"], int):
-                feast.com_1 = translations.translations()[feast.com_1["name"]][self.language]
+            if "code" in feast.com_1.keys() and feast.com_1["code"] is not None:
+                feast.com_1["name"] = translations.translations()[feast.com_1["code"]][self.language]
+            else:
+                feast.com_1["name"] = None
+            if "code" in feast.com_2.keys() and feast.com_2["code"] is not None:
+                feast.com_2["name"] = translations.translations()[feast.com_2["code"]][self.language]
+            else:
+                feast.com_2["name"] = None
+            if "code" in feast.com_3.keys() and feast.com_3["code"] is not None:
+                feast.com_3["name"] = translations.translations()[feast.com_3["code"]][self.language]
+            else:
+                feast.com_3["name"] = None
             year.append(feast)
         return year
 
