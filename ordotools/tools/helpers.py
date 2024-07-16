@@ -95,17 +95,17 @@ def weekday(date: datetime) -> str:
     return date.strftime('%a')
 
 
-def advance_a_day(date: str) -> str:
-    """ return a date advanced a day, returns a string mm/dd """
-    return date + timedelta(days=1)
+# def advance_a_day(date: str) -> str:
+#     """ return a date advanced a day, returns a string mm/dd """
+#     return date + timedelta(days=1)
 
 
-def find_extra_epiphany(pents: int) -> int:
-    """ return the number of Sundays not celebrated after Epiphany """
-    if pents == 23:
-        pass
-    else:
-        return pents - 24
+# def find_extra_epiphany(pents: int) -> int:
+#     """ return the number of Sundays not celebrated after Epiphany """
+#     if pents == 23:
+#         pass
+#     else:
+#         return pents - 24
 
 
 def leap_year(year: int) -> bool:

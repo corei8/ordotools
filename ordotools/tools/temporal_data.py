@@ -1,6 +1,8 @@
 from ordotools.tools.parts import PENTECOST_MASSES
 
 
+# FIX: delete the "orations" for the commemorations
+
 class TemporalData:
 
     def __init__(self):
@@ -1777,8 +1779,8 @@ class TemporalData:
                     "rank": [12, "sd"],
                     "color": "green",
                     "mass": {"int": PENTECOST_MASSES[-1], "glo": True, "cre": True, "pre": "de Trinitate"},
-                    "com_1": {"oration": "A cunctis"},
-                    "com_2": {"oration": "ad libitum"},
+                    "com_1": {},
+                    "com_2": {},
                     "com_3": {},
                     "matins": {},
                     "lauds": {},
@@ -1795,11 +1797,11 @@ class TemporalData:
                 last_pents |= {
                     f"de_UltPent_{pent}_f{feria+2 if feria != 5 else 's'}": {
                         "code": f"de_UltPent_{pent}_f{feria+2 if feria != 5 else 's'}",
-                        "rank": [12, "sd"], # FIX: fix the rank
+                        "rank": [23, "feria"],
                         "color": "green",
                         "mass": {"int": PENTECOST_MASSES[-1], "glo": True, "cre": False, "pre": "Communi"},
-                        "com_1": {"oration": "A cunctis"},
-                        "com_2": {"oration": "ad libitum"},
+                        "com_1": {},
+                        "com_2": {},
                         "com_3": {},
                         "matins": {},
                         "lauds": {},

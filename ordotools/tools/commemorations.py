@@ -1,4 +1,5 @@
 from ordotools.tools.helpers import LiturgicalYearMarks
+from ordotools.tools.helpers import day
 from ordotools.tools.helpers import days
 from ordotools.tools.helpers import weeks
 
@@ -28,19 +29,22 @@ def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
     processed_feasts = ()
     month_indicator = ""
     for feast in feasts:
-        # assuming that a double does not take the seasonal commemorations
+        # assuming that a double never takes the seasonal commemorations
         if feast.rank_n > 15:
             if mark.first_advent < feast.date < mark.christmas:
                 feast.com_1["code"] = 99906
                 feast.com_2["code"] = 99909
             elif mark.christmas+days(19) < feast.date < mark.lent_begins-weeks(3)-days(3):
-                feast.com_1["code"] = 99907
-                feast.com_2["code"] = 99909 # TODO: or for the pope
-                # TODO: exception if after February 2
+                if feast.date > day(year, 2, 2):
+                    feast.com_1["code"] = 99911
+                    feast.com_2["code"] = 99913
+                else:
+                    feast.com_1["code"] = 99907
+                    feast.com_2["code"] = 99909 # TODO: or for the pope
             elif mark.lent_begins-weeks(3)-days(3) < feast.date < mark.lent_begins:
-                # TODO: exception if before February 2
+                # TODO: special secret of BVM if before February 2nd
                 feast.com_1["code"] = 99907
-                feast.com_2["code"] = 99909 # TODO: or for the pope
+                feast.com_2["code"] = 99909 # or for the pope
                 processed_feasts += (feast,)
                 continue
             elif mark.lent_begins < feast.date <= mark.lent_ends-weeks(2):
@@ -49,16 +53,16 @@ def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
                 processed_feasts += (feast,)
                 continue
             elif mark.lent_ends-weeks(2) < feast.date < mark.lent_ends:
-                feast.com_1["code"] = 99909 # TODO: or for the pope
+                feast.com_1["code"] = 99909 # or for the pope
                 processed_feasts += (feast,)
                 continue
             elif mark.easter+days(2) < feast.date < mark.easter+days(7):
-                feast.com_1["code"] = 99909 # TODO: or for the pope
+                feast.com_1["code"] = 99909 # or for the pope
                 processed_feasts += (feast,)
                 continue
             elif mark.easter+days(7) < feast.date < mark.easter_season_end:
                 feast.com_1["code"] = 99908
-                feast.com_2["code"] = 99909 # TODO: or for the pope
+                feast.com_2["code"] = 99909 # or for the pope
                 processed_feasts += (feast,)
                 continue
             elif mark.pentecost_season_start < feast.date < mark.first_advent:
