@@ -2,22 +2,23 @@ from ordotools.tools.liturgical_dates import integer_to_roman
 from ordotools.tools.liturgical_dates import nth
 import functools
 
-# When adding translations, use the ISO 639-1 codes
-# that can be found in this article:
-#
-# https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-#
-# We will have latin here and in the feast database,
-# but eventually we will port everything over.
-#
-# Feasts are given two digits of padding at the end
-# so that we can take care of duplicate feasts with
-# different variations.
-#
-# All of the feats are 100 digits apart. Of these 100
-# digits, we will use the odds for the octaves of the
-# preceeding feast. This should be plenty.
+"""
+When adding translations, use the ISO 639-1 codes
+that can be found in this article:
 
+https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+
+We will have latin here and in the feast database,
+but eventually we will port everything over.
+
+Feasts are given two digits of padding at the end
+so that we can take care of duplicate feasts with
+different variations.
+
+All of the feasts are 100 digits apart. Of these 100
+digits, we will use the odds for the octaves of the
+preceeding feast. This should be plenty.
+"""
 
 class Translations:
 
@@ -2123,7 +2124,7 @@ class Translations:
 
             99908: {
                 # BVM for the rest of the year
-                "la": "Concede",
+                "la": "Concéde",
                 "en": "",
                 "fr": "",
             },
@@ -2166,6 +2167,13 @@ class Translations:
             99914: {
                 # of the feria
                 "la": "de feria",
+                "en": "",
+                "fr": "",
+            },
+
+            99915: {
+                # for the living and the dead
+                "la": "Omnípotens",
                 "en": "",
                 "fr": "",
             },
@@ -2809,7 +2817,7 @@ class Translations:
             }
             for feria in range(6):
                 advent_season |= {
-                    f"Advent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
+                    f"de_Advent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
                         "la": "De ea",
                         "en": "",
                         "fr": "",

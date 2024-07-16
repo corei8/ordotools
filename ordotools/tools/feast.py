@@ -63,6 +63,8 @@ class Feast:
 
     @com_1.setter
     def com_1(self, com: dict):
+        if isinstance(com["code"], str) and  "de_" in com["code"]:
+            com["code"] = 99914
         self._com_3 = self._com_2
         self._com_2 = self._com_1
         self._com_1 = com
@@ -74,6 +76,8 @@ class Feast:
 
     @com_2.setter
     def com_2(self, com: dict):
+        if isinstance(com["code"], str) and  "de_" in com["code"]:
+            com["code"] = 99914
         self._com_3 = self._com_2
         self._com_2 = com
 
@@ -84,6 +88,8 @@ class Feast:
 
     @com_3.setter
     def com_3(self, com: dict):
+        if isinstance(com["code"], str) and  "de_" in com["code"]:
+            com["code"] = 99914
         self._com_3 = com
 
 

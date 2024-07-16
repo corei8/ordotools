@@ -1845,8 +1845,8 @@ class TemporalData:
             }
             for feria in range(6):
                 advent_season |= {
-                    f"Advent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
-                        "code": f"Advent_{x+1}_f{feria+2 if feria != 5 else 's'}",
+                    f"de_Advent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
+                        "code": f"de_Advent_{x+1}_f{feria+2 if feria != 5 else 's'}",
                         "rank": [23, "feria"], # FIX: change the rank
                         "color": "purple",
                         "mass": {"int": f"{introit}", "glo": False, "cre": True, "pre": "de Trinitate"},
@@ -1879,7 +1879,7 @@ class TemporalData:
                 weeks |= {
                     f"de_Pent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
                         "code": f"de_Pent_{x+1}_f{feria+2 if feria != 5 else 's'}",
-                        "rank": [23, "feria"], # FIX: change the ranking
+                        "rank": [23, "feria"], # FIX: change the ranking?
                         "color": "green", # TODO: check if this is right for Trinity
                         "mass": {"int": introit, "glo": True, "seq": "Lauda, Sion, Salvatorem", "cre": False, "pre": "de Trinitate"},
                         "com_1": {},

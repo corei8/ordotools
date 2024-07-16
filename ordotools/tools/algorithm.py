@@ -2,6 +2,8 @@ from copy import deepcopy
 
 from importlib import import_module
 
+from ordotools.tools.commemorations import seasonal_commemorations
+
 from ordotools.tools.feast import Feast
 
 from ordotools.tools.helpers import LiturgicalYearMarks
@@ -13,6 +15,7 @@ from ordotools.tools.translations import Translations
 from ordotools.tools.temporal import Temporal
 
 from ordotools.sanctoral.diocese.roman import Sanctoral
+
 
 #### TODO LIST ####
 # TODO: Figure out the best method for working with anticipations
@@ -121,9 +124,8 @@ class LiturgicalCalendar:
             candidates = {dynamic.rank_n: dynamic, static.rank_n: static}
             higher = candidates[sorted(candidates)[0]]
             lower = candidates[sorted(candidates)[1]]
-            # NOTE: why is this even here?
-            # if lower.rank_n >= 22:
-            #     pass
+            if lower.rank_n >= 23:
+                return higher
             if lower.rank_n == 19:
                 return self.commemorate(feast=higher, com=lower)
             if higher.rank_n <= 4:
@@ -168,43 +170,15 @@ class LiturgicalCalendar:
                 inititalized["sanctoral"] += self.build_feasts(dictionary)
         return inititalized
 
-    # FIX: this thakes a lot of time still
-    def initialize_commemorations(self, feast: Feast) -> Feast:
-
-        def add_default_commemorations(first, second, feast: Feast) -> Feast:
-            if "code" in feast.com_1.keys():
-                feast.com_2["code"] = first
-            else:
-                feast.com_1["code"] = first
-                if second is not None:
-                    feast.com_2["code"] = second
-            return feast
-
-        this_year = LiturgicalYearMarks(self.year)
-        first_advent = this_year.first_advent
-        last_advent = this_year.last_advent
-        lent_begins = this_year.lent_begins
-        lent_ends = this_year.lent_ends
-        if feast.rank_n < 16:  # NOTE: this is not true for Sundays
-            pass
-        elif first_advent < feast.date < last_advent:
-            feast = add_default_commemorations(99914, None, feast)
-        elif lent_begins < feast.date < lent_ends:
-            feast = add_default_commemorations(99914, None, feast)
-        else:
-            feast = add_default_commemorations(99908, 99913, feast)
-        return feast
-
-
     def add_feasts(self, master: tuple, addition: tuple) -> tuple:
         calendar = ()
         master_expanded = {}
         # TODO: add a function here that adds the commemorations to the feasts as they are built.
         for feast in master:
-            master_expanded.update({feast.date: self.initialize_commemorations(feast)})
+            master_expanded.update({feast.date: feast})
         addition_expanded = {}
         for feast in addition:
-            addition_expanded.update({feast.date: self.initialize_commemorations(feast)})
+            addition_expanded.update({feast.date: feast})
         for date in master_expanded.keys():
             if date in addition_expanded.keys():
                 feast = self.rank(
@@ -290,6 +264,8 @@ class LiturgicalCalendar:
         initialized = self.initialize([self.temporal, sanctoral])
         full_calendar = self.add_feasts(initialized["temporal"], initialized["sanctoral"])
         full_calendar = self.our_ladys_saturday(full_calendar)
+        full_calendar = seasonal_commemorations(feasts=full_calendar, year=self.year)
+        # NOTE: we might have to change the position of the octave finder
         full_calendar = self.find_octave(year=full_calendar)
         full_calendar = self.add_translation(full_calendar)
 

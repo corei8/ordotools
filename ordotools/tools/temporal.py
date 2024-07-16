@@ -1,10 +1,10 @@
-from ordotools.tools.data import TemporalData
+from ordotools.tools.temporal_data import TemporalData
 from ordotools.tools.helpers import day
 from ordotools.tools.helpers import days
 from ordotools.tools.helpers import easter
 from ordotools.tools.helpers import findsunday
 from ordotools.tools.helpers import last_sunday
-from ordotools.tools.helpers import week
+from ordotools.tools.helpers import weeks
 from ordotools.tools.helpers import weekday
 
 
@@ -39,7 +39,7 @@ class Temporal:
     def __init__(self, year):
         self.year = year
         self.easter = easter(self.year)
-        self.septuagesima = self.easter - week(9)
+        self.septuagesima = self.easter - weeks(9)
         self.christmas = day(year=self.year, month=12, day=25)
         self.epiphany = day(self.year, 1, 6)
         self.lastadvent = self.christmas - findsunday(self.christmas)
@@ -51,18 +51,18 @@ class Temporal:
             if x == 0 and self.christmas-days(1) == self.lastadvent:
                 y |= {self.lastadvent: "DV_Christmas"}
             else:
-                y |= {self.lastadvent-week(x): f"D_Advent_{4-x}"}
+                y |= {self.lastadvent-weeks(x): f"D_Advent_{4-x}"}
                 for fer in range(2, 8):
                     if x == 1 and fer in [4, 6, 7]:
                         y |= {
-                            self.lastadvent-week(x)+days(fer-1):
+                            self.lastadvent-weeks(x)+days(fer-1):
                             f"Ember_Advent_{fer if fer != 7 else 's'}"
                         }
                         pass
                     else:
                         y |= {
-                            self.lastadvent-week(x)+days(fer-1):
-                            f"Advent_{4-x}_f{fer if fer != 7 else 's'}"
+                            self.lastadvent-weeks(x)+days(fer-1):
+                            f"de_Advent_{4-x}_f{fer if fer != 7 else 's'}"
                         }
         return y
 
@@ -98,7 +98,7 @@ class Temporal:
                 ):
             y |= {day(self.year, 1, 2): "SNameJesu_8_Ste"}
         else:
-            y |= {circumcision-findsunday(circumcision)+week(1): "SNameJesus"}
+            y |= {circumcision-findsunday(circumcision)+weeks(1): "SNameJesus"}
         return y
 
     def epiphany_octave(self) -> dict:
@@ -129,9 +129,9 @@ class Temporal:
 
     def post_epiphany(self) -> list:
         """ All of the Sundays and ferias after Epiphany """
-        sunday_after_epiphany = self.epiphany-findsunday(self.epiphany)+week(1)
+        sunday_after_epiphany = self.epiphany-findsunday(self.epiphany)+weeks(1)
 
-        def date(w, f): return sunday_after_epiphany+week(w)+days(f)
+        def date(w, f): return sunday_after_epiphany+weeks(w)+days(f)
         i = 0
         y = {sunday_after_epiphany: "HolyFamily"}
         while date(i, 0) != self.septuagesima and i+1 < 6:
@@ -140,8 +140,7 @@ class Temporal:
             else:
                 pass
             for j in range(6):
-                # WARN: this might not be working...
-                if date(i, j+1) > self.epiphany+week(1):
+                if date(i, j+1) > self.epiphany+weeks(1):
                     y |= {
                         date(i, j+1):
                         f"de_Epiph_{i+1}_{j+2 if j != 5 else 's'}"
@@ -155,10 +154,10 @@ class Temporal:
         """ Septuagesima to Quinquagesima """
         y = {}
         for i, x in enumerate(["Septuagesima", "Sexagesima", "Quinquagesima"]):
-            pre_lent_week = self.easter - week(9-i)
+            pre_lent_week = self.easter - weeks(9-i)
             y |= {pre_lent_week: x}
             for feria in range(6):
-                if pre_lent_week+days(feria) == self.easter-week(6)-days(5):
+                if pre_lent_week+days(feria) == self.easter-weeks(6)-days(5):
                     break
                 else:
                     y |= {
@@ -172,7 +171,7 @@ class Temporal:
         for i in range(7):
             if i == 0:
                 y = {
-                    self.easter-week(7-i)+days(3+c):\
+                    self.easter-weeks(7-i)+days(3+c):\
                     f"""{
                     "de_" if c == 0 else ""
                     }AshWed{f"_f{c+4 if c != 3 else 's'}" if c != 0 else ""}"""\
@@ -181,15 +180,15 @@ class Temporal:
             else:
                 for j in range(7):
                     if i == 1 and j in [3,5,6]:
-                        y |= {self.easter-week(7-i)+days(j): f"Ember_Lent_{j+1 if j != 6 else 's'}"}
+                        y |= {self.easter-weeks(7-i)+days(j): f"Ember_Lent_{j+1 if j != 6 else 's'}"}
                     elif i == 5 and j == 5:
                         y |= {
-                            self.easter-week(7-i)+days(j):
+                            self.easter-weeks(7-i)+days(j):
                             "SevenSorrows"
                         }
                     else:
                         y |= {
-                            self.easter-week(7-i)+days(j):
+                            self.easter-weeks(7-i)+days(j):
                             f"""{"D" if j == 0 else "de"}_{"Lent" if i < 5 else "Passion" if i != 6 else "Palm"}{f"_f{j+1 if j != 6 else 's'}" if j != 0 else f"_{i}"}"""
                         }
         return y
@@ -230,41 +229,41 @@ class Temporal:
                 if i == 2 and d >= 3:
                     if d == 3:
                         y |= {
-                            self.easter+week(i)+days(d): "StJoseph",
-                            self.easter+week(i+1)+days(3): "8_StJoseph",
+                            self.easter+weeks(i)+days(d): "StJoseph",
+                            self.easter+weeks(i+1)+days(3): "8_StJoseph",
                         }
                         solemnity_counter += 1
                     else:
-                        y |= {self.easter+week(i)+days(d): f"{solemnity_counter}_in_8_StJoseph"}
+                        y |= {self.easter+weeks(i)+days(d): f"{solemnity_counter}_in_8_StJoseph"}
                         solemnity_counter += 1
                 elif i == 3 and d <= 3:
                     if d == 3:
                         pass
                     else:
-                        y |= {self.easter+week(i)+days(d): f"{solemnity_counter}_in_8_StJoseph"}
+                        y |= {self.easter+weeks(i)+days(d): f"{solemnity_counter}_in_8_StJoseph"}
                         solemnity_counter += 1
                 elif i == 5: # the whole week is special
                     # TODO: clean up the Ascension days
                     if d <= 3: # rogations
-                        y |= {self.easter+week(i)+days(d): f"Rogation_{d}"}
+                        y |= {self.easter+weeks(i)+days(d): f"Rogation_{d}"}
                     elif d == 4:
-                        y |= {self.easter+week(i)+days(d): "Ascension"}
+                        y |= {self.easter+weeks(i)+days(d): "Ascension"}
                         ascension_counter += 1
                     elif 4 < d < 6:
-                        y |= {self.easter+week(i)+days(d): f"""in_8_Ascension_{ascension_counter}"""}
+                        y |= {self.easter+weeks(i)+days(d): f"""in_8_Ascension_{ascension_counter}"""}
                         ascension_counter += 1
                     elif d == 6:
-                        y |= {self.easter+week(i)+days(d): f"""{"S_8_" if d != 4 else ""}Ascension"""}
+                        y |= {self.easter+weeks(i)+days(d): f"""{"S_8_" if d != 4 else ""}Ascension"""}
                         ascension_counter += 1
                 elif i == 6 and d < 5:
-                    y |= {self.easter+week(i)+days(d): f"""{"in_8" if d != 4 else "8"}_Ascension{f'_{ascension_counter}' if d != 4 else ""}"""}
+                    y |= {self.easter+weeks(i)+days(d): f"""{"in_8" if d != 4 else "8"}_Ascension{f'_{ascension_counter}' if d != 4 else ""}"""}
                     ascension_counter += 1
                 elif i == 6 and d == 6:
-                    y |= {self.easter+week(i)+days(d): "V_Pentecost"}
+                    y |= {self.easter+weeks(i)+days(d): "V_Pentecost"}
                 else:
-                    y |= {self.easter+week(i)+days(d): f"de_Easter_{i}_f{d+1 if d != 6 else 's'}"}
+                    y |= {self.easter+weeks(i)+days(d): f"de_Easter_{i}_f{d+1 if d != 6 else 's'}"}
                 d += 1
-            y |= {self.easter+week(i): the_sunday}
+            y |= {self.easter+weeks(i): the_sunday}
             solemnity_counter += 1 if solemnity_counter > 1 else 0
         return y
 
@@ -275,8 +274,8 @@ class Temporal:
         All of the days after Pentecost, including the feasts
         and octaves of Corpus Christi and the Sacred Heart.
         """
-        pentecost_date = self.easter + week(7)
-        last_pent = self.christmas - findsunday(self.christmas) - week(4)
+        pentecost_date = self.easter + weeks(7)
+        last_pent = self.christmas - findsunday(self.christmas) - weeks(4)
         y = {pentecost_date: 'Pentecost'}
         for fer in range(2, 8):
             if fer in [4, 6, 7]:
@@ -293,19 +292,19 @@ class Temporal:
         september_count = 0
         corpuschristi_count = 1
         sacredheart_count = 1
-        while pentecost_date+week(x) != last_pent+week(1):  # i.e., Advent 1
-            sunday_date = pentecost_date+week(x)
+        while pentecost_date+weeks(x) != last_pent+weeks(1):  # i.e., Advent 1
+            sunday_date = pentecost_date+weeks(x)
             leftovers = self.post_epiphany()[1]
             chK = ""
             if (
-                    last_sunday(pentecost_date+week(x)) is True and
-                    (pentecost_date+week(x)).strftime("%B") == "October"
+                    last_sunday(pentecost_date+weeks(x)) is True and
+                    (pentecost_date+weeks(x)).strftime("%B") == "October"
                     ):
                 chK = "ChristKing"
                 sunday = f'Pent_{x}'
-            elif pentecost_date+week(x) == last_pent:
+            elif pentecost_date+weeks(x) == last_pent:
                 sunday = f"UltPent_{x}"  # TODO: if the final 23rd, 24th anti.
-            elif pentecost_date+week(x)+week(1) == last_pent-week(6-leftovers)+week(e):
+            elif pentecost_date+weeks(x)+weeks(1) == last_pent-weeks(6-leftovers)+weeks(e):
                 sunday = f'Epiph_{leftovers+e}_{x}'
                 e += 1
             else:

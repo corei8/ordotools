@@ -16,7 +16,10 @@ class LiturgicalYearMarks:
         self.christmas = datetime.strptime(str(self.year) + "-12-25", "%Y-%m-%d")
         self.first_advent = self.christmas - findsunday(self.christmas) - timedelta(weeks=3)
         self.last_advent = self.christmas - timedelta(days=1)
+
+        # FIX: there is somethig wrong here, right? Not used anywhere...
         self.easter_season_start = easter(self.year) - timedelta(weeks=6, days=4)
+        
         self.lent_begins = easter(self.year) - timedelta(weeks=6, days=4)
         self.lent_ends = easter(self.year) - timedelta(days=1)
         self.easter = easter(self.year)
@@ -77,7 +80,7 @@ def day(year: int, month: int, day: int) -> datetime:
     return datetime(year=year, month=month, day=day)
 
 
-def week(i: int) -> timedelta:
+def weeks(i: int) -> timedelta:
     """ return a timedelta week, with integers as the input """
     return timedelta(weeks=i)
 
