@@ -133,6 +133,7 @@ class Temporal:
 
         def date(w, f): return sunday_after_epiphany+weeks(w)+days(f)
         i = 0
+        # TODO: add D_HolyFamily as an option
         y = {sunday_after_epiphany: "HolyFamily"}
         while date(i, 0) != self.septuagesima and i+1 < 6:
             if date(i, 0) != sunday_after_epiphany:

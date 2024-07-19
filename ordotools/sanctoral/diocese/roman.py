@@ -17,6 +17,29 @@ class Sanctoral:
             # TODO: We need to have a method for events on any day. Greater Litanies, for example.
 
             # January
+            day(year=self.year, month=1, day=5): {
+                # S Telesphori PM
+                "code": 100000,
+                "rank": [22, "s"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                # TODO: get the correct antiphons
+                "vespers": {"proper": False, "admag": ("O Doctor", "O Doctor"), "oration": "Deus, qui populo"},
+                "compline": {},
+                "fasting": False,
+            },
+
             day(year=self.year, month=1, day=14): {
                 # S Hilarii Episcopi ECD
                 "code": 100,
@@ -4491,7 +4514,7 @@ class Sanctoral:
             day(year=self.year, month=9, day=21): {
                 # S Matthæi ApEv
                 "code": 19800,
-                "rank": [21, "d II cl"],
+                "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
                 "color": "red",

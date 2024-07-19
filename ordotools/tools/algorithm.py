@@ -11,15 +11,14 @@ from ordotools.tools.helpers import days
 from ordotools.tools.helpers import ladys_office
 from ordotools.tools.helpers import leap_year
 
+from ordotools.tools.rank import rank
+
 from ordotools.tools.translations import Translations
 from ordotools.tools.temporal import Temporal
 
 from ordotools.sanctoral.diocese.roman import Sanctoral
 
 
-#### TODO LIST ####
-# TODO: Figure out the best method for working with anticipations
-# TODO: Test the calendar for accuracy against the current ordo
 
 class LiturgicalCalendar:
 
@@ -28,7 +27,7 @@ class LiturgicalCalendar:
         self.diocese = diocese
         self.language = language
         # WARN: theoretically we could have more than one transfer
-        self.transfers = None
+        # self.transfers = None
         self.temporal = Temporal(self.year).return_temporal()
 
     def expand_octaves(self, feast: Feast) -> tuple:
@@ -83,74 +82,6 @@ class LiturgicalCalendar:
                 year = self.add_feasts(master=year, addition=octave)
         return year
 
-    def commemorate(self, feast: Feast, com: Feast) -> Feast:
-        feast.com_1 = {
-            "code": com.code,
-            "rank": [com.rank_n, com.rank_v],
-            "infra_octave_name": com.infra_octave_name,
-            "day_in_octave": com.day_in_octave,
-            "color": com.color,
-            "mass": com.mass,
-            # NOTE: we might not need the commemorations here?
-            # "com_1": com.com_1 if com.com_1 is not None else {},
-            # "com_2": com.com_2 if com.com_2 is not None else {},
-            # "com_3": com.com_3 if com.com_3 is not None else {},
-            "matins": {},
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": com.vespers,
-            # "compline": {},
-            "nobility": com.nobility,
-            "office_type": com.office_type,
-            "fasting": com.fasting,
-        }
-        return feast
-
-    def rank_by_nobility(self, feast_1: Feast, feast_2: Feast) -> dict:
-        for x in range(6):
-            if feast_1.nobility[x] < feast_2.nobility[x]:
-                return {'higher': feast_1, 'lower': feast_2}
-            elif feast_1.nobility[x] > feast_2.nobility[x]:
-                return {'higher': feast_2, 'lower': feast_1}
-            else:
-                pass
-        return {'higher': feast_1, 'lower': feast_2}
-
-    def rank(self, dynamic: Feast, static: Feast) -> Feast:
-        if dynamic.rank_n == static.rank_n:
-            return self.rank_by_nobility(dynamic, static)['higher']
-        else:
-            candidates = {dynamic.rank_n: dynamic, static.rank_n: static}
-            higher = candidates[sorted(candidates)[0]]
-            lower = candidates[sorted(candidates)[1]]
-            if lower.rank_n >= 23:
-                return higher
-            if lower.rank_n == 19:
-                return self.commemorate(feast=higher, com=lower)
-            if higher.rank_n <= 4:
-                if lower.rank_n == 3:
-                    self.transfers = higher
-                    return lower
-                if lower.rank_n <= 10:
-                    self.transfers = lower
-                    return higher
-                else:
-                    return higher
-            elif higher.rank_n <= 9:
-                if lower.rank_n <= 10:
-                    self.transfers = lower
-                    return higher
-                else:
-                    return self.commemorate(feast=higher, com=lower)
-            elif 14 <= lower.rank_n <= 16:
-                return self.commemorate(feast=higher, com=lower)
-            else:
-                return self.commemorate(feast=higher, com=lower)
-
-    def transfer_feast(self, feast: Feast) -> Feast:
-        return self.rank(dynamic=self.transfers, static=feast)
-
     def build_feasts(self, candidates: dict) -> tuple:
         feasts = ()
         for date, data in candidates.items():
@@ -171,9 +102,8 @@ class LiturgicalCalendar:
         return inititalized
 
     def add_feasts(self, master: tuple, addition: tuple) -> tuple:
-        calendar = ()
+        calendar = []
         master_expanded = {}
-        # TODO: add a function here that adds the commemorations to the feasts as they are built.
         for feast in master:
             master_expanded.update({feast.date: feast})
         addition_expanded = {}
@@ -181,24 +111,23 @@ class LiturgicalCalendar:
             addition_expanded.update({feast.date: feast})
         for date in master_expanded.keys():
             if date in addition_expanded.keys():
-                feast = self.rank(
+                feast = rank(
                     dynamic=addition_expanded[date],
                     static=master_expanded[date]
                 )
             else:
                 feast = master_expanded[date]
-            if self.transfers is not None:
-                result = self.transfer_feast(
-                    feast
+            if isinstance(feast, list):
+                anticipated = feast[1]
+                new_last_feast = rank(
+                    dynamic=anticipated,
+                    static=calendar[-1]
                 )
-                if result.code == feast.code:
-                    pass
-                else:
-                    self.transfers = None
-                    result.date = feast.date
-                    feast = result
-            calendar += (feast,)
-        return calendar
+                calendar[-1] = new_last_feast
+                calendar.append(feast[0])
+            else:
+                calendar.append(feast)
+        return tuple(calendar)
 
     def our_ladys_saturday(self, calendar: tuple) -> tuple:
         """
@@ -265,8 +194,7 @@ class LiturgicalCalendar:
         full_calendar = self.add_feasts(initialized["temporal"], initialized["sanctoral"])
         full_calendar = self.our_ladys_saturday(full_calendar)
         full_calendar = seasonal_commemorations(feasts=full_calendar, year=self.year)
-        # NOTE: we might have to change the position of the octave finder
         full_calendar = self.find_octave(year=full_calendar)
         full_calendar = self.add_translation(full_calendar)
 
-        return full_calendar
+        return list(full_calendar)

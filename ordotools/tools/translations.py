@@ -2182,6 +2182,12 @@ class Translations:
             #    TEMPORAL "FEASTS"   #
             ##########################
 
+            100000: {
+                "la": "S Telesphori PM",
+                "en": "",
+                "fr": "",
+            },
+
             "lady_saturday": {
                 "la": "De Sancta Maria in Sabbato",
                 "en": "Our Lady's Saturday",

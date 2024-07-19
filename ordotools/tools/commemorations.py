@@ -12,48 +12,19 @@ commemorations are then added on top of these and ordering
 the commemorations is handled by the Feast class.
 """
 
-
-def advent_season(feast):
-    feast.com_1["code"] = 99906
-    feast.com_2["code"] = 99909
-    return feast
-
-def epiphany_octave_to_septuagesima(year: int, feast):
-    if feast.date > day(year, 2, 2):
-        feast.com_1["code"] = 99911
-        feast.com_2["code"] = 99913
+def existing_commemoration(feast):
+    if "code" in feast.com_1.keys():
+        return 1
     else:
-        feast.com_1["code"] = 99907
-        feast.com_2["code"] = 99909 # TODO: or for the pope
-    return feast
+        return 0
 
-def septuagesima_to_lent(feast):
-    # TODO: special secret of BVM if before February 2nd
-    feast.com_1["code"] = 99907
-    feast.com_2["code"] = 99909 # or for the pope
-    return feast
-
-def lent_to_passiontide(feast):
-    feast.com_1["code"] = 99911
-    feast.com_2["code"] = 99914
-    return feast
-
-def passiontide(feast):
-    feast.com_1["code"] = 99909 # or for the pope
-    return feast
-
-def easter_octave(feast):
-    feast.com_1["code"] = 99909 # or for the pope
-    return feast
-
-def easter_season(feast):
-    feast.com_1["code"] = 99908
-    feast.com_2["code"] = 99909 # or for the pope
-    return feast
-
-def pentecost_season(feast):
-    feast.com_1["code"] = 99911
-    feast.com_2["code"] = 99913
+def add_commemorations(feast, first, second=None):
+    if existing_commemoration(feast) == 1:
+        feast.com_2["code"] = first
+    else:
+        feast.com_1["code"] = first
+        if second is not None:
+            feast.com_2["code"] = second
     return feast
 
 def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
@@ -62,31 +33,38 @@ def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
     month_indicator = ""
 
     for feast in feasts:
-        if feast.rank_n > 15:
+        if (
+                feast.rank_n > 15 or
+                feast.rank_n == 12 or
+                feast.rank_n == 9
+                ):
 
             if mark.first_advent < feast.date < mark.christmas:
-                feast = advent_season(feast)
+                feast = add_commemorations(feast, 99906, 99909)
 
-            elif mark.christmas+days(19) < feast.date < mark.lent_begins-weeks(3)-days(3):
-                feast = epiphany_octave_to_septuagesima(year, feast)
+            elif feast.date < mark.lent_begins-weeks(2)-days(3):
+                if feast.date > day(year, 2, 2):
+                    feast = add_commemorations(feast, 99911, 99913)
+                else:
+                    feast = add_commemorations(feast, 99907, 99909)
 
-            elif mark.lent_begins-weeks(3)-days(3) < feast.date < mark.lent_begins:
-                feast = septuagesima_to_lent(feast)
+            elif mark.lent_begins-weeks(2)-days(3) < feast.date < mark.lent_begins:
+                feast = add_commemorations(feast, 99907, 99909)
 
             elif mark.lent_begins < feast.date <= mark.lent_ends-weeks(2):
-                feast = lent_to_passiontide(feast)
+                feast = add_commemorations(feast, 99911, 99914)
 
             elif mark.lent_ends-weeks(2) < feast.date < mark.lent_ends:
-                feast = passiontide(feast)
+                feast = add_commemorations(feast, 99909)
 
             elif mark.easter+days(2) < feast.date < mark.easter+days(7):
-                feast = easter_octave(feast)
+                feast = add_commemorations(feast, 99909)
 
             elif mark.easter+days(7) < feast.date < mark.easter_season_end:
-                feast = easter_season(feast)
+                feast = add_commemorations(feast, 99908, 99909)
 
             elif mark.pentecost_season_start < feast.date < mark.first_advent:
-                feast = pentecost_season(feast)
+                feast = add_commemorations(feast, 99911, 99913)
 
             else:
                 pass

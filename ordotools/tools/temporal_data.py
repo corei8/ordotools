@@ -229,7 +229,7 @@ class TemporalData:
                 "rank": [11, "dm"],
                 "color": "white",
                 "mass": {"int": "In excelso", "glo": True, "cre": True, "pre": "et Comm de Epiphania"},
-                "com_1": {},
+                "com_1": {"code": "D_Epiphany"},
                 "com_2": {},
                 "com_3": {},
                 "matins": {},
