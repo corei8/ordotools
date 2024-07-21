@@ -3,24 +3,30 @@ from ordotools.tools.helpers import day
 from ordotools.tools.helpers import days
 from ordotools.tools.helpers import weeks
 
+"""
+Almost Everything having to do with the ordering and assignment of 
+commemorations is contained in this file. The "seasonal 
+commemorations" are added after the commemorations of concurrance
+and occurance are figured out.
+"""
 
-"""
-Commemorations are a bit tricky to implement. Everything
-in this file is for determing the "seasonal commemorations"
-for each feast, as well as the Fidélium prayer. The non-seasonal
-commemorations are then added on top of these and ordering 
-the commemorations is handled by the Feast class.
-"""
 
 def existing_commemoration(feast):
     if "code" in feast.com_1.keys():
-        return 1
+        if "code" in feast.com_2.keys():
+            return 2
+        else:
+            return 1
     else:
         return 0
 
 def add_commemorations(feast, first, second=None):
-    if existing_commemoration(feast) == 1:
+    # TODO: add more commemoration rules (Sundays, major ferias, etc.)
+    addition_index = existing_commemoration(feast)
+    if addition_index == 1:
         feast.com_2["code"] = first
+    elif addition_index == 2:
+        feast.com_3["code"] = first
     else:
         feast.com_1["code"] = first
         if second is not None:

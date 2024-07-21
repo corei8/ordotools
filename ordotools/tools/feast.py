@@ -107,8 +107,6 @@ class Feast:
     @name.setter
     def name(self, new: str):
         self._name = new
-
-    # NOTE: this might not be necessary
     #
     # @property
     # def date(self):

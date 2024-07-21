@@ -192,9 +192,9 @@ class LiturgicalCalendar:
             sanctoral = diocese.Diocese(self.year).calendar()
         initialized = self.initialize([self.temporal, sanctoral])
         full_calendar = self.add_feasts(initialized["temporal"], initialized["sanctoral"])
+        full_calendar = self.find_octave(year=full_calendar)
         full_calendar = self.our_ladys_saturday(full_calendar)
         full_calendar = seasonal_commemorations(feasts=full_calendar, year=self.year)
-        full_calendar = self.find_octave(year=full_calendar)
         full_calendar = self.add_translation(full_calendar)
 
         return list(full_calendar)

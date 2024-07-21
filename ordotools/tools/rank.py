@@ -9,7 +9,6 @@ def sorted(one: Feast, two: Feast) -> list:
     return feasts
 
 def commemorate(feast: Feast, commemoration: Feast) -> Feast:
-    # print(f"commemorating {commemoration.code}.")
     feast.com_1 = {
         "code": commemoration.code,
         "rank": [commemoration.rank_n, commemoration.rank_v],
@@ -24,12 +23,16 @@ def commemorate(feast: Feast, commemoration: Feast) -> Feast:
         "office_type": commemoration.office_type,
         "fasting": commemoration.fasting,
     }
+    # FIX: first commemorations being bumped to second commemoration
+    #      this assumes that there is never a third commemoration... which is not true?
+    if "code" in commemoration.com_1.keys():
+        print(f"We have a second sanctoral commemoration on {feast.date}")
+        feast.com_2 = commemoration.com_1
     return feast
 
 translated_feasts = []
 
 def translate(feast: Feast, translated: Feast) -> Feast:
-    # print(f"commemorating {translated.code}.")
     translated_feasts.append(translated)
     return feast
 
@@ -46,7 +49,6 @@ def nobility(one: Feast, two: Feast, handler: int) -> Feast:
             else:
                 return translate(two, one)
     else:
-        # print("Warning! Nobility checker failed.")
         return commemorate(one, two)
 
             
@@ -55,7 +57,6 @@ def rank(dynamic: Feast, static: Feast) -> Feast | None | list:
 
     group_one = ( 2, 5, 6, 7, 10, 13, 11, 14, 15, 16, 18, 19, 20, 22, )
     group_two = (1, 8, 12, 3, 2, 5, 6, 7, 10, 4, 13, 11, 14, 15, 16, 9, 17, 18, 19, 20, 21, )
-    # NOTE: if 19 is a vigil, it must go in 1
 
     if dynamic.rank_n == 23:
         return static
@@ -75,9 +76,11 @@ def rank(dynamic: Feast, static: Feast) -> Feast | None | list:
             else:
                 one, two = dynamic, static
 
-    elif dynamic.rank_n == 21:  # Our Lady's Saturday
+    # override our Lady's Saturday
+    elif dynamic.rank_n == 21:
         if static.rank_n < 22:
             return static
+
     elif dynamic.rank_n in group_one and static.rank_n in group_two:
         one, two = dynamic, static
     else:
@@ -128,12 +131,6 @@ def rank(dynamic: Feast, static: Feast) -> Feast | None | list:
         else:
             return 0
 
-
-    # print("-"*50)
-    # print(f"{one.date.strftime('%b %d')}")
-    # print(f"ONE = {one.code}, row {position_one()}")
-    # print(f"TWO = {two.code}, col {position_two()}")
-
     ranking_table = (
         (0, 1, 3, 1, 3, 3, 3, 3, 3, 3, 6, 5, 8, 6, 3, 3, 6,),
         (0, 3, 3, 1, 3, 6, 3, 3, 3, 3, 6, 8, 6, 6, 3, 6, 6,),
@@ -148,8 +145,6 @@ def rank(dynamic: Feast, static: Feast) -> Feast | None | list:
     )
 
     ranking_result = ranking_table[position_one()][position_two()]
-
-    # print(f"ranking result = {ranking_result}")
 
     if ranking_result == 1:
         ranked = one
@@ -171,7 +166,6 @@ def rank(dynamic: Feast, static: Feast) -> Feast | None | list:
         return sorted(one, two)
 
     if not translated_feasts:
-        # print(f"typeof result = {type(ranked)}")
         return ranked
     else:
         if ranked is not None and ranked.rank_n > 16:
@@ -179,5 +173,4 @@ def rank(dynamic: Feast, static: Feast) -> Feast | None | list:
                 translated_feasts.remove(translated)
                 return rank(ranked, translated)
         else:
-            # print(f"typeof result = {type(ranked)}")
             return ranked
