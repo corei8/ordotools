@@ -23,7 +23,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8_Stephen": {
                 "code": "8_Stephen",
@@ -41,7 +40,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8_John": {
                 "code": "8_John",
@@ -59,7 +57,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8_Innocents": {
                 "code": "8_Innocents",
@@ -77,7 +74,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "SNameJesus": {
                 "code": "SNameJesus",
@@ -95,7 +91,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             # FIX: test this
             "SNameJesu_8_Ste": {
@@ -116,7 +111,6 @@ class TemporalData:
                     "compline": {},
                     "office_type": False,
                     "nobility": (0, 0, 0, 0, 0, 0,),
-                    "fasting": False,
                 },
                 "com_2": {},
                 "com_3": {},
@@ -128,7 +122,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             # Epiphany Season
@@ -148,7 +141,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "Epiphany": {
                 "code": "Epiphany",
@@ -166,7 +158,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8_Epiphany": {
                 "code": "8_Epiphany",
@@ -184,7 +175,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (3, 2, 6, 1, 3, 0), # TODO: what is the solemnity?
-                "fasting": False,
             },
             "D_Epiphany": {
                 "code": "D_Epiphany",
@@ -202,7 +192,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             # Holy Family
@@ -222,7 +211,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "D_HolyFamily": {
                 "code": "D_HolyFamily",
@@ -240,7 +228,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             ##      if x == "I in Quadragesima":
@@ -262,7 +249,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
             "AshWed_f5": {
                 "code": "AshWed_f5",
@@ -280,7 +266,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
             "AshWed_f6": {
                 "code": "AshWed_f6",
@@ -298,7 +283,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
             "AshWed_fs": {
                 "code": "AshWed_fs",
@@ -316,7 +300,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
 
             "D_Lent_1": {
@@ -335,7 +318,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "dominica",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             # Ember days in Lent
@@ -355,7 +337,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
             "Ember_Lent_6": {
                 "code": "Ember_Lent_6",
@@ -373,7 +354,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
             "Ember_Lent_s": {
                 "code": "Ember_Lent_s",
@@ -391,7 +371,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
 
             "SevenSorrows": {
@@ -410,7 +389,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
 
             # Holy Week Ferias:
@@ -431,7 +409,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (9, 2, 6, 13, 1, 0,),
-                "fasting": True,
             },
             "de_Palm_f3": {
                 "code": "de_Palm_f3",
@@ -449,7 +426,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (9, 2, 6, 13, 1, 0,),
-                "fasting": True,
             },
             "de_Palm_f4": {
                 "code": "de_Palm_f4",
@@ -467,7 +443,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
 
             # Triduum:
@@ -487,7 +462,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
             "de_Palm_f6": {
                 "code": "de_Palm_f6",
@@ -505,7 +479,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
             "de_Palm_fs": {
                 "code": "de_Palm_fs",
@@ -523,7 +496,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
 
             # Easter Week TODO: Easter Vespers:
@@ -543,7 +515,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8Easter_f2": {
                 "code": "8Easter_f2",
@@ -561,7 +532,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8Easter_f3": {
                 "code": "8Easter_f3",
@@ -579,7 +549,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8Easter_f4": {
                 "code": "8Easter_f4",
@@ -597,7 +566,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8Easter_f5": {
                 "code": "8Easter_f5",
@@ -615,7 +583,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8Easter_f6": {
                 "code": "8Easter_f6",
@@ -633,7 +600,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "WhitSaturday": {
                 "code": "WhitSaturday",
@@ -651,7 +617,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             # Solemnity of St. Joseph  TODO: add the octave
@@ -671,7 +636,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (1, 2, 4, 4, 1, 0),
-                "fasting": False,
             },
             "8_StJoseph": {
                 "code": "8_StJoseph",
@@ -689,7 +653,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             # Rogation Days
@@ -709,7 +672,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 13, 0, 0,),
-                "fasting": False,
             },
             "Rogation_2": {
                 "code": "Rogation_2",
@@ -727,7 +689,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 13, 0, 0,),
-                "fasting": False,
             },
             "Rogation_3": {
                 "code": "Rogation_3",
@@ -745,7 +706,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (9, 2, 6, 13, 3, 0,),
-                "fasting": False,
             },
 
 
@@ -766,7 +726,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8_Ascension": {
                 "code": "8_Ascension",
@@ -784,7 +743,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (3, 2, 3, 1, 3, 0),
-                "fasting": False,
             },
 
             # TODO: this day has special rules
@@ -804,7 +762,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             # TODO: see if this is right
@@ -824,7 +781,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (5, 1, 6, 13, 3, 0,),
-                "fasting": False,
             },
 
             "S_8_Ascension": {
@@ -843,7 +799,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             "WhitSunday": {
@@ -862,7 +817,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "dominica",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
 
             },
 
@@ -882,7 +836,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
 
             # Pentecost Week
@@ -902,7 +855,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             # TODO: see if the first two ferias are 2 or 3
             "8Pent_f2": {
@@ -921,7 +873,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8Pent_f3": {
                 "code": "8Pent_f3",
@@ -939,7 +890,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8Pent_f5": {
                 "code": "8Pent_f5",
@@ -957,7 +907,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             "Ember_Pent_4": {
@@ -976,7 +925,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
             "Ember_Pent_6": {
                 "code": "Ember_Pent_6",
@@ -994,7 +942,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
             "Ember_Pent_s": {
                 "code": "Ember_Pent_s",
@@ -1012,7 +959,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
 
             # First three post-Pentecost Sundays
@@ -1032,7 +978,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "D_Pent_2": {
                 "code": "D_Pent_2", #Christi (Dominica II post Pentecosten)",
@@ -1050,7 +995,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "dominica",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "D_Pent_3": {
                 "code": "D_Pent_3",  # (Dominica III post Pentecosten)",
@@ -1068,7 +1012,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "dominica",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             "CorpusChristi": {
@@ -1087,7 +1030,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             "8_CorpusChristi": {
@@ -1106,7 +1048,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             "SacredHeart": {
@@ -1125,7 +1066,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (1, 0, 3, 1, 1, 0),
-                "fasting": False,
             },
 
             "8_SacredHeart": {
@@ -1144,7 +1084,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             "Ember_Sept_4": {
@@ -1163,7 +1102,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
 
             "Ember_Sept_6": {
@@ -1182,7 +1120,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
             "Ember_Sept_s": {
                 "code": "Ember_Sept_s",
@@ -1200,7 +1137,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
 
             # Christ the King
@@ -1220,7 +1156,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             # Ember Days of Advent
@@ -1240,7 +1175,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (9, 2, 6, 13, 3, 0),
-                "fasting": True,
             },
             "Ember_Advent_6": {
                 "code": "Ember_Advent_6",
@@ -1258,7 +1192,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (9, 2, 6, 13, 3, 0),
-                "fasting": True,
             },
             "Ember_Advent_s": {
                 "code": "Ember_Advent_s",
@@ -1276,7 +1209,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (9, 2, 6, 13, 3, 0),
-                "fasting": True,
             },
 
 
@@ -1297,7 +1229,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": True,
             },
             "DV_Christmas": {
                 "code": "DV_Christmas",
@@ -1315,7 +1246,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "Christmas": {
                 "code": "Christmas",
@@ -1337,7 +1267,6 @@ class TemporalData:
                 "compline": {"sunday": True,},
                 "office_type": "festiva",
                 "nobility": (1, 1, 3, 1, 1, 0),
-                "fasting": False,
             },
             "D_Christmas_r": {
                 "code": "D_Christmas_r",
@@ -1355,7 +1284,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "dominica",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "D_Christmas": {
                 "code": "D_Christmas",
@@ -1373,7 +1301,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "dominica",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "8_Chritmas_f6": {
                 "code": "8_Chritmas_f6",
@@ -1390,7 +1317,6 @@ class TemporalData:
                 "vespers": {"proper": False, "admag": ["firstVespers", "secondVespers"], "propers": {}, "oration": ""}, "office_type": "feria",
                 "compline": {},
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "StStephan": {
                 "code": "StStephan",
@@ -1408,7 +1334,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "StJohn": {
                 "code": "StJohn",
@@ -1426,7 +1351,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "StsInnocents": {
                 "code": "StsInnocents",
@@ -1444,7 +1368,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "StThomas": {
                 "code": "StThomas",
@@ -1462,7 +1385,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "StSylvester": {
                 "code": "StSylvester",
@@ -1480,7 +1402,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
 
             "D_StThomas": {
@@ -1499,7 +1420,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             "D_StSylvester": {
                 "code": "D_StSylvester",
@@ -1517,7 +1437,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (0, 0, 0, 0, 0, 0,),
-                "fasting": False,
             },
             # TODO: add the Sundays if the fall on St. Thomas or St. Sylvester
         }
@@ -1573,7 +1492,6 @@ class TemporalData:
                             "compline": {},
                             "office_type": False,
                             "nobility": (0, 0, 0, 0, 0, 0,),
-                            "fasting": False,
                         }
                     }
                 else:
@@ -1600,7 +1518,6 @@ class TemporalData:
                             "compline": {},
                             "office_type": False,
                             "nobility": (9, 2, 6, 13, 3, 0), # FIX: Lent has higher ranking ferias?
-                            "fasting": True,
                         }
                     }
         return the_days
@@ -1623,7 +1540,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": False,
                 "nobility": (9, 2, 6, 13, 3, 0),
-                "fasting": False,
             } for date in range(1,8)
         }
 
@@ -1645,7 +1561,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (9, 2, 6, 13, 3, 0),
-                "fasting": False,
             } for date in range(1,8)
         }
 
@@ -1667,7 +1582,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "festiva",
                 "nobility": (1, 0, 3, 1, 1, 0),
-                "fasting": False,
             } for date in range(1,8)
         }
 
@@ -1693,7 +1607,6 @@ class TemporalData:
                     "compline": {},
                     "office_type": "dominica",
                     "nobility": (0, 0, 0, 0, 0, 0,),
-                    "fasting": False,
                 }
             }
             for feria in range(6):
@@ -1714,7 +1627,6 @@ class TemporalData:
                         "compline": {},
                         "office_type": "dominica",
                         "nobility": (9, 2, 6, 13, 3, 0),
-                        "fasting": False,
                     }
                 }
         return pentecost_season
@@ -1744,7 +1656,6 @@ class TemporalData:
                         "compline": {},
                         "office_type": "dominica",
                         "nobility": (0, 0, 0, 0, 0, 0,),
-                        "fasting": False,
                     }
                 }
                 for feria in range(6):
@@ -1765,7 +1676,6 @@ class TemporalData:
                             "compline": {},
                             "office_type": "dominica",
                             "nobility": (9, 2, 6, 13, 3, 0),
-                            "fasting": False,
                         }
                     }
         return epiphany_pents
@@ -1790,7 +1700,6 @@ class TemporalData:
                     "compline": {},
                     "office_type": "dominica",
                     "nobility": (0, 0, 0, 0, 0, 0,),
-                    "fasting": False,
                 }
             }
             for feria in range(6):
@@ -1811,7 +1720,6 @@ class TemporalData:
                         "compline": {},
                         "office_type": "dominica",
                         "nobility": (9, 2, 6, 13, 3, 0),
-                        "fasting": False,
                     }
                 }
         return last_pents
@@ -1842,7 +1750,6 @@ class TemporalData:
                                     "compline": {},
                                     "office_type": "dominica",
                                     "nobility": (0, 0, 0, 0, 0, 0,),
-                                    "fasting": False,
                                     }
             }
             for feria in range(6):
@@ -1863,7 +1770,6 @@ class TemporalData:
                         "compline": {},
                         "office_type": "feria",
                         "nobility": (9, 2, 6, 13, 3, 0),
-                        "fasting": False,
                     }
                 }
         return advent_season
@@ -1895,7 +1801,6 @@ class TemporalData:
                         "compline": {},
                         "office_type": "ferial",
                         "nobility": (9, 2, 6, 13, 3, 0),
-                        "fasting": False,
                     },
                 }
         return weeks
@@ -1920,7 +1825,6 @@ class TemporalData:
                     "compline": {},
                     "office_type": "dominica",
                     "nobility": (0, 0, 0, 0, 0, 0,),
-                    "fasting": False,
                 }
             }
             for feria in range(6):
@@ -1942,7 +1846,6 @@ class TemporalData:
                         "compline": {},
                         "office_type": "feria",
                         "nobility": (9, 2, 6, 13, 3, 0),
-                        "fasting": False,
                     }
                 }
         return paschaltime
@@ -1967,7 +1870,6 @@ class TemporalData:
                     "compline": {},
                     "office_type": False,
                     "nobility": (9, 2, 6, 13, 3, 0),
-                    "fasting": False,
                 }
             }
         return solemnity_ferias
@@ -1992,7 +1894,6 @@ class TemporalData:
                     "compline": {},
                     "office_type": "dominica",
                     "nobility": (0, 0, 0, 0, 0, 0,),
-                    "fasting": False,
                 }
             }
             for feria in range(6):
@@ -2013,7 +1914,6 @@ class TemporalData:
                         "compline": {},
                         "office_type": "dominica",
                         "nobility": (9, 2, 6, 13, 3, 0),
-                        "fasting": False,
                     }
                 }
         return septuagesima
@@ -2038,7 +1938,6 @@ class TemporalData:
                     "compline": {},
                     "office_type": "dominica",
                     "nobility": (0, 0, 0, 0, 0, 0,),
-                    "fasting": False,
                 }
             }
             for feria in range(6):
@@ -2059,7 +1958,6 @@ class TemporalData:
                         "compline": {},
                         "office_type": "feria",
                         "nobility": (8, 2, 6, 13, 3, 0,),
-                        "fasting": False,
                     }
                 }
         return epiphany
@@ -2082,7 +1980,6 @@ class TemporalData:
                 "compline": {},
                 "office_type": "feria",
                 "nobility": (8, 2, 6, 13, 3, 0,), # FIX: check this rank
-                "fasting": False,
             },
         }
         for feria in range(6):
@@ -2103,7 +2000,6 @@ class TemporalData:
                     "compline": {},
                     "office_type": "feria",
                     "nobility": (8, 2, 6, 13, 3, 0,), # FIX: check this rank
-                    "fasting": False,
                 }
             }
         return octave

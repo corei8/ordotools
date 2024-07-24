@@ -24,7 +24,6 @@ def commemorate(feast: Feast, commemoration: Feast) -> Feast:
         "vespers": commemoration.vespers,
         "nobility": commemoration.nobility,
         "office_type": commemoration.office_type,
-        "fasting": commemoration.fasting,
     }
     # FIX: first commemorations being bumped to second commemoration
     #      this assumes that there is never a third commemoration... which is not true?

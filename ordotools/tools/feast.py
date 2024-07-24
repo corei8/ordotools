@@ -45,8 +45,8 @@ class Feast:
         self.little_hours = properties["little_hours"]
         self.vespers = properties["vespers"]
         self.compline = properties["compline"]
-        self._fasting = properties["fasting"]
 
+        self._fasting = False
         self._abstinence = False
 
         self.lang = lang
@@ -112,6 +112,14 @@ class Feast:
     @abstinence.setter
     def abstinence(self, q: bool):
         self._abstinence = q
+
+    @property
+    def fasting(self):
+        return self._fasting
+
+    @fasting.setter
+    def fasting(self, q: bool):
+        self._fasting = q
     #
     # @property
     # def date(self):
@@ -157,32 +165,6 @@ class Feast:
     # @property
     # def feast(self) -> str:
     #     return self.feast_properties["feast"]
-
-    # FIXME: this is all bad... fasting cannot be handled at the same time as abstinence
-    @property
-    def fasting(self):
-        """
-         return fast (or abstinence) days as a boolean.
-         """
-        # # if the day is Friday, fasting
-        # if int(self.date.strftime("%w")) == 5:
-        #     self._fasting = True
-        # # if the day is Sunday, no fasting
-        # elif int(self.date.strftime("%w")) == 0:
-        #     self._fasting = False
-        #     return self._fasting
-        # # if there is a fasting commemoration (e.g., ferias in Lent)
-        # elif self.com and "fasting" in self.com[0]:
-        #     if self.com[0]["fasting"]:
-        #         self._fasting = self.com[0]["fasting"]
-        # else:
-        #     self._fasting = self.feast_properties["fasting"]
-        return self._fasting
-
-    # TODO: see how we can use a setter to have a "dynmaic" fasting status
-    @fasting.setter
-    def fasting(self, value):
-        return self._fasting
 
     # @property
     # def updated_properties(self) -> dict:

@@ -2,11 +2,13 @@ from copy import deepcopy
 
 from importlib import import_module
 
+from ordotools.tools import fasting
 from ordotools.tools.commemorations import seasonal_commemorations
 
 from ordotools.tools.feast import Feast
 
 from ordotools.tools.fasting import friday_abstinence
+from ordotools.tools.fasting import Fasting
 
 from ordotools.tools.helpers import LiturgicalYearMarks
 from ordotools.tools.helpers import days
@@ -58,7 +60,6 @@ class LiturgicalCalendar:
                     "compline": {},
                     "nobility": feast.nobility,
                     "office_type": feast.office_type,
-                    "fasting": feast.fasting,
                 }
             )
             if day == 8:
@@ -201,5 +202,9 @@ class LiturgicalCalendar:
         # set the fasting rules
         for feast in full_calendar:
             friday_abstinence(feast)
+
+        fasting_rules = Fasting(self.year)
+        for feast in full_calendar:
+            fasting_rules.fasting_day_lent(feast)
 
         return list(full_calendar)

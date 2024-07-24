@@ -19,9 +19,12 @@ class LiturgicalYearMarks:
 
         # FIX: there is somethig wrong here, right? Not used anywhere...
         self.easter_season_start = easter(self.year) - timedelta(weeks=6, days=4)
-        
+
+        # Ash Wednesday:
         self.lent_begins = easter(self.year) - timedelta(weeks=6, days=4)
+        # Holy Saturday:
         self.lent_ends = easter(self.year) - timedelta(days=1)
+
         self.easter = easter(self.year)
         self.easter_season_end = easter(self.year) + timedelta(days=39)
         self.pentecost_season_start = easter(self.year) + timedelta(days=49)
@@ -72,7 +75,6 @@ ladys_office = {
     "compline": {},
     "office_type": "ut in pr loco",
     "nobility": (8, 2, 6, 13, 3, 0,),
-    "fasting": False,
 }
 
 

@@ -10,7 +10,11 @@ for feast in data:
     #     f"{feast.date.strftime('%b %d')}\t{feast.name: <49} {feast.rank_v: <28} com: {feast.com_1['name']}, 2 com: {feast.com_2['name']}, 3 com: {feast.com_3['name']}"
     # )
     print(
-        f"{feast.date.strftime('%b %d')}\t{feast.name: <49} {feast.abstinence: <28}"
+        f"{feast.date.strftime('%b %d')}\
+        \t{feast.name: <49} \
+        \t{feast.abstinence: <2} \
+        \t{feast.fasting: <28} \
+        "
     )
 
 # for x in data: print(x)

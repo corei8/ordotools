@@ -37,7 +37,6 @@ class Sanctoral:
                 # TODO: get the correct antiphons
                 "vespers": {"proper": False, "admag": ("O Doctor", "O Doctor"), "oration": "Deus, qui populo"},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=14): {
@@ -65,7 +64,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("O Doctor", "O Doctor"), "oration": "Deus, qui populo"},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=15): {
@@ -90,7 +88,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=16): {
@@ -112,7 +109,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=17): {
@@ -134,7 +130,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=18): {
@@ -162,7 +157,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=19): {
@@ -187,7 +181,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=20): {
@@ -209,7 +202,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=21): {
@@ -231,7 +223,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=22): {
@@ -253,7 +244,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=23): {
@@ -278,7 +268,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=24): {
@@ -300,7 +289,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=25): {
@@ -325,7 +313,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=26): {
@@ -347,7 +334,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=27): {
@@ -369,7 +355,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=28): {
@@ -394,7 +379,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=29): {
@@ -416,7 +400,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=30): {
@@ -438,7 +421,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=1, day=31): {
@@ -460,7 +442,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             # February
@@ -483,7 +464,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=2): {
@@ -505,7 +485,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=3): {
@@ -527,7 +506,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=4): {
@@ -549,7 +527,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=5): {
@@ -571,7 +548,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=6): {
@@ -596,7 +572,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=7): {
@@ -618,7 +593,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=8): {
@@ -640,7 +614,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=9): {
@@ -665,7 +638,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=10): {
@@ -687,7 +659,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=11): {
@@ -709,7 +680,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=12): {
@@ -731,7 +701,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=14): {
@@ -753,7 +722,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=15): {
@@ -775,7 +743,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=18): {
@@ -797,7 +764,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=22): {
@@ -819,7 +785,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=23): {
@@ -843,7 +808,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=24): {
@@ -865,7 +829,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=27): {
@@ -887,7 +850,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             # March
@@ -913,7 +875,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=6): {
@@ -935,7 +896,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=7): {
@@ -957,7 +917,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=8): {
@@ -979,7 +938,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=9): {
@@ -1001,7 +959,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=10): {
@@ -1023,7 +980,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=12): {
@@ -1045,7 +1001,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=17): {
@@ -1067,7 +1022,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=18): {
@@ -1089,7 +1043,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=19): {
@@ -1111,7 +1064,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=21): {
@@ -1133,7 +1085,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=24): {
@@ -1155,7 +1106,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=25): {
@@ -1177,7 +1127,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=27): {
@@ -1199,7 +1148,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=3, day=28): {
@@ -1221,7 +1169,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             # April
@@ -1244,7 +1191,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=4): {
@@ -1266,7 +1212,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=5): {
@@ -1288,7 +1233,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=11): {
@@ -1310,7 +1254,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=13): {
@@ -1332,7 +1275,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=14): {
@@ -1357,7 +1299,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=17): {
@@ -1379,7 +1320,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=21): {
@@ -1401,7 +1341,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=22): {
@@ -1423,7 +1362,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=23): {
@@ -1445,7 +1383,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=24): {
@@ -1467,7 +1404,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=25): {
@@ -1489,7 +1425,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=26): {
@@ -1511,7 +1446,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=27): {
@@ -1533,7 +1467,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=28): {
@@ -1558,7 +1491,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=29): {
@@ -1580,7 +1512,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=4, day=30): {
@@ -1602,7 +1533,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             # May
@@ -1625,7 +1555,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=2): {
@@ -1647,7 +1576,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=3): {
@@ -1672,7 +1600,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=4): {
@@ -1694,7 +1621,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=5): {
@@ -1716,7 +1642,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=6): {
@@ -1738,7 +1663,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=7): {
@@ -1760,7 +1684,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=8): {
@@ -1782,7 +1705,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=9): {
@@ -1804,7 +1726,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=10): {
@@ -1829,7 +1750,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=12): {
@@ -1851,7 +1771,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=13): {
@@ -1873,7 +1792,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=14): {
@@ -1895,7 +1813,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=15): {
@@ -1917,7 +1834,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=16): {
@@ -1939,7 +1855,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=17): {
@@ -1961,7 +1876,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=18): {
@@ -1983,7 +1897,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=19): {
@@ -2008,7 +1921,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=20): {
@@ -2030,7 +1942,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=25): {
@@ -2055,7 +1966,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=26): {
@@ -2080,7 +1990,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=27): {
@@ -2105,7 +2014,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=28): {
@@ -2127,7 +2035,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=29): {
@@ -2149,7 +2056,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=30): {
@@ -2171,7 +2077,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=5, day=31): {
@@ -2197,7 +2102,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             # June
@@ -2220,7 +2124,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=2): {
@@ -2242,7 +2145,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=4): {
@@ -2264,7 +2166,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=5): {
@@ -2286,7 +2187,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=6): {
@@ -2308,7 +2208,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=9): {
@@ -2330,7 +2229,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=10): {
@@ -2352,7 +2250,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=11): {
@@ -2374,7 +2271,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=12): {
@@ -2400,7 +2296,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=13): {
@@ -2422,7 +2317,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=14): {
@@ -2444,7 +2338,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=15): {
@@ -2466,7 +2359,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=18): {
@@ -2492,7 +2384,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=19): {
@@ -2516,7 +2407,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=20): {
@@ -2538,7 +2428,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=21): {
@@ -2560,7 +2449,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=22): {
@@ -2582,7 +2470,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=23): {
@@ -2604,7 +2491,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=24): {
@@ -2626,7 +2512,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=25): {
@@ -2648,7 +2533,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=26): {
@@ -2670,7 +2554,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             # todo Add "123/27 De IV die infra OCtava Nativitatis S Joannis Baptistae feria
@@ -2697,7 +2580,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=29): {
@@ -2719,7 +2601,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=6, day=30): {
@@ -2747,7 +2628,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             # July
@@ -2770,7 +2650,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=2): {
@@ -2796,7 +2675,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=3): {
@@ -2818,7 +2696,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
             # todo add "131/4 De VI die infra Octava Ss Petri et Pauli App feria
             day(year=self.year, month=7, day=5): {
@@ -2840,7 +2717,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
             # todo add "133/6 Octava Ss Petri et Pauli App dm
             day(year=self.year, month=7, day=7): {
@@ -2862,7 +2738,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=8): {
@@ -2884,7 +2759,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=10): {
@@ -2906,7 +2780,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=11): {
@@ -2928,7 +2801,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=12): {
@@ -2954,7 +2826,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=13): {
@@ -2976,7 +2847,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=14): {
@@ -2998,7 +2868,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=15): {
@@ -3020,7 +2889,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=16): {
@@ -3042,7 +2910,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=17): {
@@ -3064,7 +2931,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=18): {
@@ -3090,7 +2956,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=19): {
@@ -3112,7 +2977,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=20): {
@@ -3138,7 +3002,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=21): {
@@ -3160,7 +3023,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=22): {
@@ -3182,7 +3044,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=23): {
@@ -3208,7 +3069,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=24): {
@@ -3234,7 +3094,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=25): {
@@ -3260,7 +3119,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=26): {
@@ -3282,7 +3140,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=27): {
@@ -3304,7 +3161,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=28): {
@@ -3326,7 +3182,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=29): {
@@ -3352,7 +3207,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=30): {
@@ -3374,7 +3228,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=7, day=31): {
@@ -3396,7 +3249,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             # August
@@ -3427,7 +3279,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=2): {
@@ -3453,7 +3304,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=3): {
@@ -3475,7 +3325,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=4): {
@@ -3497,7 +3346,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=5): {
@@ -3519,7 +3367,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=6): {
@@ -3545,7 +3392,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=7): {
@@ -3571,7 +3417,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=8): {
@@ -3593,7 +3438,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=9): {
@@ -3623,7 +3467,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=10): {
@@ -3644,7 +3487,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=11): {
@@ -3666,7 +3508,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=12): {
@@ -3688,7 +3529,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=13): {
@@ -3710,7 +3550,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=14): {
@@ -3738,7 +3577,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=15): {
@@ -3760,7 +3598,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=16): {
@@ -3782,7 +3619,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=17): {
@@ -3808,7 +3644,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=18): {
@@ -3830,7 +3665,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=19): {
@@ -3852,7 +3686,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=20): {
@@ -3874,7 +3707,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=21): {
@@ -3896,7 +3728,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=22): {
@@ -3922,7 +3753,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=23): {
@@ -3948,7 +3778,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=24): {
@@ -3970,7 +3799,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=25): {
@@ -3992,7 +3820,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=26): {
@@ -4014,7 +3841,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=27): {
@@ -4036,7 +3862,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=28): {
@@ -4062,7 +3887,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=29): {
@@ -4088,7 +3912,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=30): {
@@ -4114,7 +3937,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=8, day=31): {
@@ -4136,7 +3958,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             # September
@@ -4163,7 +3984,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=2): {
@@ -4185,7 +4005,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=3): {
@@ -4207,7 +4026,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=5): {
@@ -4229,7 +4047,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=8): {
@@ -4255,7 +4072,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=9): {
@@ -4277,7 +4093,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=10): {
@@ -4299,7 +4114,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=11): {
@@ -4321,7 +4135,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=12): {
@@ -4343,7 +4156,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=14): {
@@ -4364,7 +4176,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=15): {
@@ -4390,7 +4201,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=16): {
@@ -4416,7 +4226,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=17): {
@@ -4438,7 +4247,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=18): {
@@ -4460,7 +4268,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=19): {
@@ -4482,7 +4289,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=20): {
@@ -4508,7 +4314,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=21): {
@@ -4530,7 +4335,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=22): {
@@ -4556,7 +4360,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=23): {
@@ -4582,7 +4385,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=24): {
@@ -4604,7 +4406,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=26): {
@@ -4626,7 +4427,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=27): {
@@ -4648,7 +4448,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=28): {
@@ -4670,7 +4469,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=29): {
@@ -4692,7 +4490,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=9, day=30): {
@@ -4714,7 +4511,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             # October
@@ -4737,7 +4533,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=2): {
@@ -4759,7 +4554,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=3): {
@@ -4781,7 +4575,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=4): {
@@ -4803,7 +4596,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=5): {
@@ -4825,7 +4617,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=6): {
@@ -4847,7 +4638,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=7): {
@@ -4877,7 +4667,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=8): {
@@ -4899,7 +4688,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=9): {
@@ -4925,7 +4713,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=10): {
@@ -4947,7 +4734,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=11): {
@@ -4969,7 +4755,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=13): {
@@ -4991,7 +4776,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=14): {
@@ -5013,7 +4797,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=15): {
@@ -5035,7 +4818,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=16): {
@@ -5057,7 +4839,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=17): {
@@ -5079,7 +4860,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=18): {
@@ -5101,7 +4881,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=19): {
@@ -5123,7 +4902,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=20): {
@@ -5145,7 +4923,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=21): {
@@ -5171,7 +4948,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=24): {
@@ -5193,7 +4969,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=25): {
@@ -5215,7 +4990,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=26): {
@@ -5237,7 +5011,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=27): {
@@ -5259,7 +5032,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": True,
             },
 
             day(year=self.year, month=10, day=28): {
@@ -5281,7 +5053,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=10, day=31): {
@@ -5303,7 +5074,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": True,
             },
 
             # November
@@ -5326,7 +5096,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=11, day=2): {
@@ -5352,7 +5121,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=11, day=4): {
@@ -5378,7 +5146,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
             # todo add "2371/5-7 Infra Octava Omnium Sanctorum feria
             # day(year=self.year, month=11, day=8): {
@@ -5390,598 +5157,30 @@ class Sanctoral:
             #     "color": "white",
             #     "mass": {"int": "Gaudeamus", "glo": True, "cre": True, "pre": "Communis"},
             #     "matins": {
-        #     "lessons": 9,
-        # },
-        #     "lauds": {},
-        #     "prime": {},
-        #     "little_hours": {},
-        #     "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-        #     "compline": {},
-        #     "fasting": False,
-        # },
+            #     "lessons": 9,
+            # },
+            #     "lauds": {},
+            #     "prime": {},
+            #     "little_hours": {},
+            #     "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+            #     "compline": {},
+            # },
 
-        day(year=self.year, month=11, day=9): {
-            # In Dedicatione Archibasilicæ Ssmi Salvatoris
-            "code": 23700,
-            "rank": [10, "d II cl"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Terribilis", "glo": True, "cre": True, "pre": "Communis"},
-            "com_1": {
-                # S Theodori M
-                "code": 32900,
-                "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
-            },
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=10): {
-            # S Andreæ Avellini C
-            "code": 23800,
-            "rank": [15, "d"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {
-                # Ss Tryphonis, Respicii atq Nymphae V Mm
-                "code": 33000,
-                "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}
-            },
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=11): {
-            # S Martini EC
-            "code": 23900,
-            "rank": [15, "d"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {
-                # S Mennae M
-                "code": 33100,
-                "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
-            },
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=12): {
-            # S Martini I PM
-            "code": 24000,
-            "rank": [16, "sd"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "red",
-            "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=13): {
-            # S Didaci C
-            "code": 24100,
-            "rank": [16, "sd"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=14): {
-            # S Josaphat EM
-            "code": 24200,
-            "rank": [15, "d"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "red",
-            "mass": {"int": "Gaudeamus", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=15): {
-            # S Alberti Magni ECD
-            "code": 24300,
-            "rank": [15, "d"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=16): {
-            # S Gertrudis V
-            "code": 24400,
-            "rank": [15, "d"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=17): {
-            # S Gregorii Thaumaturgi EC
-            "code": 24500,
-            "rank": [16, "sd"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=18): {
-            # In Dedicatione Basilicarum Ss Petri et Pauli App
-            "code": 24600,
-            "rank": [14, "dm"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Terribilis", "glo": True, "cre": True, "pre": "de Apostolis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=19): {
-            # S Elisabeth V
-            "code": 24700,
-            "rank": [15, "d"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Cognovi", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {
-                # S Pontiani PM
-                "code": 33200,
-                "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
-            },
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=20): {
-            # S Felicis de Valois C
-            "code": 24800,
-            "rank": [15, "d"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=21): {
-            # In Præsentatione BMV
-            "code": 24900,
-            "rank": [14, "dm"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Salve", "glo": True, "cre": True, "pre": "de B Maria Virg"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=22): {
-            # S Cæciliæ VM
-            "code": 25000,
-            "rank": [15, "d"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "red",
-            "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=23): {
-            # S Clementis I PM
-            "code": 25100,
-            "rank": [15, "d"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "red",
-            "mass": {"int": "Dicit Dóminus", "glo": True, "cre": False, "pre": "de Apostolis"},
-            "com_1": {
-                # S Felicitatis M
-                "code": 33300,
-                "mass": {"int": "Me exspectaverunt", "glo": True, "cre": False, "pre": "Communis"}
-            },
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=24): {
-            # S Joannis a Cruce CD
-            "code": 25200,
-            "rank": [15, "d, mtv"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-            "com_1": {
-                # S Chrysogoni M
-                "code": 33400,
-                "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
-            },
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=25): {
-            # S Catharinæ VM
-            "code": 25300,
-            "rank": [15, "d"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "red",
-            "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=26): {
-            # S Sylvestri Abb
-            "code": 25400,
-            "rank": [15, "d"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {
-                # S Petri Alexandrini EM
-                "code": 33500,
-                "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
-            },
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=11, day=29): {
-            # In Vigilia S Andreæ Ap
-            "code": 25500,
-            "rank": [22, "v"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "purple",
-            "mass": {"int": "Dominus secus", "glo": False, "cre": False, "pre": "Communis"},
-            "com_1": {
-                # S Saturnini M
-                "code": 33600,
-                "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
-            },
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": True,
-        },
-
-        day(year=self.year, month=11, day=30): {
-            # S Andreæ Ap
-            "code": 25600,
-            "rank": [10, "d II cl"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "red",
-            "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-        # todo add 1259/1 feria
-
-        # December
-        day(year=self.year, month=12, day=2): {
-            # S Bibianæ VM
-            "code": 25800,
-            "rank": [16, "sd"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "red",
-            "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=12, day=3): {
-            # S Francisci Xaverii C
-            "code": 25900,
-            "rank": [14, "dm, mtv"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=12, day=4): {
-            # S Petri Chrysologi ECD
-            "code": 26000,
-            "rank": [15, "d"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-            "com_1": {
-                # S Barbarae VM
-                "code": 33700,
-                "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}
-            },
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=12, day=5): {
-            # S Sabbae Abb
-            "code": 26100,
-            "rank": [22, "s"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 3,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-
-        day(year=self.year, month=12, day=6): {
-            # S Nicolai EC
-            "code": 26200,
-            "rank": [15, "d"],  # FIX: vigil of IC?
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {
-                # In Vigilia Conceptionis Immaculatæ BMV
-                "code": 33800,
-                "rank": [19, "v"],
+            day(year=self.year, month=11, day=9): {
+                # In Dedicatione Archibasilicæ Ssmi Salvatoris
+                "code": 23700,
+                "rank": [10, "d II cl"],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
-                "color": "purple",
-                "mass": {"int": "Venite, audite", "glo": False, "cre": False, "pre": "Communis"},
+                "color": "white",
+                "mass": {"int": "Terribilis", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    # S Theodori M
+                    "code": 32900,
+                    "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
                 "matins": {
                     "lessons": 9,
                 },
@@ -5989,198 +5188,732 @@ class Sanctoral:
                 "prime": {},
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-                "compline": {}
+                "compline": {},
             },
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
 
-        day(year=self.year, month=12, day=7): {
-            # S Ambrosii ECD
-            "code": 26300,
-            "rank": [15, "d, mtv"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
+            day(year=self.year, month=11, day=10): {
+                # S Andreæ Avellini C
+                "code": 23800,
+                "rank": [15, "d"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # Ss Tryphonis, Respicii atq Nymphae V Mm
+                    "code": 33000,
+                    "mass": {"int": "Clamaverunt", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
             },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
 
-        day(year=self.year, month=12, day=8): {
-            # In Conceptione Immaculata BMV
-            "code": 26400,
-            "rank": [2, "d I cl cum Oct communi"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "octave": 4,
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Gaudens gaudebo", "glo": True, "cre": True, "pre": "de B Maria Virg"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
+            day(year=self.year, month=11, day=11): {
+                # S Martini EC
+                "code": 23900,
+                "rank": [15, "d"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Mennae M
+                    "code": 33100,
+                    "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
             },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-        # todo add "2662/9 De II die infra Octava Concept. Immac. BMV feria
-        day(year=self.year, month=12, day=10): {
-            # S Melchidi PM
-            "code": 26600,
-            "rank": [22, "s"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "red",
-            "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de B Maria Virg"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 3,
-            },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
 
-        day(year=self.year, month=12, day=11): {
-            # S Damasi I PC
-            "code": 26700,
-            "rank": [16, "sd"],
-            "nobility": (4, 2, 6, 8, 3, 0,),
-            "office_type": False,
-            "color": "white",
-            "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de B Maria Virg"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
+            day(year=self.year, month=11, day=12): {
+                # S Martini I PM
+                "code": 24000,
+                "rank": [16, "sd"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
             },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
 
-        day(year=self.year, month=12, day=13): {
-            # S Luciæ VM
-            "code": 26900,
-            "rank": [15, "d"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "red",
-            "mass": {"int": "Dilexisti", "glo": True, "cre": True, "pre": "de B Maria Virg"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
+            day(year=self.year, month=11, day=13): {
+                # S Didaci C
+                "code": 24100,
+                "rank": [16, "sd"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
             },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
 
-        day(year=self.year, month=12, day=16): {
-            # S Eusebii EM
-            "code": 27000,
-            "rank": [16, "sd"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "red",
-            "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
+            day(year=self.year, month=11, day=14): {
+                # S Josaphat EM
+                "code": 24200,
+                "rank": [15, "d"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Gaudeamus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
             },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
 
-        day(year=self.year, month=12, day=20): {
-            # In Vigilia S Thomæ Ap
-            "code": 27100,
-            "rank": [22, "v"], # TODO: check the ranking of a vigil
-            "nobility": (8, 2, 6, 5, 3, 0,),
-            "office_type": False,
-            "color": "purple",
-            "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
+            day(year=self.year, month=11, day=15): {
+                # S Alberti Magni ECD
+                "code": 24300,
+                "rank": [15, "d"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
             },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
 
-        day(year=self.year, month=12, day=21): {
-            # S Thomæ Ap
-            "code": 27200,
-            "rank": [10, "d II cl"],
-            "nobility": (0, 0, 0, 0, 0, 0,),
-            "office_type": False,
-            "color": "red",
-            "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
-            "com_1": {},
-            "com_2": {},
-            "com_3": {},
-            "matins": {
-                "lessons": 9,
+            day(year=self.year, month=11, day=16): {
+                # S Gertrudis V
+                "code": 24400,
+                "rank": [15, "d"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Dilexisti", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
             },
-            "lauds": {},
-            "prime": {},
-            "little_hours": {},
-            "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
-            "compline": {},
-            "fasting": False,
-        },
-    }
+
+            day(year=self.year, month=11, day=17): {
+                # S Gregorii Thaumaturgi EC
+                "code": 24500,
+                "rank": [16, "sd"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Statuit", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=11, day=18): {
+                # In Dedicatione Basilicarum Ss Petri et Pauli App
+                "code": 24600,
+                "rank": [14, "dm"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Terribilis", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=11, day=19): {
+                # S Elisabeth V
+                "code": 24700,
+                "rank": [15, "d"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Cognovi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Pontiani PM
+                    "code": 33200,
+                    "mass": {"int": "Si diligis me", "glo": True, "cre": False, "pre": "de Apostolis"}
+                },
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=11, day=20): {
+                # S Felicis de Valois C
+                "code": 24800,
+                "rank": [15, "d"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Justus", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=11, day=21): {
+                # In Præsentatione BMV
+                "code": 24900,
+                "rank": [14, "dm"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Salve", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=11, day=22): {
+                # S Cæciliæ VM
+                "code": 25000,
+                "rank": [15, "d"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=11, day=23): {
+                # S Clementis I PM
+                "code": 25100,
+                "rank": [15, "d"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Dicit Dóminus", "glo": True, "cre": False, "pre": "de Apostolis"},
+                "com_1": {
+                    # S Felicitatis M
+                    "code": 33300,
+                    "mass": {"int": "Me exspectaverunt", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=11, day=24): {
+                # S Joannis a Cruce CD
+                "code": 25200,
+                "rank": [15, "d, mtv"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    # S Chrysogoni M
+                    "code": 33400,
+                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=11, day=25): {
+                # S Catharinæ VM
+                "code": 25300,
+                "rank": [15, "d"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=11, day=26): {
+                # S Sylvestri Abb
+                "code": 25400,
+                "rank": [15, "d"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Petri Alexandrini EM
+                    "code": 33500,
+                    "mass": {"int": "", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=11, day=29): {
+                # In Vigilia S Andreæ Ap
+                "code": 25500,
+                "rank": [22, "v"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "purple",
+                "mass": {"int": "Dominus secus", "glo": False, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # S Saturnini M
+                    "code": 33600,
+                    "mass": {"int": "Laetabitur", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=11, day=30): {
+                # S Andreæ Ap
+                "code": 25600,
+                "rank": [10, "d II cl"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+            # todo add 1259/1 feria
+
+            # December
+            day(year=self.year, month=12, day=2): {
+                # S Bibianæ VM
+                "code": 25800,
+                "rank": [16, "sd"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Me expectaverunt", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=12, day=3): {
+                # S Francisci Xaverii C
+                "code": 25900,
+                "rank": [14, "dm, mtv"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=12, day=4): {
+                # S Petri Chrysologi ECD
+                "code": 26000,
+                "rank": [15, "d"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {
+                    # S Barbarae VM
+                    "code": 33700,
+                    "mass": {"int": "Loquebar", "glo": True, "cre": False, "pre": "Communis"}
+                },
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=12, day=5): {
+                # S Sabbae Abb
+                "code": 26100,
+                "rank": [22, "s"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Os justi", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 3,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=12, day=6): {
+                # S Nicolai EC
+                "code": 26200,
+                "rank": [15, "d"],  # FIX: vigil of IC?
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Statuit ei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {
+                    # In Vigilia Conceptionis Immaculatæ BMV
+                    "code": 33800,
+                    "rank": [19, "v"],
+                    "nobility": (0, 0, 0, 0, 0, 0,),
+                    "office_type": False,
+                    "color": "purple",
+                    "mass": {"int": "Venite, audite", "glo": False, "cre": False, "pre": "Communis"},
+                    "matins": {
+                        "lessons": 9,
+                    },
+                    "lauds": {},
+                    "prime": {},
+                    "little_hours": {},
+                    "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                    "compline": {}
+                },
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=12, day=7): {
+                # S Ambrosii ECD
+                "code": 26300,
+                "rank": [15, "d, mtv"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "In medio", "glo": True, "cre": True, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=12, day=8): {
+                # In Conceptione Immaculata BMV
+                "code": 26400,
+                "rank": [2, "d I cl cum Oct communi"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "octave": 4,
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Gaudens gaudebo", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+            # todo add "2662/9 De II die infra Octava Concept. Immac. BMV feria
+            day(year=self.year, month=12, day=10): {
+                # S Melchidi PM
+                "code": 26600,
+                "rank": [22, "s"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 3,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=12, day=11): {
+                # S Damasi I PC
+                "code": 26700,
+                "rank": [16, "sd"],
+                "nobility": (4, 2, 6, 8, 3, 0,),
+                "office_type": False,
+                "color": "white",
+                "mass": {"int": "Si diligis me", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=12, day=13): {
+                # S Luciæ VM
+                "code": 26900,
+                "rank": [15, "d"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Dilexisti", "glo": True, "cre": True, "pre": "de B Maria Virg"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=12, day=16): {
+                # S Eusebii EM
+                "code": 27000,
+                "rank": [16, "sd"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Sacerdotes Dei", "glo": True, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=12, day=20): {
+                # In Vigilia S Thomæ Ap
+                "code": 27100,
+                "rank": [22, "v"], # TODO: check the ranking of a vigil
+                "nobility": (8, 2, 6, 5, 3, 0,),
+                "office_type": False,
+                "color": "purple",
+                "mass": {"int": "Ego autem", "glo": False, "cre": False, "pre": "Communis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+
+            day(year=self.year, month=12, day=21): {
+                # S Thomæ Ap
+                "code": 27200,
+                "rank": [10, "d II cl"],
+                "nobility": (0, 0, 0, 0, 0, 0,),
+                "office_type": False,
+                "color": "red",
+                "mass": {"int": "Mihi autem", "glo": True, "cre": True, "pre": "de Apostolis"},
+                "com_1": {},
+                "com_2": {},
+                "com_3": {},
+                "matins": {
+                    "lessons": 9,
+                },
+                "lauds": {},
+                "prime": {},
+                "little_hours": {},
+                "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
+                "compline": {},
+            },
+        }
 
         self.data_leapyear = {
             day(year=self.year, month=2, day=23): {
@@ -6202,7 +5935,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=24): {
@@ -6224,7 +5956,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=25): {
@@ -6246,7 +5977,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=2, day=27): {
@@ -6273,7 +6003,6 @@ class Sanctoral:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
         }
 

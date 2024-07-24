@@ -397,8 +397,6 @@ class Temporal:
                 "compline": data[value]["compline"],
                 "office_type": data[value]["office_type"],
                 "nobility": data[value]["nobility"],
-                "fasting": data[value]["fasting"] if value in data.keys() else False,
-
             }
                          }
         return big_data
