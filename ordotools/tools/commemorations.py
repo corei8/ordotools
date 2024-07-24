@@ -4,8 +4,8 @@ from ordotools.tools.helpers import days
 from ordotools.tools.helpers import weeks
 
 """
-Almost Everything having to do with the ordering and assignment of 
-commemorations is contained in this file. The "seasonal 
+Almost Everything having to do with the ordering and assignment of
+commemorations is contained in this file. The "seasonal
 commemorations" are added after the commemorations of concurrance
 and occurance are figured out.
 """
@@ -20,6 +20,7 @@ def existing_commemoration(feast):
     else:
         return 0
 
+
 def add_commemorations(feast, first, second=None):
     # TODO: add more commemoration rules (Sundays, major ferias, etc.)
     addition_index = existing_commemoration(feast)
@@ -32,6 +33,7 @@ def add_commemorations(feast, first, second=None):
         if second is not None:
             feast.com_2["code"] = second
     return feast
+
 
 def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
     mark = LiturgicalYearMarks(year)
@@ -84,9 +86,9 @@ def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
                         pass
                     elif (
                             mark.first_advent < feast.date < mark.christmas or
-                            mark.lent_begins < feast.date < mark.lent_ends or 
+                            mark.lent_begins < feast.date < mark.lent_ends or
                             mark.easter_season_start < feast.date < mark.easter_season_end
-                        ):
+                            ):
                         pass
                     else:
                         feast.com_2 = {"code": 99912}

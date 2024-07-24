@@ -6,6 +6,8 @@ from ordotools.tools.commemorations import seasonal_commemorations
 
 from ordotools.tools.feast import Feast
 
+from ordotools.tools.fasting import friday_abstinence
+
 from ordotools.tools.helpers import LiturgicalYearMarks
 from ordotools.tools.helpers import days
 from ordotools.tools.helpers import ladys_office
@@ -17,7 +19,6 @@ from ordotools.tools.translations import Translations
 from ordotools.tools.temporal import Temporal
 
 from ordotools.sanctoral.diocese.roman import Sanctoral
-
 
 
 class LiturgicalCalendar:
@@ -196,5 +197,9 @@ class LiturgicalCalendar:
         full_calendar = self.our_ladys_saturday(full_calendar)
         full_calendar = seasonal_commemorations(feasts=full_calendar, year=self.year)
         full_calendar = self.add_translation(full_calendar)
+
+        # set the fasting rules
+        for feast in full_calendar:
+            friday_abstinence(feast)
 
         return list(full_calendar)

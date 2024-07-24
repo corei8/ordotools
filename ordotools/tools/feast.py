@@ -5,7 +5,6 @@ class Feast:
 
     def __init__(self, feast_date: datetime, properties: dict, lang="la"):
 
-
         self.date = feast_date
         self.code = properties["code"]
         self.day_in_octave = properties["day_in_octave"] if "day_in_octave" in properties.keys() else 0
@@ -48,6 +47,8 @@ class Feast:
         self.compline = properties["compline"]
         self._fasting = properties["fasting"]
 
+        self._abstinence = False
+
         self.lang = lang
 
 # COMMEMORATIONS -------------------------------------------------------------- #
@@ -55,7 +56,6 @@ class Feast:
         self._com_1 = properties["com_1"]
         self._com_2 = properties["com_2"]
         self._com_3 = properties["com_3"]
-
 
     @property
     def com_1(self):
@@ -69,7 +69,6 @@ class Feast:
         self._com_2 = self._com_1
         self._com_1 = com
 
-
     @property
     def com_2(self):
         return self._com_2
@@ -81,7 +80,6 @@ class Feast:
         self._com_3 = self._com_2
         self._com_2 = com
 
-
     @property
     def com_3(self):
         return self._com_3
@@ -91,7 +89,6 @@ class Feast:
         if isinstance(com["code"], str) and  "de_" in com["code"]:
             com["code"] = 99914
         self._com_3 = com
-
 
     def reset_commemorations(self):
         self._com_3 = {"code": None, "name": None, "data": None}
@@ -107,6 +104,14 @@ class Feast:
     @name.setter
     def name(self, new: str):
         self._name = new
+
+    @property
+    def abstinence(self):
+        return self._abstinence
+
+    @abstinence.setter
+    def abstinence(self, q: bool):
+        self._abstinence = q
     #
     # @property
     # def date(self):

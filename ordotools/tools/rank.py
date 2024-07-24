@@ -1,12 +1,15 @@
 from ordotools.tools.feast import Feast
 
+
 def sort_criterion(e):
     return e.rank_n
+
 
 def sorted(one: Feast, two: Feast) -> list:
     feasts = [one, two]
     feasts.sort(key=sort_criterion)
     return feasts
+
 
 def commemorate(feast: Feast, commemoration: Feast) -> Feast:
     feast.com_1 = {
@@ -30,11 +33,14 @@ def commemorate(feast: Feast, commemoration: Feast) -> Feast:
         feast.com_2 = commemoration.com_1
     return feast
 
+
 translated_feasts = []
+
 
 def translate(feast: Feast, translated: Feast) -> Feast:
     translated_feasts.append(translated)
     return feast
+
 
 def nobility(one: Feast, two: Feast, handler: int) -> Feast:
     for parameter in range(6):
@@ -51,11 +57,10 @@ def nobility(one: Feast, two: Feast, handler: int) -> Feast:
     else:
         return commemorate(one, two)
 
-            
 
-def rank(dynamic: Feast, static: Feast) -> Feast | None | list:
+def rank(dynamic: Feast, static: Feast):
 
-    group_one = ( 2, 5, 6, 7, 10, 13, 11, 14, 15, 16, 18, 19, 20, 22, )
+    group_one = (2, 5, 6, 7, 10, 13, 11, 14, 15, 16, 18, 19, 20, 22, )
     group_two = (1, 8, 12, 3, 2, 5, 6, 7, 10, 4, 13, 11, 14, 15, 16, 9, 17, 18, 19, 20, 21, )
 
     if dynamic.rank_n == 23:
