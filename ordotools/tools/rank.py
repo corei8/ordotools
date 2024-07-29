@@ -28,7 +28,6 @@ def commemorate(feast: Feast, commemoration: Feast) -> Feast:
     # FIX: first commemorations being bumped to second commemoration
     #      this assumes that there is never a third commemoration... which is not true?
     if "code" in commemoration.com_1.keys():
-        print(f"We have a second sanctoral commemoration on {feast.date}")
         feast.com_2 = commemoration.com_1
     return feast
 

@@ -35,7 +35,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -56,7 +55,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -77,7 +75,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -98,7 +95,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -119,7 +115,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -140,7 +135,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -161,7 +155,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -182,7 +175,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -203,7 +195,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -224,7 +215,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -245,7 +235,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -266,7 +255,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -287,7 +275,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -308,7 +295,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -329,7 +315,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -350,7 +335,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -371,7 +355,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -392,7 +375,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -413,7 +395,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -434,7 +415,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -455,7 +435,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -476,7 +455,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -497,7 +475,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -518,7 +495,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -539,7 +515,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -560,7 +535,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -581,7 +555,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -602,7 +575,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -623,7 +595,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -644,7 +615,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -665,7 +635,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -686,7 +655,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -707,7 +675,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -728,7 +695,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -749,7 +715,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -770,7 +735,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -791,7 +755,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -812,7 +775,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -833,7 +795,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -854,7 +815,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -875,7 +835,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -896,7 +855,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -917,7 +875,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -938,7 +895,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -959,7 +915,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -980,7 +935,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -1001,7 +955,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -1022,7 +975,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -1043,7 +995,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -1064,7 +1015,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
             day(year=self.year, month=0, day=00): {
@@ -1085,7 +1035,6 @@ class Diocese:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
 
 

@@ -24,7 +24,6 @@ class Country:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             },
             day(year=self.year, month=7, day=31): {
                 "feast": "",
@@ -40,6 +39,5 @@ class Country:
                 "little_hours": {},
                 "vespers": {"proper": False, "admag": ("firstVespers", "secondVespers"), "propers": {}, "oration": ""},
                 "compline": {},
-                "fasting": False,
             }
         }

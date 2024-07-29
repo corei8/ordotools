@@ -16,6 +16,7 @@ class Fasting:
         self.lent_begins = LiturgicalYearMarks(self.year).lent_begins
         pass
 
+    # NOTE: all of these should be combined after they are finished
     def fasting_day_special(self, feast: Feast):
         # TODO: days that change according to the locality
         return None
@@ -23,10 +24,10 @@ class Fasting:
     def fasting_day_lent(self, feast: Feast):
         if feast.date <= self.lent_ends and feast.date >= self.lent_begins:
             if feast.date.strftime('%w') != '0':
-                print("we have a non-sunday in Lent")
                 feast.fasting = True
 
     def fasting_day_ember(self, feast: Feast):
+        # NOTE: how to find all the ember days?
         return None
 
     def fasting_day_vigil(self, feast: Feast):
