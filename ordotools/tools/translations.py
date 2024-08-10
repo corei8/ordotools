@@ -2766,7 +2766,7 @@ class Translations:
         # it works for now.
         epiphany_pents = {}
         for pent in range(22, 29):
-            for epiph in range(3, 7):
+            for epiph in range(1, 7): # start at 1 needed for the year 2156
                 epiphany_pents |= {
                     f"D_Epiph_{epiph}_{pent}": {
                         "la": f"Dominica {integer_to_roman(pent)} post Pentecosten, {integer_to_roman(epiph)} Epiphania",

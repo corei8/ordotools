@@ -1638,7 +1638,7 @@ class TemporalData:
         """
         epiphany_pents = {}
         for pent in range(22, 29):
-            for epiph in range(3, 7):
+            for epiph in range(2, 7): # start at 2 needed for the year 2156
                 epiphany_pents |= {
                     f"D_Epiph_{epiph}_{pent}": {
                         "code": f"D_Epiph_{epiph}_{pent}",

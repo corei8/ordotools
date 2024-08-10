@@ -2,6 +2,8 @@ from copy import deepcopy
 
 from importlib import import_module
 
+import logging
+
 from ordotools.tools import fasting
 from ordotools.tools.commemorations import seasonal_commemorations
 
@@ -35,13 +37,13 @@ class LiturgicalCalendar:
 
     def expand_octaves(self, feast: Feast) -> tuple:
         octave = ()
-        day = 2
-        while day < 9:
+        day = 1
+        while day < 8:
             # NOTE: since we already have the feast object,
             #       we can just make a function to set the date.
             #       We also have to empty the commemorations.
             new_feast = Feast(
-                feast.date+days(day-1),
+                feast.date+days(day),
                 {
                     "code": feast.code+1,
                     "rank": [feast.rank_n, feast.rank_v],
@@ -67,7 +69,7 @@ class LiturgicalCalendar:
             else:
                 new_feast.day_in_octave = day
             new_feast.fasting = False
-            new_feast.rank_v = "feria"
+            new_feast.rank_v = "sd" # WARN: Verify that this is always the case...
             new_feast.rank_n = 18 if day < 6 else 13
             new_feast.reset_commemorations()
             octave += (new_feast,)
@@ -75,13 +77,17 @@ class LiturgicalCalendar:
         return octave
 
     def find_octave(self, year: tuple) -> tuple:
+        year = list(year)
         temporals = [feast["code"] for feast in self.temporal.values()]
         for candidate in year:
             if candidate.code in temporals:
                 continue
             elif candidate.octave is True:
-                octave = self.expand_octaves(deepcopy(candidate))
-                year = self.add_feasts(master=year, addition=octave)
+                logging.debug(f"Building octave for {candidate.code} with octave set to {candidate.octave}")
+                position = year.index(candidate)
+                octave = self.expand_octaves(candidate)
+                octave_days = self.add_feasts(master=year[position:position+8], addition=octave)
+        year[position:position+8] = octave_days
         return year
 
     def build_feasts(self, candidates: dict) -> tuple:
@@ -120,6 +126,7 @@ class LiturgicalCalendar:
             else:
                 feast = master_expanded[date]
             if isinstance(feast, list):
+                # NOTE: anticipations
                 anticipated = feast[1]
                 new_last_feast = rank(
                     dynamic=anticipated,
@@ -194,14 +201,18 @@ class LiturgicalCalendar:
             sanctoral = diocese.Diocese(self.year).calendar()
         initialized = self.initialize([self.temporal, sanctoral])
         full_calendar = self.add_feasts(initialized["temporal"], initialized["sanctoral"])
+
+        # this is where the issue is:
         full_calendar = self.find_octave(year=full_calendar)
+
         full_calendar = self.our_ladys_saturday(full_calendar)
         full_calendar = seasonal_commemorations(feasts=full_calendar, year=self.year)
         full_calendar = self.add_translation(full_calendar)
 
         # set the fasting rules
+        # OPTIM: add this in on initiation, perhaps
         for feast in full_calendar:
-            friday_abstinence(feast)
+            friday_abstinence(feast) # this might be better in Feast
 
         fasting_rules = Fasting(self.year)
         for feast in full_calendar:

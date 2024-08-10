@@ -1,4 +1,5 @@
 from ordotools.tools.feast import Feast
+import logging
 
 
 def sort_criterion(e):
@@ -36,11 +37,14 @@ translated_feasts = []
 
 
 def translate(feast: Feast, translated: Feast) -> Feast:
+    # NOTE: do we really have to be returig anything here?
+    logging.debug(f"Tranlsating {translated.code}")
     translated_feasts.append(translated)
     return feast
 
 
 def nobility(one: Feast, two: Feast, handler: int) -> Feast:
+    logging.debug(f"Ranking by nobility between {one.code} and {two.code}")
     for parameter in range(6):
         if one.nobility[parameter] < two.nobility[parameter]:
             if handler == 7:
@@ -166,6 +170,7 @@ def rank(dynamic: Feast, static: Feast):
     elif ranking_result == 8:
         ranked = nobility(one, two, ranking_result)
     else:
+        # print(f"WARNING!! We have a problem with {one.code} occuring on {two.code}")
         return sorted(one, two)
 
     if not translated_feasts:
