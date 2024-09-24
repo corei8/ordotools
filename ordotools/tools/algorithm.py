@@ -1,5 +1,3 @@
-from copy import deepcopy
-
 from importlib import import_module
 
 import logging
@@ -33,6 +31,7 @@ class LiturgicalCalendar:
         self.language = language
         # WARN: theoretically we could have more than one transfer
         # self.transfers = None
+
         self.temporal = Temporal(self.year).return_temporal()
 
     def expand_octaves(self, feast: Feast) -> tuple:
@@ -80,6 +79,8 @@ class LiturgicalCalendar:
         year = list(year)
         temporals = [feast["code"] for feast in self.temporal.values()]
         for candidate in year:
+            if isinstance(candidate, list):
+                print(f"list of {candidate[0].code} and {candidate[1].code}")
             if candidate.code in temporals:
                 continue
             elif candidate.octave is True:
@@ -199,23 +200,29 @@ class LiturgicalCalendar:
                 f"sanctoral.diocese.{self.diocese}",
             )
             sanctoral = diocese.Diocese(self.year).calendar()
+        logging.info('Initializing...')
         initialized = self.initialize([self.temporal, sanctoral])
+        logging.info('Adding the calendars together...')
         full_calendar = self.add_feasts(initialized["temporal"], initialized["sanctoral"])
-
-        # this is where the issue is:
+        logging.info('Building octaves...')
         full_calendar = self.find_octave(year=full_calendar)
-
+        logging.info("Adding Our Lady's Saturday...")
         full_calendar = self.our_ladys_saturday(full_calendar)
+        logging.info('Building seasonal commemorations...')
         full_calendar = seasonal_commemorations(feasts=full_calendar, year=self.year)
+        logging.info('Translating...')
         full_calendar = self.add_translation(full_calendar)
 
         # set the fasting rules
         # OPTIM: add this in on initiation, perhaps
+        logging.info('Adding Friday abstinence...')
         for feast in full_calendar:
             friday_abstinence(feast) # this might be better in Feast
 
+        logging.info('Adding the Lenten fast...')
         fasting_rules = Fasting(self.year)
         for feast in full_calendar:
             fasting_rules.fasting_day_lent(feast)
 
+        logging.info('Complete!')
         return list(full_calendar)

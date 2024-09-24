@@ -78,7 +78,7 @@ def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
                 pass
 
             # FIDELIUM
-            if feast.rank_n == 23:  # NOTE: can 23 be an impeded Sunday
+            if feast.rank_n == 23:  # NOTE: can rank 23 be an impeded Sunday
                 if month_indicator == feast.date.strftime("%B"):
                     pass
                 else:

@@ -37,7 +37,7 @@ translated_feasts = []
 
 
 def translate(feast: Feast, translated: Feast) -> Feast:
-    # NOTE: do we really have to be returig anything here?
+    # NOTE: do we really have to be returing anything here?
     logging.debug(f"Tranlsating {translated.code}")
     translated_feasts.append(translated)
     return feast
@@ -74,7 +74,11 @@ def rank(dynamic: Feast, static: Feast):
     if dynamic.rank_n == 19 or static.rank_n == 19:
         if dynamic.rank_n == 19:
             if "v" in dynamic.rank_v.lower():
-                one, two = dynamic, static
+                # TODO: take care of the edge case where a vigil is anticipated
+                if static.rank_n == 22:
+                    one, two = static, dynamic
+                else:
+                    one, two = dynamic, static
             else:
                 one, two = static, dynamic
         elif static.rank_n == 19:
@@ -87,6 +91,7 @@ def rank(dynamic: Feast, static: Feast):
     elif dynamic.rank_n == 21:
         if static.rank_n < 22:
             return static
+
 
     elif dynamic.rank_n in group_one and static.rank_n in group_two:
         one, two = dynamic, static
@@ -170,7 +175,7 @@ def rank(dynamic: Feast, static: Feast):
     elif ranking_result == 8:
         ranked = nobility(one, two, ranking_result)
     else:
-        # print(f"WARNING!! We have a problem with {one.code} occuring on {two.code}")
+        print(f"WARNING!! We have a problem with {one.code} occuring on {two.code}")
         return sorted(one, two)
 
     if not translated_feasts:
@@ -178,6 +183,9 @@ def rank(dynamic: Feast, static: Feast):
     else:
         if ranked is not None and ranked.rank_n > 16:
             for translated in translated_feasts:
+                # NOTE: what is the limit for translating a feast?
+                # We have to do something about the date of the feast as well.
+                translated.date = ranked.date
                 translated_feasts.remove(translated)
                 return rank(ranked, translated)
         else:

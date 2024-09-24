@@ -135,7 +135,7 @@ class Temporal:
         i = 0
         # TODO: add D_HolyFamily as an option
         y = {sunday_after_epiphany: "HolyFamily"}
-        while date(i, 0) != self.septuagesima and i+1 < 6:
+        while date(i, 0) != self.septuagesima and i+1 < 7:
             if date(i, 0) != sunday_after_epiphany:
                 y |= {date(i, 0): f"D_Epiph_{i+1}"}
             else:
