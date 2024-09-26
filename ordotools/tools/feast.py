@@ -9,8 +9,6 @@ class Feast:
         self.code = properties["code"]
         self.day_in_octave = properties["day_in_octave"] if "day_in_octave" in properties.keys() else 0
         self._name = ""
-        # if self.day_in_octave != 0:
-        #     self.name(translations.octave(lang, self.day_in_octave, self.code))
 
         self.feast_properties = properties
 
@@ -19,9 +17,6 @@ class Feast:
             self.infra_octave_name = properties["infra_octave_name"]
         else:
             self.infra_octave_name = ""
-
-        # TODO: have a method that will adjust the title
-        #       according to the octave name
 
         # Commemorations do not take a rank:
         self.rank_v = properties["rank"][-1]

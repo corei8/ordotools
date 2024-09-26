@@ -175,7 +175,15 @@ class LiturgicalCalendar:
         year = []
         translations = Translations()
         for feast in compiled_calendar:
-            feast.name = translations.translations()[feast.code][self.language]
+            if isinstance(feast.code, int):
+                if feast.code % 10 == 1:
+                    feast.name = translations.octave(self.language, feast.day_in_octave, feast.code)
+                else:
+                    feast.name = translations.translations()[feast.code][self.language]
+            else:
+                feast.name = translations.translations()[feast.code][self.language]
+            
+            # NOTE: just for the commemorations
             if "code" in feast.com_1.keys() and feast.com_1["code"] is not None:
                 feast.com_1["name"] = translations.translations()[feast.com_1["code"]][self.language]
             else:
@@ -188,6 +196,7 @@ class LiturgicalCalendar:
                 feast.com_3["name"] = translations.translations()[feast.com_3["code"]][self.language]
             else:
                 feast.com_3["name"] = None
+
             year.append(feast)
         return year
 

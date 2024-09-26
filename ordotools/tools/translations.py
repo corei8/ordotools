@@ -1,6 +1,5 @@
 from ordotools.tools.liturgical_dates import integer_to_roman
 from ordotools.tools.liturgical_dates import nth
-import functools
 
 """
 When adding translations, use the ISO 639-1 codes
@@ -2979,4 +2978,4 @@ class Translations:
             ],
         }
 
-        return octave_days[lang][num-2] + " " + self.translations()[ref+1][lang]
+        return octave_days[lang][num-1] + " " + self.translations()[ref][lang]
