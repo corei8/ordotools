@@ -4,6 +4,8 @@ from ordotools import LiturgicalCalendar
 data = LiturgicalCalendar(2024, "roman", "la").build()
 
 for feast in data:
+    # if feast.name == "In Annuntiatione BMV":
+    #     print(feast.date)
     if feast.date.strftime("%a") == "Sun":
         print("\r")
     # print(
