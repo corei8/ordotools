@@ -10,6 +10,9 @@ commemorations" are added after the commemorations of concurrance
 and occurance are figured out.
 """
 
+# BUG: there cannot be more than three orations per day normally
+#      Jan. 19, 2025 has three commemorations when there should be two only
+
 
 def existing_commemoration(feast):
     if "code" in feast.com_1.keys():
@@ -36,9 +39,9 @@ def add_commemorations(feast, first, second=None):
 
 
 def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
-    mark = LiturgicalYearMarks(year)
+    bound = LiturgicalYearMarks(year)
     processed_feasts = ()
-    month_indicator = ""
+    month = ""
 
     for feast in feasts:
         if (
@@ -47,57 +50,57 @@ def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
                 feast.rank_n == 9
                 ):
 
-            if mark.first_advent < feast.date < mark.christmas:
+            if bound.first_advent < feast.date < bound.christmas:
                 feast = add_commemorations(feast, 99906, 99909)
 
-            elif feast.date < mark.lent_begins-weeks(2)-days(3):
+            elif feast.date < bound.lent_begins-weeks(2)-days(3):
                 if feast.date > day(year, 2, 2):
                     feast = add_commemorations(feast, 99911, 99913)
                 else:
                     feast = add_commemorations(feast, 99907, 99909)
 
-            elif mark.lent_begins-weeks(2)-days(3) < feast.date < mark.lent_begins:
+            elif bound.lent_begins-weeks(2)-days(3) < feast.date < bound.lent_begins:
                 feast = add_commemorations(feast, 99907, 99909)
 
-            elif mark.lent_begins < feast.date <= mark.lent_ends-weeks(2):
+            elif bound.lent_begins < feast.date <= bound.lent_ends-weeks(2):
                 feast = add_commemorations(feast, 99911, 99914)
 
-            elif mark.lent_ends-weeks(2) < feast.date < mark.lent_ends:
+            elif bound.lent_ends-weeks(2) < feast.date < bound.lent_ends:
                 feast = add_commemorations(feast, 99909)
 
-            elif mark.easter+days(2) < feast.date < mark.easter+days(7):
+            elif bound.easter+days(2) < feast.date < bound.easter+days(7):
                 feast = add_commemorations(feast, 99909)
 
-            elif mark.easter+days(7) < feast.date < mark.easter_season_end:
+            elif bound.easter+days(7) < feast.date < bound.easter_season_end:
                 feast = add_commemorations(feast, 99908, 99909)
 
-            elif mark.pentecost_season_start < feast.date < mark.first_advent:
+            elif bound.pentecost_season_start < feast.date < bound.first_advent:
                 feast = add_commemorations(feast, 99911, 99913)
 
             else:
                 pass
 
             # FIDELIUM
-            if feast.rank_n == 23:  # NOTE: can rank 23 be an impeded Sunday
-                if month_indicator == feast.date.strftime("%B"):
+            if feast.rank_n == 23:  # NOTE: can rank 23 be an impeded Sunday?
+                if month == feast.date.strftime("%B"):
                     pass
                 else:
-                    if month_indicator == "November":
+                    if month == "November":
                         pass
                     elif (
-                            mark.first_advent < feast.date < mark.christmas or
-                            mark.lent_begins < feast.date < mark.lent_ends or
-                            mark.easter_season_start < feast.date < mark.easter_season_end
+                            bound.first_advent < feast.date < bound.christmas or
+                            bound.lent_begins < feast.date < bound.lent_ends or
+                            bound.easter_season_start < feast.date < bound.easter_season_end
                             ):
                         pass
                     else:
                         feast.com_2 = {"code": 99912}
-                        month_indicator = feast.date.strftime("%B")
+                        month = feast.date.strftime("%B")
 
                 if feast.date.strftime("%w") == 1:
-                    if mark.first_advent < feast.date < mark.christmas:
+                    if bound.first_advent < feast.date < bound.christmas:
                         pass
-                    elif mark.lent_begins < feast.date < mark.lent_ends:
+                    elif bound.lent_begins < feast.date < bound.lent_ends:
                         pass
                     else:
                         if feast.com_2["code"] == 99912:

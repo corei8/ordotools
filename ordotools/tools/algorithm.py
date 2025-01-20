@@ -144,12 +144,13 @@ class LiturgicalCalendar:
         Adds Office of the Blessed Virgin Mary on Saturdays.
 
         In omnibus Sabbatis per annum extra Adventum et Quadragesimam, ac nisi
-        Quatuor tempora aut Vigilia; occurrant, vel nisi fieri debeat de Feria propter
-        Officium alicujus Dominica; aliquando infra Hebdomadam ponendum , ut in Rubrica
-        de Dominicis dictum est; et nisi fiat Officium novem Lectionum, vel de Octava
-        Pascha; et Pentecostes, semper fit Officium de sancta Maria, eo modo, quo fit de
-        Festo Simplici, quemadmodum circa finem Breviarii disponitur. De Festo autem
-        Simplici, in Sabbato occurrente, fit tantum commemoratio.
+        Quatuor tempora aut Vigilia; occurrant, vel nisi fieri debeat de Feria
+        propter Officium alicujus Dominica; aliquando infra Hebdomadam ponendum
+        , ut in Rubrica de Dominicis dictum est; et nisi fiat Officium novem
+        Lectionum, vel de Octava Pascha; et Pentecostes, semper fit Officium de
+        sancta Maria, eo modo, quo fit de Festo Simplici, quemadmodum circa
+        finem Breviarii disponitur. De Festo autem Simplici, in Sabbato
+        occurrente, fit tantum commemoratio.
         """
         year = list(calendar)
         office = ladys_office  # TODO: add this according to the season

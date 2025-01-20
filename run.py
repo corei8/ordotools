@@ -1,7 +1,7 @@
 from ordotools import LiturgicalCalendar
 
 # TODO: we need to add the language
-data = LiturgicalCalendar(2024, "roman", "la").build()
+data = LiturgicalCalendar(2025, "roman", "la").build()
 
 for feast in data:
     # if feast.name == "In Annuntiatione BMV":

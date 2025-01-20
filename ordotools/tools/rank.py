@@ -62,7 +62,6 @@ def nobility(one: Feast, two: Feast, handler: int) -> Feast:
 
 def rank(dynamic: Feast, static: Feast):
 
-
     # FIXME: this excludes the transfered feasts ever falling on ferias... ?
     #        rework all of this to filter through all of our options.
 
@@ -71,33 +70,50 @@ def rank(dynamic: Feast, static: Feast):
     one, two, = 0, 0
     ranked = None
 
+    # BUG: Vigil of the Epiphany falling on the feast of the Holy Family
+    #      what should happen is that the HF overrides, V commemorated
+    #      the issue is probably that the rank for HF is the same in both groups
+
+    d, s = dynamic.rank_n, static.rank_n
+
+    # TODO: there has to be a way to make this filter out duplicates...
+    if d in group_one and d in group_two:
+        if s in group_one and s not in group_two:
+            pass
+        elif s not in group_one and s in group_two:
+            pass
+        else:
+            pass
+
     # distinguish between a major feria and vigil
-    if dynamic.rank_n == 19 or static.rank_n == 19:
-        if dynamic.rank_n == 19:
+    if d == 19 or s == 19:
+        if d == 19:
             if "v" in dynamic.rank_v.lower():
                 # TODO: take care of the edge case where a vigil is anticipated
-                if static.rank_n == 22:
+                if s == 22:
                     one, two = static, dynamic
                 else:
                     one, two = dynamic, static
             else:
                 one, two = static, dynamic
-        elif static.rank_n == 19:
+        elif s == 19:
             if "v" in static.rank_v.lower():
                 one, two = static, dynamic
             else:
                 one, two = dynamic, static
+
     # override our Lady's Saturday
-    elif dynamic.rank_n == 21:
-        if static.rank_n < 22:
+    elif d == 21:
+        if s < 22:
             ranked = static
+
     # override ferias
     # FIX: something isn't making sense here...
-    elif dynamic.rank_n == 23:
+    elif d == 23:
         ranked = static
-    elif static.rank_n == 23:
+    elif s == 23:
         ranked = dynamic
-    elif dynamic.rank_n in group_one and static.rank_n in group_two:
+    elif d in group_one and s in group_two:
         one, two = dynamic, static
     else:
         one, two = static, dynamic

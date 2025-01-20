@@ -12,7 +12,7 @@ class Temporal:
     """
     This class will enable us to explore parts of the liturgical year, rather
     than having to calulate the entire year. The exact implementation process
-    is still being worked out, but this Class will be much easier to debug and
+    is still being worked out, but this class will be much easier to debug and
     develop rather than the previous idea.
 
     For the various parts of the year that require more advanced
@@ -32,8 +32,6 @@ class Temporal:
     with the current naming system, and to try to give the most appropriate
     name to everything would result in a file that is overly long and
     complicated.
-
-    -- Fr. Barnes, June 17, 2023
     """
 
     def __init__(self, year):
