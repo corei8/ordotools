@@ -26,8 +26,11 @@ def commemorate(feast: Feast, commemoration: Feast) -> Feast:
         "nobility": commemoration.nobility,
         "office_type": commemoration.office_type,
     }
+
     # FIX: first commemorations being bumped to second commemoration
-    #      this assumes that there is never a third commemoration... which is not true?
+    #      this assumes that there is never a third commemoration...
+    #      which is not true?
+
     if "code" in commemoration.com_1.keys():
         feast.com_2 = commemoration.com_1
     return feast
@@ -37,7 +40,6 @@ translated_feasts = []
 
 
 def translate(feast: Feast, translated: Feast) -> Feast:
-    # NOTE: do we really have to be returing anything here?
     logging.debug(f"Tranlsating {translated.code}")
     translated_feasts.append(translated)
     return feast
@@ -72,7 +74,7 @@ def rank(dynamic: Feast, static: Feast):
 
     # BUG: Vigil of the Epiphany falling on the feast of the Holy Family
     #      what should happen is that the HF overrides, V commemorated
-    #      the issue is probably that the rank for HF is the same in both groups
+    #      the issue might be that the rank for HF is the same in both groups
 
     d, s = dynamic.rank_n, static.rank_n
 
@@ -122,16 +124,16 @@ def rank(dynamic: Feast, static: Feast):
 
         def position_one() -> int:
             group_one_grouped = (
-                (2, 5, 6, 7,), # Duplex I classis
-                (10,),         # Duplex II classis
-                (13,),         # Dies Octava Communis
-                (11, 14,),     # Duplex majus
-                (15,),         # Duplex minus
-                (16,),         # Semiduplex
-                (18,),         # Dies infra Oct. communem.
-                (19,),         # Vigilia
-                (20,),         # Dies Octava Simplex
-                (22,),         # Simplex
+                (2, 5, 6, 7,),  # Duplex I classis
+                (10,),          # Duplex II classis
+                (13,),          # Dies Octava Communis
+                (11, 14,),      # Duplex majus
+                (15,),          # Duplex minus
+                (16,),          # Semiduplex
+                (18,),          # Dies infra Oct. communem.
+                (19,),          # Vigilia
+                (20,),          # Dies Octava Simplex
+                (22,),          # Simplex
             )
             for count, group in enumerate(group_one_grouped):
                 if one.rank_n in group:
@@ -141,22 +143,22 @@ def rank(dynamic: Feast, static: Feast):
 
         def position_two() -> int:
             group_two_grouped = (
-                (1,),          # Dominica I classis
-                (8,),          # Dominica II classis
-                (12,),         # Dominica minor vel Vigilia Epiphaniæ
-                (3,),          # Feria privileg., Vigilia I cl., vel dies infra Oct. I ord.
-                (2, 5, 6, 7,), # Duplex I classis
-                (10,),         # Duplex II classis
-                (4,),          # Dies Octava II ordinis
-                (13,),         # Dies Oct. Communis vel III ordinis
-                (11, 14,),     # Duplex majus
-                (15,),         # Duplex minus
-                (16,),         # Semiduplex
-                (9,),          # Dies infra Octavam II ordinis
-                (17,),         # Dies infra Octavam III ordinis
-                (18,),         # Dies infra Octavam communem
-                (19,),         # Feria major non privilegiata
-                (20,),         # Dies Octava simplex
+                (1,),           # Dominica I classis
+                (8,),           # Dominica II classis
+                (12,),          # Dominica minor vel Vigilia Epiphaniæ
+                (3,),           # Feria privileg., Vigilia I cl., vel dies infra Oct. I ord.
+                (2, 5, 6, 7,),  # Duplex I classis
+                (10,),          # Duplex II classis
+                (4,),           # Dies Octava II ordinis
+                (13,),          # Dies Oct. Communis vel III ordinis
+                (11, 14,),      # Duplex majus
+                (15,),          # Duplex minus
+                (16,),          # Semiduplex
+                (9,),           # Dies infra Octavam II ordinis
+                (17,),          # Dies infra Octavam III ordinis
+                (18,),          # Dies infra Octavam communem
+                (19,),          # Feria major non privilegiata
+                (20,),          # Dies Octava simplex
                 (21,),          # S. Maria in Sabbato
             )
             for count, group in enumerate(group_two_grouped):
@@ -202,6 +204,8 @@ def rank(dynamic: Feast, static: Feast):
             return sorted(one, two)
 
     # TODO: We have to make sure that this is always executed
+    #       Early returns are not wanted
+
     if ranked is not None:
         if not translated_feasts:
             return ranked

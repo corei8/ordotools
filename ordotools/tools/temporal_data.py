@@ -1638,7 +1638,7 @@ class TemporalData:
         """
         epiphany_pents = {}
         for pent in range(22, 29):
-            for epiph in range(2, 7): # start at 2 needed for the year 2156
+            for epiph in range(2, 7):  # starting at 2 needed for the year 2156
                 epiphany_pents |= {
                     f"D_Epiph_{epiph}_{pent}": {
                         "code": f"D_Epiph_{epiph}_{pent}",
@@ -1787,8 +1787,8 @@ class TemporalData:
                 weeks |= {
                     f"de_Pent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
                         "code": f"de_Pent_{x+1}_f{feria+2 if feria != 5 else 's'}",
-                        "rank": [23, "feria"], # FIX: change the ranking?
-                        "color": "green", # TODO: check if this is right for Trinity
+                        "rank": [23, "feria"],  # FIX: change the ranking?
+                        "color": "green",  # TODO: check if this is right for Trinity Sunday
                         "mass": {"int": introit, "glo": True, "seq": "Lauda, Sion, Salvatorem", "cre": False, "pre": "de Trinitate"},
                         "com_1": {},
                         "com_2": {},
@@ -1856,7 +1856,7 @@ class TemporalData:
             solemnity_ferias |= {
                 f"{feria+2}_in_8_StJoseph": {
                     "code": f"{feria+2}_in_8_StJoseph",
-                    "rank": [18, "feria"], # FIX: check the verbose rank
+                    "rank": [18, "feria"],  # FIX: check the verbose rank
                     "color": "white",
                     "mass": {"int": "Justus ut palma", "glo": True, "cre": True, "pre": "de S Joseph"},
                     "com_1": {},

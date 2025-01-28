@@ -10,11 +10,11 @@ commemorations" are added after the commemorations of concurrance
 and occurance are figured out.
 """
 
-# BUG: there cannot be more than three orations per day normally
-#      Jan. 19, 2025 has three commemorations when there should be two only
-
 
 def existing_commemoration(feast):
+
+    # TODO: rename all the "code"s to "ID"
+
     if "code" in feast.com_1.keys():
         if "code" in feast.com_2.keys():
             return 2
@@ -25,7 +25,9 @@ def existing_commemoration(feast):
 
 
 def add_commemorations(feast, first, second=None):
+
     # TODO: add more commemoration rules (Sundays, major ferias, etc.)
+
     addition_index = existing_commemoration(feast)
     if addition_index == 1:
         feast.com_2["code"] = first
@@ -38,12 +40,47 @@ def add_commemorations(feast, first, second=None):
     return feast
 
 
+def fidelium(feast, bound):
+    month = ""
+    if feast.rank_n == 23:  # NOTE: can rank 23 be an impeded Sunday?
+        if month == feast.date.strftime("%B"):
+            pass
+        else:
+            if month == "November":
+                pass
+            elif (
+                    bound.first_advent < feast.date < bound.christmas or
+                    bound.lent_begins < feast.date < bound.lent_ends or
+                    bound.easter_season_start < feast.date < bound.easter_season_end
+                    ):
+                pass
+            else:
+                feast.com_2 = {"code": 99912}
+                month = feast.date.strftime("%B")
+
+        if feast.date.strftime("%w") == 1:
+            if bound.first_advent < feast.date < bound.christmas:
+                pass
+            elif bound.lent_begins < feast.date < bound.lent_ends:
+                pass
+            else:
+                if feast.com_2["code"] == 99912:
+                    pass
+                else:
+                    feast.com_2 = {"code": 99912}
+    return feast
+
+
 def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
+
     bound = LiturgicalYearMarks(year)
     processed_feasts = ()
-    month = ""
+
+# BUG: there cannot be more than three orations per day normally
+#      Jan. 19, 2025 has three commemorations when there should be two only
 
     for feast in feasts:
+
         if (
                 feast.rank_n > 15 or
                 feast.rank_n == 12 or
@@ -79,35 +116,7 @@ def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
 
             else:
                 pass
-
-            # FIDELIUM
-            if feast.rank_n == 23:  # NOTE: can rank 23 be an impeded Sunday?
-                if month == feast.date.strftime("%B"):
-                    pass
-                else:
-                    if month == "November":
-                        pass
-                    elif (
-                            bound.first_advent < feast.date < bound.christmas or
-                            bound.lent_begins < feast.date < bound.lent_ends or
-                            bound.easter_season_start < feast.date < bound.easter_season_end
-                            ):
-                        pass
-                    else:
-                        feast.com_2 = {"code": 99912}
-                        month = feast.date.strftime("%B")
-
-                if feast.date.strftime("%w") == 1:
-                    if bound.first_advent < feast.date < bound.christmas:
-                        pass
-                    elif bound.lent_begins < feast.date < bound.lent_ends:
-                        pass
-                    else:
-                        if feast.com_2["code"] == 99912:
-                            pass
-                        else:
-                            feast.com_2 = {"code": 99912}
-
+            feast = fidelium(feast=feast, bound=bound)
         else:
             pass
 

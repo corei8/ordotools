@@ -1,11 +1,11 @@
-from ordotools.tools.temporal_data import TemporalData
 from ordotools.tools.helpers import day
 from ordotools.tools.helpers import days
 from ordotools.tools.helpers import easter
 from ordotools.tools.helpers import findsunday
 from ordotools.tools.helpers import last_sunday
-from ordotools.tools.helpers import weeks
 from ordotools.tools.helpers import weekday
+from ordotools.tools.helpers import weeks
+from ordotools.tools.temporal_data import TemporalData
 
 
 class Temporal:
@@ -18,7 +18,7 @@ class Temporal:
     For the various parts of the year that require more advanced
     configurations, (e.g. the O-antiphons) this modular approach will allow the
     parts of the year to be self-calculated, which will be more efficient in
-    the long run, and allow for much easier debugging. Having already trued the
+    the long run, and allow for much easier debugging. Having already tried the
     "figure it out in one go" approach, I can tell you that this is the way to
     go.
 
@@ -166,7 +166,7 @@ class Temporal:
         return y
 
     def lent(self) -> dict:
-        """ All of the Sundays and ferias of Lent, up to Easter """
+        """ All of the Sundays and Ferias of Lent, up to Easter """
         for i in range(7):
             if i == 0:
                 y = {

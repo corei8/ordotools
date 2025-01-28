@@ -183,7 +183,7 @@ class LiturgicalCalendar:
                     feast.name = translations.translations()[feast.code][self.language]
             else:
                 feast.name = translations.translations()[feast.code][self.language]
-            
+
             # NOTE: just for the commemorations
             if "code" in feast.com_1.keys() and feast.com_1["code"] is not None:
                 feast.com_1["name"] = translations.translations()[feast.com_1["code"]][self.language]

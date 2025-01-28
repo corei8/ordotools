@@ -2,38 +2,70 @@ from datetime import datetime
 
 
 class Feast:
+    """
+    Each feast or office is of class Feast, you could say that most of the data
+    is handled by this class.
+
+    If there are too many comments here for your taste, then too bad. I have to
+    take so many breaks from this project that I really need the comments so
+    that I don't waste time having to remember what everything means again.
+    "Bad code", you say? Then please contribute!
+    """
 
     def __init__(self, feast_date: datetime, properties: dict, lang="la"):
 
+        # the date of the feast in datetime
         self.date = feast_date
+
+        # chaning this to id eventually, because that is what it is
         self.code = properties["code"]
+
+        # indictates whether the feast is a day within an octave
         self.day_in_octave = properties["day_in_octave"] if "day_in_octave" in properties.keys() else 0
+
+        # this is a placeholder for the name setter. This is unset to make life easy
         self._name = ""
 
+        # holds a dictionary for storing the properties temporarily
         self.feast_properties = properties
 
         # TODO: add the "infra_octave_name" to all octaves
+
+        # "root" name that is given to all days within an octave
         if "infra_octave_name" in properties:
             self.infra_octave_name = properties["infra_octave_name"]
         else:
             self.infra_octave_name = ""
 
-        # Commemorations do not take a rank:
+        # verbose rank
         self.rank_v = properties["rank"][-1]
+
+        # numeric rank
         self.rank_n = properties["rank"][0]
 
+        # boolean value that indicates whether a feast has an octave
         self.octave = True if "Oct" in self.rank_v else False
+
+        # color of the office (not necessarily the color of the Mass)
         self.color = properties["color"]
+
+        # all the parts of the Mass unique to the office
         self.mass = {}
 
+        # honestly, not sure what this does anymore...
         if "int" in properties["mass"].keys():
             self.mass = {"Ad Missam": properties["mass"]}
         else:
             for x, y in properties["mass"].items():
                 self.mass.update({x: y})
 
+        # the "nability" value of a feast, used between feasts of the same numeric rank
         self.nobility = properties["nobility"] if "nobility" in properties.keys() else (0, 0, 0, 0, 0, 0,)
+
+        # office of sunday, feria, proper, etc.
         self.office_type = properties["office_type"]
+
+        # self explanatory:
         self.matins = properties["matins"]
         self.lauds = properties["lauds"]
         self.prime = properties["prime"]
@@ -41,12 +73,15 @@ class Feast:
         self.vespers = properties["vespers"]
         self.compline = properties["compline"]
 
+        # we need two separate values for fasting and abstinence, even though they are often related
         self._fasting = False
         self._abstinence = False
 
+        # language we are going to translate the feast into eventually
+        # NOTE: this might not be needed here, might just be added expense?
         self.lang = lang
 
-# COMMEMORATIONS -------------------------------------------------------------- #
+# COMMEMORATIONS ------------------------------------------------------------ #
 
         self._com_1 = properties["com_1"]
         self._com_2 = properties["com_2"]
@@ -90,7 +125,7 @@ class Feast:
         self._com_2 = {"code": None, "name": None, "data": None}
         self._com_1 = {"code": None, "name": None, "data": None}
 
-# ----------------------------------------------------------------------------- #
+# --------------------------------------------------------------------------- #
 
     @property
     def name(self):
@@ -151,6 +186,7 @@ class Feast:
     # #    1. Preces Feriales
     # #    2. Compline
     # #    3. Little Hours
+    #
     # def preces(self) -> str:
     #     if self.rank_n <= 16:
     #         return ""
