@@ -14,5 +14,5 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from .tools.algorithm import LiturgicalCalendar
+from .tools.main import LiturgicalCalendar
 

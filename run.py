@@ -29,12 +29,11 @@ table = Table(show_header=True, header_style="bold red", box=box.DOUBLE)
 
 table.add_column("Date", style="dim", width=12)
 table.add_column("Feast Name")
-table.add_column("Office Value", justify="center")
+table.add_column("Rank", justify="center")
 table.add_column("Verbose Rank", justify="left")
-table.add_column("Commemorations", justify="center")
+table.add_column("Com", justify="center")
 
 for feast in data:
-
 
     # print(
     #     f"{feast.date.strftime('%b %d')}\t{feast.name: <49} {feast.rank_v: <28} com: {feast.com_1['name']}, 2 com: {feast.com_2['name']}, 3 com: {feast.com_3['name']}"
