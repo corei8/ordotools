@@ -14,7 +14,7 @@ def sorted(one: Feast, two: Feast) -> list:
 
 def commemorate(feast: Feast, commemoration: Feast) -> Feast:
     feast.com_1 = {
-        "code": commemoration.code,
+        "id": commemoration.id,
         "rank": [commemoration.rank_n, commemoration.rank_v],
         "infra_octave_name": commemoration.infra_octave_name,
         "day_in_octave": commemoration.day_in_octave,
@@ -31,7 +31,7 @@ def commemorate(feast: Feast, commemoration: Feast) -> Feast:
     #      this assumes that there is never a third commemoration...
     #      which is not true?
 
-    if "code" in commemoration.com_1.keys():
+    if "id" in commemoration.com_1.keys():
         feast.com_2 = commemoration.com_1
     return feast
 
@@ -40,13 +40,13 @@ translated_feasts = []
 
 
 def translate(feast: Feast, translated: Feast) -> Feast:
-    logging.debug(f"Tranlsating {translated.code}")
+    logging.debug(f"Tranlsating {translated.id}")
     translated_feasts.append(translated)
     return feast
 
 
 def nobility(one: Feast, two: Feast, handler: int) -> Feast:
-    logging.debug(f"Ranking by nobility between {one.code} and {two.code}")
+    logging.debug(f"Ranking by nobility between {one.id} and {two.id}")
     for parameter in range(6):
         if one.nobility[parameter] < two.nobility[parameter]:
             if handler == 7:
@@ -200,7 +200,7 @@ def rank(dynamic: Feast, static: Feast):
             ranked = nobility(one, two, ranking_result)
         else:
             # NOTE: I believe that this occurs when we have an anticipation?
-            print(f"WARNING!! We have a problem with {one.code} occuring on {two.code}")
+            print(f"WARNING!! We have a problem with {one.id} occuring on {two.id}")
             return sorted(one, two)
 
     # TODO: We have to make sure that this is always executed

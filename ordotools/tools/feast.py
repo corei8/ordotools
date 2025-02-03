@@ -18,7 +18,7 @@ class Feast:
         self.date = feast_date
 
         # chaning this to id eventually, because that is what it is
-        self.code = properties["code"]
+        self.id = properties["id"]
 
         # indictates whether the feast is a day within an octave
         self.day_in_octave = properties["day_in_octave"] if "day_in_octave" in properties.keys() else 0
@@ -93,8 +93,8 @@ class Feast:
 
     @com_1.setter
     def com_1(self, com: dict):
-        if isinstance(com["code"], str) and  "de_" in com["code"]:
-            com["code"] = 99914
+        if isinstance(com["id"], str) and  "de_" in com["id"]:
+            com["id"] = 99914
         self._com_3 = self._com_2
         self._com_2 = self._com_1
         self._com_1 = com
@@ -105,8 +105,8 @@ class Feast:
 
     @com_2.setter
     def com_2(self, com: dict):
-        if isinstance(com["code"], str) and  "de_" in com["code"]:
-            com["code"] = 99914
+        if isinstance(com["id"], str) and  "de_" in com["id"]:
+            com["id"] = 99914
         self._com_3 = self._com_2
         self._com_2 = com
 
@@ -116,14 +116,14 @@ class Feast:
 
     @com_3.setter
     def com_3(self, com: dict):
-        if isinstance(com["code"], str) and  "de_" in com["code"]:
-            com["code"] = 99914
+        if isinstance(com["id"], str) and  "de_" in com["id"]:
+            com["id"] = 99914
         self._com_3 = com
 
     def reset_commemorations(self):
-        self._com_3 = {"code": None, "name": None, "data": None}
-        self._com_2 = {"code": None, "name": None, "data": None}
-        self._com_1 = {"code": None, "name": None, "data": None}
+        self._com_3 = {"id": None, "name": None, "data": None}
+        self._com_2 = {"id": None, "name": None, "data": None}
+        self._com_1 = {"id": None, "name": None, "data": None}
 
 # --------------------------------------------------------------------------- #
 
@@ -168,9 +168,9 @@ class Feast:
     #     # put this in the global scope?
     #     translations = Translations()
     #     self._lang = val
-    #     self._name = translations.translations()[self.code][val]
+    #     self._name = translations.translations()[self.id][val]
     #     if self.day_in_octave != 0:
-    #         self._name = translations.octave(self._lang, self.day_in_octave, self.code)
+    #         self._name = translations.octave(self._lang, self.day_in_octave, self.id)
 
     # @property
     # def feast_date_display(self) -> str:
@@ -201,7 +201,7 @@ class Feast:
     # def updated_properties(self) -> dict:
     #     """ Updates all values of the feast's dictionary """
     #     properties = {
-    #         "code": self.code,
+    #         "id": self.id,
     #         # "feast": self.name,
     #         "rank": [self.rank_n, self.rank_v],
     #         "infra_octave_name": self.infra_octave_name,

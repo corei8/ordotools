@@ -380,7 +380,7 @@ class Temporal:
         # TODO: use a loop for this after the data is settled
         for key, value in compiled.items():
             big_data |= {key: {
-                "code": data[value]["code"] if value in data.keys() else value,
+                "id": data[value]["id"] if value in data.keys() else value,
                 "rank": data[value]["rank"],
                 "color": data[value]["color"] if value in data.keys() else "blue",
                 "mass": data[value]["mass"],

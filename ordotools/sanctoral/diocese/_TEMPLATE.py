@@ -18,7 +18,7 @@ class Diocese:
         self.data = {
 
             day(year=self.year, month=0, day=0): {
-                "code": 000,
+                "id": 000,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,

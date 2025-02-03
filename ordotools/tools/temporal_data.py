@@ -8,7 +8,7 @@ class TemporalData:
     def __init__(self):
         self.easy_data = {
             "Circumcision": {
-                "code": "Circumcision",
+                "id": "Circumcision",
                 "rank": [3, "d II cl"],
                 "color": "white",
                 "mass": {"int": "Puer natus", "glo": True, "cre": True, "pre": "et Comm de Nativitate"},
@@ -25,7 +25,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8_Stephen": {
-                "code": "8_Stephen",
+                "id": "8_Stephen",
                 "rank": [20, "s"],
                 "color": "white",
                 "mass": {"int": "Sederunt", "glo": True, "cre": False, "pre": "de Nativitate"},
@@ -42,7 +42,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8_John": {
-                "code": "8_John",
+                "id": "8_John",
                 "rank": [20, "s"],
                 "color": "red",
                 "mass": {"int": "Introit", "glo": True, "cre": True, "pre": "Communis"},
@@ -59,7 +59,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8_Innocents": {
-                "code": "8_Innocents",
+                "id": "8_Innocents",
                 "rank": [20, "s"],
                 "color": "red",
                 "mass": {"int": "Ex ore infantium", "glo": True, "cre": True, "pre": "Communis"},
@@ -76,7 +76,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "SNameJesus": {
-                "code": "SNameJesus",
+                "id": "SNameJesus",
                 "rank": [10, "d II cl"],
                 "color": "white",
                 "mass": {"int": "In nomine Jesu", "glo": True, "cre": True, "pre": "de Nativitate"},
@@ -94,12 +94,12 @@ class TemporalData:
             },
             # FIX: test this
             "SNameJesu_8_Ste": {
-                "code": "SNameJesu_8_Ste",
+                "id": "SNameJesu_8_Ste",
                 "rank": [10, "d II cl"],
                 "color": "white",
                 "mass": {"int": "In nomine Jesu", "glo": True, "cre": True, "pre": "de Nativitate"},
                 "com_1": {
-                    "code": "8_Stephen",
+                    "id": "8_Stephen",
                     "rank": [20, "s"],
                     "color": "white",
                     "mass": {"int": "Sederunt", "glo": True, "cre": False, "pre": "de Nativitate"},
@@ -126,7 +126,7 @@ class TemporalData:
 
             # Epiphany Season
             "V_Epiphany": {
-                "code": "V_Epiphany",
+                "id": "V_Epiphany",
                 "rank": [12, "sd Vig privil 2 cl"],
                 "color": "purple",
                 "mass": {"int": "Dum medium silentium", "glo": True, "cre": True, "pre": "de Nativitate"},
@@ -143,7 +143,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "Epiphany": {
-                "code": "Epiphany",
+                "id": "Epiphany",
                 "rank": [2, "d I cl cum Oct privil 2 ord"],
                 "color": "white",
                 "mass": {"int": "Ecce advenit", "glo": True, "cre": True, "pre": "de Epiphania"},
@@ -160,7 +160,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8_Epiphany": {
-                "code": "8_Epiphany",
+                "id": "8_Epiphany",
                 "rank": [13, "dm"],
                 "color": "white",
                 "mass": {"int": "Ecce advenit", "glo": True, "cre": True, "pre": "Communis"},
@@ -177,7 +177,7 @@ class TemporalData:
                 "nobility": (3, 2, 6, 1, 3, 0), # TODO: what is the solemnity?
             },
             "D_Epiphany": {
-                "code": "D_Epiphany",
+                "id": "D_Epiphany",
                 "rank": [13, "dm"],
                 "color": "white",
                 "mass": {"int": "Ecce advenit", "glo": True, "cre": True, "pre": "et Comm de Epiphania"},
@@ -196,7 +196,7 @@ class TemporalData:
 
             # Holy Family
             "HolyFamily": {
-                "code": "HolyFamily",
+                "id": "HolyFamily",
                 "rank": [11, "dm"],
                 "color": "white",
                 "mass": {"int": "Exultat", "glo": True, "cre": True, "pre": "et communcantes de Epiphania"},
@@ -213,11 +213,11 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "D_HolyFamily": {
-                "code": "D_HolyFamily",
+                "id": "D_HolyFamily",
                 "rank": [11, "dm"],
                 "color": "white",
                 "mass": {"int": "In excelso", "glo": True, "cre": True, "pre": "et Comm de Epiphania"},
-                "com_1": {"code": "D_Epiphany"},
+                "com_1": {"id": "D_Epiphany"},
                 "com_2": {},
                 "com_3": {},
                 "matins": {},
@@ -234,7 +234,7 @@ class TemporalData:
 
             # Ash Wednesday and the follwing
             "de_AshWed": {
-                "code": "de_AshWed",
+                "id": "de_AshWed",
                 "rank": [3, "s I cl"],
                 "color": "purple",
                 "mass": {"int": "Misereris", "glo": True, "cre": True, "pre": "de Quadragesima"},
@@ -251,7 +251,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "AshWed_f5": {
-                "code": "AshWed_f5",
+                "id": "AshWed_f5",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Dum clamarem", "glo": False, "cre": False, "pre": "de Quadragesima"},
@@ -268,7 +268,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "AshWed_f6": {
-                "code": "AshWed_f6",
+                "id": "AshWed_f6",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Audivit", "glo": False, "cre": False, "pre": "de Quadragesima"},
@@ -285,7 +285,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "AshWed_fs": {
-                "code": "AshWed_fs",
+                "id": "AshWed_fs",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Audivit", "glo": False, "cre": False, "pre": "de Quadragesima"},
@@ -303,7 +303,7 @@ class TemporalData:
             },
 
             "D_Lent_1": {
-                "code": "D_Lent_1",
+                "id": "D_Lent_1",
                 "rank": [1, "sd I cl"],
                 "color": "purple",
                 "mass": {"int": "Invocabit me", "glo": False, "cre": True, "pre": "de Quadragesima"},
@@ -322,7 +322,7 @@ class TemporalData:
 
             # Ember days in Lent
             "Ember_Lent_4": {
-                "code": "Ember_Lent_4",
+                "id": "Ember_Lent_4",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Reminiscere", "glo": False, "cre": False, "pre": "de Quadragesima"},
@@ -339,7 +339,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "Ember_Lent_6": {
-                "code": "Ember_Lent_6",
+                "id": "Ember_Lent_6",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "De necessitatibus", "glo": False, "cre": False, "pre": "de Quadragesima"},
@@ -356,7 +356,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "Ember_Lent_s": {
-                "code": "Ember_Lent_s",
+                "id": "Ember_Lent_s",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Intret", "glo": False, "cre": False, "pre": "de Quadragesima"},
@@ -374,7 +374,7 @@ class TemporalData:
             },
 
             "SevenSorrows": {
-                "code": "SevenSorrows",
+                "id": "SevenSorrows",
                 "rank": [14, "dm"],
                 "color": "purple",
                 "mass": {"int": "Stabant", "glo": False, "seq": "Stabat Mater", "cre": True, "pre": "de B. Maria Virg."},
@@ -394,7 +394,7 @@ class TemporalData:
             # Holy Week Ferias:
             # TODO: check the verbose rank
             "de_Palm_f2": {
-                "code": "de_Palm_f2",
+                "id": "de_Palm_f2",
                 "rank": [3, "s"],
                 "color": "purple",
                 "mass": {"int": "Judica, Domine", "glo": False, "cre": False, "pre": "de Cruce"},
@@ -411,7 +411,7 @@ class TemporalData:
                 "nobility": (9, 2, 6, 13, 1, 0,),
             },
             "de_Palm_f3": {
-                "code": "de_Palm_f3",
+                "id": "de_Palm_f3",
                 "rank": [3, "s"],
                 "color": "purple",
                 "mass": {"int": "Nos autem", "glo": False, "cre": False, "pre": "de Cruce"},
@@ -428,7 +428,7 @@ class TemporalData:
                 "nobility": (9, 2, 6, 13, 1, 0,),
             },
             "de_Palm_f4": {
-                "code": "de_Palm_f4",
+                "id": "de_Palm_f4",
                 "rank": [3, "s"],
                 "color": "purple",
                 "mass": {"int": "In nomine Jesu", "glo": False, "cre": False, "pre": "de Cruce"},
@@ -447,7 +447,7 @@ class TemporalData:
 
             # Triduum:
             "de_Palm_f5": {
-                "code": "de_Palm_f5",
+                "id": "de_Palm_f5",
                 "rank": [2, "d I cl"],
                 "color": "white",
                 "mass": {"int": "Nos autem", "glo": True, "cre": False, "pre": "de Cruce"},
@@ -464,7 +464,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "de_Palm_f6": {
-                "code": "de_Palm_f6",
+                "id": "de_Palm_f6",
                 "rank": [2, "d I cl"],
                 "color": "black",
                 "mass": {"int": "Haec dicit", "glo": False, "cre": False, "pre": ""},
@@ -481,7 +481,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "de_Palm_fs": {
-                "code": "de_Palm_fs",
+                "id": "de_Palm_fs",
                 "rank": [2, "d I cl"],
                 "color": "purple",
                 "mass": {"int": "In Missa", "glo": True, "cre": False, "pre": "Te quidem"},
@@ -500,7 +500,7 @@ class TemporalData:
 
             # Easter Week TODO: Easter Vespers:
             "Easter": {
-                "code": "Easter",
+                "id": "Easter",
                 "rank": [1, "d I cl cum Oct privil I ord"],
                 "color": "white",
                 "mass": {"int": "Ressurexi", "glo": True, "seq": "Victimae paschali laudes", "cre": True, "pre": "Paschalis"},
@@ -517,7 +517,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8Easter_f2": {
-                "code": "8Easter_f2",
+                "id": "8Easter_f2",
                 "rank": [2, "d I cl"],
                 "color": "white",
                 "mass": {"int": "Introduxit", "glo": True, "seq": "Victimae paschali laudes", "cre": True, "pre": "et Comm et Hanc Igitur, ut in die Paschae"},
@@ -534,7 +534,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8Easter_f3": {
-                "code": "8Easter_f3",
+                "id": "8Easter_f3",
                 "rank": [2, "d I cl"],
                 "color": "white",
                 "mass": {"int": "Aqua sapientiae", "glo": True, "seq": "Victimae paschali laudes", "cre": True, "pre": "et Comm et Hanc Igitur, ut in die Paschae"},
@@ -551,7 +551,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8Easter_f4": {
-                "code": "8Easter_f4",
+                "id": "8Easter_f4",
                 "rank": [3, "sd"],
                 "color": "white",
                 "mass": {"int": "Venite", "glo": True, "seq": "Victimae paschali laudes", "cre": True, "pre": "et Comm et Hanc Igitur, ut in die Paschae"},
@@ -568,7 +568,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8Easter_f5": {
-                "code": "8Easter_f5",
+                "id": "8Easter_f5",
                 "rank": [3, "sd"],
                 "color": "white",
                 "mass": {"int": "Victricem", "glo": True, "seq": "Victimae paschali laudes", "cre": True, "pre": "et Comm et Hang Igitur, ut in die Paschae"},
@@ -585,7 +585,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8Easter_f6": {
-                "code": "8Easter_f6",
+                "id": "8Easter_f6",
                 "rank": [3, "sd"],
                 "color": "white",
                 "mass": {"int": "Eduxit eos", "glo": True, "seq": "Victimae paschali laudes", "cre": True, "pre": "et Comm et Hanc Igitur, ut in die Paschae"},
@@ -602,7 +602,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "WhitSaturday": {
-                "code": "WhitSaturday",
+                "id": "WhitSaturday",
                 "rank": [3, "sd"],
                 "color": "white",
                 "mass": {"int": "Eduxit Dominus", "glo": True, "seq": "Victimae paschali laudes", "cre": True, "pre": "et Comm et Hanc Igitur, ut in die Paschae"},
@@ -621,7 +621,7 @@ class TemporalData:
 
             # Solemnity of St. Joseph  TODO: add the octave
             "StJoseph": {
-                "code": "StJoseph", #, C. et Ecclesiæ Universalis Patroni",
+                "id": "StJoseph", #, C. et Ecclesiæ Universalis Patroni",
                 "rank": [2, "d I cl cum Oct Communi"],
                 "color": "white",
                 "mass": {"int": "Justus ut palma", "glo": True, "cre": True, "pre": "de S Joseph"},
@@ -638,7 +638,7 @@ class TemporalData:
                 "nobility": (1, 2, 4, 4, 1, 0),
             },
             "8_StJoseph": {
-                "code": "8_StJoseph",
+                "id": "8_StJoseph",
                 "rank": [13, "dm"],
                 "color": "white",
                 "mass": {"int": "Missa", "glo": True, "cre": True, "pre": "Communis"},
@@ -657,7 +657,7 @@ class TemporalData:
 
             # Rogation Days
             "Rogation_1": {
-                "code": "Rogation_1",
+                "id": "Rogation_1",
                 "rank": [19, "feria"],
                 "color": "purple",
                 "mass": {"int": "Exaudivit", "glo": False, "cre": True, "pre": "Paschalis"},
@@ -674,7 +674,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 13, 0, 0,),
             },
             "Rogation_2": {
-                "code": "Rogation_2",
+                "id": "Rogation_2",
                 "rank": [23, "feria"],
                 "color": "purple",
                 "mass": {"int": "Exaudivit", "glo": False, "cre": True, "pre": "Paschalis"},
@@ -691,7 +691,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 13, 0, 0,),
             },
             "Rogation_3": {
-                "code": "Rogation_3",
+                "id": "Rogation_3",
                 "rank": [23, "feria"],
                 "color": "purple",
                 "mass": {"int": "Exaudivit", "glo": False, "cre": True, "pre": "Paschalis"},
@@ -711,7 +711,7 @@ class TemporalData:
 
             # Ascension
             "Ascension": {
-                "code": "Ascension",
+                "id": "Ascension",
                 "rank": [2, "d I cl cum Oct privil 3 ord"],
                 "color": "white",
                 "mass": {"int": "Viri Galilæi", "glo": True, "cre": True, "pre": "et Comm de Ascensione"},
@@ -728,7 +728,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8_Ascension": {
-                "code": "8_Ascension",
+                "id": "8_Ascension",
                 "rank": [13, "dm"],
                 "color": "white",
                 "mass": {"int": "Viri Galilæi", "glo": True, "cre": True, "pre": "et Comm de Ascensione"},
@@ -747,7 +747,7 @@ class TemporalData:
 
             # TODO: this day has special rules
             "p_Ascension_f6": {
-                "code": "p_Ascension_f6",
+                "id": "p_Ascension_f6",
                 "rank": [13, "dm"],
                 "color": "white",
                 "mass": {"int": "Viri Galilæi", "glo": True, "cre": True, "pre": "et Comm de Ascensione"},
@@ -766,7 +766,7 @@ class TemporalData:
 
             # TODO: see if this is right
             "D_Ascension": {
-                "code": "D_Ascension",
+                "id": "D_Ascension",
                 "rank": [16, "sd"], # FIX: check the rank and the Introit
                 "color": "white",
                 "mass": {"int": "Exaudi, Domine", "glo": True, "cre": False, "pre": "de Ascensione"},
@@ -784,7 +784,7 @@ class TemporalData:
             },
 
             "S_8_Ascension": {
-                "code": "S_8_Ascension",
+                "id": "S_8_Ascension",
                 "rank": [17, "sd"],
                 "color": "white",
                 "mass": {"int": "Exaudi, Domine", "glo": True, "cre": False, "pre": "de Ascensione"},
@@ -802,7 +802,7 @@ class TemporalData:
             },
 
             "WhitSunday": {
-                "code": "WhitSunday",
+                "id": "WhitSunday",
                 "rank": [1, "dm I cl"],
                 "color": "white",
                 "mass": {"int": "Quasi modo", "glo": True, "cre": True, "pre": "Paschalis"},
@@ -821,7 +821,7 @@ class TemporalData:
             },
 
             "V_Pentecost": {
-                "code": "V_Pentecost",
+                "id": "V_Pentecost",
                 "rank": [3, "d I cl Vig privil I cl"],
                 "color": "red",
                 "mass": {"int": "Cum sanctificatus", "glo": True, "cre": False, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -840,7 +840,7 @@ class TemporalData:
 
             # Pentecost Week
             "Pentecost": {
-                "code": "Pentecost",
+                "id": "Pentecost",
                 "rank": [1, "d I cl cum Oct privil I ord"],
                 "color": "red",
                 "mass": {"int": "Spiritus Domini", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -858,7 +858,7 @@ class TemporalData:
             },
             # TODO: see if the first two ferias are 2 or 3
             "8Pent_f2": {
-                "code": "8Pent_f2",
+                "id": "8Pent_f2",
                 "rank": [3, "d I cl"],
                 "color": "red",
                 "mass": {"int": "Cibavit eos", "glo": True, "cre": True, "seq": "Veni, Sancte Spiritus", "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -875,7 +875,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8Pent_f3": {
-                "code": "8Pent_f3",
+                "id": "8Pent_f3",
                 "rank": [3, "d I cl"],
                 "color": "red",
                 "mass": {"int": "Cibavit eos", "glo": True, "cre": True, "seq": "Veni, Sancte Spiritus", "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -892,7 +892,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8Pent_f5": {
-                "code": "8Pent_f5",
+                "id": "8Pent_f5",
                 "rank": [3, "d I cl"],
                 "color": "red",
                 "mass": {"int": "Accepite jucunditatem", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -910,7 +910,7 @@ class TemporalData:
             },
 
             "Ember_Pent_4": {
-                "code": "Ember_Pent_4",
+                "id": "Ember_Pent_4",
                 "rank": [3, "sd"],
                 "color": "red",
                 "mass": {"int": "Deus, dum egredereris", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -927,7 +927,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "Ember_Pent_6": {
-                "code": "Ember_Pent_6",
+                "id": "Ember_Pent_6",
                 "rank": [3, "sd"],
                 "color": "red",
                 "mass": {"int": "Repleatur os meum", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -944,7 +944,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "Ember_Pent_s": {
-                "code": "Ember_Pent_s",
+                "id": "Ember_Pent_s",
                 "rank": [3, "sd"],
                 "color": "red",
                 "mass": {"int": "Caritas Dei", "glo": True, "seq": "Veni, Sancte Spiritus", "cre": True, "pre": "et Comm et Hanc Igitur de Pentecoste"},
@@ -963,7 +963,7 @@ class TemporalData:
 
             # First three post-Pentecost Sundays
             "Trinity": {
-                "code": "Trinity",
+                "id": "Trinity",
                 "rank": [2, "d I cl"],
                 "color": "white",
                 "mass": {"int": "Benedicta sit", "glo": True, "cre": True, "pre": "de Ssma Trinitate"},
@@ -980,7 +980,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "D_Pent_2": {
-                "code": "D_Pent_2", #Christi (Dominica II post Pentecosten)",
+                "id": "D_Pent_2", #Christi (Dominica II post Pentecosten)",
                 "rank": [9, "sd"],
                 "color": "green",
                 "mass": {"int": "Factus est", "glo": True, "seq": "Lauda, Sion, Salvatorem", "cre": True, "pre": "de Nativitate, vel de Ssma Trinitate"},
@@ -997,7 +997,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "D_Pent_3": {
-                "code": "D_Pent_3",  # (Dominica III post Pentecosten)",
+                "id": "D_Pent_3",  # (Dominica III post Pentecosten)",
                 "rank": [12, "sd"],
                 "color": "green",
                 "mass": {"int": "Respice in me", "glo": True, "cre": True, "pre": "de sacratissimo Code Jesu"},
@@ -1015,7 +1015,7 @@ class TemporalData:
             },
 
             "CorpusChristi": {
-                "code": "CorpusChristi",
+                "id": "CorpusChristi",
                 "rank": [2, "d I cl cum Oct privil 2 ord"],
                 "color": "white",
                 "mass": {"int": "Cibavit eos", "glo": True, "seq": "Lauda, Sion", "cre": True, "pre": "de Nativitate"},
@@ -1033,7 +1033,7 @@ class TemporalData:
             },
 
             "8_CorpusChristi": {
-                "code": "8_CorpusChristi",
+                "id": "8_CorpusChristi",
                 "rank": [4, "dm"],
                 "color": "white",
                 "mass": {"int": "Cibavit eos", "glo": True, "seq": "Lauda, Sion", "cre": True, "pre": "de Nativitate"},
@@ -1051,7 +1051,7 @@ class TemporalData:
             },
 
             "SacredHeart": {
-                "code": "SacredHeart",
+                "id": "SacredHeart",
                 "rank": [2, "d I cl cum Oct privil 3 ord"],
                 "color": "white",
                 "mass": {"int": "Cogitationes", "glo": True, "cre": True, "pre": "de Ssmo Corde Iesu"},
@@ -1069,7 +1069,7 @@ class TemporalData:
             },
 
             "8_SacredHeart": {
-                "code": "8_SacredHeart",
+                "id": "8_SacredHeart",
                 "rank": [13, "dm"],
                 "color": "white",
                 "mass": {"int": "Cogitationes", "glo": True, "cre": True, "pre": "de Ssmo Corde Iesu"},
@@ -1087,7 +1087,7 @@ class TemporalData:
             },
 
             "Ember_Sept_4": {
-                "code": "Ember_Sept_4",
+                "id": "Ember_Sept_4",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Exsultate Deo", "glo": False, "cre": False, "pre": "Communis"},
@@ -1105,7 +1105,7 @@ class TemporalData:
             },
 
             "Ember_Sept_6": {
-                "code": "Ember_Sept_6",
+                "id": "Ember_Sept_6",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Laetetur cor", "glo": False, "cre": False, "pre": "Communis"},
@@ -1122,7 +1122,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "Ember_Sept_s": {
-                "code": "Ember_Sept_s",
+                "id": "Ember_Sept_s",
                 "rank": [19, "s"],
                 "color": "purple",
                 "mass": {"int": "Venite, adoremus", "glo": False, "cre": False, "pre": "Communis"},
@@ -1141,7 +1141,7 @@ class TemporalData:
 
             # Christ the King
             "ChristKing": {
-                "code": "ChristKing",
+                "id": "ChristKing",
                 "rank": [2, "d I cl"],
                 "color": "white",
                 "mass": {"int": "Dignus est", "glo": True, "cre": True, "pre": "de DNJC Rege"},
@@ -1160,7 +1160,7 @@ class TemporalData:
 
             # Ember Days of Advent
             "Ember_Advent_4": {
-                "code": "Ember_Advent_4",
+                "id": "Ember_Advent_4",
                 "rank": [19, "feria"], # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Rorate cæli", "glo": False, "cre": False, "pre": "Communis"},
@@ -1177,7 +1177,7 @@ class TemporalData:
                 "nobility": (9, 2, 6, 13, 3, 0),
             },
             "Ember_Advent_6": {
-                "code": "Ember_Advent_6",
+                "id": "Ember_Advent_6",
                 "rank": [19, "feria"], # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Prope es tu", "glo": False, "cre": False, "pre": "Communis"},
@@ -1194,7 +1194,7 @@ class TemporalData:
                 "nobility": (9, 2, 6, 13, 3, 0),
             },
             "Ember_Advent_s": {
-                "code": "Ember_Advent_s",
+                "id": "Ember_Advent_s",
                 "rank": [19, "feria"],  # TODO: check the rank for this
                 "color": "purple",
                 "mass": {"int": "Veni, et ostende", "glo": False, "cre": False, "pre": "Communis"},
@@ -1214,7 +1214,7 @@ class TemporalData:
 
             # Christmastide
             "V_Christmas": {
-                "code": "V_Christmas",
+                "id": "V_Christmas",
                 "rank": [3, "d I cl Vig privil I cl"],
                 "color": "purple",
                 "mass": {"int": "Hodie scietis", "glo": False, "cre": False, "pre": "Communis"},
@@ -1231,7 +1231,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "DV_Christmas": {
-                "code": "DV_Christmas",
+                "id": "DV_Christmas",
                 "rank": [3, "d I cl Vig privil I cl"],
                 "color": "purple",
                 "mass": {"int": "Hodie scietis", "glo": False, "cre": True, "pre": "de Trinitate"},
@@ -1248,7 +1248,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "Christmas": {
-                "code": "Christmas",
+                "id": "Christmas",
                 "rank": [2, "d I cl cum Oct privil 3 ord"],
                 "color": "white",
                 "mass": {
@@ -1269,7 +1269,7 @@ class TemporalData:
                 "nobility": (1, 1, 3, 1, 1, 0),
             },
             "D_Christmas_r": {
-                "code": "D_Christmas_r",
+                "id": "D_Christmas_r",
                 "rank": [12, "sd"],
                 "color": "white",
                 "mass": {"int": "Dum medium silentium", "glo": True, "cre": True, "pre": "de Comm de Nativitate"},
@@ -1286,7 +1286,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "D_Christmas": {
-                "code": "D_Christmas",
+                "id": "D_Christmas",
                 "rank": [12, "sd"],
                 "color": "white",
                 "mass": {"int": "Dum medium", "glo": True, "cre": True, "pre": "et Comm de Nativitate"},
@@ -1303,7 +1303,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "8_Chritmas_f6": {
-                "code": "8_Chritmas_f6",
+                "id": "8_Chritmas_f6",
                 "rank": [16, "sd"],
                 "color": "white",
                 "mass": {"int": "Puer natus est nobis", "glo": True, "cre": True, "pre": "et Comm de Nativitate"},
@@ -1319,7 +1319,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "StStephan": {
-                "code": "StStephan",
+                "id": "StStephan",
                 "rank": [10, "d II cl cum Oct simplici"],
                 "color": "red",
                 "mass": {"int": "Sederunt", "glo": True, "cre": True, "pre": "et Comm de Nativitate"},
@@ -1336,7 +1336,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "StJohn": {
-                "code": "StJohn",
+                "id": "StJohn",
                 "rank": [10, "d II cl cum Oct simplici"],
                 "color": "white",
                 "mass": {"int": "In medio ecclesiæ", "glo": True, "cre": True, "pre": "et Comm de Nativitate"},
@@ -1353,7 +1353,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "StsInnocents": {
-                "code": "StsInnocents",
+                "id": "StsInnocents",
                 "rank": [10, "d II cl cum Oct simplici"],
                 "color": "red",
                 "mass": {"int": "Ex ore infantium", "glo": True, "cre": True, "pre": "et Comm de Nativitate"},
@@ -1370,7 +1370,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "StThomas": {
-                "code": "StThomas",
+                "id": "StThomas",
                 "rank": [15, "d"],
                 "color": "red",
                 "mass": {"int": "Gaudeamus omnes", "glo": True, "cre": True, "pre": "et Comm de Nativitate"},
@@ -1387,7 +1387,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "StSylvester": {
-                "code": "StSylvester",
+                "id": "StSylvester",
                 "rank": [15, "d"],
                 "color": "white",
                 "mass": {"int": "Si diligis me", "glo": False, "cre": True, "pre": "et Comm de Nativitate"},
@@ -1405,7 +1405,7 @@ class TemporalData:
             },
 
             "D_StThomas": {
-                "code": "D_StThomas",
+                "id": "D_StThomas",
                 "rank": [15, "d"],
                 "color": "red",
                 "mass": {"int": "Gaudeamus omnes", "glo": True, "cre": True, "pre": "et Comm de Nativitate"},
@@ -1422,7 +1422,7 @@ class TemporalData:
                 "nobility": (0, 0, 0, 0, 0, 0,),
             },
             "D_StSylvester": {
-                "code": "D_StSylvester",
+                "id": "D_StSylvester",
                 "rank": [15, "d"],
                 "color": "white",
                 "mass": {"int": "Si diligis me", "glo": False, "cre": True, "pre": "et Comm de Nativitate"},
@@ -1472,7 +1472,7 @@ class TemporalData:
                 if feria == 0:
                     the_days |= {
                         date: {
-                            "code": date,
+                            "id": date,
                             "rank": [rank, "sd I cl"],  # FIX: check this
                             "color": f"{'purple' if x+1 != 4 else 'pink'}",
                             "mass": {
@@ -1497,8 +1497,8 @@ class TemporalData:
                 else:
                     the_days |= {
                         f"de_{'Lent' if x < 4 else 'Passion'}_f{feria+1 if feria != 6 else 's'}": {
-                            # "code": f"Feria {integer_to_roman(feria+1)} infra Hebd {integer_to_roman(x+1)} in Quadragesima",
-                            "code": f"de_{'Lent' if x < 4 else 'Passion'}_f{feria+1 if feria != 6 else 's'}",
+                            # "id": f"Feria {integer_to_roman(feria+1)} infra Hebd {integer_to_roman(x+1)} in Quadragesima",
+                            "id": f"de_{'Lent' if x < 4 else 'Passion'}_f{feria+1 if feria != 6 else 's'}",
                             "rank": [19, "feria"],
                             "color": "purple",
                             "mass": {
@@ -1525,7 +1525,7 @@ class TemporalData:
     def ascension_ferias(self) -> dict:
         return { # NOTE: there are duplicates, but does it matter?
             f"in_8_Ascension_{date}": {
-                "code": f"in_8_Ascension_{date}",
+                "id": f"in_8_Ascension_{date}",
                 "rank": [16, "sd"],
                 "color": "white",
                 "mass": {"int": "Viri galilæi", "glo": True, "cre": False, "pre": "de Ascensione"},
@@ -1546,7 +1546,7 @@ class TemporalData:
     def corpus_ferias(self) -> dict:
         return {
             f"{date+1}_in_8_CorpusChristi": {
-                "code": f"{date+1}_in_8_CorpusChristi",
+                "id": f"{date+1}_in_8_CorpusChristi",
                 "rank": [9, "sd"],
                 "color": "white",
                 "mass": {"int": "Cibavit eos", "glo": True, "seq": "Lauda, Sion", "cre": True, "pre": "de Nativitate"},
@@ -1567,7 +1567,7 @@ class TemporalData:
     def sacredheart_ferias(self) -> dict:
         return {
             f"{date+1}_in_8_SacredHeart": {
-                "code": f"{date+1}_in_8_SacredHeart",
+                "id": f"{date+1}_in_8_SacredHeart",
                 "rank": [18, "sd"], # TODO: verify this rank
                 "color": "white",
                 "mass": {"int": "Cogitationes", "glo": True, "cre": True, "pre": "de Ssmo Corde Iesu"},
@@ -1592,7 +1592,7 @@ class TemporalData:
         for date in range(4, 29):
             pentecost_season |= {
                 f"D_Pent_{date}": {
-                    "code": f"D_Pent_{date}",
+                    "id": f"D_Pent_{date}",
                     "rank": [12, "sd"],
                     "color": "green",
                     "mass": {"int": f"{PENTECOST_MASSES[date-5] if date >= 4 else ''}", "glo": True, "cre": True, "pre": "de Trinitate"},
@@ -1612,7 +1612,7 @@ class TemporalData:
             for feria in range(6):
                 pentecost_season |= {
                     f"de_Pent_{date}_f{feria+2 if feria != 5 else 's'}": {
-                        "code": f"de_Pent_{date}_f{feria+2 if feria != 5 else 's'}",
+                        "id": f"de_Pent_{date}_f{feria+2 if feria != 5 else 's'}",
                         "rank": [23, "sd"],
                         "color": "green",
                         "mass": {"int": f"{PENTECOST_MASSES[date-5] if date >= 4 else ''}", "glo": True, "cre": False, "pre": "Communi"},
@@ -1641,7 +1641,7 @@ class TemporalData:
             for epiph in range(2, 7):  # starting at 2 needed for the year 2156
                 epiphany_pents |= {
                     f"D_Epiph_{epiph}_{pent}": {
-                        "code": f"D_Epiph_{epiph}_{pent}",
+                        "id": f"D_Epiph_{epiph}_{pent}",
                         "rank": [12, "sd"],
                         "color": "green",
                         "mass": {"int": "Dicit Dominus", "glo": True, "cre": True, "pre": "de Trinitate"},
@@ -1661,7 +1661,7 @@ class TemporalData:
                 for feria in range(6):
                     epiphany_pents |= {
                         f"de_Epiph_{epiph}_{pent}_f{feria+2 if feria != 5 else 's'}": {
-                            "code": f"de_Epiph_{epiph}_{pent}_f{feria+2 if feria != 5 else 's'}",
+                            "id": f"de_Epiph_{epiph}_{pent}_f{feria+2 if feria != 5 else 's'}",
                             "rank": [23, "feria"],
                             "color": "green",
                             "mass": {"int": "Dicit Dominus", "glo": True, "cre": False, "pre": "Communi"},
@@ -1685,7 +1685,7 @@ class TemporalData:
         for pent in range(23, 29):
             last_pents |= {
                 f"D_UltPent_{pent}": {
-                    "code": f"D_UltPent_{pent}",
+                    "id": f"D_UltPent_{pent}",
                     "rank": [12, "sd"],
                     "color": "green",
                     "mass": {"int": PENTECOST_MASSES[-1], "glo": True, "cre": True, "pre": "de Trinitate"},
@@ -1705,7 +1705,7 @@ class TemporalData:
             for feria in range(6):
                 last_pents |= {
                     f"de_UltPent_{pent}_f{feria+2 if feria != 5 else 's'}": {
-                        "code": f"de_UltPent_{pent}_f{feria+2 if feria != 5 else 's'}",
+                        "id": f"de_UltPent_{pent}_f{feria+2 if feria != 5 else 's'}",
                         "rank": [23, "feria"],
                         "color": "green",
                         "mass": {"int": PENTECOST_MASSES[-1], "glo": True, "cre": False, "pre": "Communi"},
@@ -1735,7 +1735,7 @@ class TemporalData:
         for x, introit in enumerate(advent_sundays):
             advent_season |= {
                 f"D_Advent_{x+1}": { # TODO: verify that 2-4 advents are minor sundays
-                                    "code": f"D_Advent_{x+1}",
+                                    "id": f"D_Advent_{x+1}",
                                     "rank": [1 if x == 0 else 12, f"{'sd I cl' if x == 0 else 'sd II cl'}"],
                                     "color": f"{'purple' if x+1 != 3 else 'pink'}",
                                     "mass": {"int": f"{introit}", "glo": False, "cre": True, "pre": "de Trinitate"},
@@ -1755,7 +1755,7 @@ class TemporalData:
             for feria in range(6):
                 advent_season |= {
                     f"de_Advent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
-                        "code": f"de_Advent_{x+1}_f{feria+2 if feria != 5 else 's'}",
+                        "id": f"de_Advent_{x+1}_f{feria+2 if feria != 5 else 's'}",
                         "rank": [23, "feria"], # FIX: change the rank
                         "color": "purple",
                         "mass": {"int": f"{introit}", "glo": False, "cre": True, "pre": "de Trinitate"},
@@ -1786,7 +1786,7 @@ class TemporalData:
             for feria in range(6):
                 weeks |= {
                     f"de_Pent_{x+1}_f{feria+2 if feria != 5 else 's'}": {
-                        "code": f"de_Pent_{x+1}_f{feria+2 if feria != 5 else 's'}",
+                        "id": f"de_Pent_{x+1}_f{feria+2 if feria != 5 else 's'}",
                         "rank": [23, "feria"],  # FIX: change the ranking?
                         "color": "green",  # TODO: check if this is right for Trinity Sunday
                         "mass": {"int": introit, "glo": True, "seq": "Lauda, Sion, Salvatorem", "cre": False, "pre": "de Trinitate"},
@@ -1810,7 +1810,7 @@ class TemporalData:
         for week in range(6):
             paschaltime |= {
                 f"D_Easter_{week+1}": {
-                    "code": f"D_Easter_{week+1}",
+                    "id": f"D_Easter_{week+1}",
                     "rank": [12, "sd"],
                     "color": "white",
                     "mass": {"int": "Missa", "glo": True, "cre": True, "pre": "Paschalis"},
@@ -1831,7 +1831,7 @@ class TemporalData:
                 pass
                 paschaltime |= {
                     f"de_Easter_{week+1}_f{feria+2 if feria != 5 else 's'}": {
-                        "code": f"de_Easter_{week+1}_f{feria+2 if feria != 5 else 's'}",
+                        "id": f"de_Easter_{week+1}_f{feria+2 if feria != 5 else 's'}",
                         "rank": [23, "feria"], # FIX: check the ranking
                         "color": "white",
                         "mass": {"int": "Missa", "glo": True, "cre": False, "pre": "Communis"},
@@ -1855,7 +1855,7 @@ class TemporalData:
         for feria in range(6):
             solemnity_ferias |= {
                 f"{feria+2}_in_8_StJoseph": {
-                    "code": f"{feria+2}_in_8_StJoseph",
+                    "id": f"{feria+2}_in_8_StJoseph",
                     "rank": [18, "feria"],  # FIX: check the verbose rank
                     "color": "white",
                     "mass": {"int": "Justus ut palma", "glo": True, "cre": True, "pre": "de S Joseph"},
@@ -1879,7 +1879,7 @@ class TemporalData:
         for x, sunday in enumerate(["Septuagesima", "Sexagesima", "Quinquagesima"]):
             septuagesima |= {
                 sunday: {
-                    "code": sunday,
+                    "id": sunday,
                     "rank": [8, "sd II cl"],
                     "color": "purple",
                     "mass": {"int": "", "glo": False, "cre": True, "pre": "Communis"},
@@ -1899,7 +1899,7 @@ class TemporalData:
             for feria in range(6):
                 septuagesima |= {
                     f"de_{sunday[:4]}_f{feria+2 if feria != 5 else 's'}": {
-                        "code": f"de_{sunday[:4]}_f{feria+2 if feria != 5 else 's'}",
+                        "id": f"de_{sunday[:4]}_f{feria+2 if feria != 5 else 's'}",
                         "rank": [23, "feria"],
                         "color": "purple",
                         "mass": {"int": "", "glo": False, "cre": True, "pre": "Communis"},
@@ -1923,7 +1923,7 @@ class TemporalData:
         for sunday in range(6):
             epiphany |= {
                 f"D_Epiph_{sunday+1}": {
-                    "code": f"D_Epiph_{sunday+1}",
+                    "id": f"D_Epiph_{sunday+1}",
                     "rank": [12, "sd"],
                     "color": "green",
                     "mass": {"int": "Omnis terra", "glo": True, "cre": True, "pre": "de Ssma Trinitate"},
@@ -1943,7 +1943,7 @@ class TemporalData:
             for feria in range(6):
                 epiphany |= {
                     f"de_Epiph_{sunday+1}_{feria+2 if feria != 5 else 's'}": {
-                        "code": f"de_Epiph_{sunday+1}_{feria+2 if feria != 5 else 's'}",
+                        "id": f"de_Epiph_{sunday+1}_{feria+2 if feria != 5 else 's'}",
                         "rank": [23, "feria"],
                         "color": "white",
                         "mass": {"int": "Omnis terra", "glo": True, "cre": False, "pre": "Communis"},
@@ -1965,7 +1965,7 @@ class TemporalData:
     def epiphany_octave(self) -> dict:
         octave = {
             "8_Epiph_fs": {
-                "code": "8_Epiph_fs",
+                "id": "8_Epiph_fs",
                 "rank": [9, "feria"],
                 "color": "white",
                 "mass": {"int": "Ecce advenit", "glo": True, "cre": True, "pre": "Communis"},
@@ -1985,7 +1985,7 @@ class TemporalData:
         for feria in range(6):
             octave |= {
                 f"8_Epiph_f{feria+2}": {
-                    "code": f"8_Epiph_f{feria+2}",
+                    "id": f"8_Epiph_f{feria+2}",
                     "rank": [9, "feria"],
                     "color": "white",
                     "mass": {"int": "Ecce advenit", "glo": True, "cre": True, "pre": "Communis"},

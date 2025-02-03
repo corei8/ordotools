@@ -13,10 +13,10 @@ and occurance are figured out.
 
 def existing_commemoration(feast):
 
-    # TODO: rename all the "code"s to "ID"
+    # TODO: rename all the "id"s to "ID"
 
-    if "code" in feast.com_1.keys():
-        if "code" in feast.com_2.keys():
+    if "id" in feast.com_1.keys():
+        if "id" in feast.com_2.keys():
             return 2
         else:
             return 1
@@ -30,13 +30,13 @@ def add_commemorations(feast, first, second=None):
 
     addition_index = existing_commemoration(feast)
     if addition_index == 1:
-        feast.com_2["code"] = first
+        feast.com_2["id"] = first
     elif addition_index == 2:
-        feast.com_3["code"] = first
+        feast.com_3["id"] = first
     else:
-        feast.com_1["code"] = first
+        feast.com_1["id"] = first
         if second is not None:
-            feast.com_2["code"] = second
+            feast.com_2["id"] = second
     return feast
 
 
@@ -55,7 +55,7 @@ def fidelium(feast, bound):
                     ):
                 pass
             else:
-                feast.com_2 = {"code": 99912}
+                feast.com_2 = {"id": 99912}
                 month = feast.date.strftime("%B")
 
         if feast.date.strftime("%w") == 1:
@@ -64,10 +64,10 @@ def fidelium(feast, bound):
             elif bound.lent_begins < feast.date < bound.lent_ends:
                 pass
             else:
-                if feast.com_2["code"] == 99912:
+                if feast.com_2["id"] == 99912:
                     pass
                 else:
-                    feast.com_2 = {"code": 99912}
+                    feast.com_2 = {"id": 99912}
     return feast
 
 

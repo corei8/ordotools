@@ -44,7 +44,7 @@ class LiturgicalCalendar:
             new_feast = Feast(
                 feast.date+days(day),
                 {
-                    "code": feast.code+1,
+                    "id": feast.id+1,
                     "rank": [feast.rank_n, feast.rank_v],
                     "infra_octave_name": feast.infra_octave_name,
                     "day_in_octave": feast.day_in_octave,
@@ -68,7 +68,7 @@ class LiturgicalCalendar:
             else:
                 new_feast.day_in_octave = day
             new_feast.fasting = False
-            new_feast.rank_v = "sd" # WARN: Verify that this is always the case...
+            new_feast.rank_v = "sd"  # WARN: Verify that this is always the case...
             new_feast.rank_n = 18 if day < 6 else 13
             new_feast.reset_commemorations()
             octave += (new_feast,)
@@ -77,14 +77,14 @@ class LiturgicalCalendar:
 
     def find_octave(self, year: tuple) -> tuple:
         year = list(year)
-        temporals = [feast["code"] for feast in self.temporal.values()]
+        temporals = [feast["id"] for feast in self.temporal.values()]
         for candidate in year:
             if isinstance(candidate, list):
-                print(f"list of {candidate[0].code} and {candidate[1].code}")
-            if candidate.code in temporals:
+                print(f"list of {candidate[0].id} and {candidate[1].id}")
+            if candidate.id in temporals:
                 continue
             elif candidate.octave is True:
-                logging.debug(f"Building octave for {candidate.code} with octave set to {candidate.octave}")
+                logging.debug(f"Building octave for {candidate.id} with octave set to {candidate.octave}")
                 position = year.index(candidate)
                 octave = self.expand_octaves(candidate)
                 octave_days = self.add_feasts(master=year[position:position+8], addition=octave)
@@ -173,28 +173,31 @@ class LiturgicalCalendar:
         return tuple(year)
 
     def add_translation(self, compiled_calendar: tuple) -> list:
+        """
+        Finds the translation for each code
+        """
         year = []
         translations = Translations()
         for feast in compiled_calendar:
-            if isinstance(feast.code, int):
-                if feast.code % 10 == 1:
-                    feast.name = translations.octave(self.language, feast.day_in_octave, feast.code)
+            if isinstance(feast.id, int):
+                if feast.id % 10 == 1:
+                    feast.name = translations.octave(self.language, feast.day_in_octave, feast.id)
                 else:
-                    feast.name = translations.translations()[feast.code][self.language]
+                    feast.name = translations.translations()[feast.id][self.language]
             else:
-                feast.name = translations.translations()[feast.code][self.language]
+                feast.name = translations.translations()[feast.id][self.language]
 
             # NOTE: just for the commemorations
-            if "code" in feast.com_1.keys() and feast.com_1["code"] is not None:
-                feast.com_1["name"] = translations.translations()[feast.com_1["code"]][self.language]
+            if "id" in feast.com_1.keys() and feast.com_1["id"] is not None:
+                feast.com_1["name"] = translations.translations()[feast.com_1["id"]][self.language]
             else:
                 feast.com_1["name"] = None
-            if "code" in feast.com_2.keys() and feast.com_2["code"] is not None:
-                feast.com_2["name"] = translations.translations()[feast.com_2["code"]][self.language]
+            if "id" in feast.com_2.keys() and feast.com_2["id"] is not None:
+                feast.com_2["name"] = translations.translations()[feast.com_2["id"]][self.language]
             else:
                 feast.com_2["name"] = None
-            if "code" in feast.com_3.keys() and feast.com_3["code"] is not None:
-                feast.com_3["name"] = translations.translations()[feast.com_3["code"]][self.language]
+            if "id" in feast.com_3.keys() and feast.com_3["id"] is not None:
+                feast.com_3["name"] = translations.translations()[feast.com_3["id"]][self.language]
             else:
                 feast.com_3["name"] = None
 

@@ -8,7 +8,7 @@ class Country:
         self.year = year
         self.data = {
             day(year=self.year, month=0, day=0): {
-                "code": 000,
+                "id": 000,
                 "rank": [0, ""],  # check the ranking
                 "nobility": (False,),
                 "com": [],

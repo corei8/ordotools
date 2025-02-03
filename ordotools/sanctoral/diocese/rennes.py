@@ -18,7 +18,7 @@ class Diocese:
         self.data = {
 
             day(year=self.year, month=1, day=3): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -38,7 +38,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -58,7 +58,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -78,7 +78,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -98,7 +98,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -118,7 +118,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -138,7 +138,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -158,7 +158,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -178,7 +178,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -198,7 +198,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -218,7 +218,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -238,7 +238,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -258,7 +258,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -278,7 +278,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -298,7 +298,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -318,7 +318,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -338,7 +338,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -358,7 +358,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -378,7 +378,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -398,7 +398,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -418,7 +418,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -438,7 +438,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -458,7 +458,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -478,7 +478,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -498,7 +498,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -518,7 +518,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -538,7 +538,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -558,7 +558,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -578,7 +578,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -598,7 +598,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -618,7 +618,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -638,7 +638,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -658,7 +658,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -678,7 +678,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -698,7 +698,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -718,7 +718,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -738,7 +738,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -758,7 +758,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -778,7 +778,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -798,7 +798,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -818,7 +818,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -838,7 +838,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -858,7 +858,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -878,7 +878,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -898,7 +898,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -918,7 +918,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -938,7 +938,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -958,7 +958,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -978,7 +978,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -998,7 +998,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,
@@ -1018,7 +1018,7 @@ class Diocese:
             },
 
             day(year=self.year, month=0, day=00): {
-                "code": 900,
+                "id": 900,
                 "rank": [00, ""],
                 "nobility": (0, 0, 0, 0, 0, 0,),
                 "office_type": False,

@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 x = datetime.now().year
 
-while x < 10000: # our algorithm for easter maxes out at 10,000...
+while x < 10000:  # our algorithm for easter maxes out at 10,000...
 
     data = LiturgicalCalendar(x, "roman", "la").build()
 
