@@ -1,16 +1,21 @@
 from ordotools.tools.feast import Feast
 import logging
+from ordotools.tools.helpers import days
+
 
 def sort_criterion(e):
     return e.rank_numeric
+
 
 def sorted_feasts(one: Feast, two: Feast) -> list:
     feasts = [one, two]
     feasts.sort(key=sort_criterion)
     return feasts
 
+
 def commemorate(feast: Feast, commemoration: Feast) -> Feast:
     # Create a lightweight dictionary representation for the commemoration
+    # NOTE: keys might be outdated
     com_data = {
         "id": commemoration.id,
         "rank": [commemoration.rank_numeric, commemoration.rank_verbose],
@@ -22,51 +27,60 @@ def commemorate(feast: Feast, commemoration: Feast) -> Feast:
         "nobility": commemoration.nobility,
         "office_type": commemoration.office_type,
     }
-    
+
     # Append to the list instead of fixed slots
     feast.commemorations.append(com_data)
-    
+
     # If the commemorated feast had its own commemorations, absorb them?
     # Logic in old code was feast.com_2 = commemoration.com_1
     if commemoration.commemorations:
         feast.commemorations.extend(commemoration.commemorations)
-        
+
     return feast
 
-translated_feasts = []
 
-def translate(feast: Feast, translated: Feast) -> Feast:
-    logging.debug(f"Translating {translated.id}")
-    translated_feasts.append(translated)
+transferred_feasts = []
+
+
+def transfer(feast: Feast, transferred: Feast) -> Feast:
+    logging.debug(f"Transferring {transferred.id}")
+    # transferred.date += days(1)  # this will mess up the merge function
+    if transferred_feasts:
+        for i, transfer in enumerate(transferred_feasts):
+            if transferred.id == transfer.id:
+                transferred_feasts.pop(i)
+    transferred_feasts.append(transferred)
     return feast
+
 
 def nobility(one: Feast, two: Feast, handler: int) -> Feast:
     logging.debug(f"Ranking by nobility between {one.id} and {two.id}")
-    
+
     # New model uses List[int] for nobility
     # Iterate through available parameters safely
     length = min(len(one.nobility), len(two.nobility))
-    
+
     for i in range(length):
         if one.nobility[i] < two.nobility[i]:
             if handler == 7:
                 return commemorate(one, two)
             else:
-                return translate(one, two)
+                return transfer(one, two)
         elif one.nobility[i] > two.nobility[i]:
             if handler == 7:
                 return commemorate(two, one)
             else:
-                return translate(two, one)
+                return transfer(two, one)
     else:
         # Fallback if identical
         return commemorate(one, two)
+
 
 def rank(dynamic: Feast, static: Feast):
     # Group definitions (using numeric ranks)
     group_one = (2, 5, 6, 7, 10, 13, 11, 14, 15, 16, 18, 19, 20, 22)
     group_two = (1, 8, 12, 3, 2, 5, 6, 7, 10, 4, 13, 11, 14, 15, 16, 9, 17, 18, 19, 20, 21)
-    
+
     one, two = None, None
     ranked = None
 
@@ -74,6 +88,7 @@ def rank(dynamic: Feast, static: Feast):
 
     # [Logic for filtering duplicates omitted for brevity - keep your existing logic]
 
+    # NOTE: I can't even remember what this means...
     if d in group_one and d in group_two:
         if s in group_one and s not in group_two:
             pass
@@ -98,10 +113,10 @@ def rank(dynamic: Feast, static: Feast):
             else:
                 one, two = dynamic, static
 
-    elif d == 21: # Our Lady Saturday
+    elif d == 21:  # Our Lady Saturday
         if s < 22:
             ranked = static
-    elif d == 23: # Feria
+    elif d == 23:  # Feria
         ranked = static
     elif s == 23:
         ranked = dynamic
@@ -117,7 +132,7 @@ def rank(dynamic: Feast, static: Feast):
             for count, group in enumerate(groups):
                 if feast_obj.rank_numeric in group:
                     return count
-            return 0 # Default
+            return 0  # Default
 
         def position_one() -> int:
             group_one_grouped = (
@@ -188,39 +203,44 @@ def rank(dynamic: Feast, static: Feast):
         elif ranking_result == 4:
             ranked = commemorate(two, one)
         elif ranking_result == 5:
-            ranked = translate(one, two)
+            ranked = transfer(one, two)
         elif ranking_result == 6:
-            ranked = translate(two, one)
+            ranked = transfer(two, one)
         elif ranking_result == 7:
             ranked = nobility(one, two, ranking_result)
         elif ranking_result == 8:
             ranked = nobility(one, two, ranking_result)
         else:
             # NOTE: I believe that this occurs when we have an anticipation?
-            # print(f"WARNING!! We have a problem with {one.id} occuring on {two.id}")
-            # BUG: were did have sorted() here before... but I am not sure if that is what
-            # we are supposed to have? maybe we defined sorted() twice...
-            return sorted_feasts(one, two)
+            # print(f"WARNING!! We have a problem with {one.id} occuring on
+            # {two.id}")
+            # BUG: were did have sorted() here before... but I am not sure if
+            # that is what we are supposed to have? maybe we defined sorted()
+            # twice...
+
+            # WARN: the issue with the transfer was the early return...
+            ranked = sorted_feasts(one, two)
+            # note that this is bad because if we return "sorted" then we
+            # cannot check for transfers... add if statement to return below
 
         # [Keep your existing group_one_grouped / group_two_grouped definitions]
         # [Keep your ranking_table]
-        
+
         # position_one = get_position(one, group_one_grouped)
         # position_two = get_position(two, group_two_grouped)
         # ranking_result = ranking_table[position_one][16 - position_two if ... else ...]
-        
 
-        # ... (Ranking logic execution using commemorate/translate functions above) ...
+        # (Ranking logic execution using commemorate/translate functions above)
         # pass
 
     if ranked is not None:
-        if not translated_feasts:
+        if not transferred_feasts:
             return ranked
         else:
             if ranked.rank_numeric > 16:
-                for translated in translated_feasts:
-                    translated.date = ranked.date
-                    translated_feasts.remove(translated)
-                    return rank(ranked, translated)
+                for transferred in transferred_feasts:
+                    transferred.date = ranked.date
+                    transferred_feasts.remove(transferred)
+                    return rank(ranked, transferred)
             else:
                 return ranked

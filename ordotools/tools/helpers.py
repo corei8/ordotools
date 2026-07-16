@@ -28,12 +28,12 @@ def easter(year: int) -> datetime:
 
 class LiturgicalYearMarks:
     _instances = {}  # Class-level cache for instances
-    
+
     def __new__(cls, year):
         # Use existing instance from cache if available
         if year in cls._instances:
             return cls._instances[year]
-        
+
         # Create new instance
         instance = super(LiturgicalYearMarks, cls).__new__(cls)
         cls._instances[year] = instance
@@ -43,14 +43,14 @@ class LiturgicalYearMarks:
         # Skip initialization if already initialized
         if hasattr(self, 'year') and self.year == year:
             return
-            
+
         self.year = year
         self.christmas = datetime(year=self.year, month=12, day=25)
-        
+
         # Pre-calculate common date references
         self._easter_date = easter(self.year)
         sunday_offset = findsunday(self.christmas)
-        
+
         self.first_advent = self.christmas - sunday_offset - timedelta(weeks=3)
         self.last_advent = self.christmas - timedelta(days=1)
 
@@ -104,6 +104,7 @@ def day(year: int, month: int, day: int) -> datetime:
 # Pre-compute common week values
 _CACHED_WEEKS = {i: timedelta(weeks=i) for i in range(1, 53)}
 
+
 @functools.lru_cache(maxsize=64)
 def weeks(i: int) -> timedelta:
     """ return a timedelta week, with integers as the input """
@@ -114,6 +115,7 @@ def weeks(i: int) -> timedelta:
 
 # Pre-compute common day values
 _CACHED_DAYS = {i: timedelta(days=i) for i in range(0, 366)}
+
 
 @functools.lru_cache(maxsize=366)
 def days(numdays: int) -> timedelta:
@@ -162,6 +164,7 @@ _MONTHS_IN_LATIN = {
     'August': 'Augustus',
 }
 
+
 @functools.lru_cache(maxsize=12)
 def translate_month(month: str) -> str:
     """ return the latin name for a given english month """
@@ -170,6 +173,7 @@ def translate_month(month: str) -> str:
 
 # Pre-compute the sevens list used in which_sunday
 _SEVENS = tuple(range(0, 31, 7))
+
 
 @functools.lru_cache(maxsize=256)
 def which_sunday(date: datetime) -> int:

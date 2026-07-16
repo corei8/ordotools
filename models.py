@@ -12,14 +12,15 @@ MassData = Union[MassDetails, Dict[str, MassDetails]]
 class Feast(BaseModel):
     id: Optional[int] = None
     name_translations: Dict[str, str] = {}
+    infra_octave_name: Dict[str, str] = {}
     date: str
     rank_verbose: str
     rank_numeric: int
     color: str
     office_type: Optional[Union[str, bool]] = None
     mass_properties: Optional[MassData] = None
-    alt_mass_properties: Optional[MassData] = None # Added for seasonal/alt masses
-    commemorations: List[Dict[str, Union[str, MassData]]] = [] # Support mass_props in comms
+    alt_mass_properties: Optional[MassData] = None  # Added for seasonal/alt masses
+    commemorations: List[Dict[str, Union[str, MassData]]] = []  # Support mass_props in comms
     nobility: List[int] = [] 
 
 class DioceseOrdo(BaseModel):

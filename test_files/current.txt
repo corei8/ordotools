@@ -1,0 +1,365 @@
+01-01 Circumcisio DNJC et Oct. Nativitatis
+01-02 Ssmi Nominis Jesu
+01-03 Octava S Joannis Ap Ev
+01-04 Octava Ss Innocentium Mm.
+01-05 Vigilia Epiphaniæ
+01-06 Epiphania DNJC
+01-07 Sabbato infra Oct Epiphaniæ
+01-08 S Familiæ Jesu, Mariæ, Joseph
+01-09 De IV die infra Oct. Epiphaniæ
+01-10 De V die infra Oct. Epiphaniæ
+01-11 De VI die infra Oct. Epiphaniæ
+01-12 De VII die infra Oct. Epiphaniæ
+01-13 Octava Epiphaniæ
+01-14 S Hilarii Episcopi ECD
+01-15 Dominica II post Epiphaniam
+01-16 S Marcelli PM
+01-17 S Antonii Abb
+01-18 Cathedræ S Petri Ap Romæ
+01-19 Ss Marii, Marthæ, Audifacis & Abachum Mm
+01-20 Ss Fabiani P et Sebastiani Mm
+01-21 S Agnetis VM
+01-22 Dominica III post Epiphaniam
+01-23 S Raymundi de Peñafort C
+01-24 S Timothei EM
+01-25 Conversio S Pauli Ap
+01-26 S Polycarpi EM
+01-27 S Joannis Chrysostomi ECD
+01-28 S Petri Nolasci C
+01-29 Dominica IV post Epiphaniam
+01-30 S Martinæ VM
+01-31 S Joannis Bosco C
+02-01 S Ignatii EM
+02-02 In Purificatione BMV
+02-03 S Blasii EM
+02-04 S Andreæ Corsini EC
+02-05 Dominica in Septuagesima
+02-06 S Titi EC
+02-07 S Romualdi Abb
+02-08 S Joannis de Matha C
+02-09 S Cyrilli Alexandrini ECD
+02-10 S Scholasticæ V
+02-11 In Apparitione BVM Immaculatæ
+02-12 Dominica in Sexagesima
+02-13 De ea
+02-14 S Valentini PM
+02-15 Ss Faustini et Jovitae Mm
+02-16 De ea
+02-17 De ea
+02-18 S Simeonis EM
+02-19 Dominica in Quinquagesima
+02-20 De ea
+02-21 De ea
+02-22 Dies Cinerum
+02-23 S Petri Damiani ECD
+02-24 S Matthiæ Ap
+02-25 Sabbatum post Diem Cinerum
+02-26 Dominica infra Hebd I in Quadragesima
+02-27 S Gabrielis a Virgine Perdolente C
+02-28 De ea
+03-01 Feria IV Quatuor Temporum Quadragesimæ
+03-02 De ea
+03-03 Feria VI Quatuor Temporum Quadragesimæ
+03-04 S Casimiri C
+03-05 Dominica infra Hebd II in Quadragesima
+03-06 Ss Perpetuæ et Felicitatiis Mm
+03-07 S Thomæ de Aquino CD
+03-08 S Joannis a Deo C
+03-09 S Franciscæ Romanæ V
+03-10 Ss Quadragintarum Mm
+03-11 De ea
+03-12 Dominica infra Hebd III in Quadragesima
+03-13 De ea
+03-14 De ea
+03-15 De ea
+03-16 De ea
+03-17 S Patricii EC
+03-18 S Cyrilii Hierosolymitani ECD
+03-19 Dominica infra Hebd IV in Quadragesima (Lætare)
+03-20 S Josephi Sponsi BMV C
+03-21 S Benedicti Abb
+03-22 De ea
+03-23 De ea
+03-24 S Gabrielis Arch
+03-25 In Annuntiatione BMV
+03-26 Dominica Passione
+03-27 S Joannis Damasceni CD
+03-28 S Joannis a Capistrano C
+03-29 De ea
+03-30 De ea
+03-31 Septem Dolorum BMV
+04-01 De ea
+04-02 Dominica Palmis
+04-03 Feria II Majoris Hebd
+04-04 Feria III Majoris Hebd
+04-05 Feria IV Majoris Hebd
+04-06 Feria V in Cœna Domini
+04-07 Feria VI in Parasceve
+04-08 Sabbatum Sanctum
+04-09 Dominica Resurrectionis
+04-10 Feria II infra Oct. Paschæ
+04-11 Feria III infra Oct. Paschæ
+04-12 Feria IV infra Oct. Paschæ
+04-13 Feria V infra Oct. Paschæ
+04-14 Feria VI infra Oct. Paschæ
+04-15 Sabbatum in Albis
+04-16 Dominica in Albis
+04-17 S Aniceti PM
+04-18 De ea
+04-19 De ea
+04-20 De ea
+04-21 S Anselmi ECD
+04-22 Ss Soteris et Caii PpMm
+04-23 Dominica II post Resurrectionis
+04-24 S Fidelis a Sigmaringa M
+04-25 S Marci Ev
+04-26 Solemnitas S Joseph, Sponsi BMV
+04-27 S Petri Canisii CD
+04-28 S Pauli a Cruce C
+04-29 S Petri M
+04-30 Dominica III post Resurrectionis
+05-01 Ss Philippi et Jacobi App
+05-02 S Athanasii ECD
+05-03 In Inventione S Crucis
+05-04 S Monicæ V
+05-05 S Pii V PC
+05-06 S Joannis ApEv ante Portam Latinam
+05-07 Dominica IV post Resurrectionis
+05-08 In Apparitione S Michaelis Arch
+05-09 S Gregorii Nanzanzeni ECD
+05-10 S Antonini EC
+05-11 De ea
+05-12 Ss Nerei, Achillei at Domitialæ V atque Pancratii Mm
+05-13 S Roberti Bellarmino ECD
+05-14 Dominica V post Resurrectionis
+05-15 S Joannis Baptistæ de la Salle C
+05-16 S Ubaldi EC
+05-17 S Paschalis Baylon C
+05-18 Ascensio DNJC
+05-19 S Petri Cælestini PC
+05-20 S Bernardini Senensis C
+05-21 Dominica infra Oct. Ascensionis
+05-22 De V die infra Oct. Ascensionis
+05-23 De VI die infra Oct. Ascensionis
+05-24 De VII die infra Oct. Ascensionis
+05-25 Oct. Ascensionis DNJC
+05-26 S Philippi Nerii C
+05-27 Sabbatum Vigilia Pentecostes
+05-28 Dominica Pentecostes
+05-29 Feria II infra Oct. Pentecostes
+05-30 Feria III infra Oct. Pentecostes
+05-31 Feria IV Quatuor Temporum infra Oct. Pentecostes
+06-01 Feria V infra Oct. Pentecostes
+06-02 Feria VI Quatuor Temporum infra Oct. Pentecostes
+06-03 Sabbatum Quatuor Temporum infra Oct. Pentecostes
+06-04 Festum Sanctissimæ Trinitatis
+06-05 B Mariæ Virginis Reginæ
+06-06 S Norberti EC
+06-07 De ea
+06-08 Sanctissimi Corporis Christi
+06-09 De II die infra Oct. Ssmi Corporis Christi
+06-10 De III die infra Oct. Ssmi Corporis Christi
+06-11 Dominica infra Oct. Ssmi Corporis Christi
+06-12 De V die infra Oct. Ssmi Corporis Christi
+06-13 De VI die infra Oct. Ssmi Corporis Christi
+06-14 De VII die infra Oct. Ssmi Corporis Christi
+06-15 Octava Ssmi Corporis Christi
+06-16 Sacratissimi Cordis Jesu
+06-17 De II die infra Oct. Sacratissimi Cordis Jesu
+06-18 Dominica infra Oct. Ssmi Cordis DNJC
+06-19 S Julianæ de Falconeriis V
+06-20 De V die infra Oct. Sacratissimi Cordis Jesu
+06-21 S Aloisii Gonzagæ C
+06-22 S Paulini EC
+06-23 Octava Sacratissimi Cordis Jesu
+06-24 In Nativitate S Joannis Baptistæ
+06-25 Dominica IV post Pentecosten
+06-26 Ss Joannis et Pauli Mm
+06-27 De IV die infra Oct Nativitatis S Joannis Baptistæ
+06-28 S Irinæi EM
+06-29 Ss Petri et Pauli App
+06-30 In Commemoratione S Pauli Apostoli
+07-01 In Festo Pretiosissimi Sanguinis DNJC
+07-02 In Visitatione BMV
+07-03 S Leonis II PC
+07-04 De VI die infra Oct Ss Petri et Pauli App
+07-05 S Antonii Mariæ Zaccaria C
+07-06 Oct Ss Petri et Pauli App
+07-07 Ss Cyrilli et Methodii EeCc
+07-08 S Elisabeth R Vid
+07-09 Dominica VI post Pentecosten
+07-10 Ss Septem Fratrum Mm ac Rufinæ et Secundæ VvMm
+07-11 S Pii I PM
+07-12 S Joannis Gualberti Abb
+07-13 S Anacleti PM
+07-14 S Bonaventuræ ECD
+07-15 S Henrici Imp C
+07-16 Dominica VII post Pentecosten
+07-17 S Alexii C
+07-18 S Camilli de Lellis C
+07-19 S Vincentii a Paulo C
+07-20 S Hieronymi Æmiliani C
+07-21 S Praxedis V
+07-22 S Mariæ Magdalenæ Pænitentis
+07-23 Dominica VIII post Pentecosten
+07-24 In Vigilia S Jacobi Ap
+07-25 S Jacobi Ap
+07-26 S Annæ Matris BMV
+07-27 S Pantaleonis M
+07-28 Ss Nazarii et Celsi Mm, Victoris I PM, ac Innocentii I PC
+07-29 S Marthæ V
+07-30 Dominica IX post Pentecosten
+07-31 S Ignatii C
+08-01 S Petri Ap ad Vincula
+08-02 S Alphonsi Mariæ de Ligorio ECD
+08-03 In Inventione S Stephani Protomartyris
+08-04 S Dominici C
+08-05 In Dedicatione S Mariæ ad Nives
+08-06 In Transfiguratione DNJC
+08-07 S Cajetani C
+08-08 Ss Cyriaci, Largi atque Smaragdi Mm
+08-09 S Joannis Mariæ Vianney C
+08-10 S Laurentii M
+08-11 Ss Tiburtii et Susannæ V, Mm
+08-12 S Claræ V
+08-13 Dominica XI post Pentecosten
+08-14 In Vigilia Assumptionis BMV
+08-15 In Assumptione BMV
+08-16 S Joachim C, Patris BMV
+08-17 S Hyacinthi C
+08-18 De IV die infra Oct Assumptionis BMV
+08-19 S Joannis Eudes C
+08-20 Dominica XII post Pentecosten
+08-21 S Joannæ Franciscæ Fremiot de Chantal V
+08-22 In Festo Immaculati Cordis BMV
+08-23 S Philippi Benitii C
+08-24 S Bartholomæi Ap
+08-25 S Ludovici RC
+08-26 S Zephrini PM
+08-27 Dominica XIII post Pentecosten
+08-28 S Augustini ECD
+08-29 In Decollatione S Joannis Baptistæ
+08-30 S Rosæ a S Maria Limanæ V
+08-31 S Raymundi Nonnati C
+09-01 S Ægidii Abb
+09-02 S Stephani R C
+09-03 Dominica XIV post Pentecosten
+09-04 De ea
+09-05 S Laurentii Justiniani EC
+09-06 De ea
+09-07 De ea
+09-08 In Nativitate BMV
+09-09 S Gorgonii M
+09-10 Dominica XV post Pentecosten
+09-11 Ss Proti et Hycinthi Mm
+09-12 Ssmi Nominis BMV
+09-13 De ea
+09-14 In Exaltatione S Crucis
+09-15 Septem Dolorum BMV
+09-16 Ss Cornelii P et Cypriani E Mm
+09-17 Dominica XVI post Pentecosten
+09-18 S Josephi a Cupertino C
+09-19 Ss Januarii E et Sociorum Mm
+09-20 Ss Eustachii et Sociorum Mm
+09-21 S Matthæi ApEv
+09-22 S Thomæ de Villanova EC
+09-23 S Lini PM
+09-24 Dominica XVII post Pentecosten
+09-25 De ea
+09-26 Ss Cypriani et Justinæ Mm
+09-27 Ss Cosmæ et Damiani Mm
+09-28 S Wenceslai Ducis M
+09-29 In Dedicatione S Michælis Arch
+09-30 S Hieronymi SCD
+10-01 Dominica XVIII post Pentecosten
+10-02 Ss Angelorum Custodum
+10-03 S Teresiæ a Jesu Infante V
+10-04 S Francisci C
+10-05 Ss Placidi et Sociorum Mm
+10-06 S Brunonis C
+10-07 Sacratissimi Rosarii BMV
+10-08 Dominica XIX post Pentecosten
+10-09 S Joannis Leonardi C
+10-10 S Francisci Borgiæ C
+10-11 In Maternitate BMV
+10-12 De ea
+10-13 S Eduardi R C
+10-14 S Callisti I PM
+10-15 Dominica XX post Pentecosten
+10-16 S Hedwigis V
+10-17 S Margaritæ Mariæ Alacoque V
+10-18 S Lucæ Ev
+10-19 S Petri de Alacantara C
+10-20 S Joannis Cantii C
+10-21 S Hilarionis Abb
+10-22 Dominica XXI post Pentecosten
+10-23 De ea
+10-24 S Raphaelis Arch
+10-25 Ss Chrysanthi et Dariæ Mm
+10-26 S Evaristi PM
+10-27 In Vigilia Ss Simonis et Judæ App
+10-28 Ss Simonis et Judæ App
+10-29 In Festo DNJC Regis
+10-30 De ea
+10-31 In Vigilia Omnium Sanctorum
+11-01 In Festo Omnium Sanctorum
+11-02 In Commemoratione Omnium Fidelium Defunctorum
+11-03 De III die infra Oct Omnium Sanctorum
+11-04 S Caroli EC
+11-05 Dominica XXIII post Pentecosten
+11-06 De VI die infra Oct Omnium Sanctorum
+11-07 De VII die infra Oct Omnium Sanctorum
+11-08 Oct Omnium Sanctorum
+11-09 In Dedicatione Archibasilicæ Ssmi Salvatoris
+11-10 S Andreæ Avellini C
+11-11 S Martini EC
+11-12 Dominica XXIV post Pentecosten, V Epiphania
+11-13 S Didaci C
+11-14 S Josaphat EM
+11-15 S Alberti Magni ECD
+11-16 S Gertrudis V
+11-17 S Gregorii Thaumaturgi EC
+11-18 In Dedicatione Basilicarum Ss Petri et Pauli App
+11-19 Dominica XXV post Pentecosten, VI Epiphania
+11-20 S Felicis de Valois C
+11-21 In Præsentatione BMV
+11-22 S Cæciliæ VM
+11-23 S Clementis I PM
+11-24 S Joannis a Cruce CD
+11-25 S Catharinæ VM
+11-26 Dominica XXVI et ultima post Pentecosten
+11-27 De ea
+11-28 De ea
+11-29 In Vigilia S Andreæ Ap
+11-30 S Andreæ Ap
+12-01 De ea
+12-02 S Bibianæ VM
+12-03 Dominica I Adventus
+12-04 S Petri Chrysologi ECD
+12-05 S Sabbæ Abb
+12-06 S Nicolai EC
+12-07 S Ambrosii ECD
+12-08 In Conceptione Immaculata BMV
+12-09 De II die infra Oct Concept Immac BMV
+12-10 Dominica II Adventus
+12-11 S Damasi I PC
+12-12 De V die infra Oct Concept Immac BMV
+12-13 S Luciæ VM
+12-14 De VII die infra Oct Concept Immac BMV
+12-15 Oct Concept Immac BMV
+12-16 S Eusebii EM
+12-17 Dominica III Adventus
+12-18 De ea
+12-19 De ea
+12-20 Feria IV Quatuor Temporum in Adventus
+12-21 S Thomæ Ap
+12-22 Feria VI Quatuor Temporum in Adventus
+12-23 Sabbatum Quatuor Temporum in Adventus
+12-24 Vigilia Nativitas DNJC
+12-25 Nativitas DNJC
+12-26 S Stephani Protomartyris
+12-27 S Joannis Ap Ev
+12-28 Ss Innocentium Mm
+12-29 S Thomæ EM
+12-30 S Silvestri I PC
+12-31 Dominica Infra Octavam Nativitatis

@@ -1,13 +1,11 @@
-# import json
-# import sqlite3
-from typing import Dict, Optional  #, List
-# from datetime import datetime
+from typing import Dict, Optional
 from ordotools.tools.db import get_connection
+
 
 class TranslationsRepository:
     def __init__(self, db_path: Optional[str] = None):
         self.conn = get_connection(db_path)
-    
+
     def get_all_translations_for_feast(self, feast_id: str) -> Dict[str, str]:
         """IDs are now handled strictly as strings."""
         cursor = self.conn.execute(

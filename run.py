@@ -9,7 +9,7 @@ from rich.table import Table
 console = Console()
 
 # TODO: we need to add the language
-data = LiturgicalCalendar(2025, "roman", "la").build()
+data = LiturgicalCalendar(1950, "roman", "la").build()
 
 # TODO: I don't think that this is working...
 truncate = lambda s: s if len(s) <= 20 else s[:17] + "..."
@@ -36,9 +36,9 @@ table = Table(
 # Feasts and number of commemoratins
 table.add_column("Date", width=12)  # style="dim", width=12)
 table.add_column("Feast Name")
-table.add_column("Rank", justify="center")
-table.add_column("Verbose Rank", justify="left")
-table.add_column("Commemorations", justify="left")
+# table.add_column("Rank", justify="center")
+# table.add_column("Verbose Rank", justify="left")
+# table.add_column("Commemorations", justify="left")
 # table.add_column("2 Com", justify="left")
 # table.add_column("3 Com", justify="left")
 
@@ -56,13 +56,13 @@ for feast in data:
 
     # feasts and number of commemorations
     table.add_row(
-        feast.date.strftime('%b %d, %Y'),
+        feast.date.strftime('%b %d'),
         # truncate(feast.name),
-        feast.id,  # TODO: this has to be the feast eventually...
-        str(feast.rank_numeric),
-        feast.rank_verbose,
-        # TODO: we have renamed our commemoriations to be a list...
-        str(first_com)
+        feast.name,  # TODO: this has to be the feast eventually...
+        # str(feast.rank_numeric),
+        # feast.rank_verbose,
+        # # TODO: we have renamed our commemoriations to be a list...
+        # str(first_com)
     )
 
 console.print(table)

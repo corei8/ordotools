@@ -736,7 +736,8 @@ feasts:
   - 0
 
 - id: 3200
-  name_translations: {}
+  name_translations: 
+    la: Ss Faustini et Jovitae Mm
   date: 02-15
   rank_verbose: s
   rank_numeric: 22
@@ -2601,6 +2602,8 @@ feasts:
   name_translations:
     la: In Nativitate S Joannis Baptistæ
     en: Nativity of St. John the Baptist
+  infra_oct_name:
+    la: Nativitatis S Joannis Baptistæ
   date: 06-24
   rank_verbose: d I cl cum Oct communi
   rank_numeric: 2
@@ -2689,6 +2692,9 @@ feasts:
 
 - id: 11900
   name_translations:
+    la: Ss Petri et Pauli App
+    en: Sts. Peter and Paul, App.
+  infra_oct_name:
     la: Ss Petri et Pauli App
     en: Sts. Peter and Paul, App.
   date: 06-29
@@ -3476,7 +3482,7 @@ feasts:
     la: In Transfiguratione DNJC
   date: 08-06
   rank_verbose: d II cl
-  rank_numeric: 11
+  rank_numeric: 10
   color: white
   office_type: false
   mass_properties:
@@ -3666,6 +3672,9 @@ feasts:
 - id: 16500
   name_translations:
     la: In Assumptione BMV
+    en: Assumption of the BVM
+  infra_oct_name:
+    la: Assumptionis BMV
     en: Assumption of the BVM
   date: 08-15
   rank_verbose: d I cl cum Oct communi
@@ -5159,6 +5168,9 @@ feasts:
   name_translations:
     la: In Festo Omnium Sanctorum
     en: Feast of All Saints
+  infra_oct_name:
+    la: Omnium Sanctorum
+    en: All Saints
   date: 11-01
   rank_verbose: d I cl cum Oct communi
   rank_numeric: 2
@@ -5812,6 +5824,9 @@ feasts:
   name_translations:
     la: In Conceptione Immaculata BMV
     en: Feast of the Immaculate Conception
+  infra_oct_name:
+    la: Concept Immac BMV
+    en: Immaculate Conception
   date: 12-08
   rank_verbose: d I cl cum Oct communi
   rank_numeric: 2
