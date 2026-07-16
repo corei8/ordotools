@@ -16755,3 +16755,27 @@ feasts:
   - 13
   - 3
   - 0
+
+- id: lady_saturday
+  name_translations:
+    la: S Maria in Sabbato
+  date: 00-00
+  rank_verbose: s
+  rank_numeric: 21
+  color: white
+  office_type: ut in pr loco
+  mass_properties:
+    introit: Salve sancta parens
+    gloria: true
+    credo: true
+    preface: de B Maria Virg (et te in Veneratione)
+  commemorations: []
+#    "com_1": {"oration": "Deus qui corda"},
+#    "com_2": {"oration": "Ecclesiæ"},
+  nobility:
+  - 8
+  - 2
+  - 6
+  - 13
+  - 3
+  - 0

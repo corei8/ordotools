@@ -79,7 +79,6 @@ class LiturgicalCalendar:
         return sorted(calendar_map.values(), key=lambda x: x.date)
 
     def build(self) -> list:
-        # full_calendar = self.our_ladys_saturday(full_calendar)
         # full_calendar = seasonal_commemorations(feasts=full_calendar, year=self.year)
 
         repo = FeastsRepository()
@@ -141,4 +140,5 @@ class LiturgicalCalendar:
                     parsed = feast.id.split("_", 2)
                     feast.name = f"De die {parsed}\
                     infra Oct {feast.infra_octave_name}"
+
         return calendar_list

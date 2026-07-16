@@ -3919,8 +3919,8 @@ feasts:
   name_translations:
     la: S Zephrini PM
   date: 08-26
-  rank_verbose: sd
-  rank_numeric: 16
+  rank_verbose: s
+  rank_numeric: 22
   color: red
   office_type: false
   mass_properties:

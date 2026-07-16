@@ -1,9 +1,12 @@
 from functools import cached_property
 import functools
 from ordotools.tools.helpers import (
-    day, days, easter, findsunday, last_sunday, 
+    day, days, easter, findsunday, last_sunday,
     weekday, weeks
 )
+from ordotools.tools.helpers import LiturgicalYearMarks
+
+
 
 class Temporal:
     """
@@ -27,7 +30,7 @@ class Temporal:
         self._easter_date = easter(self.year)
         self._christmas_date = day(year=self.year, month=12, day=25)
         self._epiphany_date = day(self.year, 1, 6)
-        
+
         self.easter = self._easter_date
         self.septuagesima = self._easter_date - weeks(9)
         self.christmas = self._christmas_date
@@ -62,15 +65,15 @@ class Temporal:
     def christmas_time(self) -> dict:
         """ Christmas and the following days to the end of the year. """
         y = {}
-        
+
         # Pre-calculate dates and store in a list to avoid repeated calculations
         christmas_days = [self.christmas+days(a) for a in range(7)]
-        
+
         feasts = [
             "Christmas", "StStephan", "StJohn", "StsInnocents",
             "StThomas", "StSylvester", "8_Chritmas_f6",
         ]
-        
+
         for x, feast in enumerate(feasts):  # TODO: add special keys for 1-3 if they fall on a Sunday
             date = christmas_days[x]
             if weekday(date) == "Sun" and x != 0:
@@ -85,17 +88,17 @@ class Temporal:
     def start_year(self) -> dict:
         """ Circumcision up to Septuagesima, excluding Epiphany """
         circumcision = day(self.year, 1, 1)
-        
+
         # Pre-calculate common dates
         january_days = [circumcision+days(i) for i in range(4)]
-        
+
         y = {
             january_days[0]: "Circumcision",
             january_days[1]: "8_Stephen",
             january_days[2]: "8_John",
             january_days[3]: "8_Innocents",
         }
-        
+
         circumcision_weekday = weekday(circumcision)
         if (circumcision_weekday == "Sun" or
             circumcision_weekday == "Mon" or
@@ -113,15 +116,15 @@ class Temporal:
             self.epiphany: "Epiphany",
             self.epiphany+days(7): "8_Epiphany",
         }
-        
+
         # Pre-calculate epiphany dates
         epiphany_dates = [self.epiphany+days(x) for x in range(1, 7)]
-        
+
         octave_counter = 1
         for x in range(6):
             the_date = epiphany_dates[x]
             date_weekday = weekday(the_date)
-            
+
             if date_weekday != "Sun":
                 if date_weekday == "Sat":
                     y |= {the_date: "8_Epiph_fs"}
@@ -129,9 +132,9 @@ class Temporal:
                     y |= {the_date: f"8_Epiph_f{octave_counter+1}"}
             else:
                 y |= {the_date: "D_Epiphany"}
-                
+
             octave_counter += 1
-            
+
         return y
 
     @cached_property
@@ -139,28 +142,35 @@ class Temporal:
         """ All of the Sundays and ferias after Epiphany """
         sunday_after_epiphany = self.epiphany-findsunday(self.epiphany)+weeks(1)
         epiphany_plus_one_week = self.epiphany+weeks(1)
-        
+
         # Function to calculate date with memoization
         @functools.lru_cache(maxsize=128)
         def calc_date(w, f):
             return sunday_after_epiphany+weeks(w)+days(f)
-            
+
         i = 0
         # TODO: add D_HolyFamily as an option
         y = {sunday_after_epiphany: "HolyFamily"}
-        
+
         while calc_date(i, 0) != self.septuagesima and i+1 < 7:
             sunday_date = calc_date(i, 0)
             if sunday_date != sunday_after_epiphany:
                 y |= {sunday_date: f"D_Epiph_{i+1}"}
-                
+
             for j in range(6):
                 feria_date = calc_date(i, j+1)
                 if feria_date > epiphany_plus_one_week:
-                    y |= {
-                        feria_date:
-                        f"de_Epiph_{i+1}_{j+2 if j != 5 else 's'}"
-                    }
+                    # y |= {
+                    #     feria_date:
+                    #     f"de_Epiph_{i+1}_{j+2 if j != 5 else 's'}"
+                    # }
+                    if j == 5:
+                        y |= {feria_date: "lady_saturday"}
+                    else:
+                        y |= {
+                            feria_date:
+                            f"de_Epiph_{i+1}_{j+2}"
+                        }
             i += 1
 
         return [y, i+1]
@@ -173,33 +183,40 @@ class Temporal:
         y = {}
         gesima_names = ["Septuagesima", "Sexagesima", "Quinquagesima"]
         ash_wednesday = self.easter-weeks(6)-days(4)
-        
+
         for i, gesima_name in enumerate(gesima_names):
             pre_lent_week = self.easter - weeks(9-i)
             y |= {pre_lent_week: gesima_name}
-            
+
             # Pre-calculate prefix and weekday dates
             prefix = gesima_name[0:4]
             weekday_dates = [pre_lent_week+days(feria+1) for feria in range(6)]
-            
+
             for feria, date in enumerate(weekday_dates):
                 if date >= ash_wednesday:
                     break
                 else:
-                    y |= {
-                        date:
-                        f"de_{prefix}_f{feria+2 if feria != 5 else 's'}"
-                    }
+                    # y |= {
+                    #     date:
+                    #     f"de_{prefix}_f{feria+2 if feria != 5 else 's'}"
+                    # }
+                    if feria == 5:
+                        y |= {date: "lady_saturday"}
+                    else:
+                        y |= {
+                            date:
+                            f"de_{prefix}_f{feria+2}"
+                        }
         return y
 
     @cached_property
     def lent(self) -> dict:
         """ All of the Sundays and Ferias of Lent, up to Easter """
         y = {}
-        
+
         # Pre-calculate common date calculations
         ash_wednesday = self.easter - weeks(6) - days(4)
-        
+
         # First week (Ash Wednesday and days after)
         ash_week_dates = [ash_wednesday + days(c) for c in range(4)]
         for c, date in enumerate(ash_week_dates):
@@ -207,14 +224,14 @@ class Temporal:
                 y[date] = "de_AshWed"
             else:
                 y[date] = f"AshWed_f{c+4 if c != 3 else 's'}"
-        
+
         # Remaining weeks of Lent
         for i in range(1, 7):
             lent_sunday = self.easter - weeks(7-i)
-            
+
             # Pre-calculate all dates for this week
             week_dates = [lent_sunday + days(j) for j in range(7)]
-            
+
             for j, date in enumerate(week_dates):
                 if i == 1 and j in [3, 5, 6]:
                     y[date] = f"Ember_Lent_{j+1 if j != 6 else 's'}"
@@ -228,30 +245,30 @@ class Temporal:
                         season = "Passion"
                     else:
                         season = "Palm"
-                    
+
                     # Create entry name
                     prefix = "D" if j == 0 else "de"
                     suffix = f"_{i}" if j == 0 else f"_f{j+1 if j != 6 else 's'}"
-                    
+
                     y[date] = f"{prefix}_{season}{suffix}"
-        
+
         return y
 
     @cached_property
     def post_easter(self) -> dict:
         """ Easter Week """
         y = {self.easter: "Easter"}
-        
+
         # Pre-calculate Easter week dates
         easter_weekdays = [self.easter + days(i) for i in range(1, 7)]
-        
+
         # Monday through Friday
         for i, date in enumerate(easter_weekdays[:-1]):
             y[date] = f"8Easter_f{i+2}"
-            
+
         # Saturday
         y[easter_weekdays[-1]] = "WhitSaturday"
-        
+
         return y
 
     @cached_property
@@ -264,13 +281,13 @@ class Temporal:
         y = {}
         ascension_counter = 1
         solemnity_counter = 1
-        
+
         # Pre-calculate common dates
         easter_weeks = [self.easter + weeks(i) for i in range(1, 7)]
-        
+
         for i in range(1, 7):
             week_index = i - 1  # For accessing pre-calculated weeks
-            
+
             # Determine Sunday name
             if i == 1:
                 the_sunday = "WhitSunday"
@@ -279,21 +296,16 @@ class Temporal:
                 ascension_counter += 1
             else:
                 the_sunday = f"D_Easter_{i}"
-# <<<<<<< HEAD
-#             d = 1  # easily matches monday with days(1)
-#             while d != 7:
-# =======
-                
+
             # Add Sunday
             sunday_date = easter_weeks[week_index]
             y[sunday_date] = the_sunday
-            
+
             # Pre-calculate weekday dates for this week
             weekday_dates = [sunday_date + days(d) for d in range(1, 7)]
-            
+
             # Process each weekday
             for d, date in enumerate(weekday_dates, 1):  # d starts at 1
-# >>>>>>> 0cd0f57ecb7dec0ea24f7fea9e9cb3ff4e8ab386
                 if i == 2 and d >= 3:
                     if d == 3:
                         y[date] = "StJoseph"
@@ -311,11 +323,7 @@ class Temporal:
                 elif i == 5:  # the whole week is special
                     # TODO: clean up the Ascension days
                     if d <= 3:  # rogations
-# <<<<<<< HEAD
-#                         y |= {self.easter+weeks(i)+days(d): f"Rogation_{d}"}
-# =======
                         y[date] = f"Rogation_{d}"
-# >>>>>>> 0cd0f57ecb7dec0ea24f7fea9e9cb3ff4e8ab386
                     elif d == 4:
                         y[date] = "Ascension"
                         ascension_counter += 1
@@ -334,12 +342,15 @@ class Temporal:
                 elif i == 6 and d == 6:
                     y[date] = "V_Pentecost"
                 else:
-                    y[date] = f"de_Easter_{i}_f{d+1 if d != 6 else 's'}"
-            
-            solemnity_counter += 1 if solemnity_counter > 1 else 0
-            
-        return y
+                    # y[date] = f"de_Easter_{i}_f{d+1 if d != 6 else 's'}"
+                    if d == 6:
+                        y[date] = "lady_saturday"
+                    else:
+                        y[date] = f"de_Easter_{i}_f{d+1}"
 
+            solemnity_counter += 1 if solemnity_counter > 1 else 0
+
+        return y
 
     @cached_property
     def pentecost(self) -> dict:
@@ -350,34 +361,34 @@ class Temporal:
         pentecost_date = self.easter + weeks(7)
         last_pent = self.christmas - findsunday(self.christmas) - weeks(4)
         y = {pentecost_date: 'Pentecost'}
-        
+
         # Pre-calculate pentecost week dates
         pentecost_weekdays = [pentecost_date + days(fer-1) for fer in range(2, 8)]
-        
+
         # Process pentecost week
         for i, (fer, date) in enumerate(zip(range(2, 8), pentecost_weekdays)):
             if fer in [4, 6, 7]:
                 y[date] = f"Ember_Pent_{fer if fer != 7 else 's'}"
             else:
                 y[date] = f"8Pent_f{fer if fer != 7 else 's'}"
-        
+
         # Process remaining Sundays after Pentecost
         x, e = 1, 0
         september_count = 0
         corpuschristi_count = 1
         sacredheart_count = 1
-        
+
         # Get leftovers from post-epiphany once to avoid repeated calculations
         leftovers = self.post_epiphany[1]
-        
+
         while pentecost_date + weeks(x) != last_pent + weeks(1):  # i.e., until Advent 1
             sunday_date = pentecost_date + weeks(x)
             chK = ""
-            
+
             # Determine Sunday name
-            is_last_sunday_october = (last_sunday(sunday_date) is True and 
+            is_last_sunday_october = (last_sunday(sunday_date) is True and
                                       sunday_date.strftime("%B") == "October")
-            
+
             if is_last_sunday_october:
                 chK = "ChristKing"
                 sunday = f'Pent_{x}'
@@ -388,14 +399,14 @@ class Temporal:
                 e += 1
             else:
                 sunday = f'Pent_{x}'
-                
+
             # Track September for Ember days
             if sunday_date.strftime('%B') == "September":
                 september_count += 1
-                
+
             # Pre-calculate weekday dates
             week_dates = [sunday_date + days(d) for d in range(7)]
-            
+
             # Process each day of the week
             for d, date in enumerate(week_dates):
                 if x == 1 and d == 0:
@@ -432,10 +443,13 @@ class Temporal:
                 else:
                     prefix = "de" if d != 0 else "D"
                     suffix = f"_f{d+1 if d != 6 else 's'}" if d != 0 else ""
-                    y[date] = f"{prefix}_{sunday}{suffix}"
-                    
+                    if d == 6:
+                        y[date] = "lady_saturday"
+                    else:
+                        y[date] = f"{prefix}_{sunday}{suffix}"
+
             x += 1
-            
+
         return y
 
     @cached_property
@@ -454,6 +468,6 @@ class Temporal:
         y.update(self.paschaltime)
         y.update(self.post_easter)
         y.update(self.pentecost)
-        
+
         # Ensure ID values are strings for the new DB schema
         return {k: str(v) for k, v in sorted(y.items())}

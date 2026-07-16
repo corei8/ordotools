@@ -46,7 +46,7 @@
 02-15 Ss Faustini et Jovitae Mm
 02-16 De ea
 02-17 De ea
-02-18 S Simeonis EM
+02-18 S Maria in Sabbato
 02-19 Dominica in Quinquagesima
 02-20 De ea
 02-21 De ea
@@ -235,7 +235,7 @@
 08-23 S Philippi Benitii C
 08-24 S Bartholomæi Ap
 08-25 S Ludovici RC
-08-26 S Zephrini PM
+08-26 S Maria in Sabbato
 08-27 Dominica XIII post Pentecosten
 08-28 S Augustini ECD
 08-29 In Decollatione S Joannis Baptistæ
@@ -249,7 +249,7 @@
 09-06 De ea
 09-07 De ea
 09-08 In Nativitate BMV
-09-09 S Gorgonii M
+09-09 S Maria in Sabbato
 09-10 Dominica XV post Pentecosten
 09-11 Ss Proti et Hycinthi Mm
 09-12 Ssmi Nominis BMV
@@ -291,7 +291,7 @@
 10-18 S Lucæ Ev
 10-19 S Petri de Alacantara C
 10-20 S Joannis Cantii C
-10-21 S Hilarionis Abb
+10-21 S Maria in Sabbato
 10-22 Dominica XXI post Pentecosten
 10-23 De ea
 10-24 S Raphaelis Arch
