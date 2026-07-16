@@ -135,10 +135,5 @@ class LiturgicalCalendar:
             t = trans_repo.get_translation(feast.id, self.language)
             if t:
                 feast.name = t
-            else:
-                if "oct" in feast.id:
-                    parsed = feast.id.split("_", 2)
-                    feast.name = f"De die {parsed}\
-                    infra Oct {feast.infra_octave_name}"
 
         return calendar_list
