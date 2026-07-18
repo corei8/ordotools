@@ -3,7 +3,7 @@ from datetime import datetime
 
 year = 1950
 
-data = LiturgicalCalendar(year, "roman", "la").build()
+data = LiturgicalCalendar(year, "Roman", "la").build()
 
 
 with open("test_files/current.txt", "w") as f:

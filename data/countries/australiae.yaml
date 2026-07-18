@@ -2,9 +2,14 @@ diocese_name: Australiae
 country: Universal
 feasts:
 
-- name_translations: {}
+- id: 4500
+  name_translations:
+    la: S Patricii EC
+    en: St. Patrick, BpC
+  infra_oct_name:
+    la: S Patricii EC
   date: 03-17
-  rank_verbose: d I cl
+  rank_verbose: d I cl cum Oct communi
   rank_numeric: 5
   color: white
   office_type: false
@@ -15,4 +20,9 @@ feasts:
     preface: Communis
   commemorations: []
   nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0

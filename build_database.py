@@ -2,10 +2,18 @@
 
 import yaml
 import json
+import hashlib
 import sqlite3
 from pathlib import Path
 from ordotools.tools.db import get_connection
 
+
+def generate_short_id(text: str, length: int = 8) -> str:
+# 1. Encode the string to bytes
+# 2. Feed it into shake_256
+# 3. Request hex digits (length // 2 bytes gives 'length' hex chars)
+    byte_length = max(1, length // 2)
+    return hashlib.shake_256(text.encode('utf-8')).hexdigest(byte_length)
 
 def build_from_yaml(data_dir="data"):
     conn = get_connection()
@@ -26,7 +34,7 @@ def build_from_yaml(data_dir="data"):
 
         is_temporal = "cycle" in data
         source_name = data.get("diocese_name") or data.get("cycle")
-        print(f"🏗️  Building: {source_name}")
+        print(f"🏗️  Building: {source_name}", end="")
 
         # Metadata for Sanctoral files
         diocese_id = None
@@ -42,7 +50,10 @@ def build_from_yaml(data_dir="data"):
 
         for feast in data.get("feasts", []):
             try:
-                f_id = feast.get('id')
+                if not is_temporal:
+                    f_id = str(diocese_id) + "&" + str(feast.get('id'))
+                else:
+                    f_id = feast.get('id')
                 if f_id is None:
                     print(f"   ⚠️ Skipping feast in {source_name}: No ID found.")
                     continue
@@ -53,8 +64,7 @@ def build_from_yaml(data_dir="data"):
                     VALUES (?, ?, ?, ?, ?, ?, ?)
                 """, (
                     str(f_id), feast['rank_verbose'], feast['rank_numeric'], feast['color'],
-                    str(feast.get('office_type', 'False')), json.dumps(feast.get('mass_properties')),
-                    json.dumps(feast.get('nobility', []))
+                    str(feast.get('office_type', 'False')), json.dumps(feast.get('mass_properties')), json.dumps(feast.get('nobility', []))
                 ))
 
                 f_type = 'temporal' if is_temporal else 'sanctoral'
@@ -87,10 +97,13 @@ def build_from_yaml(data_dir="data"):
 
             except Exception as e:
                 print(f"   ❌ Fatal error on feast {feast.get('id')}: {e}")
+        len_diocese = 25 - len(source_name)
+        print("."*len_diocese, "✔")
 
     conn.commit()
     conn.close()
-    print("\n✨ Database successfully rebuilt.")
+    print("✨ Database successfully rebuilt.\n")
+    print("-"*17, "DONE!", "-"*17, end="\n\n")
 
 
 if __name__ == "__main__":

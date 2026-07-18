@@ -1,6 +1,5 @@
 from ordotools.tools.feast import Feast
 import logging
-from ordotools.tools.helpers import days
 
 
 def sort_criterion(e):
@@ -15,7 +14,7 @@ def sorted_feasts(one: Feast, two: Feast) -> list:
 
 def commemorate(feast: Feast, commemoration: Feast) -> Feast:
     # Create a lightweight dictionary representation for the commemoration
-    # NOTE: keys might be outdated
+    # FIX: adjust these keys
     com_data = {
         "id": commemoration.id,
         "rank": [commemoration.rank_numeric, commemoration.rank_verbose],
@@ -55,11 +54,7 @@ def transfer(feast: Feast, transferred: Feast) -> Feast:
 
 def nobility(one: Feast, two: Feast, handler: int) -> Feast:
     logging.debug(f"Ranking by nobility between {one.id} and {two.id}")
-
-    # New model uses List[int] for nobility
-    # Iterate through available parameters safely
     length = min(len(one.nobility), len(two.nobility))
-
     for i in range(length):
         if one.nobility[i] < two.nobility[i]:
             if handler == 7:
@@ -77,7 +72,6 @@ def nobility(one: Feast, two: Feast, handler: int) -> Feast:
 
 
 def rank(dynamic: Feast, static: Feast):
-    # Group definitions (using numeric ranks)
     group_one = (2, 5, 6, 7, 10, 13, 11, 14, 15, 16, 18, 19, 20, 22)
     group_two = (1, 8, 12, 3, 2, 5, 6, 7, 10, 4, 13, 11, 14, 15, 16, 9, 17, 18, 19, 20, 21)
 
@@ -217,8 +211,6 @@ def rank(dynamic: Feast, static: Feast):
             # BUG: were did have sorted() here before... but I am not sure if
             # that is what we are supposed to have? maybe we defined sorted()
             # twice...
-
-            # WARN: the issue with the transfer was the early return...
             ranked = sorted_feasts(one, two)
             # note that this is bad because if we return "sorted" then we
             # cannot check for transfers... add if statement to return below
