@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Union
 from datetime import datetime
 
+
 @dataclass(slots=True)
 class Feast:
     """
@@ -13,15 +14,15 @@ class Feast:
     rank_verbose: str
     color: str
     office_type: Union[str, bool] = False
-    
+
     # Nested properties
     mass_properties: Dict = field(default_factory=dict)
     alt_mass_properties: Dict = field(default_factory=dict)
     nobility: List[int] = field(default_factory=list)
-    
+
     # Commemorations are now a list of dictionaries
     commemorations: List[Dict] = field(default_factory=list)
-    
+
     # Divine Office Parts
     hours: Dict = field(default_factory=dict)
     matins: Dict = field(default_factory=dict)
