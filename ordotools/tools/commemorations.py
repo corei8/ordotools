@@ -26,8 +26,6 @@ def add_commemorations(feast: Feast, first_id, second_id=None, seasonal=False):
         
     return feast
 
-# [Keep fidelium and seasonal_commemorations logic largely the same]
-# Just ensure when they check feast.rank_numeric, you change it to feast.rank_numericumeric
 
 MONTH = []  # NOTE: this might not need to be a list
 
@@ -77,6 +75,7 @@ def seasonal_commemorations(feasts: tuple, year: int) -> tuple:
     Adds the seasonal commeorations to the Feast object. Each
     add_commemoration() must take the optional seasonal parameter
     """
+
     bound = LiturgicalYearMarks(year)
     processed_feasts = ()
     for feast in feasts:

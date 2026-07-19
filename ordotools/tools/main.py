@@ -1,26 +1,23 @@
 from ordotools.tools.commemorations import seasonal_commemorations
 from ordotools.tools.feast import Feast
 # from ordotools.tools.fasting import friday_abstinence, Fasting
-from ordotools.tools.helpers import LiturgicalYearMarks, days, ladys_office
+from ordotools.tools.helpers import days
 from ordotools.tools.rank import rank
 from ordotools.tools.rank import transferred_feasts as transfers
 from ordotools.tools.temporal import Temporal
-
-# New Repos
 from ordotools.tools.repositories.feasts_repo import FeastsRepository
 from ordotools.tools.repositories.translations_repo import TranslationsRepository
 
 
 class LiturgicalCalendar:
 
-    def __init__(self, year, diocese="roman", language="la", country=""):
+    def __init__(self, year, diocese="Roman", language="la", country=""):
         self.year = year
         self.diocese = diocese
         self.language = language
         self.temporal_map = Temporal(self.year).get_temporal_calendar
 
     def _hydrate_feast(self, date, feast_data: dict) -> Feast:
-        """Helper to convert DB dictionary to Feast Object"""
         return Feast(
             id=str(feast_data['id']),
             date=date,
@@ -79,10 +76,7 @@ class LiturgicalCalendar:
         return sorted(calendar_map.values(), key=lambda x: x.date)
 
     def build(self) -> list:
-        # full_calendar = seasonal_commemorations(feasts=full_calendar, year=self.year)
-
         repo = FeastsRepository()
-
         full_calendar_map = {}
         for date, feast_id in self.temporal_map.items():
             data = repo.get_feast(feast_id)
@@ -90,9 +84,6 @@ class LiturgicalCalendar:
                 full_calendar_map[date] = self._hydrate_feast(date, data)
 
         def cal_merger():
-            """
-            Handles sanctoral and transferred feasts together
-            """
             prev_date = None
             for date, existing_feast in list(full_calendar_map.items()):
                 sanctoral_data_list = repo.get_feasts_for_date(
@@ -135,5 +126,6 @@ class LiturgicalCalendar:
             t = trans_repo.get_translation(feast.id, self.language)
             if t:
                 feast.name = t
+
 
         return calendar_list
