@@ -1,13 +1,13 @@
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Union
+from typing import Dict
+from typing import List
+# from typing import Optional
+from typing import Union
 from datetime import datetime
 
 
 @dataclass(slots=True)
 class Feast:
-    """
-    New Data Model using strictly typed slots for memory efficiency.
-    """
     id: str
     date: datetime
     rank_numeric: int
@@ -51,6 +51,11 @@ class Feast:
             return self.mass_properties[name]
         return self.mass_properties
 
+
+@dataclass(slots=True)
+class Commemoration:
+    id: str
+    name: str = ""
 
 # NOTE: this is the old stuff from the refactor
 # from datetime import datetime

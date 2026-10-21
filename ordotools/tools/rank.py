@@ -1,4 +1,5 @@
 from ordotools.tools.feast import Feast
+from ordotools.tools.feast import Commemoration
 import logging
 
 
@@ -14,7 +15,6 @@ def sorted_feasts(one: Feast, two: Feast) -> list:
 
 def commemorate(feast: Feast, commemoration: Feast) -> Feast:
     # Create a lightweight dictionary representation for the commemoration
-    # FIX: adjust these keys
     com_data = {
         "id": commemoration.id,
         "rank": [commemoration.rank_numeric, commemoration.rank_verbose],
@@ -28,12 +28,13 @@ def commemorate(feast: Feast, commemoration: Feast) -> Feast:
     }
 
     # Append to the list instead of fixed slots
-    feast.commemorations.append(com_data)
+    feast.commemorations.append(Commemoration(commemoration.id))
 
     # If the commemorated feast had its own commemorations, absorb them?
     # Logic in old code was feast.com_2 = commemoration.com_1
     if commemoration.commemorations:
-        feast.commemorations.extend(commemoration.commemorations)
+        for c in commemoration.commemorations:
+            feast.commemorations.append(Commemoration(c.id))
 
     return feast
 
@@ -205,25 +206,8 @@ def rank(dynamic: Feast, static: Feast):
         elif ranking_result == 8:
             ranked = nobility(one, two, ranking_result)
         else:
-            # NOTE: I believe that this occurs when we have an anticipation?
-            # print(f"WARNING!! We have a problem with {one.id} occuring on
-            # {two.id}")
-            # BUG: were did have sorted() here before... but I am not sure if
-            # that is what we are supposed to have? maybe we defined sorted()
-            # twice...
-            ranked = sorted_feasts(one, two)
-            # note that this is bad because if we return "sorted" then we
-            # cannot check for transfers... add if statement to return below
-
-        # [Keep your existing group_one_grouped / group_two_grouped definitions]
-        # [Keep your ranking_table]
-
-        # position_one = get_position(one, group_one_grouped)
-        # position_two = get_position(two, group_two_grouped)
-        # ranking_result = ranking_table[position_one][16 - position_two if ... else ...]
-
-        # (Ranking logic execution using commemorate/translate functions above)
-        # pass
+            # ranked = sorted_feasts(one, two)
+            ranked = one  # NOTE: might sometimes be invalid
 
     if ranked is not None:
         if not transferred_feasts:

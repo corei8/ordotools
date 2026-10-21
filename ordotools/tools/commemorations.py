@@ -1,5 +1,7 @@
 from ordotools.tools.feast import Feast
+from ordotools.tools.feast import Commemoration
 from ordotools.tools.helpers import LiturgicalYearMarks, day, days, weeks
+
 
 def existing_commemoration(feast: Feast) -> int:
     """
@@ -7,23 +9,24 @@ def existing_commemoration(feast: Feast) -> int:
     """
     return len(feast.commemorations)
 
+
 def add_commemorations(feast: Feast, first_id, second_id=None, seasonal=False):
     """
     Inserts the commemoration(s) into the Feast object.
     Expects IDs (strings or ints) which will be appended as dicts.
     """
-    # Simply append to the list. 
+    # Simply append to the list.
     # Logic regarding 'addition_index' (1, 2, 3) is less relevant with a list,
     # but we verify if we are hitting limits if strict rubrics require it.
-    
+
     # We store them as simple dicts with IDs, to be hydrated later if needed
     # or used as lookup keys.
-    
-    feast.commemorations.append({"id": str(first_id)})
-    
+
+    feast.commemorations.append(Commemoration(first_id))
+
     if second_id is not None:
-        feast.commemorations.append({"id": str(second_id)})
-        
+        feast.commemorations.append(Commemoration(second_id))
+
     return feast
 
 
@@ -35,7 +38,7 @@ def fidelium(feast: Feast, bound) -> Feast:
     Adds the Fidelium oration to the Feast object.
     Must be used after the seasonal commemorations are added
     """
-    fidelium_or = {"id": str(99912)}
+    fidelium_or = Commemoration(99912)
     month = feast.date.strftime("%B")
     if feast.rank_numeric == 23:  # NOTE: can rank 23 be an impeded Sunday?
         if month in MONTH:
@@ -62,7 +65,7 @@ def fidelium(feast: Feast, bound) -> Feast:
             elif bound.lent_begins < feast.date < bound.lent_ends:
                 pass
             else:
-                if feast.commemorations[1]["id"] == str(99912):
+                if feast.commemorations[1].id == str(99912):
                     pass
                 else:
                     feast.commemorations[1]= fidelium_or

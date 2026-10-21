@@ -1,5 +1,5 @@
 from ordotools.tools.commemorations import seasonal_commemorations
-from ordotools.tools.feast import Feast
+from ordotools.tools.feast import Feast, Commemoration
 # from ordotools.tools.fasting import friday_abstinence, Fasting
 from ordotools.tools.helpers import days
 from ordotools.tools.rank import rank
@@ -18,6 +18,14 @@ class LiturgicalCalendar:
         self.temporal_map = Temporal(self.year).get_temporal_calendar
 
     def _hydrate_feast(self, date, feast_data: dict) -> Feast:
+        commemorations = []
+        if feast_data["commemorations"]:
+            for c in feast_data["commemorations"]:
+                commemorations.append(Commemoration(
+                    id=str(c["id"])
+                ))
+            feast_data["commemorations"] = commemorations
+
         return Feast(
             id=str(feast_data['id']),
             date=date,
@@ -28,7 +36,7 @@ class LiturgicalCalendar:
             mass_properties=feast_data['mass_properties'],
             alt_mass_properties=feast_data['alt_mass_properties'],
             nobility=feast_data['nobility'],
-            commemorations=[],
+            commemorations=feast_data["commemorations"],
             hours={},
             matins={}, lauds={}, prime={}, little_hours={},
             vespers={}, compline={}
@@ -65,6 +73,7 @@ class LiturgicalCalendar:
         temporal_ids = list(self.temporal_map.values())
         calendar_map = {f.date: f for f in calendar}
         for feast in calendar:
+            # if it has an octave and is not in the termporal cycle
             if feast.is_octave and feast.id not in temporal_ids:
                 octave_days = self.expand_octaves(feast)
                 for oct_day in octave_days:
@@ -101,6 +110,7 @@ class LiturgicalCalendar:
                     prev_date = date
                     yield [s_feast, date]
         for sanctoral, date in cal_merger():
+            # print(f"\r[Processing] {date}".ljust(10), end="", flush=True)
             winner = rank(dynamic=sanctoral, static=full_calendar_map[date])
             if isinstance(winner, list):
                 anticipated = winner[1]
@@ -122,10 +132,14 @@ class LiturgicalCalendar:
         calendar_list = seasonal_commemorations(calendar_list, self.year)
         trans_repo = TranslationsRepository()
 
+        # TODO: add the translations for the commemorations
         for feast in calendar_list:
             t = trans_repo.get_translation(feast.id, self.language)
             if t:
                 feast.name = t
-
+            for com in feast.commemorations:
+                ct = trans_repo.get_translation(com.id, self.language)
+                if ct:
+                    com.name = ct
 
         return calendar_list

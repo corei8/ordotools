@@ -1575,7 +1575,7 @@ feasts:
       introit: Domine dixit
       gloria: true
       credo: true
-      preface: et Comm (in hac Missa tantum dicitur "noctem") de Nativitate
+      preface: et Comm (in hac Missa tantum dicitur noctem) de Nativitate
     Ad Secundam Missam:
       introit: Lux fulgebit
       gloria: true
@@ -16770,8 +16770,8 @@ feasts:
     credo: true
     preface: de B Maria Virg (et te in Veneratione)
   commemorations: []
-#    "com_1": {"oration": "Deus qui corda"},
-#    "com_2": {"oration": "Ecclesiæ"},
+#    com_1oration: Deus qui corda
+#    com_2oration: Ecclesiæ
   nobility:
   - 8
   - 2
@@ -16779,3 +16779,126 @@ feasts:
   - 13
   - 3
   - 0
+
+##########################
+#     COMMEMORATIONS     #
+##########################
+
+- id: 99901
+  name_translations:
+      # first weeek of advent
+    la: Excita, quæsumus
+    en:
+    fr:
+
+
+- id: 99902
+    # second week of advent
+  name_translations:
+    la: Excita, Domine
+    en: 
+    fr: 
+
+
+- id: 99903
+    # third week of advent
+  name_translations:
+    la: Aurem tuam
+    en: 
+    fr: 
+
+
+- id: 99904
+    # fourth week of advent
+  name_translations:
+    la: Excita, quæsumus
+    en: 
+    fr: 
+
+
+- id: 99905
+    # De Spiritu Sancto
+  name_translations:
+    la: Deus, qui corda
+    en: 
+    fr:
+
+
+- id: 99906
+    # BVM in advent
+  name_translations:
+    la: de BMV (Deus, qui de beátæ)
+    en: 
+    fr: 
+
+
+- id: 99907
+    # BVM from Dec 29 - Feb 2 inclusive
+  name_translations:
+    la: de BMV (Deus, qui salútis)
+    en: 
+    fr:
+
+
+- id: 99908
+    # BVM for the rest of the year
+  name_translations:
+    la: Concéde
+    en: 
+    fr: 
+
+
+- id: 99909
+    # Against the Persecutors
+  name_translations:
+    la: Ecclésiæ
+    en: 
+    fr: 
+
+
+- id: 99910
+    # For the Pope
+  name_translations:
+    la: Deus, ómnium
+    en: 
+    fr: 
+
+
+- id: 99911
+    # Suffrage
+  name_translations:
+    la: A cunctis
+    en: 
+    fr: 
+
+
+- id: 99912
+    # All the faithful departed
+  name_translations:
+    la: Fidélium
+    en: 
+    fr:
+
+
+- id: 99913
+    # priest's choice
+  name_translations:
+    la: ad lib
+    en: 
+    fr: 
+
+
+- id: 99914
+    # of the feria
+  name_translations:
+    la: de feria
+    en: 
+    fr: 
+
+
+- id: 99915
+    # for the living and the dead
+  name_translations:
+    la: Omnípotens
+    en: 
+    fr: 

@@ -1,0 +1,605 @@
+diocese_name: D. Rhendonensis
+country: Universal
+feasts:
+
+- id: 100
+  name_translations:
+    la: S Genovefæ V
+    fr: S Geneviève, V
+  date: 01-03
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Veneremur omnes
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 200
+  name_translations:
+    la: B Mariae Virginis de Ponte Mediani
+    fr: Notre-Dame do Pontmain
+  date: 01-17
+  rank_verbose: dm
+  rank_numeric: 14
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Astitit Regina
+    gloria: true
+    credo: True
+    preface: de B Maria Virg (et te in Festivitatae)
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 300
+  name_translations:
+    la: S Melanii EC Patroni Prinipalis Dioecesis
+    fr: S Melaine, Eveque de Rennes et Confesseur, Patron Principal du Diocese
+  infra_oct_name:
+    la: S Melanii
+    fr: S Melaine
+  date: 01-19
+  rank_verbose: d I cl cum Oct communi
+  rank_numeric: 6
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Statuit ei
+    gloria: true
+    credo: True
+    preface:
+  commemorations: []
+  nobility:
+  - 1
+  - 2
+  - 1
+  - 8
+  - 1
+  - 0
+
+- id: 400
+  name_translations:
+    la: S Gilduini C
+    fr: S Gilduin C
+  date: 01-27
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Justus ut palma
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 500
+  name_translations:
+    la: B Convoionis Ab
+    fr: B Conwoion Abbe
+  date: 01-28
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Os justi
+    gloria: true
+    credo: false
+    preface:
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 600
+  name_translations:
+    la: B Julianai Maunoir C
+    fr: B Julien Maunoir C
+  date: 01-30
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Justus ut palma
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 700
+  name_translations:
+    la: B Joannis de Craticula EC
+    fr: B Jean de la grille EC
+  date: 02-01
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Sacerdotes tui
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 800
+  name_translations:
+    la: S Enogati EC
+    fr: S Enogat EC
+  date: 02-13
+  rank_verbose: sd
+  rank_numeric: 16
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Statuit
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 900
+  name_translations:
+    la: S Mariae Bernardae Soubirous V
+    fr: S Bernadette Soubirous V
+  date: 02-18
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Vultum tuum
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 1000
+  name_translations:
+    la: S Coletae V
+    fr: S Colette V
+  date: 03-06
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Dilexisti
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 1100
+  name_translations:
+    la: S Pauli EC
+    fr: S Paul de Leon EC
+  date: 03-12
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Sacerdotes tui
+    gloria: true
+    credo: false
+    preface: Apostolis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 1200
+  name_translations:
+    la: S Paterni EC
+    fr: S Patern EC
+  date: 04-16
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Statuit
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 1300
+  name_translations:
+    la: S Ludovici Mariae Grignion de Montfort C
+    fr: S Louis-Marie Grignon de Montfort C
+  date: 04-28
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Clama
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 1400
+  name_translations:
+    la: Dedicationis Eccl Metropolitanae
+    fr: Dedicace de la Cathedrale
+  date: 04-06
+  rank_verbose: d I cl cum Oct communi
+  rank_numeric: 5
+  color: white
+  office_type: false
+  mass_properties:
+    introit: 
+    gloria: true
+    credo: true
+    preface: Dedicatione
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 1500
+  name_translations:
+    la: S Brioci EC
+    fr: S Brieuc EC
+  date: 05-11
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Statuit
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 1600
+  name_translations:
+    la: S Yvonis C Patroni secundarii provinciae
+    fr: S Yves C, Patron secondaire de la Porvince de Bretagne
+  date: 05-19
+  rank_verbose: dm
+  rank_numeric: 14
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Justus ut palma
+    gloria: true
+    credo: false
+    preface: Sanctis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 1700
+  name_translations:
+    la: S Joannae Arcensis V Patronnae Secundariae Galliae
+    fr: S Jeanne d'Arc V Patronne Secondaire de la France
+  date: 05-30
+  rank_verbose: d II cl
+  rank_numeric: 10
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Cantemus Domino
+    gloria: true
+    credo: false
+    preface: Sanctis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 1800
+  name_translations:
+    la: B Mariae Virginis Omnium Gratiarum Mediatricis
+    fr: Marie Mediatrice de Toutes les Graces
+  date: 05-31
+  rank_verbose: d II cl
+  rank_numeric: 10
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Adeamus cum fiducia
+    gloria: true
+    credo: true
+    preface: B Maria Virg (et te in Festivitate)
+  commemorations: []
+  nobility:
+  - 2
+  - 2
+  - 6
+  - 2
+  - 3
+  - 0
+
+- id: 1900
+  name_translations:
+    la: S Clotildis Reginae V
+    fr: S Clotilde Riene de France V
+  date: 06-03
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Cognovi
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 2000
+  name_translations:
+    la: S Mevenni Ab
+    fr: S Meen Ab
+  date: 06-21
+  rank_verbose: d
+  rank_numeric: 15
+  color: white
+  office_type: false
+  mass_properties:
+    introit: Os justi
+    gloria: true
+    credo: false
+    preface: Communis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+- id: 2100
+  name_translations:
+    la: Ss Petri et Pauli Aa Titul Eccl Cathedr et Patr Princ Civitatis Rhedonensis
+    fr: S Pierre et S Paul, Titulaires de la Cathedrale, et Patrons Principaux de la Ville de Rennes
+  date: 06-29
+  rank_verbose: d I cl cum Oct communis
+  rank_numeric: 5
+  color: red
+  office_type: false
+  mass_properties:
+    introit:
+    gloria: true
+    credo: true
+    preface: Apostolis
+  commemorations: []
+  nobility:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+
+# - id: 200
+#   name_translations:
+#     la:
+#     fr:
+#   date: 01-17
+#   rank_verbose: d
+#   rank_numeric: 15
+#   color: white
+#   office_type: false
+#   mass_properties:
+#     introit:
+#     gloria: true
+#     credo: false
+#     preface: Communis
+#   commemorations: []
+#   nobility:
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#
+# - id: 200
+#   name_translations:
+#     la:
+#     fr:
+#   date: 01-17
+#   rank_verbose: d
+#   rank_numeric: 15
+#   color: white
+#   office_type: false
+#   mass_properties:
+#     introit:
+#     gloria: true
+#     credo: false
+#     preface: Communis
+#   commemorations: []
+#   nobility:
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#
+# - id: 200
+#   name_translations:
+#     la:
+#     fr:
+#   date: 01-17
+#   rank_verbose: d
+#   rank_numeric: 15
+#   color: white
+#   office_type: false
+#   mass_properties:
+#     introit:
+#     gloria: true
+#     credo: false
+#     preface: Communis
+#   commemorations: []
+#   nobility:
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#
+# - id: 200
+#   name_translations:
+#     la:
+#     fr:
+#   date: 01-17
+#   rank_verbose: d
+#   rank_numeric: 15
+#   color: white
+#   office_type: false
+#   mass_properties:
+#     introit:
+#     gloria: true
+#     credo: false
+#     preface: Communis
+#   commemorations: []
+#   nobility:
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#
+# - id: 200
+#   name_translations:
+#     la:
+#     fr:
+#   date: 01-17
+#   rank_verbose: d
+#   rank_numeric: 15
+#   color: white
+#   office_type: false
+#   mass_properties:
+#     introit:
+#     gloria: true
+#     credo: false
+#     preface: Communis
+#   commemorations: []
+#   nobility:
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#   - 0
+#

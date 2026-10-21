@@ -2,18 +2,26 @@
 
 import yaml
 import json
-import hashlib
-import sqlite3
+# import hashlib
+# import sqlite3
 from pathlib import Path
 from ordotools.tools.db import get_connection
 
 
-def generate_short_id(text: str, length: int = 8) -> str:
-# 1. Encode the string to bytes
-# 2. Feed it into shake_256
-# 3. Request hex digits (length // 2 bytes gives 'length' hex chars)
-    byte_length = max(1, length // 2)
-    return hashlib.shake_256(text.encode('utf-8')).hexdigest(byte_length)
+# # TODO: get rid of the short id generation
+# def generate_short_id(text: str, length: int = 8) -> str:
+#     byte_length = max(1, length // 2)
+#     return hashlib.shake_256(text.encode('utf-8')).hexdigest(byte_length)
+
+
+ids = []
+
+
+def check_duplicates(id):
+    if id in ids:
+        print(f"\n\nDuplicate key found: {id}")
+    ids.append(id)
+
 
 def build_from_yaml(data_dir="data"):
     conn = get_connection()
@@ -21,7 +29,13 @@ def build_from_yaml(data_dir="data"):
 
     print("🧹 Clearing existing data...")
     cur.execute("PRAGMA foreign_keys = OFF")
-    for table in ["feast_date_assignments", "translations", "feasts", "dioceses", "countries"]:
+    for table in [
+        "feast_date_assignments",
+        "translations",
+        "feasts",
+        "dioceses",
+        "countries"
+    ]:
         cur.execute(f"DELETE FROM {table}")
     cur.execute("PRAGMA foreign_keys = ON")
 
@@ -40,40 +54,77 @@ def build_from_yaml(data_dir="data"):
         diocese_id = None
         if not is_temporal:
             country = data.get("country", "Universal")
-            cur.execute("INSERT OR IGNORE INTO countries (name_english) VALUES (?)", (country,))
-            cur.execute("SELECT id FROM countries WHERE name_english = ?", (country,))
+            cur.execute(
+                "INSERT OR IGNORE INTO countries (name_english) VALUES (?)",
+                (country,)
+            )
+            cur.execute(
+                "SELECT id FROM countries WHERE name_english = ?",
+                (country,)
+            )
             country_id = cur.fetchone()[0]
 
-            cur.execute("INSERT OR IGNORE INTO dioceses (country_id, name_english) VALUES (?, ?)", (country_id, source_name))
-            cur.execute("SELECT id FROM dioceses WHERE name_english = ?", (source_name,))
+            cur.execute("""
+                INSERT OR IGNORE INTO dioceses (country_id, name_english)
+                    VALUES (?, ?)
+                """,
+                (country_id, source_name)
+            )
+            cur.execute(
+                "SELECT id FROM dioceses WHERE name_english = ?",
+                (source_name,)
+            )
             diocese_id = cur.fetchone()[0]
+
+            # TODO: look at the commemorations and search for the feast data
 
         for feast in data.get("feasts", []):
             try:
                 if not is_temporal:
-                    f_id = str(diocese_id) + "&" + str(feast.get('id'))
+                    # f_id = str(diocese_id) + "&" + str(feast.get('id'))
+                    f_id = feast.get('id')
                 else:
+                    # NOTE: this might be somewhat of a hack...
+                    if str(999) in str(feast.get('id')):
+                        feast['rank_verbose'] = None
+                        feast['rank_numeric'] = None
+                        feast['color'] = None
+                        feast['office_type'] = None
+                        feast['mass_properties'] = None
+                        feast['nobility'] = None
+                        feast['commemorations'] = None
                     f_id = feast.get('id')
                 if f_id is None:
-                    print(f"   ⚠️ Skipping feast in {source_name}: No ID found.")
+                    print(f"⚠️ Skipping feast in {source_name}: No ID found.")
                     continue
 
+                check_duplicates(f_id)
+
                 cur.execute("""
-                    INSERT OR IGNORE INTO feasts 
-                    (id, rank_verbose, rank_numeric, color, office_type, mass_properties, nobility)
-                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                    INSERT OR IGNORE INTO feasts
+                    (id, rank_verbose, rank_numeric, color, office_type,
+                    mass_properties, nobility, commemorations)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
-                    str(f_id), feast['rank_verbose'], feast['rank_numeric'], feast['color'],
-                    str(feast.get('office_type', 'False')), json.dumps(feast.get('mass_properties')), json.dumps(feast.get('nobility', []))
+                    str(f_id),
+                    feast['rank_verbose'],
+                    feast['rank_numeric'],
+                    feast['color'],
+                    str(feast.get('office_type', 'False')),
+                    json.dumps(feast.get('mass_properties')),
+                    json.dumps(feast.get('nobility', [])),
+                    json.dumps(feast.get('commemorations', []))
                 ))
 
                 f_type = 'temporal' if is_temporal else 'sanctoral'
-                # TODO: insert the translations for the days within the octave here as well
                 for lang, text in feast.get('name_translations', {}).items():
-                    cur.execute("INSERT INTO translations (feast_id, language_code, translation, feast_type) VALUES (?, ?, ?, ?)", 
-                                (str(f_id), lang, text, f_type))
+                    cur.execute("""
+                    INSERT INTO translations (feast_id, language_code,
+                    translation, feast_type) VALUES (?, ?, ?, ?)
+                                """,
+                                (str(f_id), lang, text, f_type)
+                                )
 
-                # NOTE: a bit of a hack, but it doesn't really matter
                 if feast.get('infra_oct_name', {}).items():
                     roman = ["II", "III", "IV", "V", "VI", "VII", "Oct "]
                     for x in range(1, 8):

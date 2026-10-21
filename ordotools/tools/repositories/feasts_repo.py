@@ -5,16 +5,17 @@ from typing import Dict, Optional, List
 # from datetime import datetime
 from ordotools.tools.db import get_connection
 
+
 class FeastsRepository:
     def __init__(self, db_path: Optional[str] = None):
         self.conn = get_connection(db_path)
-    
+
     def get_feast(self, feast_id: str) -> Optional[Dict]:
         """Get a single feast by ID (numeric string or temporal name)."""
         cursor = self.conn.execute("SELECT * FROM feasts WHERE id = ?", (feast_id,))
         row = cursor.fetchone()
         return self._row_to_dict(row) if row else None
-    
+
     def get_feasts_for_date(self, month: int, day: int, diocese_name: str = 'Roman') -> List[Dict]:
         """Get feasts for a date, resolving Diocese -> Country -> Roman priority."""
         cursor = self.conn.execute(
@@ -39,7 +40,8 @@ class FeastsRepository:
             'office_type': row['office_type'] if row['office_type'] != 'False' else False,
             'mass_properties': json.loads(row['mass_properties']) if row['mass_properties'] else {},
             'alt_mass_properties': json.loads(row['alt_mass_properties']) if row['alt_mass_properties'] else {},
-            'nobility': json.loads(row['nobility']) if row['nobility'] else []
+            'nobility': json.loads(row['nobility']) if row['nobility'] else [],
+            'commemorations': json.loads(row['commemorations']) if row['commemorations'] else []
         }
 
     def save_feast(self, feast_data: Dict):
@@ -52,7 +54,7 @@ class FeastsRepository:
                 rank_verbose=excluded.rank_verbose, rank_numeric=excluded.rank_numeric,
                 color=excluded.color, office_type=excluded.office_type,
                 mass_properties=excluded.mass_properties, alt_mass_properties=excluded.alt_mass_properties,
-                nobility=excluded.nobility
+                nobility=excluded.nobility, commemorations=excluded.commemorations
             """,
             (
                 str(feast_data['id']), feast_data['rank'][1], feast_data['rank'][0], 

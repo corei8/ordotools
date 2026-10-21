@@ -30,6 +30,7 @@ show_help() {
     echo
     echo -e "${BOLD}Commands:${NC}"
     echo -e "  ${GREEN}run${NC}          Generate a calendar (default command)"
+    echo -e "  ${GREEN}sweep${NC}        Build every year in a range and report failures"
     echo -e "  ${GREEN}test${NC}         Run tests"
     echo -e "  ${GREEN}benchmark${NC}    Run performance benchmarks"
     echo -e "  ${GREEN}setup${NC}        Setup development environment"
@@ -40,6 +41,12 @@ show_help() {
     echo -e "  ${YELLOW}-d, --diocese${NC} DIOCESE  Diocese to use (default: roman)"
     echo -e "  ${YELLOW}-l, --lang${NC} LANG        Language (default: la)"
     echo -e "  ${YELLOW}--dump${NC}                 Dump calendar to stdout in readable format"
+    echo
+    echo -e "${BOLD}Options for 'sweep':${NC}"
+    echo -e "  ${YELLOW}-d, --dioceses${NC} DIOCESES Comma-separated list of dioceses (default: roman)"
+    echo -e "  ${YELLOW}-l, --lang${NC} LANG        Language (default: la)"
+    echo -e "  ${YELLOW}--from${NC} YEAR            First year (default: 1900)"
+    echo -e "  ${YELLOW}--to${NC} YEAR              Last year (default: 3500)"
     echo
     echo -e "${BOLD}Options for 'test':${NC}"
     echo -e "  ${YELLOW}-p, --performance${NC}      Run performance tests"
@@ -54,6 +61,7 @@ show_help() {
     echo
     echo -e "${BOLD}Examples:${NC}"
     echo -e "  ./ordotools.sh run -y 2025 -d roman --dump"
+    echo -e "  ./ordotools.sh sweep -d roman,melbournensis"
     echo -e "  ./ordotools.sh test -p"
     echo -e "  ./ordotools.sh benchmark -y 2025,2026 -r 3"
     echo
@@ -121,6 +129,64 @@ calendar = LiturgicalCalendar($year, "$diocese", "$lang").build()
 print(f"Successfully generated {len(calendar)} feast days")
 END
     fi
+}
+
+# Build calendars for every year in a range, reporting any failures
+run_sweep() {
+    dioceses="roman"
+    lang="la"
+    start=1900
+    end=3500
+
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            -d|--dioceses) dioceses="$2"; shift 2 ;;
+            -l|--lang) lang="$2"; shift 2 ;;
+            --from) start="$2"; shift 2 ;;
+            --to) end="$2"; shift 2 ;;
+            *)
+                echo -e "${RED}Unknown option: $1${NC}"
+                show_help
+                exit 1
+                ;;
+        esac
+    done
+
+    echo -e "${BLUE}Building $start-$end for diocese=$dioceses, language $lang${NC}"
+    python3 - "$dioceses" "$lang" "$start" "$end" << 'END'
+import signal, sys, time, traceback
+from ordotools import LiturgicalCalendar
+from ordotools.tools.rank import transferred_feasts
+
+dioceses, lang, start, end = sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4])
+
+# a single build takes well under a second; anything past this is a hang
+TIMEOUT = 10
+def on_alarm(*_):
+    raise TimeoutError(f"no result after {TIMEOUT}s (probably an infinite loop)")
+signal.signal(signal.SIGALRM, on_alarm)
+
+failures = []
+t0 = time.time()
+# for diocese in dioceses:
+for year in range(start, end + 1):
+	transferred_feasts.clear()  # module-level state; a timed-out build leaves leftovers
+	signal.alarm(TIMEOUT)
+	try:
+		LiturgicalCalendar(year, dioceses, lang).build()
+	except Exception as e:
+		failures.append((dioceses, year, e))
+		print(f"FAIL {dioceses} {year}: {type(e).__name__}: {e}", flush=True)
+		if len(failures) == 1:
+			traceback.print_exc()
+	signal.alarm(0)
+	if year % 100 == 0:
+		print(f"  {dioceses}: {year}", flush=True)
+
+total = len(dioceses) * (end - start + 1)
+print(f"\n{total - len(failures)}/{total} calendars built in {time.time() - t0:.1f}s")
+sys.exit(1 if failures else 0)
+END
 }
 
 # Run tests
@@ -240,6 +306,9 @@ main() {
     case $command in
         run)
             run_calendar "$@"
+            ;;
+        sweep)
+            run_sweep "$@"
             ;;
         test)
             run_tests "$@"

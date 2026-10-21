@@ -3,15 +3,21 @@ from ordotools import LiturgicalCalendar
 from rich.console import Console
 from rich.table import Table
 # from rich import box
+import subprocess
+
+# from rich.live import Live
+
+# with Live(table, refresh_per_second=4):
+#     ...
+
+subprocess.run(["clear"], check=True)
 
 # TODO: turn the entire run into a class and we can choose the output
 
 console = Console()
 
-# TODO: we need to add the language
-data = LiturgicalCalendar(1950, "roman", "la").build()
+data = LiturgicalCalendar(2027, "Roman", "la").build()
 
-# TODO: I don't think that this is working...
 truncate = lambda s: s if len(s) <= 20 else s[:17] + "..."
 
 
@@ -36,9 +42,7 @@ table = Table(
 # Feasts and number of commemoratins
 table.add_column("Date", width=12)  # style="dim", width=12)
 table.add_column("Feast Name")
-# table.add_column("Rank", justify="center")
-# table.add_column("Verbose Rank", justify="left")
-# table.add_column("Commemorations", justify="left")
+table.add_column("Commemorations", justify="left")
 # table.add_column("2 Com", justify="left")
 # table.add_column("3 Com", justify="left")
 
@@ -50,19 +54,28 @@ for feast in data:
     first_com = ""
 
     try:
-        first_com = feast.commemorations[0]["id"]
+        first_com = feast.commemorations[0].name
     except IndexError:
         first_com = ""
+    try:
+        second_com = feast.commemorations[1].name
+    except IndexError:
+        second_com = ""
+    try:
+        third_com = feast.commemorations[2].name
+    except IndexError:
+        third_com = ""
+    try:
+        fourth_com = feast.commemorations[3].name
+    except IndexError:
+        fourth_com = ""
 
     # feasts and number of commemorations
     table.add_row(
         feast.date.strftime('%b %d'),
-        # truncate(feast.name),
-        feast.name,  # TODO: this has to be the feast eventually...
-        # str(feast.rank_numeric),
-        # feast.rank_verbose,
-        # # TODO: we have renamed our commemoriations to be a list...
-        # str(first_com)
+        feast.name + ", [italic]" + feast.rank_verbose + "[/italic]",
+        first_com + " | " + second_com + " | " + third_com + " | " + fourth_com
     )
 
-console.print(table)
+with console.pager(styles=True):
+    console.print(table)

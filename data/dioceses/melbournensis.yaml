@@ -2,7 +2,7 @@ diocese_name: Ad Melbournensis
 country: australiae
 feasts:
 
-- id: 4500
+- id: melbournenpatricii
   name_translations:
     la: S Patricii EC
     en: St. Patrick, BpC

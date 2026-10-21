@@ -1,0 +1,566 @@
+{
+  "autodoc.config.json": {
+    "mtime": 1744295001.363821,
+    "seen": 1790452787.375128,
+    "ast_hash": "27a85b15505ad03c8d4a429fdd2aebe4",
+    "semantic_hash": "27a85b15505ad03c8d4a429fdd2aebe4"
+  },
+  "benchmark.py": {
+    "mtime": 1759765363.4488308,
+    "seen": 1790452787.3751302,
+    "ast_hash": "d62ce89bfd68f744f0a0e73663751a74",
+    "semantic_hash": "d62ce89bfd68f744f0a0e73663751a74"
+  },
+  "benchmark_history.json": {
+    "mtime": 1759765363.4489534,
+    "seen": 1790452787.375131,
+    "ast_hash": "85663286f82e1149839a5ca880469262",
+    "semantic_hash": "85663286f82e1149839a5ca880469262"
+  },
+  "build_database.py": {
+    "mtime": 1784904149.5224686,
+    "seen": 1790452787.3751318,
+    "ast_hash": "8ad7c3e2561192e0b332a710615f1336",
+    "semantic_hash": "8ad7c3e2561192e0b332a710615f1336"
+  },
+  "export_temporal_to_yaml.py": {
+    "mtime": 1777650264.8581262,
+    "seen": 1790452787.3751318,
+    "ast_hash": "30618b456742b2195bcaa63f90fee021",
+    "semantic_hash": "30618b456742b2195bcaa63f90fee021"
+  },
+  "export_to_yaml.py": {
+    "mtime": 1777650264.8583713,
+    "seen": 1790452787.375133,
+    "ast_hash": "c0be3dff31836f0c9bf5a907f05b384d",
+    "semantic_hash": "c0be3dff31836f0c9bf5a907f05b384d"
+  },
+  "export_tranlsations_to_yaml.py": {
+    "mtime": 1777650264.8585346,
+    "seen": 1790452787.375133,
+    "ast_hash": "b6d278bd3e1c2da4f5c86cfc2163961a",
+    "semantic_hash": "b6d278bd3e1c2da4f5c86cfc2163961a"
+  },
+  "extendedRun.py": {
+    "mtime": 1790352347.7693813,
+    "seen": 1790452787.375134,
+    "ast_hash": "bb5d515781a96e658203666cda98a3e7",
+    "semantic_hash": "bb5d515781a96e658203666cda98a3e7"
+  },
+  "liturgical_profile_test.py": {
+    "mtime": 1751571279.639304,
+    "seen": 1790452787.375135,
+    "ast_hash": "adecd09d67d146d4214177a40df0c24d",
+    "semantic_hash": "adecd09d67d146d4214177a40df0c24d"
+  },
+  "migrate_temporal.py": {
+    "mtime": 1769949692.9459386,
+    "seen": 1790452787.375135,
+    "ast_hash": "538fe2b12f6c5fdf605c21a5b8133aa7",
+    "semantic_hash": "538fe2b12f6c5fdf605c21a5b8133aa7"
+  },
+  "models.py": {
+    "mtime": 1779899488.3951035,
+    "seen": 1790452787.375136,
+    "ast_hash": "7ac08cc4ad93a853d1b2eafd91cd5d73",
+    "semantic_hash": "7ac08cc4ad93a853d1b2eafd91cd5d73"
+  },
+  "ordotools.sh": {
+    "mtime": 1777650264.8587584,
+    "seen": 1790452787.375136,
+    "ast_hash": "da668217ce2692668ae67d9b4e3a616f",
+    "semantic_hash": "da668217ce2692668ae67d9b4e3a616f"
+  },
+  "ordotools/__init__.py": {
+    "mtime": 1738343930.1330035,
+    "seen": 1790452787.375137,
+    "ast_hash": "0b100f2bfd96121cb493c073b06f9633",
+    "semantic_hash": "0b100f2bfd96121cb493c073b06f9633"
+  },
+  "ordotools/sanctoral/__init__.py": {
+    "mtime": 1736974657.3626535,
+    "seen": 1790452787.375137,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "ordotools/sanctoral/country/_TEMPLATE.py": {
+    "mtime": 1738545417.893997,
+    "seen": 1790452787.375138,
+    "ast_hash": "53a97dc1751355d0cfcd8909c1b9a53b",
+    "semantic_hash": "53a97dc1751355d0cfcd8909c1b9a53b"
+  },
+  "ordotools/sanctoral/country/__init__.py": {
+    "mtime": 1736974657.362799,
+    "seen": 1790452787.375138,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "ordotools/sanctoral/country/australiae.py": {
+    "mtime": 1736974657.3628564,
+    "seen": 1790452787.375139,
+    "ast_hash": "ac2735ce184da53c8c493061419c50d4",
+    "semantic_hash": "ac2735ce184da53c8c493061419c50d4"
+  },
+  "ordotools/sanctoral/country/hispaniae.py": {
+    "mtime": 1736974657.362907,
+    "seen": 1790452787.375139,
+    "ast_hash": "42753a4f8108b31762b4e05e723800aa",
+    "semantic_hash": "42753a4f8108b31762b4e05e723800aa"
+  },
+  "ordotools/sanctoral/country/nameofcountry.py": {
+    "mtime": 1736974657.3629591,
+    "seen": 1790452787.3751402,
+    "ast_hash": "1f9501752935375913dc7558d858e83b",
+    "semantic_hash": "1f9501752935375913dc7558d858e83b"
+  },
+  "ordotools/sanctoral/diocese/_TEMPLATE.py": {
+    "mtime": 1759765363.449611,
+    "seen": 1790452787.3751402,
+    "ast_hash": "467ce91e00489e662d7a9064bf24ee58",
+    "semantic_hash": "467ce91e00489e662d7a9064bf24ee58"
+  },
+  "ordotools/sanctoral/diocese/__init__.py": {
+    "mtime": 1736974657.3630712,
+    "seen": 1790452787.3751411,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "ordotools/sanctoral/diocese/bathurstensis.py": {
+    "mtime": 1759765363.4500384,
+    "seen": 1790452787.3751419,
+    "ast_hash": "70a0a5b5e2549c76db9001f15dc68547",
+    "semantic_hash": "70a0a5b5e2549c76db9001f15dc68547"
+  },
+  "ordotools/sanctoral/diocese/lismorensis.py": {
+    "mtime": 1759765363.4502175,
+    "seen": 1790452787.3751419,
+    "ast_hash": "e96d644d92c69b7684609069608e69a9",
+    "semantic_hash": "e96d644d92c69b7684609069608e69a9"
+  },
+  "ordotools/sanctoral/diocese/maitlandensis.py": {
+    "mtime": 1759765363.4503913,
+    "seen": 1790452787.3751428,
+    "ast_hash": "f298a28d498489952f071c3e922e2f71",
+    "semantic_hash": "f298a28d498489952f071c3e922e2f71"
+  },
+  "ordotools/sanctoral/diocese/melbournensis.py": {
+    "mtime": 1759765363.450622,
+    "seen": 1790452787.3751428,
+    "ast_hash": "1066a5ac2d2ae82ac8c99a6051ec3159",
+    "semantic_hash": "1066a5ac2d2ae82ac8c99a6051ec3159"
+  },
+  "ordotools/sanctoral/diocese/nameofdiocese.py": {
+    "mtime": 1736974657.3634372,
+    "seen": 1790452787.375144,
+    "ast_hash": "9e36d1501684395455e508d9544f78c2",
+    "semantic_hash": "9e36d1501684395455e508d9544f78c2"
+  },
+  "ordotools/sanctoral/diocese/rennes.py": {
+    "mtime": 1759765363.450922,
+    "seen": 1790452787.375144,
+    "ast_hash": "332ac0eec8e74a005e3f12d0be67f60e",
+    "semantic_hash": "332ac0eec8e74a005e3f12d0be67f60e"
+  },
+  "ordotools/sanctoral/diocese/rockhamptonensis.py": {
+    "mtime": 1759765363.4511962,
+    "seen": 1790452787.375145,
+    "ast_hash": "1a41589fc9d7f65b7e8e88a9b1db8e28",
+    "semantic_hash": "1a41589fc9d7f65b7e8e88a9b1db8e28"
+  },
+  "ordotools/sanctoral/diocese/roman.py": {
+    "mtime": 1769949692.9485703,
+    "seen": 1790452787.375146,
+    "ast_hash": "31ae3f28bed1adfc3ad0f9273a0978e2",
+    "semantic_hash": "31ae3f28bed1adfc3ad0f9273a0978e2"
+  },
+  "ordotools/tools/__init__.py": {
+    "mtime": 1736974657.3638892,
+    "seen": 1790452787.375146,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "ordotools/tools/algorithm.py": {
+    "mtime": 1790026221.0671313,
+    "seen": 1790452787.375147,
+    "ast_hash": "e1dd56d43937966c14342f7b2bcc5962",
+    "semantic_hash": "e1dd56d43937966c14342f7b2bcc5962"
+  },
+  "ordotools/tools/commemorations.py": {
+    "mtime": 1784824236.1468775,
+    "seen": 1790452787.375147,
+    "ast_hash": "2789a6580151cd4152140cf3625a7987",
+    "semantic_hash": "2789a6580151cd4152140cf3625a7987"
+  },
+  "ordotools/tools/csv_maker.py": {
+    "mtime": 1759765363.4517925,
+    "seen": 1790452787.375148,
+    "ast_hash": "075771c6ce1befdaa497c89ff4b84cf9",
+    "semantic_hash": "075771c6ce1befdaa497c89ff4b84cf9"
+  },
+  "ordotools/tools/db.py": {
+    "mtime": 1784733430.316813,
+    "seen": 1790452787.375148,
+    "ast_hash": "80ac33b3748bc259dd3c3f7f39051dc6",
+    "semantic_hash": "80ac33b3748bc259dd3c3f7f39051dc6"
+  },
+  "ordotools/tools/fasting.py": {
+    "mtime": 1737339455.4430037,
+    "seen": 1790452787.375149,
+    "ast_hash": "98450678663d815e15d5ca85005e22a7",
+    "semantic_hash": "98450678663d815e15d5ca85005e22a7"
+  },
+  "ordotools/tools/feast.py": {
+    "mtime": 1784725328.044137,
+    "seen": 1790452787.375149,
+    "ast_hash": "a884932c3b11eca1d84bc5a5d4fcb74e",
+    "semantic_hash": "a884932c3b11eca1d84bc5a5d4fcb74e"
+  },
+  "ordotools/tools/helpers.py": {
+    "mtime": 1784141207.1749134,
+    "seen": 1790452787.37515,
+    "ast_hash": "8706454585cd29b006946103bdef607c",
+    "semantic_hash": "8706454585cd29b006946103bdef607c"
+  },
+  "ordotools/tools/liturgical_dates.py": {
+    "mtime": 1736974657.3643477,
+    "seen": 1790452787.37515,
+    "ast_hash": "8b09a3c836d1cf5fcb4019c1d28b1382",
+    "semantic_hash": "8b09a3c836d1cf5fcb4019c1d28b1382"
+  },
+  "ordotools/tools/logger.py": {
+    "mtime": 1736974657.3643706,
+    "seen": 1790452787.3751512,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "ordotools/tools/main.py": {
+    "mtime": 1790452330.6952538,
+    "seen": 1790452787.3751512,
+    "ast_hash": "23249fda0a80f1a78d3803a6763ac07a",
+    "semantic_hash": "23249fda0a80f1a78d3803a6763ac07a"
+  },
+  "ordotools/tools/migration_scripts/__init__.py": {
+    "mtime": 1761062089.049358,
+    "seen": 1790452787.375152,
+    "ast_hash": "c6c43c607a98903c4a8ba5b0e2b36583",
+    "semantic_hash": "c6c43c607a98903c4a8ba5b0e2b36583"
+  },
+  "ordotools/tools/migration_scripts/migrate_countries.py": {
+    "mtime": 1761062089.0494885,
+    "seen": 1790452787.375152,
+    "ast_hash": "2089e7012d88034dc1429ff5c20691f9",
+    "semantic_hash": "2089e7012d88034dc1429ff5c20691f9"
+  },
+  "ordotools/tools/migration_scripts/migrate_dioceses.py": {
+    "mtime": 1761062089.0496101,
+    "seen": 1790452787.3751528,
+    "ast_hash": "5a27b94ec10794ee41051d34142a85a6",
+    "semantic_hash": "5a27b94ec10794ee41051d34142a85a6"
+  },
+  "ordotools/tools/migration_scripts/migrate_sanctoral.py": {
+    "mtime": 1761062089.0497444,
+    "seen": 1790452787.375154,
+    "ast_hash": "8e718deefe2e2d4fa647a13ce0c4a406",
+    "semantic_hash": "8e718deefe2e2d4fa647a13ce0c4a406"
+  },
+  "ordotools/tools/migration_scripts/migrate_temporal.py": {
+    "mtime": 1761062089.0498762,
+    "seen": 1790452787.375154,
+    "ast_hash": "9499524e40e15dff5d555a1a9a2c51d5",
+    "semantic_hash": "9499524e40e15dff5d555a1a9a2c51d5"
+  },
+  "ordotools/tools/migration_scripts/migrate_translations.py": {
+    "mtime": 1761062089.0500386,
+    "seen": 1790452787.375155,
+    "ast_hash": "e8729defb5c2ade5016acedbd67e3473",
+    "semantic_hash": "e8729defb5c2ade5016acedbd67e3473"
+  },
+  "ordotools/tools/migration_scripts/run_all_migrations.py": {
+    "mtime": 1761062089.0501723,
+    "seen": 1790452787.375155,
+    "ast_hash": "6ea1365db4abba8de9d55df39a46e5ca",
+    "semantic_hash": "6ea1365db4abba8de9d55df39a46e5ca"
+  },
+  "ordotools/tools/parts.py": {
+    "mtime": 1736974657.3644392,
+    "seen": 1790452787.375156,
+    "ast_hash": "7871433382c0b5342abb8eb571ce47e6",
+    "semantic_hash": "7871433382c0b5342abb8eb571ce47e6"
+  },
+  "ordotools/tools/rank.py": {
+    "mtime": 1790452308.3884466,
+    "seen": 1790452787.375156,
+    "ast_hash": "7c9c4bc1481bb821a339b6a9fb10248b",
+    "semantic_hash": "7c9c4bc1481bb821a339b6a9fb10248b"
+  },
+  "ordotools/tools/repositories/__init__.py": {
+    "mtime": 1761062089.050344,
+    "seen": 1790452787.3751569,
+    "ast_hash": "00ac00ae52e994ebb3d3344a60af9b95",
+    "semantic_hash": "00ac00ae52e994ebb3d3344a60af9b95"
+  },
+  "ordotools/tools/repositories/dioceses_repo.py": {
+    "mtime": 1769949692.9501681,
+    "seen": 1790452787.375158,
+    "ast_hash": "8686e4d80419e9b6dbd02436f76b4985",
+    "semantic_hash": "8686e4d80419e9b6dbd02436f76b4985"
+  },
+  "ordotools/tools/repositories/feasts_repo.py": {
+    "mtime": 1784733333.2596202,
+    "seen": 1790452787.375158,
+    "ast_hash": "777f48bc8e081fd1841c38b674fdbe60",
+    "semantic_hash": "777f48bc8e081fd1841c38b674fdbe60"
+  },
+  "ordotools/tools/repositories/sanctoral_repo.py": {
+    "mtime": 1777650264.8608506,
+    "seen": 1790452787.375159,
+    "ast_hash": "ffe0fd30c525f62bdb9778da92ba3930",
+    "semantic_hash": "ffe0fd30c525f62bdb9778da92ba3930"
+  },
+  "ordotools/tools/repositories/temporal_repo.py": {
+    "mtime": 1777650264.8609974,
+    "seen": 1790452787.375159,
+    "ast_hash": "adaad5224b5e0dcc9ba28d69fb15feb3",
+    "semantic_hash": "adaad5224b5e0dcc9ba28d69fb15feb3"
+  },
+  "ordotools/tools/repositories/translations_repo.py": {
+    "mtime": 1784208629.098838,
+    "seen": 1790452787.37516,
+    "ast_hash": "6ed29f3dbfdd3f1d74e394ee0c3249d4",
+    "semantic_hash": "6ed29f3dbfdd3f1d74e394ee0c3249d4"
+  },
+  "ordotools/tools/sanctoral_repo.py": {
+    "mtime": 1761062089.0527558,
+    "seen": 1790452787.37516,
+    "ast_hash": "1650ea8fbd2554f62499982b17ba0dd1",
+    "semantic_hash": "1650ea8fbd2554f62499982b17ba0dd1"
+  },
+  "ordotools/tools/temporal.py": {
+    "mtime": 1784218037.411516,
+    "seen": 1790452787.3751612,
+    "ast_hash": "69a2afd1d3ee1cdecd7fc5dddd5b411a",
+    "semantic_hash": "69a2afd1d3ee1cdecd7fc5dddd5b411a"
+  },
+  "ordotools/tools/temporal_data.py": {
+    "mtime": 1744461068.7829387,
+    "seen": 1790452787.3751612,
+    "ast_hash": "5fcfeffd629407abdc0d5c74bb3daae2",
+    "semantic_hash": "5fcfeffd629407abdc0d5c74bb3daae2"
+  },
+  "ordotools/tools/translations.py": {
+    "mtime": 1744461349.3143036,
+    "seen": 1790452787.3751621,
+    "ast_hash": "cb030685de340b9ce31186d6e9202c86",
+    "semantic_hash": "cb030685de340b9ce31186d6e9202c86"
+  },
+  "parse_test.py": {
+    "mtime": 1769949692.95123,
+    "seen": 1790452787.3751621,
+    "ast_hash": "166b3451a1a1a1b1bf4127e489f629a5",
+    "semantic_hash": "166b3451a1a1a1b1bf4127e489f629a5"
+  },
+  "profile_wrapper.py": {
+    "mtime": 1751572567.9735224,
+    "seen": 1790452787.3751628,
+    "ast_hash": "c6d695dbc0d2dd7b547b8e61cb3c110b",
+    "semantic_hash": "c6d695dbc0d2dd7b547b8e61cb3c110b"
+  },
+  "profiledRun.py": {
+    "mtime": 1737127322.1572642,
+    "seen": 1790452787.3751628,
+    "ast_hash": "9cc61c535258cbfd98d25f4d872e8370",
+    "semantic_hash": "9cc61c535258cbfd98d25f4d872e8370"
+  },
+  "pyproject.toml": {
+    "mtime": 1736974657.365028,
+    "seen": 1790452787.3751638,
+    "ast_hash": "1e2da3a3030d6611520952d5322cd94e",
+    "semantic_hash": "1e2da3a3030d6611520952d5322cd94e"
+  },
+  "pyspy_profiler.py": {
+    "mtime": 1751572563.3877285,
+    "seen": 1790452787.3751638,
+    "ast_hash": "16bbe8849f0ee26d8e835cdaab532c4f",
+    "semantic_hash": "16bbe8849f0ee26d8e835cdaab532c4f"
+  },
+  "run.py": {
+    "mtime": 1784895360.8990178,
+    "seen": 1790452787.375165,
+    "ast_hash": "e7ba9dbd8ca3f65fd9d086d3f30c5e60",
+    "semantic_hash": "e7ba9dbd8ca3f65fd9d086d3f30c5e60"
+  },
+  "test.py": {
+    "mtime": 1784454460.3325992,
+    "seen": 1790452787.375165,
+    "ast_hash": "848e37cf74db6c20347bd733e42b060f",
+    "semantic_hash": "848e37cf74db6c20347bd733e42b060f"
+  },
+  "tests/__init__.py": {
+    "mtime": 1736974657.365245,
+    "seen": 1790452787.375166,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "tests/performance_history.json": {
+    "mtime": 1759768278.439767,
+    "seen": 1790452787.375166,
+    "ast_hash": "f4553ff05e7bf905ab10486d1b0da169",
+    "semantic_hash": "f4553ff05e7bf905ab10486d1b0da169"
+  },
+  "tests/run.py": {
+    "mtime": 1790353988.309948,
+    "seen": 1790452787.375167,
+    "ast_hash": "a5bdd99c9de5509ac34f8eec553ea76b",
+    "semantic_hash": "a5bdd99c9de5509ac34f8eec553ea76b"
+  },
+  "tests/test_.py": {
+    "mtime": 1790352468.368745,
+    "seen": 1790452787.375168,
+    "ast_hash": "95b6a2b85af80a205d9dd90f4917a2fa",
+    "semantic_hash": "95b6a2b85af80a205d9dd90f4917a2fa"
+  },
+  "transform_yaml_nobility.py": {
+    "mtime": 1777650264.86165,
+    "seen": 1790452787.375168,
+    "ast_hash": "281609ff94697004a55303aec9f1642e",
+    "semantic_hash": "281609ff94697004a55303aec9f1642e"
+  },
+  "web_interface/app.py": {
+    "mtime": 1769949692.9518967,
+    "seen": 1790452787.375169,
+    "ast_hash": "f6a524650ae7ea9f53598ec139cee268",
+    "semantic_hash": "f6a524650ae7ea9f53598ec139cee268"
+  },
+  ".github/workflows/pylint.yml": {
+    "mtime": 1736974657.3621607,
+    "seen": 1790452787.375169,
+    "ast_hash": "4dcf169bf3e8cd65e63e3c1a31d7d168",
+    "semantic_hash": "4dcf169bf3e8cd65e63e3c1a31d7d168"
+  },
+  ".github/workflows/python-publish.yml": {
+    "mtime": 1736974657.3622212,
+    "seen": 1790452787.37517,
+    "ast_hash": "d868d5e507464a6601ec0e30a90ed10e",
+    "semantic_hash": "d868d5e507464a6601ec0e30a90ed10e"
+  },
+  ".github/workflows/static.yml": {
+    "mtime": 1736974657.3622727,
+    "seen": 1790452787.37517,
+    "ast_hash": "3cdaf31c91b2a4a3a44407a6971ec064",
+    "semantic_hash": "3cdaf31c91b2a4a3a44407a6971ec064"
+  },
+  "README.md": {
+    "mtime": 1759765363.4486368,
+    "seen": 1790452787.3751712,
+    "ast_hash": "f75011a061d4cc90f12920a36802c80d",
+    "semantic_hash": "f75011a061d4cc90f12920a36802c80d"
+  },
+  "README.rst": {
+    "mtime": 1739545062.9313035,
+    "seen": 1790452787.3751712,
+    "ast_hash": "f9ef078e23d7cb033640dcf5b3efdadd",
+    "semantic_hash": "f9ef078e23d7cb033640dcf5b3efdadd"
+  },
+  "data/countries/australiae.yaml": {
+    "mtime": 1784904352.5113058,
+    "seen": 1790452787.3751721,
+    "ast_hash": "83ec8486ff4b953ff5034a754fee7903",
+    "semantic_hash": "83ec8486ff4b953ff5034a754fee7903"
+  },
+  "data/countries/hispaniae.yaml": {
+    "mtime": 1784454460.3293002,
+    "seen": 1790452787.3751721,
+    "ast_hash": "cb5199f0827d148c6270cb3ae70dbdeb",
+    "semantic_hash": "cb5199f0827d148c6270cb3ae70dbdeb"
+  },
+  "data/dioceses/bathurstensis.yaml": {
+    "mtime": 1784904284.6246576,
+    "seen": 1790452787.375173,
+    "ast_hash": "591b3cdacce0919ba7b4ae52770113d7",
+    "semantic_hash": "591b3cdacce0919ba7b4ae52770113d7"
+  },
+  "data/dioceses/lismorensis.yaml": {
+    "mtime": 1784904307.6431918,
+    "seen": 1790452787.3751738,
+    "ast_hash": "e640fdc1ce2e9a4da86dd04769384a96",
+    "semantic_hash": "e640fdc1ce2e9a4da86dd04769384a96"
+  },
+  "data/dioceses/maitlandensis.yaml": {
+    "mtime": 1784454460.329939,
+    "seen": 1790452787.3751738,
+    "ast_hash": "4d9cd74c7c856820fe5ea99a7d1276d5",
+    "semantic_hash": "4d9cd74c7c856820fe5ea99a7d1276d5"
+  },
+  "data/dioceses/melbournensis.yaml": {
+    "mtime": 1784904327.6333625,
+    "seen": 1790452787.375175,
+    "ast_hash": "d59282f7769e410f345343cdd4b931b9",
+    "semantic_hash": "d59282f7769e410f345343cdd4b931b9"
+  },
+  "data/dioceses/rhendonensis.yaml": {
+    "mtime": 1784690285.8349514,
+    "seen": 1790452787.375175,
+    "ast_hash": "c7b815e3d12b12edd424c78ca992d0ad",
+    "semantic_hash": "c7b815e3d12b12edd424c78ca992d0ad"
+  },
+  "data/dioceses/roman.yaml": {
+    "mtime": 1784904209.145101,
+    "seen": 1790452787.375176,
+    "ast_hash": "3f2a4b28b898945aed46da2eaf4b2b80",
+    "semantic_hash": "3f2a4b28b898945aed46da2eaf4b2b80"
+  },
+  "data/temporal/temporal_cycle.yaml": {
+    "mtime": 1790449318.1942453,
+    "seen": 1790452787.375176,
+    "ast_hash": "4e461dd65f7a14e92d6f5acebb051772",
+    "semantic_hash": "4e461dd65f7a14e92d6f5acebb051772"
+  },
+  "previous_snippets.txt": {
+    "mtime": 1784151468.008608,
+    "seen": 1790452787.375177,
+    "ast_hash": "fbd6cbf71e7dd400db3be3c60f4a63c1",
+    "semantic_hash": "fbd6cbf71e7dd400db3be3c60f4a63c1"
+  },
+  "requirements.txt": {
+    "mtime": 1779380782.6062374,
+    "seen": 1790452787.375178,
+    "ast_hash": "7968221fbb6521bd6c28853acbfd9949",
+    "semantic_hash": "7968221fbb6521bd6c28853acbfd9949"
+  },
+  "test_files/1950.txt": {
+    "mtime": 1784218616.759537,
+    "seen": 1790452787.375178,
+    "ast_hash": "75e1097d849cad2c92bf5c7198163677",
+    "semantic_hash": "75e1097d849cad2c92bf5c7198163677"
+  },
+  "test_files/current.txt": {
+    "mtime": 1784904354.8652065,
+    "seen": 1790452787.375179,
+    "ast_hash": "75e1097d849cad2c92bf5c7198163677",
+    "semantic_hash": "75e1097d849cad2c92bf5c7198163677"
+  },
+  "web_interface/templates/browse.html": {
+    "mtime": 1769949692.9523253,
+    "seen": 1790452787.375179,
+    "ast_hash": "6e1a2548ce4fc8f41956fba1673cae78",
+    "semantic_hash": "6e1a2548ce4fc8f41956fba1673cae78"
+  },
+  "web_interface/templates/feasts.html": {
+    "mtime": 1761151517.504228,
+    "seen": 1790452787.37518,
+    "ast_hash": "4ba0a7da59cb6f0e8dfba59167483652",
+    "semantic_hash": "4ba0a7da59cb6f0e8dfba59167483652"
+  },
+  "web_interface/templates/index.html": {
+    "mtime": 1761149011.296366,
+    "seen": 1790452787.37518,
+    "ast_hash": "699dc755a3fffd0a0d4b367a97916c8d",
+    "semantic_hash": "699dc755a3fffd0a0d4b367a97916c8d"
+  },
+  "performance_trend.png": {
+    "mtime": 1759765363.4539316,
+    "seen": 1790452787.375181,
+    "ast_hash": "0bfef910a34f299264ddc75c62688374",
+    "semantic_hash": "0bfef910a34f299264ddc75c62688374"
+  }
+}

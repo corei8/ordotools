@@ -2,7 +2,7 @@ diocese_name: Roman
 country: Universal
 feasts:
 
-- id: 100000
+- id: telesphori
   name_translations:
     la: S Telesphori PM
   date: 01-05
@@ -24,7 +24,7 @@ feasts:
   - 0
   - 0
 
-- id: 100
+- id: hilarii
   name_translations:
     la: S Hilarii Episcopi ECD
     en: St. Hilary, BpCD
@@ -38,7 +38,8 @@ feasts:
     gloria: true
     credo: true
     preface: Communis
-  commemorations: []
+  commemorations:
+    - id: 27400
   nobility:
   - 4
   - 2
@@ -47,7 +48,7 @@ feasts:
   - 3
   - 0
 
-- id: 200
+- id: paulieremitae
   name_translations:
     la: S Pauli Primi Eremitæ C
     en: St. Paul the First Hermit, C
@@ -70,7 +71,7 @@ feasts:
   - 3
   - 0
 
-- id: 300
+- id: marcelli
   name_translations:
     la: S Marcelli PM
     en: St. Marcellus, PM
@@ -93,7 +94,7 @@ feasts:
   - 3
   - 0
 
-- id: 400
+- id: antonii
   name_translations:
     la: S Antonii Abb
     en: St. Anthony, Abbot
@@ -116,7 +117,7 @@ feasts:
   - 3
   - 0
 
-- id: 500
+- id: cathedraepetri
   name_translations:
     la: Cathedræ S Petri Ap Romæ
     en: St. Peter's Chair in Rome
@@ -139,7 +140,7 @@ feasts:
   - 0
   - 0
 
-- id: 600
+- id: mariimarthaeaudifacis
   name_translations:
     la: Ss Marii, Marthæ, Audifacis & Abachum Mm
   date: 01-19
@@ -161,7 +162,7 @@ feasts:
   - 3
   - 0
 
-- id: 700
+- id: fabianisebastiani
   name_translations:
     la: Ss Fabiani P et Sebastiani Mm
     en: St.s Fabian, Priest, and Sebastian, Mm
@@ -184,7 +185,7 @@ feasts:
   - 3
   - 0
 
-- id: 800
+- id: agnetis
   name_translations:
     la: S Agnetis VM
     en: St. Agnes, VM
@@ -207,7 +208,7 @@ feasts:
   - 3
   - 0
 
-- id: 900
+- id: vincentiianastasii
   name_translations:
     la: Ss Vincentii & Anastasii Mm
   date: 01-22
@@ -229,7 +230,7 @@ feasts:
   - 3
   - 0
 
-- id: 1000
+- id: raymundipenafort
   name_translations:
     la: S Raymundi de Peñafort C
     en: St. Raymond of Penafort, C
@@ -252,7 +253,7 @@ feasts:
   - 3
   - 0
 
-- id: 1100
+- id: timothei
   name_translations:
     la: S Timothei EM
     en: St. Timothy, BpM
@@ -275,7 +276,7 @@ feasts:
   - 0
   - 0
 
-- id: 1200
+- id: conversiopauli
   name_translations:
     la: Conversio S Pauli Ap
     en: Conversion of St. Paul, Ap
@@ -298,7 +299,7 @@ feasts:
   - 0
   - 0
 
-- id: 1300
+- id: polycarpi
   name_translations:
     la: S Polycarpi EM
     en: St. Polycarp, BpM
@@ -321,7 +322,7 @@ feasts:
   - 3
   - 0
 
-- id: 1400
+- id: joannischrysostomi
   name_translations:
     la: S Joannis Chrysostomi ECD
     en: St. John Chrysostom, BpCD
@@ -344,7 +345,7 @@ feasts:
   - 3
   - 0
 
-- id: 1500
+- id: petrinolasci
   name_translations:
     la: S Petri Nolasci C
     en: St. Peter Nolasco, C
@@ -367,7 +368,7 @@ feasts:
   - 3
   - 0
 
-- id: 1600
+- id: franciscisalesii
   name_translations:
     la: S Francisci Salesii ECD
     en: St. Francis de Sales, BpCD
@@ -390,7 +391,7 @@ feasts:
   - 3
   - 0
 
-- id: 1700
+- id: martinae
   name_translations:
     la: S Martinæ VM
     en: St. Martina, VM
@@ -413,7 +414,7 @@ feasts:
   - 3
   - 0
 
-- id: 1800
+- id: joannisbosco
   name_translations:
     la: S Joannis Bosco C
     en: St. John Bosco, C
@@ -436,7 +437,7 @@ feasts:
   - 3
   - 0
 
-- id: 1900
+- id: ignatiiem
   name_translations:
     la: S Ignatii EM
     en: St. Ignatius, BpM
@@ -459,7 +460,7 @@ feasts:
   - 3
   - 0
 
-- id: 2000
+- id: purificatione
   name_translations:
     la: In Purificatione BMV
     en: Purification of the Blessed Virgin Mary
@@ -482,7 +483,7 @@ feasts:
   - 0
   - 0
 
-- id: 2100
+- id: blasii
   name_translations:
     la: S Blasii EM
     en: St. Blaise, BpM
@@ -505,7 +506,7 @@ feasts:
   - 3
   - 0
 
-- id: 2200
+- id: antreaecorsini
   name_translations:
     la: S Andreæ Corsini EC
     en: St. Andrew Corsini, BpC
@@ -528,7 +529,7 @@ feasts:
   - 3
   - 0
 
-- id: 2300
+- id: agathae
   name_translations:
     la: S Agathæ VM
     en: St. Agatha, VM
@@ -551,7 +552,7 @@ feasts:
   - 3
   - 0
 
-- id: 2400
+- id: titi
   name_translations:
     la: S Titi EC
     en: St. Titus, BpC
@@ -574,7 +575,7 @@ feasts:
   - 3
   - 0
 
-- id: 2500
+- id: romualdi
   name_translations:
     la: S Romualdi Abb
     en: St. Romuald, Abbot
@@ -597,7 +598,7 @@ feasts:
   - 3
   - 0
 
-- id: 2600
+- id: joannismatha
   name_translations:
     la: S Joannis de Matha C
     en: St. John of Matha, C
@@ -620,7 +621,7 @@ feasts:
   - 3
   - 0
 
-- id: 2700
+- id: curillialexandrini
   name_translations:
     la: S Cyrilli Alexandrini ECD
     en: St. Cyril of Alexandria, BpCD
@@ -643,7 +644,7 @@ feasts:
   - 3
   - 0
 
-- id: 2800
+- id: scholasticae
   name_translations:
     la: S Scholasticæ V
     en: St. Scholastica, V
@@ -666,7 +667,7 @@ feasts:
   - 0
   - 0
 
-- id: 2900
+- id: apparitioneimmaculatae
   name_translations:
     la: In Apparitione BVM Immaculatæ
     en: Apparation of Our Lady at Lourdes
@@ -689,7 +690,7 @@ feasts:
   - 0
   - 0
 
-- id: 3000
+- id: septemfundatoresordinis
   name_translations:
     la: Ss Septem Fundatores Ordinis Servorum BMV C
     en: Seven Holy Founders
@@ -712,7 +713,7 @@ feasts:
   - 3
   - 0
 
-- id: 3100
+- id: valentini
   name_translations:
     la: S Valentini PM
     en: St. Valentine, PM
@@ -735,7 +736,7 @@ feasts:
   - 3
   - 0
 
-- id: 3200
+- id: faustinijovitae
   name_translations: 
     la: Ss Faustini et Jovitae Mm
   date: 02-15
@@ -757,7 +758,7 @@ feasts:
   - 3
   - 0
 
-- id: 3300
+- id: simonis
   name_translations:
     la: S Simeonis EM
     en: St. Simeon, BpM
@@ -780,7 +781,7 @@ feasts:
   - 3
   - 0
 
-- id: 3400
+- id: cathedrapetri
   name_translations:
     la: In Cathedra S Petri Ap
     en: St. Peter's Chair in Rome
@@ -803,7 +804,7 @@ feasts:
   - 0
   - 0
 
-- id: 3500
+- id: petridamiani
   name_translations:
     la: S Petri Damiani ECD
     en: St. Peter Damian, BpCD
@@ -826,7 +827,7 @@ feasts:
   - 3
   - 0
 
-- id: 3600
+- id: matthiae
   name_translations:
     la: S Matthiæ Ap
     en: St. Matthew, Ap
@@ -849,7 +850,7 @@ feasts:
   - 0
   - 0
 
-- id: 3700
+- id: gabrielisavirgineperdolente
   name_translations:
     la: S Gabrielis a Virgine Perdolente C
   date: 02-27
@@ -871,7 +872,7 @@ feasts:
   - 3
   - 0
 
-- id: 3800
+- id: casimiri
   name_translations:
     la: S Casimiri C
     en: St. Casmir, C
@@ -894,7 +895,7 @@ feasts:
   - 3
   - 0
 
-- id: 3900
+- id: perpetuaefelicitatis
   name_translations:
     la: Ss Perpetuæ et Felicitatiis Mm
     en: Sts. Perpetua and Felicity, Mm
@@ -917,7 +918,7 @@ feasts:
   - 3
   - 0
 
-- id: 4000
+- id: thomaeaquino
   name_translations:
     la: S Thomæ de Aquino CD
     en: St. Thomas Aquinas, CD
@@ -940,7 +941,7 @@ feasts:
   - 3
   - 0
 
-- id: 4100
+- id: joannisadeo
   name_translations:
     la: S Joannis a Deo C
     en: St. John of God, C
@@ -963,7 +964,7 @@ feasts:
   - 3
   - 0
 
-- id: 4200
+- id: franciscaeromanae
   name_translations:
     la: S Franciscæ Romanæ V
     en: St. Frances of Rome, V
@@ -986,7 +987,7 @@ feasts:
   - 0
   - 0
 
-- id: 4300
+- id: quadragintarum
   name_translations:
     la: Ss Quadragintarum Mm
     en: Forty Holy Martyrs
@@ -1009,7 +1010,7 @@ feasts:
   - 3
   - 0
 
-- id: 4400
+- id: gregoriii
   name_translations:
     la: S Gregorii I PCD
     en: St. Gregory I, PCD
@@ -1032,7 +1033,7 @@ feasts:
   - 3
   - 0
 
-- id: 4500
+- id: patricii
   name_translations:
     la: S Patricii EC
     en: St. Patrick, BpC
@@ -1055,7 +1056,7 @@ feasts:
   - 3
   - 0
 
-- id: 4600
+- id: curiliihierosolymitani
   name_translations:
     la: S Cyrilii Hierosolymitani ECD
     en: St. Cyril of Jerusalem, BCD
@@ -1078,7 +1079,7 @@ feasts:
   - 3
   - 0
 
-- id: 4700
+- id: josephisponsi
   name_translations:
     la: S Josephi Sponsi BMV C
     en: St. Joseph, Spouse of the BVM, C
@@ -1101,7 +1102,7 @@ feasts:
   - 0
   - 0
 
-- id: 4800
+- id: benedicti
   name_translations:
     la: S Benedicti Abb
     en: St. Benedict, Abb
@@ -1124,7 +1125,7 @@ feasts:
   - 3
   - 0
 
-- id: 4900
+- id: gabrielisarch
   name_translations:
     la: S Gabrielis Arch
     en: St. Gabriel, Archangel
@@ -1147,7 +1148,7 @@ feasts:
   - 0
   - 0
 
-- id: 5000
+- id: annuntiatione
   name_translations:
     la: In Annuntiatione BMV
     en: Annuntiation of the BVM
@@ -1170,7 +1171,7 @@ feasts:
   - 1
   - 0
 
-- id: 5100
+- id: joannisdamasceni
   name_translations:
     la: S Joannis Damasceni CD
     en: St. John Damascene, CD
@@ -1193,7 +1194,7 @@ feasts:
   - 3
   - 0
 
-- id: 5200
+- id: joanniscapistrano
   name_translations:
     la: S Joannis a Capistrano C
   date: 03-28
@@ -1215,7 +1216,7 @@ feasts:
   - 3
   - 0
 
-- id: 5300
+- id: franciscidepaula
   name_translations:
     la: S Francisci de Paula C
   date: 04-02
@@ -1237,7 +1238,7 @@ feasts:
   - 3
   - 0
 
-- id: 5400
+- id: isidori
   name_translations:
     la: S Isidori ECD
     en: St. Isidore, ECD
@@ -1260,7 +1261,7 @@ feasts:
   - 3
   - 0
 
-- id: 5500
+- id: vincentiiferrerii
   name_translations:
     la: S Vincentii Ferrerii C
     en: St. Vincent Ferrier, C
@@ -1283,7 +1284,7 @@ feasts:
   - 3
   - 0
 
-- id: 5600
+- id: leonis
   name_translations:
     la: S Leonis PCD
     en: St. Leo, PCD
@@ -1306,7 +1307,7 @@ feasts:
   - 3
   - 0
 
-- id: 5700
+- id: hermenegildi
   name_translations:
     la: S Hermenegildi M
     en: St. Hermenegild, M
@@ -1329,7 +1330,7 @@ feasts:
   - 3
   - 0
 
-- id: 5800
+- id: justini
   name_translations:
     la: S Justini M
     en: St. Justin, M
@@ -1352,7 +1353,7 @@ feasts:
   - 0
   - 0
 
-- id: 5900
+- id: aniceti
   name_translations:
     la: S Aniceti PM
   date: 04-17
@@ -1374,7 +1375,7 @@ feasts:
   - 0
   - 0
 
-- id: 6000
+- id: anselmi
   name_translations:
     la: S Anselmi ECD
     en: St. Anselm, ECD
@@ -1397,7 +1398,7 @@ feasts:
   - 3
   - 0
 
-- id: 6100
+- id: soteriscaii
   name_translations:
     la: Ss Soteris et Caii PpMm
   date: 04-22
@@ -1419,7 +1420,7 @@ feasts:
   - 0
   - 0
 
-- id: 6200
+- id: georgii
   name_translations:
     la: S Georgii M
     en: St. George, M
@@ -1442,7 +1443,7 @@ feasts:
   - 0
   - 0
 
-- id: 6300
+- id: fidelissigmaringa
   name_translations:
     la: S Fidelis a Sigmaringa M
   date: 04-24
@@ -1464,7 +1465,7 @@ feasts:
   - 0
   - 0
 
-- id: 6400
+- id: marci
   name_translations:
     la: S Marci Ev
     en: St. Mark, Ev
@@ -1487,7 +1488,7 @@ feasts:
   - 0
   - 0
 
-- id: 6500
+- id: cletimarcellini
   name_translations:
     la: Ss Cleti et Marcellini PpMm
   date: 04-26
@@ -1509,7 +1510,7 @@ feasts:
   - 0
   - 0
 
-- id: 6600
+- id: petricanisii
   name_translations:
     la: S Petri Canisii CD
   date: 04-27
@@ -1531,7 +1532,7 @@ feasts:
   - 3
   - 0
 
-- id: 6700
+- id: paulicruce
   name_translations:
     la: S Pauli a Cruce C
     en: St. Paul of the Cross, C
@@ -1554,7 +1555,7 @@ feasts:
   - 3
   - 0
 
-- id: 6800
+- id: petri
   name_translations:
     la: S Petri M
     en: St. Peter M
@@ -1577,7 +1578,7 @@ feasts:
   - 0
   - 0
 
-- id: 6900
+- id: catharinaesenensis
   name_translations:
     la: S Catharinæ Senensis V
     en: St. Catherine of Siena, V
@@ -1600,7 +1601,7 @@ feasts:
   - 0
   - 0
 
-- id: 7000
+- id: philippijacobi
   name_translations:
     la: Ss Philippi et Jacobi App
     en: Sts. Philip and Jacob, App
@@ -1623,7 +1624,7 @@ feasts:
   - 0
   - 0
 
-- id: 7100
+- id: athanasii
   name_translations:
     la: S Athanasii ECD
     en: St. Athanasius, ECD
@@ -1646,7 +1647,7 @@ feasts:
   - 3
   - 0
 
-- id: 7200
+- id: inventionecrucis
   name_translations:
     la: In Inventione S Crucis
     en: Finding of the Holy Cross
@@ -1669,7 +1670,7 @@ feasts:
   - 0
   - 0
 
-- id: 7300
+- id: monicae
   name_translations:
     la: S Monicæ V
     en: St. Monica, V
@@ -1692,7 +1693,7 @@ feasts:
   - 0
   - 0
 
-- id: 7400
+- id: piiv
   name_translations:
     la: S Pii V PC
     en: St. Pius V, PC
@@ -1715,7 +1716,7 @@ feasts:
   - 3
   - 0
 
-- id: 7500
+- id: joannisanteportamlatinam
   name_translations:
     la: S Joannis ApEv ante Portam Latinam
     en: St. John ApEv before the Latin Gate
@@ -1738,7 +1739,7 @@ feasts:
   - 0
   - 0
 
-- id: 7600
+- id: stanislai
   name_translations:
     la: S Stanislai EM
     en: St. Stanislaus, EM
@@ -1761,7 +1762,7 @@ feasts:
   - 0
   - 0
 
-- id: 7700
+- id: apparitionemichaelisarch
   name_translations:
     la: In Apparitione S Michaelis Arch
     en: Apparition of St. Michael Archangel
@@ -1784,7 +1785,7 @@ feasts:
   - 0
   - 0
 
-- id: 7800
+- id: gregoriinanzanzeni
   name_translations:
     la: S Gregorii Nanzanzeni ECD
   date: 05-09
@@ -1806,7 +1807,7 @@ feasts:
   - 3
   - 0
 
-- id: 7900
+- id: antonini
   name_translations:
     la: S Antonini EC
     en: St. Anthony, EC
@@ -1829,7 +1830,7 @@ feasts:
   - 3
   - 0
 
-- id: 8000
+- id: neriachilleidomitialae
   name_translations:
     la: Ss Nerei, Achillei at Domitialæ V atque Pancratii Mm
   date: 05-12
@@ -1851,7 +1852,7 @@ feasts:
   - 3
   - 0
 
-- id: 8100
+- id: robertibellarmino
   name_translations:
     la: S Roberti Bellarmino ECD
     en: St. Robert Ballarmine, ECD
@@ -1874,7 +1875,7 @@ feasts:
   - 3
   - 0
 
-- id: 8200
+- id: bonifatii
   name_translations:
     la: S Bonifatii M
     en: St. Boniface, M
@@ -1897,7 +1898,7 @@ feasts:
   - 0
   - 0
 
-- id: 8300
+- id: joannisbaptistaedelasalle
   name_translations:
     la: S Joannis Baptistæ de la Salle C
     en: St. John Baptist de la Salle, C
@@ -1920,7 +1921,7 @@ feasts:
   - 3
   - 0
 
-- id: 8400
+- id: ubaldi
   name_translations:
     la: S Ubaldi EC
     en: St. Ubald, EC
@@ -1943,7 +1944,7 @@ feasts:
   - 3
   - 0
 
-- id: 8500
+- id: paschalisbaylon
   name_translations:
     la: S Paschalis Baylon C
     en: St. Paschal Baylon, C
@@ -1966,7 +1967,7 @@ feasts:
   - 3
   - 0
 
-- id: 8600
+- id: benantii
   name_translations:
     la: S Venantii M
   date: 05-18
@@ -1988,7 +1989,7 @@ feasts:
   - 0
   - 0
 
-- id: 8700
+- id: petricaelestini
   name_translations:
     la: S Petri Cælestini PC
   date: 05-19
@@ -2010,7 +2011,7 @@ feasts:
   - 3
   - 0
 
-- id: 8800
+- id: bernardinisenensis
   name_translations:
     la: S Bernardini Senensis C
   date: 05-20
@@ -2032,7 +2033,7 @@ feasts:
   - 3
   - 0
 
-- id: 8900
+- id: gregoriivii
   name_translations:
     la: S Gregorii VII PC
     en: St. Gregory VII, PC
@@ -2055,7 +2056,7 @@ feasts:
   - 3
   - 0
 
-- id: 9000
+- id: philippinerii
   name_translations:
     la: S Philippi Nerii C
     en: St. Philip Neri, C
@@ -2078,7 +2079,7 @@ feasts:
   - 3
   - 0
 
-- id: 9100
+- id: bedaevenerabilis
   name_translations:
     la: S Bedæ Venerabilis CD
     en: St. Bede the Venerable, CD
@@ -2101,7 +2102,7 @@ feasts:
   - 3
   - 0
 
-- id: 9200
+- id: augustini
   name_translations:
     la: S Augustini EC
     en: St. Augustine, EC
@@ -2124,7 +2125,7 @@ feasts:
   - 3
   - 0
 
-- id: 9300
+- id: mariaemagdalenaedepazzis
   name_translations:
     la: S Mariæ Magdalenæ de Pazzis V
     en: St. Mary Madgalene de Pazzi, V
@@ -2147,7 +2148,7 @@ feasts:
   - 0
   - 0
 
-- id: 9400
+- id: felixi
   name_translations:
     la: S Felix I PM
     en: St. Felix I, PM
@@ -2170,7 +2171,7 @@ feasts:
   - 0
   - 0
 
-- id: 9500
+- id: mariaevirginisreginae
   name_translations:
     la: B Mariæ Virginis Reginæ
     en: Queenship of the Blessed Virgin Mary
@@ -2193,7 +2194,7 @@ feasts:
   - 0
   - 0
 
-- id: 9600
+- id: angelaemarciciae
   name_translations:
     la: S Angelæ Mariciæ V
   date: 06-01
@@ -2215,7 +2216,7 @@ feasts:
   - 0
   - 0
 
-- id: 9700
+- id: marcellinipetrierasmi
   name_translations:
     la: Ss Marcellini, Petri atque Erasmi E Mm
   date: 06-02
@@ -2237,7 +2238,7 @@ feasts:
   - 0
   - 0
 
-- id: 9800
+- id: franciscicaracciolo
   name_translations:
     la: S Francisci Caracciolo C
   date: 06-04
@@ -2259,7 +2260,7 @@ feasts:
   - 3
   - 0
 
-- id: 9900
+- id: bonifatiiem
   name_translations:
     la: S Bonifatii EM
     en: St. Boniface, EM
@@ -2282,7 +2283,7 @@ feasts:
   - 0
   - 0
 
-- id: 10000
+- id: norberti
   name_translations:
     la: S Norberti EC
     en: St. Norbert, BpC
@@ -2305,7 +2306,7 @@ feasts:
   - 3
   - 0
 
-- id: 10100
+- id: primietfeliciani
   name_translations:
     la: Ss Primi et Feliciani Mm
   date: 06-09
@@ -2327,7 +2328,7 @@ feasts:
   - 0
   - 0
 
-- id: 10200
+- id: margaritaer
   name_translations:
     la: S Margaritæ R V
     en: St. Margaret, Queen V
@@ -2350,7 +2351,7 @@ feasts:
   - 0
   - 0
 
-- id: 10300
+- id: barnabae
   name_translations:
     la: S Barnabæ Ap
     en: St. Barnabas, Ap
@@ -2373,7 +2374,7 @@ feasts:
   - 0
   - 0
 
-- id: 10400
+- id: joannisfacundo
   name_translations:
     la: S Joannis a S Facundo C
   date: 06-12
@@ -2395,7 +2396,7 @@ feasts:
   - 3
   - 0
 
-- id: 10500
+- id: antoniidepadua
   name_translations:
     la: S Antonii de Padua CD
     en: St. Anthony of Padua, CD
@@ -2418,7 +2419,7 @@ feasts:
   - 3
   - 0
 
-- id: 10600
+- id: basiliimagni
   name_translations:
     la: S Basilii Magni ECD
     en: St. Basil the Great, ECD
@@ -2441,7 +2442,7 @@ feasts:
   - 3
   - 0
 
-- id: 10700
+- id: vitimodesticrescentiae
   name_translations:
     la: Ss Viti, Modesti atque Crescentiæ Mm
   date: 06-15
@@ -2463,7 +2464,7 @@ feasts:
   - 0
   - 0
 
-- id: 10800
+- id: ephraemsyridiaconi
   name_translations:
     la: S Ephræm Syri Diaconi CD
   date: 06-18
@@ -2485,7 +2486,7 @@ feasts:
   - 3
   - 0
 
-- id: 10900
+- id: julianaefalconeriis
   name_translations:
     la: S Julianæ de Falconeriis V
   date: 06-19
@@ -2507,7 +2508,7 @@ feasts:
   - 0
   - 0
 
-- id: 11000
+- id: silverii
   name_translations:
     la: S Silverii PM
   date: 06-20
@@ -2529,7 +2530,7 @@ feasts:
   - 0
   - 0
 
-- id: 11100
+- id: aloisiigonzagae
   name_translations:
     la: S Aloisii Gonzagæ C
     en: St. Aloysius Gonzaga, C
@@ -2552,7 +2553,7 @@ feasts:
   - 3
   - 0
 
-- id: 11200
+- id: paulini
   name_translations:
     la: S Paulini EC
     en: St. Paulinus, EC
@@ -2575,7 +2576,7 @@ feasts:
   - 3
   - 0
 
-- id: 11300
+- id: vigilianativitatisjoannisbaptistae
   name_translations:
     la: In Vigilia Nativitatis S Joannis Baptistæ
     en: Vigil of the Nativity of St. John the Baptist
@@ -2598,7 +2599,7 @@ feasts:
   - 0
   - 0
 
-- id: 11400
+- id: nativitatejoannisbaptistae
   name_translations:
     la: In Nativitate S Joannis Baptistæ
     en: Nativity of St. John the Baptist
@@ -2623,7 +2624,7 @@ feasts:
   - 1
   - 0
 
-- id: 11500
+- id: gulielmi
   name_translations:
     la: S Gulielmi Abb
   date: 06-25
@@ -2645,7 +2646,7 @@ feasts:
   - 3
   - 0
 
-- id: 11600
+- id: joannispauli
   name_translations:
     la: Ss Joannis et Pauli Mm
     en: Sts. John and Paul, Mm
@@ -2668,7 +2669,7 @@ feasts:
   - 0
   - 0
 
-- id: 11800
+- id: irinaei
   name_translations:
     la: S Irinæi EM
   date: 06-28
@@ -2690,7 +2691,7 @@ feasts:
   - 0
   - 0
 
-- id: 11900
+- id: petripauli
   name_translations:
     la: Ss Petri et Pauli App
     en: Sts. Peter and Paul, App.
@@ -2716,7 +2717,7 @@ feasts:
   - 1
   - 0
 
-- id: 12000
+- id: commemorationepauli
   name_translations:
     la: In Commemoratione S Pauli Apostoli
     en: Commemoration of St. Paul, Ap
@@ -2739,7 +2740,7 @@ feasts:
   - 0
   - 0
 
-- id: 12100
+- id: pretiosissimisanguinis
   name_translations:
     la: In Festo Pretiosissimi Sanguinis DNJC
     en: Feast of the Most Precious Blood
@@ -2762,7 +2763,7 @@ feasts:
   - 0
   - 0
 
-- id: 12200
+- id: visitatione
   name_translations:
     la: In Visitatione BMV
     en: Visitation of the Blessed Virgin Mary
@@ -2785,7 +2786,7 @@ feasts:
   - 0
   - 0
 
-- id: 12300
+- id: leonisii
   name_translations:
     la: S Leonis II PC
     en: St. Leo II, PC
@@ -2808,7 +2809,7 @@ feasts:
   - 0
   - 0
 
-- id: 12500
+- id: antoniimariaezaccaria
   name_translations:
     la: S Antonii Mariæ Zaccaria C
   date: 07-05
@@ -2830,7 +2831,7 @@ feasts:
   - 3
   - 0
 
-- id: 12700
+- id: curillimethodii
   name_translations:
     la: Ss Cyrilli et Methodii EeCc
     en: Sts. Cyril and Methodius, BppCc
@@ -2853,7 +2854,7 @@ feasts:
   - 3
   - 0
 
-- id: 12800
+- id: elisabethr
   name_translations:
     la: S Elisabeth R Vid
     en: St. Elizabeth, Queen W
@@ -2876,7 +2877,7 @@ feasts:
   - 0
   - 0
 
-- id: 12900
+- id: septemfratrum
   name_translations:
     la: Ss Septem Fratrum Mm ac Rufinæ et Secundæ VvMm
   date: 07-10
@@ -2898,7 +2899,7 @@ feasts:
   - 0
   - 0
 
-- id: 13000
+- id: piii
   name_translations:
     la: S Pii I PM
     en: St. Pius I, PM
@@ -2921,7 +2922,7 @@ feasts:
   - 3
   - 0
 
-- id: 13100
+- id: joannisgualberti
   name_translations:
     la: S Joannis Gualberti Abb
     en: St. John Gualbert, Abb
@@ -2944,7 +2945,7 @@ feasts:
   - 3
   - 0
 
-- id: 13200
+- id: anacleti
   name_translations:
     la: S Anacleti PM
   date: 07-13
@@ -2966,7 +2967,7 @@ feasts:
   - 0
   - 0
 
-- id: 13300
+- id: bonaventurae
   name_translations:
     la: S Bonaventuræ ECD
     en: St. Bonaventure, BpCD
@@ -2989,7 +2990,7 @@ feasts:
   - 3
   - 0
 
-- id: 13400
+- id: hentriciimp
   name_translations:
     la: S Henrici Imp C
     en: St. Henry, Emperor C
@@ -3012,7 +3013,7 @@ feasts:
   - 3
   - 0
 
-- id: 13500
+- id: commemorationemontecarmelo
   name_translations:
     la: In Commemoratione BMV de Monte Carmelo
     en: Our Lady of Mount Carmel
@@ -3035,7 +3036,7 @@ feasts:
   - 0
   - 0
 
-- id: 13600
+- id: alexii
   name_translations:
     la: S Alexii C
   date: 07-17
@@ -3057,7 +3058,7 @@ feasts:
   - 3
   - 0
 
-- id: 13700
+- id: camillidelellis
   name_translations:
     la: S Camilli de Lellis C
     en: St. Camillus of Lellis, C
@@ -3080,7 +3081,7 @@ feasts:
   - 3
   - 0
 
-- id: 13800
+- id: vincentiipaulo
   name_translations:
     la: S Vincentii a Paulo C
     en: St. Vincent de Paul, C
@@ -3103,7 +3104,7 @@ feasts:
   - 3
   - 0
 
-- id: 13900
+- id: hieronymiaemiliani
   name_translations:
     la: S Hieronymi Æmiliani C
   date: 07-20
@@ -3125,7 +3126,7 @@ feasts:
   - 3
   - 0
 
-- id: 14000
+- id: praxedis
   name_translations:
     la: S Praxedis V
   date: 07-21
@@ -3147,7 +3148,7 @@ feasts:
   - 0
   - 0
 
-- id: 14100
+- id: mariaemagdalenae
   name_translations:
     la: S Mariæ Magdalenæ Pænitentis
   date: 07-22
@@ -3169,7 +3170,7 @@ feasts:
   - 0
   - 0
 
-- id: 14200
+- id: apollinaris
   name_translations:
     la: S Apollinaris EM
   date: 07-23
@@ -3191,7 +3192,7 @@ feasts:
   - 0
   - 0
 
-- id: 14300
+- id: vigiliajacobi
   name_translations:
     la: In Vigilia S Jacobi Ap
   date: 07-24
@@ -3213,7 +3214,7 @@ feasts:
   - 0
   - 0
 
-- id: 14400
+- id: jacobi
   name_translations:
     la: S Jacobi Ap
   date: 07-25
@@ -3235,7 +3236,7 @@ feasts:
   - 0
   - 0
 
-- id: 14500
+- id: annaematris
   name_translations:
     la: S Annæ Matris BMV
   date: 07-26
@@ -3257,7 +3258,7 @@ feasts:
   - 0
   - 0
 
-- id: 14600
+- id: pantaleonis
   name_translations:
     la: S Pantaleonis M
   date: 07-27
@@ -3279,7 +3280,7 @@ feasts:
   - 0
   - 0
 
-- id: 14700
+- id: nazariicelsivictorisinnocentii
   name_translations:
     la: Ss Nazarii et Celsi Mm, Victoris I PM, ac Innocentii I PC
   date: 07-28
@@ -3301,7 +3302,7 @@ feasts:
   - 3
   - 0
 
-- id: 14800
+- id: marthae
   name_translations:
     la: S Marthæ V
   date: 07-29
@@ -3323,7 +3324,7 @@ feasts:
   - 0
   - 0
 
-- id: 14900
+- id: abdonsennen
   name_translations:
     la: Ss Abdon et Sennen Mm
   date: 07-30
@@ -3345,7 +3346,7 @@ feasts:
   - 0
   - 0
 
-- id: 15000
+- id: ignatii
   name_translations:
     la: S Ignatii C
   date: 07-31
@@ -3367,7 +3368,7 @@ feasts:
   - 3
   - 0
 
-- id: 15100
+- id: petrivincula
   name_translations:
     la: S Petri Ap ad Vincula
   date: 08-01
@@ -3389,7 +3390,7 @@ feasts:
   - 0
   - 0
 
-- id: 15200
+- id: alphonsimariae
   name_translations:
     la: S Alphonsi Mariæ de Ligorio ECD
   date: 08-02
@@ -3411,7 +3412,7 @@ feasts:
   - 3
   - 0
 
-- id: 15300
+- id: inventionestephani
   name_translations:
     la: In Inventione S Stephani Protomartyris
   date: 08-03
@@ -3433,7 +3434,7 @@ feasts:
   - 0
   - 0
 
-- id: 15400
+- id: dominici
   name_translations:
     la: S Dominici C
   date: 08-04
@@ -3455,7 +3456,7 @@ feasts:
   - 3
   - 0
 
-- id: 15500
+- id: dedicationemariaenives
   name_translations:
     la: In Dedicatione S Mariæ ad Nives
   date: 08-05
@@ -3477,7 +3478,7 @@ feasts:
   - 0
   - 0
 
-- id: 15600
+- id: transfiguratione
   name_translations:
     la: In Transfiguratione DNJC
   date: 08-06
@@ -3499,7 +3500,7 @@ feasts:
   - 0
   - 0
 
-- id: 15700
+- id: cajetani
   name_translations:
     la: S Cajetani C
   date: 08-07
@@ -3521,7 +3522,7 @@ feasts:
   - 3
   - 0
 
-- id: 15800
+- id: curiacilargismaragdi
   name_translations:
     la: Ss Cyriaci, Largi atque Smaragdi Mm
   date: 08-08
@@ -3543,7 +3544,7 @@ feasts:
   - 0
   - 0
 
-- id: 15900
+- id: joannismariaevianney
   name_translations:
     la: S Joannis Mariæ Vianney C
   date: 08-09
@@ -3565,7 +3566,7 @@ feasts:
   - 3
   - 0
 
-- id: 16000
+- id: laurentii
   name_translations:
     la: S Laurentii M
   date: 08-10
@@ -3581,7 +3582,7 @@ feasts:
   commemorations: []
   nobility: []
 
-- id: 16100
+- id: tiburtiisusannae
   name_translations:
     la: Ss Tiburtii et Susannæ V, Mm
   date: 08-11
@@ -3603,7 +3604,7 @@ feasts:
   - 0
   - 0
 
-- id: 16200
+- id: clarae
   name_translations:
     la: S Claræ V
   date: 08-12
@@ -3625,7 +3626,7 @@ feasts:
   - 0
   - 0
 
-- id: 16300
+- id: hippolyticassiani
   name_translations:
     la: Ss Hippolyti et Cassiani Mm
   date: 08-13
@@ -3647,7 +3648,7 @@ feasts:
   - 0
   - 0
 
-- id: 16400
+- id: vigiliaassumptionis
   name_translations:
     la: In Vigilia Assumptionis BMV
   date: 08-14
@@ -3669,7 +3670,7 @@ feasts:
   - 0
   - 0
 
-- id: 16500
+- id: assumptione
   name_translations:
     la: In Assumptione BMV
     en: Assumption of the BVM
@@ -3695,7 +3696,7 @@ feasts:
   - 1
   - 0
 
-- id: 16600
+- id: joachimpatrisbvm
   name_translations:
     la: S Joachim C, Patris BMV
   date: 08-16
@@ -3717,7 +3718,7 @@ feasts:
   - 0
   - 0
 
-- id: 16700
+- id: hyacinthi
   name_translations:
     la: S Hyacinthi C
   date: 08-17
@@ -3739,7 +3740,7 @@ feasts:
   - 3
   - 0
 
-- id: 16800
+- id: agapiti
   name_translations:
     la: S Agapiti M
   date: 08-18
@@ -3761,7 +3762,7 @@ feasts:
   - 0
   - 0
 
-- id: 16900
+- id: joanniseudes
   name_translations:
     la: S Joannis Eudes C
   date: 08-19
@@ -3783,7 +3784,7 @@ feasts:
   - 3
   - 0
 
-- id: 17000
+- id: bernardi
   name_translations:
     la: S Bernardi AbbD
   date: 08-20
@@ -3805,7 +3806,7 @@ feasts:
   - 0
   - 0
 
-- id: 17100
+- id: joannaefraciscaefremiotdechantal
   name_translations:
     la: S Joannæ Franciscæ Fremiot de Chantal V
   date: 08-21
@@ -3827,7 +3828,7 @@ feasts:
   - 0
   - 0
 
-- id: 17200
+- id: immaculaticordis
   name_translations:
     la: In Festo Immaculati Cordis BMV
   date: 08-22
@@ -3849,7 +3850,7 @@ feasts:
   - 0
   - 0
 
-- id: 17300
+- id: philippibenitii
   name_translations:
     la: S Philippi Benitii C
   date: 08-23
@@ -3871,7 +3872,7 @@ feasts:
   - 3
   - 0
 
-- id: 17400
+- id: bartholomaei
   name_translations:
     la: S Bartholomæi Ap
   date: 08-24
@@ -3893,7 +3894,7 @@ feasts:
   - 0
   - 0
 
-- id: 17500
+- id: ludovici
   name_translations:
     la: S Ludovici RC
   date: 08-25
@@ -3915,7 +3916,7 @@ feasts:
   - 3
   - 0
 
-- id: 17600
+- id: zephrini
   name_translations:
     la: S Zephrini PM
   date: 08-26
@@ -3937,7 +3938,7 @@ feasts:
   - 0
   - 0
 
-- id: 17700
+- id: josephicalasanctii
   name_translations:
     la: S Josephi Calasanctii C
   date: 08-27
@@ -3959,7 +3960,7 @@ feasts:
   - 3
   - 0
 
-- id: 17800
+- id: augustiniecd
   name_translations:
     la: S Augustini ECD
   date: 08-28
@@ -3981,7 +3982,7 @@ feasts:
   - 3
   - 0
 
-- id: 17900
+- id: decollationejoannisbaptistae
   name_translations:
     la: In Decollatione S Joannis Baptistæ
   date: 08-29
@@ -4003,7 +4004,7 @@ feasts:
   - 0
   - 0
 
-- id: 18000
+- id: rosaemarialimanae
   name_translations:
     la: S Rosæ a S Maria Limanæ V
   date: 08-30
@@ -4025,7 +4026,7 @@ feasts:
   - 0
   - 0
 
-- id: 18100
+- id: raymundinonnati
   name_translations:
     la: S Raymundi Nonnati C
   date: 08-31
@@ -4047,7 +4048,7 @@ feasts:
   - 3
   - 0
 
-- id: 18200
+- id: aegidii
   name_translations:
     la: S Ægidii Abb
   date: 09-01
@@ -4069,7 +4070,7 @@ feasts:
   - 3
   - 0
 
-- id: 18300
+- id: stephani
   name_translations:
     la: S Stephani R C
   date: 09-02
@@ -4091,7 +4092,7 @@ feasts:
   - 3
   - 0
 
-- id: 18400
+- id: piix
   name_translations:
     la: S Pii X PC
   date: 09-03
@@ -4113,7 +4114,7 @@ feasts:
   - 3
   - 0
 
-- id: 18500
+- id: laurentiijustianiani
   name_translations:
     la: S Laurentii Justiniani EC
   date: 09-05
@@ -4135,7 +4136,7 @@ feasts:
   - 3
   - 0
 
-- id: 18600
+- id: nativitatebmv
   name_translations:
     la: In Nativitate BMV
   date: 09-08
@@ -4157,7 +4158,7 @@ feasts:
   - 0
   - 0
 
-- id: 18700
+- id: gorgonii
   name_translations:
     la: S Gorgonii M
   date: 09-09
@@ -4179,7 +4180,7 @@ feasts:
   - 0
   - 0
 
-- id: 18800
+- id: nicolaitolentino
   name_translations:
     la: S Nicolai de Tolentino C
   date: 09-10
@@ -4201,7 +4202,7 @@ feasts:
   - 3
   - 0
 
-- id: 18900
+- id: protihycinthi
   name_translations:
     la: Ss Proti et Hycinthi Mm
   date: 09-11
@@ -4223,7 +4224,7 @@ feasts:
   - 0
   - 0
 
-- id: 19000
+- id: nominisbmv
   name_translations:
     la: Ssmi Nominis BMV
   date: 09-12
@@ -4245,7 +4246,7 @@ feasts:
   - 0
   - 0
 
-- id: 19100
+- id: exaltationecrucis
   name_translations:
     la: In Exaltatione S Crucis
   date: 09-14
@@ -4261,7 +4262,7 @@ feasts:
   commemorations: []
   nobility: []
 
-- id: 19200
+- id: septemdolorum
   name_translations:
     la: Septem Dolorum BMV
   date: 09-15
@@ -4284,7 +4285,7 @@ feasts:
   - 0
   - 0
 
-- id: 19300
+- id: corneliicypriani
   name_translations:
     la: Ss Cornelii P et Cypriani E Mm
   date: 09-16
@@ -4306,7 +4307,7 @@ feasts:
   - 0
   - 0
 
-- id: 19400
+- id: impressionestigmatumfrancisci
   name_translations:
     la: In Impressione Ss Stigmatum S Francisci C
   date: 09-17
@@ -4328,7 +4329,7 @@ feasts:
   - 3
   - 0
 
-- id: 19500
+- id: josephicupertino
   name_translations:
     la: S Josephi a Cupertino C
   date: 09-18
@@ -4350,7 +4351,7 @@ feasts:
   - 3
   - 0
 
-- id: 19600
+- id: januariisociorum
   name_translations:
     la: Ss Januarii E et Sociorum Mm
   date: 09-19
@@ -4372,7 +4373,7 @@ feasts:
   - 0
   - 0
 
-- id: 19700
+- id: eustachiisociorum
   name_translations:
     la: Ss Eustachii et Sociorum Mm
   date: 09-20
@@ -4394,7 +4395,7 @@ feasts:
   - 0
   - 0
 
-- id: 19800
+- id: matthaei
   name_translations:
     la: S Matthæi ApEv
   date: 09-21
@@ -4416,7 +4417,7 @@ feasts:
   - 0
   - 0
 
-- id: 19900
+- id: thomaevillanova
   name_translations:
     la: S Thomæ de Villanova EC
   date: 09-22
@@ -4438,7 +4439,7 @@ feasts:
   - 3
   - 0
 
-- id: 20000
+- id: lini
   name_translations:
     la: S Lini PM
   date: 09-23
@@ -4460,7 +4461,7 @@ feasts:
   - 0
   - 0
 
-- id: 20100
+- id: mbvmerdece
   name_translations:
     la: BMV de Merdece
   date: 09-24
@@ -4482,7 +4483,7 @@ feasts:
   - 0
   - 0
 
-- id: 20200
+- id: cyprianijustinae
   name_translations:
     la: Ss Cypriani et Justinæ Mm
   date: 09-26
@@ -4504,7 +4505,7 @@ feasts:
   - 0
   - 0
 
-- id: 20300
+- id: cosmaedamiani
   name_translations:
     la: Ss Cosmæ et Damiani Mm
   date: 09-27
@@ -4526,7 +4527,7 @@ feasts:
   - 0
   - 0
 
-- id: 20400
+- id: wenceslaiiducis
   name_translations:
     la: S Wenceslai Ducis M
   date: 09-28
@@ -4548,7 +4549,7 @@ feasts:
   - 0
   - 0
 
-- id: 20500
+- id: dedicationemichaelisarch
   name_translations:
     la: In Dedicatione S Michælis Arch
   date: 09-29
@@ -4570,7 +4571,7 @@ feasts:
   - 0
   - 0
 
-- id: 20600
+- id: hieronymi
   name_translations:
     la: S Hieronymi SCD
   date: 09-30
@@ -4592,7 +4593,7 @@ feasts:
   - 3
   - 0
 
-- id: 20700
+- id: remigii
   name_translations:
     la: S Remigii EC
   date: 10-01
@@ -4614,7 +4615,7 @@ feasts:
   - 3
   - 0
 
-- id: 20800
+- id: angelorum
   name_translations:
     la: Ss Angelorum Custodum
   date: 10-02
@@ -4636,7 +4637,7 @@ feasts:
   - 0
   - 0
 
-- id: 20900
+- id: tereisaejesuinfante
   name_translations:
     la: S Teresiæ a Jesu Infante V
   date: 10-03
@@ -4658,7 +4659,7 @@ feasts:
   - 0
   - 0
 
-- id: 21000
+- id: francisci
   name_translations:
     la: S Francisci C
   date: 10-04
@@ -4680,7 +4681,7 @@ feasts:
   - 3
   - 0
 
-- id: 21100
+- id: placidisociorum
   name_translations:
     la: Ss Placidi et Sociorum Mm
   date: 10-05
@@ -4702,7 +4703,7 @@ feasts:
   - 0
   - 0
 
-- id: 21200
+- id: brunonis
   name_translations:
     la: S Brunonis C
   date: 10-06
@@ -4724,7 +4725,7 @@ feasts:
   - 3
   - 0
 
-- id: 21300
+- id: sacratissimirosarii
   name_translations:
     la: Sacratissimi Rosarii BMV
   date: 10-07
@@ -4746,7 +4747,7 @@ feasts:
   - 0
   - 0
 
-- id: 21400
+- id: birgittae
   name_translations:
     la: S Birgittæ V
   date: 10-08
@@ -4768,7 +4769,7 @@ feasts:
   - 0
   - 0
 
-- id: 21500
+- id: joannisleonardi
   name_translations:
     la: S Joannis Leonardi C
   date: 10-09
@@ -4790,7 +4791,7 @@ feasts:
   - 3
   - 0
 
-- id: 21600
+- id: francisciborgiae
   name_translations:
     la: S Francisci Borgiæ C
   date: 10-10
@@ -4812,7 +4813,7 @@ feasts:
   - 3
   - 0
 
-- id: 21700
+- id: maternitatebmv
   name_translations:
     la: In Maternitate BMV
   date: 10-11
@@ -4834,7 +4835,7 @@ feasts:
   - 0
   - 0
 
-- id: 21800
+- id: eduardi
   name_translations:
     la: S Eduardi R C
   date: 10-13
@@ -4856,7 +4857,7 @@ feasts:
   - 3
   - 0
 
-- id: 21900
+- id: callistii
   name_translations:
     la: S Callisti I PM
   date: 10-14
@@ -4878,7 +4879,7 @@ feasts:
   - 0
   - 0
 
-- id: 22000
+- id: teresiae
   name_translations:
     la: S Teresiæ V
   date: 10-15
@@ -4900,7 +4901,7 @@ feasts:
   - 0
   - 0
 
-- id: 22100
+- id: hedwigis
   name_translations:
     la: S Hedwigis V
   date: 10-16
@@ -4922,7 +4923,7 @@ feasts:
   - 0
   - 0
 
-- id: 22200
+- id: margaritaemariaealacoque
   name_translations:
     la: S Margaritæ Mariæ Alacoque V
   date: 10-17
@@ -4944,7 +4945,7 @@ feasts:
   - 0
   - 0
 
-- id: 22300
+- id: lucae
   name_translations:
     la: S Lucæ Ev
   date: 10-18
@@ -4966,7 +4967,7 @@ feasts:
   - 0
   - 0
 
-- id: 22400
+- id: petrialacantara
   name_translations:
     la: S Petri de Alacantara C
   date: 10-19
@@ -4988,7 +4989,7 @@ feasts:
   - 3
   - 0
 
-- id: 22500
+- id: joanniscantii
   name_translations:
     la: S Joannis Cantii C
   date: 10-20
@@ -5010,7 +5011,7 @@ feasts:
   - 3
   - 0
 
-- id: 22600
+- id: hilarionis
   name_translations:
     la: S Hilarionis Abb
   date: 10-21
@@ -5032,7 +5033,7 @@ feasts:
   - 3
   - 0
 
-- id: 22700
+- id: raphaelis
   name_translations:
     la: S Raphaelis Arch
   date: 10-24
@@ -5054,7 +5055,7 @@ feasts:
   - 0
   - 0
 
-- id: 22800
+- id: chrysantidariae
   name_translations:
     la: Ss Chrysanthi et Dariæ Mm
   date: 10-25
@@ -5076,7 +5077,7 @@ feasts:
   - 0
   - 0
 
-- id: 22900
+- id: evaristi
   name_translations:
     la: S Evaristi PM
   date: 10-26
@@ -5098,7 +5099,7 @@ feasts:
   - 0
   - 0
 
-- id: 23000
+- id: vigiliasimonisjudae
   name_translations:
     la: In Vigilia Ss Simonis et Judæ App
   date: 10-27
@@ -5120,7 +5121,7 @@ feasts:
   - 0
   - 0
 
-- id: 23100
+- id: simonisjudae
   name_translations:
     la: Ss Simonis et Judæ App
   date: 10-28
@@ -5142,7 +5143,7 @@ feasts:
   - 0
   - 0
 
-- id: 23200
+- id: vigiliaomniumsanctorum
   name_translations:
     la: In Vigilia Omnium Sanctorum
   date: 10-31
@@ -5164,7 +5165,7 @@ feasts:
   - 0
   - 0
 
-- id: 23300
+- id: omniumsanctorum
   name_translations:
     la: In Festo Omnium Sanctorum
     en: Feast of All Saints
@@ -5190,7 +5191,7 @@ feasts:
   - 1
   - 0
 
-- id: 23400
+- id: commemorationeomniumfideliumdefunctorum
   name_translations:
     la: In Commemoratione Omnium Fidelium Defunctorum
   date: 11-02
@@ -5226,7 +5227,7 @@ feasts:
   - 0
   - 0
 
-- id: 23500
+- id: caroli
   name_translations:
     la: S Caroli EC
   date: 11-04
@@ -5248,7 +5249,7 @@ feasts:
   - 3
   - 0
 
-- id: 23700
+- id: dedicationesalvatoris
   name_translations:
     la: In Dedicatione Archibasilicæ Ssmi Salvatoris
   date: 11-09
@@ -5270,7 +5271,7 @@ feasts:
   - 0
   - 0
 
-- id: 23800
+- id: andreaeaellini
   name_translations:
     la: S Andreæ Avellini C
   date: 11-10
@@ -5292,7 +5293,7 @@ feasts:
   - 3
   - 0
 
-- id: 23900
+- id: martini
   name_translations:
     la: S Martini EC
   date: 11-11
@@ -5314,7 +5315,7 @@ feasts:
   - 3
   - 0
 
-- id: 24000
+- id: martinii
   name_translations:
     la: S Martini I PM
   date: 11-12
@@ -5336,7 +5337,7 @@ feasts:
   - 0
   - 0
 
-- id: 24100
+- id: didaci
   name_translations:
     la: S Didaci C
   date: 11-13
@@ -5358,7 +5359,7 @@ feasts:
   - 3
   - 0
 
-- id: 24200
+- id: josaphat
   name_translations:
     la: S Josaphat EM
   date: 11-14
@@ -5380,7 +5381,7 @@ feasts:
   - 3
   - 0
 
-- id: 24300
+- id: albertimagni
   name_translations:
     la: S Alberti Magni ECD
   date: 11-15
@@ -5402,7 +5403,7 @@ feasts:
   - 3
   - 0
 
-- id: 24400
+- id: gertrudis
   name_translations:
     la: S Gertrudis V
   date: 11-16
@@ -5424,7 +5425,7 @@ feasts:
   - 0
   - 0
 
-- id: 24500
+- id: gregoriithaumaturgi
   name_translations:
     la: S Gregorii Thaumaturgi EC
   date: 11-17
@@ -5446,7 +5447,7 @@ feasts:
   - 3
   - 0
 
-- id: 24600
+- id: dedicationesetripauli
   name_translations:
     la: In Dedicatione Basilicarum Ss Petri et Pauli App
   date: 11-18
@@ -5468,7 +5469,7 @@ feasts:
   - 0
   - 0
 
-- id: 24700
+- id: elisabeth
   name_translations:
     la: S Elisabeth V
   date: 11-19
@@ -5490,7 +5491,7 @@ feasts:
   - 0
   - 0
 
-- id: 24800
+- id: felicisvalois
   name_translations:
     la: S Felicis de Valois C
   date: 11-20
@@ -5512,7 +5513,7 @@ feasts:
   - 3
   - 0
 
-- id: 24900
+- id: praesentatione
   name_translations:
     la: In Præsentatione BMV
   date: 11-21
@@ -5534,7 +5535,7 @@ feasts:
   - 0
   - 0
 
-- id: 25000
+- id: caeciliae
   name_translations:
     la: S Cæciliæ VM
   date: 11-22
@@ -5556,7 +5557,7 @@ feasts:
   - 0
   - 0
 
-- id: 25100
+- id: clementis
   name_translations:
     la: S Clementis I PM
   date: 11-23
@@ -5578,7 +5579,7 @@ feasts:
   - 0
   - 0
 
-- id: 25200
+- id: joanniscruce
   name_translations:
     la: S Joannis a Cruce CD
   date: 11-24
@@ -5600,7 +5601,7 @@ feasts:
   - 3
   - 0
 
-- id: 25300
+- id: catharinae
   name_translations:
     la: S Catharinæ VM
   date: 11-25
@@ -5622,7 +5623,7 @@ feasts:
   - 0
   - 0
 
-- id: 25400
+- id: sylbestri
   name_translations:
     la: S Sylvestri Abb
   date: 11-26
@@ -5644,7 +5645,7 @@ feasts:
   - 3
   - 0
 
-- id: 25500
+- id: bigiliaandreae
   name_translations:
     la: In Vigilia S Andreæ Ap
   date: 11-29
@@ -5666,7 +5667,7 @@ feasts:
   - 0
   - 0
 
-- id: 25600
+- id: andreae
   name_translations:
     la: S Andreæ Ap
   date: 11-30
@@ -5688,7 +5689,7 @@ feasts:
   - 0
   - 0
 
-- id: 25800
+- id: bibianae
   name_translations:
     la: S Bibianæ VM
   date: 12-02
@@ -5710,7 +5711,7 @@ feasts:
   - 0
   - 0
 
-- id: 25900
+- id: franciscixaverii
   name_translations:
     la: S Francisci Xaverii C
   date: 12-03
@@ -5732,7 +5733,7 @@ feasts:
   - 3
   - 0
 
-- id: 26000
+- id: petrichrysologi
   name_translations:
     la: S Petri Chrysologi ECD
   date: 12-04
@@ -5754,7 +5755,7 @@ feasts:
   - 3
   - 0
 
-- id: 26100
+- id: sabbae
   name_translations:
     la: S Sabbæ Abb
   date: 12-05
@@ -5776,7 +5777,7 @@ feasts:
   - 3
   - 0
 
-- id: 26200
+- id: nicolai
   name_translations:
     la: S Nicolai EC
   date: 12-06
@@ -5798,7 +5799,7 @@ feasts:
   - 3
   - 0
 
-- id: 26300
+- id: ambrosii
   name_translations:
     la: S Ambrosii ECD
   date: 12-07
@@ -5820,7 +5821,7 @@ feasts:
   - 3
   - 0
 
-- id: 26400
+- id: conceptioneimmaculata
   name_translations:
     la: In Conceptione Immaculata BMV
     en: Feast of the Immaculate Conception
@@ -5846,7 +5847,7 @@ feasts:
   - 0
   - 0
 
-- id: 26600
+- id: melchidi
   name_translations:
     la: S Melchidi PM
   date: 12-10
@@ -5868,7 +5869,7 @@ feasts:
   - 0
   - 0
 
-- id: 26700
+- id: damasii
   name_translations:
     la: S Damasi I PC
   date: 12-11
@@ -5890,7 +5891,7 @@ feasts:
   - 3
   - 0
 
-- id: 26900
+- id: luciae
   name_translations:
     la: S Luciæ VM
   date: 12-13
@@ -5912,7 +5913,7 @@ feasts:
   - 0
   - 0
 
-- id: 27000
+- id: eusebii
   name_translations:
     la: S Eusebii EM
   date: 12-16
@@ -5934,7 +5935,7 @@ feasts:
   - 0
   - 0
 
-- id: 27100
+- id: vigiliathomae
   name_translations:
     la: In Vigilia S Thomæ Ap
   date: 12-20
@@ -5956,7 +5957,7 @@ feasts:
   - 3
   - 0
 
-- id: 27200
+- id: thomae
   name_translations:
     la: S Thomæ Ap
   date: 12-21
